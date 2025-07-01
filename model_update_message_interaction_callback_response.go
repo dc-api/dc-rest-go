@@ -1,0 +1,222 @@
+/** 
+ * Discord HTTP API (Preview) - REST API Client
+ * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
+ * 
+ * ## Metadata
+ *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Author**: ΣX <gitctrlx@gmail.com>
+ *    * - **Version**: 10
+ *    * - **Modified**: 2025-07-01T06:33:06.733235362Z[Etc/UTC]
+ *    * - **Generator Version**: 7.14.0
+ * 
+ * <details>
+ * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
+ * <br>
+ * > **IMPORTANT**: This software is provided "as is" without any warranties, express or implied, including but not limited
+ * > to warranties of merchantability, fitness for a particular purpose, or non-infringement. The developers, contributors,
+ * > and licensors (collectively, "Developers") make no representations regarding the accuracy, completeness, or reliability
+ * > of this software or its outputs.
+ * > 
+ * > This client is not intended to provide financial, investment, tax, or legal advice. It facilitates interaction with the
+ * > Discord HTTP API (Preview) service but does not endorse or recommend any financial actions, including the purchase, sale, or holding of
+ * > financial instruments (e.g., stocks, bonds, derivatives, cryptocurrencies). Users must consult qualified financial or
+ * > legal professionals before making decisions based on this software's outputs.
+ * > 
+ * > Financial markets are inherently speculative and carry significant risks. Using this software in trading, analysis, or
+ * > other financial activities may result in substantial losses, including total loss of capital. The Developers are not
+ * > liable for any losses or damages arising from such use. Users assume full responsibility for validating the software's
+ * > outputs and ensuring their suitability for intended purposes.
+ * > 
+ * > This client may rely on third-party data or services (e.g., market feeds, APIs). The Developers do not control or verify
+ * > the accuracy of these services and are not liable for any errors, delays, or losses resulting from their use. Users must
+ * > comply with third-party terms and conditions.
+ * > 
+ * > Users are solely responsible for ensuring compliance with all applicable financial, tax, and regulatory requirements in
+ * > their jurisdiction. This includes obtaining necessary licenses or approvals for trading or investment activities. The
+ * > Developers disclaim liability for any legal consequences arising from non-compliance.
+ * > 
+ * > To the fullest extent permitted by law, the Developers shall not be liable for any direct, indirect, incidental,
+ * > consequential, or punitive damages arising from the use or inability to use this software, including but not limited to
+ * > loss of profits, data, or business opportunities.
+ * 
+ * </details>
+ */
+
+package dc_rest
+
+import (
+	"encoding/json"
+	"bytes"
+	"fmt"
+)
+
+// checks if the UpdateMessageInteractionCallbackResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdateMessageInteractionCallbackResponse{}
+
+// UpdateMessageInteractionCallbackResponse struct for UpdateMessageInteractionCallbackResponse
+type UpdateMessageInteractionCallbackResponse struct {
+	Type NullableInt32 `json:"type"`
+	Message MessageResponse `json:"message"`
+}
+
+type _UpdateMessageInteractionCallbackResponse UpdateMessageInteractionCallbackResponse
+
+// NewUpdateMessageInteractionCallbackResponse instantiates a new UpdateMessageInteractionCallbackResponse object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewUpdateMessageInteractionCallbackResponse(type_ NullableInt32, message MessageResponse) *UpdateMessageInteractionCallbackResponse {
+	this := UpdateMessageInteractionCallbackResponse{}
+	this.Type = type_
+	this.Message = message
+	return &this
+}
+
+// NewUpdateMessageInteractionCallbackResponseWithDefaults instantiates a new UpdateMessageInteractionCallbackResponse object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewUpdateMessageInteractionCallbackResponseWithDefaults() *UpdateMessageInteractionCallbackResponse {
+	this := UpdateMessageInteractionCallbackResponse{}
+	return &this
+}
+
+// GetType returns the Type field value
+// If the value is explicit nil, the zero value for int32 will be returned
+func (o *UpdateMessageInteractionCallbackResponse) GetType() int32 {
+	if o == nil || o.Type.Get() == nil {
+		var ret int32
+		return ret
+	}
+
+	return *o.Type.Get()
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateMessageInteractionCallbackResponse) GetTypeOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Type.Get(), o.Type.IsSet()
+}
+
+// SetType sets field value
+func (o *UpdateMessageInteractionCallbackResponse) SetType(v int32) {
+	o.Type.Set(&v)
+}
+
+// GetMessage returns the Message field value
+func (o *UpdateMessageInteractionCallbackResponse) GetMessage() MessageResponse {
+	if o == nil {
+		var ret MessageResponse
+		return ret
+	}
+
+	return o.Message
+}
+
+// GetMessageOk returns a tuple with the Message field value
+// and a boolean to check if the value has been set.
+func (o *UpdateMessageInteractionCallbackResponse) GetMessageOk() (*MessageResponse, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Message, true
+}
+
+// SetMessage sets field value
+func (o *UpdateMessageInteractionCallbackResponse) SetMessage(v MessageResponse) {
+	o.Message = v
+}
+
+func (o UpdateMessageInteractionCallbackResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o UpdateMessageInteractionCallbackResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["type"] = o.Type.Get()
+	toSerialize["message"] = o.Message
+	return toSerialize, nil
+}
+
+func (o *UpdateMessageInteractionCallbackResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"type",
+		"message",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUpdateMessageInteractionCallbackResponse := _UpdateMessageInteractionCallbackResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varUpdateMessageInteractionCallbackResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateMessageInteractionCallbackResponse(varUpdateMessageInteractionCallbackResponse)
+
+	return err
+}
+
+type NullableUpdateMessageInteractionCallbackResponse struct {
+	value *UpdateMessageInteractionCallbackResponse
+	isSet bool
+}
+
+func (v NullableUpdateMessageInteractionCallbackResponse) Get() *UpdateMessageInteractionCallbackResponse {
+	return v.value
+}
+
+func (v *NullableUpdateMessageInteractionCallbackResponse) Set(val *UpdateMessageInteractionCallbackResponse) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableUpdateMessageInteractionCallbackResponse) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableUpdateMessageInteractionCallbackResponse) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableUpdateMessageInteractionCallbackResponse(val *UpdateMessageInteractionCallbackResponse) *NullableUpdateMessageInteractionCallbackResponse {
+	return &NullableUpdateMessageInteractionCallbackResponse{value: val, isSet: true}
+}
+
+func (v NullableUpdateMessageInteractionCallbackResponse) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableUpdateMessageInteractionCallbackResponse) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
+
+
