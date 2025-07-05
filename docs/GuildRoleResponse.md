@@ -10,18 +10,20 @@ Name | Type | Description | Notes
 **Permissions** | **string** |  | 
 **Position** | **int32** |  | 
 **Color** | **int32** |  | 
+**Colors** | Pointer to [**NullableGuildRoleColorsResponse**](GuildRoleColorsResponse.md) |  | [optional] 
 **Hoist** | **bool** |  | 
 **Managed** | **bool** |  | 
 **Mentionable** | **bool** |  | 
 **Icon** | Pointer to **NullableString** |  | [optional] 
 **UnicodeEmoji** | Pointer to **NullableString** |  | [optional] 
 **Tags** | Pointer to [**NullableGuildRoleTagsResponse**](GuildRoleTagsResponse.md) |  | [optional] 
+**Flags** | **int32** |  | 
 
 ## Methods
 
 ### NewGuildRoleResponse
 
-`func NewGuildRoleResponse(id string, name string, permissions string, position int32, color int32, hoist bool, managed bool, mentionable bool, ) *GuildRoleResponse`
+`func NewGuildRoleResponse(id string, name string, permissions string, position int32, color int32, hoist bool, managed bool, mentionable bool, flags int32, ) *GuildRoleResponse`
 
 NewGuildRoleResponse instantiates a new GuildRoleResponse object
 This constructor will assign default values to properties that have it defined,
@@ -171,6 +173,41 @@ and a boolean to check if the value has been set.
 SetColor sets Color field to given value.
 
 
+### GetColors
+
+`func (o *GuildRoleResponse) GetColors() GuildRoleColorsResponse`
+
+GetColors returns the Colors field if non-nil, zero value otherwise.
+
+### GetColorsOk
+
+`func (o *GuildRoleResponse) GetColorsOk() (*GuildRoleColorsResponse, bool)`
+
+GetColorsOk returns a tuple with the Colors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetColors
+
+`func (o *GuildRoleResponse) SetColors(v GuildRoleColorsResponse)`
+
+SetColors sets Colors field to given value.
+
+### HasColors
+
+`func (o *GuildRoleResponse) HasColors() bool`
+
+HasColors returns a boolean if a field has been set.
+
+### SetColorsNil
+
+`func (o *GuildRoleResponse) SetColorsNil(b bool)`
+
+ SetColorsNil sets the value for Colors to be an explicit nil
+
+### UnsetColors
+`func (o *GuildRoleResponse) UnsetColors()`
+
+UnsetColors ensures that no value is present for Colors, not even an explicit nil
 ### GetHoist
 
 `func (o *GuildRoleResponse) GetHoist() bool`
@@ -336,6 +373,26 @@ HasTags returns a boolean if a field has been set.
 `func (o *GuildRoleResponse) UnsetTags()`
 
 UnsetTags ensures that no value is present for Tags, not even an explicit nil
+### GetFlags
+
+`func (o *GuildRoleResponse) GetFlags() int32`
+
+GetFlags returns the Flags field if non-nil, zero value otherwise.
+
+### GetFlagsOk
+
+`func (o *GuildRoleResponse) GetFlagsOk() (*int32, bool)`
+
+GetFlagsOk returns a tuple with the Flags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFlags
+
+`func (o *GuildRoleResponse) SetFlags(v int32)`
+
+SetFlags sets Flags field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
