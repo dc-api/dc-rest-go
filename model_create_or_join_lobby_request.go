@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-07-25T15:01:17.719932686Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -59,6 +59,7 @@ type CreateOrJoinLobbyRequest struct {
 	LobbyMetadata map[string]string `json:"lobby_metadata,omitempty"`
 	MemberMetadata map[string]string `json:"member_metadata,omitempty"`
 	Secret string `json:"secret"`
+	Flags NullableInt32 `json:"flags,omitempty"`
 }
 
 type _CreateOrJoinLobbyRequest CreateOrJoinLobbyRequest
@@ -214,6 +215,49 @@ func (o *CreateOrJoinLobbyRequest) SetSecret(v string) {
 	o.Secret = v
 }
 
+// GetFlags returns the Flags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateOrJoinLobbyRequest) GetFlags() int32 {
+	if o == nil || IsNil(o.Flags.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.Flags.Get()
+}
+
+// GetFlagsOk returns a tuple with the Flags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateOrJoinLobbyRequest) GetFlagsOk() (*int32, bool) {
+	if o == nil || IsNil(o.Flags.Get()) {
+		return nil, false
+	}
+	return o.Flags.Get(), o.Flags.IsSet()
+}
+
+// HasFlags returns a boolean if a field has been set.
+func (o *CreateOrJoinLobbyRequest) HasFlags() bool {
+	if o != nil && o.Flags.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFlags gets a reference to the given NullableInt32 and assigns it to the Flags field.
+func (o *CreateOrJoinLobbyRequest) SetFlags(v int32) {
+	o.Flags.Set(&v)
+}
+
+// SetFlagsNil sets the value for Flags to be an explicit nil
+func (o *CreateOrJoinLobbyRequest) SetFlagsNil() {
+	o.Flags.Set(nil)
+}
+
+// UnsetFlags ensures that no value is present for Flags, not even an explicit nil
+func (o *CreateOrJoinLobbyRequest) UnsetFlags() {
+	o.Flags.Unset()
+}
+
 func (o CreateOrJoinLobbyRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -234,6 +278,9 @@ func (o CreateOrJoinLobbyRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["member_metadata"] = o.MemberMetadata
 	}
 	toSerialize["secret"] = o.Secret
+	if o.Flags.IsSet() {
+		toSerialize["flags"] = o.Flags.Get()
+	}
 	return toSerialize, nil
 }
 
