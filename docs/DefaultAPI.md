@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**AddThreadMember**](DefaultAPI.md#AddThreadMember) | **Put** /channels/{channel_id}/thread-members/{user_id} | 
 [**ApplicationsGetActivityInstance**](DefaultAPI.md#ApplicationsGetActivityInstance) | **Get** /applications/{application_id}/activity-instances/{instance_id} | 
 [**BanUserFromGuild**](DefaultAPI.md#BanUserFromGuild) | **Put** /guilds/{guild_id}/bans/{user_id} | 
+[**BotPartnerSdkToken**](DefaultAPI.md#BotPartnerSdkToken) | **Post** /partner-sdk/token/bot | 
 [**BulkBanUsersFromGuild**](DefaultAPI.md#BulkBanUsersFromGuild) | **Post** /guilds/{guild_id}/bulk-ban | 
 [**BulkDeleteMessages**](DefaultAPI.md#BulkDeleteMessages) | **Post** /channels/{channel_id}/messages/bulk-delete | 
 [**BulkSetApplicationCommands**](DefaultAPI.md#BulkSetApplicationCommands) | **Put** /applications/{application_id}/commands | 
@@ -37,6 +38,8 @@ Method | HTTP request | Description
 [**CreateGuildSticker**](DefaultAPI.md#CreateGuildSticker) | **Post** /guilds/{guild_id}/stickers | 
 [**CreateGuildTemplate**](DefaultAPI.md#CreateGuildTemplate) | **Post** /guilds/{guild_id}/templates | 
 [**CreateInteractionResponse**](DefaultAPI.md#CreateInteractionResponse) | **Post** /interactions/{interaction_id}/{interaction_token}/callback | 
+[**CreateLinkedLobbyGuildInviteForSelf**](DefaultAPI.md#CreateLinkedLobbyGuildInviteForSelf) | **Post** /lobbies/{lobby_id}/members/@me/invites | 
+[**CreateLinkedLobbyGuildInviteForUser**](DefaultAPI.md#CreateLinkedLobbyGuildInviteForUser) | **Post** /lobbies/{lobby_id}/members/{user_id}/invites | 
 [**CreateLobby**](DefaultAPI.md#CreateLobby) | **Post** /lobbies | 
 [**CreateLobbyMessage**](DefaultAPI.md#CreateLobbyMessage) | **Post** /lobbies/{lobby_id}/messages | 
 [**CreateMessage**](DefaultAPI.md#CreateMessage) | **Post** /channels/{channel_id}/messages | 
@@ -304,7 +307,7 @@ Name | Type | Description  | Notes
 
 ## AddGuildMember
 
-> GuildMemberResponse AddGuildMember(ctx, guildId, userId).AddGuildMemberRequest(addGuildMemberRequest).Execute()
+> GuildMemberResponse AddGuildMember(ctx, guildId, userId).BotAddGuildMemberRequest(botAddGuildMemberRequest).Execute()
 
 
 
@@ -323,11 +326,11 @@ import (
 func main() {
 	guildId := "guildId_example" // string | 
 	userId := "userId_example" // string | 
-	addGuildMemberRequest := *openapiclient.NewAddGuildMemberRequest("AccessToken_example") // AddGuildMemberRequest | 
+	botAddGuildMemberRequest := *openapiclient.NewBotAddGuildMemberRequest("AccessToken_example") // BotAddGuildMemberRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.AddGuildMember(context.Background(), guildId, userId).AddGuildMemberRequest(addGuildMemberRequest).Execute()
+	resp, r, err := apiClient.DefaultAPI.AddGuildMember(context.Background(), guildId, userId).BotAddGuildMemberRequest(botAddGuildMemberRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.AddGuildMember``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -355,7 +358,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **addGuildMemberRequest** | [**AddGuildMemberRequest**](AddGuildMemberRequest.md) |  | 
+ **botAddGuildMemberRequest** | [**BotAddGuildMemberRequest**](BotAddGuildMemberRequest.md) |  | 
 
 ### Return type
 
@@ -788,6 +791,70 @@ Name | Type | Description  | Notes
 ### Return type
 
  (empty response body)
+
+### Authorization
+
+[BotToken](../README.md#BotToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BotPartnerSdkToken
+
+> ProvisionalTokenResponse BotPartnerSdkToken(ctx).BotPartnerSdkTokenRequest(botPartnerSdkTokenRequest).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/dc-api/dc-rest-go"
+)
+
+func main() {
+	botPartnerSdkTokenRequest := *openapiclient.NewBotPartnerSdkTokenRequest("ExternalUserId_example") // BotPartnerSdkTokenRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.BotPartnerSdkToken(context.Background()).BotPartnerSdkTokenRequest(botPartnerSdkTokenRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.BotPartnerSdkToken``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BotPartnerSdkToken`: ProvisionalTokenResponse
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.BotPartnerSdkToken`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBotPartnerSdkTokenRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **botPartnerSdkTokenRequest** | [**BotPartnerSdkTokenRequest**](BotPartnerSdkTokenRequest.md) |  | 
+
+### Return type
+
+[**ProvisionalTokenResponse**](ProvisionalTokenResponse.md)
 
 ### Authorization
 
@@ -2547,6 +2614,145 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateLinkedLobbyGuildInviteForSelf
+
+> LobbyGuildInviteResponse CreateLinkedLobbyGuildInviteForSelf(ctx, lobbyId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/dc-api/dc-rest-go"
+)
+
+func main() {
+	lobbyId := "lobbyId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.CreateLinkedLobbyGuildInviteForSelf(context.Background(), lobbyId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateLinkedLobbyGuildInviteForSelf``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateLinkedLobbyGuildInviteForSelf`: LobbyGuildInviteResponse
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateLinkedLobbyGuildInviteForSelf`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**lobbyId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateLinkedLobbyGuildInviteForSelfRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**LobbyGuildInviteResponse**](LobbyGuildInviteResponse.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2), [BotToken](../README.md#BotToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateLinkedLobbyGuildInviteForUser
+
+> LobbyGuildInviteResponse CreateLinkedLobbyGuildInviteForUser(ctx, lobbyId, userId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/dc-api/dc-rest-go"
+)
+
+func main() {
+	lobbyId := "lobbyId_example" // string | 
+	userId := "userId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.CreateLinkedLobbyGuildInviteForUser(context.Background(), lobbyId, userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateLinkedLobbyGuildInviteForUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateLinkedLobbyGuildInviteForUser`: LobbyGuildInviteResponse
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateLinkedLobbyGuildInviteForUser`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**lobbyId** | **string** |  | 
+**userId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateLinkedLobbyGuildInviteForUserRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**LobbyGuildInviteResponse**](LobbyGuildInviteResponse.md)
+
+### Authorization
+
+[BotToken](../README.md#BotToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
