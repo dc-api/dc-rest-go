@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-08-08T14:09:23.736426080Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -66,6 +66,7 @@ type PrivateGuildMemberResponse struct {
 	Pending bool `json:"pending"`
 	PremiumSince NullableTime `json:"premium_since,omitempty"`
 	Roles []string `json:"roles"`
+	Collectibles NullableUserCollectiblesResponse `json:"collectibles,omitempty"`
 	User UserResponse `json:"user"`
 	Mute bool `json:"mute"`
 	Deaf bool `json:"deaf"`
@@ -451,6 +452,49 @@ func (o *PrivateGuildMemberResponse) SetRoles(v []string) {
 	o.Roles = v
 }
 
+// GetCollectibles returns the Collectibles field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PrivateGuildMemberResponse) GetCollectibles() UserCollectiblesResponse {
+	if o == nil || IsNil(o.Collectibles.Get()) {
+		var ret UserCollectiblesResponse
+		return ret
+	}
+	return *o.Collectibles.Get()
+}
+
+// GetCollectiblesOk returns a tuple with the Collectibles field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PrivateGuildMemberResponse) GetCollectiblesOk() (*UserCollectiblesResponse, bool) {
+	if o == nil || IsNil(o.Collectibles.Get()) {
+		return nil, false
+	}
+	return o.Collectibles.Get(), o.Collectibles.IsSet()
+}
+
+// HasCollectibles returns a boolean if a field has been set.
+func (o *PrivateGuildMemberResponse) HasCollectibles() bool {
+	if o != nil && o.Collectibles.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCollectibles gets a reference to the given NullableUserCollectiblesResponse and assigns it to the Collectibles field.
+func (o *PrivateGuildMemberResponse) SetCollectibles(v UserCollectiblesResponse) {
+	o.Collectibles.Set(&v)
+}
+
+// SetCollectiblesNil sets the value for Collectibles to be an explicit nil
+func (o *PrivateGuildMemberResponse) SetCollectiblesNil() {
+	o.Collectibles.Set(nil)
+}
+
+// UnsetCollectibles ensures that no value is present for Collectibles, not even an explicit nil
+func (o *PrivateGuildMemberResponse) UnsetCollectibles() {
+	o.Collectibles.Unset()
+}
+
 // GetUser returns the User field value
 func (o *PrivateGuildMemberResponse) GetUser() UserResponse {
 	if o == nil {
@@ -555,6 +599,9 @@ func (o PrivateGuildMemberResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["premium_since"] = o.PremiumSince.Get()
 	}
 	toSerialize["roles"] = o.Roles
+	if o.Collectibles.IsSet() {
+		toSerialize["collectibles"] = o.Collectibles.Get()
+	}
 	toSerialize["user"] = o.User
 	toSerialize["mute"] = o.Mute
 	toSerialize["deaf"] = o.Deaf

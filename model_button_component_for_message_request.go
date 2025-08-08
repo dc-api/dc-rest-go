@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-08-08T14:09:23.736426080Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -62,7 +62,7 @@ type ButtonComponentForMessageRequest struct {
 	Disabled NullableBool `json:"disabled,omitempty"`
 	Url NullableString `json:"url,omitempty"`
 	SkuId *string `json:"sku_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Emoji NullableComponentEmojiForMessageRequest `json:"emoji,omitempty"`
+	Emoji NullableComponentEmojiForRequest `json:"emoji,omitempty"`
 }
 
 type _ButtonComponentForMessageRequest ButtonComponentForMessageRequest
@@ -342,9 +342,9 @@ func (o *ButtonComponentForMessageRequest) SetSkuId(v string) {
 
 
 // GetEmoji returns the Emoji field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ButtonComponentForMessageRequest) GetEmoji() ComponentEmojiForMessageRequest {
+func (o *ButtonComponentForMessageRequest) GetEmoji() ComponentEmojiForRequest {
 	if o == nil || IsNil(o.Emoji.Get()) {
-		var ret ComponentEmojiForMessageRequest
+		var ret ComponentEmojiForRequest
 		return ret
 	}
 	return *o.Emoji.Get()
@@ -353,7 +353,7 @@ func (o *ButtonComponentForMessageRequest) GetEmoji() ComponentEmojiForMessageRe
 // GetEmojiOk returns a tuple with the Emoji field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ButtonComponentForMessageRequest) GetEmojiOk() (*ComponentEmojiForMessageRequest, bool) {
+func (o *ButtonComponentForMessageRequest) GetEmojiOk() (*ComponentEmojiForRequest, bool) {
 	if o == nil || IsNil(o.Emoji.Get()) {
 		return nil, false
 	}
@@ -369,8 +369,8 @@ func (o *ButtonComponentForMessageRequest) HasEmoji() bool {
 	return false
 }
 
-// SetEmoji gets a reference to the given NullableComponentEmojiForMessageRequest and assigns it to the Emoji field.
-func (o *ButtonComponentForMessageRequest) SetEmoji(v ComponentEmojiForMessageRequest) {
+// SetEmoji gets a reference to the given NullableComponentEmojiForRequest and assigns it to the Emoji field.
+func (o *ButtonComponentForMessageRequest) SetEmoji(v ComponentEmojiForRequest) {
 	o.Emoji.Set(&v)
 }
 

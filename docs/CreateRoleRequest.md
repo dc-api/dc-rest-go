@@ -1,4 +1,4 @@
-# CreateGuildRoleRequest
+# CreateRoleRequest
 
 ## Properties
 
@@ -14,266 +14,266 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewCreateGuildRoleRequest
+### NewCreateRoleRequest
 
-`func NewCreateGuildRoleRequest() *CreateGuildRoleRequest`
+`func NewCreateRoleRequest() *CreateRoleRequest`
 
-NewCreateGuildRoleRequest instantiates a new CreateGuildRoleRequest object
+NewCreateRoleRequest instantiates a new CreateRoleRequest object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewCreateGuildRoleRequestWithDefaults
+### NewCreateRoleRequestWithDefaults
 
-`func NewCreateGuildRoleRequestWithDefaults() *CreateGuildRoleRequest`
+`func NewCreateRoleRequestWithDefaults() *CreateRoleRequest`
 
-NewCreateGuildRoleRequestWithDefaults instantiates a new CreateGuildRoleRequest object
+NewCreateRoleRequestWithDefaults instantiates a new CreateRoleRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetName
 
-`func (o *CreateGuildRoleRequest) GetName() string`
+`func (o *CreateRoleRequest) GetName() string`
 
 GetName returns the Name field if non-nil, zero value otherwise.
 
 ### GetNameOk
 
-`func (o *CreateGuildRoleRequest) GetNameOk() (*string, bool)`
+`func (o *CreateRoleRequest) GetNameOk() (*string, bool)`
 
 GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetName
 
-`func (o *CreateGuildRoleRequest) SetName(v string)`
+`func (o *CreateRoleRequest) SetName(v string)`
 
 SetName sets Name field to given value.
 
 ### HasName
 
-`func (o *CreateGuildRoleRequest) HasName() bool`
+`func (o *CreateRoleRequest) HasName() bool`
 
 HasName returns a boolean if a field has been set.
 
 ### SetNameNil
 
-`func (o *CreateGuildRoleRequest) SetNameNil(b bool)`
+`func (o *CreateRoleRequest) SetNameNil(b bool)`
 
  SetNameNil sets the value for Name to be an explicit nil
 
 ### UnsetName
-`func (o *CreateGuildRoleRequest) UnsetName()`
+`func (o *CreateRoleRequest) UnsetName()`
 
 UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPermissions
 
-`func (o *CreateGuildRoleRequest) GetPermissions() int32`
+`func (o *CreateRoleRequest) GetPermissions() int32`
 
 GetPermissions returns the Permissions field if non-nil, zero value otherwise.
 
 ### GetPermissionsOk
 
-`func (o *CreateGuildRoleRequest) GetPermissionsOk() (*int32, bool)`
+`func (o *CreateRoleRequest) GetPermissionsOk() (*int32, bool)`
 
 GetPermissionsOk returns a tuple with the Permissions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPermissions
 
-`func (o *CreateGuildRoleRequest) SetPermissions(v int32)`
+`func (o *CreateRoleRequest) SetPermissions(v int32)`
 
 SetPermissions sets Permissions field to given value.
 
 ### HasPermissions
 
-`func (o *CreateGuildRoleRequest) HasPermissions() bool`
+`func (o *CreateRoleRequest) HasPermissions() bool`
 
 HasPermissions returns a boolean if a field has been set.
 
 ### SetPermissionsNil
 
-`func (o *CreateGuildRoleRequest) SetPermissionsNil(b bool)`
+`func (o *CreateRoleRequest) SetPermissionsNil(b bool)`
 
  SetPermissionsNil sets the value for Permissions to be an explicit nil
 
 ### UnsetPermissions
-`func (o *CreateGuildRoleRequest) UnsetPermissions()`
+`func (o *CreateRoleRequest) UnsetPermissions()`
 
 UnsetPermissions ensures that no value is present for Permissions, not even an explicit nil
 ### GetColor
 
-`func (o *CreateGuildRoleRequest) GetColor() int32`
+`func (o *CreateRoleRequest) GetColor() int32`
 
 GetColor returns the Color field if non-nil, zero value otherwise.
 
 ### GetColorOk
 
-`func (o *CreateGuildRoleRequest) GetColorOk() (*int32, bool)`
+`func (o *CreateRoleRequest) GetColorOk() (*int32, bool)`
 
 GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetColor
 
-`func (o *CreateGuildRoleRequest) SetColor(v int32)`
+`func (o *CreateRoleRequest) SetColor(v int32)`
 
 SetColor sets Color field to given value.
 
 ### HasColor
 
-`func (o *CreateGuildRoleRequest) HasColor() bool`
+`func (o *CreateRoleRequest) HasColor() bool`
 
 HasColor returns a boolean if a field has been set.
 
 ### SetColorNil
 
-`func (o *CreateGuildRoleRequest) SetColorNil(b bool)`
+`func (o *CreateRoleRequest) SetColorNil(b bool)`
 
  SetColorNil sets the value for Color to be an explicit nil
 
 ### UnsetColor
-`func (o *CreateGuildRoleRequest) UnsetColor()`
+`func (o *CreateRoleRequest) UnsetColor()`
 
 UnsetColor ensures that no value is present for Color, not even an explicit nil
 ### GetHoist
 
-`func (o *CreateGuildRoleRequest) GetHoist() bool`
+`func (o *CreateRoleRequest) GetHoist() bool`
 
 GetHoist returns the Hoist field if non-nil, zero value otherwise.
 
 ### GetHoistOk
 
-`func (o *CreateGuildRoleRequest) GetHoistOk() (*bool, bool)`
+`func (o *CreateRoleRequest) GetHoistOk() (*bool, bool)`
 
 GetHoistOk returns a tuple with the Hoist field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHoist
 
-`func (o *CreateGuildRoleRequest) SetHoist(v bool)`
+`func (o *CreateRoleRequest) SetHoist(v bool)`
 
 SetHoist sets Hoist field to given value.
 
 ### HasHoist
 
-`func (o *CreateGuildRoleRequest) HasHoist() bool`
+`func (o *CreateRoleRequest) HasHoist() bool`
 
 HasHoist returns a boolean if a field has been set.
 
 ### SetHoistNil
 
-`func (o *CreateGuildRoleRequest) SetHoistNil(b bool)`
+`func (o *CreateRoleRequest) SetHoistNil(b bool)`
 
  SetHoistNil sets the value for Hoist to be an explicit nil
 
 ### UnsetHoist
-`func (o *CreateGuildRoleRequest) UnsetHoist()`
+`func (o *CreateRoleRequest) UnsetHoist()`
 
 UnsetHoist ensures that no value is present for Hoist, not even an explicit nil
 ### GetMentionable
 
-`func (o *CreateGuildRoleRequest) GetMentionable() bool`
+`func (o *CreateRoleRequest) GetMentionable() bool`
 
 GetMentionable returns the Mentionable field if non-nil, zero value otherwise.
 
 ### GetMentionableOk
 
-`func (o *CreateGuildRoleRequest) GetMentionableOk() (*bool, bool)`
+`func (o *CreateRoleRequest) GetMentionableOk() (*bool, bool)`
 
 GetMentionableOk returns a tuple with the Mentionable field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMentionable
 
-`func (o *CreateGuildRoleRequest) SetMentionable(v bool)`
+`func (o *CreateRoleRequest) SetMentionable(v bool)`
 
 SetMentionable sets Mentionable field to given value.
 
 ### HasMentionable
 
-`func (o *CreateGuildRoleRequest) HasMentionable() bool`
+`func (o *CreateRoleRequest) HasMentionable() bool`
 
 HasMentionable returns a boolean if a field has been set.
 
 ### SetMentionableNil
 
-`func (o *CreateGuildRoleRequest) SetMentionableNil(b bool)`
+`func (o *CreateRoleRequest) SetMentionableNil(b bool)`
 
  SetMentionableNil sets the value for Mentionable to be an explicit nil
 
 ### UnsetMentionable
-`func (o *CreateGuildRoleRequest) UnsetMentionable()`
+`func (o *CreateRoleRequest) UnsetMentionable()`
 
 UnsetMentionable ensures that no value is present for Mentionable, not even an explicit nil
 ### GetIcon
 
-`func (o *CreateGuildRoleRequest) GetIcon() string`
+`func (o *CreateRoleRequest) GetIcon() string`
 
 GetIcon returns the Icon field if non-nil, zero value otherwise.
 
 ### GetIconOk
 
-`func (o *CreateGuildRoleRequest) GetIconOk() (*string, bool)`
+`func (o *CreateRoleRequest) GetIconOk() (*string, bool)`
 
 GetIconOk returns a tuple with the Icon field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIcon
 
-`func (o *CreateGuildRoleRequest) SetIcon(v string)`
+`func (o *CreateRoleRequest) SetIcon(v string)`
 
 SetIcon sets Icon field to given value.
 
 ### HasIcon
 
-`func (o *CreateGuildRoleRequest) HasIcon() bool`
+`func (o *CreateRoleRequest) HasIcon() bool`
 
 HasIcon returns a boolean if a field has been set.
 
 ### SetIconNil
 
-`func (o *CreateGuildRoleRequest) SetIconNil(b bool)`
+`func (o *CreateRoleRequest) SetIconNil(b bool)`
 
  SetIconNil sets the value for Icon to be an explicit nil
 
 ### UnsetIcon
-`func (o *CreateGuildRoleRequest) UnsetIcon()`
+`func (o *CreateRoleRequest) UnsetIcon()`
 
 UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetUnicodeEmoji
 
-`func (o *CreateGuildRoleRequest) GetUnicodeEmoji() string`
+`func (o *CreateRoleRequest) GetUnicodeEmoji() string`
 
 GetUnicodeEmoji returns the UnicodeEmoji field if non-nil, zero value otherwise.
 
 ### GetUnicodeEmojiOk
 
-`func (o *CreateGuildRoleRequest) GetUnicodeEmojiOk() (*string, bool)`
+`func (o *CreateRoleRequest) GetUnicodeEmojiOk() (*string, bool)`
 
 GetUnicodeEmojiOk returns a tuple with the UnicodeEmoji field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUnicodeEmoji
 
-`func (o *CreateGuildRoleRequest) SetUnicodeEmoji(v string)`
+`func (o *CreateRoleRequest) SetUnicodeEmoji(v string)`
 
 SetUnicodeEmoji sets UnicodeEmoji field to given value.
 
 ### HasUnicodeEmoji
 
-`func (o *CreateGuildRoleRequest) HasUnicodeEmoji() bool`
+`func (o *CreateRoleRequest) HasUnicodeEmoji() bool`
 
 HasUnicodeEmoji returns a boolean if a field has been set.
 
 ### SetUnicodeEmojiNil
 
-`func (o *CreateGuildRoleRequest) SetUnicodeEmojiNil(b bool)`
+`func (o *CreateRoleRequest) SetUnicodeEmojiNil(b bool)`
 
  SetUnicodeEmojiNil sets the value for UnicodeEmoji to be an explicit nil
 
 ### UnsetUnicodeEmoji
-`func (o *CreateGuildRoleRequest) UnsetUnicodeEmoji()`
+`func (o *CreateRoleRequest) UnsetUnicodeEmoji()`
 
 UnsetUnicodeEmoji ensures that no value is present for UnicodeEmoji, not even an explicit nil
 

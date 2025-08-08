@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-08-08T14:09:23.736426080Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -50,93 +50,141 @@ import (
 	"fmt"
 )
 
-// checks if the ComponentEmojiForMessageRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ComponentEmojiForMessageRequest{}
+// checks if the RatelimitedResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RatelimitedResponse{}
 
-// ComponentEmojiForMessageRequest struct for ComponentEmojiForMessageRequest
-type ComponentEmojiForMessageRequest struct {
-	Id *string `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Name string `json:"name"`
+// RatelimitedResponse Ratelimit error object returned by the Discord API
+type RatelimitedResponse struct {
+	// Discord internal error code. See error code reference
+	Code int32 `json:"code"`
+	// Human-readable error message
+	Message string `json:"message"`
+	// The number of seconds to wait before retrying your request
+	RetryAfter float32 `json:"retry_after"`
+	// Whether you are being ratelimited by the global ratelimit or a per-endpoint ratelimit
+	Global bool `json:"global"`
 }
 
-type _ComponentEmojiForMessageRequest ComponentEmojiForMessageRequest
+type _RatelimitedResponse RatelimitedResponse
 
-// NewComponentEmojiForMessageRequest instantiates a new ComponentEmojiForMessageRequest object
+// NewRatelimitedResponse instantiates a new RatelimitedResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComponentEmojiForMessageRequest(name string) *ComponentEmojiForMessageRequest {
-	this := ComponentEmojiForMessageRequest{}
-	this.Name = name
+func NewRatelimitedResponse(code int32, message string, retryAfter float32, global bool) *RatelimitedResponse {
+	this := RatelimitedResponse{}
+	this.Code = code
+	this.Message = message
+	this.RetryAfter = retryAfter
+	this.Global = global
 	return &this
 }
 
-// NewComponentEmojiForMessageRequestWithDefaults instantiates a new ComponentEmojiForMessageRequest object
+// NewRatelimitedResponseWithDefaults instantiates a new RatelimitedResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewComponentEmojiForMessageRequestWithDefaults() *ComponentEmojiForMessageRequest {
-	this := ComponentEmojiForMessageRequest{}
+func NewRatelimitedResponseWithDefaults() *RatelimitedResponse {
+	this := RatelimitedResponse{}
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *ComponentEmojiForMessageRequest) GetId() string {
-	if o == nil || IsNil(o.Id) {
-		var ret string
+// GetCode returns the Code field value
+func (o *RatelimitedResponse) GetCode() int32 {
+	if o == nil {
+		var ret int32
 		return ret
 	}
-	return *o.Id
+
+	return o.Code
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetCodeOk returns a tuple with the Code field value
 // and a boolean to check if the value has been set.
-func (o *ComponentEmojiForMessageRequest) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+func (o *RatelimitedResponse) GetCodeOk() (*int32, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Code, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ComponentEmojiForMessageRequest) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
+// SetCode sets field value
+func (o *RatelimitedResponse) SetCode(v int32) {
+	o.Code = v
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *ComponentEmojiForMessageRequest) SetId(v string) {
-	o.Id = &v
-}
-
-
-// GetName returns the Name field value
-func (o *ComponentEmojiForMessageRequest) GetName() string {
+// GetMessage returns the Message field value
+func (o *RatelimitedResponse) GetMessage() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Name
+	return o.Message
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetMessageOk returns a tuple with the Message field value
 // and a boolean to check if the value has been set.
-func (o *ComponentEmojiForMessageRequest) GetNameOk() (*string, bool) {
+func (o *RatelimitedResponse) GetMessageOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return &o.Message, true
 }
 
-// SetName sets field value
-func (o *ComponentEmojiForMessageRequest) SetName(v string) {
-	o.Name = v
+// SetMessage sets field value
+func (o *RatelimitedResponse) SetMessage(v string) {
+	o.Message = v
 }
 
-func (o ComponentEmojiForMessageRequest) MarshalJSON() ([]byte, error) {
+// GetRetryAfter returns the RetryAfter field value
+func (o *RatelimitedResponse) GetRetryAfter() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.RetryAfter
+}
+
+// GetRetryAfterOk returns a tuple with the RetryAfter field value
+// and a boolean to check if the value has been set.
+func (o *RatelimitedResponse) GetRetryAfterOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RetryAfter, true
+}
+
+// SetRetryAfter sets field value
+func (o *RatelimitedResponse) SetRetryAfter(v float32) {
+	o.RetryAfter = v
+}
+
+// GetGlobal returns the Global field value
+func (o *RatelimitedResponse) GetGlobal() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Global
+}
+
+// GetGlobalOk returns a tuple with the Global field value
+// and a boolean to check if the value has been set.
+func (o *RatelimitedResponse) GetGlobalOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Global, true
+}
+
+// SetGlobal sets field value
+func (o *RatelimitedResponse) SetGlobal(v bool) {
+	o.Global = v
+}
+
+func (o RatelimitedResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -144,21 +192,24 @@ func (o ComponentEmojiForMessageRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ComponentEmojiForMessageRequest) ToMap() (map[string]interface{}, error) {
+func (o RatelimitedResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	toSerialize["name"] = o.Name
+	toSerialize["code"] = o.Code
+	toSerialize["message"] = o.Message
+	toSerialize["retry_after"] = o.RetryAfter
+	toSerialize["global"] = o.Global
 	return toSerialize, nil
 }
 
-func (o *ComponentEmojiForMessageRequest) UnmarshalJSON(data []byte) (err error) {
+func (o *RatelimitedResponse) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"name",
+		"code",
+		"message",
+		"retry_after",
+		"global",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -175,53 +226,53 @@ func (o *ComponentEmojiForMessageRequest) UnmarshalJSON(data []byte) (err error)
 		}
 	}
 
-	varComponentEmojiForMessageRequest := _ComponentEmojiForMessageRequest{}
+	varRatelimitedResponse := _RatelimitedResponse{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varComponentEmojiForMessageRequest)
+	err = decoder.Decode(&varRatelimitedResponse)
 
 	if err != nil {
 		return err
 	}
 
-	*o = ComponentEmojiForMessageRequest(varComponentEmojiForMessageRequest)
+	*o = RatelimitedResponse(varRatelimitedResponse)
 
 	return err
 }
 
-type NullableComponentEmojiForMessageRequest struct {
-	value *ComponentEmojiForMessageRequest
+type NullableRatelimitedResponse struct {
+	value *RatelimitedResponse
 	isSet bool
 }
 
-func (v NullableComponentEmojiForMessageRequest) Get() *ComponentEmojiForMessageRequest {
+func (v NullableRatelimitedResponse) Get() *RatelimitedResponse {
 	return v.value
 }
 
-func (v *NullableComponentEmojiForMessageRequest) Set(val *ComponentEmojiForMessageRequest) {
+func (v *NullableRatelimitedResponse) Set(val *RatelimitedResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableComponentEmojiForMessageRequest) IsSet() bool {
+func (v NullableRatelimitedResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableComponentEmojiForMessageRequest) Unset() {
+func (v *NullableRatelimitedResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableComponentEmojiForMessageRequest(val *ComponentEmojiForMessageRequest) *NullableComponentEmojiForMessageRequest {
-	return &NullableComponentEmojiForMessageRequest{value: val, isSet: true}
+func NewNullableRatelimitedResponse(val *RatelimitedResponse) *NullableRatelimitedResponse {
+	return &NullableRatelimitedResponse{value: val, isSet: true}
 }
 
-func (v NullableComponentEmojiForMessageRequest) MarshalJSON() ([]byte, error) {
+func (v NullableRatelimitedResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableComponentEmojiForMessageRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableRatelimitedResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

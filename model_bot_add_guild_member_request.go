@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-08-08T14:09:23.736426080Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -50,11 +50,11 @@ import (
 	"fmt"
 )
 
-// checks if the AddGuildMemberRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &AddGuildMemberRequest{}
+// checks if the BotAddGuildMemberRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &BotAddGuildMemberRequest{}
 
-// AddGuildMemberRequest struct for AddGuildMemberRequest
-type AddGuildMemberRequest struct {
+// BotAddGuildMemberRequest struct for BotAddGuildMemberRequest
+type BotAddGuildMemberRequest struct {
 	Nick NullableString `json:"nick,omitempty"`
 	Roles []string `json:"roles,omitempty"`
 	Mute NullableBool `json:"mute,omitempty"`
@@ -63,28 +63,28 @@ type AddGuildMemberRequest struct {
 	Flags NullableInt32 `json:"flags,omitempty"`
 }
 
-type _AddGuildMemberRequest AddGuildMemberRequest
+type _BotAddGuildMemberRequest BotAddGuildMemberRequest
 
-// NewAddGuildMemberRequest instantiates a new AddGuildMemberRequest object
+// NewBotAddGuildMemberRequest instantiates a new BotAddGuildMemberRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAddGuildMemberRequest(accessToken string) *AddGuildMemberRequest {
-	this := AddGuildMemberRequest{}
+func NewBotAddGuildMemberRequest(accessToken string) *BotAddGuildMemberRequest {
+	this := BotAddGuildMemberRequest{}
 	this.AccessToken = accessToken
 	return &this
 }
 
-// NewAddGuildMemberRequestWithDefaults instantiates a new AddGuildMemberRequest object
+// NewBotAddGuildMemberRequestWithDefaults instantiates a new BotAddGuildMemberRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAddGuildMemberRequestWithDefaults() *AddGuildMemberRequest {
-	this := AddGuildMemberRequest{}
+func NewBotAddGuildMemberRequestWithDefaults() *BotAddGuildMemberRequest {
+	this := BotAddGuildMemberRequest{}
 	return &this
 }
 
 // GetNick returns the Nick field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AddGuildMemberRequest) GetNick() string {
+func (o *BotAddGuildMemberRequest) GetNick() string {
 	if o == nil || IsNil(o.Nick.Get()) {
 		var ret string
 		return ret
@@ -95,7 +95,7 @@ func (o *AddGuildMemberRequest) GetNick() string {
 // GetNickOk returns a tuple with the Nick field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AddGuildMemberRequest) GetNickOk() (*string, bool) {
+func (o *BotAddGuildMemberRequest) GetNickOk() (*string, bool) {
 	if o == nil || IsNil(o.Nick.Get()) {
 		return nil, false
 	}
@@ -103,7 +103,7 @@ func (o *AddGuildMemberRequest) GetNickOk() (*string, bool) {
 }
 
 // HasNick returns a boolean if a field has been set.
-func (o *AddGuildMemberRequest) HasNick() bool {
+func (o *BotAddGuildMemberRequest) HasNick() bool {
 	if o != nil && o.Nick.IsSet() {
 		return true
 	}
@@ -112,22 +112,22 @@ func (o *AddGuildMemberRequest) HasNick() bool {
 }
 
 // SetNick gets a reference to the given NullableString and assigns it to the Nick field.
-func (o *AddGuildMemberRequest) SetNick(v string) {
+func (o *BotAddGuildMemberRequest) SetNick(v string) {
 	o.Nick.Set(&v)
 }
 
 // SetNickNil sets the value for Nick to be an explicit nil
-func (o *AddGuildMemberRequest) SetNickNil() {
+func (o *BotAddGuildMemberRequest) SetNickNil() {
 	o.Nick.Set(nil)
 }
 
 // UnsetNick ensures that no value is present for Nick, not even an explicit nil
-func (o *AddGuildMemberRequest) UnsetNick() {
+func (o *BotAddGuildMemberRequest) UnsetNick() {
 	o.Nick.Unset()
 }
 
 // GetRoles returns the Roles field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AddGuildMemberRequest) GetRoles() []string {
+func (o *BotAddGuildMemberRequest) GetRoles() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -138,7 +138,7 @@ func (o *AddGuildMemberRequest) GetRoles() []string {
 // GetRolesOk returns a tuple with the Roles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AddGuildMemberRequest) GetRolesOk() ([]string, bool) {
+func (o *BotAddGuildMemberRequest) GetRolesOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -146,7 +146,7 @@ func (o *AddGuildMemberRequest) GetRolesOk() ([]string, bool) {
 }
 
 // HasRoles returns a boolean if a field has been set.
-func (o *AddGuildMemberRequest) HasRoles() bool {
+func (o *BotAddGuildMemberRequest) HasRoles() bool {
 	if o != nil && !IsNil(o.Roles) {
 		return true
 	}
@@ -155,13 +155,13 @@ func (o *AddGuildMemberRequest) HasRoles() bool {
 }
 
 // SetRoles gets a reference to the given []string and assigns it to the Roles field.
-func (o *AddGuildMemberRequest) SetRoles(v []string) {
+func (o *BotAddGuildMemberRequest) SetRoles(v []string) {
 	o.Roles = v
 }
 
 
 // GetMute returns the Mute field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AddGuildMemberRequest) GetMute() bool {
+func (o *BotAddGuildMemberRequest) GetMute() bool {
 	if o == nil || IsNil(o.Mute.Get()) {
 		var ret bool
 		return ret
@@ -172,7 +172,7 @@ func (o *AddGuildMemberRequest) GetMute() bool {
 // GetMuteOk returns a tuple with the Mute field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AddGuildMemberRequest) GetMuteOk() (*bool, bool) {
+func (o *BotAddGuildMemberRequest) GetMuteOk() (*bool, bool) {
 	if o == nil || IsNil(o.Mute.Get()) {
 		return nil, false
 	}
@@ -180,7 +180,7 @@ func (o *AddGuildMemberRequest) GetMuteOk() (*bool, bool) {
 }
 
 // HasMute returns a boolean if a field has been set.
-func (o *AddGuildMemberRequest) HasMute() bool {
+func (o *BotAddGuildMemberRequest) HasMute() bool {
 	if o != nil && o.Mute.IsSet() {
 		return true
 	}
@@ -189,22 +189,22 @@ func (o *AddGuildMemberRequest) HasMute() bool {
 }
 
 // SetMute gets a reference to the given NullableBool and assigns it to the Mute field.
-func (o *AddGuildMemberRequest) SetMute(v bool) {
+func (o *BotAddGuildMemberRequest) SetMute(v bool) {
 	o.Mute.Set(&v)
 }
 
 // SetMuteNil sets the value for Mute to be an explicit nil
-func (o *AddGuildMemberRequest) SetMuteNil() {
+func (o *BotAddGuildMemberRequest) SetMuteNil() {
 	o.Mute.Set(nil)
 }
 
 // UnsetMute ensures that no value is present for Mute, not even an explicit nil
-func (o *AddGuildMemberRequest) UnsetMute() {
+func (o *BotAddGuildMemberRequest) UnsetMute() {
 	o.Mute.Unset()
 }
 
 // GetDeaf returns the Deaf field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AddGuildMemberRequest) GetDeaf() bool {
+func (o *BotAddGuildMemberRequest) GetDeaf() bool {
 	if o == nil || IsNil(o.Deaf.Get()) {
 		var ret bool
 		return ret
@@ -215,7 +215,7 @@ func (o *AddGuildMemberRequest) GetDeaf() bool {
 // GetDeafOk returns a tuple with the Deaf field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AddGuildMemberRequest) GetDeafOk() (*bool, bool) {
+func (o *BotAddGuildMemberRequest) GetDeafOk() (*bool, bool) {
 	if o == nil || IsNil(o.Deaf.Get()) {
 		return nil, false
 	}
@@ -223,7 +223,7 @@ func (o *AddGuildMemberRequest) GetDeafOk() (*bool, bool) {
 }
 
 // HasDeaf returns a boolean if a field has been set.
-func (o *AddGuildMemberRequest) HasDeaf() bool {
+func (o *BotAddGuildMemberRequest) HasDeaf() bool {
 	if o != nil && o.Deaf.IsSet() {
 		return true
 	}
@@ -232,22 +232,22 @@ func (o *AddGuildMemberRequest) HasDeaf() bool {
 }
 
 // SetDeaf gets a reference to the given NullableBool and assigns it to the Deaf field.
-func (o *AddGuildMemberRequest) SetDeaf(v bool) {
+func (o *BotAddGuildMemberRequest) SetDeaf(v bool) {
 	o.Deaf.Set(&v)
 }
 
 // SetDeafNil sets the value for Deaf to be an explicit nil
-func (o *AddGuildMemberRequest) SetDeafNil() {
+func (o *BotAddGuildMemberRequest) SetDeafNil() {
 	o.Deaf.Set(nil)
 }
 
 // UnsetDeaf ensures that no value is present for Deaf, not even an explicit nil
-func (o *AddGuildMemberRequest) UnsetDeaf() {
+func (o *BotAddGuildMemberRequest) UnsetDeaf() {
 	o.Deaf.Unset()
 }
 
 // GetAccessToken returns the AccessToken field value
-func (o *AddGuildMemberRequest) GetAccessToken() string {
+func (o *BotAddGuildMemberRequest) GetAccessToken() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -258,7 +258,7 @@ func (o *AddGuildMemberRequest) GetAccessToken() string {
 
 // GetAccessTokenOk returns a tuple with the AccessToken field value
 // and a boolean to check if the value has been set.
-func (o *AddGuildMemberRequest) GetAccessTokenOk() (*string, bool) {
+func (o *BotAddGuildMemberRequest) GetAccessTokenOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -266,12 +266,12 @@ func (o *AddGuildMemberRequest) GetAccessTokenOk() (*string, bool) {
 }
 
 // SetAccessToken sets field value
-func (o *AddGuildMemberRequest) SetAccessToken(v string) {
+func (o *BotAddGuildMemberRequest) SetAccessToken(v string) {
 	o.AccessToken = v
 }
 
 // GetFlags returns the Flags field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AddGuildMemberRequest) GetFlags() int32 {
+func (o *BotAddGuildMemberRequest) GetFlags() int32 {
 	if o == nil || IsNil(o.Flags.Get()) {
 		var ret int32
 		return ret
@@ -282,7 +282,7 @@ func (o *AddGuildMemberRequest) GetFlags() int32 {
 // GetFlagsOk returns a tuple with the Flags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AddGuildMemberRequest) GetFlagsOk() (*int32, bool) {
+func (o *BotAddGuildMemberRequest) GetFlagsOk() (*int32, bool) {
 	if o == nil || IsNil(o.Flags.Get()) {
 		return nil, false
 	}
@@ -290,7 +290,7 @@ func (o *AddGuildMemberRequest) GetFlagsOk() (*int32, bool) {
 }
 
 // HasFlags returns a boolean if a field has been set.
-func (o *AddGuildMemberRequest) HasFlags() bool {
+func (o *BotAddGuildMemberRequest) HasFlags() bool {
 	if o != nil && o.Flags.IsSet() {
 		return true
 	}
@@ -299,21 +299,21 @@ func (o *AddGuildMemberRequest) HasFlags() bool {
 }
 
 // SetFlags gets a reference to the given NullableInt32 and assigns it to the Flags field.
-func (o *AddGuildMemberRequest) SetFlags(v int32) {
+func (o *BotAddGuildMemberRequest) SetFlags(v int32) {
 	o.Flags.Set(&v)
 }
 
 // SetFlagsNil sets the value for Flags to be an explicit nil
-func (o *AddGuildMemberRequest) SetFlagsNil() {
+func (o *BotAddGuildMemberRequest) SetFlagsNil() {
 	o.Flags.Set(nil)
 }
 
 // UnsetFlags ensures that no value is present for Flags, not even an explicit nil
-func (o *AddGuildMemberRequest) UnsetFlags() {
+func (o *BotAddGuildMemberRequest) UnsetFlags() {
 	o.Flags.Unset()
 }
 
-func (o AddGuildMemberRequest) MarshalJSON() ([]byte, error) {
+func (o BotAddGuildMemberRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -321,7 +321,7 @@ func (o AddGuildMemberRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o AddGuildMemberRequest) ToMap() (map[string]interface{}, error) {
+func (o BotAddGuildMemberRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Nick.IsSet() {
 		toSerialize["nick"] = o.Nick.Get()
@@ -342,7 +342,7 @@ func (o AddGuildMemberRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *AddGuildMemberRequest) UnmarshalJSON(data []byte) (err error) {
+func (o *BotAddGuildMemberRequest) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -364,53 +364,53 @@ func (o *AddGuildMemberRequest) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varAddGuildMemberRequest := _AddGuildMemberRequest{}
+	varBotAddGuildMemberRequest := _BotAddGuildMemberRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAddGuildMemberRequest)
+	err = decoder.Decode(&varBotAddGuildMemberRequest)
 
 	if err != nil {
 		return err
 	}
 
-	*o = AddGuildMemberRequest(varAddGuildMemberRequest)
+	*o = BotAddGuildMemberRequest(varBotAddGuildMemberRequest)
 
 	return err
 }
 
-type NullableAddGuildMemberRequest struct {
-	value *AddGuildMemberRequest
+type NullableBotAddGuildMemberRequest struct {
+	value *BotAddGuildMemberRequest
 	isSet bool
 }
 
-func (v NullableAddGuildMemberRequest) Get() *AddGuildMemberRequest {
+func (v NullableBotAddGuildMemberRequest) Get() *BotAddGuildMemberRequest {
 	return v.value
 }
 
-func (v *NullableAddGuildMemberRequest) Set(val *AddGuildMemberRequest) {
+func (v *NullableBotAddGuildMemberRequest) Set(val *BotAddGuildMemberRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAddGuildMemberRequest) IsSet() bool {
+func (v NullableBotAddGuildMemberRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAddGuildMemberRequest) Unset() {
+func (v *NullableBotAddGuildMemberRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAddGuildMemberRequest(val *AddGuildMemberRequest) *NullableAddGuildMemberRequest {
-	return &NullableAddGuildMemberRequest{value: val, isSet: true}
+func NewNullableBotAddGuildMemberRequest(val *BotAddGuildMemberRequest) *NullableBotAddGuildMemberRequest {
+	return &NullableBotAddGuildMemberRequest{value: val, isSet: true}
 }
 
-func (v NullableAddGuildMemberRequest) MarshalJSON() ([]byte, error) {
+func (v NullableBotAddGuildMemberRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAddGuildMemberRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableBotAddGuildMemberRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

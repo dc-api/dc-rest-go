@@ -6,7 +6,7 @@ Preview of the Discord v10 HTTP API specification. See https://discord.com/devel
 
 - API version: 10
 - Package version: 10
-- Build date: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+- Build date: 2025-08-08T14:09:23.736426080Z[Etc/UTC]
 - Generator version: 7.14.0
 
 ## Installation
@@ -86,6 +86,7 @@ Class | Method | HTTP request | Description
 *DefaultAPI* | [**AddThreadMember**](docs/DefaultAPI.md#addthreadmember) | **Put** /channels/{channel_id}/thread-members/{user_id} | 
 *DefaultAPI* | [**ApplicationsGetActivityInstance**](docs/DefaultAPI.md#applicationsgetactivityinstance) | **Get** /applications/{application_id}/activity-instances/{instance_id} | 
 *DefaultAPI* | [**BanUserFromGuild**](docs/DefaultAPI.md#banuserfromguild) | **Put** /guilds/{guild_id}/bans/{user_id} | 
+*DefaultAPI* | [**BotPartnerSdkToken**](docs/DefaultAPI.md#botpartnersdktoken) | **Post** /partner-sdk/token/bot | 
 *DefaultAPI* | [**BulkBanUsersFromGuild**](docs/DefaultAPI.md#bulkbanusersfromguild) | **Post** /guilds/{guild_id}/bulk-ban | 
 *DefaultAPI* | [**BulkDeleteMessages**](docs/DefaultAPI.md#bulkdeletemessages) | **Post** /channels/{channel_id}/messages/bulk-delete | 
 *DefaultAPI* | [**BulkSetApplicationCommands**](docs/DefaultAPI.md#bulksetapplicationcommands) | **Put** /applications/{application_id}/commands | 
@@ -100,17 +101,17 @@ Class | Method | HTTP request | Description
 *DefaultAPI* | [**CreateChannelInvite**](docs/DefaultAPI.md#createchannelinvite) | **Post** /channels/{channel_id}/invites | 
 *DefaultAPI* | [**CreateDm**](docs/DefaultAPI.md#createdm) | **Post** /users/@me/channels | 
 *DefaultAPI* | [**CreateEntitlement**](docs/DefaultAPI.md#createentitlement) | **Post** /applications/{application_id}/entitlements | 
-*DefaultAPI* | [**CreateGuild**](docs/DefaultAPI.md#createguild) | **Post** /guilds | 
 *DefaultAPI* | [**CreateGuildApplicationCommand**](docs/DefaultAPI.md#createguildapplicationcommand) | **Post** /applications/{application_id}/guilds/{guild_id}/commands | 
 *DefaultAPI* | [**CreateGuildChannel**](docs/DefaultAPI.md#createguildchannel) | **Post** /guilds/{guild_id}/channels | 
 *DefaultAPI* | [**CreateGuildEmoji**](docs/DefaultAPI.md#createguildemoji) | **Post** /guilds/{guild_id}/emojis | 
-*DefaultAPI* | [**CreateGuildFromTemplate**](docs/DefaultAPI.md#createguildfromtemplate) | **Post** /guilds/templates/{code} | 
 *DefaultAPI* | [**CreateGuildRole**](docs/DefaultAPI.md#createguildrole) | **Post** /guilds/{guild_id}/roles | 
 *DefaultAPI* | [**CreateGuildScheduledEvent**](docs/DefaultAPI.md#createguildscheduledevent) | **Post** /guilds/{guild_id}/scheduled-events | 
 *DefaultAPI* | [**CreateGuildSoundboardSound**](docs/DefaultAPI.md#createguildsoundboardsound) | **Post** /guilds/{guild_id}/soundboard-sounds | 
 *DefaultAPI* | [**CreateGuildSticker**](docs/DefaultAPI.md#createguildsticker) | **Post** /guilds/{guild_id}/stickers | 
 *DefaultAPI* | [**CreateGuildTemplate**](docs/DefaultAPI.md#createguildtemplate) | **Post** /guilds/{guild_id}/templates | 
 *DefaultAPI* | [**CreateInteractionResponse**](docs/DefaultAPI.md#createinteractionresponse) | **Post** /interactions/{interaction_id}/{interaction_token}/callback | 
+*DefaultAPI* | [**CreateLinkedLobbyGuildInviteForSelf**](docs/DefaultAPI.md#createlinkedlobbyguildinviteforself) | **Post** /lobbies/{lobby_id}/members/@me/invites | 
+*DefaultAPI* | [**CreateLinkedLobbyGuildInviteForUser**](docs/DefaultAPI.md#createlinkedlobbyguildinviteforuser) | **Post** /lobbies/{lobby_id}/members/{user_id}/invites | 
 *DefaultAPI* | [**CreateLobby**](docs/DefaultAPI.md#createlobby) | **Post** /lobbies | 
 *DefaultAPI* | [**CreateLobbyMessage**](docs/DefaultAPI.md#createlobbymessage) | **Post** /lobbies/{lobby_id}/messages | 
 *DefaultAPI* | [**CreateMessage**](docs/DefaultAPI.md#createmessage) | **Post** /channels/{channel_id}/messages | 
@@ -313,7 +314,6 @@ Class | Method | HTTP request | Description
  - [ActivitiesAttachmentResponse](docs/ActivitiesAttachmentResponse.md)
  - [AddGroupDmUser201Response](docs/AddGroupDmUser201Response.md)
  - [AddGroupDmUserRequest](docs/AddGroupDmUserRequest.md)
- - [AddGuildMemberRequest](docs/AddGuildMemberRequest.md)
  - [AddLobbyMemberRequest](docs/AddLobbyMemberRequest.md)
  - [ApplicationCommandAttachmentOption](docs/ApplicationCommandAttachmentOption.md)
  - [ApplicationCommandAttachmentOptionResponse](docs/ApplicationCommandAttachmentOptionResponse.md)
@@ -383,12 +383,13 @@ Class | Method | HTTP request | Description
  - [BlockMessageActionMetadataResponse](docs/BlockMessageActionMetadataResponse.md)
  - [BlockMessageActionResponse](docs/BlockMessageActionResponse.md)
  - [BotAccountPatchRequest](docs/BotAccountPatchRequest.md)
+ - [BotAddGuildMemberRequest](docs/BotAddGuildMemberRequest.md)
+ - [BotPartnerSdkTokenRequest](docs/BotPartnerSdkTokenRequest.md)
  - [BulkBanUsersFromGuildRequest](docs/BulkBanUsersFromGuildRequest.md)
  - [BulkBanUsersResponse](docs/BulkBanUsersResponse.md)
  - [BulkDeleteMessagesRequest](docs/BulkDeleteMessagesRequest.md)
  - [BulkLobbyMemberRequest](docs/BulkLobbyMemberRequest.md)
  - [BulkUpdateGuildChannelsRequestInner](docs/BulkUpdateGuildChannelsRequestInner.md)
- - [BulkUpdateGuildRolesRequestInner](docs/BulkUpdateGuildRolesRequestInner.md)
  - [ButtonComponentForMessageRequest](docs/ButtonComponentForMessageRequest.md)
  - [ButtonComponentResponse](docs/ButtonComponentResponse.md)
  - [ChannelFollowerResponse](docs/ChannelFollowerResponse.md)
@@ -401,7 +402,7 @@ Class | Method | HTTP request | Description
  - [ChannelSelectDefaultValueResponse](docs/ChannelSelectDefaultValueResponse.md)
  - [CommandPermissionResponse](docs/CommandPermissionResponse.md)
  - [CommandPermissionsResponse](docs/CommandPermissionsResponse.md)
- - [ComponentEmojiForMessageRequest](docs/ComponentEmojiForMessageRequest.md)
+ - [ComponentEmojiForRequest](docs/ComponentEmojiForRequest.md)
  - [ComponentEmojiResponse](docs/ComponentEmojiResponse.md)
  - [ConnectedAccountGuildResponse](docs/ConnectedAccountGuildResponse.md)
  - [ConnectedAccountIntegrationResponse](docs/ConnectedAccountIntegrationResponse.md)
@@ -419,11 +420,7 @@ Class | Method | HTTP request | Description
  - [CreateGroupDMInviteRequest](docs/CreateGroupDMInviteRequest.md)
  - [CreateGuildChannelRequest](docs/CreateGuildChannelRequest.md)
  - [CreateGuildEmojiRequest](docs/CreateGuildEmojiRequest.md)
- - [CreateGuildFromTemplateRequest](docs/CreateGuildFromTemplateRequest.md)
  - [CreateGuildInviteRequest](docs/CreateGuildInviteRequest.md)
- - [CreateGuildRequestChannelItem](docs/CreateGuildRequestChannelItem.md)
- - [CreateGuildRequestRoleItem](docs/CreateGuildRequestRoleItem.md)
- - [CreateGuildRoleRequest](docs/CreateGuildRoleRequest.md)
  - [CreateGuildScheduledEventRequest](docs/CreateGuildScheduledEventRequest.md)
  - [CreateGuildTemplateRequest](docs/CreateGuildTemplateRequest.md)
  - [CreateInteractionResponseRequest](docs/CreateInteractionResponseRequest.md)
@@ -433,6 +430,7 @@ Class | Method | HTTP request | Description
  - [CreateOrJoinLobbyRequest](docs/CreateOrJoinLobbyRequest.md)
  - [CreateOrUpdateThreadTagRequest](docs/CreateOrUpdateThreadTagRequest.md)
  - [CreatePrivateChannelRequest](docs/CreatePrivateChannelRequest.md)
+ - [CreateRoleRequest](docs/CreateRoleRequest.md)
  - [CreateStageInstanceRequest](docs/CreateStageInstanceRequest.md)
  - [CreateTextThreadWithMessageRequest](docs/CreateTextThreadWithMessageRequest.md)
  - [CreateTextThreadWithoutMessageRequest](docs/CreateTextThreadWithoutMessageRequest.md)
@@ -499,7 +497,6 @@ Class | Method | HTTP request | Description
  - [GuildBanResponse](docs/GuildBanResponse.md)
  - [GuildChannelLocation](docs/GuildChannelLocation.md)
  - [GuildChannelResponse](docs/GuildChannelResponse.md)
- - [GuildCreateRequest](docs/GuildCreateRequest.md)
  - [GuildHomeSettingsResponse](docs/GuildHomeSettingsResponse.md)
  - [GuildIncomingWebhookResponse](docs/GuildIncomingWebhookResponse.md)
  - [GuildInviteResponse](docs/GuildInviteResponse.md)
@@ -555,6 +552,7 @@ Class | Method | HTTP request | Description
  - [ListGuildIntegrations200ResponseInner](docs/ListGuildIntegrations200ResponseInner.md)
  - [ListGuildScheduledEvents200ResponseInner](docs/ListGuildScheduledEvents200ResponseInner.md)
  - [ListGuildSoundboardSoundsResponse](docs/ListGuildSoundboardSoundsResponse.md)
+ - [LobbyGuildInviteResponse](docs/LobbyGuildInviteResponse.md)
  - [LobbyMemberRequest](docs/LobbyMemberRequest.md)
  - [LobbyMemberResponse](docs/LobbyMemberResponse.md)
  - [LobbyMessageResponse](docs/LobbyMessageResponse.md)
@@ -644,6 +642,7 @@ Class | Method | HTTP request | Description
  - [PurchaseNotificationResponse](docs/PurchaseNotificationResponse.md)
  - [QuarantineUserAction](docs/QuarantineUserAction.md)
  - [QuarantineUserActionResponse](docs/QuarantineUserActionResponse.md)
+ - [RatelimitedResponse](docs/RatelimitedResponse.md)
  - [ResolvedObjectsResponse](docs/ResolvedObjectsResponse.md)
  - [ResourceChannelResponse](docs/ResourceChannelResponse.md)
  - [RichEmbed](docs/RichEmbed.md)
@@ -686,7 +685,7 @@ Class | Method | HTTP request | Description
  - [StickerPackResponse](docs/StickerPackResponse.md)
  - [StringSelectComponentForMessageRequest](docs/StringSelectComponentForMessageRequest.md)
  - [StringSelectComponentResponse](docs/StringSelectComponentResponse.md)
- - [StringSelectOptionForMessageRequest](docs/StringSelectOptionForMessageRequest.md)
+ - [StringSelectOptionForRequest](docs/StringSelectOptionForRequest.md)
  - [StringSelectOptionResponse](docs/StringSelectOptionResponse.md)
  - [TeamMemberResponse](docs/TeamMemberResponse.md)
  - [TeamResponse](docs/TeamResponse.md)
@@ -724,6 +723,8 @@ Class | Method | HTTP request | Description
  - [UpdateMessageInteractionCallbackResponse](docs/UpdateMessageInteractionCallbackResponse.md)
  - [UpdateMyGuildMemberRequest](docs/UpdateMyGuildMemberRequest.md)
  - [UpdateOnboardingPromptRequest](docs/UpdateOnboardingPromptRequest.md)
+ - [UpdateRolePositionsRequest](docs/UpdateRolePositionsRequest.md)
+ - [UpdateRoleRequestPartial](docs/UpdateRoleRequestPartial.md)
  - [UpdateSelfVoiceStateRequest](docs/UpdateSelfVoiceStateRequest.md)
  - [UpdateStageInstanceRequest](docs/UpdateStageInstanceRequest.md)
  - [UpdateThreadRequestPartial](docs/UpdateThreadRequestPartial.md)

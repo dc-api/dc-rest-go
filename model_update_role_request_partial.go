@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-08-08T14:09:23.736426080Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -46,70 +46,41 @@ package dc_rest
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
-// checks if the CreateGuildRequestRoleItem type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &CreateGuildRequestRoleItem{}
+// checks if the UpdateRoleRequestPartial type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdateRoleRequestPartial{}
 
-// CreateGuildRequestRoleItem struct for CreateGuildRequestRoleItem
-type CreateGuildRequestRoleItem struct {
-	Id int32 `json:"id"`
+// UpdateRoleRequestPartial struct for UpdateRoleRequestPartial
+type UpdateRoleRequestPartial struct {
 	Name NullableString `json:"name,omitempty"`
 	Permissions NullableInt32 `json:"permissions,omitempty"`
 	Color NullableInt32 `json:"color,omitempty"`
 	Hoist NullableBool `json:"hoist,omitempty"`
 	Mentionable NullableBool `json:"mentionable,omitempty"`
+	Icon NullableString `json:"icon,omitempty"`
 	UnicodeEmoji NullableString `json:"unicode_emoji,omitempty"`
 }
 
-type _CreateGuildRequestRoleItem CreateGuildRequestRoleItem
-
-// NewCreateGuildRequestRoleItem instantiates a new CreateGuildRequestRoleItem object
+// NewUpdateRoleRequestPartial instantiates a new UpdateRoleRequestPartial object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateGuildRequestRoleItem(id int32) *CreateGuildRequestRoleItem {
-	this := CreateGuildRequestRoleItem{}
-	this.Id = id
+func NewUpdateRoleRequestPartial() *UpdateRoleRequestPartial {
+	this := UpdateRoleRequestPartial{}
 	return &this
 }
 
-// NewCreateGuildRequestRoleItemWithDefaults instantiates a new CreateGuildRequestRoleItem object
+// NewUpdateRoleRequestPartialWithDefaults instantiates a new UpdateRoleRequestPartial object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewCreateGuildRequestRoleItemWithDefaults() *CreateGuildRequestRoleItem {
-	this := CreateGuildRequestRoleItem{}
+func NewUpdateRoleRequestPartialWithDefaults() *UpdateRoleRequestPartial {
+	this := UpdateRoleRequestPartial{}
 	return &this
-}
-
-// GetId returns the Id field value
-func (o *CreateGuildRequestRoleItem) GetId() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value
-// and a boolean to check if the value has been set.
-func (o *CreateGuildRequestRoleItem) GetIdOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Id, true
-}
-
-// SetId sets field value
-func (o *CreateGuildRequestRoleItem) SetId(v int32) {
-	o.Id = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateGuildRequestRoleItem) GetName() string {
+func (o *UpdateRoleRequestPartial) GetName() string {
 	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
@@ -120,7 +91,7 @@ func (o *CreateGuildRequestRoleItem) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateGuildRequestRoleItem) GetNameOk() (*string, bool) {
+func (o *UpdateRoleRequestPartial) GetNameOk() (*string, bool) {
 	if o == nil || IsNil(o.Name.Get()) {
 		return nil, false
 	}
@@ -128,7 +99,7 @@ func (o *CreateGuildRequestRoleItem) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *CreateGuildRequestRoleItem) HasName() bool {
+func (o *UpdateRoleRequestPartial) HasName() bool {
 	if o != nil && o.Name.IsSet() {
 		return true
 	}
@@ -137,22 +108,22 @@ func (o *CreateGuildRequestRoleItem) HasName() bool {
 }
 
 // SetName gets a reference to the given NullableString and assigns it to the Name field.
-func (o *CreateGuildRequestRoleItem) SetName(v string) {
+func (o *UpdateRoleRequestPartial) SetName(v string) {
 	o.Name.Set(&v)
 }
 
 // SetNameNil sets the value for Name to be an explicit nil
-func (o *CreateGuildRequestRoleItem) SetNameNil() {
+func (o *UpdateRoleRequestPartial) SetNameNil() {
 	o.Name.Set(nil)
 }
 
 // UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *CreateGuildRequestRoleItem) UnsetName() {
+func (o *UpdateRoleRequestPartial) UnsetName() {
 	o.Name.Unset()
 }
 
 // GetPermissions returns the Permissions field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateGuildRequestRoleItem) GetPermissions() int32 {
+func (o *UpdateRoleRequestPartial) GetPermissions() int32 {
 	if o == nil || IsNil(o.Permissions.Get()) {
 		var ret int32
 		return ret
@@ -163,7 +134,7 @@ func (o *CreateGuildRequestRoleItem) GetPermissions() int32 {
 // GetPermissionsOk returns a tuple with the Permissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateGuildRequestRoleItem) GetPermissionsOk() (*int32, bool) {
+func (o *UpdateRoleRequestPartial) GetPermissionsOk() (*int32, bool) {
 	if o == nil || IsNil(o.Permissions.Get()) {
 		return nil, false
 	}
@@ -171,7 +142,7 @@ func (o *CreateGuildRequestRoleItem) GetPermissionsOk() (*int32, bool) {
 }
 
 // HasPermissions returns a boolean if a field has been set.
-func (o *CreateGuildRequestRoleItem) HasPermissions() bool {
+func (o *UpdateRoleRequestPartial) HasPermissions() bool {
 	if o != nil && o.Permissions.IsSet() {
 		return true
 	}
@@ -180,22 +151,22 @@ func (o *CreateGuildRequestRoleItem) HasPermissions() bool {
 }
 
 // SetPermissions gets a reference to the given NullableInt32 and assigns it to the Permissions field.
-func (o *CreateGuildRequestRoleItem) SetPermissions(v int32) {
+func (o *UpdateRoleRequestPartial) SetPermissions(v int32) {
 	o.Permissions.Set(&v)
 }
 
 // SetPermissionsNil sets the value for Permissions to be an explicit nil
-func (o *CreateGuildRequestRoleItem) SetPermissionsNil() {
+func (o *UpdateRoleRequestPartial) SetPermissionsNil() {
 	o.Permissions.Set(nil)
 }
 
 // UnsetPermissions ensures that no value is present for Permissions, not even an explicit nil
-func (o *CreateGuildRequestRoleItem) UnsetPermissions() {
+func (o *UpdateRoleRequestPartial) UnsetPermissions() {
 	o.Permissions.Unset()
 }
 
 // GetColor returns the Color field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateGuildRequestRoleItem) GetColor() int32 {
+func (o *UpdateRoleRequestPartial) GetColor() int32 {
 	if o == nil || IsNil(o.Color.Get()) {
 		var ret int32
 		return ret
@@ -206,7 +177,7 @@ func (o *CreateGuildRequestRoleItem) GetColor() int32 {
 // GetColorOk returns a tuple with the Color field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateGuildRequestRoleItem) GetColorOk() (*int32, bool) {
+func (o *UpdateRoleRequestPartial) GetColorOk() (*int32, bool) {
 	if o == nil || IsNil(o.Color.Get()) {
 		return nil, false
 	}
@@ -214,7 +185,7 @@ func (o *CreateGuildRequestRoleItem) GetColorOk() (*int32, bool) {
 }
 
 // HasColor returns a boolean if a field has been set.
-func (o *CreateGuildRequestRoleItem) HasColor() bool {
+func (o *UpdateRoleRequestPartial) HasColor() bool {
 	if o != nil && o.Color.IsSet() {
 		return true
 	}
@@ -223,22 +194,22 @@ func (o *CreateGuildRequestRoleItem) HasColor() bool {
 }
 
 // SetColor gets a reference to the given NullableInt32 and assigns it to the Color field.
-func (o *CreateGuildRequestRoleItem) SetColor(v int32) {
+func (o *UpdateRoleRequestPartial) SetColor(v int32) {
 	o.Color.Set(&v)
 }
 
 // SetColorNil sets the value for Color to be an explicit nil
-func (o *CreateGuildRequestRoleItem) SetColorNil() {
+func (o *UpdateRoleRequestPartial) SetColorNil() {
 	o.Color.Set(nil)
 }
 
 // UnsetColor ensures that no value is present for Color, not even an explicit nil
-func (o *CreateGuildRequestRoleItem) UnsetColor() {
+func (o *UpdateRoleRequestPartial) UnsetColor() {
 	o.Color.Unset()
 }
 
 // GetHoist returns the Hoist field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateGuildRequestRoleItem) GetHoist() bool {
+func (o *UpdateRoleRequestPartial) GetHoist() bool {
 	if o == nil || IsNil(o.Hoist.Get()) {
 		var ret bool
 		return ret
@@ -249,7 +220,7 @@ func (o *CreateGuildRequestRoleItem) GetHoist() bool {
 // GetHoistOk returns a tuple with the Hoist field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateGuildRequestRoleItem) GetHoistOk() (*bool, bool) {
+func (o *UpdateRoleRequestPartial) GetHoistOk() (*bool, bool) {
 	if o == nil || IsNil(o.Hoist.Get()) {
 		return nil, false
 	}
@@ -257,7 +228,7 @@ func (o *CreateGuildRequestRoleItem) GetHoistOk() (*bool, bool) {
 }
 
 // HasHoist returns a boolean if a field has been set.
-func (o *CreateGuildRequestRoleItem) HasHoist() bool {
+func (o *UpdateRoleRequestPartial) HasHoist() bool {
 	if o != nil && o.Hoist.IsSet() {
 		return true
 	}
@@ -266,22 +237,22 @@ func (o *CreateGuildRequestRoleItem) HasHoist() bool {
 }
 
 // SetHoist gets a reference to the given NullableBool and assigns it to the Hoist field.
-func (o *CreateGuildRequestRoleItem) SetHoist(v bool) {
+func (o *UpdateRoleRequestPartial) SetHoist(v bool) {
 	o.Hoist.Set(&v)
 }
 
 // SetHoistNil sets the value for Hoist to be an explicit nil
-func (o *CreateGuildRequestRoleItem) SetHoistNil() {
+func (o *UpdateRoleRequestPartial) SetHoistNil() {
 	o.Hoist.Set(nil)
 }
 
 // UnsetHoist ensures that no value is present for Hoist, not even an explicit nil
-func (o *CreateGuildRequestRoleItem) UnsetHoist() {
+func (o *UpdateRoleRequestPartial) UnsetHoist() {
 	o.Hoist.Unset()
 }
 
 // GetMentionable returns the Mentionable field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateGuildRequestRoleItem) GetMentionable() bool {
+func (o *UpdateRoleRequestPartial) GetMentionable() bool {
 	if o == nil || IsNil(o.Mentionable.Get()) {
 		var ret bool
 		return ret
@@ -292,7 +263,7 @@ func (o *CreateGuildRequestRoleItem) GetMentionable() bool {
 // GetMentionableOk returns a tuple with the Mentionable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateGuildRequestRoleItem) GetMentionableOk() (*bool, bool) {
+func (o *UpdateRoleRequestPartial) GetMentionableOk() (*bool, bool) {
 	if o == nil || IsNil(o.Mentionable.Get()) {
 		return nil, false
 	}
@@ -300,7 +271,7 @@ func (o *CreateGuildRequestRoleItem) GetMentionableOk() (*bool, bool) {
 }
 
 // HasMentionable returns a boolean if a field has been set.
-func (o *CreateGuildRequestRoleItem) HasMentionable() bool {
+func (o *UpdateRoleRequestPartial) HasMentionable() bool {
 	if o != nil && o.Mentionable.IsSet() {
 		return true
 	}
@@ -309,22 +280,65 @@ func (o *CreateGuildRequestRoleItem) HasMentionable() bool {
 }
 
 // SetMentionable gets a reference to the given NullableBool and assigns it to the Mentionable field.
-func (o *CreateGuildRequestRoleItem) SetMentionable(v bool) {
+func (o *UpdateRoleRequestPartial) SetMentionable(v bool) {
 	o.Mentionable.Set(&v)
 }
 
 // SetMentionableNil sets the value for Mentionable to be an explicit nil
-func (o *CreateGuildRequestRoleItem) SetMentionableNil() {
+func (o *UpdateRoleRequestPartial) SetMentionableNil() {
 	o.Mentionable.Set(nil)
 }
 
 // UnsetMentionable ensures that no value is present for Mentionable, not even an explicit nil
-func (o *CreateGuildRequestRoleItem) UnsetMentionable() {
+func (o *UpdateRoleRequestPartial) UnsetMentionable() {
 	o.Mentionable.Unset()
 }
 
+// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateRoleRequestPartial) GetIcon() string {
+	if o == nil || IsNil(o.Icon.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Icon.Get()
+}
+
+// GetIconOk returns a tuple with the Icon field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateRoleRequestPartial) GetIconOk() (*string, bool) {
+	if o == nil || IsNil(o.Icon.Get()) {
+		return nil, false
+	}
+	return o.Icon.Get(), o.Icon.IsSet()
+}
+
+// HasIcon returns a boolean if a field has been set.
+func (o *UpdateRoleRequestPartial) HasIcon() bool {
+	if o != nil && o.Icon.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+func (o *UpdateRoleRequestPartial) SetIcon(v string) {
+	o.Icon.Set(&v)
+}
+
+// SetIconNil sets the value for Icon to be an explicit nil
+func (o *UpdateRoleRequestPartial) SetIconNil() {
+	o.Icon.Set(nil)
+}
+
+// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
+func (o *UpdateRoleRequestPartial) UnsetIcon() {
+	o.Icon.Unset()
+}
+
 // GetUnicodeEmoji returns the UnicodeEmoji field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateGuildRequestRoleItem) GetUnicodeEmoji() string {
+func (o *UpdateRoleRequestPartial) GetUnicodeEmoji() string {
 	if o == nil || IsNil(o.UnicodeEmoji.Get()) {
 		var ret string
 		return ret
@@ -335,7 +349,7 @@ func (o *CreateGuildRequestRoleItem) GetUnicodeEmoji() string {
 // GetUnicodeEmojiOk returns a tuple with the UnicodeEmoji field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateGuildRequestRoleItem) GetUnicodeEmojiOk() (*string, bool) {
+func (o *UpdateRoleRequestPartial) GetUnicodeEmojiOk() (*string, bool) {
 	if o == nil || IsNil(o.UnicodeEmoji.Get()) {
 		return nil, false
 	}
@@ -343,7 +357,7 @@ func (o *CreateGuildRequestRoleItem) GetUnicodeEmojiOk() (*string, bool) {
 }
 
 // HasUnicodeEmoji returns a boolean if a field has been set.
-func (o *CreateGuildRequestRoleItem) HasUnicodeEmoji() bool {
+func (o *UpdateRoleRequestPartial) HasUnicodeEmoji() bool {
 	if o != nil && o.UnicodeEmoji.IsSet() {
 		return true
 	}
@@ -352,21 +366,21 @@ func (o *CreateGuildRequestRoleItem) HasUnicodeEmoji() bool {
 }
 
 // SetUnicodeEmoji gets a reference to the given NullableString and assigns it to the UnicodeEmoji field.
-func (o *CreateGuildRequestRoleItem) SetUnicodeEmoji(v string) {
+func (o *UpdateRoleRequestPartial) SetUnicodeEmoji(v string) {
 	o.UnicodeEmoji.Set(&v)
 }
 
 // SetUnicodeEmojiNil sets the value for UnicodeEmoji to be an explicit nil
-func (o *CreateGuildRequestRoleItem) SetUnicodeEmojiNil() {
+func (o *UpdateRoleRequestPartial) SetUnicodeEmojiNil() {
 	o.UnicodeEmoji.Set(nil)
 }
 
 // UnsetUnicodeEmoji ensures that no value is present for UnicodeEmoji, not even an explicit nil
-func (o *CreateGuildRequestRoleItem) UnsetUnicodeEmoji() {
+func (o *UpdateRoleRequestPartial) UnsetUnicodeEmoji() {
 	o.UnicodeEmoji.Unset()
 }
 
-func (o CreateGuildRequestRoleItem) MarshalJSON() ([]byte, error) {
+func (o UpdateRoleRequestPartial) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -374,9 +388,8 @@ func (o CreateGuildRequestRoleItem) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o CreateGuildRequestRoleItem) ToMap() (map[string]interface{}, error) {
+func (o UpdateRoleRequestPartial) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
@@ -392,81 +405,47 @@ func (o CreateGuildRequestRoleItem) ToMap() (map[string]interface{}, error) {
 	if o.Mentionable.IsSet() {
 		toSerialize["mentionable"] = o.Mentionable.Get()
 	}
+	if o.Icon.IsSet() {
+		toSerialize["icon"] = o.Icon.Get()
+	}
 	if o.UnicodeEmoji.IsSet() {
 		toSerialize["unicode_emoji"] = o.UnicodeEmoji.Get()
 	}
 	return toSerialize, nil
 }
 
-func (o *CreateGuildRequestRoleItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varCreateGuildRequestRoleItem := _CreateGuildRequestRoleItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateGuildRequestRoleItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = CreateGuildRequestRoleItem(varCreateGuildRequestRoleItem)
-
-	return err
-}
-
-type NullableCreateGuildRequestRoleItem struct {
-	value *CreateGuildRequestRoleItem
+type NullableUpdateRoleRequestPartial struct {
+	value *UpdateRoleRequestPartial
 	isSet bool
 }
 
-func (v NullableCreateGuildRequestRoleItem) Get() *CreateGuildRequestRoleItem {
+func (v NullableUpdateRoleRequestPartial) Get() *UpdateRoleRequestPartial {
 	return v.value
 }
 
-func (v *NullableCreateGuildRequestRoleItem) Set(val *CreateGuildRequestRoleItem) {
+func (v *NullableUpdateRoleRequestPartial) Set(val *UpdateRoleRequestPartial) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableCreateGuildRequestRoleItem) IsSet() bool {
+func (v NullableUpdateRoleRequestPartial) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableCreateGuildRequestRoleItem) Unset() {
+func (v *NullableUpdateRoleRequestPartial) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableCreateGuildRequestRoleItem(val *CreateGuildRequestRoleItem) *NullableCreateGuildRequestRoleItem {
-	return &NullableCreateGuildRequestRoleItem{value: val, isSet: true}
+func NewNullableUpdateRoleRequestPartial(val *UpdateRoleRequestPartial) *NullableUpdateRoleRequestPartial {
+	return &NullableUpdateRoleRequestPartial{value: val, isSet: true}
 }
 
-func (v NullableCreateGuildRequestRoleItem) MarshalJSON() ([]byte, error) {
+func (v NullableUpdateRoleRequestPartial) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableCreateGuildRequestRoleItem) UnmarshalJSON(src []byte) error {
+func (v *NullableUpdateRoleRequestPartial) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

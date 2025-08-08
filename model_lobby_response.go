@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-08-08T14:09:23.736426080Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -60,6 +60,7 @@ type LobbyResponse struct {
 	Metadata map[string]string `json:"metadata,omitempty"`
 	Members []LobbyMemberResponse `json:"members,omitempty"`
 	LinkedChannel NullableGuildChannelResponse `json:"linked_channel,omitempty"`
+	Flags int64 `json:"flags"`
 }
 
 type _LobbyResponse LobbyResponse
@@ -68,10 +69,11 @@ type _LobbyResponse LobbyResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLobbyResponse(id string, applicationId string) *LobbyResponse {
+func NewLobbyResponse(id string, applicationId string, flags int64) *LobbyResponse {
 	this := LobbyResponse{}
 	this.Id = id
 	this.ApplicationId = applicationId
+	this.Flags = flags
 	return &this
 }
 
@@ -241,6 +243,30 @@ func (o *LobbyResponse) UnsetLinkedChannel() {
 	o.LinkedChannel.Unset()
 }
 
+// GetFlags returns the Flags field value
+func (o *LobbyResponse) GetFlags() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.Flags
+}
+
+// GetFlagsOk returns a tuple with the Flags field value
+// and a boolean to check if the value has been set.
+func (o *LobbyResponse) GetFlagsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Flags, true
+}
+
+// SetFlags sets field value
+func (o *LobbyResponse) SetFlags(v int64) {
+	o.Flags = v
+}
+
 func (o LobbyResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -262,6 +288,7 @@ func (o LobbyResponse) ToMap() (map[string]interface{}, error) {
 	if o.LinkedChannel.IsSet() {
 		toSerialize["linked_channel"] = o.LinkedChannel.Get()
 	}
+	toSerialize["flags"] = o.Flags
 	return toSerialize, nil
 }
 
@@ -272,6 +299,7 @@ func (o *LobbyResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"id",
 		"application_id",
+		"flags",
 	}
 
 	allProperties := make(map[string]interface{})
