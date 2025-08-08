@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-08-08T14:09:23.736426080Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -50,41 +50,41 @@ import (
 	"fmt"
 )
 
-// checks if the StringSelectOptionForMessageRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &StringSelectOptionForMessageRequest{}
+// checks if the StringSelectOptionForRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &StringSelectOptionForRequest{}
 
-// StringSelectOptionForMessageRequest struct for StringSelectOptionForMessageRequest
-type StringSelectOptionForMessageRequest struct {
+// StringSelectOptionForRequest struct for StringSelectOptionForRequest
+type StringSelectOptionForRequest struct {
 	Label string `json:"label"`
 	Value string `json:"value"`
 	Description NullableString `json:"description,omitempty"`
 	Default NullableBool `json:"default,omitempty"`
-	Emoji NullableComponentEmojiForMessageRequest `json:"emoji,omitempty"`
+	Emoji NullableComponentEmojiForRequest `json:"emoji,omitempty"`
 }
 
-type _StringSelectOptionForMessageRequest StringSelectOptionForMessageRequest
+type _StringSelectOptionForRequest StringSelectOptionForRequest
 
-// NewStringSelectOptionForMessageRequest instantiates a new StringSelectOptionForMessageRequest object
+// NewStringSelectOptionForRequest instantiates a new StringSelectOptionForRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStringSelectOptionForMessageRequest(label string, value string) *StringSelectOptionForMessageRequest {
-	this := StringSelectOptionForMessageRequest{}
+func NewStringSelectOptionForRequest(label string, value string) *StringSelectOptionForRequest {
+	this := StringSelectOptionForRequest{}
 	this.Label = label
 	this.Value = value
 	return &this
 }
 
-// NewStringSelectOptionForMessageRequestWithDefaults instantiates a new StringSelectOptionForMessageRequest object
+// NewStringSelectOptionForRequestWithDefaults instantiates a new StringSelectOptionForRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewStringSelectOptionForMessageRequestWithDefaults() *StringSelectOptionForMessageRequest {
-	this := StringSelectOptionForMessageRequest{}
+func NewStringSelectOptionForRequestWithDefaults() *StringSelectOptionForRequest {
+	this := StringSelectOptionForRequest{}
 	return &this
 }
 
 // GetLabel returns the Label field value
-func (o *StringSelectOptionForMessageRequest) GetLabel() string {
+func (o *StringSelectOptionForRequest) GetLabel() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -95,7 +95,7 @@ func (o *StringSelectOptionForMessageRequest) GetLabel() string {
 
 // GetLabelOk returns a tuple with the Label field value
 // and a boolean to check if the value has been set.
-func (o *StringSelectOptionForMessageRequest) GetLabelOk() (*string, bool) {
+func (o *StringSelectOptionForRequest) GetLabelOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -103,12 +103,12 @@ func (o *StringSelectOptionForMessageRequest) GetLabelOk() (*string, bool) {
 }
 
 // SetLabel sets field value
-func (o *StringSelectOptionForMessageRequest) SetLabel(v string) {
+func (o *StringSelectOptionForRequest) SetLabel(v string) {
 	o.Label = v
 }
 
 // GetValue returns the Value field value
-func (o *StringSelectOptionForMessageRequest) GetValue() string {
+func (o *StringSelectOptionForRequest) GetValue() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -119,7 +119,7 @@ func (o *StringSelectOptionForMessageRequest) GetValue() string {
 
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-func (o *StringSelectOptionForMessageRequest) GetValueOk() (*string, bool) {
+func (o *StringSelectOptionForRequest) GetValueOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -127,12 +127,12 @@ func (o *StringSelectOptionForMessageRequest) GetValueOk() (*string, bool) {
 }
 
 // SetValue sets field value
-func (o *StringSelectOptionForMessageRequest) SetValue(v string) {
+func (o *StringSelectOptionForRequest) SetValue(v string) {
 	o.Value = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *StringSelectOptionForMessageRequest) GetDescription() string {
+func (o *StringSelectOptionForRequest) GetDescription() string {
 	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
@@ -143,7 +143,7 @@ func (o *StringSelectOptionForMessageRequest) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *StringSelectOptionForMessageRequest) GetDescriptionOk() (*string, bool) {
+func (o *StringSelectOptionForRequest) GetDescriptionOk() (*string, bool) {
 	if o == nil || IsNil(o.Description.Get()) {
 		return nil, false
 	}
@@ -151,7 +151,7 @@ func (o *StringSelectOptionForMessageRequest) GetDescriptionOk() (*string, bool)
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *StringSelectOptionForMessageRequest) HasDescription() bool {
+func (o *StringSelectOptionForRequest) HasDescription() bool {
 	if o != nil && o.Description.IsSet() {
 		return true
 	}
@@ -160,22 +160,22 @@ func (o *StringSelectOptionForMessageRequest) HasDescription() bool {
 }
 
 // SetDescription gets a reference to the given NullableString and assigns it to the Description field.
-func (o *StringSelectOptionForMessageRequest) SetDescription(v string) {
+func (o *StringSelectOptionForRequest) SetDescription(v string) {
 	o.Description.Set(&v)
 }
 
 // SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *StringSelectOptionForMessageRequest) SetDescriptionNil() {
+func (o *StringSelectOptionForRequest) SetDescriptionNil() {
 	o.Description.Set(nil)
 }
 
 // UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *StringSelectOptionForMessageRequest) UnsetDescription() {
+func (o *StringSelectOptionForRequest) UnsetDescription() {
 	o.Description.Unset()
 }
 
 // GetDefault returns the Default field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *StringSelectOptionForMessageRequest) GetDefault() bool {
+func (o *StringSelectOptionForRequest) GetDefault() bool {
 	if o == nil || IsNil(o.Default.Get()) {
 		var ret bool
 		return ret
@@ -186,7 +186,7 @@ func (o *StringSelectOptionForMessageRequest) GetDefault() bool {
 // GetDefaultOk returns a tuple with the Default field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *StringSelectOptionForMessageRequest) GetDefaultOk() (*bool, bool) {
+func (o *StringSelectOptionForRequest) GetDefaultOk() (*bool, bool) {
 	if o == nil || IsNil(o.Default.Get()) {
 		return nil, false
 	}
@@ -194,7 +194,7 @@ func (o *StringSelectOptionForMessageRequest) GetDefaultOk() (*bool, bool) {
 }
 
 // HasDefault returns a boolean if a field has been set.
-func (o *StringSelectOptionForMessageRequest) HasDefault() bool {
+func (o *StringSelectOptionForRequest) HasDefault() bool {
 	if o != nil && o.Default.IsSet() {
 		return true
 	}
@@ -203,24 +203,24 @@ func (o *StringSelectOptionForMessageRequest) HasDefault() bool {
 }
 
 // SetDefault gets a reference to the given NullableBool and assigns it to the Default field.
-func (o *StringSelectOptionForMessageRequest) SetDefault(v bool) {
+func (o *StringSelectOptionForRequest) SetDefault(v bool) {
 	o.Default.Set(&v)
 }
 
 // SetDefaultNil sets the value for Default to be an explicit nil
-func (o *StringSelectOptionForMessageRequest) SetDefaultNil() {
+func (o *StringSelectOptionForRequest) SetDefaultNil() {
 	o.Default.Set(nil)
 }
 
 // UnsetDefault ensures that no value is present for Default, not even an explicit nil
-func (o *StringSelectOptionForMessageRequest) UnsetDefault() {
+func (o *StringSelectOptionForRequest) UnsetDefault() {
 	o.Default.Unset()
 }
 
 // GetEmoji returns the Emoji field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *StringSelectOptionForMessageRequest) GetEmoji() ComponentEmojiForMessageRequest {
+func (o *StringSelectOptionForRequest) GetEmoji() ComponentEmojiForRequest {
 	if o == nil || IsNil(o.Emoji.Get()) {
-		var ret ComponentEmojiForMessageRequest
+		var ret ComponentEmojiForRequest
 		return ret
 	}
 	return *o.Emoji.Get()
@@ -229,7 +229,7 @@ func (o *StringSelectOptionForMessageRequest) GetEmoji() ComponentEmojiForMessag
 // GetEmojiOk returns a tuple with the Emoji field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *StringSelectOptionForMessageRequest) GetEmojiOk() (*ComponentEmojiForMessageRequest, bool) {
+func (o *StringSelectOptionForRequest) GetEmojiOk() (*ComponentEmojiForRequest, bool) {
 	if o == nil || IsNil(o.Emoji.Get()) {
 		return nil, false
 	}
@@ -237,7 +237,7 @@ func (o *StringSelectOptionForMessageRequest) GetEmojiOk() (*ComponentEmojiForMe
 }
 
 // HasEmoji returns a boolean if a field has been set.
-func (o *StringSelectOptionForMessageRequest) HasEmoji() bool {
+func (o *StringSelectOptionForRequest) HasEmoji() bool {
 	if o != nil && o.Emoji.IsSet() {
 		return true
 	}
@@ -245,22 +245,22 @@ func (o *StringSelectOptionForMessageRequest) HasEmoji() bool {
 	return false
 }
 
-// SetEmoji gets a reference to the given NullableComponentEmojiForMessageRequest and assigns it to the Emoji field.
-func (o *StringSelectOptionForMessageRequest) SetEmoji(v ComponentEmojiForMessageRequest) {
+// SetEmoji gets a reference to the given NullableComponentEmojiForRequest and assigns it to the Emoji field.
+func (o *StringSelectOptionForRequest) SetEmoji(v ComponentEmojiForRequest) {
 	o.Emoji.Set(&v)
 }
 
 // SetEmojiNil sets the value for Emoji to be an explicit nil
-func (o *StringSelectOptionForMessageRequest) SetEmojiNil() {
+func (o *StringSelectOptionForRequest) SetEmojiNil() {
 	o.Emoji.Set(nil)
 }
 
 // UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
-func (o *StringSelectOptionForMessageRequest) UnsetEmoji() {
+func (o *StringSelectOptionForRequest) UnsetEmoji() {
 	o.Emoji.Unset()
 }
 
-func (o StringSelectOptionForMessageRequest) MarshalJSON() ([]byte, error) {
+func (o StringSelectOptionForRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -268,7 +268,7 @@ func (o StringSelectOptionForMessageRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o StringSelectOptionForMessageRequest) ToMap() (map[string]interface{}, error) {
+func (o StringSelectOptionForRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["label"] = o.Label
 	toSerialize["value"] = o.Value
@@ -284,7 +284,7 @@ func (o StringSelectOptionForMessageRequest) ToMap() (map[string]interface{}, er
 	return toSerialize, nil
 }
 
-func (o *StringSelectOptionForMessageRequest) UnmarshalJSON(data []byte) (err error) {
+func (o *StringSelectOptionForRequest) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -307,53 +307,53 @@ func (o *StringSelectOptionForMessageRequest) UnmarshalJSON(data []byte) (err er
 		}
 	}
 
-	varStringSelectOptionForMessageRequest := _StringSelectOptionForMessageRequest{}
+	varStringSelectOptionForRequest := _StringSelectOptionForRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varStringSelectOptionForMessageRequest)
+	err = decoder.Decode(&varStringSelectOptionForRequest)
 
 	if err != nil {
 		return err
 	}
 
-	*o = StringSelectOptionForMessageRequest(varStringSelectOptionForMessageRequest)
+	*o = StringSelectOptionForRequest(varStringSelectOptionForRequest)
 
 	return err
 }
 
-type NullableStringSelectOptionForMessageRequest struct {
-	value *StringSelectOptionForMessageRequest
+type NullableStringSelectOptionForRequest struct {
+	value *StringSelectOptionForRequest
 	isSet bool
 }
 
-func (v NullableStringSelectOptionForMessageRequest) Get() *StringSelectOptionForMessageRequest {
+func (v NullableStringSelectOptionForRequest) Get() *StringSelectOptionForRequest {
 	return v.value
 }
 
-func (v *NullableStringSelectOptionForMessageRequest) Set(val *StringSelectOptionForMessageRequest) {
+func (v *NullableStringSelectOptionForRequest) Set(val *StringSelectOptionForRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableStringSelectOptionForMessageRequest) IsSet() bool {
+func (v NullableStringSelectOptionForRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableStringSelectOptionForMessageRequest) Unset() {
+func (v *NullableStringSelectOptionForRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableStringSelectOptionForMessageRequest(val *StringSelectOptionForMessageRequest) *NullableStringSelectOptionForMessageRequest {
-	return &NullableStringSelectOptionForMessageRequest{value: val, isSet: true}
+func NewNullableStringSelectOptionForRequest(val *StringSelectOptionForRequest) *NullableStringSelectOptionForRequest {
+	return &NullableStringSelectOptionForRequest{value: val, isSet: true}
 }
 
-func (v NullableStringSelectOptionForMessageRequest) MarshalJSON() ([]byte, error) {
+func (v NullableStringSelectOptionForRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableStringSelectOptionForMessageRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableStringSelectOptionForRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

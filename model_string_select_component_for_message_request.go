@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-08-08T14:09:23.736426080Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -61,7 +61,7 @@ type StringSelectComponentForMessageRequest struct {
 	MinValues NullableInt32 `json:"min_values,omitempty"`
 	MaxValues NullableInt32 `json:"max_values,omitempty"`
 	Disabled NullableBool `json:"disabled,omitempty"`
-	Options []StringSelectOptionForMessageRequest `json:"options"`
+	Options []StringSelectOptionForRequest `json:"options"`
 }
 
 type _StringSelectComponentForMessageRequest StringSelectComponentForMessageRequest
@@ -70,7 +70,7 @@ type _StringSelectComponentForMessageRequest StringSelectComponentForMessageRequ
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStringSelectComponentForMessageRequest(type_ int32, customId string, options []StringSelectOptionForMessageRequest) *StringSelectComponentForMessageRequest {
+func NewStringSelectComponentForMessageRequest(type_ int32, customId string, options []StringSelectOptionForRequest) *StringSelectComponentForMessageRequest {
 	this := StringSelectComponentForMessageRequest{}
 	this.Type = type_
 	this.CustomId = customId
@@ -307,9 +307,9 @@ func (o *StringSelectComponentForMessageRequest) UnsetDisabled() {
 }
 
 // GetOptions returns the Options field value
-func (o *StringSelectComponentForMessageRequest) GetOptions() []StringSelectOptionForMessageRequest {
+func (o *StringSelectComponentForMessageRequest) GetOptions() []StringSelectOptionForRequest {
 	if o == nil {
-		var ret []StringSelectOptionForMessageRequest
+		var ret []StringSelectOptionForRequest
 		return ret
 	}
 
@@ -318,7 +318,7 @@ func (o *StringSelectComponentForMessageRequest) GetOptions() []StringSelectOpti
 
 // GetOptionsOk returns a tuple with the Options field value
 // and a boolean to check if the value has been set.
-func (o *StringSelectComponentForMessageRequest) GetOptionsOk() ([]StringSelectOptionForMessageRequest, bool) {
+func (o *StringSelectComponentForMessageRequest) GetOptionsOk() ([]StringSelectOptionForRequest, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -326,7 +326,7 @@ func (o *StringSelectComponentForMessageRequest) GetOptionsOk() ([]StringSelectO
 }
 
 // SetOptions sets field value
-func (o *StringSelectComponentForMessageRequest) SetOptions(v []StringSelectOptionForMessageRequest) {
+func (o *StringSelectComponentForMessageRequest) SetOptions(v []StringSelectOptionForRequest) {
 	o.Options = v
 }
 

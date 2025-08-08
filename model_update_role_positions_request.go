@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-08-08T14:09:23.736426080Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -48,34 +48,34 @@ import (
 	"encoding/json"
 )
 
-// checks if the BulkUpdateGuildRolesRequestInner type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &BulkUpdateGuildRolesRequestInner{}
+// checks if the UpdateRolePositionsRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdateRolePositionsRequest{}
 
-// BulkUpdateGuildRolesRequestInner struct for BulkUpdateGuildRolesRequestInner
-type BulkUpdateGuildRolesRequestInner struct {
+// UpdateRolePositionsRequest struct for UpdateRolePositionsRequest
+type UpdateRolePositionsRequest struct {
 	Id *string `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Position NullableInt32 `json:"position,omitempty"`
 }
 
-// NewBulkUpdateGuildRolesRequestInner instantiates a new BulkUpdateGuildRolesRequestInner object
+// NewUpdateRolePositionsRequest instantiates a new UpdateRolePositionsRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBulkUpdateGuildRolesRequestInner() *BulkUpdateGuildRolesRequestInner {
-	this := BulkUpdateGuildRolesRequestInner{}
+func NewUpdateRolePositionsRequest() *UpdateRolePositionsRequest {
+	this := UpdateRolePositionsRequest{}
 	return &this
 }
 
-// NewBulkUpdateGuildRolesRequestInnerWithDefaults instantiates a new BulkUpdateGuildRolesRequestInner object
+// NewUpdateRolePositionsRequestWithDefaults instantiates a new UpdateRolePositionsRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewBulkUpdateGuildRolesRequestInnerWithDefaults() *BulkUpdateGuildRolesRequestInner {
-	this := BulkUpdateGuildRolesRequestInner{}
+func NewUpdateRolePositionsRequestWithDefaults() *UpdateRolePositionsRequest {
+	this := UpdateRolePositionsRequest{}
 	return &this
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *BulkUpdateGuildRolesRequestInner) GetId() string {
+func (o *UpdateRolePositionsRequest) GetId() string {
 	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
@@ -85,7 +85,7 @@ func (o *BulkUpdateGuildRolesRequestInner) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BulkUpdateGuildRolesRequestInner) GetIdOk() (*string, bool) {
+func (o *UpdateRolePositionsRequest) GetIdOk() (*string, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -93,7 +93,7 @@ func (o *BulkUpdateGuildRolesRequestInner) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *BulkUpdateGuildRolesRequestInner) HasId() bool {
+func (o *UpdateRolePositionsRequest) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -102,13 +102,13 @@ func (o *BulkUpdateGuildRolesRequestInner) HasId() bool {
 }
 
 // SetId gets a reference to the given string and assigns it to the Id field.
-func (o *BulkUpdateGuildRolesRequestInner) SetId(v string) {
+func (o *UpdateRolePositionsRequest) SetId(v string) {
 	o.Id = &v
 }
 
 
 // GetPosition returns the Position field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BulkUpdateGuildRolesRequestInner) GetPosition() int32 {
+func (o *UpdateRolePositionsRequest) GetPosition() int32 {
 	if o == nil || IsNil(o.Position.Get()) {
 		var ret int32
 		return ret
@@ -119,7 +119,7 @@ func (o *BulkUpdateGuildRolesRequestInner) GetPosition() int32 {
 // GetPositionOk returns a tuple with the Position field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BulkUpdateGuildRolesRequestInner) GetPositionOk() (*int32, bool) {
+func (o *UpdateRolePositionsRequest) GetPositionOk() (*int32, bool) {
 	if o == nil || IsNil(o.Position.Get()) {
 		return nil, false
 	}
@@ -127,7 +127,7 @@ func (o *BulkUpdateGuildRolesRequestInner) GetPositionOk() (*int32, bool) {
 }
 
 // HasPosition returns a boolean if a field has been set.
-func (o *BulkUpdateGuildRolesRequestInner) HasPosition() bool {
+func (o *UpdateRolePositionsRequest) HasPosition() bool {
 	if o != nil && o.Position.IsSet() {
 		return true
 	}
@@ -136,21 +136,21 @@ func (o *BulkUpdateGuildRolesRequestInner) HasPosition() bool {
 }
 
 // SetPosition gets a reference to the given NullableInt32 and assigns it to the Position field.
-func (o *BulkUpdateGuildRolesRequestInner) SetPosition(v int32) {
+func (o *UpdateRolePositionsRequest) SetPosition(v int32) {
 	o.Position.Set(&v)
 }
 
 // SetPositionNil sets the value for Position to be an explicit nil
-func (o *BulkUpdateGuildRolesRequestInner) SetPositionNil() {
+func (o *UpdateRolePositionsRequest) SetPositionNil() {
 	o.Position.Set(nil)
 }
 
 // UnsetPosition ensures that no value is present for Position, not even an explicit nil
-func (o *BulkUpdateGuildRolesRequestInner) UnsetPosition() {
+func (o *UpdateRolePositionsRequest) UnsetPosition() {
 	o.Position.Unset()
 }
 
-func (o BulkUpdateGuildRolesRequestInner) MarshalJSON() ([]byte, error) {
+func (o UpdateRolePositionsRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -158,7 +158,7 @@ func (o BulkUpdateGuildRolesRequestInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o BulkUpdateGuildRolesRequestInner) ToMap() (map[string]interface{}, error) {
+func (o UpdateRolePositionsRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
@@ -169,38 +169,38 @@ func (o BulkUpdateGuildRolesRequestInner) ToMap() (map[string]interface{}, error
 	return toSerialize, nil
 }
 
-type NullableBulkUpdateGuildRolesRequestInner struct {
-	value *BulkUpdateGuildRolesRequestInner
+type NullableUpdateRolePositionsRequest struct {
+	value *UpdateRolePositionsRequest
 	isSet bool
 }
 
-func (v NullableBulkUpdateGuildRolesRequestInner) Get() *BulkUpdateGuildRolesRequestInner {
+func (v NullableUpdateRolePositionsRequest) Get() *UpdateRolePositionsRequest {
 	return v.value
 }
 
-func (v *NullableBulkUpdateGuildRolesRequestInner) Set(val *BulkUpdateGuildRolesRequestInner) {
+func (v *NullableUpdateRolePositionsRequest) Set(val *UpdateRolePositionsRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableBulkUpdateGuildRolesRequestInner) IsSet() bool {
+func (v NullableUpdateRolePositionsRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableBulkUpdateGuildRolesRequestInner) Unset() {
+func (v *NullableUpdateRolePositionsRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableBulkUpdateGuildRolesRequestInner(val *BulkUpdateGuildRolesRequestInner) *NullableBulkUpdateGuildRolesRequestInner {
-	return &NullableBulkUpdateGuildRolesRequestInner{value: val, isSet: true}
+func NewNullableUpdateRolePositionsRequest(val *UpdateRolePositionsRequest) *NullableUpdateRolePositionsRequest {
+	return &NullableUpdateRolePositionsRequest{value: val, isSet: true}
 }
 
-func (v NullableBulkUpdateGuildRolesRequestInner) MarshalJSON() ([]byte, error) {
+func (v NullableUpdateRolePositionsRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableBulkUpdateGuildRolesRequestInner) UnmarshalJSON(src []byte) error {
+func (v *NullableUpdateRolePositionsRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

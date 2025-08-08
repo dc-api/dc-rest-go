@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 **MinValues** | Pointer to **NullableInt32** |  | [optional] 
 **MaxValues** | Pointer to **NullableInt32** |  | [optional] 
 **Disabled** | Pointer to **NullableBool** |  | [optional] 
-**Options** | [**[]StringSelectOptionForMessageRequest**](StringSelectOptionForMessageRequest.md) |  | 
+**Options** | [**[]StringSelectOptionForRequest**](StringSelectOptionForRequest.md) |  | 
 
 ## Methods
 
 ### NewStringSelectComponentForMessageRequest
 
-`func NewStringSelectComponentForMessageRequest(type_ int32, customId string, options []StringSelectOptionForMessageRequest, ) *StringSelectComponentForMessageRequest`
+`func NewStringSelectComponentForMessageRequest(type_ int32, customId string, options []StringSelectOptionForRequest, ) *StringSelectComponentForMessageRequest`
 
 NewStringSelectComponentForMessageRequest instantiates a new StringSelectComponentForMessageRequest object
 This constructor will assign default values to properties that have it defined,
@@ -213,20 +213,20 @@ HasDisabled returns a boolean if a field has been set.
 UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
 ### GetOptions
 
-`func (o *StringSelectComponentForMessageRequest) GetOptions() []StringSelectOptionForMessageRequest`
+`func (o *StringSelectComponentForMessageRequest) GetOptions() []StringSelectOptionForRequest`
 
 GetOptions returns the Options field if non-nil, zero value otherwise.
 
 ### GetOptionsOk
 
-`func (o *StringSelectComponentForMessageRequest) GetOptionsOk() (*[]StringSelectOptionForMessageRequest, bool)`
+`func (o *StringSelectComponentForMessageRequest) GetOptionsOk() (*[]StringSelectOptionForRequest, bool)`
 
 GetOptionsOk returns a tuple with the Options field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOptions
 
-`func (o *StringSelectComponentForMessageRequest) SetOptions(v []StringSelectOptionForMessageRequest)`
+`func (o *StringSelectComponentForMessageRequest) SetOptions(v []StringSelectOptionForRequest)`
 
 SetOptions sets Options field to given value.
 

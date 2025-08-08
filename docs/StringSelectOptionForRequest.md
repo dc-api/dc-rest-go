@@ -1,4 +1,4 @@
-# StringSelectOptionForMessageRequest
+# StringSelectOptionForRequest
 
 ## Properties
 
@@ -8,170 +8,170 @@ Name | Type | Description | Notes
 **Value** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Default** | Pointer to **NullableBool** |  | [optional] 
-**Emoji** | Pointer to [**NullableComponentEmojiForMessageRequest**](ComponentEmojiForMessageRequest.md) |  | [optional] 
+**Emoji** | Pointer to [**NullableComponentEmojiForRequest**](ComponentEmojiForRequest.md) |  | [optional] 
 
 ## Methods
 
-### NewStringSelectOptionForMessageRequest
+### NewStringSelectOptionForRequest
 
-`func NewStringSelectOptionForMessageRequest(label string, value string, ) *StringSelectOptionForMessageRequest`
+`func NewStringSelectOptionForRequest(label string, value string, ) *StringSelectOptionForRequest`
 
-NewStringSelectOptionForMessageRequest instantiates a new StringSelectOptionForMessageRequest object
+NewStringSelectOptionForRequest instantiates a new StringSelectOptionForRequest object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewStringSelectOptionForMessageRequestWithDefaults
+### NewStringSelectOptionForRequestWithDefaults
 
-`func NewStringSelectOptionForMessageRequestWithDefaults() *StringSelectOptionForMessageRequest`
+`func NewStringSelectOptionForRequestWithDefaults() *StringSelectOptionForRequest`
 
-NewStringSelectOptionForMessageRequestWithDefaults instantiates a new StringSelectOptionForMessageRequest object
+NewStringSelectOptionForRequestWithDefaults instantiates a new StringSelectOptionForRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetLabel
 
-`func (o *StringSelectOptionForMessageRequest) GetLabel() string`
+`func (o *StringSelectOptionForRequest) GetLabel() string`
 
 GetLabel returns the Label field if non-nil, zero value otherwise.
 
 ### GetLabelOk
 
-`func (o *StringSelectOptionForMessageRequest) GetLabelOk() (*string, bool)`
+`func (o *StringSelectOptionForRequest) GetLabelOk() (*string, bool)`
 
 GetLabelOk returns a tuple with the Label field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLabel
 
-`func (o *StringSelectOptionForMessageRequest) SetLabel(v string)`
+`func (o *StringSelectOptionForRequest) SetLabel(v string)`
 
 SetLabel sets Label field to given value.
 
 
 ### GetValue
 
-`func (o *StringSelectOptionForMessageRequest) GetValue() string`
+`func (o *StringSelectOptionForRequest) GetValue() string`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *StringSelectOptionForMessageRequest) GetValueOk() (*string, bool)`
+`func (o *StringSelectOptionForRequest) GetValueOk() (*string, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *StringSelectOptionForMessageRequest) SetValue(v string)`
+`func (o *StringSelectOptionForRequest) SetValue(v string)`
 
 SetValue sets Value field to given value.
 
 
 ### GetDescription
 
-`func (o *StringSelectOptionForMessageRequest) GetDescription() string`
+`func (o *StringSelectOptionForRequest) GetDescription() string`
 
 GetDescription returns the Description field if non-nil, zero value otherwise.
 
 ### GetDescriptionOk
 
-`func (o *StringSelectOptionForMessageRequest) GetDescriptionOk() (*string, bool)`
+`func (o *StringSelectOptionForRequest) GetDescriptionOk() (*string, bool)`
 
 GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDescription
 
-`func (o *StringSelectOptionForMessageRequest) SetDescription(v string)`
+`func (o *StringSelectOptionForRequest) SetDescription(v string)`
 
 SetDescription sets Description field to given value.
 
 ### HasDescription
 
-`func (o *StringSelectOptionForMessageRequest) HasDescription() bool`
+`func (o *StringSelectOptionForRequest) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
 
 ### SetDescriptionNil
 
-`func (o *StringSelectOptionForMessageRequest) SetDescriptionNil(b bool)`
+`func (o *StringSelectOptionForRequest) SetDescriptionNil(b bool)`
 
  SetDescriptionNil sets the value for Description to be an explicit nil
 
 ### UnsetDescription
-`func (o *StringSelectOptionForMessageRequest) UnsetDescription()`
+`func (o *StringSelectOptionForRequest) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetDefault
 
-`func (o *StringSelectOptionForMessageRequest) GetDefault() bool`
+`func (o *StringSelectOptionForRequest) GetDefault() bool`
 
 GetDefault returns the Default field if non-nil, zero value otherwise.
 
 ### GetDefaultOk
 
-`func (o *StringSelectOptionForMessageRequest) GetDefaultOk() (*bool, bool)`
+`func (o *StringSelectOptionForRequest) GetDefaultOk() (*bool, bool)`
 
 GetDefaultOk returns a tuple with the Default field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefault
 
-`func (o *StringSelectOptionForMessageRequest) SetDefault(v bool)`
+`func (o *StringSelectOptionForRequest) SetDefault(v bool)`
 
 SetDefault sets Default field to given value.
 
 ### HasDefault
 
-`func (o *StringSelectOptionForMessageRequest) HasDefault() bool`
+`func (o *StringSelectOptionForRequest) HasDefault() bool`
 
 HasDefault returns a boolean if a field has been set.
 
 ### SetDefaultNil
 
-`func (o *StringSelectOptionForMessageRequest) SetDefaultNil(b bool)`
+`func (o *StringSelectOptionForRequest) SetDefaultNil(b bool)`
 
  SetDefaultNil sets the value for Default to be an explicit nil
 
 ### UnsetDefault
-`func (o *StringSelectOptionForMessageRequest) UnsetDefault()`
+`func (o *StringSelectOptionForRequest) UnsetDefault()`
 
 UnsetDefault ensures that no value is present for Default, not even an explicit nil
 ### GetEmoji
 
-`func (o *StringSelectOptionForMessageRequest) GetEmoji() ComponentEmojiForMessageRequest`
+`func (o *StringSelectOptionForRequest) GetEmoji() ComponentEmojiForRequest`
 
 GetEmoji returns the Emoji field if non-nil, zero value otherwise.
 
 ### GetEmojiOk
 
-`func (o *StringSelectOptionForMessageRequest) GetEmojiOk() (*ComponentEmojiForMessageRequest, bool)`
+`func (o *StringSelectOptionForRequest) GetEmojiOk() (*ComponentEmojiForRequest, bool)`
 
 GetEmojiOk returns a tuple with the Emoji field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmoji
 
-`func (o *StringSelectOptionForMessageRequest) SetEmoji(v ComponentEmojiForMessageRequest)`
+`func (o *StringSelectOptionForRequest) SetEmoji(v ComponentEmojiForRequest)`
 
 SetEmoji sets Emoji field to given value.
 
 ### HasEmoji
 
-`func (o *StringSelectOptionForMessageRequest) HasEmoji() bool`
+`func (o *StringSelectOptionForRequest) HasEmoji() bool`
 
 HasEmoji returns a boolean if a field has been set.
 
 ### SetEmojiNil
 
-`func (o *StringSelectOptionForMessageRequest) SetEmojiNil(b bool)`
+`func (o *StringSelectOptionForRequest) SetEmojiNil(b bool)`
 
  SetEmojiNil sets the value for Emoji to be an explicit nil
 
 ### UnsetEmoji
-`func (o *StringSelectOptionForMessageRequest) UnsetEmoji()`
+`func (o *StringSelectOptionForRequest) UnsetEmoji()`
 
 UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
 

@@ -9,12 +9,13 @@ Name | Type | Description | Notes
 **Metadata** | Pointer to **map[string]string** |  | [optional] 
 **Members** | Pointer to [**[]LobbyMemberResponse**](LobbyMemberResponse.md) |  | [optional] 
 **LinkedChannel** | Pointer to [**NullableGuildChannelResponse**](GuildChannelResponse.md) |  | [optional] 
+**Flags** | **int64** |  | 
 
 ## Methods
 
 ### NewLobbyResponse
 
-`func NewLobbyResponse(id string, applicationId string, ) *LobbyResponse`
+`func NewLobbyResponse(id string, applicationId string, flags int64, ) *LobbyResponse`
 
 NewLobbyResponse instantiates a new LobbyResponse object
 This constructor will assign default values to properties that have it defined,
@@ -164,6 +165,26 @@ HasLinkedChannel returns a boolean if a field has been set.
 `func (o *LobbyResponse) UnsetLinkedChannel()`
 
 UnsetLinkedChannel ensures that no value is present for LinkedChannel, not even an explicit nil
+### GetFlags
+
+`func (o *LobbyResponse) GetFlags() int64`
+
+GetFlags returns the Flags field if non-nil, zero value otherwise.
+
+### GetFlagsOk
+
+`func (o *LobbyResponse) GetFlagsOk() (*int64, bool)`
+
+GetFlagsOk returns a tuple with the Flags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFlags
+
+`func (o *LobbyResponse) SetFlags(v int64)`
+
+SetFlags sets Flags field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

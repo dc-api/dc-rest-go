@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-08-08T14:09:23.736426080Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -58,7 +58,7 @@ type TextInputComponentForModalRequest struct {
 	Type int32 `json:"type"`
 	CustomId string `json:"custom_id"`
 	Style int32 `json:"style"`
-	Label string `json:"label"`
+	Label NullableString `json:"label,omitempty"`
 	Value NullableString `json:"value,omitempty"`
 	Placeholder NullableString `json:"placeholder,omitempty"`
 	Required NullableBool `json:"required,omitempty"`
@@ -72,12 +72,11 @@ type _TextInputComponentForModalRequest TextInputComponentForModalRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTextInputComponentForModalRequest(type_ int32, customId string, style int32, label string) *TextInputComponentForModalRequest {
+func NewTextInputComponentForModalRequest(type_ int32, customId string, style int32) *TextInputComponentForModalRequest {
 	this := TextInputComponentForModalRequest{}
 	this.Type = type_
 	this.CustomId = customId
 	this.Style = style
-	this.Label = label
 	return &this
 }
 
@@ -161,28 +160,47 @@ func (o *TextInputComponentForModalRequest) SetStyle(v int32) {
 	o.Style = v
 }
 
-// GetLabel returns the Label field value
+// GetLabel returns the Label field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TextInputComponentForModalRequest) GetLabel() string {
-	if o == nil {
+	if o == nil || IsNil(o.Label.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Label
+	return *o.Label.Get()
 }
 
-// GetLabelOk returns a tuple with the Label field value
+// GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TextInputComponentForModalRequest) GetLabelOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Label.Get()) {
 		return nil, false
 	}
-	return &o.Label, true
+	return o.Label.Get(), o.Label.IsSet()
 }
 
-// SetLabel sets field value
+// HasLabel returns a boolean if a field has been set.
+func (o *TextInputComponentForModalRequest) HasLabel() bool {
+	if o != nil && o.Label.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLabel gets a reference to the given NullableString and assigns it to the Label field.
 func (o *TextInputComponentForModalRequest) SetLabel(v string) {
-	o.Label = v
+	o.Label.Set(&v)
+}
+
+// SetLabelNil sets the value for Label to be an explicit nil
+func (o *TextInputComponentForModalRequest) SetLabelNil() {
+	o.Label.Set(nil)
+}
+
+// UnsetLabel ensures that no value is present for Label, not even an explicit nil
+func (o *TextInputComponentForModalRequest) UnsetLabel() {
+	o.Label.Unset()
 }
 
 // GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -413,7 +431,9 @@ func (o TextInputComponentForModalRequest) ToMap() (map[string]interface{}, erro
 	toSerialize["type"] = o.Type
 	toSerialize["custom_id"] = o.CustomId
 	toSerialize["style"] = o.Style
-	toSerialize["label"] = o.Label
+	if o.Label.IsSet() {
+		toSerialize["label"] = o.Label.Get()
+	}
 	if o.Value.IsSet() {
 		toSerialize["value"] = o.Value.Get()
 	}
@@ -440,7 +460,6 @@ func (o *TextInputComponentForModalRequest) UnmarshalJSON(data []byte) (err erro
 		"type",
 		"custom_id",
 		"style",
-		"label",
 	}
 
 	allProperties := make(map[string]interface{})
