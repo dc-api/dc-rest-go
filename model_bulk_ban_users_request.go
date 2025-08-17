@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-08-17T02:10:54.526274226Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -50,59 +50,103 @@ import (
 	"fmt"
 )
 
-// checks if the SetGuildMfaLevelRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &SetGuildMfaLevelRequest{}
+// checks if the BulkBanUsersRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &BulkBanUsersRequest{}
 
-// SetGuildMfaLevelRequest struct for SetGuildMfaLevelRequest
-type SetGuildMfaLevelRequest struct {
-	Level int32 `json:"level"`
+// BulkBanUsersRequest struct for BulkBanUsersRequest
+type BulkBanUsersRequest struct {
+	UserIds []string `json:"user_ids"`
+	DeleteMessageSeconds NullableInt32 `json:"delete_message_seconds,omitempty"`
 }
 
-type _SetGuildMfaLevelRequest SetGuildMfaLevelRequest
+type _BulkBanUsersRequest BulkBanUsersRequest
 
-// NewSetGuildMfaLevelRequest instantiates a new SetGuildMfaLevelRequest object
+// NewBulkBanUsersRequest instantiates a new BulkBanUsersRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSetGuildMfaLevelRequest(level int32) *SetGuildMfaLevelRequest {
-	this := SetGuildMfaLevelRequest{}
-	this.Level = level
+func NewBulkBanUsersRequest(userIds []string) *BulkBanUsersRequest {
+	this := BulkBanUsersRequest{}
+	this.UserIds = userIds
 	return &this
 }
 
-// NewSetGuildMfaLevelRequestWithDefaults instantiates a new SetGuildMfaLevelRequest object
+// NewBulkBanUsersRequestWithDefaults instantiates a new BulkBanUsersRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewSetGuildMfaLevelRequestWithDefaults() *SetGuildMfaLevelRequest {
-	this := SetGuildMfaLevelRequest{}
+func NewBulkBanUsersRequestWithDefaults() *BulkBanUsersRequest {
+	this := BulkBanUsersRequest{}
 	return &this
 }
 
-// GetLevel returns the Level field value
-func (o *SetGuildMfaLevelRequest) GetLevel() int32 {
+// GetUserIds returns the UserIds field value
+func (o *BulkBanUsersRequest) GetUserIds() []string {
 	if o == nil {
-		var ret int32
+		var ret []string
 		return ret
 	}
 
-	return o.Level
+	return o.UserIds
 }
 
-// GetLevelOk returns a tuple with the Level field value
+// GetUserIdsOk returns a tuple with the UserIds field value
 // and a boolean to check if the value has been set.
-func (o *SetGuildMfaLevelRequest) GetLevelOk() (*int32, bool) {
+func (o *BulkBanUsersRequest) GetUserIdsOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Level, true
+	return o.UserIds, true
 }
 
-// SetLevel sets field value
-func (o *SetGuildMfaLevelRequest) SetLevel(v int32) {
-	o.Level = v
+// SetUserIds sets field value
+func (o *BulkBanUsersRequest) SetUserIds(v []string) {
+	o.UserIds = v
 }
 
-func (o SetGuildMfaLevelRequest) MarshalJSON() ([]byte, error) {
+// GetDeleteMessageSeconds returns the DeleteMessageSeconds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BulkBanUsersRequest) GetDeleteMessageSeconds() int32 {
+	if o == nil || IsNil(o.DeleteMessageSeconds.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.DeleteMessageSeconds.Get()
+}
+
+// GetDeleteMessageSecondsOk returns a tuple with the DeleteMessageSeconds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BulkBanUsersRequest) GetDeleteMessageSecondsOk() (*int32, bool) {
+	if o == nil || IsNil(o.DeleteMessageSeconds.Get()) {
+		return nil, false
+	}
+	return o.DeleteMessageSeconds.Get(), o.DeleteMessageSeconds.IsSet()
+}
+
+// HasDeleteMessageSeconds returns a boolean if a field has been set.
+func (o *BulkBanUsersRequest) HasDeleteMessageSeconds() bool {
+	if o != nil && o.DeleteMessageSeconds.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDeleteMessageSeconds gets a reference to the given NullableInt32 and assigns it to the DeleteMessageSeconds field.
+func (o *BulkBanUsersRequest) SetDeleteMessageSeconds(v int32) {
+	o.DeleteMessageSeconds.Set(&v)
+}
+
+// SetDeleteMessageSecondsNil sets the value for DeleteMessageSeconds to be an explicit nil
+func (o *BulkBanUsersRequest) SetDeleteMessageSecondsNil() {
+	o.DeleteMessageSeconds.Set(nil)
+}
+
+// UnsetDeleteMessageSeconds ensures that no value is present for DeleteMessageSeconds, not even an explicit nil
+func (o *BulkBanUsersRequest) UnsetDeleteMessageSeconds() {
+	o.DeleteMessageSeconds.Unset()
+}
+
+func (o BulkBanUsersRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -110,18 +154,21 @@ func (o SetGuildMfaLevelRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o SetGuildMfaLevelRequest) ToMap() (map[string]interface{}, error) {
+func (o BulkBanUsersRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["level"] = o.Level
+	toSerialize["user_ids"] = o.UserIds
+	if o.DeleteMessageSeconds.IsSet() {
+		toSerialize["delete_message_seconds"] = o.DeleteMessageSeconds.Get()
+	}
 	return toSerialize, nil
 }
 
-func (o *SetGuildMfaLevelRequest) UnmarshalJSON(data []byte) (err error) {
+func (o *BulkBanUsersRequest) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"level",
+		"user_ids",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -138,53 +185,53 @@ func (o *SetGuildMfaLevelRequest) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varSetGuildMfaLevelRequest := _SetGuildMfaLevelRequest{}
+	varBulkBanUsersRequest := _BulkBanUsersRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSetGuildMfaLevelRequest)
+	err = decoder.Decode(&varBulkBanUsersRequest)
 
 	if err != nil {
 		return err
 	}
 
-	*o = SetGuildMfaLevelRequest(varSetGuildMfaLevelRequest)
+	*o = BulkBanUsersRequest(varBulkBanUsersRequest)
 
 	return err
 }
 
-type NullableSetGuildMfaLevelRequest struct {
-	value *SetGuildMfaLevelRequest
+type NullableBulkBanUsersRequest struct {
+	value *BulkBanUsersRequest
 	isSet bool
 }
 
-func (v NullableSetGuildMfaLevelRequest) Get() *SetGuildMfaLevelRequest {
+func (v NullableBulkBanUsersRequest) Get() *BulkBanUsersRequest {
 	return v.value
 }
 
-func (v *NullableSetGuildMfaLevelRequest) Set(val *SetGuildMfaLevelRequest) {
+func (v *NullableBulkBanUsersRequest) Set(val *BulkBanUsersRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableSetGuildMfaLevelRequest) IsSet() bool {
+func (v NullableBulkBanUsersRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableSetGuildMfaLevelRequest) Unset() {
+func (v *NullableBulkBanUsersRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableSetGuildMfaLevelRequest(val *SetGuildMfaLevelRequest) *NullableSetGuildMfaLevelRequest {
-	return &NullableSetGuildMfaLevelRequest{value: val, isSet: true}
+func NewNullableBulkBanUsersRequest(val *BulkBanUsersRequest) *NullableBulkBanUsersRequest {
+	return &NullableBulkBanUsersRequest{value: val, isSet: true}
 }
 
-func (v NullableSetGuildMfaLevelRequest) MarshalJSON() ([]byte, error) {
+func (v NullableBulkBanUsersRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableSetGuildMfaLevelRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableBulkBanUsersRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

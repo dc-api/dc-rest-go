@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-08-17T02:10:54.526274226Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -50,103 +50,59 @@ import (
 	"fmt"
 )
 
-// checks if the CreateGuildFromTemplateRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &CreateGuildFromTemplateRequest{}
+// checks if the GuildMFARequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GuildMFARequest{}
 
-// CreateGuildFromTemplateRequest struct for CreateGuildFromTemplateRequest
-type CreateGuildFromTemplateRequest struct {
-	Name string `json:"name"`
-	Icon NullableString `json:"icon,omitempty"`
+// GuildMFARequest struct for GuildMFARequest
+type GuildMFARequest struct {
+	Level int32 `json:"level"`
 }
 
-type _CreateGuildFromTemplateRequest CreateGuildFromTemplateRequest
+type _GuildMFARequest GuildMFARequest
 
-// NewCreateGuildFromTemplateRequest instantiates a new CreateGuildFromTemplateRequest object
+// NewGuildMFARequest instantiates a new GuildMFARequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateGuildFromTemplateRequest(name string) *CreateGuildFromTemplateRequest {
-	this := CreateGuildFromTemplateRequest{}
-	this.Name = name
+func NewGuildMFARequest(level int32) *GuildMFARequest {
+	this := GuildMFARequest{}
+	this.Level = level
 	return &this
 }
 
-// NewCreateGuildFromTemplateRequestWithDefaults instantiates a new CreateGuildFromTemplateRequest object
+// NewGuildMFARequestWithDefaults instantiates a new GuildMFARequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewCreateGuildFromTemplateRequestWithDefaults() *CreateGuildFromTemplateRequest {
-	this := CreateGuildFromTemplateRequest{}
+func NewGuildMFARequestWithDefaults() *GuildMFARequest {
+	this := GuildMFARequest{}
 	return &this
 }
 
-// GetName returns the Name field value
-func (o *CreateGuildFromTemplateRequest) GetName() string {
+// GetLevel returns the Level field value
+func (o *GuildMFARequest) GetLevel() int32 {
 	if o == nil {
-		var ret string
+		var ret int32
 		return ret
 	}
 
-	return o.Name
+	return o.Level
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetLevelOk returns a tuple with the Level field value
 // and a boolean to check if the value has been set.
-func (o *CreateGuildFromTemplateRequest) GetNameOk() (*string, bool) {
+func (o *GuildMFARequest) GetLevelOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return &o.Level, true
 }
 
-// SetName sets field value
-func (o *CreateGuildFromTemplateRequest) SetName(v string) {
-	o.Name = v
+// SetLevel sets field value
+func (o *GuildMFARequest) SetLevel(v int32) {
+	o.Level = v
 }
 
-// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateGuildFromTemplateRequest) GetIcon() string {
-	if o == nil || IsNil(o.Icon.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Icon.Get()
-}
-
-// GetIconOk returns a tuple with the Icon field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateGuildFromTemplateRequest) GetIconOk() (*string, bool) {
-	if o == nil || IsNil(o.Icon.Get()) {
-		return nil, false
-	}
-	return o.Icon.Get(), o.Icon.IsSet()
-}
-
-// HasIcon returns a boolean if a field has been set.
-func (o *CreateGuildFromTemplateRequest) HasIcon() bool {
-	if o != nil && o.Icon.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
-func (o *CreateGuildFromTemplateRequest) SetIcon(v string) {
-	o.Icon.Set(&v)
-}
-
-// SetIconNil sets the value for Icon to be an explicit nil
-func (o *CreateGuildFromTemplateRequest) SetIconNil() {
-	o.Icon.Set(nil)
-}
-
-// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
-func (o *CreateGuildFromTemplateRequest) UnsetIcon() {
-	o.Icon.Unset()
-}
-
-func (o CreateGuildFromTemplateRequest) MarshalJSON() ([]byte, error) {
+func (o GuildMFARequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -154,21 +110,18 @@ func (o CreateGuildFromTemplateRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o CreateGuildFromTemplateRequest) ToMap() (map[string]interface{}, error) {
+func (o GuildMFARequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["name"] = o.Name
-	if o.Icon.IsSet() {
-		toSerialize["icon"] = o.Icon.Get()
-	}
+	toSerialize["level"] = o.Level
 	return toSerialize, nil
 }
 
-func (o *CreateGuildFromTemplateRequest) UnmarshalJSON(data []byte) (err error) {
+func (o *GuildMFARequest) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"name",
+		"level",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -185,53 +138,53 @@ func (o *CreateGuildFromTemplateRequest) UnmarshalJSON(data []byte) (err error) 
 		}
 	}
 
-	varCreateGuildFromTemplateRequest := _CreateGuildFromTemplateRequest{}
+	varGuildMFARequest := _GuildMFARequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateGuildFromTemplateRequest)
+	err = decoder.Decode(&varGuildMFARequest)
 
 	if err != nil {
 		return err
 	}
 
-	*o = CreateGuildFromTemplateRequest(varCreateGuildFromTemplateRequest)
+	*o = GuildMFARequest(varGuildMFARequest)
 
 	return err
 }
 
-type NullableCreateGuildFromTemplateRequest struct {
-	value *CreateGuildFromTemplateRequest
+type NullableGuildMFARequest struct {
+	value *GuildMFARequest
 	isSet bool
 }
 
-func (v NullableCreateGuildFromTemplateRequest) Get() *CreateGuildFromTemplateRequest {
+func (v NullableGuildMFARequest) Get() *GuildMFARequest {
 	return v.value
 }
 
-func (v *NullableCreateGuildFromTemplateRequest) Set(val *CreateGuildFromTemplateRequest) {
+func (v *NullableGuildMFARequest) Set(val *GuildMFARequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableCreateGuildFromTemplateRequest) IsSet() bool {
+func (v NullableGuildMFARequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableCreateGuildFromTemplateRequest) Unset() {
+func (v *NullableGuildMFARequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableCreateGuildFromTemplateRequest(val *CreateGuildFromTemplateRequest) *NullableCreateGuildFromTemplateRequest {
-	return &NullableCreateGuildFromTemplateRequest{value: val, isSet: true}
+func NewNullableGuildMFARequest(val *GuildMFARequest) *NullableGuildMFARequest {
+	return &NullableGuildMFARequest{value: val, isSet: true}
 }
 
-func (v NullableCreateGuildFromTemplateRequest) MarshalJSON() ([]byte, error) {
+func (v NullableGuildMFARequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableCreateGuildFromTemplateRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableGuildMFARequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

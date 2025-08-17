@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-08-17T02:10:54.526274226Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -50,93 +50,103 @@ import (
 	"fmt"
 )
 
-// checks if the ComponentEmojiForMessageRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ComponentEmojiForMessageRequest{}
+// checks if the BotPartnerSdkTokenRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &BotPartnerSdkTokenRequest{}
 
-// ComponentEmojiForMessageRequest struct for ComponentEmojiForMessageRequest
-type ComponentEmojiForMessageRequest struct {
-	Id *string `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Name string `json:"name"`
+// BotPartnerSdkTokenRequest struct for BotPartnerSdkTokenRequest
+type BotPartnerSdkTokenRequest struct {
+	ExternalUserId string `json:"external_user_id"`
+	PreferredGlobalName NullableString `json:"preferred_global_name,omitempty"`
 }
 
-type _ComponentEmojiForMessageRequest ComponentEmojiForMessageRequest
+type _BotPartnerSdkTokenRequest BotPartnerSdkTokenRequest
 
-// NewComponentEmojiForMessageRequest instantiates a new ComponentEmojiForMessageRequest object
+// NewBotPartnerSdkTokenRequest instantiates a new BotPartnerSdkTokenRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComponentEmojiForMessageRequest(name string) *ComponentEmojiForMessageRequest {
-	this := ComponentEmojiForMessageRequest{}
-	this.Name = name
+func NewBotPartnerSdkTokenRequest(externalUserId string) *BotPartnerSdkTokenRequest {
+	this := BotPartnerSdkTokenRequest{}
+	this.ExternalUserId = externalUserId
 	return &this
 }
 
-// NewComponentEmojiForMessageRequestWithDefaults instantiates a new ComponentEmojiForMessageRequest object
+// NewBotPartnerSdkTokenRequestWithDefaults instantiates a new BotPartnerSdkTokenRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewComponentEmojiForMessageRequestWithDefaults() *ComponentEmojiForMessageRequest {
-	this := ComponentEmojiForMessageRequest{}
+func NewBotPartnerSdkTokenRequestWithDefaults() *BotPartnerSdkTokenRequest {
+	this := BotPartnerSdkTokenRequest{}
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *ComponentEmojiForMessageRequest) GetId() string {
-	if o == nil || IsNil(o.Id) {
+// GetExternalUserId returns the ExternalUserId field value
+func (o *BotPartnerSdkTokenRequest) GetExternalUserId() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.ExternalUserId
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetExternalUserIdOk returns a tuple with the ExternalUserId field value
 // and a boolean to check if the value has been set.
-func (o *ComponentEmojiForMessageRequest) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+func (o *BotPartnerSdkTokenRequest) GetExternalUserIdOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.ExternalUserId, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ComponentEmojiForMessageRequest) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
+// SetExternalUserId sets field value
+func (o *BotPartnerSdkTokenRequest) SetExternalUserId(v string) {
+	o.ExternalUserId = v
+}
+
+// GetPreferredGlobalName returns the PreferredGlobalName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BotPartnerSdkTokenRequest) GetPreferredGlobalName() string {
+	if o == nil || IsNil(o.PreferredGlobalName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.PreferredGlobalName.Get()
+}
+
+// GetPreferredGlobalNameOk returns a tuple with the PreferredGlobalName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BotPartnerSdkTokenRequest) GetPreferredGlobalNameOk() (*string, bool) {
+	if o == nil || IsNil(o.PreferredGlobalName.Get()) {
+		return nil, false
+	}
+	return o.PreferredGlobalName.Get(), o.PreferredGlobalName.IsSet()
+}
+
+// HasPreferredGlobalName returns a boolean if a field has been set.
+func (o *BotPartnerSdkTokenRequest) HasPreferredGlobalName() bool {
+	if o != nil && o.PreferredGlobalName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *ComponentEmojiForMessageRequest) SetId(v string) {
-	o.Id = &v
+// SetPreferredGlobalName gets a reference to the given NullableString and assigns it to the PreferredGlobalName field.
+func (o *BotPartnerSdkTokenRequest) SetPreferredGlobalName(v string) {
+	o.PreferredGlobalName.Set(&v)
 }
 
-
-// GetName returns the Name field value
-func (o *ComponentEmojiForMessageRequest) GetName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Name
+// SetPreferredGlobalNameNil sets the value for PreferredGlobalName to be an explicit nil
+func (o *BotPartnerSdkTokenRequest) SetPreferredGlobalNameNil() {
+	o.PreferredGlobalName.Set(nil)
 }
 
-// GetNameOk returns a tuple with the Name field value
-// and a boolean to check if the value has been set.
-func (o *ComponentEmojiForMessageRequest) GetNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Name, true
+// UnsetPreferredGlobalName ensures that no value is present for PreferredGlobalName, not even an explicit nil
+func (o *BotPartnerSdkTokenRequest) UnsetPreferredGlobalName() {
+	o.PreferredGlobalName.Unset()
 }
 
-// SetName sets field value
-func (o *ComponentEmojiForMessageRequest) SetName(v string) {
-	o.Name = v
-}
-
-func (o ComponentEmojiForMessageRequest) MarshalJSON() ([]byte, error) {
+func (o BotPartnerSdkTokenRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -144,21 +154,21 @@ func (o ComponentEmojiForMessageRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ComponentEmojiForMessageRequest) ToMap() (map[string]interface{}, error) {
+func (o BotPartnerSdkTokenRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	toSerialize["external_user_id"] = o.ExternalUserId
+	if o.PreferredGlobalName.IsSet() {
+		toSerialize["preferred_global_name"] = o.PreferredGlobalName.Get()
 	}
-	toSerialize["name"] = o.Name
 	return toSerialize, nil
 }
 
-func (o *ComponentEmojiForMessageRequest) UnmarshalJSON(data []byte) (err error) {
+func (o *BotPartnerSdkTokenRequest) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"name",
+		"external_user_id",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -175,53 +185,53 @@ func (o *ComponentEmojiForMessageRequest) UnmarshalJSON(data []byte) (err error)
 		}
 	}
 
-	varComponentEmojiForMessageRequest := _ComponentEmojiForMessageRequest{}
+	varBotPartnerSdkTokenRequest := _BotPartnerSdkTokenRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varComponentEmojiForMessageRequest)
+	err = decoder.Decode(&varBotPartnerSdkTokenRequest)
 
 	if err != nil {
 		return err
 	}
 
-	*o = ComponentEmojiForMessageRequest(varComponentEmojiForMessageRequest)
+	*o = BotPartnerSdkTokenRequest(varBotPartnerSdkTokenRequest)
 
 	return err
 }
 
-type NullableComponentEmojiForMessageRequest struct {
-	value *ComponentEmojiForMessageRequest
+type NullableBotPartnerSdkTokenRequest struct {
+	value *BotPartnerSdkTokenRequest
 	isSet bool
 }
 
-func (v NullableComponentEmojiForMessageRequest) Get() *ComponentEmojiForMessageRequest {
+func (v NullableBotPartnerSdkTokenRequest) Get() *BotPartnerSdkTokenRequest {
 	return v.value
 }
 
-func (v *NullableComponentEmojiForMessageRequest) Set(val *ComponentEmojiForMessageRequest) {
+func (v *NullableBotPartnerSdkTokenRequest) Set(val *BotPartnerSdkTokenRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableComponentEmojiForMessageRequest) IsSet() bool {
+func (v NullableBotPartnerSdkTokenRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableComponentEmojiForMessageRequest) Unset() {
+func (v *NullableBotPartnerSdkTokenRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableComponentEmojiForMessageRequest(val *ComponentEmojiForMessageRequest) *NullableComponentEmojiForMessageRequest {
-	return &NullableComponentEmojiForMessageRequest{value: val, isSet: true}
+func NewNullableBotPartnerSdkTokenRequest(val *BotPartnerSdkTokenRequest) *NullableBotPartnerSdkTokenRequest {
+	return &NullableBotPartnerSdkTokenRequest{value: val, isSet: true}
 }
 
-func (v NullableComponentEmojiForMessageRequest) MarshalJSON() ([]byte, error) {
+func (v NullableBotPartnerSdkTokenRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableComponentEmojiForMessageRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableBotPartnerSdkTokenRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
