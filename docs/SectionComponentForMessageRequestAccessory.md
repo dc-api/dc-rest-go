@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Disabled** | Pointer to **bool** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
 **SkuId** | Pointer to **string** |  | [optional] 
-**Emoji** | Pointer to [**ComponentEmojiForMessageRequest**](ComponentEmojiForMessageRequest.md) |  | [optional] 
+**Emoji** | Pointer to [**ComponentEmojiForRequest**](ComponentEmojiForRequest.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Spoiler** | Pointer to **bool** |  | [optional] 
 **Media** | [**UnfurledMediaRequest**](UnfurledMediaRequest.md) |  | 
@@ -202,20 +202,20 @@ HasSkuId returns a boolean if a field has been set.
 
 ### GetEmoji
 
-`func (o *SectionComponentForMessageRequestAccessory) GetEmoji() ComponentEmojiForMessageRequest`
+`func (o *SectionComponentForMessageRequestAccessory) GetEmoji() ComponentEmojiForRequest`
 
 GetEmoji returns the Emoji field if non-nil, zero value otherwise.
 
 ### GetEmojiOk
 
-`func (o *SectionComponentForMessageRequestAccessory) GetEmojiOk() (*ComponentEmojiForMessageRequest, bool)`
+`func (o *SectionComponentForMessageRequestAccessory) GetEmojiOk() (*ComponentEmojiForRequest, bool)`
 
 GetEmojiOk returns a tuple with the Emoji field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmoji
 
-`func (o *SectionComponentForMessageRequestAccessory) SetEmoji(v ComponentEmojiForMessageRequest)`
+`func (o *SectionComponentForMessageRequestAccessory) SetEmoji(v ComponentEmojiForRequest)`
 
 SetEmoji sets Emoji field to given value.
 

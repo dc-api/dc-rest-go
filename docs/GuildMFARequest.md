@@ -1,4 +1,4 @@
-# SetGuildMfaLevelRequest
+# GuildMFARequest
 
 ## Properties
 
@@ -8,39 +8,39 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewSetGuildMfaLevelRequest
+### NewGuildMFARequest
 
-`func NewSetGuildMfaLevelRequest(level int32, ) *SetGuildMfaLevelRequest`
+`func NewGuildMFARequest(level int32, ) *GuildMFARequest`
 
-NewSetGuildMfaLevelRequest instantiates a new SetGuildMfaLevelRequest object
+NewGuildMFARequest instantiates a new GuildMFARequest object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewSetGuildMfaLevelRequestWithDefaults
+### NewGuildMFARequestWithDefaults
 
-`func NewSetGuildMfaLevelRequestWithDefaults() *SetGuildMfaLevelRequest`
+`func NewGuildMFARequestWithDefaults() *GuildMFARequest`
 
-NewSetGuildMfaLevelRequestWithDefaults instantiates a new SetGuildMfaLevelRequest object
+NewGuildMFARequestWithDefaults instantiates a new GuildMFARequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetLevel
 
-`func (o *SetGuildMfaLevelRequest) GetLevel() int32`
+`func (o *GuildMFARequest) GetLevel() int32`
 
 GetLevel returns the Level field if non-nil, zero value otherwise.
 
 ### GetLevelOk
 
-`func (o *SetGuildMfaLevelRequest) GetLevelOk() (*int32, bool)`
+`func (o *GuildMFARequest) GetLevelOk() (*int32, bool)`
 
 GetLevelOk returns a tuple with the Level field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLevel
 
-`func (o *SetGuildMfaLevelRequest) SetLevel(v int32)`
+`func (o *GuildMFARequest) SetLevel(v int32)`
 
 SetLevel sets Level field to given value.
 

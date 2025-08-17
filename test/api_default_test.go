@@ -140,6 +140,18 @@ func Test_dc_rest_DefaultAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test DefaultAPIService BotPartnerSdkToken", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DefaultAPI.BotPartnerSdkToken(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test DefaultAPIService BulkBanUsersFromGuild", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -333,18 +345,6 @@ func Test_dc_rest_DefaultAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DefaultAPIService CreateGuild", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DefaultAPI.CreateGuild(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DefaultAPIService CreateGuildApplicationCommand", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -381,20 +381,6 @@ func Test_dc_rest_DefaultAPIService(t *testing.T) {
 		var guildId string
 
 		resp, httpRes, err := apiClient.DefaultAPI.CreateGuildEmoji(context.Background(), guildId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DefaultAPIService CreateGuildFromTemplate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var code string
-
-		resp, httpRes, err := apiClient.DefaultAPI.CreateGuildFromTemplate(context.Background(), code).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -480,6 +466,35 @@ func Test_dc_rest_DefaultAPIService(t *testing.T) {
 		var interactionToken string
 
 		resp, httpRes, err := apiClient.DefaultAPI.CreateInteractionResponse(context.Background(), interactionId, interactionToken).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateLinkedLobbyGuildInviteForSelf", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var lobbyId string
+
+		resp, httpRes, err := apiClient.DefaultAPI.CreateLinkedLobbyGuildInviteForSelf(context.Background(), lobbyId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateLinkedLobbyGuildInviteForUser", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var lobbyId string
+		var userId string
+
+		resp, httpRes, err := apiClient.DefaultAPI.CreateLinkedLobbyGuildInviteForUser(context.Background(), lobbyId, userId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

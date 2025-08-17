@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-08-17T02:10:54.526274226Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -50,103 +50,93 @@ import (
 	"fmt"
 )
 
-// checks if the BulkBanUsersFromGuildRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &BulkBanUsersFromGuildRequest{}
+// checks if the ComponentEmojiForRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ComponentEmojiForRequest{}
 
-// BulkBanUsersFromGuildRequest struct for BulkBanUsersFromGuildRequest
-type BulkBanUsersFromGuildRequest struct {
-	UserIds []string `json:"user_ids"`
-	DeleteMessageSeconds NullableInt32 `json:"delete_message_seconds,omitempty"`
+// ComponentEmojiForRequest struct for ComponentEmojiForRequest
+type ComponentEmojiForRequest struct {
+	Id *string `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	Name string `json:"name"`
 }
 
-type _BulkBanUsersFromGuildRequest BulkBanUsersFromGuildRequest
+type _ComponentEmojiForRequest ComponentEmojiForRequest
 
-// NewBulkBanUsersFromGuildRequest instantiates a new BulkBanUsersFromGuildRequest object
+// NewComponentEmojiForRequest instantiates a new ComponentEmojiForRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBulkBanUsersFromGuildRequest(userIds []string) *BulkBanUsersFromGuildRequest {
-	this := BulkBanUsersFromGuildRequest{}
-	this.UserIds = userIds
+func NewComponentEmojiForRequest(name string) *ComponentEmojiForRequest {
+	this := ComponentEmojiForRequest{}
+	this.Name = name
 	return &this
 }
 
-// NewBulkBanUsersFromGuildRequestWithDefaults instantiates a new BulkBanUsersFromGuildRequest object
+// NewComponentEmojiForRequestWithDefaults instantiates a new ComponentEmojiForRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewBulkBanUsersFromGuildRequestWithDefaults() *BulkBanUsersFromGuildRequest {
-	this := BulkBanUsersFromGuildRequest{}
+func NewComponentEmojiForRequestWithDefaults() *ComponentEmojiForRequest {
+	this := ComponentEmojiForRequest{}
 	return &this
 }
 
-// GetUserIds returns the UserIds field value
-func (o *BulkBanUsersFromGuildRequest) GetUserIds() []string {
-	if o == nil {
-		var ret []string
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *ComponentEmojiForRequest) GetId() string {
+	if o == nil || IsNil(o.Id) {
+		var ret string
 		return ret
 	}
-
-	return o.UserIds
+	return *o.Id
 }
 
-// GetUserIdsOk returns a tuple with the UserIds field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BulkBanUsersFromGuildRequest) GetUserIdsOk() ([]string, bool) {
-	if o == nil {
+func (o *ComponentEmojiForRequest) GetIdOk() (*string, bool) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return o.UserIds, true
+	return o.Id, true
 }
 
-// SetUserIds sets field value
-func (o *BulkBanUsersFromGuildRequest) SetUserIds(v []string) {
-	o.UserIds = v
-}
-
-// GetDeleteMessageSeconds returns the DeleteMessageSeconds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BulkBanUsersFromGuildRequest) GetDeleteMessageSeconds() int32 {
-	if o == nil || IsNil(o.DeleteMessageSeconds.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.DeleteMessageSeconds.Get()
-}
-
-// GetDeleteMessageSecondsOk returns a tuple with the DeleteMessageSeconds field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BulkBanUsersFromGuildRequest) GetDeleteMessageSecondsOk() (*int32, bool) {
-	if o == nil || IsNil(o.DeleteMessageSeconds.Get()) {
-		return nil, false
-	}
-	return o.DeleteMessageSeconds.Get(), o.DeleteMessageSeconds.IsSet()
-}
-
-// HasDeleteMessageSeconds returns a boolean if a field has been set.
-func (o *BulkBanUsersFromGuildRequest) HasDeleteMessageSeconds() bool {
-	if o != nil && o.DeleteMessageSeconds.IsSet() {
+// HasId returns a boolean if a field has been set.
+func (o *ComponentEmojiForRequest) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeleteMessageSeconds gets a reference to the given NullableInt32 and assigns it to the DeleteMessageSeconds field.
-func (o *BulkBanUsersFromGuildRequest) SetDeleteMessageSeconds(v int32) {
-	o.DeleteMessageSeconds.Set(&v)
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *ComponentEmojiForRequest) SetId(v string) {
+	o.Id = &v
 }
 
-// SetDeleteMessageSecondsNil sets the value for DeleteMessageSeconds to be an explicit nil
-func (o *BulkBanUsersFromGuildRequest) SetDeleteMessageSecondsNil() {
-	o.DeleteMessageSeconds.Set(nil)
+
+// GetName returns the Name field value
+func (o *ComponentEmojiForRequest) GetName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Name
 }
 
-// UnsetDeleteMessageSeconds ensures that no value is present for DeleteMessageSeconds, not even an explicit nil
-func (o *BulkBanUsersFromGuildRequest) UnsetDeleteMessageSeconds() {
-	o.DeleteMessageSeconds.Unset()
+// GetNameOk returns a tuple with the Name field value
+// and a boolean to check if the value has been set.
+func (o *ComponentEmojiForRequest) GetNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Name, true
 }
 
-func (o BulkBanUsersFromGuildRequest) MarshalJSON() ([]byte, error) {
+// SetName sets field value
+func (o *ComponentEmojiForRequest) SetName(v string) {
+	o.Name = v
+}
+
+func (o ComponentEmojiForRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -154,21 +144,21 @@ func (o BulkBanUsersFromGuildRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o BulkBanUsersFromGuildRequest) ToMap() (map[string]interface{}, error) {
+func (o ComponentEmojiForRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["user_ids"] = o.UserIds
-	if o.DeleteMessageSeconds.IsSet() {
-		toSerialize["delete_message_seconds"] = o.DeleteMessageSeconds.Get()
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
 	}
+	toSerialize["name"] = o.Name
 	return toSerialize, nil
 }
 
-func (o *BulkBanUsersFromGuildRequest) UnmarshalJSON(data []byte) (err error) {
+func (o *ComponentEmojiForRequest) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"user_ids",
+		"name",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -185,53 +175,53 @@ func (o *BulkBanUsersFromGuildRequest) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varBulkBanUsersFromGuildRequest := _BulkBanUsersFromGuildRequest{}
+	varComponentEmojiForRequest := _ComponentEmojiForRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varBulkBanUsersFromGuildRequest)
+	err = decoder.Decode(&varComponentEmojiForRequest)
 
 	if err != nil {
 		return err
 	}
 
-	*o = BulkBanUsersFromGuildRequest(varBulkBanUsersFromGuildRequest)
+	*o = ComponentEmojiForRequest(varComponentEmojiForRequest)
 
 	return err
 }
 
-type NullableBulkBanUsersFromGuildRequest struct {
-	value *BulkBanUsersFromGuildRequest
+type NullableComponentEmojiForRequest struct {
+	value *ComponentEmojiForRequest
 	isSet bool
 }
 
-func (v NullableBulkBanUsersFromGuildRequest) Get() *BulkBanUsersFromGuildRequest {
+func (v NullableComponentEmojiForRequest) Get() *ComponentEmojiForRequest {
 	return v.value
 }
 
-func (v *NullableBulkBanUsersFromGuildRequest) Set(val *BulkBanUsersFromGuildRequest) {
+func (v *NullableComponentEmojiForRequest) Set(val *ComponentEmojiForRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableBulkBanUsersFromGuildRequest) IsSet() bool {
+func (v NullableComponentEmojiForRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableBulkBanUsersFromGuildRequest) Unset() {
+func (v *NullableComponentEmojiForRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableBulkBanUsersFromGuildRequest(val *BulkBanUsersFromGuildRequest) *NullableBulkBanUsersFromGuildRequest {
-	return &NullableBulkBanUsersFromGuildRequest{value: val, isSet: true}
+func NewNullableComponentEmojiForRequest(val *ComponentEmojiForRequest) *NullableComponentEmojiForRequest {
+	return &NullableComponentEmojiForRequest{value: val, isSet: true}
 }
 
-func (v NullableBulkBanUsersFromGuildRequest) MarshalJSON() ([]byte, error) {
+func (v NullableComponentEmojiForRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableBulkBanUsersFromGuildRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableComponentEmojiForRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

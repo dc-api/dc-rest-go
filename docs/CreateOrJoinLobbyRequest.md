@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **LobbyMetadata** | Pointer to **map[string]string** |  | [optional] 
 **MemberMetadata** | Pointer to **map[string]string** |  | [optional] 
 **Secret** | **string** |  | 
+**Flags** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
 
@@ -133,6 +134,41 @@ and a boolean to check if the value has been set.
 SetSecret sets Secret field to given value.
 
 
+### GetFlags
+
+`func (o *CreateOrJoinLobbyRequest) GetFlags() int32`
+
+GetFlags returns the Flags field if non-nil, zero value otherwise.
+
+### GetFlagsOk
+
+`func (o *CreateOrJoinLobbyRequest) GetFlagsOk() (*int32, bool)`
+
+GetFlagsOk returns a tuple with the Flags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFlags
+
+`func (o *CreateOrJoinLobbyRequest) SetFlags(v int32)`
+
+SetFlags sets Flags field to given value.
+
+### HasFlags
+
+`func (o *CreateOrJoinLobbyRequest) HasFlags() bool`
+
+HasFlags returns a boolean if a field has been set.
+
+### SetFlagsNil
+
+`func (o *CreateOrJoinLobbyRequest) SetFlagsNil(b bool)`
+
+ SetFlagsNil sets the value for Flags to be an explicit nil
+
+### UnsetFlags
+`func (o *CreateOrJoinLobbyRequest) UnsetFlags()`
+
+UnsetFlags ensures that no value is present for Flags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
