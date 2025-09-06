@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-06T05:32:22.317073992Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -56,7 +56,7 @@ var _ MappedNullable = &MentionSpamTriggerMetadataResponse{}
 // MentionSpamTriggerMetadataResponse struct for MentionSpamTriggerMetadataResponse
 type MentionSpamTriggerMetadataResponse struct {
 	MentionTotalLimit int32 `json:"mention_total_limit"`
-	MentionRaidProtectionEnabled NullableBool `json:"mention_raid_protection_enabled,omitempty"`
+	MentionRaidProtectionEnabled bool `json:"mention_raid_protection_enabled"`
 }
 
 type _MentionSpamTriggerMetadataResponse MentionSpamTriggerMetadataResponse
@@ -65,9 +65,10 @@ type _MentionSpamTriggerMetadataResponse MentionSpamTriggerMetadataResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMentionSpamTriggerMetadataResponse(mentionTotalLimit int32) *MentionSpamTriggerMetadataResponse {
+func NewMentionSpamTriggerMetadataResponse(mentionTotalLimit int32, mentionRaidProtectionEnabled bool) *MentionSpamTriggerMetadataResponse {
 	this := MentionSpamTriggerMetadataResponse{}
 	this.MentionTotalLimit = mentionTotalLimit
+	this.MentionRaidProtectionEnabled = mentionRaidProtectionEnabled
 	return &this
 }
 
@@ -103,47 +104,28 @@ func (o *MentionSpamTriggerMetadataResponse) SetMentionTotalLimit(v int32) {
 	o.MentionTotalLimit = v
 }
 
-// GetMentionRaidProtectionEnabled returns the MentionRaidProtectionEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMentionRaidProtectionEnabled returns the MentionRaidProtectionEnabled field value
 func (o *MentionSpamTriggerMetadataResponse) GetMentionRaidProtectionEnabled() bool {
-	if o == nil || IsNil(o.MentionRaidProtectionEnabled.Get()) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.MentionRaidProtectionEnabled.Get()
+
+	return o.MentionRaidProtectionEnabled
 }
 
-// GetMentionRaidProtectionEnabledOk returns a tuple with the MentionRaidProtectionEnabled field value if set, nil otherwise
+// GetMentionRaidProtectionEnabledOk returns a tuple with the MentionRaidProtectionEnabled field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MentionSpamTriggerMetadataResponse) GetMentionRaidProtectionEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.MentionRaidProtectionEnabled.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MentionRaidProtectionEnabled.Get(), o.MentionRaidProtectionEnabled.IsSet()
+	return &o.MentionRaidProtectionEnabled, true
 }
 
-// HasMentionRaidProtectionEnabled returns a boolean if a field has been set.
-func (o *MentionSpamTriggerMetadataResponse) HasMentionRaidProtectionEnabled() bool {
-	if o != nil && o.MentionRaidProtectionEnabled.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMentionRaidProtectionEnabled gets a reference to the given NullableBool and assigns it to the MentionRaidProtectionEnabled field.
+// SetMentionRaidProtectionEnabled sets field value
 func (o *MentionSpamTriggerMetadataResponse) SetMentionRaidProtectionEnabled(v bool) {
-	o.MentionRaidProtectionEnabled.Set(&v)
-}
-
-// SetMentionRaidProtectionEnabledNil sets the value for MentionRaidProtectionEnabled to be an explicit nil
-func (o *MentionSpamTriggerMetadataResponse) SetMentionRaidProtectionEnabledNil() {
-	o.MentionRaidProtectionEnabled.Set(nil)
-}
-
-// UnsetMentionRaidProtectionEnabled ensures that no value is present for MentionRaidProtectionEnabled, not even an explicit nil
-func (o *MentionSpamTriggerMetadataResponse) UnsetMentionRaidProtectionEnabled() {
-	o.MentionRaidProtectionEnabled.Unset()
+	o.MentionRaidProtectionEnabled = v
 }
 
 func (o MentionSpamTriggerMetadataResponse) MarshalJSON() ([]byte, error) {
@@ -157,9 +139,7 @@ func (o MentionSpamTriggerMetadataResponse) MarshalJSON() ([]byte, error) {
 func (o MentionSpamTriggerMetadataResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["mention_total_limit"] = o.MentionTotalLimit
-	if o.MentionRaidProtectionEnabled.IsSet() {
-		toSerialize["mention_raid_protection_enabled"] = o.MentionRaidProtectionEnabled.Get()
-	}
+	toSerialize["mention_raid_protection_enabled"] = o.MentionRaidProtectionEnabled
 	return toSerialize, nil
 }
 
@@ -169,6 +149,7 @@ func (o *MentionSpamTriggerMetadataResponse) UnmarshalJSON(data []byte) (err err
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"mention_total_limit",
+		"mention_raid_protection_enabled",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-06T05:32:22.317073992Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -66,7 +66,6 @@ type MinimalContentMessageResponse struct {
 	EditedTimestamp NullableTime `json:"edited_timestamp,omitempty"`
 	Flags int32 `json:"flags"`
 	Components []BasicMessageResponseComponentsInner `json:"components"`
-	Resolved NullableResolvedObjectsResponse `json:"resolved,omitempty"`
 	Stickers []GetSticker200Response `json:"stickers,omitempty"`
 	StickerItems []MessageStickerItemResponse `json:"sticker_items,omitempty"`
 }
@@ -358,52 +357,9 @@ func (o *MinimalContentMessageResponse) SetComponents(v []BasicMessageResponseCo
 	o.Components = v
 }
 
-// GetResolved returns the Resolved field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MinimalContentMessageResponse) GetResolved() ResolvedObjectsResponse {
-	if o == nil || IsNil(o.Resolved.Get()) {
-		var ret ResolvedObjectsResponse
-		return ret
-	}
-	return *o.Resolved.Get()
-}
-
-// GetResolvedOk returns a tuple with the Resolved field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MinimalContentMessageResponse) GetResolvedOk() (*ResolvedObjectsResponse, bool) {
-	if o == nil || IsNil(o.Resolved.Get()) {
-		return nil, false
-	}
-	return o.Resolved.Get(), o.Resolved.IsSet()
-}
-
-// HasResolved returns a boolean if a field has been set.
-func (o *MinimalContentMessageResponse) HasResolved() bool {
-	if o != nil && o.Resolved.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetResolved gets a reference to the given NullableResolvedObjectsResponse and assigns it to the Resolved field.
-func (o *MinimalContentMessageResponse) SetResolved(v ResolvedObjectsResponse) {
-	o.Resolved.Set(&v)
-}
-
-// SetResolvedNil sets the value for Resolved to be an explicit nil
-func (o *MinimalContentMessageResponse) SetResolvedNil() {
-	o.Resolved.Set(nil)
-}
-
-// UnsetResolved ensures that no value is present for Resolved, not even an explicit nil
-func (o *MinimalContentMessageResponse) UnsetResolved() {
-	o.Resolved.Unset()
-}
-
-// GetStickers returns the Stickers field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStickers returns the Stickers field value if set, zero value otherwise.
 func (o *MinimalContentMessageResponse) GetStickers() []GetSticker200Response {
-	if o == nil {
+	if o == nil || IsNil(o.Stickers) {
 		var ret []GetSticker200Response
 		return ret
 	}
@@ -412,9 +368,8 @@ func (o *MinimalContentMessageResponse) GetStickers() []GetSticker200Response {
 
 // GetStickersOk returns a tuple with the Stickers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MinimalContentMessageResponse) GetStickersOk() ([]GetSticker200Response, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Stickers) {
 		return nil, false
 	}
 	return o.Stickers, true
@@ -435,9 +390,9 @@ func (o *MinimalContentMessageResponse) SetStickers(v []GetSticker200Response) {
 }
 
 
-// GetStickerItems returns the StickerItems field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStickerItems returns the StickerItems field value if set, zero value otherwise.
 func (o *MinimalContentMessageResponse) GetStickerItems() []MessageStickerItemResponse {
-	if o == nil {
+	if o == nil || IsNil(o.StickerItems) {
 		var ret []MessageStickerItemResponse
 		return ret
 	}
@@ -446,9 +401,8 @@ func (o *MinimalContentMessageResponse) GetStickerItems() []MessageStickerItemRe
 
 // GetStickerItemsOk returns a tuple with the StickerItems field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MinimalContentMessageResponse) GetStickerItemsOk() ([]MessageStickerItemResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StickerItems) {
 		return nil, false
 	}
 	return o.StickerItems, true
@@ -491,13 +445,10 @@ func (o MinimalContentMessageResponse) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["flags"] = o.Flags
 	toSerialize["components"] = o.Components
-	if o.Resolved.IsSet() {
-		toSerialize["resolved"] = o.Resolved.Get()
-	}
-	if o.Stickers != nil {
+	if !IsNil(o.Stickers) {
 		toSerialize["stickers"] = o.Stickers
 	}
-	if o.StickerItems != nil {
+	if !IsNil(o.StickerItems) {
 		toSerialize["sticker_items"] = o.StickerItems
 	}
 	return toSerialize, nil

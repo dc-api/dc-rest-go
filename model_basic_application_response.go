@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-06T05:32:22.317073992Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -60,9 +60,9 @@ type BasicApplicationResponse struct {
 	Icon NullableString `json:"icon,omitempty"`
 	Description string `json:"description"`
 	Type NullableInt32 `json:"type,omitempty"`
-	CoverImage NullableString `json:"cover_image,omitempty"`
+	CoverImage *string `json:"cover_image,omitempty"`
 	PrimarySkuId *string `json:"primary_sku_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Bot NullableUserResponse `json:"bot,omitempty"`
+	Bot *UserResponse `json:"bot,omitempty"`
 }
 
 type _BasicApplicationResponse BasicApplicationResponse
@@ -245,48 +245,38 @@ func (o *BasicApplicationResponse) UnsetType() {
 	o.Type.Unset()
 }
 
-// GetCoverImage returns the CoverImage field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCoverImage returns the CoverImage field value if set, zero value otherwise.
 func (o *BasicApplicationResponse) GetCoverImage() string {
-	if o == nil || IsNil(o.CoverImage.Get()) {
+	if o == nil || IsNil(o.CoverImage) {
 		var ret string
 		return ret
 	}
-	return *o.CoverImage.Get()
+	return *o.CoverImage
 }
 
 // GetCoverImageOk returns a tuple with the CoverImage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicApplicationResponse) GetCoverImageOk() (*string, bool) {
-	if o == nil || IsNil(o.CoverImage.Get()) {
+	if o == nil || IsNil(o.CoverImage) {
 		return nil, false
 	}
-	return o.CoverImage.Get(), o.CoverImage.IsSet()
+	return o.CoverImage, true
 }
 
 // HasCoverImage returns a boolean if a field has been set.
 func (o *BasicApplicationResponse) HasCoverImage() bool {
-	if o != nil && o.CoverImage.IsSet() {
+	if o != nil && !IsNil(o.CoverImage) {
 		return true
 	}
 
 	return false
 }
 
-// SetCoverImage gets a reference to the given NullableString and assigns it to the CoverImage field.
+// SetCoverImage gets a reference to the given string and assigns it to the CoverImage field.
 func (o *BasicApplicationResponse) SetCoverImage(v string) {
-	o.CoverImage.Set(&v)
+	o.CoverImage = &v
 }
 
-// SetCoverImageNil sets the value for CoverImage to be an explicit nil
-func (o *BasicApplicationResponse) SetCoverImageNil() {
-	o.CoverImage.Set(nil)
-}
-
-// UnsetCoverImage ensures that no value is present for CoverImage, not even an explicit nil
-func (o *BasicApplicationResponse) UnsetCoverImage() {
-	o.CoverImage.Unset()
-}
 
 // GetPrimarySkuId returns the PrimarySkuId field value if set, zero value otherwise.
 func (o *BasicApplicationResponse) GetPrimarySkuId() string {
@@ -321,48 +311,38 @@ func (o *BasicApplicationResponse) SetPrimarySkuId(v string) {
 }
 
 
-// GetBot returns the Bot field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBot returns the Bot field value if set, zero value otherwise.
 func (o *BasicApplicationResponse) GetBot() UserResponse {
-	if o == nil || IsNil(o.Bot.Get()) {
+	if o == nil || IsNil(o.Bot) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.Bot.Get()
+	return *o.Bot
 }
 
 // GetBotOk returns a tuple with the Bot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicApplicationResponse) GetBotOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.Bot.Get()) {
+	if o == nil || IsNil(o.Bot) {
 		return nil, false
 	}
-	return o.Bot.Get(), o.Bot.IsSet()
+	return o.Bot, true
 }
 
 // HasBot returns a boolean if a field has been set.
 func (o *BasicApplicationResponse) HasBot() bool {
-	if o != nil && o.Bot.IsSet() {
+	if o != nil && !IsNil(o.Bot) {
 		return true
 	}
 
 	return false
 }
 
-// SetBot gets a reference to the given NullableUserResponse and assigns it to the Bot field.
+// SetBot gets a reference to the given UserResponse and assigns it to the Bot field.
 func (o *BasicApplicationResponse) SetBot(v UserResponse) {
-	o.Bot.Set(&v)
+	o.Bot = &v
 }
 
-// SetBotNil sets the value for Bot to be an explicit nil
-func (o *BasicApplicationResponse) SetBotNil() {
-	o.Bot.Set(nil)
-}
-
-// UnsetBot ensures that no value is present for Bot, not even an explicit nil
-func (o *BasicApplicationResponse) UnsetBot() {
-	o.Bot.Unset()
-}
 
 func (o BasicApplicationResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -383,14 +363,14 @@ func (o BasicApplicationResponse) ToMap() (map[string]interface{}, error) {
 	if o.Type.IsSet() {
 		toSerialize["type"] = o.Type.Get()
 	}
-	if o.CoverImage.IsSet() {
-		toSerialize["cover_image"] = o.CoverImage.Get()
+	if !IsNil(o.CoverImage) {
+		toSerialize["cover_image"] = o.CoverImage
 	}
 	if !IsNil(o.PrimarySkuId) {
 		toSerialize["primary_sku_id"] = o.PrimarySkuId
 	}
-	if o.Bot.IsSet() {
-		toSerialize["bot"] = o.Bot.Get()
+	if !IsNil(o.Bot) {
+		toSerialize["bot"] = o.Bot
 	}
 	return toSerialize, nil
 }

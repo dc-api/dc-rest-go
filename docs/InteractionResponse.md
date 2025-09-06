@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Type** | **int32** |  | 
 **ResponseMessageId** | Pointer to **string** |  | [optional] 
-**ResponseMessageLoading** | Pointer to **NullableBool** |  | [optional] 
-**ResponseMessageEphemeral** | Pointer to **NullableBool** |  | [optional] 
+**ResponseMessageLoading** | Pointer to **bool** |  | [optional] 
+**ResponseMessageEphemeral** | Pointer to **bool** |  | [optional] 
 **ChannelId** | Pointer to **string** |  | [optional] 
 **GuildId** | Pointer to **string** |  | [optional] 
 
@@ -121,16 +121,6 @@ SetResponseMessageLoading sets ResponseMessageLoading field to given value.
 
 HasResponseMessageLoading returns a boolean if a field has been set.
 
-### SetResponseMessageLoadingNil
-
-`func (o *InteractionResponse) SetResponseMessageLoadingNil(b bool)`
-
- SetResponseMessageLoadingNil sets the value for ResponseMessageLoading to be an explicit nil
-
-### UnsetResponseMessageLoading
-`func (o *InteractionResponse) UnsetResponseMessageLoading()`
-
-UnsetResponseMessageLoading ensures that no value is present for ResponseMessageLoading, not even an explicit nil
 ### GetResponseMessageEphemeral
 
 `func (o *InteractionResponse) GetResponseMessageEphemeral() bool`
@@ -156,16 +146,6 @@ SetResponseMessageEphemeral sets ResponseMessageEphemeral field to given value.
 
 HasResponseMessageEphemeral returns a boolean if a field has been set.
 
-### SetResponseMessageEphemeralNil
-
-`func (o *InteractionResponse) SetResponseMessageEphemeralNil(b bool)`
-
- SetResponseMessageEphemeralNil sets the value for ResponseMessageEphemeral to be an explicit nil
-
-### UnsetResponseMessageEphemeral
-`func (o *InteractionResponse) UnsetResponseMessageEphemeral()`
-
-UnsetResponseMessageEphemeral ensures that no value is present for ResponseMessageEphemeral, not even an explicit nil
 ### GetChannelId
 
 `func (o *InteractionResponse) GetChannelId() string`

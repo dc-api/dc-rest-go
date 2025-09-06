@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **GuildId** | **string** |  | 
 **Enabled** | **bool** |  | 
-**WelcomeMessage** | Pointer to [**NullableWelcomeMessageResponse**](WelcomeMessageResponse.md) |  | [optional] 
-**NewMemberActions** | Pointer to [**[]NewMemberActionResponse**](NewMemberActionResponse.md) |  | [optional] 
-**ResourceChannels** | Pointer to [**[]ResourceChannelResponse**](ResourceChannelResponse.md) |  | [optional] 
+**WelcomeMessage** | Pointer to [**WelcomeMessageResponse**](WelcomeMessageResponse.md) |  | [optional] 
+**NewMemberActions** | [**[]NewMemberActionResponse**](NewMemberActionResponse.md) |  | 
+**ResourceChannels** | [**[]ResourceChannelResponse**](ResourceChannelResponse.md) |  | 
 
 ## Methods
 
 ### NewGuildHomeSettingsResponse
 
-`func NewGuildHomeSettingsResponse(guildId string, enabled bool, ) *GuildHomeSettingsResponse`
+`func NewGuildHomeSettingsResponse(guildId string, enabled bool, newMemberActions []*NewMemberActionResponse, resourceChannels []*ResourceChannelResponse, ) *GuildHomeSettingsResponse`
 
 NewGuildHomeSettingsResponse instantiates a new GuildHomeSettingsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -94,16 +94,6 @@ SetWelcomeMessage sets WelcomeMessage field to given value.
 
 HasWelcomeMessage returns a boolean if a field has been set.
 
-### SetWelcomeMessageNil
-
-`func (o *GuildHomeSettingsResponse) SetWelcomeMessageNil(b bool)`
-
- SetWelcomeMessageNil sets the value for WelcomeMessage to be an explicit nil
-
-### UnsetWelcomeMessage
-`func (o *GuildHomeSettingsResponse) UnsetWelcomeMessage()`
-
-UnsetWelcomeMessage ensures that no value is present for WelcomeMessage, not even an explicit nil
 ### GetNewMemberActions
 
 `func (o *GuildHomeSettingsResponse) GetNewMemberActions() []*NewMemberActionResponse`
@@ -123,22 +113,7 @@ and a boolean to check if the value has been set.
 
 SetNewMemberActions sets NewMemberActions field to given value.
 
-### HasNewMemberActions
 
-`func (o *GuildHomeSettingsResponse) HasNewMemberActions() bool`
-
-HasNewMemberActions returns a boolean if a field has been set.
-
-### SetNewMemberActionsNil
-
-`func (o *GuildHomeSettingsResponse) SetNewMemberActionsNil(b bool)`
-
- SetNewMemberActionsNil sets the value for NewMemberActions to be an explicit nil
-
-### UnsetNewMemberActions
-`func (o *GuildHomeSettingsResponse) UnsetNewMemberActions()`
-
-UnsetNewMemberActions ensures that no value is present for NewMemberActions, not even an explicit nil
 ### GetResourceChannels
 
 `func (o *GuildHomeSettingsResponse) GetResourceChannels() []*ResourceChannelResponse`
@@ -158,22 +133,7 @@ and a boolean to check if the value has been set.
 
 SetResourceChannels sets ResourceChannels field to given value.
 
-### HasResourceChannels
 
-`func (o *GuildHomeSettingsResponse) HasResourceChannels() bool`
-
-HasResourceChannels returns a boolean if a field has been set.
-
-### SetResourceChannelsNil
-
-`func (o *GuildHomeSettingsResponse) SetResourceChannelsNil(b bool)`
-
- SetResourceChannelsNil sets the value for ResourceChannels to be an explicit nil
-
-### UnsetResourceChannels
-`func (o *GuildHomeSettingsResponse) UnsetResourceChannels()`
-
-UnsetResourceChannels ensures that no value is present for ResourceChannels, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
