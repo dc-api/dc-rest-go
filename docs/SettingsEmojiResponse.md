@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**Animated** | Pointer to **NullableBool** |  | [optional] 
+**Animated** | **bool** |  | 
 
 ## Methods
 
 ### NewSettingsEmojiResponse
 
-`func NewSettingsEmojiResponse() *SettingsEmojiResponse`
+`func NewSettingsEmojiResponse(animated bool, ) *SettingsEmojiResponse`
 
 NewSettingsEmojiResponse instantiates a new SettingsEmojiResponse object
 This constructor will assign default values to properties that have it defined,
@@ -106,22 +106,7 @@ and a boolean to check if the value has been set.
 
 SetAnimated sets Animated field to given value.
 
-### HasAnimated
 
-`func (o *SettingsEmojiResponse) HasAnimated() bool`
-
-HasAnimated returns a boolean if a field has been set.
-
-### SetAnimatedNil
-
-`func (o *SettingsEmojiResponse) SetAnimatedNil(b bool)`
-
- SetAnimatedNil sets the value for Animated to be an explicit nil
-
-### UnsetAnimated
-`func (o *SettingsEmojiResponse) UnsetAnimated()`
-
-UnsetAnimated ensures that no value is present for Animated, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

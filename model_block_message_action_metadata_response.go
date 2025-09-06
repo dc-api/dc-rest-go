@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-06T05:32:22.317073992Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -53,7 +53,7 @@ var _ MappedNullable = &BlockMessageActionMetadataResponse{}
 
 // BlockMessageActionMetadataResponse struct for BlockMessageActionMetadataResponse
 type BlockMessageActionMetadataResponse struct {
-	CustomMessage NullableString `json:"custom_message,omitempty"`
+	CustomMessage *string `json:"custom_message,omitempty"`
 }
 
 // NewBlockMessageActionMetadataResponse instantiates a new BlockMessageActionMetadataResponse object
@@ -73,48 +73,38 @@ func NewBlockMessageActionMetadataResponseWithDefaults() *BlockMessageActionMeta
 	return &this
 }
 
-// GetCustomMessage returns the CustomMessage field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCustomMessage returns the CustomMessage field value if set, zero value otherwise.
 func (o *BlockMessageActionMetadataResponse) GetCustomMessage() string {
-	if o == nil || IsNil(o.CustomMessage.Get()) {
+	if o == nil || IsNil(o.CustomMessage) {
 		var ret string
 		return ret
 	}
-	return *o.CustomMessage.Get()
+	return *o.CustomMessage
 }
 
 // GetCustomMessageOk returns a tuple with the CustomMessage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BlockMessageActionMetadataResponse) GetCustomMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.CustomMessage.Get()) {
+	if o == nil || IsNil(o.CustomMessage) {
 		return nil, false
 	}
-	return o.CustomMessage.Get(), o.CustomMessage.IsSet()
+	return o.CustomMessage, true
 }
 
 // HasCustomMessage returns a boolean if a field has been set.
 func (o *BlockMessageActionMetadataResponse) HasCustomMessage() bool {
-	if o != nil && o.CustomMessage.IsSet() {
+	if o != nil && !IsNil(o.CustomMessage) {
 		return true
 	}
 
 	return false
 }
 
-// SetCustomMessage gets a reference to the given NullableString and assigns it to the CustomMessage field.
+// SetCustomMessage gets a reference to the given string and assigns it to the CustomMessage field.
 func (o *BlockMessageActionMetadataResponse) SetCustomMessage(v string) {
-	o.CustomMessage.Set(&v)
+	o.CustomMessage = &v
 }
 
-// SetCustomMessageNil sets the value for CustomMessage to be an explicit nil
-func (o *BlockMessageActionMetadataResponse) SetCustomMessageNil() {
-	o.CustomMessage.Set(nil)
-}
-
-// UnsetCustomMessage ensures that no value is present for CustomMessage, not even an explicit nil
-func (o *BlockMessageActionMetadataResponse) UnsetCustomMessage() {
-	o.CustomMessage.Unset()
-}
 
 func (o BlockMessageActionMetadataResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -126,8 +116,8 @@ func (o BlockMessageActionMetadataResponse) MarshalJSON() ([]byte, error) {
 
 func (o BlockMessageActionMetadataResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.CustomMessage.IsSet() {
-		toSerialize["custom_message"] = o.CustomMessage.Get()
+	if !IsNil(o.CustomMessage) {
+		toSerialize["custom_message"] = o.CustomMessage
 	}
 	return toSerialize, nil
 }

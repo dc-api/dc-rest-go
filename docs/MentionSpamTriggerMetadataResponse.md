@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MentionTotalLimit** | **int32** |  | 
-**MentionRaidProtectionEnabled** | Pointer to **NullableBool** |  | [optional] 
+**MentionRaidProtectionEnabled** | **bool** |  | 
 
 ## Methods
 
 ### NewMentionSpamTriggerMetadataResponse
 
-`func NewMentionSpamTriggerMetadataResponse(mentionTotalLimit int32, ) *MentionSpamTriggerMetadataResponse`
+`func NewMentionSpamTriggerMetadataResponse(mentionTotalLimit int32, mentionRaidProtectionEnabled bool, ) *MentionSpamTriggerMetadataResponse`
 
 NewMentionSpamTriggerMetadataResponse instantiates a new MentionSpamTriggerMetadataResponse object
 This constructor will assign default values to properties that have it defined,
@@ -65,22 +65,7 @@ and a boolean to check if the value has been set.
 
 SetMentionRaidProtectionEnabled sets MentionRaidProtectionEnabled field to given value.
 
-### HasMentionRaidProtectionEnabled
 
-`func (o *MentionSpamTriggerMetadataResponse) HasMentionRaidProtectionEnabled() bool`
-
-HasMentionRaidProtectionEnabled returns a boolean if a field has been set.
-
-### SetMentionRaidProtectionEnabledNil
-
-`func (o *MentionSpamTriggerMetadataResponse) SetMentionRaidProtectionEnabledNil(b bool)`
-
- SetMentionRaidProtectionEnabledNil sets the value for MentionRaidProtectionEnabled to be an explicit nil
-
-### UnsetMentionRaidProtectionEnabled
-`func (o *MentionSpamTriggerMetadataResponse) UnsetMentionRaidProtectionEnabled()`
-
-UnsetMentionRaidProtectionEnabled ensures that no value is present for MentionRaidProtectionEnabled, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

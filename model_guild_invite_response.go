@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-06T05:32:22.317073992Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -56,27 +56,27 @@ var _ MappedNullable = &GuildInviteResponse{}
 
 // GuildInviteResponse struct for GuildInviteResponse
 type GuildInviteResponse struct {
-	Type NullableInt32 `json:"type,omitempty"`
+	Type NullableInt32 `json:"type"`
 	Code string `json:"code"`
-	Inviter NullableUserResponse `json:"inviter,omitempty"`
-	MaxAge NullableInt32 `json:"max_age,omitempty"`
-	CreatedAt NullableTime `json:"created_at,omitempty"`
+	Inviter *UserResponse `json:"inviter,omitempty"`
+	MaxAge *int32 `json:"max_age,omitempty"`
+	CreatedAt *time.Time `json:"created_at,omitempty"`
 	ExpiresAt NullableTime `json:"expires_at,omitempty"`
-	IsContact NullableBool `json:"is_contact,omitempty"`
-	Flags NullableInt32 `json:"flags,omitempty"`
-	Guild NullableInviteGuildResponse `json:"guild,omitempty"`
-	GuildId *string `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Channel NullableInviteChannelResponse `json:"channel,omitempty"`
+	IsContact *bool `json:"is_contact,omitempty"`
+	Flags *int32 `json:"flags,omitempty"`
+	Guild InviteGuildResponse `json:"guild"`
+	GuildId string `json:"guild_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	Channel InviteChannelResponse `json:"channel"`
 	TargetType NullableInt32 `json:"target_type,omitempty"`
-	TargetUser NullableUserResponse `json:"target_user,omitempty"`
-	TargetApplication NullableInviteApplicationResponse `json:"target_application,omitempty"`
-	GuildScheduledEvent NullableScheduledEventResponse `json:"guild_scheduled_event,omitempty"`
-	Uses NullableInt32 `json:"uses,omitempty"`
-	MaxUses NullableInt32 `json:"max_uses,omitempty"`
-	Temporary NullableBool `json:"temporary,omitempty"`
+	TargetUser *UserResponse `json:"target_user,omitempty"`
+	TargetApplication *InviteApplicationResponse `json:"target_application,omitempty"`
+	GuildScheduledEvent *ScheduledEventResponse `json:"guild_scheduled_event,omitempty"`
+	Uses *int32 `json:"uses,omitempty"`
+	MaxUses *int32 `json:"max_uses,omitempty"`
+	Temporary *bool `json:"temporary,omitempty"`
 	ApproximateMemberCount NullableInt32 `json:"approximate_member_count,omitempty"`
 	ApproximatePresenceCount NullableInt32 `json:"approximate_presence_count,omitempty"`
-	IsNicknameChangeable NullableBool `json:"is_nickname_changeable,omitempty"`
+	IsNicknameChangeable *bool `json:"is_nickname_changeable,omitempty"`
 }
 
 type _GuildInviteResponse GuildInviteResponse
@@ -85,9 +85,13 @@ type _GuildInviteResponse GuildInviteResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGuildInviteResponse(code string) *GuildInviteResponse {
+func NewGuildInviteResponse(type_ NullableInt32, code string, guild InviteGuildResponse, guildId string, channel InviteChannelResponse) *GuildInviteResponse {
 	this := GuildInviteResponse{}
+	this.Type = type_
 	this.Code = code
+	this.Guild = guild
+	this.GuildId = guildId
+	this.Channel = channel
 	return &this
 }
 
@@ -99,47 +103,30 @@ func NewGuildInviteResponseWithDefaults() *GuildInviteResponse {
 	return &this
 }
 
-// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetType returns the Type field value
+// If the value is explicit nil, the zero value for int32 will be returned
 func (o *GuildInviteResponse) GetType() int32 {
-	if o == nil || IsNil(o.Type.Get()) {
+	if o == nil || o.Type.Get() == nil {
 		var ret int32
 		return ret
 	}
+
 	return *o.Type.Get()
 }
 
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetTypeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Type.Get()) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Type.Get(), o.Type.IsSet()
 }
 
-// HasType returns a boolean if a field has been set.
-func (o *GuildInviteResponse) HasType() bool {
-	if o != nil && o.Type.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given NullableInt32 and assigns it to the Type field.
+// SetType sets field value
 func (o *GuildInviteResponse) SetType(v int32) {
 	o.Type.Set(&v)
-}
-
-// SetTypeNil sets the value for Type to be an explicit nil
-func (o *GuildInviteResponse) SetTypeNil() {
-	o.Type.Set(nil)
-}
-
-// UnsetType ensures that no value is present for Type, not even an explicit nil
-func (o *GuildInviteResponse) UnsetType() {
-	o.Type.Unset()
 }
 
 // GetCode returns the Code field value
@@ -166,134 +153,104 @@ func (o *GuildInviteResponse) SetCode(v string) {
 	o.Code = v
 }
 
-// GetInviter returns the Inviter field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInviter returns the Inviter field value if set, zero value otherwise.
 func (o *GuildInviteResponse) GetInviter() UserResponse {
-	if o == nil || IsNil(o.Inviter.Get()) {
+	if o == nil || IsNil(o.Inviter) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.Inviter.Get()
+	return *o.Inviter
 }
 
 // GetInviterOk returns a tuple with the Inviter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetInviterOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.Inviter.Get()) {
+	if o == nil || IsNil(o.Inviter) {
 		return nil, false
 	}
-	return o.Inviter.Get(), o.Inviter.IsSet()
+	return o.Inviter, true
 }
 
 // HasInviter returns a boolean if a field has been set.
 func (o *GuildInviteResponse) HasInviter() bool {
-	if o != nil && o.Inviter.IsSet() {
+	if o != nil && !IsNil(o.Inviter) {
 		return true
 	}
 
 	return false
 }
 
-// SetInviter gets a reference to the given NullableUserResponse and assigns it to the Inviter field.
+// SetInviter gets a reference to the given UserResponse and assigns it to the Inviter field.
 func (o *GuildInviteResponse) SetInviter(v UserResponse) {
-	o.Inviter.Set(&v)
+	o.Inviter = &v
 }
 
-// SetInviterNil sets the value for Inviter to be an explicit nil
-func (o *GuildInviteResponse) SetInviterNil() {
-	o.Inviter.Set(nil)
-}
 
-// UnsetInviter ensures that no value is present for Inviter, not even an explicit nil
-func (o *GuildInviteResponse) UnsetInviter() {
-	o.Inviter.Unset()
-}
-
-// GetMaxAge returns the MaxAge field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxAge returns the MaxAge field value if set, zero value otherwise.
 func (o *GuildInviteResponse) GetMaxAge() int32 {
-	if o == nil || IsNil(o.MaxAge.Get()) {
+	if o == nil || IsNil(o.MaxAge) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxAge.Get()
+	return *o.MaxAge
 }
 
 // GetMaxAgeOk returns a tuple with the MaxAge field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetMaxAgeOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxAge.Get()) {
+	if o == nil || IsNil(o.MaxAge) {
 		return nil, false
 	}
-	return o.MaxAge.Get(), o.MaxAge.IsSet()
+	return o.MaxAge, true
 }
 
 // HasMaxAge returns a boolean if a field has been set.
 func (o *GuildInviteResponse) HasMaxAge() bool {
-	if o != nil && o.MaxAge.IsSet() {
+	if o != nil && !IsNil(o.MaxAge) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxAge gets a reference to the given NullableInt32 and assigns it to the MaxAge field.
+// SetMaxAge gets a reference to the given int32 and assigns it to the MaxAge field.
 func (o *GuildInviteResponse) SetMaxAge(v int32) {
-	o.MaxAge.Set(&v)
+	o.MaxAge = &v
 }
 
-// SetMaxAgeNil sets the value for MaxAge to be an explicit nil
-func (o *GuildInviteResponse) SetMaxAgeNil() {
-	o.MaxAge.Set(nil)
-}
 
-// UnsetMaxAge ensures that no value is present for MaxAge, not even an explicit nil
-func (o *GuildInviteResponse) UnsetMaxAge() {
-	o.MaxAge.Unset()
-}
-
-// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *GuildInviteResponse) GetCreatedAt() time.Time {
-	if o == nil || IsNil(o.CreatedAt.Get()) {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedAt.Get()
+	return *o.CreatedAt
 }
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetCreatedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedAt.Get()) {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return o.CreatedAt.Get(), o.CreatedAt.IsSet()
+	return o.CreatedAt, true
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
 func (o *GuildInviteResponse) HasCreatedAt() bool {
-	if o != nil && o.CreatedAt.IsSet() {
+	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedAt gets a reference to the given NullableTime and assigns it to the CreatedAt field.
+// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
 func (o *GuildInviteResponse) SetCreatedAt(v time.Time) {
-	o.CreatedAt.Set(&v)
+	o.CreatedAt = &v
 }
 
-// SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
-func (o *GuildInviteResponse) SetCreatedAtNil() {
-	o.CreatedAt.Set(nil)
-}
-
-// UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
-func (o *GuildInviteResponse) UnsetCreatedAt() {
-	o.CreatedAt.Unset()
-}
 
 // GetExpiresAt returns the ExpiresAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildInviteResponse) GetExpiresAt() time.Time {
@@ -338,209 +295,142 @@ func (o *GuildInviteResponse) UnsetExpiresAt() {
 	o.ExpiresAt.Unset()
 }
 
-// GetIsContact returns the IsContact field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIsContact returns the IsContact field value if set, zero value otherwise.
 func (o *GuildInviteResponse) GetIsContact() bool {
-	if o == nil || IsNil(o.IsContact.Get()) {
+	if o == nil || IsNil(o.IsContact) {
 		var ret bool
 		return ret
 	}
-	return *o.IsContact.Get()
+	return *o.IsContact
 }
 
 // GetIsContactOk returns a tuple with the IsContact field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetIsContactOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsContact.Get()) {
+	if o == nil || IsNil(o.IsContact) {
 		return nil, false
 	}
-	return o.IsContact.Get(), o.IsContact.IsSet()
+	return o.IsContact, true
 }
 
 // HasIsContact returns a boolean if a field has been set.
 func (o *GuildInviteResponse) HasIsContact() bool {
-	if o != nil && o.IsContact.IsSet() {
+	if o != nil && !IsNil(o.IsContact) {
 		return true
 	}
 
 	return false
 }
 
-// SetIsContact gets a reference to the given NullableBool and assigns it to the IsContact field.
+// SetIsContact gets a reference to the given bool and assigns it to the IsContact field.
 func (o *GuildInviteResponse) SetIsContact(v bool) {
-	o.IsContact.Set(&v)
+	o.IsContact = &v
 }
 
-// SetIsContactNil sets the value for IsContact to be an explicit nil
-func (o *GuildInviteResponse) SetIsContactNil() {
-	o.IsContact.Set(nil)
-}
 
-// UnsetIsContact ensures that no value is present for IsContact, not even an explicit nil
-func (o *GuildInviteResponse) UnsetIsContact() {
-	o.IsContact.Unset()
-}
-
-// GetFlags returns the Flags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFlags returns the Flags field value if set, zero value otherwise.
 func (o *GuildInviteResponse) GetFlags() int32 {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		var ret int32
 		return ret
 	}
-	return *o.Flags.Get()
+	return *o.Flags
 }
 
 // GetFlagsOk returns a tuple with the Flags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetFlagsOk() (*int32, bool) {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		return nil, false
 	}
-	return o.Flags.Get(), o.Flags.IsSet()
+	return o.Flags, true
 }
 
 // HasFlags returns a boolean if a field has been set.
 func (o *GuildInviteResponse) HasFlags() bool {
-	if o != nil && o.Flags.IsSet() {
+	if o != nil && !IsNil(o.Flags) {
 		return true
 	}
 
 	return false
 }
 
-// SetFlags gets a reference to the given NullableInt32 and assigns it to the Flags field.
+// SetFlags gets a reference to the given int32 and assigns it to the Flags field.
 func (o *GuildInviteResponse) SetFlags(v int32) {
-	o.Flags.Set(&v)
+	o.Flags = &v
 }
 
-// SetFlagsNil sets the value for Flags to be an explicit nil
-func (o *GuildInviteResponse) SetFlagsNil() {
-	o.Flags.Set(nil)
-}
 
-// UnsetFlags ensures that no value is present for Flags, not even an explicit nil
-func (o *GuildInviteResponse) UnsetFlags() {
-	o.Flags.Unset()
-}
-
-// GetGuild returns the Guild field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGuild returns the Guild field value
 func (o *GuildInviteResponse) GetGuild() InviteGuildResponse {
-	if o == nil || IsNil(o.Guild.Get()) {
+	if o == nil {
 		var ret InviteGuildResponse
 		return ret
 	}
-	return *o.Guild.Get()
+
+	return o.Guild
 }
 
-// GetGuildOk returns a tuple with the Guild field value if set, nil otherwise
+// GetGuildOk returns a tuple with the Guild field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetGuildOk() (*InviteGuildResponse, bool) {
-	if o == nil || IsNil(o.Guild.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Guild.Get(), o.Guild.IsSet()
+	return &o.Guild, true
 }
 
-// HasGuild returns a boolean if a field has been set.
-func (o *GuildInviteResponse) HasGuild() bool {
-	if o != nil && o.Guild.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetGuild gets a reference to the given NullableInviteGuildResponse and assigns it to the Guild field.
+// SetGuild sets field value
 func (o *GuildInviteResponse) SetGuild(v InviteGuildResponse) {
-	o.Guild.Set(&v)
+	o.Guild = v
 }
 
-// SetGuildNil sets the value for Guild to be an explicit nil
-func (o *GuildInviteResponse) SetGuildNil() {
-	o.Guild.Set(nil)
-}
-
-// UnsetGuild ensures that no value is present for Guild, not even an explicit nil
-func (o *GuildInviteResponse) UnsetGuild() {
-	o.Guild.Unset()
-}
-
-// GetGuildId returns the GuildId field value if set, zero value otherwise.
+// GetGuildId returns the GuildId field value
 func (o *GuildInviteResponse) GetGuildId() string {
-	if o == nil || IsNil(o.GuildId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.GuildId
+
+	return o.GuildId
 }
 
-// GetGuildIdOk returns a tuple with the GuildId field value if set, nil otherwise
+// GetGuildIdOk returns a tuple with the GuildId field value
 // and a boolean to check if the value has been set.
 func (o *GuildInviteResponse) GetGuildIdOk() (*string, bool) {
-	if o == nil || IsNil(o.GuildId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GuildId, true
+	return &o.GuildId, true
 }
 
-// HasGuildId returns a boolean if a field has been set.
-func (o *GuildInviteResponse) HasGuildId() bool {
-	if o != nil && !IsNil(o.GuildId) {
-		return true
-	}
-
-	return false
-}
-
-// SetGuildId gets a reference to the given string and assigns it to the GuildId field.
+// SetGuildId sets field value
 func (o *GuildInviteResponse) SetGuildId(v string) {
-	o.GuildId = &v
+	o.GuildId = v
 }
 
-
-// GetChannel returns the Channel field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetChannel returns the Channel field value
 func (o *GuildInviteResponse) GetChannel() InviteChannelResponse {
-	if o == nil || IsNil(o.Channel.Get()) {
+	if o == nil {
 		var ret InviteChannelResponse
 		return ret
 	}
-	return *o.Channel.Get()
+
+	return o.Channel
 }
 
-// GetChannelOk returns a tuple with the Channel field value if set, nil otherwise
+// GetChannelOk returns a tuple with the Channel field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetChannelOk() (*InviteChannelResponse, bool) {
-	if o == nil || IsNil(o.Channel.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Channel.Get(), o.Channel.IsSet()
+	return &o.Channel, true
 }
 
-// HasChannel returns a boolean if a field has been set.
-func (o *GuildInviteResponse) HasChannel() bool {
-	if o != nil && o.Channel.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetChannel gets a reference to the given NullableInviteChannelResponse and assigns it to the Channel field.
+// SetChannel sets field value
 func (o *GuildInviteResponse) SetChannel(v InviteChannelResponse) {
-	o.Channel.Set(&v)
-}
-
-// SetChannelNil sets the value for Channel to be an explicit nil
-func (o *GuildInviteResponse) SetChannelNil() {
-	o.Channel.Set(nil)
-}
-
-// UnsetChannel ensures that no value is present for Channel, not even an explicit nil
-func (o *GuildInviteResponse) UnsetChannel() {
-	o.Channel.Unset()
+	o.Channel = v
 }
 
 // GetTargetType returns the TargetType field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -586,263 +476,203 @@ func (o *GuildInviteResponse) UnsetTargetType() {
 	o.TargetType.Unset()
 }
 
-// GetTargetUser returns the TargetUser field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTargetUser returns the TargetUser field value if set, zero value otherwise.
 func (o *GuildInviteResponse) GetTargetUser() UserResponse {
-	if o == nil || IsNil(o.TargetUser.Get()) {
+	if o == nil || IsNil(o.TargetUser) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.TargetUser.Get()
+	return *o.TargetUser
 }
 
 // GetTargetUserOk returns a tuple with the TargetUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetTargetUserOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.TargetUser.Get()) {
+	if o == nil || IsNil(o.TargetUser) {
 		return nil, false
 	}
-	return o.TargetUser.Get(), o.TargetUser.IsSet()
+	return o.TargetUser, true
 }
 
 // HasTargetUser returns a boolean if a field has been set.
 func (o *GuildInviteResponse) HasTargetUser() bool {
-	if o != nil && o.TargetUser.IsSet() {
+	if o != nil && !IsNil(o.TargetUser) {
 		return true
 	}
 
 	return false
 }
 
-// SetTargetUser gets a reference to the given NullableUserResponse and assigns it to the TargetUser field.
+// SetTargetUser gets a reference to the given UserResponse and assigns it to the TargetUser field.
 func (o *GuildInviteResponse) SetTargetUser(v UserResponse) {
-	o.TargetUser.Set(&v)
+	o.TargetUser = &v
 }
 
-// SetTargetUserNil sets the value for TargetUser to be an explicit nil
-func (o *GuildInviteResponse) SetTargetUserNil() {
-	o.TargetUser.Set(nil)
-}
 
-// UnsetTargetUser ensures that no value is present for TargetUser, not even an explicit nil
-func (o *GuildInviteResponse) UnsetTargetUser() {
-	o.TargetUser.Unset()
-}
-
-// GetTargetApplication returns the TargetApplication field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTargetApplication returns the TargetApplication field value if set, zero value otherwise.
 func (o *GuildInviteResponse) GetTargetApplication() InviteApplicationResponse {
-	if o == nil || IsNil(o.TargetApplication.Get()) {
+	if o == nil || IsNil(o.TargetApplication) {
 		var ret InviteApplicationResponse
 		return ret
 	}
-	return *o.TargetApplication.Get()
+	return *o.TargetApplication
 }
 
 // GetTargetApplicationOk returns a tuple with the TargetApplication field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetTargetApplicationOk() (*InviteApplicationResponse, bool) {
-	if o == nil || IsNil(o.TargetApplication.Get()) {
+	if o == nil || IsNil(o.TargetApplication) {
 		return nil, false
 	}
-	return o.TargetApplication.Get(), o.TargetApplication.IsSet()
+	return o.TargetApplication, true
 }
 
 // HasTargetApplication returns a boolean if a field has been set.
 func (o *GuildInviteResponse) HasTargetApplication() bool {
-	if o != nil && o.TargetApplication.IsSet() {
+	if o != nil && !IsNil(o.TargetApplication) {
 		return true
 	}
 
 	return false
 }
 
-// SetTargetApplication gets a reference to the given NullableInviteApplicationResponse and assigns it to the TargetApplication field.
+// SetTargetApplication gets a reference to the given InviteApplicationResponse and assigns it to the TargetApplication field.
 func (o *GuildInviteResponse) SetTargetApplication(v InviteApplicationResponse) {
-	o.TargetApplication.Set(&v)
+	o.TargetApplication = &v
 }
 
-// SetTargetApplicationNil sets the value for TargetApplication to be an explicit nil
-func (o *GuildInviteResponse) SetTargetApplicationNil() {
-	o.TargetApplication.Set(nil)
-}
 
-// UnsetTargetApplication ensures that no value is present for TargetApplication, not even an explicit nil
-func (o *GuildInviteResponse) UnsetTargetApplication() {
-	o.TargetApplication.Unset()
-}
-
-// GetGuildScheduledEvent returns the GuildScheduledEvent field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGuildScheduledEvent returns the GuildScheduledEvent field value if set, zero value otherwise.
 func (o *GuildInviteResponse) GetGuildScheduledEvent() ScheduledEventResponse {
-	if o == nil || IsNil(o.GuildScheduledEvent.Get()) {
+	if o == nil || IsNil(o.GuildScheduledEvent) {
 		var ret ScheduledEventResponse
 		return ret
 	}
-	return *o.GuildScheduledEvent.Get()
+	return *o.GuildScheduledEvent
 }
 
 // GetGuildScheduledEventOk returns a tuple with the GuildScheduledEvent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetGuildScheduledEventOk() (*ScheduledEventResponse, bool) {
-	if o == nil || IsNil(o.GuildScheduledEvent.Get()) {
+	if o == nil || IsNil(o.GuildScheduledEvent) {
 		return nil, false
 	}
-	return o.GuildScheduledEvent.Get(), o.GuildScheduledEvent.IsSet()
+	return o.GuildScheduledEvent, true
 }
 
 // HasGuildScheduledEvent returns a boolean if a field has been set.
 func (o *GuildInviteResponse) HasGuildScheduledEvent() bool {
-	if o != nil && o.GuildScheduledEvent.IsSet() {
+	if o != nil && !IsNil(o.GuildScheduledEvent) {
 		return true
 	}
 
 	return false
 }
 
-// SetGuildScheduledEvent gets a reference to the given NullableScheduledEventResponse and assigns it to the GuildScheduledEvent field.
+// SetGuildScheduledEvent gets a reference to the given ScheduledEventResponse and assigns it to the GuildScheduledEvent field.
 func (o *GuildInviteResponse) SetGuildScheduledEvent(v ScheduledEventResponse) {
-	o.GuildScheduledEvent.Set(&v)
+	o.GuildScheduledEvent = &v
 }
 
-// SetGuildScheduledEventNil sets the value for GuildScheduledEvent to be an explicit nil
-func (o *GuildInviteResponse) SetGuildScheduledEventNil() {
-	o.GuildScheduledEvent.Set(nil)
-}
 
-// UnsetGuildScheduledEvent ensures that no value is present for GuildScheduledEvent, not even an explicit nil
-func (o *GuildInviteResponse) UnsetGuildScheduledEvent() {
-	o.GuildScheduledEvent.Unset()
-}
-
-// GetUses returns the Uses field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUses returns the Uses field value if set, zero value otherwise.
 func (o *GuildInviteResponse) GetUses() int32 {
-	if o == nil || IsNil(o.Uses.Get()) {
+	if o == nil || IsNil(o.Uses) {
 		var ret int32
 		return ret
 	}
-	return *o.Uses.Get()
+	return *o.Uses
 }
 
 // GetUsesOk returns a tuple with the Uses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetUsesOk() (*int32, bool) {
-	if o == nil || IsNil(o.Uses.Get()) {
+	if o == nil || IsNil(o.Uses) {
 		return nil, false
 	}
-	return o.Uses.Get(), o.Uses.IsSet()
+	return o.Uses, true
 }
 
 // HasUses returns a boolean if a field has been set.
 func (o *GuildInviteResponse) HasUses() bool {
-	if o != nil && o.Uses.IsSet() {
+	if o != nil && !IsNil(o.Uses) {
 		return true
 	}
 
 	return false
 }
 
-// SetUses gets a reference to the given NullableInt32 and assigns it to the Uses field.
+// SetUses gets a reference to the given int32 and assigns it to the Uses field.
 func (o *GuildInviteResponse) SetUses(v int32) {
-	o.Uses.Set(&v)
+	o.Uses = &v
 }
 
-// SetUsesNil sets the value for Uses to be an explicit nil
-func (o *GuildInviteResponse) SetUsesNil() {
-	o.Uses.Set(nil)
-}
 
-// UnsetUses ensures that no value is present for Uses, not even an explicit nil
-func (o *GuildInviteResponse) UnsetUses() {
-	o.Uses.Unset()
-}
-
-// GetMaxUses returns the MaxUses field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxUses returns the MaxUses field value if set, zero value otherwise.
 func (o *GuildInviteResponse) GetMaxUses() int32 {
-	if o == nil || IsNil(o.MaxUses.Get()) {
+	if o == nil || IsNil(o.MaxUses) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxUses.Get()
+	return *o.MaxUses
 }
 
 // GetMaxUsesOk returns a tuple with the MaxUses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetMaxUsesOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxUses.Get()) {
+	if o == nil || IsNil(o.MaxUses) {
 		return nil, false
 	}
-	return o.MaxUses.Get(), o.MaxUses.IsSet()
+	return o.MaxUses, true
 }
 
 // HasMaxUses returns a boolean if a field has been set.
 func (o *GuildInviteResponse) HasMaxUses() bool {
-	if o != nil && o.MaxUses.IsSet() {
+	if o != nil && !IsNil(o.MaxUses) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxUses gets a reference to the given NullableInt32 and assigns it to the MaxUses field.
+// SetMaxUses gets a reference to the given int32 and assigns it to the MaxUses field.
 func (o *GuildInviteResponse) SetMaxUses(v int32) {
-	o.MaxUses.Set(&v)
+	o.MaxUses = &v
 }
 
-// SetMaxUsesNil sets the value for MaxUses to be an explicit nil
-func (o *GuildInviteResponse) SetMaxUsesNil() {
-	o.MaxUses.Set(nil)
-}
 
-// UnsetMaxUses ensures that no value is present for MaxUses, not even an explicit nil
-func (o *GuildInviteResponse) UnsetMaxUses() {
-	o.MaxUses.Unset()
-}
-
-// GetTemporary returns the Temporary field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTemporary returns the Temporary field value if set, zero value otherwise.
 func (o *GuildInviteResponse) GetTemporary() bool {
-	if o == nil || IsNil(o.Temporary.Get()) {
+	if o == nil || IsNil(o.Temporary) {
 		var ret bool
 		return ret
 	}
-	return *o.Temporary.Get()
+	return *o.Temporary
 }
 
 // GetTemporaryOk returns a tuple with the Temporary field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetTemporaryOk() (*bool, bool) {
-	if o == nil || IsNil(o.Temporary.Get()) {
+	if o == nil || IsNil(o.Temporary) {
 		return nil, false
 	}
-	return o.Temporary.Get(), o.Temporary.IsSet()
+	return o.Temporary, true
 }
 
 // HasTemporary returns a boolean if a field has been set.
 func (o *GuildInviteResponse) HasTemporary() bool {
-	if o != nil && o.Temporary.IsSet() {
+	if o != nil && !IsNil(o.Temporary) {
 		return true
 	}
 
 	return false
 }
 
-// SetTemporary gets a reference to the given NullableBool and assigns it to the Temporary field.
+// SetTemporary gets a reference to the given bool and assigns it to the Temporary field.
 func (o *GuildInviteResponse) SetTemporary(v bool) {
-	o.Temporary.Set(&v)
+	o.Temporary = &v
 }
 
-// SetTemporaryNil sets the value for Temporary to be an explicit nil
-func (o *GuildInviteResponse) SetTemporaryNil() {
-	o.Temporary.Set(nil)
-}
-
-// UnsetTemporary ensures that no value is present for Temporary, not even an explicit nil
-func (o *GuildInviteResponse) UnsetTemporary() {
-	o.Temporary.Unset()
-}
 
 // GetApproximateMemberCount returns the ApproximateMemberCount field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildInviteResponse) GetApproximateMemberCount() int32 {
@@ -930,48 +760,38 @@ func (o *GuildInviteResponse) UnsetApproximatePresenceCount() {
 	o.ApproximatePresenceCount.Unset()
 }
 
-// GetIsNicknameChangeable returns the IsNicknameChangeable field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIsNicknameChangeable returns the IsNicknameChangeable field value if set, zero value otherwise.
 func (o *GuildInviteResponse) GetIsNicknameChangeable() bool {
-	if o == nil || IsNil(o.IsNicknameChangeable.Get()) {
+	if o == nil || IsNil(o.IsNicknameChangeable) {
 		var ret bool
 		return ret
 	}
-	return *o.IsNicknameChangeable.Get()
+	return *o.IsNicknameChangeable
 }
 
 // GetIsNicknameChangeableOk returns a tuple with the IsNicknameChangeable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildInviteResponse) GetIsNicknameChangeableOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsNicknameChangeable.Get()) {
+	if o == nil || IsNil(o.IsNicknameChangeable) {
 		return nil, false
 	}
-	return o.IsNicknameChangeable.Get(), o.IsNicknameChangeable.IsSet()
+	return o.IsNicknameChangeable, true
 }
 
 // HasIsNicknameChangeable returns a boolean if a field has been set.
 func (o *GuildInviteResponse) HasIsNicknameChangeable() bool {
-	if o != nil && o.IsNicknameChangeable.IsSet() {
+	if o != nil && !IsNil(o.IsNicknameChangeable) {
 		return true
 	}
 
 	return false
 }
 
-// SetIsNicknameChangeable gets a reference to the given NullableBool and assigns it to the IsNicknameChangeable field.
+// SetIsNicknameChangeable gets a reference to the given bool and assigns it to the IsNicknameChangeable field.
 func (o *GuildInviteResponse) SetIsNicknameChangeable(v bool) {
-	o.IsNicknameChangeable.Set(&v)
+	o.IsNicknameChangeable = &v
 }
 
-// SetIsNicknameChangeableNil sets the value for IsNicknameChangeable to be an explicit nil
-func (o *GuildInviteResponse) SetIsNicknameChangeableNil() {
-	o.IsNicknameChangeable.Set(nil)
-}
-
-// UnsetIsNicknameChangeable ensures that no value is present for IsNicknameChangeable, not even an explicit nil
-func (o *GuildInviteResponse) UnsetIsNicknameChangeable() {
-	o.IsNicknameChangeable.Unset()
-}
 
 func (o GuildInviteResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -983,57 +803,49 @@ func (o GuildInviteResponse) MarshalJSON() ([]byte, error) {
 
 func (o GuildInviteResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Type.IsSet() {
-		toSerialize["type"] = o.Type.Get()
-	}
+	toSerialize["type"] = o.Type.Get()
 	toSerialize["code"] = o.Code
-	if o.Inviter.IsSet() {
-		toSerialize["inviter"] = o.Inviter.Get()
+	if !IsNil(o.Inviter) {
+		toSerialize["inviter"] = o.Inviter
 	}
-	if o.MaxAge.IsSet() {
-		toSerialize["max_age"] = o.MaxAge.Get()
+	if !IsNil(o.MaxAge) {
+		toSerialize["max_age"] = o.MaxAge
 	}
-	if o.CreatedAt.IsSet() {
-		toSerialize["created_at"] = o.CreatedAt.Get()
+	if !IsNil(o.CreatedAt) {
+		toSerialize["created_at"] = o.CreatedAt
 	}
 	if o.ExpiresAt.IsSet() {
 		toSerialize["expires_at"] = o.ExpiresAt.Get()
 	}
-	if o.IsContact.IsSet() {
-		toSerialize["is_contact"] = o.IsContact.Get()
+	if !IsNil(o.IsContact) {
+		toSerialize["is_contact"] = o.IsContact
 	}
-	if o.Flags.IsSet() {
-		toSerialize["flags"] = o.Flags.Get()
+	if !IsNil(o.Flags) {
+		toSerialize["flags"] = o.Flags
 	}
-	if o.Guild.IsSet() {
-		toSerialize["guild"] = o.Guild.Get()
-	}
-	if !IsNil(o.GuildId) {
-		toSerialize["guild_id"] = o.GuildId
-	}
-	if o.Channel.IsSet() {
-		toSerialize["channel"] = o.Channel.Get()
-	}
+	toSerialize["guild"] = o.Guild
+	toSerialize["guild_id"] = o.GuildId
+	toSerialize["channel"] = o.Channel
 	if o.TargetType.IsSet() {
 		toSerialize["target_type"] = o.TargetType.Get()
 	}
-	if o.TargetUser.IsSet() {
-		toSerialize["target_user"] = o.TargetUser.Get()
+	if !IsNil(o.TargetUser) {
+		toSerialize["target_user"] = o.TargetUser
 	}
-	if o.TargetApplication.IsSet() {
-		toSerialize["target_application"] = o.TargetApplication.Get()
+	if !IsNil(o.TargetApplication) {
+		toSerialize["target_application"] = o.TargetApplication
 	}
-	if o.GuildScheduledEvent.IsSet() {
-		toSerialize["guild_scheduled_event"] = o.GuildScheduledEvent.Get()
+	if !IsNil(o.GuildScheduledEvent) {
+		toSerialize["guild_scheduled_event"] = o.GuildScheduledEvent
 	}
-	if o.Uses.IsSet() {
-		toSerialize["uses"] = o.Uses.Get()
+	if !IsNil(o.Uses) {
+		toSerialize["uses"] = o.Uses
 	}
-	if o.MaxUses.IsSet() {
-		toSerialize["max_uses"] = o.MaxUses.Get()
+	if !IsNil(o.MaxUses) {
+		toSerialize["max_uses"] = o.MaxUses
 	}
-	if o.Temporary.IsSet() {
-		toSerialize["temporary"] = o.Temporary.Get()
+	if !IsNil(o.Temporary) {
+		toSerialize["temporary"] = o.Temporary
 	}
 	if o.ApproximateMemberCount.IsSet() {
 		toSerialize["approximate_member_count"] = o.ApproximateMemberCount.Get()
@@ -1041,8 +853,8 @@ func (o GuildInviteResponse) ToMap() (map[string]interface{}, error) {
 	if o.ApproximatePresenceCount.IsSet() {
 		toSerialize["approximate_presence_count"] = o.ApproximatePresenceCount.Get()
 	}
-	if o.IsNicknameChangeable.IsSet() {
-		toSerialize["is_nickname_changeable"] = o.IsNicknameChangeable.Get()
+	if !IsNil(o.IsNicknameChangeable) {
+		toSerialize["is_nickname_changeable"] = o.IsNicknameChangeable
 	}
 	return toSerialize, nil
 }
@@ -1052,7 +864,11 @@ func (o *GuildInviteResponse) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"type",
 		"code",
+		"guild",
+		"guild_id",
+		"channel",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-06T05:32:22.317073992Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -61,16 +61,16 @@ type AttachmentResponse struct {
 	Size int32 `json:"size"`
 	Url string `json:"url"`
 	ProxyUrl string `json:"proxy_url"`
-	Width NullableInt32 `json:"width,omitempty"`
-	Height NullableInt32 `json:"height,omitempty"`
-	DurationSecs NullableFloat64 `json:"duration_secs,omitempty"`
-	Waveform NullableString `json:"waveform,omitempty"`
-	Description NullableString `json:"description,omitempty"`
-	ContentType NullableString `json:"content_type,omitempty"`
-	Ephemeral NullableBool `json:"ephemeral,omitempty"`
+	Width *int32 `json:"width,omitempty"`
+	Height *int32 `json:"height,omitempty"`
+	DurationSecs *float64 `json:"duration_secs,omitempty"`
+	Waveform *string `json:"waveform,omitempty"`
+	Description *string `json:"description,omitempty"`
+	ContentType *string `json:"content_type,omitempty"`
+	Ephemeral *bool `json:"ephemeral,omitempty"`
 	Title NullableString `json:"title,omitempty"`
-	Application NullableApplicationResponse `json:"application,omitempty"`
-	ClipCreatedAt NullableTime `json:"clip_created_at,omitempty"`
+	Application *ApplicationResponse `json:"application,omitempty"`
+	ClipCreatedAt *time.Time `json:"clip_created_at,omitempty"`
 	ClipParticipants []UserResponse `json:"clip_participants,omitempty"`
 }
 
@@ -218,306 +218,236 @@ func (o *AttachmentResponse) SetProxyUrl(v string) {
 	o.ProxyUrl = v
 }
 
-// GetWidth returns the Width field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetWidth returns the Width field value if set, zero value otherwise.
 func (o *AttachmentResponse) GetWidth() int32 {
-	if o == nil || IsNil(o.Width.Get()) {
+	if o == nil || IsNil(o.Width) {
 		var ret int32
 		return ret
 	}
-	return *o.Width.Get()
+	return *o.Width
 }
 
 // GetWidthOk returns a tuple with the Width field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentResponse) GetWidthOk() (*int32, bool) {
-	if o == nil || IsNil(o.Width.Get()) {
+	if o == nil || IsNil(o.Width) {
 		return nil, false
 	}
-	return o.Width.Get(), o.Width.IsSet()
+	return o.Width, true
 }
 
 // HasWidth returns a boolean if a field has been set.
 func (o *AttachmentResponse) HasWidth() bool {
-	if o != nil && o.Width.IsSet() {
+	if o != nil && !IsNil(o.Width) {
 		return true
 	}
 
 	return false
 }
 
-// SetWidth gets a reference to the given NullableInt32 and assigns it to the Width field.
+// SetWidth gets a reference to the given int32 and assigns it to the Width field.
 func (o *AttachmentResponse) SetWidth(v int32) {
-	o.Width.Set(&v)
+	o.Width = &v
 }
 
-// SetWidthNil sets the value for Width to be an explicit nil
-func (o *AttachmentResponse) SetWidthNil() {
-	o.Width.Set(nil)
-}
 
-// UnsetWidth ensures that no value is present for Width, not even an explicit nil
-func (o *AttachmentResponse) UnsetWidth() {
-	o.Width.Unset()
-}
-
-// GetHeight returns the Height field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHeight returns the Height field value if set, zero value otherwise.
 func (o *AttachmentResponse) GetHeight() int32 {
-	if o == nil || IsNil(o.Height.Get()) {
+	if o == nil || IsNil(o.Height) {
 		var ret int32
 		return ret
 	}
-	return *o.Height.Get()
+	return *o.Height
 }
 
 // GetHeightOk returns a tuple with the Height field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentResponse) GetHeightOk() (*int32, bool) {
-	if o == nil || IsNil(o.Height.Get()) {
+	if o == nil || IsNil(o.Height) {
 		return nil, false
 	}
-	return o.Height.Get(), o.Height.IsSet()
+	return o.Height, true
 }
 
 // HasHeight returns a boolean if a field has been set.
 func (o *AttachmentResponse) HasHeight() bool {
-	if o != nil && o.Height.IsSet() {
+	if o != nil && !IsNil(o.Height) {
 		return true
 	}
 
 	return false
 }
 
-// SetHeight gets a reference to the given NullableInt32 and assigns it to the Height field.
+// SetHeight gets a reference to the given int32 and assigns it to the Height field.
 func (o *AttachmentResponse) SetHeight(v int32) {
-	o.Height.Set(&v)
+	o.Height = &v
 }
 
-// SetHeightNil sets the value for Height to be an explicit nil
-func (o *AttachmentResponse) SetHeightNil() {
-	o.Height.Set(nil)
-}
 
-// UnsetHeight ensures that no value is present for Height, not even an explicit nil
-func (o *AttachmentResponse) UnsetHeight() {
-	o.Height.Unset()
-}
-
-// GetDurationSecs returns the DurationSecs field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDurationSecs returns the DurationSecs field value if set, zero value otherwise.
 func (o *AttachmentResponse) GetDurationSecs() float64 {
-	if o == nil || IsNil(o.DurationSecs.Get()) {
+	if o == nil || IsNil(o.DurationSecs) {
 		var ret float64
 		return ret
 	}
-	return *o.DurationSecs.Get()
+	return *o.DurationSecs
 }
 
 // GetDurationSecsOk returns a tuple with the DurationSecs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentResponse) GetDurationSecsOk() (*float64, bool) {
-	if o == nil || IsNil(o.DurationSecs.Get()) {
+	if o == nil || IsNil(o.DurationSecs) {
 		return nil, false
 	}
-	return o.DurationSecs.Get(), o.DurationSecs.IsSet()
+	return o.DurationSecs, true
 }
 
 // HasDurationSecs returns a boolean if a field has been set.
 func (o *AttachmentResponse) HasDurationSecs() bool {
-	if o != nil && o.DurationSecs.IsSet() {
+	if o != nil && !IsNil(o.DurationSecs) {
 		return true
 	}
 
 	return false
 }
 
-// SetDurationSecs gets a reference to the given NullableFloat64 and assigns it to the DurationSecs field.
+// SetDurationSecs gets a reference to the given float64 and assigns it to the DurationSecs field.
 func (o *AttachmentResponse) SetDurationSecs(v float64) {
-	o.DurationSecs.Set(&v)
+	o.DurationSecs = &v
 }
 
-// SetDurationSecsNil sets the value for DurationSecs to be an explicit nil
-func (o *AttachmentResponse) SetDurationSecsNil() {
-	o.DurationSecs.Set(nil)
-}
 
-// UnsetDurationSecs ensures that no value is present for DurationSecs, not even an explicit nil
-func (o *AttachmentResponse) UnsetDurationSecs() {
-	o.DurationSecs.Unset()
-}
-
-// GetWaveform returns the Waveform field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetWaveform returns the Waveform field value if set, zero value otherwise.
 func (o *AttachmentResponse) GetWaveform() string {
-	if o == nil || IsNil(o.Waveform.Get()) {
+	if o == nil || IsNil(o.Waveform) {
 		var ret string
 		return ret
 	}
-	return *o.Waveform.Get()
+	return *o.Waveform
 }
 
 // GetWaveformOk returns a tuple with the Waveform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentResponse) GetWaveformOk() (*string, bool) {
-	if o == nil || IsNil(o.Waveform.Get()) {
+	if o == nil || IsNil(o.Waveform) {
 		return nil, false
 	}
-	return o.Waveform.Get(), o.Waveform.IsSet()
+	return o.Waveform, true
 }
 
 // HasWaveform returns a boolean if a field has been set.
 func (o *AttachmentResponse) HasWaveform() bool {
-	if o != nil && o.Waveform.IsSet() {
+	if o != nil && !IsNil(o.Waveform) {
 		return true
 	}
 
 	return false
 }
 
-// SetWaveform gets a reference to the given NullableString and assigns it to the Waveform field.
+// SetWaveform gets a reference to the given string and assigns it to the Waveform field.
 func (o *AttachmentResponse) SetWaveform(v string) {
-	o.Waveform.Set(&v)
+	o.Waveform = &v
 }
 
-// SetWaveformNil sets the value for Waveform to be an explicit nil
-func (o *AttachmentResponse) SetWaveformNil() {
-	o.Waveform.Set(nil)
-}
 
-// UnsetWaveform ensures that no value is present for Waveform, not even an explicit nil
-func (o *AttachmentResponse) UnsetWaveform() {
-	o.Waveform.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *AttachmentResponse) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentResponse) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *AttachmentResponse) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *AttachmentResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *AttachmentResponse) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *AttachmentResponse) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetContentType returns the ContentType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetContentType returns the ContentType field value if set, zero value otherwise.
 func (o *AttachmentResponse) GetContentType() string {
-	if o == nil || IsNil(o.ContentType.Get()) {
+	if o == nil || IsNil(o.ContentType) {
 		var ret string
 		return ret
 	}
-	return *o.ContentType.Get()
+	return *o.ContentType
 }
 
 // GetContentTypeOk returns a tuple with the ContentType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentResponse) GetContentTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.ContentType.Get()) {
+	if o == nil || IsNil(o.ContentType) {
 		return nil, false
 	}
-	return o.ContentType.Get(), o.ContentType.IsSet()
+	return o.ContentType, true
 }
 
 // HasContentType returns a boolean if a field has been set.
 func (o *AttachmentResponse) HasContentType() bool {
-	if o != nil && o.ContentType.IsSet() {
+	if o != nil && !IsNil(o.ContentType) {
 		return true
 	}
 
 	return false
 }
 
-// SetContentType gets a reference to the given NullableString and assigns it to the ContentType field.
+// SetContentType gets a reference to the given string and assigns it to the ContentType field.
 func (o *AttachmentResponse) SetContentType(v string) {
-	o.ContentType.Set(&v)
+	o.ContentType = &v
 }
 
-// SetContentTypeNil sets the value for ContentType to be an explicit nil
-func (o *AttachmentResponse) SetContentTypeNil() {
-	o.ContentType.Set(nil)
-}
 
-// UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
-func (o *AttachmentResponse) UnsetContentType() {
-	o.ContentType.Unset()
-}
-
-// GetEphemeral returns the Ephemeral field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEphemeral returns the Ephemeral field value if set, zero value otherwise.
 func (o *AttachmentResponse) GetEphemeral() bool {
-	if o == nil || IsNil(o.Ephemeral.Get()) {
+	if o == nil || IsNil(o.Ephemeral) {
 		var ret bool
 		return ret
 	}
-	return *o.Ephemeral.Get()
+	return *o.Ephemeral
 }
 
 // GetEphemeralOk returns a tuple with the Ephemeral field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentResponse) GetEphemeralOk() (*bool, bool) {
-	if o == nil || IsNil(o.Ephemeral.Get()) {
+	if o == nil || IsNil(o.Ephemeral) {
 		return nil, false
 	}
-	return o.Ephemeral.Get(), o.Ephemeral.IsSet()
+	return o.Ephemeral, true
 }
 
 // HasEphemeral returns a boolean if a field has been set.
 func (o *AttachmentResponse) HasEphemeral() bool {
-	if o != nil && o.Ephemeral.IsSet() {
+	if o != nil && !IsNil(o.Ephemeral) {
 		return true
 	}
 
 	return false
 }
 
-// SetEphemeral gets a reference to the given NullableBool and assigns it to the Ephemeral field.
+// SetEphemeral gets a reference to the given bool and assigns it to the Ephemeral field.
 func (o *AttachmentResponse) SetEphemeral(v bool) {
-	o.Ephemeral.Set(&v)
+	o.Ephemeral = &v
 }
 
-// SetEphemeralNil sets the value for Ephemeral to be an explicit nil
-func (o *AttachmentResponse) SetEphemeralNil() {
-	o.Ephemeral.Set(nil)
-}
-
-// UnsetEphemeral ensures that no value is present for Ephemeral, not even an explicit nil
-func (o *AttachmentResponse) UnsetEphemeral() {
-	o.Ephemeral.Unset()
-}
 
 // GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AttachmentResponse) GetTitle() string {
@@ -562,95 +492,75 @@ func (o *AttachmentResponse) UnsetTitle() {
 	o.Title.Unset()
 }
 
-// GetApplication returns the Application field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetApplication returns the Application field value if set, zero value otherwise.
 func (o *AttachmentResponse) GetApplication() ApplicationResponse {
-	if o == nil || IsNil(o.Application.Get()) {
+	if o == nil || IsNil(o.Application) {
 		var ret ApplicationResponse
 		return ret
 	}
-	return *o.Application.Get()
+	return *o.Application
 }
 
 // GetApplicationOk returns a tuple with the Application field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentResponse) GetApplicationOk() (*ApplicationResponse, bool) {
-	if o == nil || IsNil(o.Application.Get()) {
+	if o == nil || IsNil(o.Application) {
 		return nil, false
 	}
-	return o.Application.Get(), o.Application.IsSet()
+	return o.Application, true
 }
 
 // HasApplication returns a boolean if a field has been set.
 func (o *AttachmentResponse) HasApplication() bool {
-	if o != nil && o.Application.IsSet() {
+	if o != nil && !IsNil(o.Application) {
 		return true
 	}
 
 	return false
 }
 
-// SetApplication gets a reference to the given NullableApplicationResponse and assigns it to the Application field.
+// SetApplication gets a reference to the given ApplicationResponse and assigns it to the Application field.
 func (o *AttachmentResponse) SetApplication(v ApplicationResponse) {
-	o.Application.Set(&v)
+	o.Application = &v
 }
 
-// SetApplicationNil sets the value for Application to be an explicit nil
-func (o *AttachmentResponse) SetApplicationNil() {
-	o.Application.Set(nil)
-}
 
-// UnsetApplication ensures that no value is present for Application, not even an explicit nil
-func (o *AttachmentResponse) UnsetApplication() {
-	o.Application.Unset()
-}
-
-// GetClipCreatedAt returns the ClipCreatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetClipCreatedAt returns the ClipCreatedAt field value if set, zero value otherwise.
 func (o *AttachmentResponse) GetClipCreatedAt() time.Time {
-	if o == nil || IsNil(o.ClipCreatedAt.Get()) {
+	if o == nil || IsNil(o.ClipCreatedAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.ClipCreatedAt.Get()
+	return *o.ClipCreatedAt
 }
 
 // GetClipCreatedAtOk returns a tuple with the ClipCreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentResponse) GetClipCreatedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.ClipCreatedAt.Get()) {
+	if o == nil || IsNil(o.ClipCreatedAt) {
 		return nil, false
 	}
-	return o.ClipCreatedAt.Get(), o.ClipCreatedAt.IsSet()
+	return o.ClipCreatedAt, true
 }
 
 // HasClipCreatedAt returns a boolean if a field has been set.
 func (o *AttachmentResponse) HasClipCreatedAt() bool {
-	if o != nil && o.ClipCreatedAt.IsSet() {
+	if o != nil && !IsNil(o.ClipCreatedAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetClipCreatedAt gets a reference to the given NullableTime and assigns it to the ClipCreatedAt field.
+// SetClipCreatedAt gets a reference to the given time.Time and assigns it to the ClipCreatedAt field.
 func (o *AttachmentResponse) SetClipCreatedAt(v time.Time) {
-	o.ClipCreatedAt.Set(&v)
+	o.ClipCreatedAt = &v
 }
 
-// SetClipCreatedAtNil sets the value for ClipCreatedAt to be an explicit nil
-func (o *AttachmentResponse) SetClipCreatedAtNil() {
-	o.ClipCreatedAt.Set(nil)
-}
 
-// UnsetClipCreatedAt ensures that no value is present for ClipCreatedAt, not even an explicit nil
-func (o *AttachmentResponse) UnsetClipCreatedAt() {
-	o.ClipCreatedAt.Unset()
-}
-
-// GetClipParticipants returns the ClipParticipants field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetClipParticipants returns the ClipParticipants field value if set, zero value otherwise.
 func (o *AttachmentResponse) GetClipParticipants() []UserResponse {
-	if o == nil {
+	if o == nil || IsNil(o.ClipParticipants) {
 		var ret []UserResponse
 		return ret
 	}
@@ -659,9 +569,8 @@ func (o *AttachmentResponse) GetClipParticipants() []UserResponse {
 
 // GetClipParticipantsOk returns a tuple with the ClipParticipants field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentResponse) GetClipParticipantsOk() ([]UserResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ClipParticipants) {
 		return nil, false
 	}
 	return o.ClipParticipants, true
@@ -697,37 +606,37 @@ func (o AttachmentResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["size"] = o.Size
 	toSerialize["url"] = o.Url
 	toSerialize["proxy_url"] = o.ProxyUrl
-	if o.Width.IsSet() {
-		toSerialize["width"] = o.Width.Get()
+	if !IsNil(o.Width) {
+		toSerialize["width"] = o.Width
 	}
-	if o.Height.IsSet() {
-		toSerialize["height"] = o.Height.Get()
+	if !IsNil(o.Height) {
+		toSerialize["height"] = o.Height
 	}
-	if o.DurationSecs.IsSet() {
-		toSerialize["duration_secs"] = o.DurationSecs.Get()
+	if !IsNil(o.DurationSecs) {
+		toSerialize["duration_secs"] = o.DurationSecs
 	}
-	if o.Waveform.IsSet() {
-		toSerialize["waveform"] = o.Waveform.Get()
+	if !IsNil(o.Waveform) {
+		toSerialize["waveform"] = o.Waveform
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
-	if o.ContentType.IsSet() {
-		toSerialize["content_type"] = o.ContentType.Get()
+	if !IsNil(o.ContentType) {
+		toSerialize["content_type"] = o.ContentType
 	}
-	if o.Ephemeral.IsSet() {
-		toSerialize["ephemeral"] = o.Ephemeral.Get()
+	if !IsNil(o.Ephemeral) {
+		toSerialize["ephemeral"] = o.Ephemeral
 	}
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()
 	}
-	if o.Application.IsSet() {
-		toSerialize["application"] = o.Application.Get()
+	if !IsNil(o.Application) {
+		toSerialize["application"] = o.Application
 	}
-	if o.ClipCreatedAt.IsSet() {
-		toSerialize["clip_created_at"] = o.ClipCreatedAt.Get()
+	if !IsNil(o.ClipCreatedAt) {
+		toSerialize["clip_created_at"] = o.ClipCreatedAt
 	}
-	if o.ClipParticipants != nil {
+	if !IsNil(o.ClipParticipants) {
 		toSerialize["clip_participants"] = o.ClipParticipants
 	}
 	return toSerialize, nil

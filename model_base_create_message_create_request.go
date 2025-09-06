@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-06T05:32:22.317073992Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -61,6 +61,7 @@ type BaseCreateMessageCreateRequest struct {
 	Flags NullableInt32 `json:"flags,omitempty"`
 	Attachments []MessageAttachmentRequest `json:"attachments,omitempty"`
 	Poll NullablePollCreateRequest `json:"poll,omitempty"`
+	SharedClientTheme NullableCustomClientThemeShareRequest `json:"shared_client_theme,omitempty"`
 	ConfettiPotion map[string]interface{} `json:"confetti_potion,omitempty"`
 }
 
@@ -389,6 +390,49 @@ func (o *BaseCreateMessageCreateRequest) UnsetPoll() {
 	o.Poll.Unset()
 }
 
+// GetSharedClientTheme returns the SharedClientTheme field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BaseCreateMessageCreateRequest) GetSharedClientTheme() CustomClientThemeShareRequest {
+	if o == nil || IsNil(o.SharedClientTheme.Get()) {
+		var ret CustomClientThemeShareRequest
+		return ret
+	}
+	return *o.SharedClientTheme.Get()
+}
+
+// GetSharedClientThemeOk returns a tuple with the SharedClientTheme field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BaseCreateMessageCreateRequest) GetSharedClientThemeOk() (*CustomClientThemeShareRequest, bool) {
+	if o == nil || IsNil(o.SharedClientTheme.Get()) {
+		return nil, false
+	}
+	return o.SharedClientTheme.Get(), o.SharedClientTheme.IsSet()
+}
+
+// HasSharedClientTheme returns a boolean if a field has been set.
+func (o *BaseCreateMessageCreateRequest) HasSharedClientTheme() bool {
+	if o != nil && o.SharedClientTheme.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSharedClientTheme gets a reference to the given NullableCustomClientThemeShareRequest and assigns it to the SharedClientTheme field.
+func (o *BaseCreateMessageCreateRequest) SetSharedClientTheme(v CustomClientThemeShareRequest) {
+	o.SharedClientTheme.Set(&v)
+}
+
+// SetSharedClientThemeNil sets the value for SharedClientTheme to be an explicit nil
+func (o *BaseCreateMessageCreateRequest) SetSharedClientThemeNil() {
+	o.SharedClientTheme.Set(nil)
+}
+
+// UnsetSharedClientTheme ensures that no value is present for SharedClientTheme, not even an explicit nil
+func (o *BaseCreateMessageCreateRequest) UnsetSharedClientTheme() {
+	o.SharedClientTheme.Unset()
+}
+
 // GetConfettiPotion returns the ConfettiPotion field value if set, zero value otherwise.
 func (o *BaseCreateMessageCreateRequest) GetConfettiPotion() map[string]interface{} {
 	if o == nil || IsNil(o.ConfettiPotion) {
@@ -455,6 +499,9 @@ func (o BaseCreateMessageCreateRequest) ToMap() (map[string]interface{}, error) 
 	}
 	if o.Poll.IsSet() {
 		toSerialize["poll"] = o.Poll.Get()
+	}
+	if o.SharedClientTheme.IsSet() {
+		toSerialize["shared_client_theme"] = o.SharedClientTheme.Get()
 	}
 	if !IsNil(o.ConfettiPotion) {
 		toSerialize["confetti_potion"] = o.ConfettiPotion

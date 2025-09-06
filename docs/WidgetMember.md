@@ -10,12 +10,12 @@ Name | Type | Description | Notes
 **Avatar** | Pointer to **interface{}** |  | [optional] 
 **Status** | **string** |  | 
 **AvatarUrl** | **string** |  | 
-**Activity** | Pointer to [**NullableWidgetActivity**](WidgetActivity.md) |  | [optional] 
-**Deaf** | Pointer to **NullableBool** |  | [optional] 
-**Mute** | Pointer to **NullableBool** |  | [optional] 
-**SelfDeaf** | Pointer to **NullableBool** |  | [optional] 
-**SelfMute** | Pointer to **NullableBool** |  | [optional] 
-**Suppress** | Pointer to **NullableBool** |  | [optional] 
+**Activity** | Pointer to [**WidgetActivity**](WidgetActivity.md) |  | [optional] 
+**Deaf** | Pointer to **bool** |  | [optional] 
+**Mute** | Pointer to **bool** |  | [optional] 
+**SelfDeaf** | Pointer to **bool** |  | [optional] 
+**SelfMute** | Pointer to **bool** |  | [optional] 
+**Suppress** | Pointer to **bool** |  | [optional] 
 **ChannelId** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -207,16 +207,6 @@ SetActivity sets Activity field to given value.
 
 HasActivity returns a boolean if a field has been set.
 
-### SetActivityNil
-
-`func (o *WidgetMember) SetActivityNil(b bool)`
-
- SetActivityNil sets the value for Activity to be an explicit nil
-
-### UnsetActivity
-`func (o *WidgetMember) UnsetActivity()`
-
-UnsetActivity ensures that no value is present for Activity, not even an explicit nil
 ### GetDeaf
 
 `func (o *WidgetMember) GetDeaf() bool`
@@ -242,16 +232,6 @@ SetDeaf sets Deaf field to given value.
 
 HasDeaf returns a boolean if a field has been set.
 
-### SetDeafNil
-
-`func (o *WidgetMember) SetDeafNil(b bool)`
-
- SetDeafNil sets the value for Deaf to be an explicit nil
-
-### UnsetDeaf
-`func (o *WidgetMember) UnsetDeaf()`
-
-UnsetDeaf ensures that no value is present for Deaf, not even an explicit nil
 ### GetMute
 
 `func (o *WidgetMember) GetMute() bool`
@@ -277,16 +257,6 @@ SetMute sets Mute field to given value.
 
 HasMute returns a boolean if a field has been set.
 
-### SetMuteNil
-
-`func (o *WidgetMember) SetMuteNil(b bool)`
-
- SetMuteNil sets the value for Mute to be an explicit nil
-
-### UnsetMute
-`func (o *WidgetMember) UnsetMute()`
-
-UnsetMute ensures that no value is present for Mute, not even an explicit nil
 ### GetSelfDeaf
 
 `func (o *WidgetMember) GetSelfDeaf() bool`
@@ -312,16 +282,6 @@ SetSelfDeaf sets SelfDeaf field to given value.
 
 HasSelfDeaf returns a boolean if a field has been set.
 
-### SetSelfDeafNil
-
-`func (o *WidgetMember) SetSelfDeafNil(b bool)`
-
- SetSelfDeafNil sets the value for SelfDeaf to be an explicit nil
-
-### UnsetSelfDeaf
-`func (o *WidgetMember) UnsetSelfDeaf()`
-
-UnsetSelfDeaf ensures that no value is present for SelfDeaf, not even an explicit nil
 ### GetSelfMute
 
 `func (o *WidgetMember) GetSelfMute() bool`
@@ -347,16 +307,6 @@ SetSelfMute sets SelfMute field to given value.
 
 HasSelfMute returns a boolean if a field has been set.
 
-### SetSelfMuteNil
-
-`func (o *WidgetMember) SetSelfMuteNil(b bool)`
-
- SetSelfMuteNil sets the value for SelfMute to be an explicit nil
-
-### UnsetSelfMute
-`func (o *WidgetMember) UnsetSelfMute()`
-
-UnsetSelfMute ensures that no value is present for SelfMute, not even an explicit nil
 ### GetSuppress
 
 `func (o *WidgetMember) GetSuppress() bool`
@@ -382,16 +332,6 @@ SetSuppress sets Suppress field to given value.
 
 HasSuppress returns a boolean if a field has been set.
 
-### SetSuppressNil
-
-`func (o *WidgetMember) SetSuppressNil(b bool)`
-
- SetSuppressNil sets the value for Suppress to be an explicit nil
-
-### UnsetSuppress
-`func (o *WidgetMember) UnsetSuppress()`
-
-UnsetSuppress ensures that no value is present for Suppress, not even an explicit nil
 ### GetChannelId
 
 `func (o *WidgetMember) GetChannelId() string`

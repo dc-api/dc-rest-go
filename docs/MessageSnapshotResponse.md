@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | Pointer to [**NullableMinimalContentMessageResponse**](MinimalContentMessageResponse.md) |  | [optional] 
+**Message** | [**MinimalContentMessageResponse**](MinimalContentMessageResponse.md) |  | 
 
 ## Methods
 
 ### NewMessageSnapshotResponse
 
-`func NewMessageSnapshotResponse() *MessageSnapshotResponse`
+`func NewMessageSnapshotResponse(message MinimalContentMessageResponse, ) *MessageSnapshotResponse`
 
 NewMessageSnapshotResponse instantiates a new MessageSnapshotResponse object
 This constructor will assign default values to properties that have it defined,
@@ -44,22 +44,7 @@ and a boolean to check if the value has been set.
 
 SetMessage sets Message field to given value.
 
-### HasMessage
 
-`func (o *MessageSnapshotResponse) HasMessage() bool`
-
-HasMessage returns a boolean if a field has been set.
-
-### SetMessageNil
-
-`func (o *MessageSnapshotResponse) SetMessageNil(b bool)`
-
- SetMessageNil sets the value for Message to be an explicit nil
-
-### UnsetMessage
-`func (o *MessageSnapshotResponse) UnsetMessage()`
-
-UnsetMessage ensures that no value is present for Message, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

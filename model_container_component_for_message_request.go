@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-06T05:32:22.317073992Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -56,6 +56,7 @@ var _ MappedNullable = &ContainerComponentForMessageRequest{}
 // ContainerComponentForMessageRequest struct for ContainerComponentForMessageRequest
 type ContainerComponentForMessageRequest struct {
 	Type int32 `json:"type"`
+	Id NullableInt32 `json:"id,omitempty"`
 	AccentColor NullableInt32 `json:"accent_color,omitempty"`
 	Components []ContainerComponentForMessageRequestComponentsInner `json:"components"`
 	Spoiler NullableBool `json:"spoiler,omitempty"`
@@ -104,6 +105,49 @@ func (o *ContainerComponentForMessageRequest) GetTypeOk() (*int32, bool) {
 // SetType sets field value
 func (o *ContainerComponentForMessageRequest) SetType(v int32) {
 	o.Type = v
+}
+
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ContainerComponentForMessageRequest) GetId() int32 {
+	if o == nil || IsNil(o.Id.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.Id.Get()
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContainerComponentForMessageRequest) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id.Get()) {
+		return nil, false
+	}
+	return o.Id.Get(), o.Id.IsSet()
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *ContainerComponentForMessageRequest) HasId() bool {
+	if o != nil && o.Id.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given NullableInt32 and assigns it to the Id field.
+func (o *ContainerComponentForMessageRequest) SetId(v int32) {
+	o.Id.Set(&v)
+}
+
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *ContainerComponentForMessageRequest) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *ContainerComponentForMessageRequest) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetAccentColor returns the AccentColor field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -227,6 +271,9 @@ func (o ContainerComponentForMessageRequest) MarshalJSON() ([]byte, error) {
 func (o ContainerComponentForMessageRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
+	}
 	if o.AccentColor.IsSet() {
 		toSerialize["accent_color"] = o.AccentColor.Get()
 	}

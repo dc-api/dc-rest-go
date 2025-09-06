@@ -9,14 +9,14 @@ Name | Type | Description | Notes
 **Topic** | **string** |  | 
 **PrivacyLevel** | **int32** |  | 
 **Id** | **string** |  | 
-**DiscoverableDisabled** | Pointer to **NullableBool** |  | [optional] 
+**DiscoverableDisabled** | **bool** |  | 
 **GuildScheduledEventId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewStageInstanceResponse
 
-`func NewStageInstanceResponse(guildId string, channelId string, topic string, privacyLevel int32, id string, ) *StageInstanceResponse`
+`func NewStageInstanceResponse(guildId string, channelId string, topic string, privacyLevel int32, id string, discoverableDisabled bool, ) *StageInstanceResponse`
 
 NewStageInstanceResponse instantiates a new StageInstanceResponse object
 This constructor will assign default values to properties that have it defined,
@@ -150,22 +150,7 @@ and a boolean to check if the value has been set.
 
 SetDiscoverableDisabled sets DiscoverableDisabled field to given value.
 
-### HasDiscoverableDisabled
 
-`func (o *StageInstanceResponse) HasDiscoverableDisabled() bool`
-
-HasDiscoverableDisabled returns a boolean if a field has been set.
-
-### SetDiscoverableDisabledNil
-
-`func (o *StageInstanceResponse) SetDiscoverableDisabledNil(b bool)`
-
- SetDiscoverableDisabledNil sets the value for DiscoverableDisabled to be an explicit nil
-
-### UnsetDiscoverableDisabled
-`func (o *StageInstanceResponse) UnsetDiscoverableDisabled()`
-
-UnsetDiscoverableDisabled ensures that no value is present for DiscoverableDisabled, not even an explicit nil
 ### GetGuildScheduledEventId
 
 `func (o *StageInstanceResponse) GetGuildScheduledEventId() string`

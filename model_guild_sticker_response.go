@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-06T05:32:22.317073992Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -63,7 +63,7 @@ type GuildStickerResponse struct {
 	Description NullableString `json:"description,omitempty"`
 	Available bool `json:"available"`
 	GuildId string `json:"guild_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	User NullableUserResponse `json:"user,omitempty"`
+	User *UserResponse `json:"user,omitempty"`
 }
 
 type _GuildStickerResponse GuildStickerResponse
@@ -321,48 +321,38 @@ func (o *GuildStickerResponse) SetGuildId(v string) {
 	o.GuildId = v
 }
 
-// GetUser returns the User field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUser returns the User field value if set, zero value otherwise.
 func (o *GuildStickerResponse) GetUser() UserResponse {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.User.Get()
+	return *o.User
 }
 
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildStickerResponse) GetUserOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		return nil, false
 	}
-	return o.User.Get(), o.User.IsSet()
+	return o.User, true
 }
 
 // HasUser returns a boolean if a field has been set.
 func (o *GuildStickerResponse) HasUser() bool {
-	if o != nil && o.User.IsSet() {
+	if o != nil && !IsNil(o.User) {
 		return true
 	}
 
 	return false
 }
 
-// SetUser gets a reference to the given NullableUserResponse and assigns it to the User field.
+// SetUser gets a reference to the given UserResponse and assigns it to the User field.
 func (o *GuildStickerResponse) SetUser(v UserResponse) {
-	o.User.Set(&v)
+	o.User = &v
 }
 
-// SetUserNil sets the value for User to be an explicit nil
-func (o *GuildStickerResponse) SetUserNil() {
-	o.User.Set(nil)
-}
-
-// UnsetUser ensures that no value is present for User, not even an explicit nil
-func (o *GuildStickerResponse) UnsetUser() {
-	o.User.Unset()
-}
 
 func (o GuildStickerResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -386,8 +376,8 @@ func (o GuildStickerResponse) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["available"] = o.Available
 	toSerialize["guild_id"] = o.GuildId
-	if o.User.IsSet() {
-		toSerialize["user"] = o.User.Get()
+	if !IsNil(o.User) {
+		toSerialize["user"] = o.User
 	}
 	return toSerialize, nil
 }

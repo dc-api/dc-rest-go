@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-06T05:32:22.317073992Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -82,11 +82,6 @@ func ModalSubmitInteractionMetadataResponseAsBasicMessageResponseInteractionMeta
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *BasicMessageResponseInteractionMetadata) UnmarshalJSON(data []byte) error {
 	var err error
-	// this object is nullable so check if the payload is null or empty string
-	if string(data) == "" || string(data) == "{}" {
-		return nil
-	}
-
 	match := 0
 	// try to unmarshal data into ApplicationCommandInteractionMetadataResponse
 	err = newStrictDecoder(data).Decode(&dst.ApplicationCommandInteractionMetadataResponse)

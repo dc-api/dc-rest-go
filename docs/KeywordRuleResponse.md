@@ -11,16 +11,16 @@ Name | Type | Description | Notes
 **EventType** | **int32** |  | 
 **Actions** | [**[]DefaultKeywordRuleResponseActionsInner**](DefaultKeywordRuleResponseActionsInner.md) |  | 
 **TriggerType** | **int32** |  | 
-**Enabled** | Pointer to **NullableBool** |  | [optional] 
-**ExemptRoles** | Pointer to **[]string** |  | [optional] 
-**ExemptChannels** | Pointer to **[]string** |  | [optional] 
+**Enabled** | **bool** |  | 
+**ExemptRoles** | **[]string** |  | 
+**ExemptChannels** | **[]string** |  | 
 **TriggerMetadata** | [**KeywordTriggerMetadataResponse**](KeywordTriggerMetadataResponse.md) |  | 
 
 ## Methods
 
 ### NewKeywordRuleResponse
 
-`func NewKeywordRuleResponse(id string, guildId string, creatorId string, name string, eventType int32, actions []DefaultKeywordRuleResponseActionsInner, triggerType int32, triggerMetadata KeywordTriggerMetadataResponse, ) *KeywordRuleResponse`
+`func NewKeywordRuleResponse(id string, guildId string, creatorId string, name string, eventType int32, actions []DefaultKeywordRuleResponseActionsInner, triggerType int32, enabled bool, exemptRoles []string, exemptChannels []string, triggerMetadata KeywordTriggerMetadataResponse, ) *KeywordRuleResponse`
 
 NewKeywordRuleResponse instantiates a new KeywordRuleResponse object
 This constructor will assign default values to properties that have it defined,
@@ -194,22 +194,7 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
-### HasEnabled
 
-`func (o *KeywordRuleResponse) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
-
-### SetEnabledNil
-
-`func (o *KeywordRuleResponse) SetEnabledNil(b bool)`
-
- SetEnabledNil sets the value for Enabled to be an explicit nil
-
-### UnsetEnabled
-`func (o *KeywordRuleResponse) UnsetEnabled()`
-
-UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 ### GetExemptRoles
 
 `func (o *KeywordRuleResponse) GetExemptRoles() []string`
@@ -229,22 +214,7 @@ and a boolean to check if the value has been set.
 
 SetExemptRoles sets ExemptRoles field to given value.
 
-### HasExemptRoles
 
-`func (o *KeywordRuleResponse) HasExemptRoles() bool`
-
-HasExemptRoles returns a boolean if a field has been set.
-
-### SetExemptRolesNil
-
-`func (o *KeywordRuleResponse) SetExemptRolesNil(b bool)`
-
- SetExemptRolesNil sets the value for ExemptRoles to be an explicit nil
-
-### UnsetExemptRoles
-`func (o *KeywordRuleResponse) UnsetExemptRoles()`
-
-UnsetExemptRoles ensures that no value is present for ExemptRoles, not even an explicit nil
 ### GetExemptChannels
 
 `func (o *KeywordRuleResponse) GetExemptChannels() []string`
@@ -264,22 +234,7 @@ and a boolean to check if the value has been set.
 
 SetExemptChannels sets ExemptChannels field to given value.
 
-### HasExemptChannels
 
-`func (o *KeywordRuleResponse) HasExemptChannels() bool`
-
-HasExemptChannels returns a boolean if a field has been set.
-
-### SetExemptChannelsNil
-
-`func (o *KeywordRuleResponse) SetExemptChannelsNil(b bool)`
-
- SetExemptChannelsNil sets the value for ExemptChannels to be an explicit nil
-
-### UnsetExemptChannels
-`func (o *KeywordRuleResponse) UnsetExemptChannels()`
-
-UnsetExemptChannels ensures that no value is present for ExemptChannels, not even an explicit nil
 ### GetTriggerMetadata
 
 `func (o *KeywordRuleResponse) GetTriggerMetadata() KeywordTriggerMetadataResponse`

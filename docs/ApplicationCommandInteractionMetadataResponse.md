@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Type** | **int32** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 **AuthorizingIntegrationOwners** | **map[string]string** |  | 
 **OriginalResponseMessageId** | Pointer to **string** |  | [optional] 
-**TargetUser** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**TargetUser** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 **TargetMessageId** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -96,16 +96,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *ApplicationCommandInteractionMetadataResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *ApplicationCommandInteractionMetadataResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetAuthorizingIntegrationOwners
 
 `func (o *ApplicationCommandInteractionMetadataResponse) GetAuthorizingIntegrationOwners() map[string]string`
@@ -176,16 +166,6 @@ SetTargetUser sets TargetUser field to given value.
 
 HasTargetUser returns a boolean if a field has been set.
 
-### SetTargetUserNil
-
-`func (o *ApplicationCommandInteractionMetadataResponse) SetTargetUserNil(b bool)`
-
- SetTargetUserNil sets the value for TargetUser to be an explicit nil
-
-### UnsetTargetUser
-`func (o *ApplicationCommandInteractionMetadataResponse) UnsetTargetUser()`
-
-UnsetTargetUser ensures that no value is present for TargetUser, not even an explicit nil
 ### GetTargetMessageId
 
 `func (o *ApplicationCommandInteractionMetadataResponse) GetTargetMessageId() string`

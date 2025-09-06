@@ -5,11 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **int32** |  | 
+**Id** | Pointer to **NullableInt32** |  | [optional] 
 **CustomId** | **string** |  | 
 **Placeholder** | Pointer to **NullableString** |  | [optional] 
 **MinValues** | Pointer to **NullableInt32** |  | [optional] 
 **MaxValues** | Pointer to **NullableInt32** |  | [optional] 
 **Disabled** | Pointer to **NullableBool** |  | [optional] 
+**Required** | Pointer to **NullableBool** |  | [optional] 
 **DefaultValues** | Pointer to [**[]UserSelectDefaultValue**](UserSelectDefaultValue.md) |  | [optional] 
 
 ## Methods
@@ -51,6 +53,41 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
+### GetId
+
+`func (o *UserSelectComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *UserSelectComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *UserSelectComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *UserSelectComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *UserSelectComponentForMessageRequest) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *UserSelectComponentForMessageRequest) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetCustomId
 
 `func (o *UserSelectComponentForMessageRequest) GetCustomId() string`
@@ -211,6 +248,41 @@ HasDisabled returns a boolean if a field has been set.
 `func (o *UserSelectComponentForMessageRequest) UnsetDisabled()`
 
 UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
+### GetRequired
+
+`func (o *UserSelectComponentForMessageRequest) GetRequired() bool`
+
+GetRequired returns the Required field if non-nil, zero value otherwise.
+
+### GetRequiredOk
+
+`func (o *UserSelectComponentForMessageRequest) GetRequiredOk() (*bool, bool)`
+
+GetRequiredOk returns a tuple with the Required field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequired
+
+`func (o *UserSelectComponentForMessageRequest) SetRequired(v bool)`
+
+SetRequired sets Required field to given value.
+
+### HasRequired
+
+`func (o *UserSelectComponentForMessageRequest) HasRequired() bool`
+
+HasRequired returns a boolean if a field has been set.
+
+### SetRequiredNil
+
+`func (o *UserSelectComponentForMessageRequest) SetRequiredNil(b bool)`
+
+ SetRequiredNil sets the value for Required to be an explicit nil
+
+### UnsetRequired
+`func (o *UserSelectComponentForMessageRequest) UnsetRequired()`
+
+UnsetRequired ensures that no value is present for Required, not even an explicit nil
 ### GetDefaultValues
 
 `func (o *UserSelectComponentForMessageRequest) GetDefaultValues() []UserSelectDefaultValue`
