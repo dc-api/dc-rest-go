@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-30T01:39:44.165564220Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -61,8 +61,8 @@ type UserPIIResponse struct {
 	Discriminator string `json:"discriminator"`
 	PublicFlags int32 `json:"public_flags"`
 	Flags int64 `json:"flags"`
-	Bot NullableBool `json:"bot,omitempty"`
-	System NullableBool `json:"system,omitempty"`
+	Bot *bool `json:"bot,omitempty"`
+	System *bool `json:"system,omitempty"`
 	Banner NullableString `json:"banner,omitempty"`
 	AccentColor NullableInt32 `json:"accent_color,omitempty"`
 	GlobalName NullableString `json:"global_name,omitempty"`
@@ -73,7 +73,7 @@ type UserPIIResponse struct {
 	Locale string `json:"locale"`
 	PremiumType *int32 `json:"premium_type,omitempty"`
 	Email NullableString `json:"email,omitempty"`
-	Verified NullableBool `json:"verified,omitempty"`
+	Verified *bool `json:"verified,omitempty"`
 }
 
 type _UserPIIResponse UserPIIResponse
@@ -265,91 +265,71 @@ func (o *UserPIIResponse) SetFlags(v int64) {
 	o.Flags = v
 }
 
-// GetBot returns the Bot field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBot returns the Bot field value if set, zero value otherwise.
 func (o *UserPIIResponse) GetBot() bool {
-	if o == nil || IsNil(o.Bot.Get()) {
+	if o == nil || IsNil(o.Bot) {
 		var ret bool
 		return ret
 	}
-	return *o.Bot.Get()
+	return *o.Bot
 }
 
 // GetBotOk returns a tuple with the Bot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserPIIResponse) GetBotOk() (*bool, bool) {
-	if o == nil || IsNil(o.Bot.Get()) {
+	if o == nil || IsNil(o.Bot) {
 		return nil, false
 	}
-	return o.Bot.Get(), o.Bot.IsSet()
+	return o.Bot, true
 }
 
 // HasBot returns a boolean if a field has been set.
 func (o *UserPIIResponse) HasBot() bool {
-	if o != nil && o.Bot.IsSet() {
+	if o != nil && !IsNil(o.Bot) {
 		return true
 	}
 
 	return false
 }
 
-// SetBot gets a reference to the given NullableBool and assigns it to the Bot field.
+// SetBot gets a reference to the given bool and assigns it to the Bot field.
 func (o *UserPIIResponse) SetBot(v bool) {
-	o.Bot.Set(&v)
+	o.Bot = &v
 }
 
-// SetBotNil sets the value for Bot to be an explicit nil
-func (o *UserPIIResponse) SetBotNil() {
-	o.Bot.Set(nil)
-}
 
-// UnsetBot ensures that no value is present for Bot, not even an explicit nil
-func (o *UserPIIResponse) UnsetBot() {
-	o.Bot.Unset()
-}
-
-// GetSystem returns the System field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSystem returns the System field value if set, zero value otherwise.
 func (o *UserPIIResponse) GetSystem() bool {
-	if o == nil || IsNil(o.System.Get()) {
+	if o == nil || IsNil(o.System) {
 		var ret bool
 		return ret
 	}
-	return *o.System.Get()
+	return *o.System
 }
 
 // GetSystemOk returns a tuple with the System field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserPIIResponse) GetSystemOk() (*bool, bool) {
-	if o == nil || IsNil(o.System.Get()) {
+	if o == nil || IsNil(o.System) {
 		return nil, false
 	}
-	return o.System.Get(), o.System.IsSet()
+	return o.System, true
 }
 
 // HasSystem returns a boolean if a field has been set.
 func (o *UserPIIResponse) HasSystem() bool {
-	if o != nil && o.System.IsSet() {
+	if o != nil && !IsNil(o.System) {
 		return true
 	}
 
 	return false
 }
 
-// SetSystem gets a reference to the given NullableBool and assigns it to the System field.
+// SetSystem gets a reference to the given bool and assigns it to the System field.
 func (o *UserPIIResponse) SetSystem(v bool) {
-	o.System.Set(&v)
+	o.System = &v
 }
 
-// SetSystemNil sets the value for System to be an explicit nil
-func (o *UserPIIResponse) SetSystemNil() {
-	o.System.Set(nil)
-}
-
-// UnsetSystem ensures that no value is present for System, not even an explicit nil
-func (o *UserPIIResponse) UnsetSystem() {
-	o.System.Unset()
-}
 
 // GetBanner returns the Banner field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserPIIResponse) GetBanner() string {
@@ -733,48 +713,38 @@ func (o *UserPIIResponse) UnsetEmail() {
 	o.Email.Unset()
 }
 
-// GetVerified returns the Verified field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetVerified returns the Verified field value if set, zero value otherwise.
 func (o *UserPIIResponse) GetVerified() bool {
-	if o == nil || IsNil(o.Verified.Get()) {
+	if o == nil || IsNil(o.Verified) {
 		var ret bool
 		return ret
 	}
-	return *o.Verified.Get()
+	return *o.Verified
 }
 
 // GetVerifiedOk returns a tuple with the Verified field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserPIIResponse) GetVerifiedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Verified.Get()) {
+	if o == nil || IsNil(o.Verified) {
 		return nil, false
 	}
-	return o.Verified.Get(), o.Verified.IsSet()
+	return o.Verified, true
 }
 
 // HasVerified returns a boolean if a field has been set.
 func (o *UserPIIResponse) HasVerified() bool {
-	if o != nil && o.Verified.IsSet() {
+	if o != nil && !IsNil(o.Verified) {
 		return true
 	}
 
 	return false
 }
 
-// SetVerified gets a reference to the given NullableBool and assigns it to the Verified field.
+// SetVerified gets a reference to the given bool and assigns it to the Verified field.
 func (o *UserPIIResponse) SetVerified(v bool) {
-	o.Verified.Set(&v)
+	o.Verified = &v
 }
 
-// SetVerifiedNil sets the value for Verified to be an explicit nil
-func (o *UserPIIResponse) SetVerifiedNil() {
-	o.Verified.Set(nil)
-}
-
-// UnsetVerified ensures that no value is present for Verified, not even an explicit nil
-func (o *UserPIIResponse) UnsetVerified() {
-	o.Verified.Unset()
-}
 
 func (o UserPIIResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -794,11 +764,11 @@ func (o UserPIIResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["discriminator"] = o.Discriminator
 	toSerialize["public_flags"] = o.PublicFlags
 	toSerialize["flags"] = o.Flags
-	if o.Bot.IsSet() {
-		toSerialize["bot"] = o.Bot.Get()
+	if !IsNil(o.Bot) {
+		toSerialize["bot"] = o.Bot
 	}
-	if o.System.IsSet() {
-		toSerialize["system"] = o.System.Get()
+	if !IsNil(o.System) {
+		toSerialize["system"] = o.System
 	}
 	if o.Banner.IsSet() {
 		toSerialize["banner"] = o.Banner.Get()
@@ -826,8 +796,8 @@ func (o UserPIIResponse) ToMap() (map[string]interface{}, error) {
 	if o.Email.IsSet() {
 		toSerialize["email"] = o.Email.Get()
 	}
-	if o.Verified.IsSet() {
-		toSerialize["verified"] = o.Verified.Get()
+	if !IsNil(o.Verified) {
+		toSerialize["verified"] = o.Verified
 	}
 	return toSerialize, nil
 }

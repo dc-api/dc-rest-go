@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-30T01:39:44.165564220Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -58,7 +58,7 @@ type PartialDiscordIntegrationResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Type NullableString `json:"type"`
 	Name NullableString `json:"name,omitempty"`
-	Account NullableAccountResponse `json:"account,omitempty"`
+	Account AccountResponse `json:"account"`
 	ApplicationId string `json:"application_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
@@ -68,10 +68,11 @@ type _PartialDiscordIntegrationResponse PartialDiscordIntegrationResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPartialDiscordIntegrationResponse(id string, type_ NullableString, applicationId string) *PartialDiscordIntegrationResponse {
+func NewPartialDiscordIntegrationResponse(id string, type_ NullableString, account AccountResponse, applicationId string) *PartialDiscordIntegrationResponse {
 	this := PartialDiscordIntegrationResponse{}
 	this.Id = id
 	this.Type = type_
+	this.Account = account
 	this.ApplicationId = applicationId
 	return &this
 }
@@ -177,47 +178,28 @@ func (o *PartialDiscordIntegrationResponse) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetAccount returns the Account field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAccount returns the Account field value
 func (o *PartialDiscordIntegrationResponse) GetAccount() AccountResponse {
-	if o == nil || IsNil(o.Account.Get()) {
+	if o == nil {
 		var ret AccountResponse
 		return ret
 	}
-	return *o.Account.Get()
+
+	return o.Account
 }
 
-// GetAccountOk returns a tuple with the Account field value if set, nil otherwise
+// GetAccountOk returns a tuple with the Account field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PartialDiscordIntegrationResponse) GetAccountOk() (*AccountResponse, bool) {
-	if o == nil || IsNil(o.Account.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Account.Get(), o.Account.IsSet()
+	return &o.Account, true
 }
 
-// HasAccount returns a boolean if a field has been set.
-func (o *PartialDiscordIntegrationResponse) HasAccount() bool {
-	if o != nil && o.Account.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAccount gets a reference to the given NullableAccountResponse and assigns it to the Account field.
+// SetAccount sets field value
 func (o *PartialDiscordIntegrationResponse) SetAccount(v AccountResponse) {
-	o.Account.Set(&v)
-}
-
-// SetAccountNil sets the value for Account to be an explicit nil
-func (o *PartialDiscordIntegrationResponse) SetAccountNil() {
-	o.Account.Set(nil)
-}
-
-// UnsetAccount ensures that no value is present for Account, not even an explicit nil
-func (o *PartialDiscordIntegrationResponse) UnsetAccount() {
-	o.Account.Unset()
+	o.Account = v
 }
 
 // GetApplicationId returns the ApplicationId field value
@@ -259,9 +241,7 @@ func (o PartialDiscordIntegrationResponse) ToMap() (map[string]interface{}, erro
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if o.Account.IsSet() {
-		toSerialize["account"] = o.Account.Get()
-	}
+	toSerialize["account"] = o.Account
 	toSerialize["application_id"] = o.ApplicationId
 	return toSerialize, nil
 }
@@ -273,6 +253,7 @@ func (o *PartialDiscordIntegrationResponse) UnmarshalJSON(data []byte) (err erro
 	requiredProperties := []string{
 		"id",
 		"type",
+		"account",
 		"application_id",
 	}
 

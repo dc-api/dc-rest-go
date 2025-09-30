@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-30T01:39:44.165564220Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -59,7 +59,7 @@ type VoiceStateResponse struct {
 	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Deaf bool `json:"deaf"`
 	GuildId *string `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Member NullableGuildMemberResponse `json:"member,omitempty"`
+	Member *GuildMemberResponse `json:"member,omitempty"`
 	Mute bool `json:"mute"`
 	RequestToSpeakTimestamp NullableTime `json:"request_to_speak_timestamp,omitempty"`
 	Suppress bool `json:"suppress"`
@@ -188,48 +188,38 @@ func (o *VoiceStateResponse) SetGuildId(v string) {
 }
 
 
-// GetMember returns the Member field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMember returns the Member field value if set, zero value otherwise.
 func (o *VoiceStateResponse) GetMember() GuildMemberResponse {
-	if o == nil || IsNil(o.Member.Get()) {
+	if o == nil || IsNil(o.Member) {
 		var ret GuildMemberResponse
 		return ret
 	}
-	return *o.Member.Get()
+	return *o.Member
 }
 
 // GetMemberOk returns a tuple with the Member field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VoiceStateResponse) GetMemberOk() (*GuildMemberResponse, bool) {
-	if o == nil || IsNil(o.Member.Get()) {
+	if o == nil || IsNil(o.Member) {
 		return nil, false
 	}
-	return o.Member.Get(), o.Member.IsSet()
+	return o.Member, true
 }
 
 // HasMember returns a boolean if a field has been set.
 func (o *VoiceStateResponse) HasMember() bool {
-	if o != nil && o.Member.IsSet() {
+	if o != nil && !IsNil(o.Member) {
 		return true
 	}
 
 	return false
 }
 
-// SetMember gets a reference to the given NullableGuildMemberResponse and assigns it to the Member field.
+// SetMember gets a reference to the given GuildMemberResponse and assigns it to the Member field.
 func (o *VoiceStateResponse) SetMember(v GuildMemberResponse) {
-	o.Member.Set(&v)
+	o.Member = &v
 }
 
-// SetMemberNil sets the value for Member to be an explicit nil
-func (o *VoiceStateResponse) SetMemberNil() {
-	o.Member.Set(nil)
-}
-
-// UnsetMember ensures that no value is present for Member, not even an explicit nil
-func (o *VoiceStateResponse) UnsetMember() {
-	o.Member.Unset()
-}
 
 // GetMute returns the Mute field value
 func (o *VoiceStateResponse) GetMute() bool {
@@ -502,8 +492,8 @@ func (o VoiceStateResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.GuildId) {
 		toSerialize["guild_id"] = o.GuildId
 	}
-	if o.Member.IsSet() {
-		toSerialize["member"] = o.Member.Get()
+	if !IsNil(o.Member) {
+		toSerialize["member"] = o.Member
 	}
 	toSerialize["mute"] = o.Mute
 	if o.RequestToSpeakTimestamp.IsSet() {

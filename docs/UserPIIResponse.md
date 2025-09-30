@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **Discriminator** | **string** |  | 
 **PublicFlags** | **int32** |  | 
 **Flags** | **int64** |  | 
-**Bot** | Pointer to **NullableBool** |  | [optional] 
-**System** | Pointer to **NullableBool** |  | [optional] 
+**Bot** | Pointer to **bool** |  | [optional] 
+**System** | Pointer to **bool** |  | [optional] 
 **Banner** | Pointer to **NullableString** |  | [optional] 
 **AccentColor** | Pointer to **NullableInt32** |  | [optional] 
 **GlobalName** | Pointer to **NullableString** |  | [optional] 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Locale** | **string** |  | 
 **PremiumType** | Pointer to **int32** |  | [optional] 
 **Email** | Pointer to **NullableString** |  | [optional] 
-**Verified** | Pointer to **NullableBool** |  | [optional] 
+**Verified** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -203,16 +203,6 @@ SetBot sets Bot field to given value.
 
 HasBot returns a boolean if a field has been set.
 
-### SetBotNil
-
-`func (o *UserPIIResponse) SetBotNil(b bool)`
-
- SetBotNil sets the value for Bot to be an explicit nil
-
-### UnsetBot
-`func (o *UserPIIResponse) UnsetBot()`
-
-UnsetBot ensures that no value is present for Bot, not even an explicit nil
 ### GetSystem
 
 `func (o *UserPIIResponse) GetSystem() bool`
@@ -238,16 +228,6 @@ SetSystem sets System field to given value.
 
 HasSystem returns a boolean if a field has been set.
 
-### SetSystemNil
-
-`func (o *UserPIIResponse) SetSystemNil(b bool)`
-
- SetSystemNil sets the value for System to be an explicit nil
-
-### UnsetSystem
-`func (o *UserPIIResponse) UnsetSystem()`
-
-UnsetSystem ensures that no value is present for System, not even an explicit nil
 ### GetBanner
 
 `func (o *UserPIIResponse) GetBanner() string`
@@ -583,16 +563,6 @@ SetVerified sets Verified field to given value.
 
 HasVerified returns a boolean if a field has been set.
 
-### SetVerifiedNil
-
-`func (o *UserPIIResponse) SetVerifiedNil(b bool)`
-
- SetVerifiedNil sets the value for Verified to be an explicit nil
-
-### UnsetVerified
-`func (o *UserPIIResponse) UnsetVerified()`
-
-UnsetVerified ensures that no value is present for Verified, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-30T01:39:44.165564220Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -82,11 +82,6 @@ func UpdateMessageInteractionCallbackResponseAsInteractionCallbackResponseResour
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *InteractionCallbackResponseResource) UnmarshalJSON(data []byte) error {
 	var err error
-	// this object is nullable so check if the payload is null or empty string
-	if string(data) == "" || string(data) == "{}" {
-		return nil
-	}
-
 	match := 0
 	// try to unmarshal data into CreateMessageInteractionCallbackResponse
 	err = newStrictDecoder(data).Decode(&dst.CreateMessageInteractionCallbackResponse)

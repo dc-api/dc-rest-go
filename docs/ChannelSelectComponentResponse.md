@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **Type** | **int32** |  | 
 **Id** | **int32** |  | 
 **CustomId** | **string** |  | 
-**Placeholder** | Pointer to **NullableString** |  | [optional] 
+**Placeholder** | Pointer to **string** |  | [optional] 
 **MinValues** | Pointer to **NullableInt32** |  | [optional] 
 **MaxValues** | Pointer to **NullableInt32** |  | [optional] 
-**Disabled** | Pointer to **NullableBool** |  | [optional] 
+**Disabled** | Pointer to **bool** |  | [optional] 
 **ChannelTypes** | Pointer to **[]int32** |  | [optional] 
 **DefaultValues** | Pointer to [**[]ChannelSelectDefaultValueResponse**](ChannelSelectDefaultValueResponse.md) |  | [optional] 
 
@@ -118,16 +118,6 @@ SetPlaceholder sets Placeholder field to given value.
 
 HasPlaceholder returns a boolean if a field has been set.
 
-### SetPlaceholderNil
-
-`func (o *ChannelSelectComponentResponse) SetPlaceholderNil(b bool)`
-
- SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-
-### UnsetPlaceholder
-`func (o *ChannelSelectComponentResponse) UnsetPlaceholder()`
-
-UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
 ### GetMinValues
 
 `func (o *ChannelSelectComponentResponse) GetMinValues() int32`
@@ -223,16 +213,6 @@ SetDisabled sets Disabled field to given value.
 
 HasDisabled returns a boolean if a field has been set.
 
-### SetDisabledNil
-
-`func (o *ChannelSelectComponentResponse) SetDisabledNil(b bool)`
-
- SetDisabledNil sets the value for Disabled to be an explicit nil
-
-### UnsetDisabled
-`func (o *ChannelSelectComponentResponse) UnsetDisabled()`
-
-UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
 ### GetChannelTypes
 
 `func (o *ChannelSelectComponentResponse) GetChannelTypes() []int32`
@@ -258,16 +238,6 @@ SetChannelTypes sets ChannelTypes field to given value.
 
 HasChannelTypes returns a boolean if a field has been set.
 
-### SetChannelTypesNil
-
-`func (o *ChannelSelectComponentResponse) SetChannelTypesNil(b bool)`
-
- SetChannelTypesNil sets the value for ChannelTypes to be an explicit nil
-
-### UnsetChannelTypes
-`func (o *ChannelSelectComponentResponse) UnsetChannelTypes()`
-
-UnsetChannelTypes ensures that no value is present for ChannelTypes, not even an explicit nil
 ### GetDefaultValues
 
 `func (o *ChannelSelectComponentResponse) GetDefaultValues() []ChannelSelectDefaultValueResponse`
@@ -293,16 +263,6 @@ SetDefaultValues sets DefaultValues field to given value.
 
 HasDefaultValues returns a boolean if a field has been set.
 
-### SetDefaultValuesNil
-
-`func (o *ChannelSelectComponentResponse) SetDefaultValuesNil(b bool)`
-
- SetDefaultValuesNil sets the value for DefaultValues to be an explicit nil
-
-### UnsetDefaultValues
-`func (o *ChannelSelectComponentResponse) UnsetDefaultValues()`
-
-UnsetDefaultValues ensures that no value is present for DefaultValues, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

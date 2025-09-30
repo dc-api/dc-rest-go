@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Type** | **NullableString** |  | 
 **Name** | Pointer to **string** |  | [optional] 
-**Account** | Pointer to [**AccountResponse**](AccountResponse.md) |  | [optional] 
+**Account** | [**AccountResponse**](AccountResponse.md) |  | 
 **ApplicationId** | **string** |  | 
 
 ## Methods
 
 ### NewGuildAuditLogResponseIntegrationsInner
 
-`func NewGuildAuditLogResponseIntegrationsInner(id string, type_ NullableString, applicationId string, ) *GuildAuditLogResponseIntegrationsInner`
+`func NewGuildAuditLogResponseIntegrationsInner(id string, type_ NullableString, account AccountResponse, applicationId string, ) *GuildAuditLogResponseIntegrationsInner`
 
 NewGuildAuditLogResponseIntegrationsInner instantiates a new GuildAuditLogResponseIntegrationsInner object
 This constructor will assign default values to properties that have it defined,
@@ -123,11 +123,6 @@ and a boolean to check if the value has been set.
 
 SetAccount sets Account field to given value.
 
-### HasAccount
-
-`func (o *GuildAuditLogResponseIntegrationsInner) HasAccount() bool`
-
-HasAccount returns a boolean if a field has been set.
 
 ### GetApplicationId
 

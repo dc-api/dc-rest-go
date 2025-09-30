@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **EditedTimestamp** | Pointer to **NullableTime** |  | [optional] 
 **Flags** | **int32** |  | 
 **Components** | [**[]BasicMessageResponseComponentsInner**](BasicMessageResponseComponentsInner.md) |  | 
-**Resolved** | Pointer to [**NullableResolvedObjectsResponse**](ResolvedObjectsResponse.md) |  | [optional] 
 **Stickers** | Pointer to [**[]GetSticker200Response**](GetSticker200Response.md) |  | [optional] 
 **StickerItems** | Pointer to [**[]MessageStickerItemResponse**](MessageStickerItemResponse.md) |  | [optional] 
 
@@ -252,41 +251,6 @@ and a boolean to check if the value has been set.
 SetComponents sets Components field to given value.
 
 
-### GetResolved
-
-`func (o *MinimalContentMessageResponse) GetResolved() ResolvedObjectsResponse`
-
-GetResolved returns the Resolved field if non-nil, zero value otherwise.
-
-### GetResolvedOk
-
-`func (o *MinimalContentMessageResponse) GetResolvedOk() (*ResolvedObjectsResponse, bool)`
-
-GetResolvedOk returns a tuple with the Resolved field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetResolved
-
-`func (o *MinimalContentMessageResponse) SetResolved(v ResolvedObjectsResponse)`
-
-SetResolved sets Resolved field to given value.
-
-### HasResolved
-
-`func (o *MinimalContentMessageResponse) HasResolved() bool`
-
-HasResolved returns a boolean if a field has been set.
-
-### SetResolvedNil
-
-`func (o *MinimalContentMessageResponse) SetResolvedNil(b bool)`
-
- SetResolvedNil sets the value for Resolved to be an explicit nil
-
-### UnsetResolved
-`func (o *MinimalContentMessageResponse) UnsetResolved()`
-
-UnsetResolved ensures that no value is present for Resolved, not even an explicit nil
 ### GetStickers
 
 `func (o *MinimalContentMessageResponse) GetStickers() []GetSticker200Response`
@@ -312,16 +276,6 @@ SetStickers sets Stickers field to given value.
 
 HasStickers returns a boolean if a field has been set.
 
-### SetStickersNil
-
-`func (o *MinimalContentMessageResponse) SetStickersNil(b bool)`
-
- SetStickersNil sets the value for Stickers to be an explicit nil
-
-### UnsetStickers
-`func (o *MinimalContentMessageResponse) UnsetStickers()`
-
-UnsetStickers ensures that no value is present for Stickers, not even an explicit nil
 ### GetStickerItems
 
 `func (o *MinimalContentMessageResponse) GetStickerItems() []MessageStickerItemResponse`
@@ -347,16 +301,6 @@ SetStickerItems sets StickerItems field to given value.
 
 HasStickerItems returns a boolean if a field has been set.
 
-### SetStickerItemsNil
-
-`func (o *MinimalContentMessageResponse) SetStickerItemsNil(b bool)`
-
- SetStickerItemsNil sets the value for StickerItems to be an explicit nil
-
-### UnsetStickerItems
-`func (o *MinimalContentMessageResponse) UnsetStickerItems()`
-
-UnsetStickerItems ensures that no value is present for StickerItems, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

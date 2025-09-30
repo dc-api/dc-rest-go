@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-30T01:39:44.165564220Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -58,7 +58,7 @@ type EmbeddedActivityInstance struct {
 	ApplicationId string `json:"application_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	InstanceId string `json:"instance_id"`
 	LaunchId string `json:"launch_id"`
-	Location NullableEmbeddedActivityInstanceLocation `json:"location,omitempty"`
+	Location EmbeddedActivityInstanceLocation `json:"location"`
 	Users []string `json:"users"`
 }
 
@@ -68,11 +68,12 @@ type _EmbeddedActivityInstance EmbeddedActivityInstance
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEmbeddedActivityInstance(applicationId string, instanceId string, launchId string, users []string) *EmbeddedActivityInstance {
+func NewEmbeddedActivityInstance(applicationId string, instanceId string, launchId string, location EmbeddedActivityInstanceLocation, users []string) *EmbeddedActivityInstance {
 	this := EmbeddedActivityInstance{}
 	this.ApplicationId = applicationId
 	this.InstanceId = instanceId
 	this.LaunchId = launchId
+	this.Location = location
 	this.Users = users
 	return &this
 }
@@ -157,47 +158,28 @@ func (o *EmbeddedActivityInstance) SetLaunchId(v string) {
 	o.LaunchId = v
 }
 
-// GetLocation returns the Location field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLocation returns the Location field value
 func (o *EmbeddedActivityInstance) GetLocation() EmbeddedActivityInstanceLocation {
-	if o == nil || IsNil(o.Location.Get()) {
+	if o == nil {
 		var ret EmbeddedActivityInstanceLocation
 		return ret
 	}
-	return *o.Location.Get()
+
+	return o.Location
 }
 
-// GetLocationOk returns a tuple with the Location field value if set, nil otherwise
+// GetLocationOk returns a tuple with the Location field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EmbeddedActivityInstance) GetLocationOk() (*EmbeddedActivityInstanceLocation, bool) {
-	if o == nil || IsNil(o.Location.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Location.Get(), o.Location.IsSet()
+	return &o.Location, true
 }
 
-// HasLocation returns a boolean if a field has been set.
-func (o *EmbeddedActivityInstance) HasLocation() bool {
-	if o != nil && o.Location.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetLocation gets a reference to the given NullableEmbeddedActivityInstanceLocation and assigns it to the Location field.
+// SetLocation sets field value
 func (o *EmbeddedActivityInstance) SetLocation(v EmbeddedActivityInstanceLocation) {
-	o.Location.Set(&v)
-}
-
-// SetLocationNil sets the value for Location to be an explicit nil
-func (o *EmbeddedActivityInstance) SetLocationNil() {
-	o.Location.Set(nil)
-}
-
-// UnsetLocation ensures that no value is present for Location, not even an explicit nil
-func (o *EmbeddedActivityInstance) UnsetLocation() {
-	o.Location.Unset()
+	o.Location = v
 }
 
 // GetUsers returns the Users field value
@@ -237,9 +219,7 @@ func (o EmbeddedActivityInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["application_id"] = o.ApplicationId
 	toSerialize["instance_id"] = o.InstanceId
 	toSerialize["launch_id"] = o.LaunchId
-	if o.Location.IsSet() {
-		toSerialize["location"] = o.Location.Get()
-	}
+	toSerialize["location"] = o.Location
 	toSerialize["users"] = o.Users
 	return toSerialize, nil
 }
@@ -252,6 +232,7 @@ func (o *EmbeddedActivityInstance) UnmarshalJSON(data []byte) (err error) {
 		"application_id",
 		"instance_id",
 		"launch_id",
+		"location",
 		"users",
 	}
 
