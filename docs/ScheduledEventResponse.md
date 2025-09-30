@@ -10,14 +10,14 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **ChannelId** | Pointer to **string** |  | [optional] 
 **CreatorId** | Pointer to **string** |  | [optional] 
-**Creator** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**Creator** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 **Image** | Pointer to **NullableString** |  | [optional] 
 **ScheduledStartTime** | **time.Time** |  | 
 **ScheduledEndTime** | Pointer to **NullableTime** |  | [optional] 
 **Status** | **NullableInt32** |  | 
 **EntityType** | **NullableInt32** |  | 
 **EntityId** | Pointer to **string** |  | [optional] 
-**UserCount** | Pointer to **NullableInt32** |  | [optional] 
+**UserCount** | Pointer to **int32** |  | [optional] 
 **PrivacyLevel** | **interface{}** |  | 
 **UserRsvp** | Pointer to [**NullableScheduledEventUserResponse**](ScheduledEventUserResponse.md) |  | [optional] 
 
@@ -210,16 +210,6 @@ SetCreator sets Creator field to given value.
 
 HasCreator returns a boolean if a field has been set.
 
-### SetCreatorNil
-
-`func (o *ScheduledEventResponse) SetCreatorNil(b bool)`
-
- SetCreatorNil sets the value for Creator to be an explicit nil
-
-### UnsetCreator
-`func (o *ScheduledEventResponse) UnsetCreator()`
-
-UnsetCreator ensures that no value is present for Creator, not even an explicit nil
 ### GetImage
 
 `func (o *ScheduledEventResponse) GetImage() string`
@@ -420,16 +410,6 @@ SetUserCount sets UserCount field to given value.
 
 HasUserCount returns a boolean if a field has been set.
 
-### SetUserCountNil
-
-`func (o *ScheduledEventResponse) SetUserCountNil(b bool)`
-
- SetUserCountNil sets the value for UserCount to be an explicit nil
-
-### UnsetUserCount
-`func (o *ScheduledEventResponse) UnsetUserCount()`
-
-UnsetUserCount ensures that no value is present for UserCount, not even an explicit nil
 ### GetPrivacyLevel
 
 `func (o *ScheduledEventResponse) GetPrivacyLevel() interface{}`

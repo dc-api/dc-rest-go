@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Interaction** | [**InteractionResponse**](InteractionResponse.md) |  | 
-**Resource** | Pointer to [**NullableInteractionCallbackResponseResource**](InteractionCallbackResponseResource.md) |  | [optional] 
+**Resource** | Pointer to [**InteractionCallbackResponseResource**](InteractionCallbackResponseResource.md) |  | [optional] 
 
 ## Methods
 
@@ -71,16 +71,6 @@ SetResource sets Resource field to given value.
 
 HasResource returns a boolean if a field has been set.
 
-### SetResourceNil
-
-`func (o *InteractionCallbackResponse) SetResourceNil(b bool)`
-
- SetResourceNil sets the value for Resource to be an explicit nil
-
-### UnsetResource
-`func (o *InteractionCallbackResponse) UnsetResource()`
-
-UnsetResource ensures that no value is present for Resource, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

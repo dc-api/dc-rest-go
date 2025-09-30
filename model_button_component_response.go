@@ -6,7 +6,7 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
+ *    * - **Modified**: 2025-09-30T01:39:44.165564220Z[Etc/UTC]
  *    * - **Generator Version**: 7.14.0
  * 
  * <details>
@@ -57,11 +57,11 @@ var _ MappedNullable = &ButtonComponentResponse{}
 type ButtonComponentResponse struct {
 	Type int32 `json:"type"`
 	Id int32 `json:"id"`
-	CustomId NullableString `json:"custom_id,omitempty"`
+	CustomId *string `json:"custom_id,omitempty"`
 	Style NullableInt32 `json:"style"`
-	Label NullableString `json:"label,omitempty"`
-	Disabled NullableBool `json:"disabled,omitempty"`
-	Emoji NullableComponentEmojiResponse `json:"emoji,omitempty"`
+	Label *string `json:"label,omitempty"`
+	Disabled *bool `json:"disabled,omitempty"`
+	Emoji *ComponentEmojiResponse `json:"emoji,omitempty"`
 	Url NullableString `json:"url,omitempty"`
 	SkuId *string `json:"sku_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
@@ -136,48 +136,38 @@ func (o *ButtonComponentResponse) SetId(v int32) {
 	o.Id = v
 }
 
-// GetCustomId returns the CustomId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCustomId returns the CustomId field value if set, zero value otherwise.
 func (o *ButtonComponentResponse) GetCustomId() string {
-	if o == nil || IsNil(o.CustomId.Get()) {
+	if o == nil || IsNil(o.CustomId) {
 		var ret string
 		return ret
 	}
-	return *o.CustomId.Get()
+	return *o.CustomId
 }
 
 // GetCustomIdOk returns a tuple with the CustomId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ButtonComponentResponse) GetCustomIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CustomId.Get()) {
+	if o == nil || IsNil(o.CustomId) {
 		return nil, false
 	}
-	return o.CustomId.Get(), o.CustomId.IsSet()
+	return o.CustomId, true
 }
 
 // HasCustomId returns a boolean if a field has been set.
 func (o *ButtonComponentResponse) HasCustomId() bool {
-	if o != nil && o.CustomId.IsSet() {
+	if o != nil && !IsNil(o.CustomId) {
 		return true
 	}
 
 	return false
 }
 
-// SetCustomId gets a reference to the given NullableString and assigns it to the CustomId field.
+// SetCustomId gets a reference to the given string and assigns it to the CustomId field.
 func (o *ButtonComponentResponse) SetCustomId(v string) {
-	o.CustomId.Set(&v)
+	o.CustomId = &v
 }
 
-// SetCustomIdNil sets the value for CustomId to be an explicit nil
-func (o *ButtonComponentResponse) SetCustomIdNil() {
-	o.CustomId.Set(nil)
-}
-
-// UnsetCustomId ensures that no value is present for CustomId, not even an explicit nil
-func (o *ButtonComponentResponse) UnsetCustomId() {
-	o.CustomId.Unset()
-}
 
 // GetStyle returns the Style field value
 // If the value is explicit nil, the zero value for int32 will be returned
@@ -205,134 +195,104 @@ func (o *ButtonComponentResponse) SetStyle(v int32) {
 	o.Style.Set(&v)
 }
 
-// GetLabel returns the Label field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLabel returns the Label field value if set, zero value otherwise.
 func (o *ButtonComponentResponse) GetLabel() string {
-	if o == nil || IsNil(o.Label.Get()) {
+	if o == nil || IsNil(o.Label) {
 		var ret string
 		return ret
 	}
-	return *o.Label.Get()
+	return *o.Label
 }
 
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ButtonComponentResponse) GetLabelOk() (*string, bool) {
-	if o == nil || IsNil(o.Label.Get()) {
+	if o == nil || IsNil(o.Label) {
 		return nil, false
 	}
-	return o.Label.Get(), o.Label.IsSet()
+	return o.Label, true
 }
 
 // HasLabel returns a boolean if a field has been set.
 func (o *ButtonComponentResponse) HasLabel() bool {
-	if o != nil && o.Label.IsSet() {
+	if o != nil && !IsNil(o.Label) {
 		return true
 	}
 
 	return false
 }
 
-// SetLabel gets a reference to the given NullableString and assigns it to the Label field.
+// SetLabel gets a reference to the given string and assigns it to the Label field.
 func (o *ButtonComponentResponse) SetLabel(v string) {
-	o.Label.Set(&v)
+	o.Label = &v
 }
 
-// SetLabelNil sets the value for Label to be an explicit nil
-func (o *ButtonComponentResponse) SetLabelNil() {
-	o.Label.Set(nil)
-}
 
-// UnsetLabel ensures that no value is present for Label, not even an explicit nil
-func (o *ButtonComponentResponse) UnsetLabel() {
-	o.Label.Unset()
-}
-
-// GetDisabled returns the Disabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDisabled returns the Disabled field value if set, zero value otherwise.
 func (o *ButtonComponentResponse) GetDisabled() bool {
-	if o == nil || IsNil(o.Disabled.Get()) {
+	if o == nil || IsNil(o.Disabled) {
 		var ret bool
 		return ret
 	}
-	return *o.Disabled.Get()
+	return *o.Disabled
 }
 
 // GetDisabledOk returns a tuple with the Disabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ButtonComponentResponse) GetDisabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Disabled.Get()) {
+	if o == nil || IsNil(o.Disabled) {
 		return nil, false
 	}
-	return o.Disabled.Get(), o.Disabled.IsSet()
+	return o.Disabled, true
 }
 
 // HasDisabled returns a boolean if a field has been set.
 func (o *ButtonComponentResponse) HasDisabled() bool {
-	if o != nil && o.Disabled.IsSet() {
+	if o != nil && !IsNil(o.Disabled) {
 		return true
 	}
 
 	return false
 }
 
-// SetDisabled gets a reference to the given NullableBool and assigns it to the Disabled field.
+// SetDisabled gets a reference to the given bool and assigns it to the Disabled field.
 func (o *ButtonComponentResponse) SetDisabled(v bool) {
-	o.Disabled.Set(&v)
+	o.Disabled = &v
 }
 
-// SetDisabledNil sets the value for Disabled to be an explicit nil
-func (o *ButtonComponentResponse) SetDisabledNil() {
-	o.Disabled.Set(nil)
-}
 
-// UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
-func (o *ButtonComponentResponse) UnsetDisabled() {
-	o.Disabled.Unset()
-}
-
-// GetEmoji returns the Emoji field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmoji returns the Emoji field value if set, zero value otherwise.
 func (o *ButtonComponentResponse) GetEmoji() ComponentEmojiResponse {
-	if o == nil || IsNil(o.Emoji.Get()) {
+	if o == nil || IsNil(o.Emoji) {
 		var ret ComponentEmojiResponse
 		return ret
 	}
-	return *o.Emoji.Get()
+	return *o.Emoji
 }
 
 // GetEmojiOk returns a tuple with the Emoji field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ButtonComponentResponse) GetEmojiOk() (*ComponentEmojiResponse, bool) {
-	if o == nil || IsNil(o.Emoji.Get()) {
+	if o == nil || IsNil(o.Emoji) {
 		return nil, false
 	}
-	return o.Emoji.Get(), o.Emoji.IsSet()
+	return o.Emoji, true
 }
 
 // HasEmoji returns a boolean if a field has been set.
 func (o *ButtonComponentResponse) HasEmoji() bool {
-	if o != nil && o.Emoji.IsSet() {
+	if o != nil && !IsNil(o.Emoji) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmoji gets a reference to the given NullableComponentEmojiResponse and assigns it to the Emoji field.
+// SetEmoji gets a reference to the given ComponentEmojiResponse and assigns it to the Emoji field.
 func (o *ButtonComponentResponse) SetEmoji(v ComponentEmojiResponse) {
-	o.Emoji.Set(&v)
+	o.Emoji = &v
 }
 
-// SetEmojiNil sets the value for Emoji to be an explicit nil
-func (o *ButtonComponentResponse) SetEmojiNil() {
-	o.Emoji.Set(nil)
-}
-
-// UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
-func (o *ButtonComponentResponse) UnsetEmoji() {
-	o.Emoji.Unset()
-}
 
 // GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ButtonComponentResponse) GetUrl() string {
@@ -422,18 +382,18 @@ func (o ButtonComponentResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
 	toSerialize["id"] = o.Id
-	if o.CustomId.IsSet() {
-		toSerialize["custom_id"] = o.CustomId.Get()
+	if !IsNil(o.CustomId) {
+		toSerialize["custom_id"] = o.CustomId
 	}
 	toSerialize["style"] = o.Style.Get()
-	if o.Label.IsSet() {
-		toSerialize["label"] = o.Label.Get()
+	if !IsNil(o.Label) {
+		toSerialize["label"] = o.Label
 	}
-	if o.Disabled.IsSet() {
-		toSerialize["disabled"] = o.Disabled.Get()
+	if !IsNil(o.Disabled) {
+		toSerialize["disabled"] = o.Disabled
 	}
-	if o.Emoji.IsSet() {
-		toSerialize["emoji"] = o.Emoji.Get()
+	if !IsNil(o.Emoji) {
+		toSerialize["emoji"] = o.Emoji
 	}
 	if o.Url.IsSet() {
 		toSerialize["url"] = o.Url.Get()

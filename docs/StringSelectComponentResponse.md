@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **Type** | **int32** |  | 
 **Id** | **int32** |  | 
 **CustomId** | **string** |  | 
-**Placeholder** | Pointer to **NullableString** |  | [optional] 
+**Placeholder** | Pointer to **string** |  | [optional] 
 **MinValues** | Pointer to **NullableInt32** |  | [optional] 
 **MaxValues** | Pointer to **NullableInt32** |  | [optional] 
-**Disabled** | Pointer to **NullableBool** |  | [optional] 
+**Disabled** | Pointer to **bool** |  | [optional] 
 **Options** | [**[]StringSelectOptionResponse**](StringSelectOptionResponse.md) |  | 
 
 ## Methods
@@ -117,16 +117,6 @@ SetPlaceholder sets Placeholder field to given value.
 
 HasPlaceholder returns a boolean if a field has been set.
 
-### SetPlaceholderNil
-
-`func (o *StringSelectComponentResponse) SetPlaceholderNil(b bool)`
-
- SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-
-### UnsetPlaceholder
-`func (o *StringSelectComponentResponse) UnsetPlaceholder()`
-
-UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
 ### GetMinValues
 
 `func (o *StringSelectComponentResponse) GetMinValues() int32`
@@ -222,16 +212,6 @@ SetDisabled sets Disabled field to given value.
 
 HasDisabled returns a boolean if a field has been set.
 
-### SetDisabledNil
-
-`func (o *StringSelectComponentResponse) SetDisabledNil(b bool)`
-
- SetDisabledNil sets the value for Disabled to be an explicit nil
-
-### UnsetDisabled
-`func (o *StringSelectComponentResponse) UnsetDisabled()`
-
-UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
 ### GetOptions
 
 `func (o *StringSelectComponentResponse) GetOptions() []StringSelectOptionResponse`

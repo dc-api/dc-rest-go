@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **int32** |  | 
 **Id** | **int32** |  | 
-**Components** | Pointer to [**[]ActionRowComponentResponseComponentsInner**](ActionRowComponentResponseComponentsInner.md) |  | [optional] 
+**Components** | [**[]ActionRowComponentResponseComponentsInner**](ActionRowComponentResponseComponentsInner.md) |  | 
 
 ## Methods
 
 ### NewActionRowComponentResponse
 
-`func NewActionRowComponentResponse(type_ int32, id int32, ) *ActionRowComponentResponse`
+`func NewActionRowComponentResponse(type_ int32, id int32, components []ActionRowComponentResponseComponentsInner, ) *ActionRowComponentResponse`
 
 NewActionRowComponentResponse instantiates a new ActionRowComponentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -86,22 +86,7 @@ and a boolean to check if the value has been set.
 
 SetComponents sets Components field to given value.
 
-### HasComponents
 
-`func (o *ActionRowComponentResponse) HasComponents() bool`
-
-HasComponents returns a boolean if a field has been set.
-
-### SetComponentsNil
-
-`func (o *ActionRowComponentResponse) SetComponentsNil(b bool)`
-
- SetComponentsNil sets the value for Components to be an explicit nil
-
-### UnsetComponents
-`func (o *ActionRowComponentResponse) UnsetComponents()`
-
-UnsetComponents ensures that no value is present for Components, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
