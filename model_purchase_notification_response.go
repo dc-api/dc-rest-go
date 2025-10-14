@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-14T14:27:02.905060650Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ var _ MappedNullable = &PurchaseNotificationResponse{}
 // PurchaseNotificationResponse struct for PurchaseNotificationResponse
 type PurchaseNotificationResponse struct {
 	Type NullableInt32 `json:"type"`
-	GuildProductPurchase NullableGuildProductPurchaseResponse `json:"guild_product_purchase,omitempty"`
+	GuildProductPurchase *GuildProductPurchaseResponse `json:"guild_product_purchase,omitempty"`
 }
 
 type _PurchaseNotificationResponse PurchaseNotificationResponse
@@ -105,48 +105,38 @@ func (o *PurchaseNotificationResponse) SetType(v int32) {
 	o.Type.Set(&v)
 }
 
-// GetGuildProductPurchase returns the GuildProductPurchase field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGuildProductPurchase returns the GuildProductPurchase field value if set, zero value otherwise.
 func (o *PurchaseNotificationResponse) GetGuildProductPurchase() GuildProductPurchaseResponse {
-	if o == nil || IsNil(o.GuildProductPurchase.Get()) {
+	if o == nil || IsNil(o.GuildProductPurchase) {
 		var ret GuildProductPurchaseResponse
 		return ret
 	}
-	return *o.GuildProductPurchase.Get()
+	return *o.GuildProductPurchase
 }
 
 // GetGuildProductPurchaseOk returns a tuple with the GuildProductPurchase field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PurchaseNotificationResponse) GetGuildProductPurchaseOk() (*GuildProductPurchaseResponse, bool) {
-	if o == nil || IsNil(o.GuildProductPurchase.Get()) {
+	if o == nil || IsNil(o.GuildProductPurchase) {
 		return nil, false
 	}
-	return o.GuildProductPurchase.Get(), o.GuildProductPurchase.IsSet()
+	return o.GuildProductPurchase, true
 }
 
 // HasGuildProductPurchase returns a boolean if a field has been set.
 func (o *PurchaseNotificationResponse) HasGuildProductPurchase() bool {
-	if o != nil && o.GuildProductPurchase.IsSet() {
+	if o != nil && !IsNil(o.GuildProductPurchase) {
 		return true
 	}
 
 	return false
 }
 
-// SetGuildProductPurchase gets a reference to the given NullableGuildProductPurchaseResponse and assigns it to the GuildProductPurchase field.
+// SetGuildProductPurchase gets a reference to the given GuildProductPurchaseResponse and assigns it to the GuildProductPurchase field.
 func (o *PurchaseNotificationResponse) SetGuildProductPurchase(v GuildProductPurchaseResponse) {
-	o.GuildProductPurchase.Set(&v)
+	o.GuildProductPurchase = &v
 }
 
-// SetGuildProductPurchaseNil sets the value for GuildProductPurchase to be an explicit nil
-func (o *PurchaseNotificationResponse) SetGuildProductPurchaseNil() {
-	o.GuildProductPurchase.Set(nil)
-}
-
-// UnsetGuildProductPurchase ensures that no value is present for GuildProductPurchase, not even an explicit nil
-func (o *PurchaseNotificationResponse) UnsetGuildProductPurchase() {
-	o.GuildProductPurchase.Unset()
-}
 
 func (o PurchaseNotificationResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -159,8 +149,8 @@ func (o PurchaseNotificationResponse) MarshalJSON() ([]byte, error) {
 func (o PurchaseNotificationResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type.Get()
-	if o.GuildProductPurchase.IsSet() {
-		toSerialize["guild_product_purchase"] = o.GuildProductPurchase.Get()
+	if !IsNil(o.GuildProductPurchase) {
+		toSerialize["guild_product_purchase"] = o.GuildProductPurchase
 	}
 	return toSerialize, nil
 }
@@ -237,5 +227,4 @@ func (v *NullablePurchaseNotificationResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

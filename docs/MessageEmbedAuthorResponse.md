@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**Url** | Pointer to **NullableString** |  | [optional] 
-**IconUrl** | Pointer to **NullableString** |  | [optional] 
-**ProxyIconUrl** | Pointer to **NullableString** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
+**IconUrl** | Pointer to **string** |  | [optional] 
+**ProxyIconUrl** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -73,16 +73,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *MessageEmbedAuthorResponse) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *MessageEmbedAuthorResponse) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetIconUrl
 
 `func (o *MessageEmbedAuthorResponse) GetIconUrl() string`
@@ -108,16 +98,6 @@ SetIconUrl sets IconUrl field to given value.
 
 HasIconUrl returns a boolean if a field has been set.
 
-### SetIconUrlNil
-
-`func (o *MessageEmbedAuthorResponse) SetIconUrlNil(b bool)`
-
- SetIconUrlNil sets the value for IconUrl to be an explicit nil
-
-### UnsetIconUrl
-`func (o *MessageEmbedAuthorResponse) UnsetIconUrl()`
-
-UnsetIconUrl ensures that no value is present for IconUrl, not even an explicit nil
 ### GetProxyIconUrl
 
 `func (o *MessageEmbedAuthorResponse) GetProxyIconUrl() string`
@@ -143,16 +123,6 @@ SetProxyIconUrl sets ProxyIconUrl field to given value.
 
 HasProxyIconUrl returns a boolean if a field has been set.
 
-### SetProxyIconUrlNil
-
-`func (o *MessageEmbedAuthorResponse) SetProxyIconUrlNil(b bool)`
-
- SetProxyIconUrlNil sets the value for ProxyIconUrl to be an explicit nil
-
-### UnsetProxyIconUrl
-`func (o *MessageEmbedAuthorResponse) UnsetProxyIconUrl()`
-
-UnsetProxyIconUrl ensures that no value is present for ProxyIconUrl, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **Type** | **int32** |  | 
 **Id** | **int32** |  | 
 **CustomId** | **string** |  | 
-**Placeholder** | Pointer to **NullableString** |  | [optional] 
+**Placeholder** | Pointer to **string** |  | [optional] 
 **MinValues** | Pointer to **NullableInt32** |  | [optional] 
 **MaxValues** | Pointer to **NullableInt32** |  | [optional] 
-**Disabled** | Pointer to **NullableBool** |  | [optional] 
+**Disabled** | Pointer to **bool** |  | [optional] 
 **DefaultValues** | Pointer to [**[]RoleSelectDefaultValueResponse**](RoleSelectDefaultValueResponse.md) |  | [optional] 
 
 ## Methods
@@ -117,16 +117,6 @@ SetPlaceholder sets Placeholder field to given value.
 
 HasPlaceholder returns a boolean if a field has been set.
 
-### SetPlaceholderNil
-
-`func (o *RoleSelectComponentResponse) SetPlaceholderNil(b bool)`
-
- SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-
-### UnsetPlaceholder
-`func (o *RoleSelectComponentResponse) UnsetPlaceholder()`
-
-UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
 ### GetMinValues
 
 `func (o *RoleSelectComponentResponse) GetMinValues() int32`
@@ -222,16 +212,6 @@ SetDisabled sets Disabled field to given value.
 
 HasDisabled returns a boolean if a field has been set.
 
-### SetDisabledNil
-
-`func (o *RoleSelectComponentResponse) SetDisabledNil(b bool)`
-
- SetDisabledNil sets the value for Disabled to be an explicit nil
-
-### UnsetDisabled
-`func (o *RoleSelectComponentResponse) UnsetDisabled()`
-
-UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
 ### GetDefaultValues
 
 `func (o *RoleSelectComponentResponse) GetDefaultValues() []RoleSelectDefaultValueResponse`
@@ -257,16 +237,6 @@ SetDefaultValues sets DefaultValues field to given value.
 
 HasDefaultValues returns a boolean if a field has been set.
 
-### SetDefaultValuesNil
-
-`func (o *RoleSelectComponentResponse) SetDefaultValuesNil(b bool)`
-
- SetDefaultValuesNil sets the value for DefaultValues to be an explicit nil
-
-### UnsetDefaultValues
-`func (o *RoleSelectComponentResponse) UnsetDefaultValues()`
-
-UnsetDefaultValues ensures that no value is present for DefaultValues, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

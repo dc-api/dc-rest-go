@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Permissions** | **string** |  | 
 **Color** | **int32** |  | 
+**Colors** | Pointer to [**NullableGuildTemplateRoleColorsResponse**](GuildTemplateRoleColorsResponse.md) |  | [optional] 
 **Hoist** | **bool** |  | 
 **Mentionable** | **bool** |  | 
 **Icon** | Pointer to **NullableString** |  | [optional] 
@@ -112,6 +113,41 @@ and a boolean to check if the value has been set.
 SetColor sets Color field to given value.
 
 
+### GetColors
+
+`func (o *GuildTemplateRoleResponse) GetColors() GuildTemplateRoleColorsResponse`
+
+GetColors returns the Colors field if non-nil, zero value otherwise.
+
+### GetColorsOk
+
+`func (o *GuildTemplateRoleResponse) GetColorsOk() (*GuildTemplateRoleColorsResponse, bool)`
+
+GetColorsOk returns a tuple with the Colors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetColors
+
+`func (o *GuildTemplateRoleResponse) SetColors(v GuildTemplateRoleColorsResponse)`
+
+SetColors sets Colors field to given value.
+
+### HasColors
+
+`func (o *GuildTemplateRoleResponse) HasColors() bool`
+
+HasColors returns a boolean if a field has been set.
+
+### SetColorsNil
+
+`func (o *GuildTemplateRoleResponse) SetColorsNil(b bool)`
+
+ SetColorsNil sets the value for Colors to be an explicit nil
+
+### UnsetColors
+`func (o *GuildTemplateRoleResponse) UnsetColors()`
+
+UnsetColors ensures that no value is present for Colors, not even an explicit nil
 ### GetHoist
 
 `func (o *GuildTemplateRoleResponse) GetHoist() bool`

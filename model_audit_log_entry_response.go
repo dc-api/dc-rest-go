@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-14T14:27:02.905060650Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -61,7 +61,7 @@ type AuditLogEntryResponse struct {
 	TargetId *string `json:"target_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Changes []AuditLogObjectChangeResponse `json:"changes,omitempty"`
 	Options map[string]string `json:"options,omitempty"`
-	Reason NullableString `json:"reason,omitempty"`
+	Reason *string `json:"reason,omitempty"`
 }
 
 type _AuditLogEntryResponse AuditLogEntryResponse
@@ -201,9 +201,9 @@ func (o *AuditLogEntryResponse) SetTargetId(v string) {
 }
 
 
-// GetChanges returns the Changes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetChanges returns the Changes field value if set, zero value otherwise.
 func (o *AuditLogEntryResponse) GetChanges() []AuditLogObjectChangeResponse {
-	if o == nil {
+	if o == nil || IsNil(o.Changes) {
 		var ret []AuditLogObjectChangeResponse
 		return ret
 	}
@@ -212,9 +212,8 @@ func (o *AuditLogEntryResponse) GetChanges() []AuditLogObjectChangeResponse {
 
 // GetChangesOk returns a tuple with the Changes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AuditLogEntryResponse) GetChangesOk() ([]AuditLogObjectChangeResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Changes) {
 		return nil, false
 	}
 	return o.Changes, true
@@ -268,48 +267,38 @@ func (o *AuditLogEntryResponse) SetOptions(v map[string]string) {
 }
 
 
-// GetReason returns the Reason field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetReason returns the Reason field value if set, zero value otherwise.
 func (o *AuditLogEntryResponse) GetReason() string {
-	if o == nil || IsNil(o.Reason.Get()) {
+	if o == nil || IsNil(o.Reason) {
 		var ret string
 		return ret
 	}
-	return *o.Reason.Get()
+	return *o.Reason
 }
 
 // GetReasonOk returns a tuple with the Reason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AuditLogEntryResponse) GetReasonOk() (*string, bool) {
-	if o == nil || IsNil(o.Reason.Get()) {
+	if o == nil || IsNil(o.Reason) {
 		return nil, false
 	}
-	return o.Reason.Get(), o.Reason.IsSet()
+	return o.Reason, true
 }
 
 // HasReason returns a boolean if a field has been set.
 func (o *AuditLogEntryResponse) HasReason() bool {
-	if o != nil && o.Reason.IsSet() {
+	if o != nil && !IsNil(o.Reason) {
 		return true
 	}
 
 	return false
 }
 
-// SetReason gets a reference to the given NullableString and assigns it to the Reason field.
+// SetReason gets a reference to the given string and assigns it to the Reason field.
 func (o *AuditLogEntryResponse) SetReason(v string) {
-	o.Reason.Set(&v)
+	o.Reason = &v
 }
 
-// SetReasonNil sets the value for Reason to be an explicit nil
-func (o *AuditLogEntryResponse) SetReasonNil() {
-	o.Reason.Set(nil)
-}
-
-// UnsetReason ensures that no value is present for Reason, not even an explicit nil
-func (o *AuditLogEntryResponse) UnsetReason() {
-	o.Reason.Unset()
-}
 
 func (o AuditLogEntryResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -329,14 +318,14 @@ func (o AuditLogEntryResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TargetId) {
 		toSerialize["target_id"] = o.TargetId
 	}
-	if o.Changes != nil {
+	if !IsNil(o.Changes) {
 		toSerialize["changes"] = o.Changes
 	}
 	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
-	if o.Reason.IsSet() {
-		toSerialize["reason"] = o.Reason.Get()
+	if !IsNil(o.Reason) {
+		toSerialize["reason"] = o.Reason
 	}
 	return toSerialize, nil
 }
@@ -414,5 +403,4 @@ func (v *NullableAuditLogEntryResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

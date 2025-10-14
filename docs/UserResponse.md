@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **Discriminator** | **string** |  | 
 **PublicFlags** | **int32** |  | 
 **Flags** | **int64** |  | 
-**Bot** | Pointer to **NullableBool** |  | [optional] 
-**System** | Pointer to **NullableBool** |  | [optional] 
+**Bot** | Pointer to **bool** |  | [optional] 
+**System** | Pointer to **bool** |  | [optional] 
 **Banner** | Pointer to **NullableString** |  | [optional] 
 **AccentColor** | Pointer to **NullableInt32** |  | [optional] 
 **GlobalName** | Pointer to **NullableString** |  | [optional] 
@@ -198,16 +198,6 @@ SetBot sets Bot field to given value.
 
 HasBot returns a boolean if a field has been set.
 
-### SetBotNil
-
-`func (o *UserResponse) SetBotNil(b bool)`
-
- SetBotNil sets the value for Bot to be an explicit nil
-
-### UnsetBot
-`func (o *UserResponse) UnsetBot()`
-
-UnsetBot ensures that no value is present for Bot, not even an explicit nil
 ### GetSystem
 
 `func (o *UserResponse) GetSystem() bool`
@@ -233,16 +223,6 @@ SetSystem sets System field to given value.
 
 HasSystem returns a boolean if a field has been set.
 
-### SetSystemNil
-
-`func (o *UserResponse) SetSystemNil(b bool)`
-
- SetSystemNil sets the value for System to be an explicit nil
-
-### UnsetSystem
-`func (o *UserResponse) UnsetSystem()`
-
-UnsetSystem ensures that no value is present for System, not even an explicit nil
 ### GetBanner
 
 `func (o *UserResponse) GetBanner() string`

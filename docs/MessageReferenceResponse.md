@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **interface{}** |  | [optional] 
+**Type** | **interface{}** |  | 
 **ChannelId** | **string** |  | 
 **MessageId** | Pointer to **string** |  | [optional] 
 **GuildId** | Pointer to **string** |  | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewMessageReferenceResponse
 
-`func NewMessageReferenceResponse(channelId string, ) *MessageReferenceResponse`
+`func NewMessageReferenceResponse(type_ interface{}, channelId string, ) *MessageReferenceResponse`
 
 NewMessageReferenceResponse instantiates a new MessageReferenceResponse object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
-
-`func (o *MessageReferenceResponse) HasType() bool`
-
-HasType returns a boolean if a field has been set.
 
 ### SetTypeNil
 
