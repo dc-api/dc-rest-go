@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** | Pointer to **NullableString** |  | [optional] 
-**ProxyUrl** | Pointer to **NullableString** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
+**ProxyUrl** | Pointer to **string** |  | [optional] 
 **Width** | Pointer to **int64** |  | [optional] 
 **Height** | Pointer to **int64** |  | [optional] 
-**ContentType** | Pointer to **NullableString** |  | [optional] 
-**Placeholder** | Pointer to **NullableString** |  | [optional] 
+**ContentType** | Pointer to **string** |  | [optional] 
+**Placeholder** | Pointer to **string** |  | [optional] 
 **PlaceholderVersion** | Pointer to **int64** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **Flags** | Pointer to **int64** |  | [optional] 
 
 ## Methods
@@ -58,16 +58,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *MessageEmbedImageResponse) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *MessageEmbedImageResponse) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetProxyUrl
 
 `func (o *MessageEmbedImageResponse) GetProxyUrl() string`
@@ -93,16 +83,6 @@ SetProxyUrl sets ProxyUrl field to given value.
 
 HasProxyUrl returns a boolean if a field has been set.
 
-### SetProxyUrlNil
-
-`func (o *MessageEmbedImageResponse) SetProxyUrlNil(b bool)`
-
- SetProxyUrlNil sets the value for ProxyUrl to be an explicit nil
-
-### UnsetProxyUrl
-`func (o *MessageEmbedImageResponse) UnsetProxyUrl()`
-
-UnsetProxyUrl ensures that no value is present for ProxyUrl, not even an explicit nil
 ### GetWidth
 
 `func (o *MessageEmbedImageResponse) GetWidth() int64`
@@ -178,16 +158,6 @@ SetContentType sets ContentType field to given value.
 
 HasContentType returns a boolean if a field has been set.
 
-### SetContentTypeNil
-
-`func (o *MessageEmbedImageResponse) SetContentTypeNil(b bool)`
-
- SetContentTypeNil sets the value for ContentType to be an explicit nil
-
-### UnsetContentType
-`func (o *MessageEmbedImageResponse) UnsetContentType()`
-
-UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
 ### GetPlaceholder
 
 `func (o *MessageEmbedImageResponse) GetPlaceholder() string`
@@ -213,16 +183,6 @@ SetPlaceholder sets Placeholder field to given value.
 
 HasPlaceholder returns a boolean if a field has been set.
 
-### SetPlaceholderNil
-
-`func (o *MessageEmbedImageResponse) SetPlaceholderNil(b bool)`
-
- SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-
-### UnsetPlaceholder
-`func (o *MessageEmbedImageResponse) UnsetPlaceholder()`
-
-UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
 ### GetPlaceholderVersion
 
 `func (o *MessageEmbedImageResponse) GetPlaceholderVersion() int64`
@@ -273,16 +233,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *MessageEmbedImageResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *MessageEmbedImageResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetFlags
 
 `func (o *MessageEmbedImageResponse) GetFlags() int64`

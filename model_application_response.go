@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-14T14:27:02.905060650Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -60,18 +60,18 @@ type ApplicationResponse struct {
 	Icon NullableString `json:"icon,omitempty"`
 	Description string `json:"description"`
 	Type NullableInt32 `json:"type,omitempty"`
-	CoverImage NullableString `json:"cover_image,omitempty"`
+	CoverImage *string `json:"cover_image,omitempty"`
 	PrimarySkuId *string `json:"primary_sku_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Bot NullableUserResponse `json:"bot,omitempty"`
-	Slug NullableString `json:"slug,omitempty"`
+	Bot *UserResponse `json:"bot,omitempty"`
+	Slug *string `json:"slug,omitempty"`
 	GuildId *string `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	RpcOrigins []*string `json:"rpc_origins,omitempty"`
-	BotPublic NullableBool `json:"bot_public,omitempty"`
-	BotRequireCodeGrant NullableBool `json:"bot_require_code_grant,omitempty"`
-	TermsOfServiceUrl NullableString `json:"terms_of_service_url,omitempty"`
-	PrivacyPolicyUrl NullableString `json:"privacy_policy_url,omitempty"`
-	CustomInstallUrl NullableString `json:"custom_install_url,omitempty"`
-	InstallParams NullableApplicationOAuth2InstallParamsResponse `json:"install_params,omitempty"`
+	BotPublic *bool `json:"bot_public,omitempty"`
+	BotRequireCodeGrant *bool `json:"bot_require_code_grant,omitempty"`
+	TermsOfServiceUrl *string `json:"terms_of_service_url,omitempty"`
+	PrivacyPolicyUrl *string `json:"privacy_policy_url,omitempty"`
+	CustomInstallUrl *string `json:"custom_install_url,omitempty"`
+	InstallParams *ApplicationOAuth2InstallParamsResponse `json:"install_params,omitempty"`
 	IntegrationTypesConfig map[string]ApplicationIntegrationTypeConfigurationResponse `json:"integration_types_config,omitempty"`
 	VerifyKey string `json:"verify_key"`
 	Flags int32 `json:"flags"`
@@ -261,48 +261,38 @@ func (o *ApplicationResponse) UnsetType() {
 	o.Type.Unset()
 }
 
-// GetCoverImage returns the CoverImage field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCoverImage returns the CoverImage field value if set, zero value otherwise.
 func (o *ApplicationResponse) GetCoverImage() string {
-	if o == nil || IsNil(o.CoverImage.Get()) {
+	if o == nil || IsNil(o.CoverImage) {
 		var ret string
 		return ret
 	}
-	return *o.CoverImage.Get()
+	return *o.CoverImage
 }
 
 // GetCoverImageOk returns a tuple with the CoverImage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationResponse) GetCoverImageOk() (*string, bool) {
-	if o == nil || IsNil(o.CoverImage.Get()) {
+	if o == nil || IsNil(o.CoverImage) {
 		return nil, false
 	}
-	return o.CoverImage.Get(), o.CoverImage.IsSet()
+	return o.CoverImage, true
 }
 
 // HasCoverImage returns a boolean if a field has been set.
 func (o *ApplicationResponse) HasCoverImage() bool {
-	if o != nil && o.CoverImage.IsSet() {
+	if o != nil && !IsNil(o.CoverImage) {
 		return true
 	}
 
 	return false
 }
 
-// SetCoverImage gets a reference to the given NullableString and assigns it to the CoverImage field.
+// SetCoverImage gets a reference to the given string and assigns it to the CoverImage field.
 func (o *ApplicationResponse) SetCoverImage(v string) {
-	o.CoverImage.Set(&v)
+	o.CoverImage = &v
 }
 
-// SetCoverImageNil sets the value for CoverImage to be an explicit nil
-func (o *ApplicationResponse) SetCoverImageNil() {
-	o.CoverImage.Set(nil)
-}
-
-// UnsetCoverImage ensures that no value is present for CoverImage, not even an explicit nil
-func (o *ApplicationResponse) UnsetCoverImage() {
-	o.CoverImage.Unset()
-}
 
 // GetPrimarySkuId returns the PrimarySkuId field value if set, zero value otherwise.
 func (o *ApplicationResponse) GetPrimarySkuId() string {
@@ -337,91 +327,71 @@ func (o *ApplicationResponse) SetPrimarySkuId(v string) {
 }
 
 
-// GetBot returns the Bot field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBot returns the Bot field value if set, zero value otherwise.
 func (o *ApplicationResponse) GetBot() UserResponse {
-	if o == nil || IsNil(o.Bot.Get()) {
+	if o == nil || IsNil(o.Bot) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.Bot.Get()
+	return *o.Bot
 }
 
 // GetBotOk returns a tuple with the Bot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationResponse) GetBotOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.Bot.Get()) {
+	if o == nil || IsNil(o.Bot) {
 		return nil, false
 	}
-	return o.Bot.Get(), o.Bot.IsSet()
+	return o.Bot, true
 }
 
 // HasBot returns a boolean if a field has been set.
 func (o *ApplicationResponse) HasBot() bool {
-	if o != nil && o.Bot.IsSet() {
+	if o != nil && !IsNil(o.Bot) {
 		return true
 	}
 
 	return false
 }
 
-// SetBot gets a reference to the given NullableUserResponse and assigns it to the Bot field.
+// SetBot gets a reference to the given UserResponse and assigns it to the Bot field.
 func (o *ApplicationResponse) SetBot(v UserResponse) {
-	o.Bot.Set(&v)
+	o.Bot = &v
 }
 
-// SetBotNil sets the value for Bot to be an explicit nil
-func (o *ApplicationResponse) SetBotNil() {
-	o.Bot.Set(nil)
-}
 
-// UnsetBot ensures that no value is present for Bot, not even an explicit nil
-func (o *ApplicationResponse) UnsetBot() {
-	o.Bot.Unset()
-}
-
-// GetSlug returns the Slug field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSlug returns the Slug field value if set, zero value otherwise.
 func (o *ApplicationResponse) GetSlug() string {
-	if o == nil || IsNil(o.Slug.Get()) {
+	if o == nil || IsNil(o.Slug) {
 		var ret string
 		return ret
 	}
-	return *o.Slug.Get()
+	return *o.Slug
 }
 
 // GetSlugOk returns a tuple with the Slug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationResponse) GetSlugOk() (*string, bool) {
-	if o == nil || IsNil(o.Slug.Get()) {
+	if o == nil || IsNil(o.Slug) {
 		return nil, false
 	}
-	return o.Slug.Get(), o.Slug.IsSet()
+	return o.Slug, true
 }
 
 // HasSlug returns a boolean if a field has been set.
 func (o *ApplicationResponse) HasSlug() bool {
-	if o != nil && o.Slug.IsSet() {
+	if o != nil && !IsNil(o.Slug) {
 		return true
 	}
 
 	return false
 }
 
-// SetSlug gets a reference to the given NullableString and assigns it to the Slug field.
+// SetSlug gets a reference to the given string and assigns it to the Slug field.
 func (o *ApplicationResponse) SetSlug(v string) {
-	o.Slug.Set(&v)
+	o.Slug = &v
 }
 
-// SetSlugNil sets the value for Slug to be an explicit nil
-func (o *ApplicationResponse) SetSlugNil() {
-	o.Slug.Set(nil)
-}
-
-// UnsetSlug ensures that no value is present for Slug, not even an explicit nil
-func (o *ApplicationResponse) UnsetSlug() {
-	o.Slug.Unset()
-}
 
 // GetGuildId returns the GuildId field value if set, zero value otherwise.
 func (o *ApplicationResponse) GetGuildId() string {
@@ -456,9 +426,9 @@ func (o *ApplicationResponse) SetGuildId(v string) {
 }
 
 
-// GetRpcOrigins returns the RpcOrigins field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRpcOrigins returns the RpcOrigins field value if set, zero value otherwise.
 func (o *ApplicationResponse) GetRpcOrigins() []*string {
-	if o == nil {
+	if o == nil || IsNil(o.RpcOrigins) {
 		var ret []*string
 		return ret
 	}
@@ -467,9 +437,8 @@ func (o *ApplicationResponse) GetRpcOrigins() []*string {
 
 // GetRpcOriginsOk returns a tuple with the RpcOrigins field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationResponse) GetRpcOriginsOk() ([]*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RpcOrigins) {
 		return nil, false
 	}
 	return o.RpcOrigins, true
@@ -490,263 +459,203 @@ func (o *ApplicationResponse) SetRpcOrigins(v []*string) {
 }
 
 
-// GetBotPublic returns the BotPublic field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBotPublic returns the BotPublic field value if set, zero value otherwise.
 func (o *ApplicationResponse) GetBotPublic() bool {
-	if o == nil || IsNil(o.BotPublic.Get()) {
+	if o == nil || IsNil(o.BotPublic) {
 		var ret bool
 		return ret
 	}
-	return *o.BotPublic.Get()
+	return *o.BotPublic
 }
 
 // GetBotPublicOk returns a tuple with the BotPublic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationResponse) GetBotPublicOk() (*bool, bool) {
-	if o == nil || IsNil(o.BotPublic.Get()) {
+	if o == nil || IsNil(o.BotPublic) {
 		return nil, false
 	}
-	return o.BotPublic.Get(), o.BotPublic.IsSet()
+	return o.BotPublic, true
 }
 
 // HasBotPublic returns a boolean if a field has been set.
 func (o *ApplicationResponse) HasBotPublic() bool {
-	if o != nil && o.BotPublic.IsSet() {
+	if o != nil && !IsNil(o.BotPublic) {
 		return true
 	}
 
 	return false
 }
 
-// SetBotPublic gets a reference to the given NullableBool and assigns it to the BotPublic field.
+// SetBotPublic gets a reference to the given bool and assigns it to the BotPublic field.
 func (o *ApplicationResponse) SetBotPublic(v bool) {
-	o.BotPublic.Set(&v)
+	o.BotPublic = &v
 }
 
-// SetBotPublicNil sets the value for BotPublic to be an explicit nil
-func (o *ApplicationResponse) SetBotPublicNil() {
-	o.BotPublic.Set(nil)
-}
 
-// UnsetBotPublic ensures that no value is present for BotPublic, not even an explicit nil
-func (o *ApplicationResponse) UnsetBotPublic() {
-	o.BotPublic.Unset()
-}
-
-// GetBotRequireCodeGrant returns the BotRequireCodeGrant field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBotRequireCodeGrant returns the BotRequireCodeGrant field value if set, zero value otherwise.
 func (o *ApplicationResponse) GetBotRequireCodeGrant() bool {
-	if o == nil || IsNil(o.BotRequireCodeGrant.Get()) {
+	if o == nil || IsNil(o.BotRequireCodeGrant) {
 		var ret bool
 		return ret
 	}
-	return *o.BotRequireCodeGrant.Get()
+	return *o.BotRequireCodeGrant
 }
 
 // GetBotRequireCodeGrantOk returns a tuple with the BotRequireCodeGrant field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationResponse) GetBotRequireCodeGrantOk() (*bool, bool) {
-	if o == nil || IsNil(o.BotRequireCodeGrant.Get()) {
+	if o == nil || IsNil(o.BotRequireCodeGrant) {
 		return nil, false
 	}
-	return o.BotRequireCodeGrant.Get(), o.BotRequireCodeGrant.IsSet()
+	return o.BotRequireCodeGrant, true
 }
 
 // HasBotRequireCodeGrant returns a boolean if a field has been set.
 func (o *ApplicationResponse) HasBotRequireCodeGrant() bool {
-	if o != nil && o.BotRequireCodeGrant.IsSet() {
+	if o != nil && !IsNil(o.BotRequireCodeGrant) {
 		return true
 	}
 
 	return false
 }
 
-// SetBotRequireCodeGrant gets a reference to the given NullableBool and assigns it to the BotRequireCodeGrant field.
+// SetBotRequireCodeGrant gets a reference to the given bool and assigns it to the BotRequireCodeGrant field.
 func (o *ApplicationResponse) SetBotRequireCodeGrant(v bool) {
-	o.BotRequireCodeGrant.Set(&v)
+	o.BotRequireCodeGrant = &v
 }
 
-// SetBotRequireCodeGrantNil sets the value for BotRequireCodeGrant to be an explicit nil
-func (o *ApplicationResponse) SetBotRequireCodeGrantNil() {
-	o.BotRequireCodeGrant.Set(nil)
-}
 
-// UnsetBotRequireCodeGrant ensures that no value is present for BotRequireCodeGrant, not even an explicit nil
-func (o *ApplicationResponse) UnsetBotRequireCodeGrant() {
-	o.BotRequireCodeGrant.Unset()
-}
-
-// GetTermsOfServiceUrl returns the TermsOfServiceUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTermsOfServiceUrl returns the TermsOfServiceUrl field value if set, zero value otherwise.
 func (o *ApplicationResponse) GetTermsOfServiceUrl() string {
-	if o == nil || IsNil(o.TermsOfServiceUrl.Get()) {
+	if o == nil || IsNil(o.TermsOfServiceUrl) {
 		var ret string
 		return ret
 	}
-	return *o.TermsOfServiceUrl.Get()
+	return *o.TermsOfServiceUrl
 }
 
 // GetTermsOfServiceUrlOk returns a tuple with the TermsOfServiceUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationResponse) GetTermsOfServiceUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.TermsOfServiceUrl.Get()) {
+	if o == nil || IsNil(o.TermsOfServiceUrl) {
 		return nil, false
 	}
-	return o.TermsOfServiceUrl.Get(), o.TermsOfServiceUrl.IsSet()
+	return o.TermsOfServiceUrl, true
 }
 
 // HasTermsOfServiceUrl returns a boolean if a field has been set.
 func (o *ApplicationResponse) HasTermsOfServiceUrl() bool {
-	if o != nil && o.TermsOfServiceUrl.IsSet() {
+	if o != nil && !IsNil(o.TermsOfServiceUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetTermsOfServiceUrl gets a reference to the given NullableString and assigns it to the TermsOfServiceUrl field.
+// SetTermsOfServiceUrl gets a reference to the given string and assigns it to the TermsOfServiceUrl field.
 func (o *ApplicationResponse) SetTermsOfServiceUrl(v string) {
-	o.TermsOfServiceUrl.Set(&v)
+	o.TermsOfServiceUrl = &v
 }
 
-// SetTermsOfServiceUrlNil sets the value for TermsOfServiceUrl to be an explicit nil
-func (o *ApplicationResponse) SetTermsOfServiceUrlNil() {
-	o.TermsOfServiceUrl.Set(nil)
-}
 
-// UnsetTermsOfServiceUrl ensures that no value is present for TermsOfServiceUrl, not even an explicit nil
-func (o *ApplicationResponse) UnsetTermsOfServiceUrl() {
-	o.TermsOfServiceUrl.Unset()
-}
-
-// GetPrivacyPolicyUrl returns the PrivacyPolicyUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPrivacyPolicyUrl returns the PrivacyPolicyUrl field value if set, zero value otherwise.
 func (o *ApplicationResponse) GetPrivacyPolicyUrl() string {
-	if o == nil || IsNil(o.PrivacyPolicyUrl.Get()) {
+	if o == nil || IsNil(o.PrivacyPolicyUrl) {
 		var ret string
 		return ret
 	}
-	return *o.PrivacyPolicyUrl.Get()
+	return *o.PrivacyPolicyUrl
 }
 
 // GetPrivacyPolicyUrlOk returns a tuple with the PrivacyPolicyUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationResponse) GetPrivacyPolicyUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.PrivacyPolicyUrl.Get()) {
+	if o == nil || IsNil(o.PrivacyPolicyUrl) {
 		return nil, false
 	}
-	return o.PrivacyPolicyUrl.Get(), o.PrivacyPolicyUrl.IsSet()
+	return o.PrivacyPolicyUrl, true
 }
 
 // HasPrivacyPolicyUrl returns a boolean if a field has been set.
 func (o *ApplicationResponse) HasPrivacyPolicyUrl() bool {
-	if o != nil && o.PrivacyPolicyUrl.IsSet() {
+	if o != nil && !IsNil(o.PrivacyPolicyUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetPrivacyPolicyUrl gets a reference to the given NullableString and assigns it to the PrivacyPolicyUrl field.
+// SetPrivacyPolicyUrl gets a reference to the given string and assigns it to the PrivacyPolicyUrl field.
 func (o *ApplicationResponse) SetPrivacyPolicyUrl(v string) {
-	o.PrivacyPolicyUrl.Set(&v)
+	o.PrivacyPolicyUrl = &v
 }
 
-// SetPrivacyPolicyUrlNil sets the value for PrivacyPolicyUrl to be an explicit nil
-func (o *ApplicationResponse) SetPrivacyPolicyUrlNil() {
-	o.PrivacyPolicyUrl.Set(nil)
-}
 
-// UnsetPrivacyPolicyUrl ensures that no value is present for PrivacyPolicyUrl, not even an explicit nil
-func (o *ApplicationResponse) UnsetPrivacyPolicyUrl() {
-	o.PrivacyPolicyUrl.Unset()
-}
-
-// GetCustomInstallUrl returns the CustomInstallUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCustomInstallUrl returns the CustomInstallUrl field value if set, zero value otherwise.
 func (o *ApplicationResponse) GetCustomInstallUrl() string {
-	if o == nil || IsNil(o.CustomInstallUrl.Get()) {
+	if o == nil || IsNil(o.CustomInstallUrl) {
 		var ret string
 		return ret
 	}
-	return *o.CustomInstallUrl.Get()
+	return *o.CustomInstallUrl
 }
 
 // GetCustomInstallUrlOk returns a tuple with the CustomInstallUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationResponse) GetCustomInstallUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.CustomInstallUrl.Get()) {
+	if o == nil || IsNil(o.CustomInstallUrl) {
 		return nil, false
 	}
-	return o.CustomInstallUrl.Get(), o.CustomInstallUrl.IsSet()
+	return o.CustomInstallUrl, true
 }
 
 // HasCustomInstallUrl returns a boolean if a field has been set.
 func (o *ApplicationResponse) HasCustomInstallUrl() bool {
-	if o != nil && o.CustomInstallUrl.IsSet() {
+	if o != nil && !IsNil(o.CustomInstallUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetCustomInstallUrl gets a reference to the given NullableString and assigns it to the CustomInstallUrl field.
+// SetCustomInstallUrl gets a reference to the given string and assigns it to the CustomInstallUrl field.
 func (o *ApplicationResponse) SetCustomInstallUrl(v string) {
-	o.CustomInstallUrl.Set(&v)
+	o.CustomInstallUrl = &v
 }
 
-// SetCustomInstallUrlNil sets the value for CustomInstallUrl to be an explicit nil
-func (o *ApplicationResponse) SetCustomInstallUrlNil() {
-	o.CustomInstallUrl.Set(nil)
-}
 
-// UnsetCustomInstallUrl ensures that no value is present for CustomInstallUrl, not even an explicit nil
-func (o *ApplicationResponse) UnsetCustomInstallUrl() {
-	o.CustomInstallUrl.Unset()
-}
-
-// GetInstallParams returns the InstallParams field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInstallParams returns the InstallParams field value if set, zero value otherwise.
 func (o *ApplicationResponse) GetInstallParams() ApplicationOAuth2InstallParamsResponse {
-	if o == nil || IsNil(o.InstallParams.Get()) {
+	if o == nil || IsNil(o.InstallParams) {
 		var ret ApplicationOAuth2InstallParamsResponse
 		return ret
 	}
-	return *o.InstallParams.Get()
+	return *o.InstallParams
 }
 
 // GetInstallParamsOk returns a tuple with the InstallParams field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationResponse) GetInstallParamsOk() (*ApplicationOAuth2InstallParamsResponse, bool) {
-	if o == nil || IsNil(o.InstallParams.Get()) {
+	if o == nil || IsNil(o.InstallParams) {
 		return nil, false
 	}
-	return o.InstallParams.Get(), o.InstallParams.IsSet()
+	return o.InstallParams, true
 }
 
 // HasInstallParams returns a boolean if a field has been set.
 func (o *ApplicationResponse) HasInstallParams() bool {
-	if o != nil && o.InstallParams.IsSet() {
+	if o != nil && !IsNil(o.InstallParams) {
 		return true
 	}
 
 	return false
 }
 
-// SetInstallParams gets a reference to the given NullableApplicationOAuth2InstallParamsResponse and assigns it to the InstallParams field.
+// SetInstallParams gets a reference to the given ApplicationOAuth2InstallParamsResponse and assigns it to the InstallParams field.
 func (o *ApplicationResponse) SetInstallParams(v ApplicationOAuth2InstallParamsResponse) {
-	o.InstallParams.Set(&v)
+	o.InstallParams = &v
 }
 
-// SetInstallParamsNil sets the value for InstallParams to be an explicit nil
-func (o *ApplicationResponse) SetInstallParamsNil() {
-	o.InstallParams.Set(nil)
-}
-
-// UnsetInstallParams ensures that no value is present for InstallParams, not even an explicit nil
-func (o *ApplicationResponse) UnsetInstallParams() {
-	o.InstallParams.Unset()
-}
 
 // GetIntegrationTypesConfig returns the IntegrationTypesConfig field value if set, zero value otherwise.
 func (o *ApplicationResponse) GetIntegrationTypesConfig() map[string]ApplicationIntegrationTypeConfigurationResponse {
@@ -872,9 +781,9 @@ func (o *ApplicationResponse) UnsetMaxParticipants() {
 	o.MaxParticipants.Unset()
 }
 
-// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTags returns the Tags field value if set, zero value otherwise.
 func (o *ApplicationResponse) GetTags() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Tags) {
 		var ret []string
 		return ret
 	}
@@ -883,9 +792,8 @@ func (o *ApplicationResponse) GetTags() []string {
 
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationResponse) GetTagsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Tags) {
 		return nil, false
 	}
 	return o.Tags, true
@@ -925,41 +833,41 @@ func (o ApplicationResponse) ToMap() (map[string]interface{}, error) {
 	if o.Type.IsSet() {
 		toSerialize["type"] = o.Type.Get()
 	}
-	if o.CoverImage.IsSet() {
-		toSerialize["cover_image"] = o.CoverImage.Get()
+	if !IsNil(o.CoverImage) {
+		toSerialize["cover_image"] = o.CoverImage
 	}
 	if !IsNil(o.PrimarySkuId) {
 		toSerialize["primary_sku_id"] = o.PrimarySkuId
 	}
-	if o.Bot.IsSet() {
-		toSerialize["bot"] = o.Bot.Get()
+	if !IsNil(o.Bot) {
+		toSerialize["bot"] = o.Bot
 	}
-	if o.Slug.IsSet() {
-		toSerialize["slug"] = o.Slug.Get()
+	if !IsNil(o.Slug) {
+		toSerialize["slug"] = o.Slug
 	}
 	if !IsNil(o.GuildId) {
 		toSerialize["guild_id"] = o.GuildId
 	}
-	if o.RpcOrigins != nil {
+	if !IsNil(o.RpcOrigins) {
 		toSerialize["rpc_origins"] = o.RpcOrigins
 	}
-	if o.BotPublic.IsSet() {
-		toSerialize["bot_public"] = o.BotPublic.Get()
+	if !IsNil(o.BotPublic) {
+		toSerialize["bot_public"] = o.BotPublic
 	}
-	if o.BotRequireCodeGrant.IsSet() {
-		toSerialize["bot_require_code_grant"] = o.BotRequireCodeGrant.Get()
+	if !IsNil(o.BotRequireCodeGrant) {
+		toSerialize["bot_require_code_grant"] = o.BotRequireCodeGrant
 	}
-	if o.TermsOfServiceUrl.IsSet() {
-		toSerialize["terms_of_service_url"] = o.TermsOfServiceUrl.Get()
+	if !IsNil(o.TermsOfServiceUrl) {
+		toSerialize["terms_of_service_url"] = o.TermsOfServiceUrl
 	}
-	if o.PrivacyPolicyUrl.IsSet() {
-		toSerialize["privacy_policy_url"] = o.PrivacyPolicyUrl.Get()
+	if !IsNil(o.PrivacyPolicyUrl) {
+		toSerialize["privacy_policy_url"] = o.PrivacyPolicyUrl
 	}
-	if o.CustomInstallUrl.IsSet() {
-		toSerialize["custom_install_url"] = o.CustomInstallUrl.Get()
+	if !IsNil(o.CustomInstallUrl) {
+		toSerialize["custom_install_url"] = o.CustomInstallUrl
 	}
-	if o.InstallParams.IsSet() {
-		toSerialize["install_params"] = o.InstallParams.Get()
+	if !IsNil(o.InstallParams) {
+		toSerialize["install_params"] = o.InstallParams
 	}
 	if !IsNil(o.IntegrationTypesConfig) {
 		toSerialize["integration_types_config"] = o.IntegrationTypesConfig
@@ -969,7 +877,7 @@ func (o ApplicationResponse) ToMap() (map[string]interface{}, error) {
 	if o.MaxParticipants.IsSet() {
 		toSerialize["max_participants"] = o.MaxParticipants.Get()
 	}
-	if o.Tags != nil {
+	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags
 	}
 	return toSerialize, nil
@@ -1051,5 +959,4 @@ func (v *NullableApplicationResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

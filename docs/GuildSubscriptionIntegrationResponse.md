@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **NullableString** |  | 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**Account** | Pointer to [**NullableAccountResponse**](AccountResponse.md) |  | [optional] 
-**Enabled** | Pointer to **NullableBool** |  | [optional] 
+**Account** | [**AccountResponse**](AccountResponse.md) |  | 
+**Enabled** | **bool** |  | 
 **Id** | **string** |  | 
 
 ## Methods
 
 ### NewGuildSubscriptionIntegrationResponse
 
-`func NewGuildSubscriptionIntegrationResponse(type_ NullableString, id string, ) *GuildSubscriptionIntegrationResponse`
+`func NewGuildSubscriptionIntegrationResponse(type_ NullableString, account AccountResponse, enabled bool, id string, ) *GuildSubscriptionIntegrationResponse`
 
 NewGuildSubscriptionIntegrationResponse instantiates a new GuildSubscriptionIntegrationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -113,22 +113,7 @@ and a boolean to check if the value has been set.
 
 SetAccount sets Account field to given value.
 
-### HasAccount
 
-`func (o *GuildSubscriptionIntegrationResponse) HasAccount() bool`
-
-HasAccount returns a boolean if a field has been set.
-
-### SetAccountNil
-
-`func (o *GuildSubscriptionIntegrationResponse) SetAccountNil(b bool)`
-
- SetAccountNil sets the value for Account to be an explicit nil
-
-### UnsetAccount
-`func (o *GuildSubscriptionIntegrationResponse) UnsetAccount()`
-
-UnsetAccount ensures that no value is present for Account, not even an explicit nil
 ### GetEnabled
 
 `func (o *GuildSubscriptionIntegrationResponse) GetEnabled() bool`
@@ -148,22 +133,7 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
-### HasEnabled
 
-`func (o *GuildSubscriptionIntegrationResponse) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
-
-### SetEnabledNil
-
-`func (o *GuildSubscriptionIntegrationResponse) SetEnabledNil(b bool)`
-
- SetEnabledNil sets the value for Enabled to be an explicit nil
-
-### UnsetEnabled
-`func (o *GuildSubscriptionIntegrationResponse) UnsetEnabled()`
-
-UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 ### GetId
 
 `func (o *GuildSubscriptionIntegrationResponse) GetId() string`

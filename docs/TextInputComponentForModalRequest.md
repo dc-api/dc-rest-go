@@ -5,9 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **int32** |  | 
+**Id** | Pointer to **NullableInt32** |  | [optional] 
 **CustomId** | **string** |  | 
 **Style** | **int32** |  | 
-**Label** | **string** |  | 
+**Label** | Pointer to **NullableString** |  | [optional] 
 **Value** | Pointer to **NullableString** |  | [optional] 
 **Placeholder** | Pointer to **NullableString** |  | [optional] 
 **Required** | Pointer to **NullableBool** |  | [optional] 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewTextInputComponentForModalRequest
 
-`func NewTextInputComponentForModalRequest(type_ int32, customId string, style int32, label string, ) *TextInputComponentForModalRequest`
+`func NewTextInputComponentForModalRequest(type_ int32, customId string, style int32, ) *TextInputComponentForModalRequest`
 
 NewTextInputComponentForModalRequest instantiates a new TextInputComponentForModalRequest object
 This constructor will assign default values to properties that have it defined,
@@ -53,6 +54,41 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
+### GetId
+
+`func (o *TextInputComponentForModalRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *TextInputComponentForModalRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *TextInputComponentForModalRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *TextInputComponentForModalRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *TextInputComponentForModalRequest) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *TextInputComponentForModalRequest) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetCustomId
 
 `func (o *TextInputComponentForModalRequest) GetCustomId() string`
@@ -112,7 +148,22 @@ and a boolean to check if the value has been set.
 
 SetLabel sets Label field to given value.
 
+### HasLabel
 
+`func (o *TextInputComponentForModalRequest) HasLabel() bool`
+
+HasLabel returns a boolean if a field has been set.
+
+### SetLabelNil
+
+`func (o *TextInputComponentForModalRequest) SetLabelNil(b bool)`
+
+ SetLabelNil sets the value for Label to be an explicit nil
+
+### UnsetLabel
+`func (o *TextInputComponentForModalRequest) UnsetLabel()`
+
+UnsetLabel ensures that no value is present for Label, not even an explicit nil
 ### GetValue
 
 `func (o *TextInputComponentForModalRequest) GetValue() string`

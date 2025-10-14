@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ChannelId** | Pointer to **string** |  | [optional] 
 **Deaf** | **bool** |  | 
 **GuildId** | Pointer to **string** |  | [optional] 
-**Member** | Pointer to [**NullableGuildMemberResponse**](GuildMemberResponse.md) |  | [optional] 
+**Member** | Pointer to [**GuildMemberResponse**](GuildMemberResponse.md) |  | [optional] 
 **Mute** | **bool** |  | 
 **RequestToSpeakTimestamp** | Pointer to **NullableTime** |  | [optional] 
 **Suppress** | **bool** |  | 
@@ -132,16 +132,6 @@ SetMember sets Member field to given value.
 
 HasMember returns a boolean if a field has been set.
 
-### SetMemberNil
-
-`func (o *VoiceStateResponse) SetMemberNil(b bool)`
-
- SetMemberNil sets the value for Member to be an explicit nil
-
-### UnsetMember
-`func (o *VoiceStateResponse) UnsetMember()`
-
-UnsetMember ensures that no value is present for Member, not even an explicit nil
 ### GetMute
 
 `func (o *VoiceStateResponse) GetMute() bool`

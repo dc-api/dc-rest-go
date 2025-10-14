@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Recipients** | [**[]UserResponse**](UserResponse.md) |  | 
 **Name** | Pointer to **string** |  | [optional] 
 **Icon** | Pointer to **string** |  | [optional] 
-**OwnerId** | Pointer to **string** |  | [optional] 
+**OwnerId** | **string** |  | 
 **Managed** | Pointer to **bool** |  | [optional] 
 **ApplicationId** | Pointer to **string** |  | [optional] 
 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewAddGroupDmUser201Response
 
-`func NewAddGroupDmUser201Response(id string, type_ int32, flags int32, recipients []UserResponse, ) *AddGroupDmUser201Response`
+`func NewAddGroupDmUser201Response(id string, type_ int32, flags int32, recipients []UserResponse, ownerId string, ) *AddGroupDmUser201Response`
 
 NewAddGroupDmUser201Response instantiates a new AddGroupDmUser201Response object
 This constructor will assign default values to properties that have it defined,
@@ -234,11 +234,6 @@ and a boolean to check if the value has been set.
 
 SetOwnerId sets OwnerId field to given value.
 
-### HasOwnerId
-
-`func (o *AddGroupDmUser201Response) HasOwnerId() bool`
-
-HasOwnerId returns a boolean if a field has been set.
 
 ### GetManaged
 

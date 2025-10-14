@@ -5,11 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **int32** |  | 
+**Id** | Pointer to **NullableInt32** |  | [optional] 
 **CustomId** | **string** |  | 
 **Placeholder** | Pointer to **NullableString** |  | [optional] 
 **MinValues** | Pointer to **NullableInt32** |  | [optional] 
 **MaxValues** | Pointer to **NullableInt32** |  | [optional] 
 **Disabled** | Pointer to **NullableBool** |  | [optional] 
+**Required** | Pointer to **NullableBool** |  | [optional] 
 **DefaultValues** | Pointer to [**[]ChannelSelectDefaultValue**](ChannelSelectDefaultValue.md) |  | [optional] 
 **ChannelTypes** | Pointer to **[]int32** |  | [optional] 
 
@@ -52,6 +54,41 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
+### GetId
+
+`func (o *ChannelSelectComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ChannelSelectComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ChannelSelectComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *ChannelSelectComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *ChannelSelectComponentForMessageRequest) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *ChannelSelectComponentForMessageRequest) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetCustomId
 
 `func (o *ChannelSelectComponentForMessageRequest) GetCustomId() string`
@@ -212,6 +249,41 @@ HasDisabled returns a boolean if a field has been set.
 `func (o *ChannelSelectComponentForMessageRequest) UnsetDisabled()`
 
 UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
+### GetRequired
+
+`func (o *ChannelSelectComponentForMessageRequest) GetRequired() bool`
+
+GetRequired returns the Required field if non-nil, zero value otherwise.
+
+### GetRequiredOk
+
+`func (o *ChannelSelectComponentForMessageRequest) GetRequiredOk() (*bool, bool)`
+
+GetRequiredOk returns a tuple with the Required field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequired
+
+`func (o *ChannelSelectComponentForMessageRequest) SetRequired(v bool)`
+
+SetRequired sets Required field to given value.
+
+### HasRequired
+
+`func (o *ChannelSelectComponentForMessageRequest) HasRequired() bool`
+
+HasRequired returns a boolean if a field has been set.
+
+### SetRequiredNil
+
+`func (o *ChannelSelectComponentForMessageRequest) SetRequiredNil(b bool)`
+
+ SetRequiredNil sets the value for Required to be an explicit nil
+
+### UnsetRequired
+`func (o *ChannelSelectComponentForMessageRequest) UnsetRequired()`
+
+UnsetRequired ensures that no value is present for Required, not even an explicit nil
 ### GetDefaultValues
 
 `func (o *ChannelSelectComponentForMessageRequest) GetDefaultValues() []ChannelSelectDefaultValue`

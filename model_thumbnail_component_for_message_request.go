@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-14T14:27:02.905060650Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,6 +56,7 @@ var _ MappedNullable = &ThumbnailComponentForMessageRequest{}
 // ThumbnailComponentForMessageRequest struct for ThumbnailComponentForMessageRequest
 type ThumbnailComponentForMessageRequest struct {
 	Type int32 `json:"type"`
+	Id NullableInt32 `json:"id,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	Spoiler NullableBool `json:"spoiler,omitempty"`
 	Media UnfurledMediaRequest `json:"media"`
@@ -104,6 +105,49 @@ func (o *ThumbnailComponentForMessageRequest) GetTypeOk() (*int32, bool) {
 // SetType sets field value
 func (o *ThumbnailComponentForMessageRequest) SetType(v int32) {
 	o.Type = v
+}
+
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ThumbnailComponentForMessageRequest) GetId() int32 {
+	if o == nil || IsNil(o.Id.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.Id.Get()
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ThumbnailComponentForMessageRequest) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id.Get()) {
+		return nil, false
+	}
+	return o.Id.Get(), o.Id.IsSet()
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *ThumbnailComponentForMessageRequest) HasId() bool {
+	if o != nil && o.Id.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given NullableInt32 and assigns it to the Id field.
+func (o *ThumbnailComponentForMessageRequest) SetId(v int32) {
+	o.Id.Set(&v)
+}
+
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *ThumbnailComponentForMessageRequest) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *ThumbnailComponentForMessageRequest) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -227,6 +271,9 @@ func (o ThumbnailComponentForMessageRequest) MarshalJSON() ([]byte, error) {
 func (o ThumbnailComponentForMessageRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
+	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
@@ -310,5 +357,4 @@ func (v *NullableThumbnailComponentForMessageRequest) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

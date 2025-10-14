@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-14T14:27:02.905060650Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,7 +57,7 @@ var _ MappedNullable = &PollResultsEntryResponse{}
 type PollResultsEntryResponse struct {
 	Id int32 `json:"id"`
 	Count int32 `json:"count"`
-	MeVoted NullableBool `json:"me_voted,omitempty"`
+	MeVoted bool `json:"me_voted"`
 }
 
 type _PollResultsEntryResponse PollResultsEntryResponse
@@ -66,10 +66,11 @@ type _PollResultsEntryResponse PollResultsEntryResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPollResultsEntryResponse(id int32, count int32) *PollResultsEntryResponse {
+func NewPollResultsEntryResponse(id int32, count int32, meVoted bool) *PollResultsEntryResponse {
 	this := PollResultsEntryResponse{}
 	this.Id = id
 	this.Count = count
+	this.MeVoted = meVoted
 	return &this
 }
 
@@ -129,47 +130,28 @@ func (o *PollResultsEntryResponse) SetCount(v int32) {
 	o.Count = v
 }
 
-// GetMeVoted returns the MeVoted field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMeVoted returns the MeVoted field value
 func (o *PollResultsEntryResponse) GetMeVoted() bool {
-	if o == nil || IsNil(o.MeVoted.Get()) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.MeVoted.Get()
+
+	return o.MeVoted
 }
 
-// GetMeVotedOk returns a tuple with the MeVoted field value if set, nil otherwise
+// GetMeVotedOk returns a tuple with the MeVoted field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PollResultsEntryResponse) GetMeVotedOk() (*bool, bool) {
-	if o == nil || IsNil(o.MeVoted.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MeVoted.Get(), o.MeVoted.IsSet()
+	return &o.MeVoted, true
 }
 
-// HasMeVoted returns a boolean if a field has been set.
-func (o *PollResultsEntryResponse) HasMeVoted() bool {
-	if o != nil && o.MeVoted.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMeVoted gets a reference to the given NullableBool and assigns it to the MeVoted field.
+// SetMeVoted sets field value
 func (o *PollResultsEntryResponse) SetMeVoted(v bool) {
-	o.MeVoted.Set(&v)
-}
-
-// SetMeVotedNil sets the value for MeVoted to be an explicit nil
-func (o *PollResultsEntryResponse) SetMeVotedNil() {
-	o.MeVoted.Set(nil)
-}
-
-// UnsetMeVoted ensures that no value is present for MeVoted, not even an explicit nil
-func (o *PollResultsEntryResponse) UnsetMeVoted() {
-	o.MeVoted.Unset()
+	o.MeVoted = v
 }
 
 func (o PollResultsEntryResponse) MarshalJSON() ([]byte, error) {
@@ -184,9 +166,7 @@ func (o PollResultsEntryResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["count"] = o.Count
-	if o.MeVoted.IsSet() {
-		toSerialize["me_voted"] = o.MeVoted.Get()
-	}
+	toSerialize["me_voted"] = o.MeVoted
 	return toSerialize, nil
 }
 
@@ -197,6 +177,7 @@ func (o *PollResultsEntryResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"id",
 		"count",
+		"me_voted",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -263,5 +244,4 @@ func (v *NullablePollResultsEntryResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

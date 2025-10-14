@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-14T14:27:02.905060650Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -62,9 +62,9 @@ type MLSpamRuleResponse struct {
 	EventType int32 `json:"event_type"`
 	Actions []DefaultKeywordRuleResponseActionsInner `json:"actions"`
 	TriggerType int32 `json:"trigger_type"`
-	Enabled NullableBool `json:"enabled,omitempty"`
-	ExemptRoles []string `json:"exempt_roles,omitempty"`
-	ExemptChannels []string `json:"exempt_channels,omitempty"`
+	Enabled bool `json:"enabled"`
+	ExemptRoles []string `json:"exempt_roles"`
+	ExemptChannels []string `json:"exempt_channels"`
 	TriggerMetadata map[string]interface{} `json:"trigger_metadata"`
 }
 
@@ -74,7 +74,7 @@ type _MLSpamRuleResponse MLSpamRuleResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMLSpamRuleResponse(id string, guildId string, creatorId string, name string, eventType int32, actions []DefaultKeywordRuleResponseActionsInner, triggerType int32, triggerMetadata map[string]interface{}) *MLSpamRuleResponse {
+func NewMLSpamRuleResponse(id string, guildId string, creatorId string, name string, eventType int32, actions []DefaultKeywordRuleResponseActionsInner, triggerType int32, enabled bool, exemptRoles []string, exemptChannels []string, triggerMetadata map[string]interface{}) *MLSpamRuleResponse {
 	this := MLSpamRuleResponse{}
 	this.Id = id
 	this.GuildId = guildId
@@ -83,6 +83,9 @@ func NewMLSpamRuleResponse(id string, guildId string, creatorId string, name str
 	this.EventType = eventType
 	this.Actions = actions
 	this.TriggerType = triggerType
+	this.Enabled = enabled
+	this.ExemptRoles = exemptRoles
+	this.ExemptChannels = exemptChannels
 	this.TriggerMetadata = triggerMetadata
 	return &this
 }
@@ -263,61 +266,42 @@ func (o *MLSpamRuleResponse) SetTriggerType(v int32) {
 	o.TriggerType = v
 }
 
-// GetEnabled returns the Enabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnabled returns the Enabled field value
 func (o *MLSpamRuleResponse) GetEnabled() bool {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.Enabled.Get()
+
+	return o.Enabled
 }
 
-// GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
+// GetEnabledOk returns a tuple with the Enabled field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MLSpamRuleResponse) GetEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Enabled.Get(), o.Enabled.IsSet()
+	return &o.Enabled, true
 }
 
-// HasEnabled returns a boolean if a field has been set.
-func (o *MLSpamRuleResponse) HasEnabled() bool {
-	if o != nil && o.Enabled.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnabled gets a reference to the given NullableBool and assigns it to the Enabled field.
+// SetEnabled sets field value
 func (o *MLSpamRuleResponse) SetEnabled(v bool) {
-	o.Enabled.Set(&v)
+	o.Enabled = v
 }
 
-// SetEnabledNil sets the value for Enabled to be an explicit nil
-func (o *MLSpamRuleResponse) SetEnabledNil() {
-	o.Enabled.Set(nil)
-}
-
-// UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
-func (o *MLSpamRuleResponse) UnsetEnabled() {
-	o.Enabled.Unset()
-}
-
-// GetExemptRoles returns the ExemptRoles field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExemptRoles returns the ExemptRoles field value
 func (o *MLSpamRuleResponse) GetExemptRoles() []string {
 	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.ExemptRoles
 }
 
-// GetExemptRolesOk returns a tuple with the ExemptRoles field value if set, nil otherwise
+// GetExemptRolesOk returns a tuple with the ExemptRoles field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MLSpamRuleResponse) GetExemptRolesOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
@@ -325,33 +309,23 @@ func (o *MLSpamRuleResponse) GetExemptRolesOk() ([]string, bool) {
 	return o.ExemptRoles, true
 }
 
-// HasExemptRoles returns a boolean if a field has been set.
-func (o *MLSpamRuleResponse) HasExemptRoles() bool {
-	if o != nil && !IsNil(o.ExemptRoles) {
-		return true
-	}
-
-	return false
-}
-
-// SetExemptRoles gets a reference to the given []string and assigns it to the ExemptRoles field.
+// SetExemptRoles sets field value
 func (o *MLSpamRuleResponse) SetExemptRoles(v []string) {
 	o.ExemptRoles = v
 }
 
-
-// GetExemptChannels returns the ExemptChannels field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExemptChannels returns the ExemptChannels field value
 func (o *MLSpamRuleResponse) GetExemptChannels() []string {
 	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.ExemptChannels
 }
 
-// GetExemptChannelsOk returns a tuple with the ExemptChannels field value if set, nil otherwise
+// GetExemptChannelsOk returns a tuple with the ExemptChannels field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MLSpamRuleResponse) GetExemptChannelsOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
@@ -359,20 +333,10 @@ func (o *MLSpamRuleResponse) GetExemptChannelsOk() ([]string, bool) {
 	return o.ExemptChannels, true
 }
 
-// HasExemptChannels returns a boolean if a field has been set.
-func (o *MLSpamRuleResponse) HasExemptChannels() bool {
-	if o != nil && !IsNil(o.ExemptChannels) {
-		return true
-	}
-
-	return false
-}
-
-// SetExemptChannels gets a reference to the given []string and assigns it to the ExemptChannels field.
+// SetExemptChannels sets field value
 func (o *MLSpamRuleResponse) SetExemptChannels(v []string) {
 	o.ExemptChannels = v
 }
-
 
 // GetTriggerMetadata returns the TriggerMetadata field value
 func (o *MLSpamRuleResponse) GetTriggerMetadata() map[string]interface{} {
@@ -415,15 +379,9 @@ func (o MLSpamRuleResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["event_type"] = o.EventType
 	toSerialize["actions"] = o.Actions
 	toSerialize["trigger_type"] = o.TriggerType
-	if o.Enabled.IsSet() {
-		toSerialize["enabled"] = o.Enabled.Get()
-	}
-	if o.ExemptRoles != nil {
-		toSerialize["exempt_roles"] = o.ExemptRoles
-	}
-	if o.ExemptChannels != nil {
-		toSerialize["exempt_channels"] = o.ExemptChannels
-	}
+	toSerialize["enabled"] = o.Enabled
+	toSerialize["exempt_roles"] = o.ExemptRoles
+	toSerialize["exempt_channels"] = o.ExemptChannels
 	toSerialize["trigger_metadata"] = o.TriggerMetadata
 	return toSerialize, nil
 }
@@ -440,6 +398,9 @@ func (o *MLSpamRuleResponse) UnmarshalJSON(data []byte) (err error) {
 		"event_type",
 		"actions",
 		"trigger_type",
+		"enabled",
+		"exempt_roles",
+		"exempt_channels",
 		"trigger_metadata",
 	}
 
@@ -507,5 +468,4 @@ func (v *NullableMLSpamRuleResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 
