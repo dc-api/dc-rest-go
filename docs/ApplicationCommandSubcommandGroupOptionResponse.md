@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **int32** |  | 
 **Name** | **string** |  | 
-**NameLocalized** | Pointer to **NullableString** |  | [optional] 
+**NameLocalized** | Pointer to **string** |  | [optional] 
 **NameLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Description** | **string** |  | 
-**DescriptionLocalized** | Pointer to **NullableString** |  | [optional] 
+**DescriptionLocalized** | Pointer to **string** |  | [optional] 
 **DescriptionLocalizations** | Pointer to **map[string]string** |  | [optional] 
-**Required** | Pointer to **NullableBool** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
 **Options** | Pointer to [**[]ApplicationCommandSubcommandOptionResponse**](ApplicationCommandSubcommandOptionResponse.md) |  | [optional] 
 
 ## Methods
@@ -98,16 +98,6 @@ SetNameLocalized sets NameLocalized field to given value.
 
 HasNameLocalized returns a boolean if a field has been set.
 
-### SetNameLocalizedNil
-
-`func (o *ApplicationCommandSubcommandGroupOptionResponse) SetNameLocalizedNil(b bool)`
-
- SetNameLocalizedNil sets the value for NameLocalized to be an explicit nil
-
-### UnsetNameLocalized
-`func (o *ApplicationCommandSubcommandGroupOptionResponse) UnsetNameLocalized()`
-
-UnsetNameLocalized ensures that no value is present for NameLocalized, not even an explicit nil
 ### GetNameLocalizations
 
 `func (o *ApplicationCommandSubcommandGroupOptionResponse) GetNameLocalizations() map[string]string`
@@ -178,16 +168,6 @@ SetDescriptionLocalized sets DescriptionLocalized field to given value.
 
 HasDescriptionLocalized returns a boolean if a field has been set.
 
-### SetDescriptionLocalizedNil
-
-`func (o *ApplicationCommandSubcommandGroupOptionResponse) SetDescriptionLocalizedNil(b bool)`
-
- SetDescriptionLocalizedNil sets the value for DescriptionLocalized to be an explicit nil
-
-### UnsetDescriptionLocalized
-`func (o *ApplicationCommandSubcommandGroupOptionResponse) UnsetDescriptionLocalized()`
-
-UnsetDescriptionLocalized ensures that no value is present for DescriptionLocalized, not even an explicit nil
 ### GetDescriptionLocalizations
 
 `func (o *ApplicationCommandSubcommandGroupOptionResponse) GetDescriptionLocalizations() map[string]string`
@@ -238,16 +218,6 @@ SetRequired sets Required field to given value.
 
 HasRequired returns a boolean if a field has been set.
 
-### SetRequiredNil
-
-`func (o *ApplicationCommandSubcommandGroupOptionResponse) SetRequiredNil(b bool)`
-
- SetRequiredNil sets the value for Required to be an explicit nil
-
-### UnsetRequired
-`func (o *ApplicationCommandSubcommandGroupOptionResponse) UnsetRequired()`
-
-UnsetRequired ensures that no value is present for Required, not even an explicit nil
 ### GetOptions
 
 `func (o *ApplicationCommandSubcommandGroupOptionResponse) GetOptions() []ApplicationCommandSubcommandOptionResponse`
@@ -273,16 +243,6 @@ SetOptions sets Options field to given value.
 
 HasOptions returns a boolean if a field has been set.
 
-### SetOptionsNil
-
-`func (o *ApplicationCommandSubcommandGroupOptionResponse) SetOptionsNil(b bool)`
-
- SetOptionsNil sets the value for Options to be an explicit nil
-
-### UnsetOptions
-`func (o *ApplicationCommandSubcommandGroupOptionResponse) UnsetOptions()`
-
-UnsetOptions ensures that no value is present for Options, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

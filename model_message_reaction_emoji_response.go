@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-25T01:29:55.152026602Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,7 +55,7 @@ var _ MappedNullable = &MessageReactionEmojiResponse{}
 type MessageReactionEmojiResponse struct {
 	Id *string `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name NullableString `json:"name,omitempty"`
-	Animated NullableBool `json:"animated,omitempty"`
+	Animated *bool `json:"animated,omitempty"`
 }
 
 // NewMessageReactionEmojiResponse instantiates a new MessageReactionEmojiResponse object
@@ -151,48 +151,38 @@ func (o *MessageReactionEmojiResponse) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetAnimated returns the Animated field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAnimated returns the Animated field value if set, zero value otherwise.
 func (o *MessageReactionEmojiResponse) GetAnimated() bool {
-	if o == nil || IsNil(o.Animated.Get()) {
+	if o == nil || IsNil(o.Animated) {
 		var ret bool
 		return ret
 	}
-	return *o.Animated.Get()
+	return *o.Animated
 }
 
 // GetAnimatedOk returns a tuple with the Animated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageReactionEmojiResponse) GetAnimatedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Animated.Get()) {
+	if o == nil || IsNil(o.Animated) {
 		return nil, false
 	}
-	return o.Animated.Get(), o.Animated.IsSet()
+	return o.Animated, true
 }
 
 // HasAnimated returns a boolean if a field has been set.
 func (o *MessageReactionEmojiResponse) HasAnimated() bool {
-	if o != nil && o.Animated.IsSet() {
+	if o != nil && !IsNil(o.Animated) {
 		return true
 	}
 
 	return false
 }
 
-// SetAnimated gets a reference to the given NullableBool and assigns it to the Animated field.
+// SetAnimated gets a reference to the given bool and assigns it to the Animated field.
 func (o *MessageReactionEmojiResponse) SetAnimated(v bool) {
-	o.Animated.Set(&v)
+	o.Animated = &v
 }
 
-// SetAnimatedNil sets the value for Animated to be an explicit nil
-func (o *MessageReactionEmojiResponse) SetAnimatedNil() {
-	o.Animated.Set(nil)
-}
-
-// UnsetAnimated ensures that no value is present for Animated, not even an explicit nil
-func (o *MessageReactionEmojiResponse) UnsetAnimated() {
-	o.Animated.Unset()
-}
 
 func (o MessageReactionEmojiResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -210,8 +200,8 @@ func (o MessageReactionEmojiResponse) ToMap() (map[string]interface{}, error) {
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if o.Animated.IsSet() {
-		toSerialize["animated"] = o.Animated.Get()
+	if !IsNil(o.Animated) {
+		toSerialize["animated"] = o.Animated
 	}
 	return toSerialize, nil
 }
@@ -251,5 +241,4 @@ func (v *NullableMessageReactionEmojiResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

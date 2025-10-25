@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**NameLocalized** | Pointer to **NullableString** |  | [optional] 
+**NameLocalized** | Pointer to **string** |  | [optional] 
 **NameLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Value** | **int64** |  | 
 
@@ -73,16 +73,6 @@ SetNameLocalized sets NameLocalized field to given value.
 
 HasNameLocalized returns a boolean if a field has been set.
 
-### SetNameLocalizedNil
-
-`func (o *ApplicationCommandOptionIntegerChoiceResponse) SetNameLocalizedNil(b bool)`
-
- SetNameLocalizedNil sets the value for NameLocalized to be an explicit nil
-
-### UnsetNameLocalized
-`func (o *ApplicationCommandOptionIntegerChoiceResponse) UnsetNameLocalized()`
-
-UnsetNameLocalized ensures that no value is present for NameLocalized, not even an explicit nil
 ### GetNameLocalizations
 
 `func (o *ApplicationCommandOptionIntegerChoiceResponse) GetNameLocalizations() map[string]string`

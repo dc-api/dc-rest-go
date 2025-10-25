@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **EmojiName** | Pointer to **NullableString** |  | [optional] 
 **GuildId** | Pointer to **string** |  | [optional] 
 **Available** | **bool** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -222,16 +222,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *SoundboardSoundResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *SoundboardSoundResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

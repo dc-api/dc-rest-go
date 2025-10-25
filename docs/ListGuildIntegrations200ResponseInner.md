@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **NullableString** |  | 
 **Name** | Pointer to **string** |  | [optional] 
-**Account** | Pointer to [**AccountResponse**](AccountResponse.md) |  | [optional] 
-**Enabled** | Pointer to **bool** |  | [optional] 
+**Account** | [**AccountResponse**](AccountResponse.md) |  | 
+**Enabled** | **bool** |  | 
 **Id** | **string** |  | 
 **Application** | [**IntegrationApplicationResponse**](IntegrationApplicationResponse.md) |  | 
 **Scopes** | **[]string** |  | 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewListGuildIntegrations200ResponseInner
 
-`func NewListGuildIntegrations200ResponseInner(type_ NullableString, id string, application IntegrationApplicationResponse, scopes []string, user UserResponse, ) *ListGuildIntegrations200ResponseInner`
+`func NewListGuildIntegrations200ResponseInner(type_ NullableString, account AccountResponse, enabled bool, id string, application IntegrationApplicationResponse, scopes []string, user UserResponse, ) *ListGuildIntegrations200ResponseInner`
 
 NewListGuildIntegrations200ResponseInner instantiates a new ListGuildIntegrations200ResponseInner object
 This constructor will assign default values to properties that have it defined,
@@ -114,11 +114,6 @@ and a boolean to check if the value has been set.
 
 SetAccount sets Account field to given value.
 
-### HasAccount
-
-`func (o *ListGuildIntegrations200ResponseInner) HasAccount() bool`
-
-HasAccount returns a boolean if a field has been set.
 
 ### GetEnabled
 
@@ -139,11 +134,6 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
-### HasEnabled
-
-`func (o *ListGuildIntegrations200ResponseInner) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
 
 ### GetId
 

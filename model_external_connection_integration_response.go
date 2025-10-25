@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-25T01:29:55.152026602Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,18 +58,18 @@ var _ MappedNullable = &ExternalConnectionIntegrationResponse{}
 type ExternalConnectionIntegrationResponse struct {
 	Type NullableString `json:"type"`
 	Name NullableString `json:"name,omitempty"`
-	Account NullableAccountResponse `json:"account,omitempty"`
-	Enabled NullableBool `json:"enabled,omitempty"`
+	Account AccountResponse `json:"account"`
+	Enabled bool `json:"enabled"`
 	Id string `json:"id"`
 	User UserResponse `json:"user"`
-	Revoked NullableBool `json:"revoked,omitempty"`
+	Revoked *bool `json:"revoked,omitempty"`
 	ExpireBehavior *int32 `json:"expire_behavior,omitempty"`
 	ExpireGracePeriod *int32 `json:"expire_grace_period,omitempty"`
-	SubscriberCount NullableInt32 `json:"subscriber_count,omitempty"`
-	SyncedAt NullableTime `json:"synced_at,omitempty"`
+	SubscriberCount *int32 `json:"subscriber_count,omitempty"`
+	SyncedAt *time.Time `json:"synced_at,omitempty"`
 	RoleId *string `json:"role_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Syncing NullableBool `json:"syncing,omitempty"`
-	EnableEmoticons NullableBool `json:"enable_emoticons,omitempty"`
+	Syncing *bool `json:"syncing,omitempty"`
+	EnableEmoticons *bool `json:"enable_emoticons,omitempty"`
 }
 
 type _ExternalConnectionIntegrationResponse ExternalConnectionIntegrationResponse
@@ -78,9 +78,11 @@ type _ExternalConnectionIntegrationResponse ExternalConnectionIntegrationRespons
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewExternalConnectionIntegrationResponse(type_ NullableString, id string, user UserResponse) *ExternalConnectionIntegrationResponse {
+func NewExternalConnectionIntegrationResponse(type_ NullableString, account AccountResponse, enabled bool, id string, user UserResponse) *ExternalConnectionIntegrationResponse {
 	this := ExternalConnectionIntegrationResponse{}
 	this.Type = type_
+	this.Account = account
+	this.Enabled = enabled
 	this.Id = id
 	this.User = user
 	return &this
@@ -163,90 +165,52 @@ func (o *ExternalConnectionIntegrationResponse) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetAccount returns the Account field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAccount returns the Account field value
 func (o *ExternalConnectionIntegrationResponse) GetAccount() AccountResponse {
-	if o == nil || IsNil(o.Account.Get()) {
+	if o == nil {
 		var ret AccountResponse
 		return ret
 	}
-	return *o.Account.Get()
+
+	return o.Account
 }
 
-// GetAccountOk returns a tuple with the Account field value if set, nil otherwise
+// GetAccountOk returns a tuple with the Account field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalConnectionIntegrationResponse) GetAccountOk() (*AccountResponse, bool) {
-	if o == nil || IsNil(o.Account.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Account.Get(), o.Account.IsSet()
+	return &o.Account, true
 }
 
-// HasAccount returns a boolean if a field has been set.
-func (o *ExternalConnectionIntegrationResponse) HasAccount() bool {
-	if o != nil && o.Account.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAccount gets a reference to the given NullableAccountResponse and assigns it to the Account field.
+// SetAccount sets field value
 func (o *ExternalConnectionIntegrationResponse) SetAccount(v AccountResponse) {
-	o.Account.Set(&v)
+	o.Account = v
 }
 
-// SetAccountNil sets the value for Account to be an explicit nil
-func (o *ExternalConnectionIntegrationResponse) SetAccountNil() {
-	o.Account.Set(nil)
-}
-
-// UnsetAccount ensures that no value is present for Account, not even an explicit nil
-func (o *ExternalConnectionIntegrationResponse) UnsetAccount() {
-	o.Account.Unset()
-}
-
-// GetEnabled returns the Enabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnabled returns the Enabled field value
 func (o *ExternalConnectionIntegrationResponse) GetEnabled() bool {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.Enabled.Get()
+
+	return o.Enabled
 }
 
-// GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
+// GetEnabledOk returns a tuple with the Enabled field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalConnectionIntegrationResponse) GetEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Enabled.Get(), o.Enabled.IsSet()
+	return &o.Enabled, true
 }
 
-// HasEnabled returns a boolean if a field has been set.
-func (o *ExternalConnectionIntegrationResponse) HasEnabled() bool {
-	if o != nil && o.Enabled.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnabled gets a reference to the given NullableBool and assigns it to the Enabled field.
+// SetEnabled sets field value
 func (o *ExternalConnectionIntegrationResponse) SetEnabled(v bool) {
-	o.Enabled.Set(&v)
-}
-
-// SetEnabledNil sets the value for Enabled to be an explicit nil
-func (o *ExternalConnectionIntegrationResponse) SetEnabledNil() {
-	o.Enabled.Set(nil)
-}
-
-// UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
-func (o *ExternalConnectionIntegrationResponse) UnsetEnabled() {
-	o.Enabled.Unset()
+	o.Enabled = v
 }
 
 // GetId returns the Id field value
@@ -297,48 +261,38 @@ func (o *ExternalConnectionIntegrationResponse) SetUser(v UserResponse) {
 	o.User = v
 }
 
-// GetRevoked returns the Revoked field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRevoked returns the Revoked field value if set, zero value otherwise.
 func (o *ExternalConnectionIntegrationResponse) GetRevoked() bool {
-	if o == nil || IsNil(o.Revoked.Get()) {
+	if o == nil || IsNil(o.Revoked) {
 		var ret bool
 		return ret
 	}
-	return *o.Revoked.Get()
+	return *o.Revoked
 }
 
 // GetRevokedOk returns a tuple with the Revoked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalConnectionIntegrationResponse) GetRevokedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Revoked.Get()) {
+	if o == nil || IsNil(o.Revoked) {
 		return nil, false
 	}
-	return o.Revoked.Get(), o.Revoked.IsSet()
+	return o.Revoked, true
 }
 
 // HasRevoked returns a boolean if a field has been set.
 func (o *ExternalConnectionIntegrationResponse) HasRevoked() bool {
-	if o != nil && o.Revoked.IsSet() {
+	if o != nil && !IsNil(o.Revoked) {
 		return true
 	}
 
 	return false
 }
 
-// SetRevoked gets a reference to the given NullableBool and assigns it to the Revoked field.
+// SetRevoked gets a reference to the given bool and assigns it to the Revoked field.
 func (o *ExternalConnectionIntegrationResponse) SetRevoked(v bool) {
-	o.Revoked.Set(&v)
+	o.Revoked = &v
 }
 
-// SetRevokedNil sets the value for Revoked to be an explicit nil
-func (o *ExternalConnectionIntegrationResponse) SetRevokedNil() {
-	o.Revoked.Set(nil)
-}
-
-// UnsetRevoked ensures that no value is present for Revoked, not even an explicit nil
-func (o *ExternalConnectionIntegrationResponse) UnsetRevoked() {
-	o.Revoked.Unset()
-}
 
 // GetExpireBehavior returns the ExpireBehavior field value if set, zero value otherwise.
 func (o *ExternalConnectionIntegrationResponse) GetExpireBehavior() int32 {
@@ -406,91 +360,71 @@ func (o *ExternalConnectionIntegrationResponse) SetExpireGracePeriod(v int32) {
 }
 
 
-// GetSubscriberCount returns the SubscriberCount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSubscriberCount returns the SubscriberCount field value if set, zero value otherwise.
 func (o *ExternalConnectionIntegrationResponse) GetSubscriberCount() int32 {
-	if o == nil || IsNil(o.SubscriberCount.Get()) {
+	if o == nil || IsNil(o.SubscriberCount) {
 		var ret int32
 		return ret
 	}
-	return *o.SubscriberCount.Get()
+	return *o.SubscriberCount
 }
 
 // GetSubscriberCountOk returns a tuple with the SubscriberCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalConnectionIntegrationResponse) GetSubscriberCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.SubscriberCount.Get()) {
+	if o == nil || IsNil(o.SubscriberCount) {
 		return nil, false
 	}
-	return o.SubscriberCount.Get(), o.SubscriberCount.IsSet()
+	return o.SubscriberCount, true
 }
 
 // HasSubscriberCount returns a boolean if a field has been set.
 func (o *ExternalConnectionIntegrationResponse) HasSubscriberCount() bool {
-	if o != nil && o.SubscriberCount.IsSet() {
+	if o != nil && !IsNil(o.SubscriberCount) {
 		return true
 	}
 
 	return false
 }
 
-// SetSubscriberCount gets a reference to the given NullableInt32 and assigns it to the SubscriberCount field.
+// SetSubscriberCount gets a reference to the given int32 and assigns it to the SubscriberCount field.
 func (o *ExternalConnectionIntegrationResponse) SetSubscriberCount(v int32) {
-	o.SubscriberCount.Set(&v)
+	o.SubscriberCount = &v
 }
 
-// SetSubscriberCountNil sets the value for SubscriberCount to be an explicit nil
-func (o *ExternalConnectionIntegrationResponse) SetSubscriberCountNil() {
-	o.SubscriberCount.Set(nil)
-}
 
-// UnsetSubscriberCount ensures that no value is present for SubscriberCount, not even an explicit nil
-func (o *ExternalConnectionIntegrationResponse) UnsetSubscriberCount() {
-	o.SubscriberCount.Unset()
-}
-
-// GetSyncedAt returns the SyncedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSyncedAt returns the SyncedAt field value if set, zero value otherwise.
 func (o *ExternalConnectionIntegrationResponse) GetSyncedAt() time.Time {
-	if o == nil || IsNil(o.SyncedAt.Get()) {
+	if o == nil || IsNil(o.SyncedAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.SyncedAt.Get()
+	return *o.SyncedAt
 }
 
 // GetSyncedAtOk returns a tuple with the SyncedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalConnectionIntegrationResponse) GetSyncedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.SyncedAt.Get()) {
+	if o == nil || IsNil(o.SyncedAt) {
 		return nil, false
 	}
-	return o.SyncedAt.Get(), o.SyncedAt.IsSet()
+	return o.SyncedAt, true
 }
 
 // HasSyncedAt returns a boolean if a field has been set.
 func (o *ExternalConnectionIntegrationResponse) HasSyncedAt() bool {
-	if o != nil && o.SyncedAt.IsSet() {
+	if o != nil && !IsNil(o.SyncedAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetSyncedAt gets a reference to the given NullableTime and assigns it to the SyncedAt field.
+// SetSyncedAt gets a reference to the given time.Time and assigns it to the SyncedAt field.
 func (o *ExternalConnectionIntegrationResponse) SetSyncedAt(v time.Time) {
-	o.SyncedAt.Set(&v)
+	o.SyncedAt = &v
 }
 
-// SetSyncedAtNil sets the value for SyncedAt to be an explicit nil
-func (o *ExternalConnectionIntegrationResponse) SetSyncedAtNil() {
-	o.SyncedAt.Set(nil)
-}
-
-// UnsetSyncedAt ensures that no value is present for SyncedAt, not even an explicit nil
-func (o *ExternalConnectionIntegrationResponse) UnsetSyncedAt() {
-	o.SyncedAt.Unset()
-}
 
 // GetRoleId returns the RoleId field value if set, zero value otherwise.
 func (o *ExternalConnectionIntegrationResponse) GetRoleId() string {
@@ -525,91 +459,71 @@ func (o *ExternalConnectionIntegrationResponse) SetRoleId(v string) {
 }
 
 
-// GetSyncing returns the Syncing field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSyncing returns the Syncing field value if set, zero value otherwise.
 func (o *ExternalConnectionIntegrationResponse) GetSyncing() bool {
-	if o == nil || IsNil(o.Syncing.Get()) {
+	if o == nil || IsNil(o.Syncing) {
 		var ret bool
 		return ret
 	}
-	return *o.Syncing.Get()
+	return *o.Syncing
 }
 
 // GetSyncingOk returns a tuple with the Syncing field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalConnectionIntegrationResponse) GetSyncingOk() (*bool, bool) {
-	if o == nil || IsNil(o.Syncing.Get()) {
+	if o == nil || IsNil(o.Syncing) {
 		return nil, false
 	}
-	return o.Syncing.Get(), o.Syncing.IsSet()
+	return o.Syncing, true
 }
 
 // HasSyncing returns a boolean if a field has been set.
 func (o *ExternalConnectionIntegrationResponse) HasSyncing() bool {
-	if o != nil && o.Syncing.IsSet() {
+	if o != nil && !IsNil(o.Syncing) {
 		return true
 	}
 
 	return false
 }
 
-// SetSyncing gets a reference to the given NullableBool and assigns it to the Syncing field.
+// SetSyncing gets a reference to the given bool and assigns it to the Syncing field.
 func (o *ExternalConnectionIntegrationResponse) SetSyncing(v bool) {
-	o.Syncing.Set(&v)
+	o.Syncing = &v
 }
 
-// SetSyncingNil sets the value for Syncing to be an explicit nil
-func (o *ExternalConnectionIntegrationResponse) SetSyncingNil() {
-	o.Syncing.Set(nil)
-}
 
-// UnsetSyncing ensures that no value is present for Syncing, not even an explicit nil
-func (o *ExternalConnectionIntegrationResponse) UnsetSyncing() {
-	o.Syncing.Unset()
-}
-
-// GetEnableEmoticons returns the EnableEmoticons field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnableEmoticons returns the EnableEmoticons field value if set, zero value otherwise.
 func (o *ExternalConnectionIntegrationResponse) GetEnableEmoticons() bool {
-	if o == nil || IsNil(o.EnableEmoticons.Get()) {
+	if o == nil || IsNil(o.EnableEmoticons) {
 		var ret bool
 		return ret
 	}
-	return *o.EnableEmoticons.Get()
+	return *o.EnableEmoticons
 }
 
 // GetEnableEmoticonsOk returns a tuple with the EnableEmoticons field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalConnectionIntegrationResponse) GetEnableEmoticonsOk() (*bool, bool) {
-	if o == nil || IsNil(o.EnableEmoticons.Get()) {
+	if o == nil || IsNil(o.EnableEmoticons) {
 		return nil, false
 	}
-	return o.EnableEmoticons.Get(), o.EnableEmoticons.IsSet()
+	return o.EnableEmoticons, true
 }
 
 // HasEnableEmoticons returns a boolean if a field has been set.
 func (o *ExternalConnectionIntegrationResponse) HasEnableEmoticons() bool {
-	if o != nil && o.EnableEmoticons.IsSet() {
+	if o != nil && !IsNil(o.EnableEmoticons) {
 		return true
 	}
 
 	return false
 }
 
-// SetEnableEmoticons gets a reference to the given NullableBool and assigns it to the EnableEmoticons field.
+// SetEnableEmoticons gets a reference to the given bool and assigns it to the EnableEmoticons field.
 func (o *ExternalConnectionIntegrationResponse) SetEnableEmoticons(v bool) {
-	o.EnableEmoticons.Set(&v)
+	o.EnableEmoticons = &v
 }
 
-// SetEnableEmoticonsNil sets the value for EnableEmoticons to be an explicit nil
-func (o *ExternalConnectionIntegrationResponse) SetEnableEmoticonsNil() {
-	o.EnableEmoticons.Set(nil)
-}
-
-// UnsetEnableEmoticons ensures that no value is present for EnableEmoticons, not even an explicit nil
-func (o *ExternalConnectionIntegrationResponse) UnsetEnableEmoticons() {
-	o.EnableEmoticons.Unset()
-}
 
 func (o ExternalConnectionIntegrationResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -625,16 +539,12 @@ func (o ExternalConnectionIntegrationResponse) ToMap() (map[string]interface{}, 
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if o.Account.IsSet() {
-		toSerialize["account"] = o.Account.Get()
-	}
-	if o.Enabled.IsSet() {
-		toSerialize["enabled"] = o.Enabled.Get()
-	}
+	toSerialize["account"] = o.Account
+	toSerialize["enabled"] = o.Enabled
 	toSerialize["id"] = o.Id
 	toSerialize["user"] = o.User
-	if o.Revoked.IsSet() {
-		toSerialize["revoked"] = o.Revoked.Get()
+	if !IsNil(o.Revoked) {
+		toSerialize["revoked"] = o.Revoked
 	}
 	if !IsNil(o.ExpireBehavior) {
 		toSerialize["expire_behavior"] = o.ExpireBehavior
@@ -642,20 +552,20 @@ func (o ExternalConnectionIntegrationResponse) ToMap() (map[string]interface{}, 
 	if !IsNil(o.ExpireGracePeriod) {
 		toSerialize["expire_grace_period"] = o.ExpireGracePeriod
 	}
-	if o.SubscriberCount.IsSet() {
-		toSerialize["subscriber_count"] = o.SubscriberCount.Get()
+	if !IsNil(o.SubscriberCount) {
+		toSerialize["subscriber_count"] = o.SubscriberCount
 	}
-	if o.SyncedAt.IsSet() {
-		toSerialize["synced_at"] = o.SyncedAt.Get()
+	if !IsNil(o.SyncedAt) {
+		toSerialize["synced_at"] = o.SyncedAt
 	}
 	if !IsNil(o.RoleId) {
 		toSerialize["role_id"] = o.RoleId
 	}
-	if o.Syncing.IsSet() {
-		toSerialize["syncing"] = o.Syncing.Get()
+	if !IsNil(o.Syncing) {
+		toSerialize["syncing"] = o.Syncing
 	}
-	if o.EnableEmoticons.IsSet() {
-		toSerialize["enable_emoticons"] = o.EnableEmoticons.Get()
+	if !IsNil(o.EnableEmoticons) {
+		toSerialize["enable_emoticons"] = o.EnableEmoticons
 	}
 	return toSerialize, nil
 }
@@ -666,6 +576,8 @@ func (o *ExternalConnectionIntegrationResponse) UnmarshalJSON(data []byte) (err 
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"type",
+		"account",
+		"enabled",
 		"id",
 		"user",
 	}
@@ -734,5 +646,4 @@ func (v *NullableExternalConnectionIntegrationResponse) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

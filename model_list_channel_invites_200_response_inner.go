@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-25T01:29:55.152026602Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -47,59 +47,110 @@ package dc_rest
 import (
 	"encoding/json"
 	"fmt"
+	"gopkg.in/validator.v2"
 )
 
-
-// ListChannelInvites200ResponseInner struct for ListChannelInvites200ResponseInner
+// ListChannelInvites200ResponseInner - struct for ListChannelInvites200ResponseInner
 type ListChannelInvites200ResponseInner struct {
 	FriendInviteResponse *FriendInviteResponse
 	GroupDMInviteResponse *GroupDMInviteResponse
 	GuildInviteResponse *GuildInviteResponse
 }
 
-// Unmarshal JSON data into any of the pointers in the struct
+// FriendInviteResponseAsListChannelInvites200ResponseInner is a convenience function that returns FriendInviteResponse wrapped in ListChannelInvites200ResponseInner
+func FriendInviteResponseAsListChannelInvites200ResponseInner(v *FriendInviteResponse) ListChannelInvites200ResponseInner {
+	return ListChannelInvites200ResponseInner{
+		FriendInviteResponse: v,
+	}
+}
+
+// GroupDMInviteResponseAsListChannelInvites200ResponseInner is a convenience function that returns GroupDMInviteResponse wrapped in ListChannelInvites200ResponseInner
+func GroupDMInviteResponseAsListChannelInvites200ResponseInner(v *GroupDMInviteResponse) ListChannelInvites200ResponseInner {
+	return ListChannelInvites200ResponseInner{
+		GroupDMInviteResponse: v,
+	}
+}
+
+// GuildInviteResponseAsListChannelInvites200ResponseInner is a convenience function that returns GuildInviteResponse wrapped in ListChannelInvites200ResponseInner
+func GuildInviteResponseAsListChannelInvites200ResponseInner(v *GuildInviteResponse) ListChannelInvites200ResponseInner {
+	return ListChannelInvites200ResponseInner{
+		GuildInviteResponse: v,
+	}
+}
+
+
+// Unmarshal JSON data into one of the pointers in the struct
 func (dst *ListChannelInvites200ResponseInner) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into FriendInviteResponse
-	err = json.Unmarshal(data, &dst.FriendInviteResponse);
+	// this object is nullable so check if the payload is null or empty string
+	if string(data) == "" || string(data) == "{}" {
+		return nil
+	}
+
+	match := 0
+	// try to unmarshal data into FriendInviteResponse
+	err = newStrictDecoder(data).Decode(&dst.FriendInviteResponse)
 	if err == nil {
 		jsonFriendInviteResponse, _ := json.Marshal(dst.FriendInviteResponse)
 		if string(jsonFriendInviteResponse) == "{}" { // empty struct
 			dst.FriendInviteResponse = nil
 		} else {
-			return nil // data stored in dst.FriendInviteResponse, return on the first match
+			if err = validator.Validate(dst.FriendInviteResponse); err != nil {
+				dst.FriendInviteResponse = nil
+			} else {
+				match++
+			}
 		}
 	} else {
 		dst.FriendInviteResponse = nil
 	}
 
-	// try to unmarshal JSON data into GroupDMInviteResponse
-	err = json.Unmarshal(data, &dst.GroupDMInviteResponse);
+	// try to unmarshal data into GroupDMInviteResponse
+	err = newStrictDecoder(data).Decode(&dst.GroupDMInviteResponse)
 	if err == nil {
 		jsonGroupDMInviteResponse, _ := json.Marshal(dst.GroupDMInviteResponse)
 		if string(jsonGroupDMInviteResponse) == "{}" { // empty struct
 			dst.GroupDMInviteResponse = nil
 		} else {
-			return nil // data stored in dst.GroupDMInviteResponse, return on the first match
+			if err = validator.Validate(dst.GroupDMInviteResponse); err != nil {
+				dst.GroupDMInviteResponse = nil
+			} else {
+				match++
+			}
 		}
 	} else {
 		dst.GroupDMInviteResponse = nil
 	}
 
-	// try to unmarshal JSON data into GuildInviteResponse
-	err = json.Unmarshal(data, &dst.GuildInviteResponse);
+	// try to unmarshal data into GuildInviteResponse
+	err = newStrictDecoder(data).Decode(&dst.GuildInviteResponse)
 	if err == nil {
 		jsonGuildInviteResponse, _ := json.Marshal(dst.GuildInviteResponse)
 		if string(jsonGuildInviteResponse) == "{}" { // empty struct
 			dst.GuildInviteResponse = nil
 		} else {
-			return nil // data stored in dst.GuildInviteResponse, return on the first match
+			if err = validator.Validate(dst.GuildInviteResponse); err != nil {
+				dst.GuildInviteResponse = nil
+			} else {
+				match++
+			}
 		}
 	} else {
 		dst.GuildInviteResponse = nil
 	}
 
-	return fmt.Errorf("data failed to match schemas in anyOf(ListChannelInvites200ResponseInner)")
+	if match > 1 { // more than 1 match
+		// reset to nil
+		dst.FriendInviteResponse = nil
+		dst.GroupDMInviteResponse = nil
+		dst.GuildInviteResponse = nil
+
+		return fmt.Errorf("data matches more than one schema in oneOf(ListChannelInvites200ResponseInner)")
+	} else if match == 1 {
+		return nil // exactly one match
+	} else { // no match
+		return fmt.Errorf("data failed to match schemas in oneOf(ListChannelInvites200ResponseInner)")
+	}
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
@@ -116,9 +167,47 @@ func (src ListChannelInvites200ResponseInner) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.GuildInviteResponse)
 	}
 
-	return nil, nil // no data in anyOf schemas
+	return nil, nil // no data in oneOf schemas
 }
 
+// Get the actual instance
+func (obj *ListChannelInvites200ResponseInner) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
+	if obj.FriendInviteResponse != nil {
+		return obj.FriendInviteResponse
+	}
+
+	if obj.GroupDMInviteResponse != nil {
+		return obj.GroupDMInviteResponse
+	}
+
+	if obj.GuildInviteResponse != nil {
+		return obj.GuildInviteResponse
+	}
+
+	// all schemas are nil
+	return nil
+}
+
+// Get the actual instance value
+func (obj ListChannelInvites200ResponseInner) GetActualInstanceValue() (interface{}) {
+	if obj.FriendInviteResponse != nil {
+		return *obj.FriendInviteResponse
+	}
+
+	if obj.GroupDMInviteResponse != nil {
+		return *obj.GroupDMInviteResponse
+	}
+
+	if obj.GuildInviteResponse != nil {
+		return *obj.GuildInviteResponse
+	}
+
+	// all schemas are nil
+	return nil
+}
 
 type NullableListChannelInvites200ResponseInner struct {
 	value *ListChannelInvites200ResponseInner
@@ -155,5 +244,4 @@ func (v *NullableListChannelInvites200ResponseInner) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

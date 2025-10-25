@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-25T01:29:55.152026602Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,8 +57,8 @@ var _ MappedNullable = &ScheduledEventUserResponse{}
 type ScheduledEventUserResponse struct {
 	GuildScheduledEventId string `json:"guild_scheduled_event_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	UserId string `json:"user_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	User NullableUserResponse `json:"user,omitempty"`
-	Member NullableGuildMemberResponse `json:"member,omitempty"`
+	User *UserResponse `json:"user,omitempty"`
+	Member *GuildMemberResponse `json:"member,omitempty"`
 }
 
 type _ScheduledEventUserResponse ScheduledEventUserResponse
@@ -130,91 +130,71 @@ func (o *ScheduledEventUserResponse) SetUserId(v string) {
 	o.UserId = v
 }
 
-// GetUser returns the User field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUser returns the User field value if set, zero value otherwise.
 func (o *ScheduledEventUserResponse) GetUser() UserResponse {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.User.Get()
+	return *o.User
 }
 
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ScheduledEventUserResponse) GetUserOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		return nil, false
 	}
-	return o.User.Get(), o.User.IsSet()
+	return o.User, true
 }
 
 // HasUser returns a boolean if a field has been set.
 func (o *ScheduledEventUserResponse) HasUser() bool {
-	if o != nil && o.User.IsSet() {
+	if o != nil && !IsNil(o.User) {
 		return true
 	}
 
 	return false
 }
 
-// SetUser gets a reference to the given NullableUserResponse and assigns it to the User field.
+// SetUser gets a reference to the given UserResponse and assigns it to the User field.
 func (o *ScheduledEventUserResponse) SetUser(v UserResponse) {
-	o.User.Set(&v)
+	o.User = &v
 }
 
-// SetUserNil sets the value for User to be an explicit nil
-func (o *ScheduledEventUserResponse) SetUserNil() {
-	o.User.Set(nil)
-}
 
-// UnsetUser ensures that no value is present for User, not even an explicit nil
-func (o *ScheduledEventUserResponse) UnsetUser() {
-	o.User.Unset()
-}
-
-// GetMember returns the Member field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMember returns the Member field value if set, zero value otherwise.
 func (o *ScheduledEventUserResponse) GetMember() GuildMemberResponse {
-	if o == nil || IsNil(o.Member.Get()) {
+	if o == nil || IsNil(o.Member) {
 		var ret GuildMemberResponse
 		return ret
 	}
-	return *o.Member.Get()
+	return *o.Member
 }
 
 // GetMemberOk returns a tuple with the Member field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ScheduledEventUserResponse) GetMemberOk() (*GuildMemberResponse, bool) {
-	if o == nil || IsNil(o.Member.Get()) {
+	if o == nil || IsNil(o.Member) {
 		return nil, false
 	}
-	return o.Member.Get(), o.Member.IsSet()
+	return o.Member, true
 }
 
 // HasMember returns a boolean if a field has been set.
 func (o *ScheduledEventUserResponse) HasMember() bool {
-	if o != nil && o.Member.IsSet() {
+	if o != nil && !IsNil(o.Member) {
 		return true
 	}
 
 	return false
 }
 
-// SetMember gets a reference to the given NullableGuildMemberResponse and assigns it to the Member field.
+// SetMember gets a reference to the given GuildMemberResponse and assigns it to the Member field.
 func (o *ScheduledEventUserResponse) SetMember(v GuildMemberResponse) {
-	o.Member.Set(&v)
+	o.Member = &v
 }
 
-// SetMemberNil sets the value for Member to be an explicit nil
-func (o *ScheduledEventUserResponse) SetMemberNil() {
-	o.Member.Set(nil)
-}
-
-// UnsetMember ensures that no value is present for Member, not even an explicit nil
-func (o *ScheduledEventUserResponse) UnsetMember() {
-	o.Member.Unset()
-}
 
 func (o ScheduledEventUserResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -228,11 +208,11 @@ func (o ScheduledEventUserResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["guild_scheduled_event_id"] = o.GuildScheduledEventId
 	toSerialize["user_id"] = o.UserId
-	if o.User.IsSet() {
-		toSerialize["user"] = o.User.Get()
+	if !IsNil(o.User) {
+		toSerialize["user"] = o.User
 	}
-	if o.Member.IsSet() {
-		toSerialize["member"] = o.Member.Get()
+	if !IsNil(o.Member) {
+		toSerialize["member"] = o.Member
 	}
 	return toSerialize, nil
 }
@@ -310,5 +290,4 @@ func (v *NullableScheduledEventUserResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 
