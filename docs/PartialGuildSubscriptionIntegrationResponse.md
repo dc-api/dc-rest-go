@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Type** | **NullableString** |  | 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**Account** | Pointer to [**NullableAccountResponse**](AccountResponse.md) |  | [optional] 
+**Account** | [**AccountResponse**](AccountResponse.md) |  | 
 
 ## Methods
 
 ### NewPartialGuildSubscriptionIntegrationResponse
 
-`func NewPartialGuildSubscriptionIntegrationResponse(id string, type_ NullableString, ) *PartialGuildSubscriptionIntegrationResponse`
+`func NewPartialGuildSubscriptionIntegrationResponse(id string, type_ NullableString, account AccountResponse, ) *PartialGuildSubscriptionIntegrationResponse`
 
 NewPartialGuildSubscriptionIntegrationResponse instantiates a new PartialGuildSubscriptionIntegrationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -132,22 +132,7 @@ and a boolean to check if the value has been set.
 
 SetAccount sets Account field to given value.
 
-### HasAccount
 
-`func (o *PartialGuildSubscriptionIntegrationResponse) HasAccount() bool`
-
-HasAccount returns a boolean if a field has been set.
-
-### SetAccountNil
-
-`func (o *PartialGuildSubscriptionIntegrationResponse) SetAccountNil(b bool)`
-
- SetAccountNil sets the value for Account to be an explicit nil
-
-### UnsetAccount
-`func (o *PartialGuildSubscriptionIntegrationResponse) UnsetAccount()`
-
-UnsetAccount ensures that no value is present for Account, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

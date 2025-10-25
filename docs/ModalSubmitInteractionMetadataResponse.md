@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Type** | **int32** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 **AuthorizingIntegrationOwners** | **map[string]string** |  | 
 **OriginalResponseMessageId** | Pointer to **string** |  | [optional] 
 **TriggeringInteractionMetadata** | [**ModalSubmitInteractionMetadataResponseTriggeringInteractionMetadata**](ModalSubmitInteractionMetadataResponseTriggeringInteractionMetadata.md) |  | 
@@ -95,16 +95,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *ModalSubmitInteractionMetadataResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *ModalSubmitInteractionMetadataResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetAuthorizingIntegrationOwners
 
 `func (o *ModalSubmitInteractionMetadataResponse) GetAuthorizingIntegrationOwners() map[string]string`

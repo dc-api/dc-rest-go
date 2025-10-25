@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-25T01:29:55.152026602Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -46,8 +46,6 @@ package dc_rest
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the MentionSpamTriggerMetadata type satisfies the MappedNullable interface at compile time
@@ -55,19 +53,16 @@ var _ MappedNullable = &MentionSpamTriggerMetadata{}
 
 // MentionSpamTriggerMetadata struct for MentionSpamTriggerMetadata
 type MentionSpamTriggerMetadata struct {
-	MentionTotalLimit int32 `json:"mention_total_limit"`
+	MentionTotalLimit NullableInt32 `json:"mention_total_limit,omitempty"`
 	MentionRaidProtectionEnabled NullableBool `json:"mention_raid_protection_enabled,omitempty"`
 }
-
-type _MentionSpamTriggerMetadata MentionSpamTriggerMetadata
 
 // NewMentionSpamTriggerMetadata instantiates a new MentionSpamTriggerMetadata object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMentionSpamTriggerMetadata(mentionTotalLimit int32) *MentionSpamTriggerMetadata {
+func NewMentionSpamTriggerMetadata() *MentionSpamTriggerMetadata {
 	this := MentionSpamTriggerMetadata{}
-	this.MentionTotalLimit = mentionTotalLimit
 	return &this
 }
 
@@ -79,28 +74,47 @@ func NewMentionSpamTriggerMetadataWithDefaults() *MentionSpamTriggerMetadata {
 	return &this
 }
 
-// GetMentionTotalLimit returns the MentionTotalLimit field value
+// GetMentionTotalLimit returns the MentionTotalLimit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MentionSpamTriggerMetadata) GetMentionTotalLimit() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.MentionTotalLimit.Get()) {
 		var ret int32
 		return ret
 	}
-
-	return o.MentionTotalLimit
+	return *o.MentionTotalLimit.Get()
 }
 
-// GetMentionTotalLimitOk returns a tuple with the MentionTotalLimit field value
+// GetMentionTotalLimitOk returns a tuple with the MentionTotalLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MentionSpamTriggerMetadata) GetMentionTotalLimitOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MentionTotalLimit.Get()) {
 		return nil, false
 	}
-	return &o.MentionTotalLimit, true
+	return o.MentionTotalLimit.Get(), o.MentionTotalLimit.IsSet()
 }
 
-// SetMentionTotalLimit sets field value
+// HasMentionTotalLimit returns a boolean if a field has been set.
+func (o *MentionSpamTriggerMetadata) HasMentionTotalLimit() bool {
+	if o != nil && o.MentionTotalLimit.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMentionTotalLimit gets a reference to the given NullableInt32 and assigns it to the MentionTotalLimit field.
 func (o *MentionSpamTriggerMetadata) SetMentionTotalLimit(v int32) {
-	o.MentionTotalLimit = v
+	o.MentionTotalLimit.Set(&v)
+}
+
+// SetMentionTotalLimitNil sets the value for MentionTotalLimit to be an explicit nil
+func (o *MentionSpamTriggerMetadata) SetMentionTotalLimitNil() {
+	o.MentionTotalLimit.Set(nil)
+}
+
+// UnsetMentionTotalLimit ensures that no value is present for MentionTotalLimit, not even an explicit nil
+func (o *MentionSpamTriggerMetadata) UnsetMentionTotalLimit() {
+	o.MentionTotalLimit.Unset()
 }
 
 // GetMentionRaidProtectionEnabled returns the MentionRaidProtectionEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -156,48 +170,13 @@ func (o MentionSpamTriggerMetadata) MarshalJSON() ([]byte, error) {
 
 func (o MentionSpamTriggerMetadata) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["mention_total_limit"] = o.MentionTotalLimit
+	if o.MentionTotalLimit.IsSet() {
+		toSerialize["mention_total_limit"] = o.MentionTotalLimit.Get()
+	}
 	if o.MentionRaidProtectionEnabled.IsSet() {
 		toSerialize["mention_raid_protection_enabled"] = o.MentionRaidProtectionEnabled.Get()
 	}
 	return toSerialize, nil
-}
-
-func (o *MentionSpamTriggerMetadata) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"mention_total_limit",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varMentionSpamTriggerMetadata := _MentionSpamTriggerMetadata{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varMentionSpamTriggerMetadata)
-
-	if err != nil {
-		return err
-	}
-
-	*o = MentionSpamTriggerMetadata(varMentionSpamTriggerMetadata)
-
-	return err
 }
 
 type NullableMentionSpamTriggerMetadata struct {
@@ -235,5 +214,4 @@ func (v *NullableMentionSpamTriggerMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

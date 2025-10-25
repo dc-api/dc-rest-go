@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-25T01:29:55.152026602Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,18 +56,18 @@ var _ MappedNullable = &FriendInviteResponse{}
 
 // FriendInviteResponse struct for FriendInviteResponse
 type FriendInviteResponse struct {
-	Type NullableInt32 `json:"type,omitempty"`
+	Type NullableInt32 `json:"type"`
 	Code string `json:"code"`
-	Inviter NullableUserResponse `json:"inviter,omitempty"`
-	MaxAge NullableInt32 `json:"max_age,omitempty"`
-	CreatedAt NullableTime `json:"created_at,omitempty"`
+	Inviter *UserResponse `json:"inviter,omitempty"`
+	MaxAge *int32 `json:"max_age,omitempty"`
+	CreatedAt *time.Time `json:"created_at,omitempty"`
 	ExpiresAt NullableTime `json:"expires_at,omitempty"`
-	FriendsCount NullableInt32 `json:"friends_count,omitempty"`
+	FriendsCount *int32 `json:"friends_count,omitempty"`
 	Channel NullableInviteChannelResponse `json:"channel,omitempty"`
-	IsContact NullableBool `json:"is_contact,omitempty"`
-	Uses NullableInt32 `json:"uses,omitempty"`
-	MaxUses NullableInt32 `json:"max_uses,omitempty"`
-	Flags NullableInt32 `json:"flags,omitempty"`
+	IsContact *bool `json:"is_contact,omitempty"`
+	Uses *int32 `json:"uses,omitempty"`
+	MaxUses *int32 `json:"max_uses,omitempty"`
+	Flags *int32 `json:"flags,omitempty"`
 }
 
 type _FriendInviteResponse FriendInviteResponse
@@ -76,8 +76,9 @@ type _FriendInviteResponse FriendInviteResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFriendInviteResponse(code string) *FriendInviteResponse {
+func NewFriendInviteResponse(type_ NullableInt32, code string) *FriendInviteResponse {
 	this := FriendInviteResponse{}
+	this.Type = type_
 	this.Code = code
 	return &this
 }
@@ -90,47 +91,30 @@ func NewFriendInviteResponseWithDefaults() *FriendInviteResponse {
 	return &this
 }
 
-// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetType returns the Type field value
+// If the value is explicit nil, the zero value for int32 will be returned
 func (o *FriendInviteResponse) GetType() int32 {
-	if o == nil || IsNil(o.Type.Get()) {
+	if o == nil || o.Type.Get() == nil {
 		var ret int32
 		return ret
 	}
+
 	return *o.Type.Get()
 }
 
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FriendInviteResponse) GetTypeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Type.Get()) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Type.Get(), o.Type.IsSet()
 }
 
-// HasType returns a boolean if a field has been set.
-func (o *FriendInviteResponse) HasType() bool {
-	if o != nil && o.Type.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given NullableInt32 and assigns it to the Type field.
+// SetType sets field value
 func (o *FriendInviteResponse) SetType(v int32) {
 	o.Type.Set(&v)
-}
-
-// SetTypeNil sets the value for Type to be an explicit nil
-func (o *FriendInviteResponse) SetTypeNil() {
-	o.Type.Set(nil)
-}
-
-// UnsetType ensures that no value is present for Type, not even an explicit nil
-func (o *FriendInviteResponse) UnsetType() {
-	o.Type.Unset()
 }
 
 // GetCode returns the Code field value
@@ -157,134 +141,104 @@ func (o *FriendInviteResponse) SetCode(v string) {
 	o.Code = v
 }
 
-// GetInviter returns the Inviter field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInviter returns the Inviter field value if set, zero value otherwise.
 func (o *FriendInviteResponse) GetInviter() UserResponse {
-	if o == nil || IsNil(o.Inviter.Get()) {
+	if o == nil || IsNil(o.Inviter) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.Inviter.Get()
+	return *o.Inviter
 }
 
 // GetInviterOk returns a tuple with the Inviter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FriendInviteResponse) GetInviterOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.Inviter.Get()) {
+	if o == nil || IsNil(o.Inviter) {
 		return nil, false
 	}
-	return o.Inviter.Get(), o.Inviter.IsSet()
+	return o.Inviter, true
 }
 
 // HasInviter returns a boolean if a field has been set.
 func (o *FriendInviteResponse) HasInviter() bool {
-	if o != nil && o.Inviter.IsSet() {
+	if o != nil && !IsNil(o.Inviter) {
 		return true
 	}
 
 	return false
 }
 
-// SetInviter gets a reference to the given NullableUserResponse and assigns it to the Inviter field.
+// SetInviter gets a reference to the given UserResponse and assigns it to the Inviter field.
 func (o *FriendInviteResponse) SetInviter(v UserResponse) {
-	o.Inviter.Set(&v)
+	o.Inviter = &v
 }
 
-// SetInviterNil sets the value for Inviter to be an explicit nil
-func (o *FriendInviteResponse) SetInviterNil() {
-	o.Inviter.Set(nil)
-}
 
-// UnsetInviter ensures that no value is present for Inviter, not even an explicit nil
-func (o *FriendInviteResponse) UnsetInviter() {
-	o.Inviter.Unset()
-}
-
-// GetMaxAge returns the MaxAge field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxAge returns the MaxAge field value if set, zero value otherwise.
 func (o *FriendInviteResponse) GetMaxAge() int32 {
-	if o == nil || IsNil(o.MaxAge.Get()) {
+	if o == nil || IsNil(o.MaxAge) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxAge.Get()
+	return *o.MaxAge
 }
 
 // GetMaxAgeOk returns a tuple with the MaxAge field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FriendInviteResponse) GetMaxAgeOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxAge.Get()) {
+	if o == nil || IsNil(o.MaxAge) {
 		return nil, false
 	}
-	return o.MaxAge.Get(), o.MaxAge.IsSet()
+	return o.MaxAge, true
 }
 
 // HasMaxAge returns a boolean if a field has been set.
 func (o *FriendInviteResponse) HasMaxAge() bool {
-	if o != nil && o.MaxAge.IsSet() {
+	if o != nil && !IsNil(o.MaxAge) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxAge gets a reference to the given NullableInt32 and assigns it to the MaxAge field.
+// SetMaxAge gets a reference to the given int32 and assigns it to the MaxAge field.
 func (o *FriendInviteResponse) SetMaxAge(v int32) {
-	o.MaxAge.Set(&v)
+	o.MaxAge = &v
 }
 
-// SetMaxAgeNil sets the value for MaxAge to be an explicit nil
-func (o *FriendInviteResponse) SetMaxAgeNil() {
-	o.MaxAge.Set(nil)
-}
 
-// UnsetMaxAge ensures that no value is present for MaxAge, not even an explicit nil
-func (o *FriendInviteResponse) UnsetMaxAge() {
-	o.MaxAge.Unset()
-}
-
-// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *FriendInviteResponse) GetCreatedAt() time.Time {
-	if o == nil || IsNil(o.CreatedAt.Get()) {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedAt.Get()
+	return *o.CreatedAt
 }
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FriendInviteResponse) GetCreatedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedAt.Get()) {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return o.CreatedAt.Get(), o.CreatedAt.IsSet()
+	return o.CreatedAt, true
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
 func (o *FriendInviteResponse) HasCreatedAt() bool {
-	if o != nil && o.CreatedAt.IsSet() {
+	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedAt gets a reference to the given NullableTime and assigns it to the CreatedAt field.
+// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
 func (o *FriendInviteResponse) SetCreatedAt(v time.Time) {
-	o.CreatedAt.Set(&v)
+	o.CreatedAt = &v
 }
 
-// SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
-func (o *FriendInviteResponse) SetCreatedAtNil() {
-	o.CreatedAt.Set(nil)
-}
-
-// UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
-func (o *FriendInviteResponse) UnsetCreatedAt() {
-	o.CreatedAt.Unset()
-}
 
 // GetExpiresAt returns the ExpiresAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FriendInviteResponse) GetExpiresAt() time.Time {
@@ -329,48 +283,38 @@ func (o *FriendInviteResponse) UnsetExpiresAt() {
 	o.ExpiresAt.Unset()
 }
 
-// GetFriendsCount returns the FriendsCount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFriendsCount returns the FriendsCount field value if set, zero value otherwise.
 func (o *FriendInviteResponse) GetFriendsCount() int32 {
-	if o == nil || IsNil(o.FriendsCount.Get()) {
+	if o == nil || IsNil(o.FriendsCount) {
 		var ret int32
 		return ret
 	}
-	return *o.FriendsCount.Get()
+	return *o.FriendsCount
 }
 
 // GetFriendsCountOk returns a tuple with the FriendsCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FriendInviteResponse) GetFriendsCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.FriendsCount.Get()) {
+	if o == nil || IsNil(o.FriendsCount) {
 		return nil, false
 	}
-	return o.FriendsCount.Get(), o.FriendsCount.IsSet()
+	return o.FriendsCount, true
 }
 
 // HasFriendsCount returns a boolean if a field has been set.
 func (o *FriendInviteResponse) HasFriendsCount() bool {
-	if o != nil && o.FriendsCount.IsSet() {
+	if o != nil && !IsNil(o.FriendsCount) {
 		return true
 	}
 
 	return false
 }
 
-// SetFriendsCount gets a reference to the given NullableInt32 and assigns it to the FriendsCount field.
+// SetFriendsCount gets a reference to the given int32 and assigns it to the FriendsCount field.
 func (o *FriendInviteResponse) SetFriendsCount(v int32) {
-	o.FriendsCount.Set(&v)
+	o.FriendsCount = &v
 }
 
-// SetFriendsCountNil sets the value for FriendsCount to be an explicit nil
-func (o *FriendInviteResponse) SetFriendsCountNil() {
-	o.FriendsCount.Set(nil)
-}
-
-// UnsetFriendsCount ensures that no value is present for FriendsCount, not even an explicit nil
-func (o *FriendInviteResponse) UnsetFriendsCount() {
-	o.FriendsCount.Unset()
-}
 
 // GetChannel returns the Channel field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FriendInviteResponse) GetChannel() InviteChannelResponse {
@@ -415,177 +359,137 @@ func (o *FriendInviteResponse) UnsetChannel() {
 	o.Channel.Unset()
 }
 
-// GetIsContact returns the IsContact field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIsContact returns the IsContact field value if set, zero value otherwise.
 func (o *FriendInviteResponse) GetIsContact() bool {
-	if o == nil || IsNil(o.IsContact.Get()) {
+	if o == nil || IsNil(o.IsContact) {
 		var ret bool
 		return ret
 	}
-	return *o.IsContact.Get()
+	return *o.IsContact
 }
 
 // GetIsContactOk returns a tuple with the IsContact field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FriendInviteResponse) GetIsContactOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsContact.Get()) {
+	if o == nil || IsNil(o.IsContact) {
 		return nil, false
 	}
-	return o.IsContact.Get(), o.IsContact.IsSet()
+	return o.IsContact, true
 }
 
 // HasIsContact returns a boolean if a field has been set.
 func (o *FriendInviteResponse) HasIsContact() bool {
-	if o != nil && o.IsContact.IsSet() {
+	if o != nil && !IsNil(o.IsContact) {
 		return true
 	}
 
 	return false
 }
 
-// SetIsContact gets a reference to the given NullableBool and assigns it to the IsContact field.
+// SetIsContact gets a reference to the given bool and assigns it to the IsContact field.
 func (o *FriendInviteResponse) SetIsContact(v bool) {
-	o.IsContact.Set(&v)
+	o.IsContact = &v
 }
 
-// SetIsContactNil sets the value for IsContact to be an explicit nil
-func (o *FriendInviteResponse) SetIsContactNil() {
-	o.IsContact.Set(nil)
-}
 
-// UnsetIsContact ensures that no value is present for IsContact, not even an explicit nil
-func (o *FriendInviteResponse) UnsetIsContact() {
-	o.IsContact.Unset()
-}
-
-// GetUses returns the Uses field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUses returns the Uses field value if set, zero value otherwise.
 func (o *FriendInviteResponse) GetUses() int32 {
-	if o == nil || IsNil(o.Uses.Get()) {
+	if o == nil || IsNil(o.Uses) {
 		var ret int32
 		return ret
 	}
-	return *o.Uses.Get()
+	return *o.Uses
 }
 
 // GetUsesOk returns a tuple with the Uses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FriendInviteResponse) GetUsesOk() (*int32, bool) {
-	if o == nil || IsNil(o.Uses.Get()) {
+	if o == nil || IsNil(o.Uses) {
 		return nil, false
 	}
-	return o.Uses.Get(), o.Uses.IsSet()
+	return o.Uses, true
 }
 
 // HasUses returns a boolean if a field has been set.
 func (o *FriendInviteResponse) HasUses() bool {
-	if o != nil && o.Uses.IsSet() {
+	if o != nil && !IsNil(o.Uses) {
 		return true
 	}
 
 	return false
 }
 
-// SetUses gets a reference to the given NullableInt32 and assigns it to the Uses field.
+// SetUses gets a reference to the given int32 and assigns it to the Uses field.
 func (o *FriendInviteResponse) SetUses(v int32) {
-	o.Uses.Set(&v)
+	o.Uses = &v
 }
 
-// SetUsesNil sets the value for Uses to be an explicit nil
-func (o *FriendInviteResponse) SetUsesNil() {
-	o.Uses.Set(nil)
-}
 
-// UnsetUses ensures that no value is present for Uses, not even an explicit nil
-func (o *FriendInviteResponse) UnsetUses() {
-	o.Uses.Unset()
-}
-
-// GetMaxUses returns the MaxUses field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxUses returns the MaxUses field value if set, zero value otherwise.
 func (o *FriendInviteResponse) GetMaxUses() int32 {
-	if o == nil || IsNil(o.MaxUses.Get()) {
+	if o == nil || IsNil(o.MaxUses) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxUses.Get()
+	return *o.MaxUses
 }
 
 // GetMaxUsesOk returns a tuple with the MaxUses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FriendInviteResponse) GetMaxUsesOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxUses.Get()) {
+	if o == nil || IsNil(o.MaxUses) {
 		return nil, false
 	}
-	return o.MaxUses.Get(), o.MaxUses.IsSet()
+	return o.MaxUses, true
 }
 
 // HasMaxUses returns a boolean if a field has been set.
 func (o *FriendInviteResponse) HasMaxUses() bool {
-	if o != nil && o.MaxUses.IsSet() {
+	if o != nil && !IsNil(o.MaxUses) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxUses gets a reference to the given NullableInt32 and assigns it to the MaxUses field.
+// SetMaxUses gets a reference to the given int32 and assigns it to the MaxUses field.
 func (o *FriendInviteResponse) SetMaxUses(v int32) {
-	o.MaxUses.Set(&v)
+	o.MaxUses = &v
 }
 
-// SetMaxUsesNil sets the value for MaxUses to be an explicit nil
-func (o *FriendInviteResponse) SetMaxUsesNil() {
-	o.MaxUses.Set(nil)
-}
 
-// UnsetMaxUses ensures that no value is present for MaxUses, not even an explicit nil
-func (o *FriendInviteResponse) UnsetMaxUses() {
-	o.MaxUses.Unset()
-}
-
-// GetFlags returns the Flags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFlags returns the Flags field value if set, zero value otherwise.
 func (o *FriendInviteResponse) GetFlags() int32 {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		var ret int32
 		return ret
 	}
-	return *o.Flags.Get()
+	return *o.Flags
 }
 
 // GetFlagsOk returns a tuple with the Flags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FriendInviteResponse) GetFlagsOk() (*int32, bool) {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		return nil, false
 	}
-	return o.Flags.Get(), o.Flags.IsSet()
+	return o.Flags, true
 }
 
 // HasFlags returns a boolean if a field has been set.
 func (o *FriendInviteResponse) HasFlags() bool {
-	if o != nil && o.Flags.IsSet() {
+	if o != nil && !IsNil(o.Flags) {
 		return true
 	}
 
 	return false
 }
 
-// SetFlags gets a reference to the given NullableInt32 and assigns it to the Flags field.
+// SetFlags gets a reference to the given int32 and assigns it to the Flags field.
 func (o *FriendInviteResponse) SetFlags(v int32) {
-	o.Flags.Set(&v)
+	o.Flags = &v
 }
 
-// SetFlagsNil sets the value for Flags to be an explicit nil
-func (o *FriendInviteResponse) SetFlagsNil() {
-	o.Flags.Set(nil)
-}
-
-// UnsetFlags ensures that no value is present for Flags, not even an explicit nil
-func (o *FriendInviteResponse) UnsetFlags() {
-	o.Flags.Unset()
-}
 
 func (o FriendInviteResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -597,39 +501,37 @@ func (o FriendInviteResponse) MarshalJSON() ([]byte, error) {
 
 func (o FriendInviteResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Type.IsSet() {
-		toSerialize["type"] = o.Type.Get()
-	}
+	toSerialize["type"] = o.Type.Get()
 	toSerialize["code"] = o.Code
-	if o.Inviter.IsSet() {
-		toSerialize["inviter"] = o.Inviter.Get()
+	if !IsNil(o.Inviter) {
+		toSerialize["inviter"] = o.Inviter
 	}
-	if o.MaxAge.IsSet() {
-		toSerialize["max_age"] = o.MaxAge.Get()
+	if !IsNil(o.MaxAge) {
+		toSerialize["max_age"] = o.MaxAge
 	}
-	if o.CreatedAt.IsSet() {
-		toSerialize["created_at"] = o.CreatedAt.Get()
+	if !IsNil(o.CreatedAt) {
+		toSerialize["created_at"] = o.CreatedAt
 	}
 	if o.ExpiresAt.IsSet() {
 		toSerialize["expires_at"] = o.ExpiresAt.Get()
 	}
-	if o.FriendsCount.IsSet() {
-		toSerialize["friends_count"] = o.FriendsCount.Get()
+	if !IsNil(o.FriendsCount) {
+		toSerialize["friends_count"] = o.FriendsCount
 	}
 	if o.Channel.IsSet() {
 		toSerialize["channel"] = o.Channel.Get()
 	}
-	if o.IsContact.IsSet() {
-		toSerialize["is_contact"] = o.IsContact.Get()
+	if !IsNil(o.IsContact) {
+		toSerialize["is_contact"] = o.IsContact
 	}
-	if o.Uses.IsSet() {
-		toSerialize["uses"] = o.Uses.Get()
+	if !IsNil(o.Uses) {
+		toSerialize["uses"] = o.Uses
 	}
-	if o.MaxUses.IsSet() {
-		toSerialize["max_uses"] = o.MaxUses.Get()
+	if !IsNil(o.MaxUses) {
+		toSerialize["max_uses"] = o.MaxUses
 	}
-	if o.Flags.IsSet() {
-		toSerialize["flags"] = o.Flags.Get()
+	if !IsNil(o.Flags) {
+		toSerialize["flags"] = o.Flags
 	}
 	return toSerialize, nil
 }
@@ -639,6 +541,7 @@ func (o *FriendInviteResponse) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"type",
 		"code",
 	}
 
@@ -706,5 +609,4 @@ func (v *NullableFriendInviteResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-25T01:29:55.152026602Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,6 +56,8 @@ type CreateLobbyRequest struct {
 	IdleTimeoutSeconds NullableInt32 `json:"idle_timeout_seconds,omitempty"`
 	Members []LobbyMemberRequest `json:"members,omitempty"`
 	Metadata map[string]string `json:"metadata,omitempty"`
+	Flags NullableInt32 `json:"flags,omitempty"`
+	OverrideEventWebhooksUrl NullableString `json:"override_event_webhooks_url,omitempty"`
 }
 
 // NewCreateLobbyRequest instantiates a new CreateLobbyRequest object
@@ -185,6 +187,92 @@ func (o *CreateLobbyRequest) SetMetadata(v map[string]string) {
 }
 
 
+// GetFlags returns the Flags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateLobbyRequest) GetFlags() int32 {
+	if o == nil || IsNil(o.Flags.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.Flags.Get()
+}
+
+// GetFlagsOk returns a tuple with the Flags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateLobbyRequest) GetFlagsOk() (*int32, bool) {
+	if o == nil || IsNil(o.Flags.Get()) {
+		return nil, false
+	}
+	return o.Flags.Get(), o.Flags.IsSet()
+}
+
+// HasFlags returns a boolean if a field has been set.
+func (o *CreateLobbyRequest) HasFlags() bool {
+	if o != nil && o.Flags.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFlags gets a reference to the given NullableInt32 and assigns it to the Flags field.
+func (o *CreateLobbyRequest) SetFlags(v int32) {
+	o.Flags.Set(&v)
+}
+
+// SetFlagsNil sets the value for Flags to be an explicit nil
+func (o *CreateLobbyRequest) SetFlagsNil() {
+	o.Flags.Set(nil)
+}
+
+// UnsetFlags ensures that no value is present for Flags, not even an explicit nil
+func (o *CreateLobbyRequest) UnsetFlags() {
+	o.Flags.Unset()
+}
+
+// GetOverrideEventWebhooksUrl returns the OverrideEventWebhooksUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateLobbyRequest) GetOverrideEventWebhooksUrl() string {
+	if o == nil || IsNil(o.OverrideEventWebhooksUrl.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.OverrideEventWebhooksUrl.Get()
+}
+
+// GetOverrideEventWebhooksUrlOk returns a tuple with the OverrideEventWebhooksUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateLobbyRequest) GetOverrideEventWebhooksUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.OverrideEventWebhooksUrl.Get()) {
+		return nil, false
+	}
+	return o.OverrideEventWebhooksUrl.Get(), o.OverrideEventWebhooksUrl.IsSet()
+}
+
+// HasOverrideEventWebhooksUrl returns a boolean if a field has been set.
+func (o *CreateLobbyRequest) HasOverrideEventWebhooksUrl() bool {
+	if o != nil && o.OverrideEventWebhooksUrl.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOverrideEventWebhooksUrl gets a reference to the given NullableString and assigns it to the OverrideEventWebhooksUrl field.
+func (o *CreateLobbyRequest) SetOverrideEventWebhooksUrl(v string) {
+	o.OverrideEventWebhooksUrl.Set(&v)
+}
+
+// SetOverrideEventWebhooksUrlNil sets the value for OverrideEventWebhooksUrl to be an explicit nil
+func (o *CreateLobbyRequest) SetOverrideEventWebhooksUrlNil() {
+	o.OverrideEventWebhooksUrl.Set(nil)
+}
+
+// UnsetOverrideEventWebhooksUrl ensures that no value is present for OverrideEventWebhooksUrl, not even an explicit nil
+func (o *CreateLobbyRequest) UnsetOverrideEventWebhooksUrl() {
+	o.OverrideEventWebhooksUrl.Unset()
+}
+
 func (o CreateLobbyRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -203,6 +291,12 @@ func (o CreateLobbyRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Metadata) {
 		toSerialize["metadata"] = o.Metadata
+	}
+	if o.Flags.IsSet() {
+		toSerialize["flags"] = o.Flags.Get()
+	}
+	if o.OverrideEventWebhooksUrl.IsSet() {
+		toSerialize["override_event_webhooks_url"] = o.OverrideEventWebhooksUrl.Get()
 	}
 	return toSerialize, nil
 }
@@ -242,5 +336,4 @@ func (v *NullableCreateLobbyRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PrimaryColor** | Pointer to **NullableInt32** |  | [optional] 
+**PrimaryColor** | **int32** |  | 
 **SecondaryColor** | Pointer to **NullableInt32** |  | [optional] 
 **TertiaryColor** | Pointer to **NullableInt32** |  | [optional] 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewGuildRoleColorsResponse
 
-`func NewGuildRoleColorsResponse() *GuildRoleColorsResponse`
+`func NewGuildRoleColorsResponse(primaryColor int32, ) *GuildRoleColorsResponse`
 
 NewGuildRoleColorsResponse instantiates a new GuildRoleColorsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -46,22 +46,7 @@ and a boolean to check if the value has been set.
 
 SetPrimaryColor sets PrimaryColor field to given value.
 
-### HasPrimaryColor
 
-`func (o *GuildRoleColorsResponse) HasPrimaryColor() bool`
-
-HasPrimaryColor returns a boolean if a field has been set.
-
-### SetPrimaryColorNil
-
-`func (o *GuildRoleColorsResponse) SetPrimaryColorNil(b bool)`
-
- SetPrimaryColorNil sets the value for PrimaryColor to be an explicit nil
-
-### UnsetPrimaryColor
-`func (o *GuildRoleColorsResponse) UnsetPrimaryColor()`
-
-UnsetPrimaryColor ensures that no value is present for PrimaryColor, not even an explicit nil
 ### GetSecondaryColor
 
 `func (o *GuildRoleColorsResponse) GetSecondaryColor() int32`

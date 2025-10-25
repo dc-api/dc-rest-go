@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-25T01:29:55.152026602Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -68,6 +68,7 @@ type EntitlementResponse struct {
 	FulfilledAt NullableTime `json:"fulfilled_at,omitempty"`
 	FulfillmentStatus NullableInt32 `json:"fulfillment_status,omitempty"`
 	Consumed NullableBool `json:"consumed,omitempty"`
+	GifterUserId *string `json:"gifter_user_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
 type _EntitlementResponse EntitlementResponse
@@ -489,6 +490,39 @@ func (o *EntitlementResponse) UnsetConsumed() {
 	o.Consumed.Unset()
 }
 
+// GetGifterUserId returns the GifterUserId field value if set, zero value otherwise.
+func (o *EntitlementResponse) GetGifterUserId() string {
+	if o == nil || IsNil(o.GifterUserId) {
+		var ret string
+		return ret
+	}
+	return *o.GifterUserId
+}
+
+// GetGifterUserIdOk returns a tuple with the GifterUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EntitlementResponse) GetGifterUserIdOk() (*string, bool) {
+	if o == nil || IsNil(o.GifterUserId) {
+		return nil, false
+	}
+	return o.GifterUserId, true
+}
+
+// HasGifterUserId returns a boolean if a field has been set.
+func (o *EntitlementResponse) HasGifterUserId() bool {
+	if o != nil && !IsNil(o.GifterUserId) {
+		return true
+	}
+
+	return false
+}
+
+// SetGifterUserId gets a reference to the given string and assigns it to the GifterUserId field.
+func (o *EntitlementResponse) SetGifterUserId(v string) {
+	o.GifterUserId = &v
+}
+
+
 func (o EntitlementResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -522,6 +556,9 @@ func (o EntitlementResponse) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Consumed.IsSet() {
 		toSerialize["consumed"] = o.Consumed.Get()
+	}
+	if !IsNil(o.GifterUserId) {
+		toSerialize["gifter_user_id"] = o.GifterUserId
 	}
 	return toSerialize, nil
 }
@@ -603,5 +640,4 @@ func (v *NullableEntitlementResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

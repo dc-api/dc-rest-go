@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-25T01:29:55.152026602Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -64,19 +64,19 @@ type CreatedThreadResponse struct {
 	GuildId string `json:"guild_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
 	ParentId *string `json:"parent_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	RateLimitPerUser NullableInt32 `json:"rate_limit_per_user,omitempty"`
-	Bitrate NullableInt32 `json:"bitrate,omitempty"`
-	UserLimit NullableInt32 `json:"user_limit,omitempty"`
+	RateLimitPerUser *int32 `json:"rate_limit_per_user,omitempty"`
+	Bitrate *int32 `json:"bitrate,omitempty"`
+	UserLimit *int32 `json:"user_limit,omitempty"`
 	RtcRegion NullableString `json:"rtc_region,omitempty"`
 	VideoQualityMode *int32 `json:"video_quality_mode,omitempty"`
 	Permissions NullableString `json:"permissions,omitempty"`
 	OwnerId string `json:"owner_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	ThreadMetadata NullableThreadMetadataResponse `json:"thread_metadata,omitempty"`
+	ThreadMetadata ThreadMetadataResponse `json:"thread_metadata"`
 	MessageCount int32 `json:"message_count"`
 	MemberCount int32 `json:"member_count"`
 	TotalMessageSent int32 `json:"total_message_sent"`
 	AppliedTags []string `json:"applied_tags,omitempty"`
-	Member NullableThreadMemberResponse `json:"member,omitempty"`
+	Member *ThreadMemberResponse `json:"member,omitempty"`
 }
 
 type _CreatedThreadResponse CreatedThreadResponse
@@ -85,7 +85,7 @@ type _CreatedThreadResponse CreatedThreadResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreatedThreadResponse(id string, type_ int32, flags int32, guildId string, name string, ownerId string, messageCount int32, memberCount int32, totalMessageSent int32) *CreatedThreadResponse {
+func NewCreatedThreadResponse(id string, type_ int32, flags int32, guildId string, name string, ownerId string, threadMetadata ThreadMetadataResponse, messageCount int32, memberCount int32, totalMessageSent int32) *CreatedThreadResponse {
 	this := CreatedThreadResponse{}
 	this.Id = id
 	this.Type = type_
@@ -93,6 +93,7 @@ func NewCreatedThreadResponse(id string, type_ int32, flags int32, guildId strin
 	this.GuildId = guildId
 	this.Name = name
 	this.OwnerId = ownerId
+	this.ThreadMetadata = threadMetadata
 	this.MessageCount = messageCount
 	this.MemberCount = memberCount
 	this.TotalMessageSent = totalMessageSent
@@ -336,134 +337,104 @@ func (o *CreatedThreadResponse) SetParentId(v string) {
 }
 
 
-// GetRateLimitPerUser returns the RateLimitPerUser field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRateLimitPerUser returns the RateLimitPerUser field value if set, zero value otherwise.
 func (o *CreatedThreadResponse) GetRateLimitPerUser() int32 {
-	if o == nil || IsNil(o.RateLimitPerUser.Get()) {
+	if o == nil || IsNil(o.RateLimitPerUser) {
 		var ret int32
 		return ret
 	}
-	return *o.RateLimitPerUser.Get()
+	return *o.RateLimitPerUser
 }
 
 // GetRateLimitPerUserOk returns a tuple with the RateLimitPerUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreatedThreadResponse) GetRateLimitPerUserOk() (*int32, bool) {
-	if o == nil || IsNil(o.RateLimitPerUser.Get()) {
+	if o == nil || IsNil(o.RateLimitPerUser) {
 		return nil, false
 	}
-	return o.RateLimitPerUser.Get(), o.RateLimitPerUser.IsSet()
+	return o.RateLimitPerUser, true
 }
 
 // HasRateLimitPerUser returns a boolean if a field has been set.
 func (o *CreatedThreadResponse) HasRateLimitPerUser() bool {
-	if o != nil && o.RateLimitPerUser.IsSet() {
+	if o != nil && !IsNil(o.RateLimitPerUser) {
 		return true
 	}
 
 	return false
 }
 
-// SetRateLimitPerUser gets a reference to the given NullableInt32 and assigns it to the RateLimitPerUser field.
+// SetRateLimitPerUser gets a reference to the given int32 and assigns it to the RateLimitPerUser field.
 func (o *CreatedThreadResponse) SetRateLimitPerUser(v int32) {
-	o.RateLimitPerUser.Set(&v)
+	o.RateLimitPerUser = &v
 }
 
-// SetRateLimitPerUserNil sets the value for RateLimitPerUser to be an explicit nil
-func (o *CreatedThreadResponse) SetRateLimitPerUserNil() {
-	o.RateLimitPerUser.Set(nil)
-}
 
-// UnsetRateLimitPerUser ensures that no value is present for RateLimitPerUser, not even an explicit nil
-func (o *CreatedThreadResponse) UnsetRateLimitPerUser() {
-	o.RateLimitPerUser.Unset()
-}
-
-// GetBitrate returns the Bitrate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBitrate returns the Bitrate field value if set, zero value otherwise.
 func (o *CreatedThreadResponse) GetBitrate() int32 {
-	if o == nil || IsNil(o.Bitrate.Get()) {
+	if o == nil || IsNil(o.Bitrate) {
 		var ret int32
 		return ret
 	}
-	return *o.Bitrate.Get()
+	return *o.Bitrate
 }
 
 // GetBitrateOk returns a tuple with the Bitrate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreatedThreadResponse) GetBitrateOk() (*int32, bool) {
-	if o == nil || IsNil(o.Bitrate.Get()) {
+	if o == nil || IsNil(o.Bitrate) {
 		return nil, false
 	}
-	return o.Bitrate.Get(), o.Bitrate.IsSet()
+	return o.Bitrate, true
 }
 
 // HasBitrate returns a boolean if a field has been set.
 func (o *CreatedThreadResponse) HasBitrate() bool {
-	if o != nil && o.Bitrate.IsSet() {
+	if o != nil && !IsNil(o.Bitrate) {
 		return true
 	}
 
 	return false
 }
 
-// SetBitrate gets a reference to the given NullableInt32 and assigns it to the Bitrate field.
+// SetBitrate gets a reference to the given int32 and assigns it to the Bitrate field.
 func (o *CreatedThreadResponse) SetBitrate(v int32) {
-	o.Bitrate.Set(&v)
+	o.Bitrate = &v
 }
 
-// SetBitrateNil sets the value for Bitrate to be an explicit nil
-func (o *CreatedThreadResponse) SetBitrateNil() {
-	o.Bitrate.Set(nil)
-}
 
-// UnsetBitrate ensures that no value is present for Bitrate, not even an explicit nil
-func (o *CreatedThreadResponse) UnsetBitrate() {
-	o.Bitrate.Unset()
-}
-
-// GetUserLimit returns the UserLimit field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUserLimit returns the UserLimit field value if set, zero value otherwise.
 func (o *CreatedThreadResponse) GetUserLimit() int32 {
-	if o == nil || IsNil(o.UserLimit.Get()) {
+	if o == nil || IsNil(o.UserLimit) {
 		var ret int32
 		return ret
 	}
-	return *o.UserLimit.Get()
+	return *o.UserLimit
 }
 
 // GetUserLimitOk returns a tuple with the UserLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreatedThreadResponse) GetUserLimitOk() (*int32, bool) {
-	if o == nil || IsNil(o.UserLimit.Get()) {
+	if o == nil || IsNil(o.UserLimit) {
 		return nil, false
 	}
-	return o.UserLimit.Get(), o.UserLimit.IsSet()
+	return o.UserLimit, true
 }
 
 // HasUserLimit returns a boolean if a field has been set.
 func (o *CreatedThreadResponse) HasUserLimit() bool {
-	if o != nil && o.UserLimit.IsSet() {
+	if o != nil && !IsNil(o.UserLimit) {
 		return true
 	}
 
 	return false
 }
 
-// SetUserLimit gets a reference to the given NullableInt32 and assigns it to the UserLimit field.
+// SetUserLimit gets a reference to the given int32 and assigns it to the UserLimit field.
 func (o *CreatedThreadResponse) SetUserLimit(v int32) {
-	o.UserLimit.Set(&v)
+	o.UserLimit = &v
 }
 
-// SetUserLimitNil sets the value for UserLimit to be an explicit nil
-func (o *CreatedThreadResponse) SetUserLimitNil() {
-	o.UserLimit.Set(nil)
-}
-
-// UnsetUserLimit ensures that no value is present for UserLimit, not even an explicit nil
-func (o *CreatedThreadResponse) UnsetUserLimit() {
-	o.UserLimit.Unset()
-}
 
 // GetRtcRegion returns the RtcRegion field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreatedThreadResponse) GetRtcRegion() string {
@@ -608,47 +579,28 @@ func (o *CreatedThreadResponse) SetOwnerId(v string) {
 	o.OwnerId = v
 }
 
-// GetThreadMetadata returns the ThreadMetadata field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetThreadMetadata returns the ThreadMetadata field value
 func (o *CreatedThreadResponse) GetThreadMetadata() ThreadMetadataResponse {
-	if o == nil || IsNil(o.ThreadMetadata.Get()) {
+	if o == nil {
 		var ret ThreadMetadataResponse
 		return ret
 	}
-	return *o.ThreadMetadata.Get()
+
+	return o.ThreadMetadata
 }
 
-// GetThreadMetadataOk returns a tuple with the ThreadMetadata field value if set, nil otherwise
+// GetThreadMetadataOk returns a tuple with the ThreadMetadata field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreatedThreadResponse) GetThreadMetadataOk() (*ThreadMetadataResponse, bool) {
-	if o == nil || IsNil(o.ThreadMetadata.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ThreadMetadata.Get(), o.ThreadMetadata.IsSet()
+	return &o.ThreadMetadata, true
 }
 
-// HasThreadMetadata returns a boolean if a field has been set.
-func (o *CreatedThreadResponse) HasThreadMetadata() bool {
-	if o != nil && o.ThreadMetadata.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetThreadMetadata gets a reference to the given NullableThreadMetadataResponse and assigns it to the ThreadMetadata field.
+// SetThreadMetadata sets field value
 func (o *CreatedThreadResponse) SetThreadMetadata(v ThreadMetadataResponse) {
-	o.ThreadMetadata.Set(&v)
-}
-
-// SetThreadMetadataNil sets the value for ThreadMetadata to be an explicit nil
-func (o *CreatedThreadResponse) SetThreadMetadataNil() {
-	o.ThreadMetadata.Set(nil)
-}
-
-// UnsetThreadMetadata ensures that no value is present for ThreadMetadata, not even an explicit nil
-func (o *CreatedThreadResponse) UnsetThreadMetadata() {
-	o.ThreadMetadata.Unset()
+	o.ThreadMetadata = v
 }
 
 // GetMessageCount returns the MessageCount field value
@@ -723,9 +675,9 @@ func (o *CreatedThreadResponse) SetTotalMessageSent(v int32) {
 	o.TotalMessageSent = v
 }
 
-// GetAppliedTags returns the AppliedTags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAppliedTags returns the AppliedTags field value if set, zero value otherwise.
 func (o *CreatedThreadResponse) GetAppliedTags() []string {
-	if o == nil {
+	if o == nil || IsNil(o.AppliedTags) {
 		var ret []string
 		return ret
 	}
@@ -734,9 +686,8 @@ func (o *CreatedThreadResponse) GetAppliedTags() []string {
 
 // GetAppliedTagsOk returns a tuple with the AppliedTags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreatedThreadResponse) GetAppliedTagsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AppliedTags) {
 		return nil, false
 	}
 	return o.AppliedTags, true
@@ -757,48 +708,38 @@ func (o *CreatedThreadResponse) SetAppliedTags(v []string) {
 }
 
 
-// GetMember returns the Member field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMember returns the Member field value if set, zero value otherwise.
 func (o *CreatedThreadResponse) GetMember() ThreadMemberResponse {
-	if o == nil || IsNil(o.Member.Get()) {
+	if o == nil || IsNil(o.Member) {
 		var ret ThreadMemberResponse
 		return ret
 	}
-	return *o.Member.Get()
+	return *o.Member
 }
 
 // GetMemberOk returns a tuple with the Member field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreatedThreadResponse) GetMemberOk() (*ThreadMemberResponse, bool) {
-	if o == nil || IsNil(o.Member.Get()) {
+	if o == nil || IsNil(o.Member) {
 		return nil, false
 	}
-	return o.Member.Get(), o.Member.IsSet()
+	return o.Member, true
 }
 
 // HasMember returns a boolean if a field has been set.
 func (o *CreatedThreadResponse) HasMember() bool {
-	if o != nil && o.Member.IsSet() {
+	if o != nil && !IsNil(o.Member) {
 		return true
 	}
 
 	return false
 }
 
-// SetMember gets a reference to the given NullableThreadMemberResponse and assigns it to the Member field.
+// SetMember gets a reference to the given ThreadMemberResponse and assigns it to the Member field.
 func (o *CreatedThreadResponse) SetMember(v ThreadMemberResponse) {
-	o.Member.Set(&v)
+	o.Member = &v
 }
 
-// SetMemberNil sets the value for Member to be an explicit nil
-func (o *CreatedThreadResponse) SetMemberNil() {
-	o.Member.Set(nil)
-}
-
-// UnsetMember ensures that no value is present for Member, not even an explicit nil
-func (o *CreatedThreadResponse) UnsetMember() {
-	o.Member.Unset()
-}
 
 func (o CreatedThreadResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -824,14 +765,14 @@ func (o CreatedThreadResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ParentId) {
 		toSerialize["parent_id"] = o.ParentId
 	}
-	if o.RateLimitPerUser.IsSet() {
-		toSerialize["rate_limit_per_user"] = o.RateLimitPerUser.Get()
+	if !IsNil(o.RateLimitPerUser) {
+		toSerialize["rate_limit_per_user"] = o.RateLimitPerUser
 	}
-	if o.Bitrate.IsSet() {
-		toSerialize["bitrate"] = o.Bitrate.Get()
+	if !IsNil(o.Bitrate) {
+		toSerialize["bitrate"] = o.Bitrate
 	}
-	if o.UserLimit.IsSet() {
-		toSerialize["user_limit"] = o.UserLimit.Get()
+	if !IsNil(o.UserLimit) {
+		toSerialize["user_limit"] = o.UserLimit
 	}
 	if o.RtcRegion.IsSet() {
 		toSerialize["rtc_region"] = o.RtcRegion.Get()
@@ -843,17 +784,15 @@ func (o CreatedThreadResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["permissions"] = o.Permissions.Get()
 	}
 	toSerialize["owner_id"] = o.OwnerId
-	if o.ThreadMetadata.IsSet() {
-		toSerialize["thread_metadata"] = o.ThreadMetadata.Get()
-	}
+	toSerialize["thread_metadata"] = o.ThreadMetadata
 	toSerialize["message_count"] = o.MessageCount
 	toSerialize["member_count"] = o.MemberCount
 	toSerialize["total_message_sent"] = o.TotalMessageSent
-	if o.AppliedTags != nil {
+	if !IsNil(o.AppliedTags) {
 		toSerialize["applied_tags"] = o.AppliedTags
 	}
-	if o.Member.IsSet() {
-		toSerialize["member"] = o.Member.Get()
+	if !IsNil(o.Member) {
+		toSerialize["member"] = o.Member
 	}
 	return toSerialize, nil
 }
@@ -869,6 +808,7 @@ func (o *CreatedThreadResponse) UnmarshalJSON(data []byte) (err error) {
 		"guild_id",
 		"name",
 		"owner_id",
+		"thread_metadata",
 		"message_count",
 		"member_count",
 		"total_message_sent",
@@ -938,5 +878,4 @@ func (v *NullableCreatedThreadResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

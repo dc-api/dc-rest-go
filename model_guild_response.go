@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-25T01:29:55.152026602Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -79,9 +79,9 @@ type GuildResponse struct {
 	MfaLevel int32 `json:"mfa_level"`
 	ExplicitContentFilter int32 `json:"explicit_content_filter"`
 	MaxPresences NullableInt32 `json:"max_presences,omitempty"`
-	MaxMembers NullableInt32 `json:"max_members,omitempty"`
-	MaxStageVideoChannelUsers NullableInt32 `json:"max_stage_video_channel_users,omitempty"`
-	MaxVideoChannelUsers NullableInt32 `json:"max_video_channel_users,omitempty"`
+	MaxMembers int32 `json:"max_members"`
+	MaxStageVideoChannelUsers int32 `json:"max_stage_video_channel_users"`
+	MaxVideoChannelUsers int32 `json:"max_video_channel_users"`
 	VanityUrlCode NullableString `json:"vanity_url_code,omitempty"`
 	PremiumTier int32 `json:"premium_tier"`
 	PremiumSubscriptionCount int32 `json:"premium_subscription_count"`
@@ -102,7 +102,7 @@ type _GuildResponse GuildResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGuildResponse(id string, name string, features []string, ownerId string, region string, afkTimeout NullableInt32, systemChannelFlags int32, widgetEnabled bool, verificationLevel int32, roles []GuildRoleResponse, defaultMessageNotifications int32, mfaLevel int32, explicitContentFilter int32, premiumTier int32, premiumSubscriptionCount int32, preferredLocale string, premiumProgressBarEnabled bool, nsfw bool, nsfwLevel NullableInt32, emojis []EmojiResponse, stickers []GuildStickerResponse) *GuildResponse {
+func NewGuildResponse(id string, name string, features []string, ownerId string, region string, afkTimeout NullableInt32, systemChannelFlags int32, widgetEnabled bool, verificationLevel int32, roles []GuildRoleResponse, defaultMessageNotifications int32, mfaLevel int32, explicitContentFilter int32, maxMembers int32, maxStageVideoChannelUsers int32, maxVideoChannelUsers int32, premiumTier int32, premiumSubscriptionCount int32, preferredLocale string, premiumProgressBarEnabled bool, nsfw bool, nsfwLevel NullableInt32, emojis []EmojiResponse, stickers []GuildStickerResponse) *GuildResponse {
 	this := GuildResponse{}
 	this.Id = id
 	this.Name = name
@@ -117,6 +117,9 @@ func NewGuildResponse(id string, name string, features []string, ownerId string,
 	this.DefaultMessageNotifications = defaultMessageNotifications
 	this.MfaLevel = mfaLevel
 	this.ExplicitContentFilter = explicitContentFilter
+	this.MaxMembers = maxMembers
+	this.MaxStageVideoChannelUsers = maxStageVideoChannelUsers
+	this.MaxVideoChannelUsers = maxVideoChannelUsers
 	this.PremiumTier = premiumTier
 	this.PremiumSubscriptionCount = premiumSubscriptionCount
 	this.PreferredLocale = preferredLocale
@@ -883,133 +886,76 @@ func (o *GuildResponse) UnsetMaxPresences() {
 	o.MaxPresences.Unset()
 }
 
-// GetMaxMembers returns the MaxMembers field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxMembers returns the MaxMembers field value
 func (o *GuildResponse) GetMaxMembers() int32 {
-	if o == nil || IsNil(o.MaxMembers.Get()) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.MaxMembers.Get()
+
+	return o.MaxMembers
 }
 
-// GetMaxMembersOk returns a tuple with the MaxMembers field value if set, nil otherwise
+// GetMaxMembersOk returns a tuple with the MaxMembers field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildResponse) GetMaxMembersOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxMembers.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MaxMembers.Get(), o.MaxMembers.IsSet()
+	return &o.MaxMembers, true
 }
 
-// HasMaxMembers returns a boolean if a field has been set.
-func (o *GuildResponse) HasMaxMembers() bool {
-	if o != nil && o.MaxMembers.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxMembers gets a reference to the given NullableInt32 and assigns it to the MaxMembers field.
+// SetMaxMembers sets field value
 func (o *GuildResponse) SetMaxMembers(v int32) {
-	o.MaxMembers.Set(&v)
+	o.MaxMembers = v
 }
 
-// SetMaxMembersNil sets the value for MaxMembers to be an explicit nil
-func (o *GuildResponse) SetMaxMembersNil() {
-	o.MaxMembers.Set(nil)
-}
-
-// UnsetMaxMembers ensures that no value is present for MaxMembers, not even an explicit nil
-func (o *GuildResponse) UnsetMaxMembers() {
-	o.MaxMembers.Unset()
-}
-
-// GetMaxStageVideoChannelUsers returns the MaxStageVideoChannelUsers field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxStageVideoChannelUsers returns the MaxStageVideoChannelUsers field value
 func (o *GuildResponse) GetMaxStageVideoChannelUsers() int32 {
-	if o == nil || IsNil(o.MaxStageVideoChannelUsers.Get()) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.MaxStageVideoChannelUsers.Get()
+
+	return o.MaxStageVideoChannelUsers
 }
 
-// GetMaxStageVideoChannelUsersOk returns a tuple with the MaxStageVideoChannelUsers field value if set, nil otherwise
+// GetMaxStageVideoChannelUsersOk returns a tuple with the MaxStageVideoChannelUsers field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildResponse) GetMaxStageVideoChannelUsersOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxStageVideoChannelUsers.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MaxStageVideoChannelUsers.Get(), o.MaxStageVideoChannelUsers.IsSet()
+	return &o.MaxStageVideoChannelUsers, true
 }
 
-// HasMaxStageVideoChannelUsers returns a boolean if a field has been set.
-func (o *GuildResponse) HasMaxStageVideoChannelUsers() bool {
-	if o != nil && o.MaxStageVideoChannelUsers.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxStageVideoChannelUsers gets a reference to the given NullableInt32 and assigns it to the MaxStageVideoChannelUsers field.
+// SetMaxStageVideoChannelUsers sets field value
 func (o *GuildResponse) SetMaxStageVideoChannelUsers(v int32) {
-	o.MaxStageVideoChannelUsers.Set(&v)
+	o.MaxStageVideoChannelUsers = v
 }
 
-// SetMaxStageVideoChannelUsersNil sets the value for MaxStageVideoChannelUsers to be an explicit nil
-func (o *GuildResponse) SetMaxStageVideoChannelUsersNil() {
-	o.MaxStageVideoChannelUsers.Set(nil)
-}
-
-// UnsetMaxStageVideoChannelUsers ensures that no value is present for MaxStageVideoChannelUsers, not even an explicit nil
-func (o *GuildResponse) UnsetMaxStageVideoChannelUsers() {
-	o.MaxStageVideoChannelUsers.Unset()
-}
-
-// GetMaxVideoChannelUsers returns the MaxVideoChannelUsers field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxVideoChannelUsers returns the MaxVideoChannelUsers field value
 func (o *GuildResponse) GetMaxVideoChannelUsers() int32 {
-	if o == nil || IsNil(o.MaxVideoChannelUsers.Get()) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.MaxVideoChannelUsers.Get()
+
+	return o.MaxVideoChannelUsers
 }
 
-// GetMaxVideoChannelUsersOk returns a tuple with the MaxVideoChannelUsers field value if set, nil otherwise
+// GetMaxVideoChannelUsersOk returns a tuple with the MaxVideoChannelUsers field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildResponse) GetMaxVideoChannelUsersOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxVideoChannelUsers.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MaxVideoChannelUsers.Get(), o.MaxVideoChannelUsers.IsSet()
+	return &o.MaxVideoChannelUsers, true
 }
 
-// HasMaxVideoChannelUsers returns a boolean if a field has been set.
-func (o *GuildResponse) HasMaxVideoChannelUsers() bool {
-	if o != nil && o.MaxVideoChannelUsers.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxVideoChannelUsers gets a reference to the given NullableInt32 and assigns it to the MaxVideoChannelUsers field.
+// SetMaxVideoChannelUsers sets field value
 func (o *GuildResponse) SetMaxVideoChannelUsers(v int32) {
-	o.MaxVideoChannelUsers.Set(&v)
-}
-
-// SetMaxVideoChannelUsersNil sets the value for MaxVideoChannelUsers to be an explicit nil
-func (o *GuildResponse) SetMaxVideoChannelUsersNil() {
-	o.MaxVideoChannelUsers.Set(nil)
-}
-
-// UnsetMaxVideoChannelUsers ensures that no value is present for MaxVideoChannelUsers, not even an explicit nil
-func (o *GuildResponse) UnsetMaxVideoChannelUsers() {
-	o.MaxVideoChannelUsers.Unset()
+	o.MaxVideoChannelUsers = v
 }
 
 // GetVanityUrlCode returns the VanityUrlCode field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1404,15 +1350,9 @@ func (o GuildResponse) ToMap() (map[string]interface{}, error) {
 	if o.MaxPresences.IsSet() {
 		toSerialize["max_presences"] = o.MaxPresences.Get()
 	}
-	if o.MaxMembers.IsSet() {
-		toSerialize["max_members"] = o.MaxMembers.Get()
-	}
-	if o.MaxStageVideoChannelUsers.IsSet() {
-		toSerialize["max_stage_video_channel_users"] = o.MaxStageVideoChannelUsers.Get()
-	}
-	if o.MaxVideoChannelUsers.IsSet() {
-		toSerialize["max_video_channel_users"] = o.MaxVideoChannelUsers.Get()
-	}
+	toSerialize["max_members"] = o.MaxMembers
+	toSerialize["max_stage_video_channel_users"] = o.MaxStageVideoChannelUsers
+	toSerialize["max_video_channel_users"] = o.MaxVideoChannelUsers
 	if o.VanityUrlCode.IsSet() {
 		toSerialize["vanity_url_code"] = o.VanityUrlCode.Get()
 	}
@@ -1454,6 +1394,9 @@ func (o *GuildResponse) UnmarshalJSON(data []byte) (err error) {
 		"default_message_notifications",
 		"mfa_level",
 		"explicit_content_filter",
+		"max_members",
+		"max_stage_video_channel_users",
+		"max_video_channel_users",
 		"premium_tier",
 		"premium_subscription_count",
 		"preferred_locale",
@@ -1528,5 +1471,4 @@ func (v *NullableGuildResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

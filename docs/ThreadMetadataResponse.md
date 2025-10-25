@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **ArchiveTimestamp** | Pointer to **NullableTime** |  | [optional] 
 **AutoArchiveDuration** | **int32** |  | 
 **Locked** | **bool** |  | 
-**CreateTimestamp** | Pointer to **NullableTime** |  | [optional] 
-**Invitable** | Pointer to **NullableBool** |  | [optional] 
+**CreateTimestamp** | Pointer to **time.Time** |  | [optional] 
+**Invitable** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -150,16 +150,6 @@ SetCreateTimestamp sets CreateTimestamp field to given value.
 
 HasCreateTimestamp returns a boolean if a field has been set.
 
-### SetCreateTimestampNil
-
-`func (o *ThreadMetadataResponse) SetCreateTimestampNil(b bool)`
-
- SetCreateTimestampNil sets the value for CreateTimestamp to be an explicit nil
-
-### UnsetCreateTimestamp
-`func (o *ThreadMetadataResponse) UnsetCreateTimestamp()`
-
-UnsetCreateTimestamp ensures that no value is present for CreateTimestamp, not even an explicit nil
 ### GetInvitable
 
 `func (o *ThreadMetadataResponse) GetInvitable() bool`
@@ -185,16 +175,6 @@ SetInvitable sets Invitable field to given value.
 
 HasInvitable returns a boolean if a field has been set.
 
-### SetInvitableNil
-
-`func (o *ThreadMetadataResponse) SetInvitableNil(b bool)`
-
- SetInvitableNil sets the value for Invitable to be an explicit nil
-
-### UnsetInvitable
-`func (o *ThreadMetadataResponse) UnsetInvitable()`
-
-UnsetInvitable ensures that no value is present for Invitable, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

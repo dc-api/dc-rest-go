@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-10-25T01:29:55.152026602Z[Etc/UTC]
+ *    * - **Generator Version**: 7.16.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -46,8 +46,6 @@ package dc_rest
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the ResolvedObjectsResponse type satisfies the MappedNullable interface at compile time
@@ -55,24 +53,18 @@ var _ MappedNullable = &ResolvedObjectsResponse{}
 
 // ResolvedObjectsResponse struct for ResolvedObjectsResponse
 type ResolvedObjectsResponse struct {
-	Users map[string]UserResponse `json:"users"`
-	Members map[string]GuildMemberResponse `json:"members"`
-	Channels map[string]GetChannel200Response `json:"channels"`
-	Roles map[string]GuildRoleResponse `json:"roles"`
+	Users map[string]UserResponse `json:"users,omitempty"`
+	Members map[string]BasicGuildMemberResponse `json:"members,omitempty"`
+	Channels *map[string]GetChannel200Response `json:"channels,omitempty"`
+	Roles map[string]GuildRoleResponse `json:"roles,omitempty"`
 }
-
-type _ResolvedObjectsResponse ResolvedObjectsResponse
 
 // NewResolvedObjectsResponse instantiates a new ResolvedObjectsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResolvedObjectsResponse(users map[string]UserResponse, members map[string]GuildMemberResponse, channels map[string]GetChannel200Response, roles map[string]GuildRoleResponse) *ResolvedObjectsResponse {
+func NewResolvedObjectsResponse() *ResolvedObjectsResponse {
 	this := ResolvedObjectsResponse{}
-	this.Users = users
-	this.Members = members
-	this.Channels = channels
-	this.Roles = roles
 	return &this
 }
 
@@ -84,101 +76,137 @@ func NewResolvedObjectsResponseWithDefaults() *ResolvedObjectsResponse {
 	return &this
 }
 
-// GetUsers returns the Users field value
+// GetUsers returns the Users field value if set, zero value otherwise.
 func (o *ResolvedObjectsResponse) GetUsers() map[string]UserResponse {
-	if o == nil {
+	if o == nil || IsNil(o.Users) {
 		var ret map[string]UserResponse
 		return ret
 	}
-
 	return o.Users
 }
 
-// GetUsersOk returns a tuple with the Users field value
+// GetUsersOk returns a tuple with the Users field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ResolvedObjectsResponse) GetUsersOk() (map[string]UserResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Users) {
 		return map[string]UserResponse{}, false
 	}
 	return o.Users, true
 }
 
-// SetUsers sets field value
+// HasUsers returns a boolean if a field has been set.
+func (o *ResolvedObjectsResponse) HasUsers() bool {
+	if o != nil && !IsNil(o.Users) {
+		return true
+	}
+
+	return false
+}
+
+// SetUsers gets a reference to the given map[string]UserResponse and assigns it to the Users field.
 func (o *ResolvedObjectsResponse) SetUsers(v map[string]UserResponse) {
 	o.Users = v
 }
 
-// GetMembers returns the Members field value
-func (o *ResolvedObjectsResponse) GetMembers() map[string]GuildMemberResponse {
-	if o == nil {
-		var ret map[string]GuildMemberResponse
+
+// GetMembers returns the Members field value if set, zero value otherwise.
+func (o *ResolvedObjectsResponse) GetMembers() map[string]BasicGuildMemberResponse {
+	if o == nil || IsNil(o.Members) {
+		var ret map[string]BasicGuildMemberResponse
 		return ret
 	}
-
 	return o.Members
 }
 
-// GetMembersOk returns a tuple with the Members field value
+// GetMembersOk returns a tuple with the Members field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ResolvedObjectsResponse) GetMembersOk() (map[string]GuildMemberResponse, bool) {
-	if o == nil {
-		return map[string]GuildMemberResponse{}, false
+func (o *ResolvedObjectsResponse) GetMembersOk() (map[string]BasicGuildMemberResponse, bool) {
+	if o == nil || IsNil(o.Members) {
+		return map[string]BasicGuildMemberResponse{}, false
 	}
 	return o.Members, true
 }
 
-// SetMembers sets field value
-func (o *ResolvedObjectsResponse) SetMembers(v map[string]GuildMemberResponse) {
+// HasMembers returns a boolean if a field has been set.
+func (o *ResolvedObjectsResponse) HasMembers() bool {
+	if o != nil && !IsNil(o.Members) {
+		return true
+	}
+
+	return false
+}
+
+// SetMembers gets a reference to the given map[string]BasicGuildMemberResponse and assigns it to the Members field.
+func (o *ResolvedObjectsResponse) SetMembers(v map[string]BasicGuildMemberResponse) {
 	o.Members = v
 }
 
-// GetChannels returns the Channels field value
+
+// GetChannels returns the Channels field value if set, zero value otherwise.
 func (o *ResolvedObjectsResponse) GetChannels() map[string]GetChannel200Response {
-	if o == nil {
+	if o == nil || IsNil(o.Channels) {
 		var ret map[string]GetChannel200Response
 		return ret
 	}
-
-	return o.Channels
+	return *o.Channels
 }
 
-// GetChannelsOk returns a tuple with the Channels field value
+// GetChannelsOk returns a tuple with the Channels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ResolvedObjectsResponse) GetChannelsOk() (map[string]GetChannel200Response, bool) {
-	if o == nil {
-		return map[string]GetChannel200Response{}, false
+func (o *ResolvedObjectsResponse) GetChannelsOk() (*map[string]GetChannel200Response, bool) {
+	if o == nil || IsNil(o.Channels) {
+		return nil, false
 	}
 	return o.Channels, true
 }
 
-// SetChannels sets field value
-func (o *ResolvedObjectsResponse) SetChannels(v map[string]GetChannel200Response) {
-	o.Channels = v
+// HasChannels returns a boolean if a field has been set.
+func (o *ResolvedObjectsResponse) HasChannels() bool {
+	if o != nil && !IsNil(o.Channels) {
+		return true
+	}
+
+	return false
 }
 
-// GetRoles returns the Roles field value
+// SetChannels gets a reference to the given map[string]GetChannel200Response and assigns it to the Channels field.
+func (o *ResolvedObjectsResponse) SetChannels(v map[string]GetChannel200Response) {
+	o.Channels = &v
+}
+
+
+// GetRoles returns the Roles field value if set, zero value otherwise.
 func (o *ResolvedObjectsResponse) GetRoles() map[string]GuildRoleResponse {
-	if o == nil {
+	if o == nil || IsNil(o.Roles) {
 		var ret map[string]GuildRoleResponse
 		return ret
 	}
-
 	return o.Roles
 }
 
-// GetRolesOk returns a tuple with the Roles field value
+// GetRolesOk returns a tuple with the Roles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ResolvedObjectsResponse) GetRolesOk() (map[string]GuildRoleResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Roles) {
 		return map[string]GuildRoleResponse{}, false
 	}
 	return o.Roles, true
 }
 
-// SetRoles sets field value
+// HasRoles returns a boolean if a field has been set.
+func (o *ResolvedObjectsResponse) HasRoles() bool {
+	if o != nil && !IsNil(o.Roles) {
+		return true
+	}
+
+	return false
+}
+
+// SetRoles gets a reference to the given map[string]GuildRoleResponse and assigns it to the Roles field.
 func (o *ResolvedObjectsResponse) SetRoles(v map[string]GuildRoleResponse) {
 	o.Roles = v
 }
+
 
 func (o ResolvedObjectsResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -190,51 +218,19 @@ func (o ResolvedObjectsResponse) MarshalJSON() ([]byte, error) {
 
 func (o ResolvedObjectsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["users"] = o.Users
-	toSerialize["members"] = o.Members
-	toSerialize["channels"] = o.Channels
-	toSerialize["roles"] = o.Roles
+	if !IsNil(o.Users) {
+		toSerialize["users"] = o.Users
+	}
+	if !IsNil(o.Members) {
+		toSerialize["members"] = o.Members
+	}
+	if !IsNil(o.Channels) {
+		toSerialize["channels"] = o.Channels
+	}
+	if !IsNil(o.Roles) {
+		toSerialize["roles"] = o.Roles
+	}
 	return toSerialize, nil
-}
-
-func (o *ResolvedObjectsResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"users",
-		"members",
-		"channels",
-		"roles",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varResolvedObjectsResponse := _ResolvedObjectsResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varResolvedObjectsResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ResolvedObjectsResponse(varResolvedObjectsResponse)
-
-	return err
 }
 
 type NullableResolvedObjectsResponse struct {
@@ -272,5 +268,4 @@ func (v *NullableResolvedObjectsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

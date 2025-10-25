@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **Icon** | Pointer to **NullableString** |  | [optional] 
 **Description** | **string** |  | 
 **Type** | Pointer to **NullableInt32** |  | [optional] 
-**CoverImage** | Pointer to **NullableString** |  | [optional] 
+**CoverImage** | Pointer to **string** |  | [optional] 
 **PrimarySkuId** | Pointer to **string** |  | [optional] 
-**Bot** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**Bot** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -187,16 +187,6 @@ SetCoverImage sets CoverImage field to given value.
 
 HasCoverImage returns a boolean if a field has been set.
 
-### SetCoverImageNil
-
-`func (o *IntegrationApplicationResponse) SetCoverImageNil(b bool)`
-
- SetCoverImageNil sets the value for CoverImage to be an explicit nil
-
-### UnsetCoverImage
-`func (o *IntegrationApplicationResponse) UnsetCoverImage()`
-
-UnsetCoverImage ensures that no value is present for CoverImage, not even an explicit nil
 ### GetPrimarySkuId
 
 `func (o *IntegrationApplicationResponse) GetPrimarySkuId() string`
@@ -247,16 +237,6 @@ SetBot sets Bot field to given value.
 
 HasBot returns a boolean if a field has been set.
 
-### SetBotNil
-
-`func (o *IntegrationApplicationResponse) SetBotNil(b bool)`
-
- SetBotNil sets the value for Bot to be an explicit nil
-
-### UnsetBot
-`func (o *IntegrationApplicationResponse) UnsetBot()`
-
-UnsetBot ensures that no value is present for Bot, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
