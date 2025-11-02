@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Users** | [**map[string]UserResponse**](UserResponse.md) |  | 
-**Members** | [**map[string]GuildMemberResponse**](GuildMemberResponse.md) |  | 
-**Channels** | [**map[string]GetChannel200Response**](GetChannel200Response.md) |  | 
-**Roles** | [**map[string]GuildRoleResponse**](GuildRoleResponse.md) |  | 
+**Users** | Pointer to [**map[string]UserResponse**](UserResponse.md) |  | [optional] 
+**Members** | Pointer to [**map[string]BasicGuildMemberResponse**](BasicGuildMemberResponse.md) |  | [optional] 
+**Channels** | Pointer to [**map[string]GetChannel200Response**](GetChannel200Response.md) |  | [optional] 
+**Roles** | Pointer to [**map[string]GuildRoleResponse**](GuildRoleResponse.md) |  | [optional] 
 
 ## Methods
 
 ### NewResolvedObjectsResponse
 
-`func NewResolvedObjectsResponse(users map[string]UserResponse, members map[string]GuildMemberResponse, channels map[string]GetChannel200Response, roles map[string]GuildRoleResponse, ) *ResolvedObjectsResponse`
+`func NewResolvedObjectsResponse() *ResolvedObjectsResponse`
 
 NewResolvedObjectsResponse instantiates a new ResolvedObjectsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -47,26 +47,36 @@ and a boolean to check if the value has been set.
 
 SetUsers sets Users field to given value.
 
+### HasUsers
+
+`func (o *ResolvedObjectsResponse) HasUsers() bool`
+
+HasUsers returns a boolean if a field has been set.
 
 ### GetMembers
 
-`func (o *ResolvedObjectsResponse) GetMembers() map[string]GuildMemberResponse`
+`func (o *ResolvedObjectsResponse) GetMembers() map[string]BasicGuildMemberResponse`
 
 GetMembers returns the Members field if non-nil, zero value otherwise.
 
 ### GetMembersOk
 
-`func (o *ResolvedObjectsResponse) GetMembersOk() (*map[string]GuildMemberResponse, bool)`
+`func (o *ResolvedObjectsResponse) GetMembersOk() (*map[string]BasicGuildMemberResponse, bool)`
 
 GetMembersOk returns a tuple with the Members field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMembers
 
-`func (o *ResolvedObjectsResponse) SetMembers(v map[string]GuildMemberResponse)`
+`func (o *ResolvedObjectsResponse) SetMembers(v map[string]BasicGuildMemberResponse)`
 
 SetMembers sets Members field to given value.
 
+### HasMembers
+
+`func (o *ResolvedObjectsResponse) HasMembers() bool`
+
+HasMembers returns a boolean if a field has been set.
 
 ### GetChannels
 
@@ -87,6 +97,11 @@ and a boolean to check if the value has been set.
 
 SetChannels sets Channels field to given value.
 
+### HasChannels
+
+`func (o *ResolvedObjectsResponse) HasChannels() bool`
+
+HasChannels returns a boolean if a field has been set.
 
 ### GetRoles
 
@@ -107,6 +122,11 @@ and a boolean to check if the value has been set.
 
 SetRoles sets Roles field to given value.
 
+### HasRoles
+
+`func (o *ResolvedObjectsResponse) HasRoles() bool`
+
+HasRoles returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

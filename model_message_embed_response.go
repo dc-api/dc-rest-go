@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-11-02T04:40:28.586066383Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,18 +57,18 @@ var _ MappedNullable = &MessageEmbedResponse{}
 // MessageEmbedResponse struct for MessageEmbedResponse
 type MessageEmbedResponse struct {
 	Type string `json:"type"`
-	Url NullableString `json:"url,omitempty"`
-	Title NullableString `json:"title,omitempty"`
-	Description NullableString `json:"description,omitempty"`
-	Color NullableInt32 `json:"color,omitempty"`
-	Timestamp NullableTime `json:"timestamp,omitempty"`
+	Url *string `json:"url,omitempty"`
+	Title *string `json:"title,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Color *int32 `json:"color,omitempty"`
+	Timestamp *time.Time `json:"timestamp,omitempty"`
 	Fields []MessageEmbedFieldResponse `json:"fields,omitempty"`
-	Author NullableMessageEmbedAuthorResponse `json:"author,omitempty"`
-	Provider NullableMessageEmbedProviderResponse `json:"provider,omitempty"`
-	Image NullableMessageEmbedImageResponse `json:"image,omitempty"`
-	Thumbnail NullableMessageEmbedImageResponse `json:"thumbnail,omitempty"`
-	Video NullableMessageEmbedVideoResponse `json:"video,omitempty"`
-	Footer NullableMessageEmbedFooterResponse `json:"footer,omitempty"`
+	Author *MessageEmbedAuthorResponse `json:"author,omitempty"`
+	Provider *MessageEmbedProviderResponse `json:"provider,omitempty"`
+	Image *MessageEmbedImageResponse `json:"image,omitempty"`
+	Thumbnail *MessageEmbedImageResponse `json:"thumbnail,omitempty"`
+	Video *MessageEmbedVideoResponse `json:"video,omitempty"`
+	Footer *MessageEmbedFooterResponse `json:"footer,omitempty"`
 }
 
 type _MessageEmbedResponse MessageEmbedResponse
@@ -115,224 +115,174 @@ func (o *MessageEmbedResponse) SetType(v string) {
 	o.Type = v
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUrl returns the Url field value if set, zero value otherwise.
 func (o *MessageEmbedResponse) GetUrl() string {
-	if o == nil || IsNil(o.Url.Get()) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
-	return *o.Url.Get()
+	return *o.Url
 }
 
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedResponse) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url.Get()) {
+	if o == nil || IsNil(o.Url) {
 		return nil, false
 	}
-	return o.Url.Get(), o.Url.IsSet()
+	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *MessageEmbedResponse) HasUrl() bool {
-	if o != nil && o.Url.IsSet() {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
 	return false
 }
 
-// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
+// SetUrl gets a reference to the given string and assigns it to the Url field.
 func (o *MessageEmbedResponse) SetUrl(v string) {
-	o.Url.Set(&v)
+	o.Url = &v
 }
 
-// SetUrlNil sets the value for Url to be an explicit nil
-func (o *MessageEmbedResponse) SetUrlNil() {
-	o.Url.Set(nil)
-}
 
-// UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *MessageEmbedResponse) UnsetUrl() {
-	o.Url.Unset()
-}
-
-// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *MessageEmbedResponse) GetTitle() string {
-	if o == nil || IsNil(o.Title.Get()) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-	return *o.Title.Get()
+	return *o.Title
 }
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedResponse) GetTitleOk() (*string, bool) {
-	if o == nil || IsNil(o.Title.Get()) {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return o.Title.Get(), o.Title.IsSet()
+	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *MessageEmbedResponse) HasTitle() bool {
-	if o != nil && o.Title.IsSet() {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
 	return false
 }
 
-// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *MessageEmbedResponse) SetTitle(v string) {
-	o.Title.Set(&v)
+	o.Title = &v
 }
 
-// SetTitleNil sets the value for Title to be an explicit nil
-func (o *MessageEmbedResponse) SetTitleNil() {
-	o.Title.Set(nil)
-}
 
-// UnsetTitle ensures that no value is present for Title, not even an explicit nil
-func (o *MessageEmbedResponse) UnsetTitle() {
-	o.Title.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *MessageEmbedResponse) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedResponse) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *MessageEmbedResponse) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *MessageEmbedResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *MessageEmbedResponse) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *MessageEmbedResponse) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetColor returns the Color field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetColor returns the Color field value if set, zero value otherwise.
 func (o *MessageEmbedResponse) GetColor() int32 {
-	if o == nil || IsNil(o.Color.Get()) {
+	if o == nil || IsNil(o.Color) {
 		var ret int32
 		return ret
 	}
-	return *o.Color.Get()
+	return *o.Color
 }
 
 // GetColorOk returns a tuple with the Color field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedResponse) GetColorOk() (*int32, bool) {
-	if o == nil || IsNil(o.Color.Get()) {
+	if o == nil || IsNil(o.Color) {
 		return nil, false
 	}
-	return o.Color.Get(), o.Color.IsSet()
+	return o.Color, true
 }
 
 // HasColor returns a boolean if a field has been set.
 func (o *MessageEmbedResponse) HasColor() bool {
-	if o != nil && o.Color.IsSet() {
+	if o != nil && !IsNil(o.Color) {
 		return true
 	}
 
 	return false
 }
 
-// SetColor gets a reference to the given NullableInt32 and assigns it to the Color field.
+// SetColor gets a reference to the given int32 and assigns it to the Color field.
 func (o *MessageEmbedResponse) SetColor(v int32) {
-	o.Color.Set(&v)
+	o.Color = &v
 }
 
-// SetColorNil sets the value for Color to be an explicit nil
-func (o *MessageEmbedResponse) SetColorNil() {
-	o.Color.Set(nil)
-}
 
-// UnsetColor ensures that no value is present for Color, not even an explicit nil
-func (o *MessageEmbedResponse) UnsetColor() {
-	o.Color.Unset()
-}
-
-// GetTimestamp returns the Timestamp field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
 func (o *MessageEmbedResponse) GetTimestamp() time.Time {
-	if o == nil || IsNil(o.Timestamp.Get()) {
+	if o == nil || IsNil(o.Timestamp) {
 		var ret time.Time
 		return ret
 	}
-	return *o.Timestamp.Get()
+	return *o.Timestamp
 }
 
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedResponse) GetTimestampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.Timestamp.Get()) {
+	if o == nil || IsNil(o.Timestamp) {
 		return nil, false
 	}
-	return o.Timestamp.Get(), o.Timestamp.IsSet()
+	return o.Timestamp, true
 }
 
 // HasTimestamp returns a boolean if a field has been set.
 func (o *MessageEmbedResponse) HasTimestamp() bool {
-	if o != nil && o.Timestamp.IsSet() {
+	if o != nil && !IsNil(o.Timestamp) {
 		return true
 	}
 
 	return false
 }
 
-// SetTimestamp gets a reference to the given NullableTime and assigns it to the Timestamp field.
+// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
 func (o *MessageEmbedResponse) SetTimestamp(v time.Time) {
-	o.Timestamp.Set(&v)
+	o.Timestamp = &v
 }
 
-// SetTimestampNil sets the value for Timestamp to be an explicit nil
-func (o *MessageEmbedResponse) SetTimestampNil() {
-	o.Timestamp.Set(nil)
-}
 
-// UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-func (o *MessageEmbedResponse) UnsetTimestamp() {
-	o.Timestamp.Unset()
-}
-
-// GetFields returns the Fields field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFields returns the Fields field value if set, zero value otherwise.
 func (o *MessageEmbedResponse) GetFields() []MessageEmbedFieldResponse {
-	if o == nil {
+	if o == nil || IsNil(o.Fields) {
 		var ret []MessageEmbedFieldResponse
 		return ret
 	}
@@ -341,9 +291,8 @@ func (o *MessageEmbedResponse) GetFields() []MessageEmbedFieldResponse {
 
 // GetFieldsOk returns a tuple with the Fields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedResponse) GetFieldsOk() ([]MessageEmbedFieldResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Fields) {
 		return nil, false
 	}
 	return o.Fields, true
@@ -364,263 +313,203 @@ func (o *MessageEmbedResponse) SetFields(v []MessageEmbedFieldResponse) {
 }
 
 
-// GetAuthor returns the Author field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAuthor returns the Author field value if set, zero value otherwise.
 func (o *MessageEmbedResponse) GetAuthor() MessageEmbedAuthorResponse {
-	if o == nil || IsNil(o.Author.Get()) {
+	if o == nil || IsNil(o.Author) {
 		var ret MessageEmbedAuthorResponse
 		return ret
 	}
-	return *o.Author.Get()
+	return *o.Author
 }
 
 // GetAuthorOk returns a tuple with the Author field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedResponse) GetAuthorOk() (*MessageEmbedAuthorResponse, bool) {
-	if o == nil || IsNil(o.Author.Get()) {
+	if o == nil || IsNil(o.Author) {
 		return nil, false
 	}
-	return o.Author.Get(), o.Author.IsSet()
+	return o.Author, true
 }
 
 // HasAuthor returns a boolean if a field has been set.
 func (o *MessageEmbedResponse) HasAuthor() bool {
-	if o != nil && o.Author.IsSet() {
+	if o != nil && !IsNil(o.Author) {
 		return true
 	}
 
 	return false
 }
 
-// SetAuthor gets a reference to the given NullableMessageEmbedAuthorResponse and assigns it to the Author field.
+// SetAuthor gets a reference to the given MessageEmbedAuthorResponse and assigns it to the Author field.
 func (o *MessageEmbedResponse) SetAuthor(v MessageEmbedAuthorResponse) {
-	o.Author.Set(&v)
+	o.Author = &v
 }
 
-// SetAuthorNil sets the value for Author to be an explicit nil
-func (o *MessageEmbedResponse) SetAuthorNil() {
-	o.Author.Set(nil)
-}
 
-// UnsetAuthor ensures that no value is present for Author, not even an explicit nil
-func (o *MessageEmbedResponse) UnsetAuthor() {
-	o.Author.Unset()
-}
-
-// GetProvider returns the Provider field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetProvider returns the Provider field value if set, zero value otherwise.
 func (o *MessageEmbedResponse) GetProvider() MessageEmbedProviderResponse {
-	if o == nil || IsNil(o.Provider.Get()) {
+	if o == nil || IsNil(o.Provider) {
 		var ret MessageEmbedProviderResponse
 		return ret
 	}
-	return *o.Provider.Get()
+	return *o.Provider
 }
 
 // GetProviderOk returns a tuple with the Provider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedResponse) GetProviderOk() (*MessageEmbedProviderResponse, bool) {
-	if o == nil || IsNil(o.Provider.Get()) {
+	if o == nil || IsNil(o.Provider) {
 		return nil, false
 	}
-	return o.Provider.Get(), o.Provider.IsSet()
+	return o.Provider, true
 }
 
 // HasProvider returns a boolean if a field has been set.
 func (o *MessageEmbedResponse) HasProvider() bool {
-	if o != nil && o.Provider.IsSet() {
+	if o != nil && !IsNil(o.Provider) {
 		return true
 	}
 
 	return false
 }
 
-// SetProvider gets a reference to the given NullableMessageEmbedProviderResponse and assigns it to the Provider field.
+// SetProvider gets a reference to the given MessageEmbedProviderResponse and assigns it to the Provider field.
 func (o *MessageEmbedResponse) SetProvider(v MessageEmbedProviderResponse) {
-	o.Provider.Set(&v)
+	o.Provider = &v
 }
 
-// SetProviderNil sets the value for Provider to be an explicit nil
-func (o *MessageEmbedResponse) SetProviderNil() {
-	o.Provider.Set(nil)
-}
 
-// UnsetProvider ensures that no value is present for Provider, not even an explicit nil
-func (o *MessageEmbedResponse) UnsetProvider() {
-	o.Provider.Unset()
-}
-
-// GetImage returns the Image field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetImage returns the Image field value if set, zero value otherwise.
 func (o *MessageEmbedResponse) GetImage() MessageEmbedImageResponse {
-	if o == nil || IsNil(o.Image.Get()) {
+	if o == nil || IsNil(o.Image) {
 		var ret MessageEmbedImageResponse
 		return ret
 	}
-	return *o.Image.Get()
+	return *o.Image
 }
 
 // GetImageOk returns a tuple with the Image field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedResponse) GetImageOk() (*MessageEmbedImageResponse, bool) {
-	if o == nil || IsNil(o.Image.Get()) {
+	if o == nil || IsNil(o.Image) {
 		return nil, false
 	}
-	return o.Image.Get(), o.Image.IsSet()
+	return o.Image, true
 }
 
 // HasImage returns a boolean if a field has been set.
 func (o *MessageEmbedResponse) HasImage() bool {
-	if o != nil && o.Image.IsSet() {
+	if o != nil && !IsNil(o.Image) {
 		return true
 	}
 
 	return false
 }
 
-// SetImage gets a reference to the given NullableMessageEmbedImageResponse and assigns it to the Image field.
+// SetImage gets a reference to the given MessageEmbedImageResponse and assigns it to the Image field.
 func (o *MessageEmbedResponse) SetImage(v MessageEmbedImageResponse) {
-	o.Image.Set(&v)
+	o.Image = &v
 }
 
-// SetImageNil sets the value for Image to be an explicit nil
-func (o *MessageEmbedResponse) SetImageNil() {
-	o.Image.Set(nil)
-}
 
-// UnsetImage ensures that no value is present for Image, not even an explicit nil
-func (o *MessageEmbedResponse) UnsetImage() {
-	o.Image.Unset()
-}
-
-// GetThumbnail returns the Thumbnail field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetThumbnail returns the Thumbnail field value if set, zero value otherwise.
 func (o *MessageEmbedResponse) GetThumbnail() MessageEmbedImageResponse {
-	if o == nil || IsNil(o.Thumbnail.Get()) {
+	if o == nil || IsNil(o.Thumbnail) {
 		var ret MessageEmbedImageResponse
 		return ret
 	}
-	return *o.Thumbnail.Get()
+	return *o.Thumbnail
 }
 
 // GetThumbnailOk returns a tuple with the Thumbnail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedResponse) GetThumbnailOk() (*MessageEmbedImageResponse, bool) {
-	if o == nil || IsNil(o.Thumbnail.Get()) {
+	if o == nil || IsNil(o.Thumbnail) {
 		return nil, false
 	}
-	return o.Thumbnail.Get(), o.Thumbnail.IsSet()
+	return o.Thumbnail, true
 }
 
 // HasThumbnail returns a boolean if a field has been set.
 func (o *MessageEmbedResponse) HasThumbnail() bool {
-	if o != nil && o.Thumbnail.IsSet() {
+	if o != nil && !IsNil(o.Thumbnail) {
 		return true
 	}
 
 	return false
 }
 
-// SetThumbnail gets a reference to the given NullableMessageEmbedImageResponse and assigns it to the Thumbnail field.
+// SetThumbnail gets a reference to the given MessageEmbedImageResponse and assigns it to the Thumbnail field.
 func (o *MessageEmbedResponse) SetThumbnail(v MessageEmbedImageResponse) {
-	o.Thumbnail.Set(&v)
+	o.Thumbnail = &v
 }
 
-// SetThumbnailNil sets the value for Thumbnail to be an explicit nil
-func (o *MessageEmbedResponse) SetThumbnailNil() {
-	o.Thumbnail.Set(nil)
-}
 
-// UnsetThumbnail ensures that no value is present for Thumbnail, not even an explicit nil
-func (o *MessageEmbedResponse) UnsetThumbnail() {
-	o.Thumbnail.Unset()
-}
-
-// GetVideo returns the Video field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetVideo returns the Video field value if set, zero value otherwise.
 func (o *MessageEmbedResponse) GetVideo() MessageEmbedVideoResponse {
-	if o == nil || IsNil(o.Video.Get()) {
+	if o == nil || IsNil(o.Video) {
 		var ret MessageEmbedVideoResponse
 		return ret
 	}
-	return *o.Video.Get()
+	return *o.Video
 }
 
 // GetVideoOk returns a tuple with the Video field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedResponse) GetVideoOk() (*MessageEmbedVideoResponse, bool) {
-	if o == nil || IsNil(o.Video.Get()) {
+	if o == nil || IsNil(o.Video) {
 		return nil, false
 	}
-	return o.Video.Get(), o.Video.IsSet()
+	return o.Video, true
 }
 
 // HasVideo returns a boolean if a field has been set.
 func (o *MessageEmbedResponse) HasVideo() bool {
-	if o != nil && o.Video.IsSet() {
+	if o != nil && !IsNil(o.Video) {
 		return true
 	}
 
 	return false
 }
 
-// SetVideo gets a reference to the given NullableMessageEmbedVideoResponse and assigns it to the Video field.
+// SetVideo gets a reference to the given MessageEmbedVideoResponse and assigns it to the Video field.
 func (o *MessageEmbedResponse) SetVideo(v MessageEmbedVideoResponse) {
-	o.Video.Set(&v)
+	o.Video = &v
 }
 
-// SetVideoNil sets the value for Video to be an explicit nil
-func (o *MessageEmbedResponse) SetVideoNil() {
-	o.Video.Set(nil)
-}
 
-// UnsetVideo ensures that no value is present for Video, not even an explicit nil
-func (o *MessageEmbedResponse) UnsetVideo() {
-	o.Video.Unset()
-}
-
-// GetFooter returns the Footer field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFooter returns the Footer field value if set, zero value otherwise.
 func (o *MessageEmbedResponse) GetFooter() MessageEmbedFooterResponse {
-	if o == nil || IsNil(o.Footer.Get()) {
+	if o == nil || IsNil(o.Footer) {
 		var ret MessageEmbedFooterResponse
 		return ret
 	}
-	return *o.Footer.Get()
+	return *o.Footer
 }
 
 // GetFooterOk returns a tuple with the Footer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedResponse) GetFooterOk() (*MessageEmbedFooterResponse, bool) {
-	if o == nil || IsNil(o.Footer.Get()) {
+	if o == nil || IsNil(o.Footer) {
 		return nil, false
 	}
-	return o.Footer.Get(), o.Footer.IsSet()
+	return o.Footer, true
 }
 
 // HasFooter returns a boolean if a field has been set.
 func (o *MessageEmbedResponse) HasFooter() bool {
-	if o != nil && o.Footer.IsSet() {
+	if o != nil && !IsNil(o.Footer) {
 		return true
 	}
 
 	return false
 }
 
-// SetFooter gets a reference to the given NullableMessageEmbedFooterResponse and assigns it to the Footer field.
+// SetFooter gets a reference to the given MessageEmbedFooterResponse and assigns it to the Footer field.
 func (o *MessageEmbedResponse) SetFooter(v MessageEmbedFooterResponse) {
-	o.Footer.Set(&v)
+	o.Footer = &v
 }
 
-// SetFooterNil sets the value for Footer to be an explicit nil
-func (o *MessageEmbedResponse) SetFooterNil() {
-	o.Footer.Set(nil)
-}
-
-// UnsetFooter ensures that no value is present for Footer, not even an explicit nil
-func (o *MessageEmbedResponse) UnsetFooter() {
-	o.Footer.Unset()
-}
 
 func (o MessageEmbedResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -633,41 +522,41 @@ func (o MessageEmbedResponse) MarshalJSON() ([]byte, error) {
 func (o MessageEmbedResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
-	if o.Url.IsSet() {
-		toSerialize["url"] = o.Url.Get()
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
 	}
-	if o.Title.IsSet() {
-		toSerialize["title"] = o.Title.Get()
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
-	if o.Color.IsSet() {
-		toSerialize["color"] = o.Color.Get()
+	if !IsNil(o.Color) {
+		toSerialize["color"] = o.Color
 	}
-	if o.Timestamp.IsSet() {
-		toSerialize["timestamp"] = o.Timestamp.Get()
+	if !IsNil(o.Timestamp) {
+		toSerialize["timestamp"] = o.Timestamp
 	}
-	if o.Fields != nil {
+	if !IsNil(o.Fields) {
 		toSerialize["fields"] = o.Fields
 	}
-	if o.Author.IsSet() {
-		toSerialize["author"] = o.Author.Get()
+	if !IsNil(o.Author) {
+		toSerialize["author"] = o.Author
 	}
-	if o.Provider.IsSet() {
-		toSerialize["provider"] = o.Provider.Get()
+	if !IsNil(o.Provider) {
+		toSerialize["provider"] = o.Provider
 	}
-	if o.Image.IsSet() {
-		toSerialize["image"] = o.Image.Get()
+	if !IsNil(o.Image) {
+		toSerialize["image"] = o.Image
 	}
-	if o.Thumbnail.IsSet() {
-		toSerialize["thumbnail"] = o.Thumbnail.Get()
+	if !IsNil(o.Thumbnail) {
+		toSerialize["thumbnail"] = o.Thumbnail
 	}
-	if o.Video.IsSet() {
-		toSerialize["video"] = o.Video.Get()
+	if !IsNil(o.Video) {
+		toSerialize["video"] = o.Video
 	}
-	if o.Footer.IsSet() {
-		toSerialize["footer"] = o.Footer.Get()
+	if !IsNil(o.Footer) {
+		toSerialize["footer"] = o.Footer
 	}
 	return toSerialize, nil
 }
@@ -744,5 +633,4 @@ func (v *NullableMessageEmbedResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

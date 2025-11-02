@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-11-02T04:40:28.586066383Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ var _ MappedNullable = &InteractionCallbackResponse{}
 // InteractionCallbackResponse struct for InteractionCallbackResponse
 type InteractionCallbackResponse struct {
 	Interaction InteractionResponse `json:"interaction"`
-	Resource NullableInteractionCallbackResponseResource `json:"resource,omitempty"`
+	Resource *InteractionCallbackResponseResource `json:"resource,omitempty"`
 }
 
 type _InteractionCallbackResponse InteractionCallbackResponse
@@ -103,48 +103,38 @@ func (o *InteractionCallbackResponse) SetInteraction(v InteractionResponse) {
 	o.Interaction = v
 }
 
-// GetResource returns the Resource field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetResource returns the Resource field value if set, zero value otherwise.
 func (o *InteractionCallbackResponse) GetResource() InteractionCallbackResponseResource {
-	if o == nil || IsNil(o.Resource.Get()) {
+	if o == nil || IsNil(o.Resource) {
 		var ret InteractionCallbackResponseResource
 		return ret
 	}
-	return *o.Resource.Get()
+	return *o.Resource
 }
 
 // GetResourceOk returns a tuple with the Resource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InteractionCallbackResponse) GetResourceOk() (*InteractionCallbackResponseResource, bool) {
-	if o == nil || IsNil(o.Resource.Get()) {
+	if o == nil || IsNil(o.Resource) {
 		return nil, false
 	}
-	return o.Resource.Get(), o.Resource.IsSet()
+	return o.Resource, true
 }
 
 // HasResource returns a boolean if a field has been set.
 func (o *InteractionCallbackResponse) HasResource() bool {
-	if o != nil && o.Resource.IsSet() {
+	if o != nil && !IsNil(o.Resource) {
 		return true
 	}
 
 	return false
 }
 
-// SetResource gets a reference to the given NullableInteractionCallbackResponseResource and assigns it to the Resource field.
+// SetResource gets a reference to the given InteractionCallbackResponseResource and assigns it to the Resource field.
 func (o *InteractionCallbackResponse) SetResource(v InteractionCallbackResponseResource) {
-	o.Resource.Set(&v)
+	o.Resource = &v
 }
 
-// SetResourceNil sets the value for Resource to be an explicit nil
-func (o *InteractionCallbackResponse) SetResourceNil() {
-	o.Resource.Set(nil)
-}
-
-// UnsetResource ensures that no value is present for Resource, not even an explicit nil
-func (o *InteractionCallbackResponse) UnsetResource() {
-	o.Resource.Unset()
-}
 
 func (o InteractionCallbackResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -157,8 +147,8 @@ func (o InteractionCallbackResponse) MarshalJSON() ([]byte, error) {
 func (o InteractionCallbackResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["interaction"] = o.Interaction
-	if o.Resource.IsSet() {
-		toSerialize["resource"] = o.Resource.Get()
+	if !IsNil(o.Resource) {
+		toSerialize["resource"] = o.Resource
 	}
 	return toSerialize, nil
 }
@@ -235,5 +225,4 @@ func (v *NullableInteractionCallbackResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

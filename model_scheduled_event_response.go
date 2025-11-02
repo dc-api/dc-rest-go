@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-11-02T04:40:28.586066383Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -62,14 +62,14 @@ type ScheduledEventResponse struct {
 	Description NullableString `json:"description,omitempty"`
 	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	CreatorId *string `json:"creator_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Creator NullableUserResponse `json:"creator,omitempty"`
+	Creator *UserResponse `json:"creator,omitempty"`
 	Image NullableString `json:"image,omitempty"`
 	ScheduledStartTime time.Time `json:"scheduled_start_time"`
 	ScheduledEndTime NullableTime `json:"scheduled_end_time,omitempty"`
 	Status NullableInt32 `json:"status"`
 	EntityType NullableInt32 `json:"entity_type"`
 	EntityId *string `json:"entity_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	UserCount NullableInt32 `json:"user_count,omitempty"`
+	UserCount *int32 `json:"user_count,omitempty"`
 	PrivacyLevel interface{} `json:"privacy_level"`
 	UserRsvp NullableScheduledEventUserResponse `json:"user_rsvp,omitempty"`
 }
@@ -281,48 +281,38 @@ func (o *ScheduledEventResponse) SetCreatorId(v string) {
 }
 
 
-// GetCreator returns the Creator field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreator returns the Creator field value if set, zero value otherwise.
 func (o *ScheduledEventResponse) GetCreator() UserResponse {
-	if o == nil || IsNil(o.Creator.Get()) {
+	if o == nil || IsNil(o.Creator) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.Creator.Get()
+	return *o.Creator
 }
 
 // GetCreatorOk returns a tuple with the Creator field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ScheduledEventResponse) GetCreatorOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.Creator.Get()) {
+	if o == nil || IsNil(o.Creator) {
 		return nil, false
 	}
-	return o.Creator.Get(), o.Creator.IsSet()
+	return o.Creator, true
 }
 
 // HasCreator returns a boolean if a field has been set.
 func (o *ScheduledEventResponse) HasCreator() bool {
-	if o != nil && o.Creator.IsSet() {
+	if o != nil && !IsNil(o.Creator) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreator gets a reference to the given NullableUserResponse and assigns it to the Creator field.
+// SetCreator gets a reference to the given UserResponse and assigns it to the Creator field.
 func (o *ScheduledEventResponse) SetCreator(v UserResponse) {
-	o.Creator.Set(&v)
+	o.Creator = &v
 }
 
-// SetCreatorNil sets the value for Creator to be an explicit nil
-func (o *ScheduledEventResponse) SetCreatorNil() {
-	o.Creator.Set(nil)
-}
-
-// UnsetCreator ensures that no value is present for Creator, not even an explicit nil
-func (o *ScheduledEventResponse) UnsetCreator() {
-	o.Creator.Unset()
-}
 
 // GetImage returns the Image field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ScheduledEventResponse) GetImage() string {
@@ -519,48 +509,38 @@ func (o *ScheduledEventResponse) SetEntityId(v string) {
 }
 
 
-// GetUserCount returns the UserCount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUserCount returns the UserCount field value if set, zero value otherwise.
 func (o *ScheduledEventResponse) GetUserCount() int32 {
-	if o == nil || IsNil(o.UserCount.Get()) {
+	if o == nil || IsNil(o.UserCount) {
 		var ret int32
 		return ret
 	}
-	return *o.UserCount.Get()
+	return *o.UserCount
 }
 
 // GetUserCountOk returns a tuple with the UserCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ScheduledEventResponse) GetUserCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.UserCount.Get()) {
+	if o == nil || IsNil(o.UserCount) {
 		return nil, false
 	}
-	return o.UserCount.Get(), o.UserCount.IsSet()
+	return o.UserCount, true
 }
 
 // HasUserCount returns a boolean if a field has been set.
 func (o *ScheduledEventResponse) HasUserCount() bool {
-	if o != nil && o.UserCount.IsSet() {
+	if o != nil && !IsNil(o.UserCount) {
 		return true
 	}
 
 	return false
 }
 
-// SetUserCount gets a reference to the given NullableInt32 and assigns it to the UserCount field.
+// SetUserCount gets a reference to the given int32 and assigns it to the UserCount field.
 func (o *ScheduledEventResponse) SetUserCount(v int32) {
-	o.UserCount.Set(&v)
+	o.UserCount = &v
 }
 
-// SetUserCountNil sets the value for UserCount to be an explicit nil
-func (o *ScheduledEventResponse) SetUserCountNil() {
-	o.UserCount.Set(nil)
-}
-
-// UnsetUserCount ensures that no value is present for UserCount, not even an explicit nil
-func (o *ScheduledEventResponse) UnsetUserCount() {
-	o.UserCount.Unset()
-}
 
 // GetPrivacyLevel returns the PrivacyLevel field value
 // If the value is explicit nil, the zero value for interface{} will be returned
@@ -653,8 +633,8 @@ func (o ScheduledEventResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreatorId) {
 		toSerialize["creator_id"] = o.CreatorId
 	}
-	if o.Creator.IsSet() {
-		toSerialize["creator"] = o.Creator.Get()
+	if !IsNil(o.Creator) {
+		toSerialize["creator"] = o.Creator
 	}
 	if o.Image.IsSet() {
 		toSerialize["image"] = o.Image.Get()
@@ -668,8 +648,8 @@ func (o ScheduledEventResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EntityId) {
 		toSerialize["entity_id"] = o.EntityId
 	}
-	if o.UserCount.IsSet() {
-		toSerialize["user_count"] = o.UserCount.Get()
+	if !IsNil(o.UserCount) {
+		toSerialize["user_count"] = o.UserCount
 	}
 	if o.PrivacyLevel != nil {
 		toSerialize["privacy_level"] = o.PrivacyLevel
@@ -758,5 +738,4 @@ func (v *NullableScheduledEventResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

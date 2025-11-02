@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]PinnedMessageResponse**](PinnedMessageResponse.md) |  | [optional] 
+**Items** | [**[]PinnedMessageResponse**](PinnedMessageResponse.md) |  | 
 **HasMore** | **bool** |  | 
 
 ## Methods
 
 ### NewPinnedMessagesResponse
 
-`func NewPinnedMessagesResponse(hasMore bool, ) *PinnedMessagesResponse`
+`func NewPinnedMessagesResponse(items []PinnedMessageResponse, hasMore bool, ) *PinnedMessagesResponse`
 
 NewPinnedMessagesResponse instantiates a new PinnedMessagesResponse object
 This constructor will assign default values to properties that have it defined,
@@ -45,22 +45,7 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
-### HasItems
 
-`func (o *PinnedMessagesResponse) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
-
-### SetItemsNil
-
-`func (o *PinnedMessagesResponse) SetItemsNil(b bool)`
-
- SetItemsNil sets the value for Items to be an explicit nil
-
-### UnsetItems
-`func (o *PinnedMessagesResponse) UnsetItems()`
-
-UnsetItems ensures that no value is present for Items, not even an explicit nil
 ### GetHasMore
 
 `func (o *PinnedMessagesResponse) GetHasMore() bool`

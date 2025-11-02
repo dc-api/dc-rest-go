@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-11-02T04:40:28.586066383Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -66,7 +66,7 @@ type InviteGuildResponse struct {
 	VanityUrlCode NullableString `json:"vanity_url_code,omitempty"`
 	NsfwLevel NullableInt32 `json:"nsfw_level,omitempty"`
 	Nsfw NullableBool `json:"nsfw,omitempty"`
-	PremiumSubscriptionCount NullableInt32 `json:"premium_subscription_count,omitempty"`
+	PremiumSubscriptionCount int32 `json:"premium_subscription_count"`
 }
 
 type _InviteGuildResponse InviteGuildResponse
@@ -75,11 +75,12 @@ type _InviteGuildResponse InviteGuildResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInviteGuildResponse(id string, name string, features []string) *InviteGuildResponse {
+func NewInviteGuildResponse(id string, name string, features []string, premiumSubscriptionCount int32) *InviteGuildResponse {
 	this := InviteGuildResponse{}
 	this.Id = id
 	this.Name = name
 	this.Features = features
+	this.PremiumSubscriptionCount = premiumSubscriptionCount
 	return &this
 }
 
@@ -497,47 +498,28 @@ func (o *InviteGuildResponse) UnsetNsfw() {
 	o.Nsfw.Unset()
 }
 
-// GetPremiumSubscriptionCount returns the PremiumSubscriptionCount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPremiumSubscriptionCount returns the PremiumSubscriptionCount field value
 func (o *InviteGuildResponse) GetPremiumSubscriptionCount() int32 {
-	if o == nil || IsNil(o.PremiumSubscriptionCount.Get()) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.PremiumSubscriptionCount.Get()
+
+	return o.PremiumSubscriptionCount
 }
 
-// GetPremiumSubscriptionCountOk returns a tuple with the PremiumSubscriptionCount field value if set, nil otherwise
+// GetPremiumSubscriptionCountOk returns a tuple with the PremiumSubscriptionCount field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteGuildResponse) GetPremiumSubscriptionCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.PremiumSubscriptionCount.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PremiumSubscriptionCount.Get(), o.PremiumSubscriptionCount.IsSet()
+	return &o.PremiumSubscriptionCount, true
 }
 
-// HasPremiumSubscriptionCount returns a boolean if a field has been set.
-func (o *InviteGuildResponse) HasPremiumSubscriptionCount() bool {
-	if o != nil && o.PremiumSubscriptionCount.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPremiumSubscriptionCount gets a reference to the given NullableInt32 and assigns it to the PremiumSubscriptionCount field.
+// SetPremiumSubscriptionCount sets field value
 func (o *InviteGuildResponse) SetPremiumSubscriptionCount(v int32) {
-	o.PremiumSubscriptionCount.Set(&v)
-}
-
-// SetPremiumSubscriptionCountNil sets the value for PremiumSubscriptionCount to be an explicit nil
-func (o *InviteGuildResponse) SetPremiumSubscriptionCountNil() {
-	o.PremiumSubscriptionCount.Set(nil)
-}
-
-// UnsetPremiumSubscriptionCount ensures that no value is present for PremiumSubscriptionCount, not even an explicit nil
-func (o *InviteGuildResponse) UnsetPremiumSubscriptionCount() {
-	o.PremiumSubscriptionCount.Unset()
+	o.PremiumSubscriptionCount = v
 }
 
 func (o InviteGuildResponse) MarshalJSON() ([]byte, error) {
@@ -577,9 +559,7 @@ func (o InviteGuildResponse) ToMap() (map[string]interface{}, error) {
 	if o.Nsfw.IsSet() {
 		toSerialize["nsfw"] = o.Nsfw.Get()
 	}
-	if o.PremiumSubscriptionCount.IsSet() {
-		toSerialize["premium_subscription_count"] = o.PremiumSubscriptionCount.Get()
-	}
+	toSerialize["premium_subscription_count"] = o.PremiumSubscriptionCount
 	return toSerialize, nil
 }
 
@@ -591,6 +571,7 @@ func (o *InviteGuildResponse) UnmarshalJSON(data []byte) (err error) {
 		"id",
 		"name",
 		"features",
+		"premium_subscription_count",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -657,5 +638,4 @@ func (v *NullableInviteGuildResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

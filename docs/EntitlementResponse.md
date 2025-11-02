@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **FulfilledAt** | Pointer to **NullableTime** |  | [optional] 
 **FulfillmentStatus** | Pointer to **NullableInt32** |  | [optional] 
 **Consumed** | Pointer to **NullableBool** |  | [optional] 
+**GifterUserId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -366,6 +367,31 @@ HasConsumed returns a boolean if a field has been set.
 `func (o *EntitlementResponse) UnsetConsumed()`
 
 UnsetConsumed ensures that no value is present for Consumed, not even an explicit nil
+### GetGifterUserId
+
+`func (o *EntitlementResponse) GetGifterUserId() string`
+
+GetGifterUserId returns the GifterUserId field if non-nil, zero value otherwise.
+
+### GetGifterUserIdOk
+
+`func (o *EntitlementResponse) GetGifterUserIdOk() (*string, bool)`
+
+GetGifterUserIdOk returns a tuple with the GifterUserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGifterUserId
+
+`func (o *EntitlementResponse) SetGifterUserId(v string)`
+
+SetGifterUserId sets GifterUserId field to given value.
+
+### HasGifterUserId
+
+`func (o *EntitlementResponse) HasGifterUserId() bool`
+
+HasGifterUserId returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

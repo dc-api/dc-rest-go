@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Type** | **int32** |  | 
 **Name** | **string** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**NameLocalized** | Pointer to **NullableString** |  | [optional] 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**NameLocalized** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -114,16 +114,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *MessageInteractionResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *MessageInteractionResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetNameLocalized
 
 `func (o *MessageInteractionResponse) GetNameLocalized() string`
@@ -149,16 +139,6 @@ SetNameLocalized sets NameLocalized field to given value.
 
 HasNameLocalized returns a boolean if a field has been set.
 
-### SetNameLocalizedNil
-
-`func (o *MessageInteractionResponse) SetNameLocalizedNil(b bool)`
-
- SetNameLocalizedNil sets the value for NameLocalized to be an explicit nil
-
-### UnsetNameLocalized
-`func (o *MessageInteractionResponse) UnsetNameLocalized()`
-
-UnsetNameLocalized ensures that no value is present for NameLocalized, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

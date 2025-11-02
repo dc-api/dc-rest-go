@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-11-02T04:40:28.586066383Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,15 +58,15 @@ type WidgetMember struct {
 	Id string `json:"id"`
 	Username string `json:"username"`
 	Discriminator NullableString `json:"discriminator"`
-	Avatar interface{} `json:"avatar,omitempty"`
+	Avatar *nil `json:"avatar,omitempty"`
 	Status string `json:"status"`
 	AvatarUrl string `json:"avatar_url"`
-	Activity NullableWidgetActivity `json:"activity,omitempty"`
-	Deaf NullableBool `json:"deaf,omitempty"`
-	Mute NullableBool `json:"mute,omitempty"`
-	SelfDeaf NullableBool `json:"self_deaf,omitempty"`
-	SelfMute NullableBool `json:"self_mute,omitempty"`
-	Suppress NullableBool `json:"suppress,omitempty"`
+	Activity *WidgetActivity `json:"activity,omitempty"`
+	Deaf *bool `json:"deaf,omitempty"`
+	Mute *bool `json:"mute,omitempty"`
+	SelfDeaf *bool `json:"self_deaf,omitempty"`
+	SelfMute *bool `json:"self_mute,omitempty"`
+	Suppress *bool `json:"suppress,omitempty"`
 	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
@@ -168,23 +168,22 @@ func (o *WidgetMember) SetDiscriminator(v string) {
 	o.Discriminator.Set(&v)
 }
 
-// GetAvatar returns the Avatar field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WidgetMember) GetAvatar() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetAvatar returns the Avatar field value if set, zero value otherwise.
+func (o *WidgetMember) GetAvatar() nil {
+	if o == nil || IsNil(o.Avatar) {
+		var ret nil
 		return ret
 	}
-	return o.Avatar
+	return *o.Avatar
 }
 
 // GetAvatarOk returns a tuple with the Avatar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WidgetMember) GetAvatarOk() (*interface{}, bool) {
-	if o == nil {
+func (o *WidgetMember) GetAvatarOk() (*nil, bool) {
+	if o == nil || IsNil(o.Avatar) {
 		return nil, false
 	}
-	return &o.Avatar, true
+	return o.Avatar, true
 }
 
 // HasAvatar returns a boolean if a field has been set.
@@ -196,9 +195,9 @@ func (o *WidgetMember) HasAvatar() bool {
 	return false
 }
 
-// SetAvatar gets a reference to the given interface{} and assigns it to the Avatar field.
-func (o *WidgetMember) SetAvatar(v interface{}) {
-	o.Avatar = v
+// SetAvatar gets a reference to the given nil and assigns it to the Avatar field.
+func (o *WidgetMember) SetAvatar(v nil) {
+	o.Avatar = &v
 }
 
 
@@ -250,263 +249,203 @@ func (o *WidgetMember) SetAvatarUrl(v string) {
 	o.AvatarUrl = v
 }
 
-// GetActivity returns the Activity field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetActivity returns the Activity field value if set, zero value otherwise.
 func (o *WidgetMember) GetActivity() WidgetActivity {
-	if o == nil || IsNil(o.Activity.Get()) {
+	if o == nil || IsNil(o.Activity) {
 		var ret WidgetActivity
 		return ret
 	}
-	return *o.Activity.Get()
+	return *o.Activity
 }
 
 // GetActivityOk returns a tuple with the Activity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WidgetMember) GetActivityOk() (*WidgetActivity, bool) {
-	if o == nil || IsNil(o.Activity.Get()) {
+	if o == nil || IsNil(o.Activity) {
 		return nil, false
 	}
-	return o.Activity.Get(), o.Activity.IsSet()
+	return o.Activity, true
 }
 
 // HasActivity returns a boolean if a field has been set.
 func (o *WidgetMember) HasActivity() bool {
-	if o != nil && o.Activity.IsSet() {
+	if o != nil && !IsNil(o.Activity) {
 		return true
 	}
 
 	return false
 }
 
-// SetActivity gets a reference to the given NullableWidgetActivity and assigns it to the Activity field.
+// SetActivity gets a reference to the given WidgetActivity and assigns it to the Activity field.
 func (o *WidgetMember) SetActivity(v WidgetActivity) {
-	o.Activity.Set(&v)
+	o.Activity = &v
 }
 
-// SetActivityNil sets the value for Activity to be an explicit nil
-func (o *WidgetMember) SetActivityNil() {
-	o.Activity.Set(nil)
-}
 
-// UnsetActivity ensures that no value is present for Activity, not even an explicit nil
-func (o *WidgetMember) UnsetActivity() {
-	o.Activity.Unset()
-}
-
-// GetDeaf returns the Deaf field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeaf returns the Deaf field value if set, zero value otherwise.
 func (o *WidgetMember) GetDeaf() bool {
-	if o == nil || IsNil(o.Deaf.Get()) {
+	if o == nil || IsNil(o.Deaf) {
 		var ret bool
 		return ret
 	}
-	return *o.Deaf.Get()
+	return *o.Deaf
 }
 
 // GetDeafOk returns a tuple with the Deaf field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WidgetMember) GetDeafOk() (*bool, bool) {
-	if o == nil || IsNil(o.Deaf.Get()) {
+	if o == nil || IsNil(o.Deaf) {
 		return nil, false
 	}
-	return o.Deaf.Get(), o.Deaf.IsSet()
+	return o.Deaf, true
 }
 
 // HasDeaf returns a boolean if a field has been set.
 func (o *WidgetMember) HasDeaf() bool {
-	if o != nil && o.Deaf.IsSet() {
+	if o != nil && !IsNil(o.Deaf) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeaf gets a reference to the given NullableBool and assigns it to the Deaf field.
+// SetDeaf gets a reference to the given bool and assigns it to the Deaf field.
 func (o *WidgetMember) SetDeaf(v bool) {
-	o.Deaf.Set(&v)
+	o.Deaf = &v
 }
 
-// SetDeafNil sets the value for Deaf to be an explicit nil
-func (o *WidgetMember) SetDeafNil() {
-	o.Deaf.Set(nil)
-}
 
-// UnsetDeaf ensures that no value is present for Deaf, not even an explicit nil
-func (o *WidgetMember) UnsetDeaf() {
-	o.Deaf.Unset()
-}
-
-// GetMute returns the Mute field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMute returns the Mute field value if set, zero value otherwise.
 func (o *WidgetMember) GetMute() bool {
-	if o == nil || IsNil(o.Mute.Get()) {
+	if o == nil || IsNil(o.Mute) {
 		var ret bool
 		return ret
 	}
-	return *o.Mute.Get()
+	return *o.Mute
 }
 
 // GetMuteOk returns a tuple with the Mute field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WidgetMember) GetMuteOk() (*bool, bool) {
-	if o == nil || IsNil(o.Mute.Get()) {
+	if o == nil || IsNil(o.Mute) {
 		return nil, false
 	}
-	return o.Mute.Get(), o.Mute.IsSet()
+	return o.Mute, true
 }
 
 // HasMute returns a boolean if a field has been set.
 func (o *WidgetMember) HasMute() bool {
-	if o != nil && o.Mute.IsSet() {
+	if o != nil && !IsNil(o.Mute) {
 		return true
 	}
 
 	return false
 }
 
-// SetMute gets a reference to the given NullableBool and assigns it to the Mute field.
+// SetMute gets a reference to the given bool and assigns it to the Mute field.
 func (o *WidgetMember) SetMute(v bool) {
-	o.Mute.Set(&v)
+	o.Mute = &v
 }
 
-// SetMuteNil sets the value for Mute to be an explicit nil
-func (o *WidgetMember) SetMuteNil() {
-	o.Mute.Set(nil)
-}
 
-// UnsetMute ensures that no value is present for Mute, not even an explicit nil
-func (o *WidgetMember) UnsetMute() {
-	o.Mute.Unset()
-}
-
-// GetSelfDeaf returns the SelfDeaf field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSelfDeaf returns the SelfDeaf field value if set, zero value otherwise.
 func (o *WidgetMember) GetSelfDeaf() bool {
-	if o == nil || IsNil(o.SelfDeaf.Get()) {
+	if o == nil || IsNil(o.SelfDeaf) {
 		var ret bool
 		return ret
 	}
-	return *o.SelfDeaf.Get()
+	return *o.SelfDeaf
 }
 
 // GetSelfDeafOk returns a tuple with the SelfDeaf field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WidgetMember) GetSelfDeafOk() (*bool, bool) {
-	if o == nil || IsNil(o.SelfDeaf.Get()) {
+	if o == nil || IsNil(o.SelfDeaf) {
 		return nil, false
 	}
-	return o.SelfDeaf.Get(), o.SelfDeaf.IsSet()
+	return o.SelfDeaf, true
 }
 
 // HasSelfDeaf returns a boolean if a field has been set.
 func (o *WidgetMember) HasSelfDeaf() bool {
-	if o != nil && o.SelfDeaf.IsSet() {
+	if o != nil && !IsNil(o.SelfDeaf) {
 		return true
 	}
 
 	return false
 }
 
-// SetSelfDeaf gets a reference to the given NullableBool and assigns it to the SelfDeaf field.
+// SetSelfDeaf gets a reference to the given bool and assigns it to the SelfDeaf field.
 func (o *WidgetMember) SetSelfDeaf(v bool) {
-	o.SelfDeaf.Set(&v)
+	o.SelfDeaf = &v
 }
 
-// SetSelfDeafNil sets the value for SelfDeaf to be an explicit nil
-func (o *WidgetMember) SetSelfDeafNil() {
-	o.SelfDeaf.Set(nil)
-}
 
-// UnsetSelfDeaf ensures that no value is present for SelfDeaf, not even an explicit nil
-func (o *WidgetMember) UnsetSelfDeaf() {
-	o.SelfDeaf.Unset()
-}
-
-// GetSelfMute returns the SelfMute field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSelfMute returns the SelfMute field value if set, zero value otherwise.
 func (o *WidgetMember) GetSelfMute() bool {
-	if o == nil || IsNil(o.SelfMute.Get()) {
+	if o == nil || IsNil(o.SelfMute) {
 		var ret bool
 		return ret
 	}
-	return *o.SelfMute.Get()
+	return *o.SelfMute
 }
 
 // GetSelfMuteOk returns a tuple with the SelfMute field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WidgetMember) GetSelfMuteOk() (*bool, bool) {
-	if o == nil || IsNil(o.SelfMute.Get()) {
+	if o == nil || IsNil(o.SelfMute) {
 		return nil, false
 	}
-	return o.SelfMute.Get(), o.SelfMute.IsSet()
+	return o.SelfMute, true
 }
 
 // HasSelfMute returns a boolean if a field has been set.
 func (o *WidgetMember) HasSelfMute() bool {
-	if o != nil && o.SelfMute.IsSet() {
+	if o != nil && !IsNil(o.SelfMute) {
 		return true
 	}
 
 	return false
 }
 
-// SetSelfMute gets a reference to the given NullableBool and assigns it to the SelfMute field.
+// SetSelfMute gets a reference to the given bool and assigns it to the SelfMute field.
 func (o *WidgetMember) SetSelfMute(v bool) {
-	o.SelfMute.Set(&v)
+	o.SelfMute = &v
 }
 
-// SetSelfMuteNil sets the value for SelfMute to be an explicit nil
-func (o *WidgetMember) SetSelfMuteNil() {
-	o.SelfMute.Set(nil)
-}
 
-// UnsetSelfMute ensures that no value is present for SelfMute, not even an explicit nil
-func (o *WidgetMember) UnsetSelfMute() {
-	o.SelfMute.Unset()
-}
-
-// GetSuppress returns the Suppress field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSuppress returns the Suppress field value if set, zero value otherwise.
 func (o *WidgetMember) GetSuppress() bool {
-	if o == nil || IsNil(o.Suppress.Get()) {
+	if o == nil || IsNil(o.Suppress) {
 		var ret bool
 		return ret
 	}
-	return *o.Suppress.Get()
+	return *o.Suppress
 }
 
 // GetSuppressOk returns a tuple with the Suppress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WidgetMember) GetSuppressOk() (*bool, bool) {
-	if o == nil || IsNil(o.Suppress.Get()) {
+	if o == nil || IsNil(o.Suppress) {
 		return nil, false
 	}
-	return o.Suppress.Get(), o.Suppress.IsSet()
+	return o.Suppress, true
 }
 
 // HasSuppress returns a boolean if a field has been set.
 func (o *WidgetMember) HasSuppress() bool {
-	if o != nil && o.Suppress.IsSet() {
+	if o != nil && !IsNil(o.Suppress) {
 		return true
 	}
 
 	return false
 }
 
-// SetSuppress gets a reference to the given NullableBool and assigns it to the Suppress field.
+// SetSuppress gets a reference to the given bool and assigns it to the Suppress field.
 func (o *WidgetMember) SetSuppress(v bool) {
-	o.Suppress.Set(&v)
+	o.Suppress = &v
 }
 
-// SetSuppressNil sets the value for Suppress to be an explicit nil
-func (o *WidgetMember) SetSuppressNil() {
-	o.Suppress.Set(nil)
-}
-
-// UnsetSuppress ensures that no value is present for Suppress, not even an explicit nil
-func (o *WidgetMember) UnsetSuppress() {
-	o.Suppress.Unset()
-}
 
 // GetChannelId returns the ChannelId field value if set, zero value otherwise.
 func (o *WidgetMember) GetChannelId() string {
@@ -554,28 +493,28 @@ func (o WidgetMember) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["username"] = o.Username
 	toSerialize["discriminator"] = o.Discriminator.Get()
-	if o.Avatar != nil {
+	if !IsNil(o.Avatar) {
 		toSerialize["avatar"] = o.Avatar
 	}
 	toSerialize["status"] = o.Status
 	toSerialize["avatar_url"] = o.AvatarUrl
-	if o.Activity.IsSet() {
-		toSerialize["activity"] = o.Activity.Get()
+	if !IsNil(o.Activity) {
+		toSerialize["activity"] = o.Activity
 	}
-	if o.Deaf.IsSet() {
-		toSerialize["deaf"] = o.Deaf.Get()
+	if !IsNil(o.Deaf) {
+		toSerialize["deaf"] = o.Deaf
 	}
-	if o.Mute.IsSet() {
-		toSerialize["mute"] = o.Mute.Get()
+	if !IsNil(o.Mute) {
+		toSerialize["mute"] = o.Mute
 	}
-	if o.SelfDeaf.IsSet() {
-		toSerialize["self_deaf"] = o.SelfDeaf.Get()
+	if !IsNil(o.SelfDeaf) {
+		toSerialize["self_deaf"] = o.SelfDeaf
 	}
-	if o.SelfMute.IsSet() {
-		toSerialize["self_mute"] = o.SelfMute.Get()
+	if !IsNil(o.SelfMute) {
+		toSerialize["self_mute"] = o.SelfMute
 	}
-	if o.Suppress.IsSet() {
-		toSerialize["suppress"] = o.Suppress.Get()
+	if !IsNil(o.Suppress) {
+		toSerialize["suppress"] = o.Suppress
 	}
 	if !IsNil(o.ChannelId) {
 		toSerialize["channel_id"] = o.ChannelId
@@ -659,5 +598,4 @@ func (v *NullableWidgetMember) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 
