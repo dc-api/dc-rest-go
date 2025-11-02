@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-11-02T04:40:28.586066383Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -243,5 +243,4 @@ func (v *NullableAuditLogObjectChangeResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

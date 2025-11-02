@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **Type** | **int32** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**SourceGuild** | Pointer to [**NullableWebhookSourceGuildResponse**](WebhookSourceGuildResponse.md) |  | [optional] 
-**SourceChannel** | Pointer to [**NullableWebhookSourceChannelResponse**](WebhookSourceChannelResponse.md) |  | [optional] 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**SourceGuild** | Pointer to [**WebhookSourceGuildResponse**](WebhookSourceGuildResponse.md) |  | [optional] 
+**SourceChannel** | Pointer to [**WebhookSourceChannelResponse**](WebhookSourceChannelResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -229,16 +229,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *ChannelFollowerWebhookResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *ChannelFollowerWebhookResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetSourceGuild
 
 `func (o *ChannelFollowerWebhookResponse) GetSourceGuild() WebhookSourceGuildResponse`
@@ -264,16 +254,6 @@ SetSourceGuild sets SourceGuild field to given value.
 
 HasSourceGuild returns a boolean if a field has been set.
 
-### SetSourceGuildNil
-
-`func (o *ChannelFollowerWebhookResponse) SetSourceGuildNil(b bool)`
-
- SetSourceGuildNil sets the value for SourceGuild to be an explicit nil
-
-### UnsetSourceGuild
-`func (o *ChannelFollowerWebhookResponse) UnsetSourceGuild()`
-
-UnsetSourceGuild ensures that no value is present for SourceGuild, not even an explicit nil
 ### GetSourceChannel
 
 `func (o *ChannelFollowerWebhookResponse) GetSourceChannel() WebhookSourceChannelResponse`
@@ -299,16 +279,6 @@ SetSourceChannel sets SourceChannel field to given value.
 
 HasSourceChannel returns a boolean if a field has been set.
 
-### SetSourceChannelNil
-
-`func (o *ChannelFollowerWebhookResponse) SetSourceChannelNil(b bool)`
-
- SetSourceChannelNil sets the value for SourceChannel to be an explicit nil
-
-### UnsetSourceChannel
-`func (o *ChannelFollowerWebhookResponse) UnsetSourceChannel()`
-
-UnsetSourceChannel ensures that no value is present for SourceChannel, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,18 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** |  | 
-**Url** | Pointer to **NullableString** |  | [optional] 
-**Title** | Pointer to **NullableString** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Color** | Pointer to **NullableInt32** |  | [optional] 
-**Timestamp** | Pointer to **NullableTime** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
+**Title** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Color** | Pointer to **int32** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 **Fields** | Pointer to [**[]MessageEmbedFieldResponse**](MessageEmbedFieldResponse.md) |  | [optional] 
-**Author** | Pointer to [**NullableMessageEmbedAuthorResponse**](MessageEmbedAuthorResponse.md) |  | [optional] 
-**Provider** | Pointer to [**NullableMessageEmbedProviderResponse**](MessageEmbedProviderResponse.md) |  | [optional] 
-**Image** | Pointer to [**NullableMessageEmbedImageResponse**](MessageEmbedImageResponse.md) |  | [optional] 
-**Thumbnail** | Pointer to [**NullableMessageEmbedImageResponse**](MessageEmbedImageResponse.md) |  | [optional] 
-**Video** | Pointer to [**NullableMessageEmbedVideoResponse**](MessageEmbedVideoResponse.md) |  | [optional] 
-**Footer** | Pointer to [**NullableMessageEmbedFooterResponse**](MessageEmbedFooterResponse.md) |  | [optional] 
+**Author** | Pointer to [**MessageEmbedAuthorResponse**](MessageEmbedAuthorResponse.md) |  | [optional] 
+**Provider** | Pointer to [**MessageEmbedProviderResponse**](MessageEmbedProviderResponse.md) |  | [optional] 
+**Image** | Pointer to [**MessageEmbedImageResponse**](MessageEmbedImageResponse.md) |  | [optional] 
+**Thumbnail** | Pointer to [**MessageEmbedImageResponse**](MessageEmbedImageResponse.md) |  | [optional] 
+**Video** | Pointer to [**MessageEmbedVideoResponse**](MessageEmbedVideoResponse.md) |  | [optional] 
+**Footer** | Pointer to [**MessageEmbedFooterResponse**](MessageEmbedFooterResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -82,16 +82,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *MessageEmbedResponse) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *MessageEmbedResponse) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetTitle
 
 `func (o *MessageEmbedResponse) GetTitle() string`
@@ -117,16 +107,6 @@ SetTitle sets Title field to given value.
 
 HasTitle returns a boolean if a field has been set.
 
-### SetTitleNil
-
-`func (o *MessageEmbedResponse) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *MessageEmbedResponse) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetDescription
 
 `func (o *MessageEmbedResponse) GetDescription() string`
@@ -152,16 +132,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *MessageEmbedResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *MessageEmbedResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetColor
 
 `func (o *MessageEmbedResponse) GetColor() int32`
@@ -187,16 +157,6 @@ SetColor sets Color field to given value.
 
 HasColor returns a boolean if a field has been set.
 
-### SetColorNil
-
-`func (o *MessageEmbedResponse) SetColorNil(b bool)`
-
- SetColorNil sets the value for Color to be an explicit nil
-
-### UnsetColor
-`func (o *MessageEmbedResponse) UnsetColor()`
-
-UnsetColor ensures that no value is present for Color, not even an explicit nil
 ### GetTimestamp
 
 `func (o *MessageEmbedResponse) GetTimestamp() time.Time`
@@ -222,16 +182,6 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### SetTimestampNil
-
-`func (o *MessageEmbedResponse) SetTimestampNil(b bool)`
-
- SetTimestampNil sets the value for Timestamp to be an explicit nil
-
-### UnsetTimestamp
-`func (o *MessageEmbedResponse) UnsetTimestamp()`
-
-UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
 ### GetFields
 
 `func (o *MessageEmbedResponse) GetFields() []MessageEmbedFieldResponse`
@@ -257,16 +207,6 @@ SetFields sets Fields field to given value.
 
 HasFields returns a boolean if a field has been set.
 
-### SetFieldsNil
-
-`func (o *MessageEmbedResponse) SetFieldsNil(b bool)`
-
- SetFieldsNil sets the value for Fields to be an explicit nil
-
-### UnsetFields
-`func (o *MessageEmbedResponse) UnsetFields()`
-
-UnsetFields ensures that no value is present for Fields, not even an explicit nil
 ### GetAuthor
 
 `func (o *MessageEmbedResponse) GetAuthor() MessageEmbedAuthorResponse`
@@ -292,16 +232,6 @@ SetAuthor sets Author field to given value.
 
 HasAuthor returns a boolean if a field has been set.
 
-### SetAuthorNil
-
-`func (o *MessageEmbedResponse) SetAuthorNil(b bool)`
-
- SetAuthorNil sets the value for Author to be an explicit nil
-
-### UnsetAuthor
-`func (o *MessageEmbedResponse) UnsetAuthor()`
-
-UnsetAuthor ensures that no value is present for Author, not even an explicit nil
 ### GetProvider
 
 `func (o *MessageEmbedResponse) GetProvider() MessageEmbedProviderResponse`
@@ -327,16 +257,6 @@ SetProvider sets Provider field to given value.
 
 HasProvider returns a boolean if a field has been set.
 
-### SetProviderNil
-
-`func (o *MessageEmbedResponse) SetProviderNil(b bool)`
-
- SetProviderNil sets the value for Provider to be an explicit nil
-
-### UnsetProvider
-`func (o *MessageEmbedResponse) UnsetProvider()`
-
-UnsetProvider ensures that no value is present for Provider, not even an explicit nil
 ### GetImage
 
 `func (o *MessageEmbedResponse) GetImage() MessageEmbedImageResponse`
@@ -362,16 +282,6 @@ SetImage sets Image field to given value.
 
 HasImage returns a boolean if a field has been set.
 
-### SetImageNil
-
-`func (o *MessageEmbedResponse) SetImageNil(b bool)`
-
- SetImageNil sets the value for Image to be an explicit nil
-
-### UnsetImage
-`func (o *MessageEmbedResponse) UnsetImage()`
-
-UnsetImage ensures that no value is present for Image, not even an explicit nil
 ### GetThumbnail
 
 `func (o *MessageEmbedResponse) GetThumbnail() MessageEmbedImageResponse`
@@ -397,16 +307,6 @@ SetThumbnail sets Thumbnail field to given value.
 
 HasThumbnail returns a boolean if a field has been set.
 
-### SetThumbnailNil
-
-`func (o *MessageEmbedResponse) SetThumbnailNil(b bool)`
-
- SetThumbnailNil sets the value for Thumbnail to be an explicit nil
-
-### UnsetThumbnail
-`func (o *MessageEmbedResponse) UnsetThumbnail()`
-
-UnsetThumbnail ensures that no value is present for Thumbnail, not even an explicit nil
 ### GetVideo
 
 `func (o *MessageEmbedResponse) GetVideo() MessageEmbedVideoResponse`
@@ -432,16 +332,6 @@ SetVideo sets Video field to given value.
 
 HasVideo returns a boolean if a field has been set.
 
-### SetVideoNil
-
-`func (o *MessageEmbedResponse) SetVideoNil(b bool)`
-
- SetVideoNil sets the value for Video to be an explicit nil
-
-### UnsetVideo
-`func (o *MessageEmbedResponse) UnsetVideo()`
-
-UnsetVideo ensures that no value is present for Video, not even an explicit nil
 ### GetFooter
 
 `func (o *MessageEmbedResponse) GetFooter() MessageEmbedFooterResponse`
@@ -467,16 +357,6 @@ SetFooter sets Footer field to given value.
 
 HasFooter returns a boolean if a field has been set.
 
-### SetFooterNil
-
-`func (o *MessageEmbedResponse) SetFooterNil(b bool)`
-
- SetFooterNil sets the value for Footer to be an explicit nil
-
-### UnsetFooter
-`func (o *MessageEmbedResponse) UnsetFooter()`
-
-UnsetFooter ensures that no value is present for Footer, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

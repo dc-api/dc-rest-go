@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-11-02T04:40:28.586066383Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -61,8 +61,8 @@ type UserResponse struct {
 	Discriminator string `json:"discriminator"`
 	PublicFlags int32 `json:"public_flags"`
 	Flags int64 `json:"flags"`
-	Bot NullableBool `json:"bot,omitempty"`
-	System NullableBool `json:"system,omitempty"`
+	Bot *bool `json:"bot,omitempty"`
+	System *bool `json:"system,omitempty"`
 	Banner NullableString `json:"banner,omitempty"`
 	AccentColor NullableInt32 `json:"accent_color,omitempty"`
 	GlobalName NullableString `json:"global_name,omitempty"`
@@ -258,91 +258,71 @@ func (o *UserResponse) SetFlags(v int64) {
 	o.Flags = v
 }
 
-// GetBot returns the Bot field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBot returns the Bot field value if set, zero value otherwise.
 func (o *UserResponse) GetBot() bool {
-	if o == nil || IsNil(o.Bot.Get()) {
+	if o == nil || IsNil(o.Bot) {
 		var ret bool
 		return ret
 	}
-	return *o.Bot.Get()
+	return *o.Bot
 }
 
 // GetBotOk returns a tuple with the Bot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserResponse) GetBotOk() (*bool, bool) {
-	if o == nil || IsNil(o.Bot.Get()) {
+	if o == nil || IsNil(o.Bot) {
 		return nil, false
 	}
-	return o.Bot.Get(), o.Bot.IsSet()
+	return o.Bot, true
 }
 
 // HasBot returns a boolean if a field has been set.
 func (o *UserResponse) HasBot() bool {
-	if o != nil && o.Bot.IsSet() {
+	if o != nil && !IsNil(o.Bot) {
 		return true
 	}
 
 	return false
 }
 
-// SetBot gets a reference to the given NullableBool and assigns it to the Bot field.
+// SetBot gets a reference to the given bool and assigns it to the Bot field.
 func (o *UserResponse) SetBot(v bool) {
-	o.Bot.Set(&v)
+	o.Bot = &v
 }
 
-// SetBotNil sets the value for Bot to be an explicit nil
-func (o *UserResponse) SetBotNil() {
-	o.Bot.Set(nil)
-}
 
-// UnsetBot ensures that no value is present for Bot, not even an explicit nil
-func (o *UserResponse) UnsetBot() {
-	o.Bot.Unset()
-}
-
-// GetSystem returns the System field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSystem returns the System field value if set, zero value otherwise.
 func (o *UserResponse) GetSystem() bool {
-	if o == nil || IsNil(o.System.Get()) {
+	if o == nil || IsNil(o.System) {
 		var ret bool
 		return ret
 	}
-	return *o.System.Get()
+	return *o.System
 }
 
 // GetSystemOk returns a tuple with the System field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserResponse) GetSystemOk() (*bool, bool) {
-	if o == nil || IsNil(o.System.Get()) {
+	if o == nil || IsNil(o.System) {
 		return nil, false
 	}
-	return o.System.Get(), o.System.IsSet()
+	return o.System, true
 }
 
 // HasSystem returns a boolean if a field has been set.
 func (o *UserResponse) HasSystem() bool {
-	if o != nil && o.System.IsSet() {
+	if o != nil && !IsNil(o.System) {
 		return true
 	}
 
 	return false
 }
 
-// SetSystem gets a reference to the given NullableBool and assigns it to the System field.
+// SetSystem gets a reference to the given bool and assigns it to the System field.
 func (o *UserResponse) SetSystem(v bool) {
-	o.System.Set(&v)
+	o.System = &v
 }
 
-// SetSystemNil sets the value for System to be an explicit nil
-func (o *UserResponse) SetSystemNil() {
-	o.System.Set(nil)
-}
-
-// UnsetSystem ensures that no value is present for System, not even an explicit nil
-func (o *UserResponse) UnsetSystem() {
-	o.System.Unset()
-}
 
 // GetBanner returns the Banner field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserResponse) GetBanner() string {
@@ -620,11 +600,11 @@ func (o UserResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["discriminator"] = o.Discriminator
 	toSerialize["public_flags"] = o.PublicFlags
 	toSerialize["flags"] = o.Flags
-	if o.Bot.IsSet() {
-		toSerialize["bot"] = o.Bot.Get()
+	if !IsNil(o.Bot) {
+		toSerialize["bot"] = o.Bot
 	}
-	if o.System.IsSet() {
-		toSerialize["system"] = o.System.Get()
+	if !IsNil(o.System) {
+		toSerialize["system"] = o.System
 	}
 	if o.Banner.IsSet() {
 		toSerialize["banner"] = o.Banner.Get()
@@ -723,5 +703,4 @@ func (v *NullableUserResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

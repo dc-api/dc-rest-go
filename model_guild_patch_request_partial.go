@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-11-02T04:40:28.586066383Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -64,7 +64,6 @@ type GuildPatchRequestPartial struct {
 	AfkTimeout NullableInt32 `json:"afk_timeout,omitempty"`
 	AfkChannelId *string `json:"afk_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	SystemChannelId *string `json:"system_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	OwnerId *string `json:"owner_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Splash NullableString `json:"splash,omitempty"`
 	Banner NullableString `json:"banner,omitempty"`
 	SystemChannelFlags NullableInt32 `json:"system_channel_flags,omitempty"`
@@ -494,39 +493,6 @@ func (o *GuildPatchRequestPartial) HasSystemChannelId() bool {
 // SetSystemChannelId gets a reference to the given string and assigns it to the SystemChannelId field.
 func (o *GuildPatchRequestPartial) SetSystemChannelId(v string) {
 	o.SystemChannelId = &v
-}
-
-
-// GetOwnerId returns the OwnerId field value if set, zero value otherwise.
-func (o *GuildPatchRequestPartial) GetOwnerId() string {
-	if o == nil || IsNil(o.OwnerId) {
-		var ret string
-		return ret
-	}
-	return *o.OwnerId
-}
-
-// GetOwnerIdOk returns a tuple with the OwnerId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GuildPatchRequestPartial) GetOwnerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.OwnerId) {
-		return nil, false
-	}
-	return o.OwnerId, true
-}
-
-// HasOwnerId returns a boolean if a field has been set.
-func (o *GuildPatchRequestPartial) HasOwnerId() bool {
-	if o != nil && !IsNil(o.OwnerId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOwnerId gets a reference to the given string and assigns it to the OwnerId field.
-func (o *GuildPatchRequestPartial) SetOwnerId(v string) {
-	o.OwnerId = &v
 }
 
 
@@ -964,9 +930,6 @@ func (o GuildPatchRequestPartial) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SystemChannelId) {
 		toSerialize["system_channel_id"] = o.SystemChannelId
 	}
-	if !IsNil(o.OwnerId) {
-		toSerialize["owner_id"] = o.OwnerId
-	}
 	if o.Splash.IsSet() {
 		toSerialize["splash"] = o.Splash.Get()
 	}
@@ -1035,5 +998,4 @@ func (v *NullableGuildPatchRequestPartial) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

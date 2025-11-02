@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 **OwnerId** | **string** |  | 
 **Managed** | Pointer to **bool** |  | [optional] 
 **ApplicationId** | Pointer to **string** |  | [optional] 
-**ThreadMetadata** | Pointer to [**ThreadMetadataResponse**](ThreadMetadataResponse.md) |  | [optional] 
+**ThreadMetadata** | [**ThreadMetadataResponse**](ThreadMetadataResponse.md) |  | 
 **MessageCount** | **int32** |  | 
 **MemberCount** | **int32** |  | 
 **TotalMessageSent** | **int32** |  | 
@@ -47,7 +47,7 @@ Name | Type | Description | Notes
 
 ### NewGetChannel200Response
 
-`func NewGetChannel200Response(id string, type_ int32, flags int32, guildId string, name string, position int32, recipients []UserResponse, ownerId string, messageCount int32, memberCount int32, totalMessageSent int32, ) *GetChannel200Response`
+`func NewGetChannel200Response(id string, type_ int32, flags int32, guildId string, name string, position int32, recipients []UserResponse, ownerId string, threadMetadata ThreadMetadataResponse, messageCount int32, memberCount int32, totalMessageSent int32, ) *GetChannel200Response`
 
 NewGetChannel200Response instantiates a new GetChannel200Response object
 This constructor will assign default values to properties that have it defined,
@@ -841,11 +841,6 @@ and a boolean to check if the value has been set.
 
 SetThreadMetadata sets ThreadMetadata field to given value.
 
-### HasThreadMetadata
-
-`func (o *GetChannel200Response) HasThreadMetadata() bool`
-
-HasThreadMetadata returns a boolean if a field has been set.
 
 ### GetMessageCount
 

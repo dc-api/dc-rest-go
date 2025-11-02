@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **AfkTimeout** | Pointer to **NullableInt32** |  | [optional] 
 **AfkChannelId** | Pointer to **string** |  | [optional] 
 **SystemChannelId** | Pointer to **string** |  | [optional] 
-**OwnerId** | Pointer to **string** |  | [optional] 
 **Splash** | Pointer to **NullableString** |  | [optional] 
 **Banner** | Pointer to **NullableString** |  | [optional] 
 **SystemChannelFlags** | Pointer to **NullableInt32** |  | [optional] 
@@ -360,31 +359,6 @@ SetSystemChannelId sets SystemChannelId field to given value.
 `func (o *GuildPatchRequestPartial) HasSystemChannelId() bool`
 
 HasSystemChannelId returns a boolean if a field has been set.
-
-### GetOwnerId
-
-`func (o *GuildPatchRequestPartial) GetOwnerId() string`
-
-GetOwnerId returns the OwnerId field if non-nil, zero value otherwise.
-
-### GetOwnerIdOk
-
-`func (o *GuildPatchRequestPartial) GetOwnerIdOk() (*string, bool)`
-
-GetOwnerIdOk returns a tuple with the OwnerId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOwnerId
-
-`func (o *GuildPatchRequestPartial) SetOwnerId(v string)`
-
-SetOwnerId sets OwnerId field to given value.
-
-### HasOwnerId
-
-`func (o *GuildPatchRequestPartial) HasOwnerId() bool`
-
-HasOwnerId returns a boolean if a field has been set.
 
 ### GetSplash
 

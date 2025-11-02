@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-11-02T04:40:28.586066383Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -60,9 +60,9 @@ type TextInputComponentResponse struct {
 	CustomId string `json:"custom_id"`
 	Style int32 `json:"style"`
 	Label NullableString `json:"label,omitempty"`
-	Value NullableString `json:"value,omitempty"`
-	Placeholder NullableString `json:"placeholder,omitempty"`
-	Required NullableBool `json:"required,omitempty"`
+	Value *string `json:"value,omitempty"`
+	Placeholder *string `json:"placeholder,omitempty"`
+	Required *bool `json:"required,omitempty"`
 	MinLength NullableInt32 `json:"min_length,omitempty"`
 	MaxLength NullableInt32 `json:"max_length,omitempty"`
 }
@@ -229,134 +229,104 @@ func (o *TextInputComponentResponse) UnsetLabel() {
 	o.Label.Unset()
 }
 
-// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetValue returns the Value field value if set, zero value otherwise.
 func (o *TextInputComponentResponse) GetValue() string {
-	if o == nil || IsNil(o.Value.Get()) {
+	if o == nil || IsNil(o.Value) {
 		var ret string
 		return ret
 	}
-	return *o.Value.Get()
+	return *o.Value
 }
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TextInputComponentResponse) GetValueOk() (*string, bool) {
-	if o == nil || IsNil(o.Value.Get()) {
+	if o == nil || IsNil(o.Value) {
 		return nil, false
 	}
-	return o.Value.Get(), o.Value.IsSet()
+	return o.Value, true
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *TextInputComponentResponse) HasValue() bool {
-	if o != nil && o.Value.IsSet() {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
 	return false
 }
 
-// SetValue gets a reference to the given NullableString and assigns it to the Value field.
+// SetValue gets a reference to the given string and assigns it to the Value field.
 func (o *TextInputComponentResponse) SetValue(v string) {
-	o.Value.Set(&v)
+	o.Value = &v
 }
 
-// SetValueNil sets the value for Value to be an explicit nil
-func (o *TextInputComponentResponse) SetValueNil() {
-	o.Value.Set(nil)
-}
 
-// UnsetValue ensures that no value is present for Value, not even an explicit nil
-func (o *TextInputComponentResponse) UnsetValue() {
-	o.Value.Unset()
-}
-
-// GetPlaceholder returns the Placeholder field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPlaceholder returns the Placeholder field value if set, zero value otherwise.
 func (o *TextInputComponentResponse) GetPlaceholder() string {
-	if o == nil || IsNil(o.Placeholder.Get()) {
+	if o == nil || IsNil(o.Placeholder) {
 		var ret string
 		return ret
 	}
-	return *o.Placeholder.Get()
+	return *o.Placeholder
 }
 
 // GetPlaceholderOk returns a tuple with the Placeholder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TextInputComponentResponse) GetPlaceholderOk() (*string, bool) {
-	if o == nil || IsNil(o.Placeholder.Get()) {
+	if o == nil || IsNil(o.Placeholder) {
 		return nil, false
 	}
-	return o.Placeholder.Get(), o.Placeholder.IsSet()
+	return o.Placeholder, true
 }
 
 // HasPlaceholder returns a boolean if a field has been set.
 func (o *TextInputComponentResponse) HasPlaceholder() bool {
-	if o != nil && o.Placeholder.IsSet() {
+	if o != nil && !IsNil(o.Placeholder) {
 		return true
 	}
 
 	return false
 }
 
-// SetPlaceholder gets a reference to the given NullableString and assigns it to the Placeholder field.
+// SetPlaceholder gets a reference to the given string and assigns it to the Placeholder field.
 func (o *TextInputComponentResponse) SetPlaceholder(v string) {
-	o.Placeholder.Set(&v)
+	o.Placeholder = &v
 }
 
-// SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-func (o *TextInputComponentResponse) SetPlaceholderNil() {
-	o.Placeholder.Set(nil)
-}
 
-// UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
-func (o *TextInputComponentResponse) UnsetPlaceholder() {
-	o.Placeholder.Unset()
-}
-
-// GetRequired returns the Required field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRequired returns the Required field value if set, zero value otherwise.
 func (o *TextInputComponentResponse) GetRequired() bool {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		var ret bool
 		return ret
 	}
-	return *o.Required.Get()
+	return *o.Required
 }
 
 // GetRequiredOk returns a tuple with the Required field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TextInputComponentResponse) GetRequiredOk() (*bool, bool) {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		return nil, false
 	}
-	return o.Required.Get(), o.Required.IsSet()
+	return o.Required, true
 }
 
 // HasRequired returns a boolean if a field has been set.
 func (o *TextInputComponentResponse) HasRequired() bool {
-	if o != nil && o.Required.IsSet() {
+	if o != nil && !IsNil(o.Required) {
 		return true
 	}
 
 	return false
 }
 
-// SetRequired gets a reference to the given NullableBool and assigns it to the Required field.
+// SetRequired gets a reference to the given bool and assigns it to the Required field.
 func (o *TextInputComponentResponse) SetRequired(v bool) {
-	o.Required.Set(&v)
+	o.Required = &v
 }
 
-// SetRequiredNil sets the value for Required to be an explicit nil
-func (o *TextInputComponentResponse) SetRequiredNil() {
-	o.Required.Set(nil)
-}
-
-// UnsetRequired ensures that no value is present for Required, not even an explicit nil
-func (o *TextInputComponentResponse) UnsetRequired() {
-	o.Required.Unset()
-}
 
 // GetMinLength returns the MinLength field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TextInputComponentResponse) GetMinLength() int32 {
@@ -461,14 +431,14 @@ func (o TextInputComponentResponse) ToMap() (map[string]interface{}, error) {
 	if o.Label.IsSet() {
 		toSerialize["label"] = o.Label.Get()
 	}
-	if o.Value.IsSet() {
-		toSerialize["value"] = o.Value.Get()
+	if !IsNil(o.Value) {
+		toSerialize["value"] = o.Value
 	}
-	if o.Placeholder.IsSet() {
-		toSerialize["placeholder"] = o.Placeholder.Get()
+	if !IsNil(o.Placeholder) {
+		toSerialize["placeholder"] = o.Placeholder
 	}
-	if o.Required.IsSet() {
-		toSerialize["required"] = o.Required.Get()
+	if !IsNil(o.Required) {
+		toSerialize["required"] = o.Required
 	}
 	if o.MinLength.IsSet() {
 		toSerialize["min_length"] = o.MinLength.Get()
@@ -554,5 +524,4 @@ func (v *NullableTextInputComponentResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

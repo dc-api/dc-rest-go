@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **CustomId** | **string** |  | 
 **Style** | **int32** |  | 
 **Label** | Pointer to **NullableString** |  | [optional] 
-**Value** | Pointer to **NullableString** |  | [optional] 
-**Placeholder** | Pointer to **NullableString** |  | [optional] 
-**Required** | Pointer to **NullableBool** |  | [optional] 
+**Value** | Pointer to **string** |  | [optional] 
+**Placeholder** | Pointer to **string** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
 **MinLength** | Pointer to **NullableInt32** |  | [optional] 
 **MaxLength** | Pointer to **NullableInt32** |  | [optional] 
 
@@ -174,16 +174,6 @@ SetValue sets Value field to given value.
 
 HasValue returns a boolean if a field has been set.
 
-### SetValueNil
-
-`func (o *TextInputComponentResponse) SetValueNil(b bool)`
-
- SetValueNil sets the value for Value to be an explicit nil
-
-### UnsetValue
-`func (o *TextInputComponentResponse) UnsetValue()`
-
-UnsetValue ensures that no value is present for Value, not even an explicit nil
 ### GetPlaceholder
 
 `func (o *TextInputComponentResponse) GetPlaceholder() string`
@@ -209,16 +199,6 @@ SetPlaceholder sets Placeholder field to given value.
 
 HasPlaceholder returns a boolean if a field has been set.
 
-### SetPlaceholderNil
-
-`func (o *TextInputComponentResponse) SetPlaceholderNil(b bool)`
-
- SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-
-### UnsetPlaceholder
-`func (o *TextInputComponentResponse) UnsetPlaceholder()`
-
-UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
 ### GetRequired
 
 `func (o *TextInputComponentResponse) GetRequired() bool`
@@ -244,16 +224,6 @@ SetRequired sets Required field to given value.
 
 HasRequired returns a boolean if a field has been set.
 
-### SetRequiredNil
-
-`func (o *TextInputComponentResponse) SetRequiredNil(b bool)`
-
- SetRequiredNil sets the value for Required to be an explicit nil
-
-### UnsetRequired
-`func (o *TextInputComponentResponse) UnsetRequired()`
-
-UnsetRequired ensures that no value is present for Required, not even an explicit nil
 ### GetMinLength
 
 `func (o *TextInputComponentResponse) GetMinLength() int32`

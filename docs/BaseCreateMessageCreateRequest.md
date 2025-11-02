@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Flags** | Pointer to **NullableInt32** |  | [optional] 
 **Attachments** | Pointer to [**[]MessageAttachmentRequest**](MessageAttachmentRequest.md) |  | [optional] 
 **Poll** | Pointer to [**NullablePollCreateRequest**](PollCreateRequest.md) |  | [optional] 
+**SharedClientTheme** | Pointer to [**NullableCustomClientThemeShareRequest**](CustomClientThemeShareRequest.md) |  | [optional] 
 **ConfettiPotion** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
@@ -313,6 +314,41 @@ HasPoll returns a boolean if a field has been set.
 `func (o *BaseCreateMessageCreateRequest) UnsetPoll()`
 
 UnsetPoll ensures that no value is present for Poll, not even an explicit nil
+### GetSharedClientTheme
+
+`func (o *BaseCreateMessageCreateRequest) GetSharedClientTheme() CustomClientThemeShareRequest`
+
+GetSharedClientTheme returns the SharedClientTheme field if non-nil, zero value otherwise.
+
+### GetSharedClientThemeOk
+
+`func (o *BaseCreateMessageCreateRequest) GetSharedClientThemeOk() (*CustomClientThemeShareRequest, bool)`
+
+GetSharedClientThemeOk returns a tuple with the SharedClientTheme field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSharedClientTheme
+
+`func (o *BaseCreateMessageCreateRequest) SetSharedClientTheme(v CustomClientThemeShareRequest)`
+
+SetSharedClientTheme sets SharedClientTheme field to given value.
+
+### HasSharedClientTheme
+
+`func (o *BaseCreateMessageCreateRequest) HasSharedClientTheme() bool`
+
+HasSharedClientTheme returns a boolean if a field has been set.
+
+### SetSharedClientThemeNil
+
+`func (o *BaseCreateMessageCreateRequest) SetSharedClientThemeNil(b bool)`
+
+ SetSharedClientThemeNil sets the value for SharedClientTheme to be an explicit nil
+
+### UnsetSharedClientTheme
+`func (o *BaseCreateMessageCreateRequest) UnsetSharedClientTheme()`
+
+UnsetSharedClientTheme ensures that no value is present for SharedClientTheme, not even an explicit nil
 ### GetConfettiPotion
 
 `func (o *BaseCreateMessageCreateRequest) GetConfettiPotion() map[string]interface{}`

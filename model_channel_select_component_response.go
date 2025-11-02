@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-11-02T04:40:28.586066383Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,10 +58,10 @@ type ChannelSelectComponentResponse struct {
 	Type int32 `json:"type"`
 	Id int32 `json:"id"`
 	CustomId string `json:"custom_id"`
-	Placeholder NullableString `json:"placeholder,omitempty"`
+	Placeholder *string `json:"placeholder,omitempty"`
 	MinValues NullableInt32 `json:"min_values,omitempty"`
 	MaxValues NullableInt32 `json:"max_values,omitempty"`
-	Disabled NullableBool `json:"disabled,omitempty"`
+	Disabled *bool `json:"disabled,omitempty"`
 	ChannelTypes []int32 `json:"channel_types,omitempty"`
 	DefaultValues []ChannelSelectDefaultValueResponse `json:"default_values,omitempty"`
 }
@@ -160,48 +160,38 @@ func (o *ChannelSelectComponentResponse) SetCustomId(v string) {
 	o.CustomId = v
 }
 
-// GetPlaceholder returns the Placeholder field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPlaceholder returns the Placeholder field value if set, zero value otherwise.
 func (o *ChannelSelectComponentResponse) GetPlaceholder() string {
-	if o == nil || IsNil(o.Placeholder.Get()) {
+	if o == nil || IsNil(o.Placeholder) {
 		var ret string
 		return ret
 	}
-	return *o.Placeholder.Get()
+	return *o.Placeholder
 }
 
 // GetPlaceholderOk returns a tuple with the Placeholder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelSelectComponentResponse) GetPlaceholderOk() (*string, bool) {
-	if o == nil || IsNil(o.Placeholder.Get()) {
+	if o == nil || IsNil(o.Placeholder) {
 		return nil, false
 	}
-	return o.Placeholder.Get(), o.Placeholder.IsSet()
+	return o.Placeholder, true
 }
 
 // HasPlaceholder returns a boolean if a field has been set.
 func (o *ChannelSelectComponentResponse) HasPlaceholder() bool {
-	if o != nil && o.Placeholder.IsSet() {
+	if o != nil && !IsNil(o.Placeholder) {
 		return true
 	}
 
 	return false
 }
 
-// SetPlaceholder gets a reference to the given NullableString and assigns it to the Placeholder field.
+// SetPlaceholder gets a reference to the given string and assigns it to the Placeholder field.
 func (o *ChannelSelectComponentResponse) SetPlaceholder(v string) {
-	o.Placeholder.Set(&v)
+	o.Placeholder = &v
 }
 
-// SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-func (o *ChannelSelectComponentResponse) SetPlaceholderNil() {
-	o.Placeholder.Set(nil)
-}
-
-// UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
-func (o *ChannelSelectComponentResponse) UnsetPlaceholder() {
-	o.Placeholder.Unset()
-}
 
 // GetMinValues returns the MinValues field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ChannelSelectComponentResponse) GetMinValues() int32 {
@@ -289,52 +279,42 @@ func (o *ChannelSelectComponentResponse) UnsetMaxValues() {
 	o.MaxValues.Unset()
 }
 
-// GetDisabled returns the Disabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDisabled returns the Disabled field value if set, zero value otherwise.
 func (o *ChannelSelectComponentResponse) GetDisabled() bool {
-	if o == nil || IsNil(o.Disabled.Get()) {
+	if o == nil || IsNil(o.Disabled) {
 		var ret bool
 		return ret
 	}
-	return *o.Disabled.Get()
+	return *o.Disabled
 }
 
 // GetDisabledOk returns a tuple with the Disabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelSelectComponentResponse) GetDisabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Disabled.Get()) {
+	if o == nil || IsNil(o.Disabled) {
 		return nil, false
 	}
-	return o.Disabled.Get(), o.Disabled.IsSet()
+	return o.Disabled, true
 }
 
 // HasDisabled returns a boolean if a field has been set.
 func (o *ChannelSelectComponentResponse) HasDisabled() bool {
-	if o != nil && o.Disabled.IsSet() {
+	if o != nil && !IsNil(o.Disabled) {
 		return true
 	}
 
 	return false
 }
 
-// SetDisabled gets a reference to the given NullableBool and assigns it to the Disabled field.
+// SetDisabled gets a reference to the given bool and assigns it to the Disabled field.
 func (o *ChannelSelectComponentResponse) SetDisabled(v bool) {
-	o.Disabled.Set(&v)
+	o.Disabled = &v
 }
 
-// SetDisabledNil sets the value for Disabled to be an explicit nil
-func (o *ChannelSelectComponentResponse) SetDisabledNil() {
-	o.Disabled.Set(nil)
-}
 
-// UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
-func (o *ChannelSelectComponentResponse) UnsetDisabled() {
-	o.Disabled.Unset()
-}
-
-// GetChannelTypes returns the ChannelTypes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetChannelTypes returns the ChannelTypes field value if set, zero value otherwise.
 func (o *ChannelSelectComponentResponse) GetChannelTypes() []int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ChannelTypes) {
 		var ret []int32
 		return ret
 	}
@@ -343,9 +323,8 @@ func (o *ChannelSelectComponentResponse) GetChannelTypes() []int32 {
 
 // GetChannelTypesOk returns a tuple with the ChannelTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelSelectComponentResponse) GetChannelTypesOk() ([]int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ChannelTypes) {
 		return nil, false
 	}
 	return o.ChannelTypes, true
@@ -366,9 +345,9 @@ func (o *ChannelSelectComponentResponse) SetChannelTypes(v []int32) {
 }
 
 
-// GetDefaultValues returns the DefaultValues field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDefaultValues returns the DefaultValues field value if set, zero value otherwise.
 func (o *ChannelSelectComponentResponse) GetDefaultValues() []ChannelSelectDefaultValueResponse {
-	if o == nil {
+	if o == nil || IsNil(o.DefaultValues) {
 		var ret []ChannelSelectDefaultValueResponse
 		return ret
 	}
@@ -377,9 +356,8 @@ func (o *ChannelSelectComponentResponse) GetDefaultValues() []ChannelSelectDefau
 
 // GetDefaultValuesOk returns a tuple with the DefaultValues field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelSelectComponentResponse) GetDefaultValuesOk() ([]ChannelSelectDefaultValueResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DefaultValues) {
 		return nil, false
 	}
 	return o.DefaultValues, true
@@ -413,8 +391,8 @@ func (o ChannelSelectComponentResponse) ToMap() (map[string]interface{}, error) 
 	toSerialize["type"] = o.Type
 	toSerialize["id"] = o.Id
 	toSerialize["custom_id"] = o.CustomId
-	if o.Placeholder.IsSet() {
-		toSerialize["placeholder"] = o.Placeholder.Get()
+	if !IsNil(o.Placeholder) {
+		toSerialize["placeholder"] = o.Placeholder
 	}
 	if o.MinValues.IsSet() {
 		toSerialize["min_values"] = o.MinValues.Get()
@@ -422,13 +400,13 @@ func (o ChannelSelectComponentResponse) ToMap() (map[string]interface{}, error) 
 	if o.MaxValues.IsSet() {
 		toSerialize["max_values"] = o.MaxValues.Get()
 	}
-	if o.Disabled.IsSet() {
-		toSerialize["disabled"] = o.Disabled.Get()
+	if !IsNil(o.Disabled) {
+		toSerialize["disabled"] = o.Disabled
 	}
-	if o.ChannelTypes != nil {
+	if !IsNil(o.ChannelTypes) {
 		toSerialize["channel_types"] = o.ChannelTypes
 	}
-	if o.DefaultValues != nil {
+	if !IsNil(o.DefaultValues) {
 		toSerialize["default_values"] = o.DefaultValues
 	}
 	return toSerialize, nil
@@ -508,5 +486,4 @@ func (v *NullableChannelSelectComponentResponse) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

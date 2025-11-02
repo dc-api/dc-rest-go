@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **int32** |  | 
+**Id** | Pointer to **NullableInt32** |  | [optional] 
 **Components** | [**[]TextDisplayComponentForMessageRequest**](TextDisplayComponentForMessageRequest.md) |  | 
 **Accessory** | [**SectionComponentForMessageRequestAccessory**](SectionComponentForMessageRequestAccessory.md) |  | 
 
@@ -47,6 +48,41 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
+### GetId
+
+`func (o *SectionComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *SectionComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *SectionComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *SectionComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *SectionComponentForMessageRequest) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *SectionComponentForMessageRequest) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetComponents
 
 `func (o *SectionComponentForMessageRequest) GetComponents() []TextDisplayComponentForMessageRequest`

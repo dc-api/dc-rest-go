@@ -5,25 +5,27 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **int32** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 **CustomId** | **string** |  | 
 **Style** | **int32** |  | 
 **Label** | Pointer to **string** |  | [optional] 
 **Disabled** | Pointer to **bool** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
 **SkuId** | Pointer to **string** |  | [optional] 
-**Emoji** | Pointer to [**ComponentEmojiForMessageRequest**](ComponentEmojiForMessageRequest.md) |  | [optional] 
+**Emoji** | Pointer to [**ComponentEmojiForRequest**](ComponentEmojiForRequest.md) |  | [optional] 
 **Placeholder** | Pointer to **string** |  | [optional] 
 **MinValues** | Pointer to **int32** |  | [optional] 
 **MaxValues** | Pointer to **int32** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
 **DefaultValues** | Pointer to [**[]UserSelectDefaultValue**](UserSelectDefaultValue.md) |  | [optional] 
 **ChannelTypes** | Pointer to **[]int32** |  | [optional] 
-**Options** | [**[]StringSelectOptionForMessageRequest**](StringSelectOptionForMessageRequest.md) |  | 
+**Options** | [**[]StringSelectOptionForRequest**](StringSelectOptionForRequest.md) |  | 
 
 ## Methods
 
 ### NewActionRowComponentForMessageRequestComponentsInner
 
-`func NewActionRowComponentForMessageRequestComponentsInner(type_ int32, customId string, style int32, options []StringSelectOptionForMessageRequest, ) *ActionRowComponentForMessageRequestComponentsInner`
+`func NewActionRowComponentForMessageRequestComponentsInner(type_ int32, customId string, style int32, options []StringSelectOptionForRequest, ) *ActionRowComponentForMessageRequestComponentsInner`
 
 NewActionRowComponentForMessageRequestComponentsInner instantiates a new ActionRowComponentForMessageRequestComponentsInner object
 This constructor will assign default values to properties that have it defined,
@@ -57,6 +59,31 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *ActionRowComponentForMessageRequestComponentsInner) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ActionRowComponentForMessageRequestComponentsInner) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ActionRowComponentForMessageRequestComponentsInner) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *ActionRowComponentForMessageRequestComponentsInner) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetCustomId
 
@@ -200,20 +227,20 @@ HasSkuId returns a boolean if a field has been set.
 
 ### GetEmoji
 
-`func (o *ActionRowComponentForMessageRequestComponentsInner) GetEmoji() ComponentEmojiForMessageRequest`
+`func (o *ActionRowComponentForMessageRequestComponentsInner) GetEmoji() ComponentEmojiForRequest`
 
 GetEmoji returns the Emoji field if non-nil, zero value otherwise.
 
 ### GetEmojiOk
 
-`func (o *ActionRowComponentForMessageRequestComponentsInner) GetEmojiOk() (*ComponentEmojiForMessageRequest, bool)`
+`func (o *ActionRowComponentForMessageRequestComponentsInner) GetEmojiOk() (*ComponentEmojiForRequest, bool)`
 
 GetEmojiOk returns a tuple with the Emoji field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmoji
 
-`func (o *ActionRowComponentForMessageRequestComponentsInner) SetEmoji(v ComponentEmojiForMessageRequest)`
+`func (o *ActionRowComponentForMessageRequestComponentsInner) SetEmoji(v ComponentEmojiForRequest)`
 
 SetEmoji sets Emoji field to given value.
 
@@ -298,6 +325,31 @@ SetMaxValues sets MaxValues field to given value.
 
 HasMaxValues returns a boolean if a field has been set.
 
+### GetRequired
+
+`func (o *ActionRowComponentForMessageRequestComponentsInner) GetRequired() bool`
+
+GetRequired returns the Required field if non-nil, zero value otherwise.
+
+### GetRequiredOk
+
+`func (o *ActionRowComponentForMessageRequestComponentsInner) GetRequiredOk() (*bool, bool)`
+
+GetRequiredOk returns a tuple with the Required field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequired
+
+`func (o *ActionRowComponentForMessageRequestComponentsInner) SetRequired(v bool)`
+
+SetRequired sets Required field to given value.
+
+### HasRequired
+
+`func (o *ActionRowComponentForMessageRequestComponentsInner) HasRequired() bool`
+
+HasRequired returns a boolean if a field has been set.
+
 ### GetDefaultValues
 
 `func (o *ActionRowComponentForMessageRequestComponentsInner) GetDefaultValues() []UserSelectDefaultValue`
@@ -350,20 +402,20 @@ HasChannelTypes returns a boolean if a field has been set.
 
 ### GetOptions
 
-`func (o *ActionRowComponentForMessageRequestComponentsInner) GetOptions() []StringSelectOptionForMessageRequest`
+`func (o *ActionRowComponentForMessageRequestComponentsInner) GetOptions() []StringSelectOptionForRequest`
 
 GetOptions returns the Options field if non-nil, zero value otherwise.
 
 ### GetOptionsOk
 
-`func (o *ActionRowComponentForMessageRequestComponentsInner) GetOptionsOk() (*[]StringSelectOptionForMessageRequest, bool)`
+`func (o *ActionRowComponentForMessageRequestComponentsInner) GetOptionsOk() (*[]StringSelectOptionForRequest, bool)`
 
 GetOptionsOk returns a tuple with the Options field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOptions
 
-`func (o *ActionRowComponentForMessageRequestComponentsInner) SetOptions(v []StringSelectOptionForMessageRequest)`
+`func (o *ActionRowComponentForMessageRequestComponentsInner) SetOptions(v []StringSelectOptionForRequest)`
 
 SetOptions sets Options field to given value.
 
