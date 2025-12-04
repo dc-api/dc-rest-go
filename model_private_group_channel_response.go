@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-04T03:54:15.906780824Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -64,8 +64,8 @@ type PrivateGroupChannelResponse struct {
 	Recipients []UserResponse `json:"recipients"`
 	Name NullableString `json:"name,omitempty"`
 	Icon NullableString `json:"icon,omitempty"`
-	OwnerId *string `json:"owner_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Managed NullableBool `json:"managed,omitempty"`
+	OwnerId string `json:"owner_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	Managed *bool `json:"managed,omitempty"`
 	ApplicationId *string `json:"application_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
@@ -75,12 +75,13 @@ type _PrivateGroupChannelResponse PrivateGroupChannelResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPrivateGroupChannelResponse(id string, type_ int32, flags int32, recipients []UserResponse) *PrivateGroupChannelResponse {
+func NewPrivateGroupChannelResponse(id string, type_ int32, flags int32, recipients []UserResponse, ownerId string) *PrivateGroupChannelResponse {
 	this := PrivateGroupChannelResponse{}
 	this.Id = id
 	this.Type = type_
 	this.Flags = flags
 	this.Recipients = recipients
+	this.OwnerId = ownerId
 	return &this
 }
 
@@ -350,81 +351,62 @@ func (o *PrivateGroupChannelResponse) UnsetIcon() {
 	o.Icon.Unset()
 }
 
-// GetOwnerId returns the OwnerId field value if set, zero value otherwise.
+// GetOwnerId returns the OwnerId field value
 func (o *PrivateGroupChannelResponse) GetOwnerId() string {
-	if o == nil || IsNil(o.OwnerId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OwnerId
+
+	return o.OwnerId
 }
 
-// GetOwnerIdOk returns a tuple with the OwnerId field value if set, nil otherwise
+// GetOwnerIdOk returns a tuple with the OwnerId field value
 // and a boolean to check if the value has been set.
 func (o *PrivateGroupChannelResponse) GetOwnerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.OwnerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OwnerId, true
+	return &o.OwnerId, true
 }
 
-// HasOwnerId returns a boolean if a field has been set.
-func (o *PrivateGroupChannelResponse) HasOwnerId() bool {
-	if o != nil && !IsNil(o.OwnerId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOwnerId gets a reference to the given string and assigns it to the OwnerId field.
+// SetOwnerId sets field value
 func (o *PrivateGroupChannelResponse) SetOwnerId(v string) {
-	o.OwnerId = &v
+	o.OwnerId = v
 }
 
-
-// GetManaged returns the Managed field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetManaged returns the Managed field value if set, zero value otherwise.
 func (o *PrivateGroupChannelResponse) GetManaged() bool {
-	if o == nil || IsNil(o.Managed.Get()) {
+	if o == nil || IsNil(o.Managed) {
 		var ret bool
 		return ret
 	}
-	return *o.Managed.Get()
+	return *o.Managed
 }
 
 // GetManagedOk returns a tuple with the Managed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PrivateGroupChannelResponse) GetManagedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Managed.Get()) {
+	if o == nil || IsNil(o.Managed) {
 		return nil, false
 	}
-	return o.Managed.Get(), o.Managed.IsSet()
+	return o.Managed, true
 }
 
 // HasManaged returns a boolean if a field has been set.
 func (o *PrivateGroupChannelResponse) HasManaged() bool {
-	if o != nil && o.Managed.IsSet() {
+	if o != nil && !IsNil(o.Managed) {
 		return true
 	}
 
 	return false
 }
 
-// SetManaged gets a reference to the given NullableBool and assigns it to the Managed field.
+// SetManaged gets a reference to the given bool and assigns it to the Managed field.
 func (o *PrivateGroupChannelResponse) SetManaged(v bool) {
-	o.Managed.Set(&v)
+	o.Managed = &v
 }
 
-// SetManagedNil sets the value for Managed to be an explicit nil
-func (o *PrivateGroupChannelResponse) SetManagedNil() {
-	o.Managed.Set(nil)
-}
-
-// UnsetManaged ensures that no value is present for Managed, not even an explicit nil
-func (o *PrivateGroupChannelResponse) UnsetManaged() {
-	o.Managed.Unset()
-}
 
 // GetApplicationId returns the ApplicationId field value if set, zero value otherwise.
 func (o *PrivateGroupChannelResponse) GetApplicationId() string {
@@ -485,11 +467,9 @@ func (o PrivateGroupChannelResponse) ToMap() (map[string]interface{}, error) {
 	if o.Icon.IsSet() {
 		toSerialize["icon"] = o.Icon.Get()
 	}
-	if !IsNil(o.OwnerId) {
-		toSerialize["owner_id"] = o.OwnerId
-	}
-	if o.Managed.IsSet() {
-		toSerialize["managed"] = o.Managed.Get()
+	toSerialize["owner_id"] = o.OwnerId
+	if !IsNil(o.Managed) {
+		toSerialize["managed"] = o.Managed
 	}
 	if !IsNil(o.ApplicationId) {
 		toSerialize["application_id"] = o.ApplicationId
@@ -506,6 +486,7 @@ func (o *PrivateGroupChannelResponse) UnmarshalJSON(data []byte) (err error) {
 		"type",
 		"flags",
 		"recipients",
+		"owner_id",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -572,5 +553,4 @@ func (v *NullablePrivateGroupChannelResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

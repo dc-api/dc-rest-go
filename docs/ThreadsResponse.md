@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Threads** | [**[]ThreadResponse**](ThreadResponse.md) |  | 
 **Members** | [**[]ThreadMemberResponse**](ThreadMemberResponse.md) |  | 
-**HasMore** | Pointer to **NullableBool** |  | [optional] 
+**HasMore** | **bool** |  | 
 **FirstMessages** | Pointer to [**[]MessageResponse**](MessageResponse.md) |  | [optional] 
 
 ## Methods
 
 ### NewThreadsResponse
 
-`func NewThreadsResponse(threads []ThreadResponse, members []ThreadMemberResponse, ) *ThreadsResponse`
+`func NewThreadsResponse(threads []ThreadResponse, members []ThreadMemberResponse, hasMore bool, ) *ThreadsResponse`
 
 NewThreadsResponse instantiates a new ThreadsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -87,22 +87,7 @@ and a boolean to check if the value has been set.
 
 SetHasMore sets HasMore field to given value.
 
-### HasHasMore
 
-`func (o *ThreadsResponse) HasHasMore() bool`
-
-HasHasMore returns a boolean if a field has been set.
-
-### SetHasMoreNil
-
-`func (o *ThreadsResponse) SetHasMoreNil(b bool)`
-
- SetHasMoreNil sets the value for HasMore to be an explicit nil
-
-### UnsetHasMore
-`func (o *ThreadsResponse) UnsetHasMore()`
-
-UnsetHasMore ensures that no value is present for HasMore, not even an explicit nil
 ### GetFirstMessages
 
 `func (o *ThreadsResponse) GetFirstMessages() []MessageResponse`
@@ -128,16 +113,6 @@ SetFirstMessages sets FirstMessages field to given value.
 
 HasFirstMessages returns a boolean if a field has been set.
 
-### SetFirstMessagesNil
-
-`func (o *ThreadsResponse) SetFirstMessagesNil(b bool)`
-
- SetFirstMessagesNil sets the value for FirstMessages to be an explicit nil
-
-### UnsetFirstMessages
-`func (o *ThreadsResponse) UnsetFirstMessages()`
-
-UnsetFirstMessages ensures that no value is present for FirstMessages, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

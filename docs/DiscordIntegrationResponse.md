@@ -6,18 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **NullableString** |  | 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**Account** | Pointer to [**NullableAccountResponse**](AccountResponse.md) |  | [optional] 
-**Enabled** | Pointer to **NullableBool** |  | [optional] 
+**Account** | [**AccountResponse**](AccountResponse.md) |  | 
+**Enabled** | **bool** |  | 
 **Id** | **string** |  | 
 **Application** | [**IntegrationApplicationResponse**](IntegrationApplicationResponse.md) |  | 
 **Scopes** | **[]string** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 
 ## Methods
 
 ### NewDiscordIntegrationResponse
 
-`func NewDiscordIntegrationResponse(type_ NullableString, id string, application IntegrationApplicationResponse, scopes []string, ) *DiscordIntegrationResponse`
+`func NewDiscordIntegrationResponse(type_ NullableString, account AccountResponse, enabled bool, id string, application IntegrationApplicationResponse, scopes []string, ) *DiscordIntegrationResponse`
 
 NewDiscordIntegrationResponse instantiates a new DiscordIntegrationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -116,22 +116,7 @@ and a boolean to check if the value has been set.
 
 SetAccount sets Account field to given value.
 
-### HasAccount
 
-`func (o *DiscordIntegrationResponse) HasAccount() bool`
-
-HasAccount returns a boolean if a field has been set.
-
-### SetAccountNil
-
-`func (o *DiscordIntegrationResponse) SetAccountNil(b bool)`
-
- SetAccountNil sets the value for Account to be an explicit nil
-
-### UnsetAccount
-`func (o *DiscordIntegrationResponse) UnsetAccount()`
-
-UnsetAccount ensures that no value is present for Account, not even an explicit nil
 ### GetEnabled
 
 `func (o *DiscordIntegrationResponse) GetEnabled() bool`
@@ -151,22 +136,7 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
-### HasEnabled
 
-`func (o *DiscordIntegrationResponse) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
-
-### SetEnabledNil
-
-`func (o *DiscordIntegrationResponse) SetEnabledNil(b bool)`
-
- SetEnabledNil sets the value for Enabled to be an explicit nil
-
-### UnsetEnabled
-`func (o *DiscordIntegrationResponse) UnsetEnabled()`
-
-UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 ### GetId
 
 `func (o *DiscordIntegrationResponse) GetId() string`
@@ -252,16 +222,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *DiscordIntegrationResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *DiscordIntegrationResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

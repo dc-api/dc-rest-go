@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-04T03:54:15.906780824Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -46,6 +46,8 @@ package dc_rest
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the PollAnswerDetailsResponse type satisfies the MappedNullable interface at compile time
@@ -53,15 +55,18 @@ var _ MappedNullable = &PollAnswerDetailsResponse{}
 
 // PollAnswerDetailsResponse struct for PollAnswerDetailsResponse
 type PollAnswerDetailsResponse struct {
-	Users []UserResponse `json:"users,omitempty"`
+	Users []UserResponse `json:"users"`
 }
+
+type _PollAnswerDetailsResponse PollAnswerDetailsResponse
 
 // NewPollAnswerDetailsResponse instantiates a new PollAnswerDetailsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPollAnswerDetailsResponse() *PollAnswerDetailsResponse {
+func NewPollAnswerDetailsResponse(users []UserResponse) *PollAnswerDetailsResponse {
 	this := PollAnswerDetailsResponse{}
+	this.Users = users
 	return &this
 }
 
@@ -73,18 +78,18 @@ func NewPollAnswerDetailsResponseWithDefaults() *PollAnswerDetailsResponse {
 	return &this
 }
 
-// GetUsers returns the Users field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUsers returns the Users field value
 func (o *PollAnswerDetailsResponse) GetUsers() []UserResponse {
 	if o == nil {
 		var ret []UserResponse
 		return ret
 	}
+
 	return o.Users
 }
 
-// GetUsersOk returns a tuple with the Users field value if set, nil otherwise
+// GetUsersOk returns a tuple with the Users field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PollAnswerDetailsResponse) GetUsersOk() ([]UserResponse, bool) {
 	if o == nil {
 		return nil, false
@@ -92,20 +97,10 @@ func (o *PollAnswerDetailsResponse) GetUsersOk() ([]UserResponse, bool) {
 	return o.Users, true
 }
 
-// HasUsers returns a boolean if a field has been set.
-func (o *PollAnswerDetailsResponse) HasUsers() bool {
-	if o != nil && !IsNil(o.Users) {
-		return true
-	}
-
-	return false
-}
-
-// SetUsers gets a reference to the given []UserResponse and assigns it to the Users field.
+// SetUsers sets field value
 func (o *PollAnswerDetailsResponse) SetUsers(v []UserResponse) {
 	o.Users = v
 }
-
 
 func (o PollAnswerDetailsResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -117,10 +112,45 @@ func (o PollAnswerDetailsResponse) MarshalJSON() ([]byte, error) {
 
 func (o PollAnswerDetailsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Users != nil {
-		toSerialize["users"] = o.Users
-	}
+	toSerialize["users"] = o.Users
 	return toSerialize, nil
+}
+
+func (o *PollAnswerDetailsResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"users",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varPollAnswerDetailsResponse := _PollAnswerDetailsResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varPollAnswerDetailsResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PollAnswerDetailsResponse(varPollAnswerDetailsResponse)
+
+	return err
 }
 
 type NullablePollAnswerDetailsResponse struct {
@@ -158,5 +188,4 @@ func (v *NullablePollAnswerDetailsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

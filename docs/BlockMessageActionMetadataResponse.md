@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomMessage** | Pointer to **NullableString** |  | [optional] 
+**CustomMessage** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -50,16 +50,6 @@ SetCustomMessage sets CustomMessage field to given value.
 
 HasCustomMessage returns a boolean if a field has been set.
 
-### SetCustomMessageNil
-
-`func (o *BlockMessageActionMetadataResponse) SetCustomMessageNil(b bool)`
-
- SetCustomMessageNil sets the value for CustomMessage to be an explicit nil
-
-### UnsetCustomMessage
-`func (o *BlockMessageActionMetadataResponse) UnsetCustomMessage()`
-
-UnsetCustomMessage ensures that no value is present for CustomMessage, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

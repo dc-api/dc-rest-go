@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-04T03:54:15.906780824Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,12 +57,12 @@ var _ MappedNullable = &DiscordIntegrationResponse{}
 type DiscordIntegrationResponse struct {
 	Type NullableString `json:"type"`
 	Name NullableString `json:"name,omitempty"`
-	Account NullableAccountResponse `json:"account,omitempty"`
-	Enabled NullableBool `json:"enabled,omitempty"`
+	Account AccountResponse `json:"account"`
+	Enabled bool `json:"enabled"`
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Application IntegrationApplicationResponse `json:"application"`
 	Scopes []string `json:"scopes"`
-	User NullableUserResponse `json:"user,omitempty"`
+	User *UserResponse `json:"user,omitempty"`
 }
 
 type _DiscordIntegrationResponse DiscordIntegrationResponse
@@ -71,9 +71,11 @@ type _DiscordIntegrationResponse DiscordIntegrationResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDiscordIntegrationResponse(type_ NullableString, id string, application IntegrationApplicationResponse, scopes []string) *DiscordIntegrationResponse {
+func NewDiscordIntegrationResponse(type_ NullableString, account AccountResponse, enabled bool, id string, application IntegrationApplicationResponse, scopes []string) *DiscordIntegrationResponse {
 	this := DiscordIntegrationResponse{}
 	this.Type = type_
+	this.Account = account
+	this.Enabled = enabled
 	this.Id = id
 	this.Application = application
 	this.Scopes = scopes
@@ -157,90 +159,52 @@ func (o *DiscordIntegrationResponse) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetAccount returns the Account field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAccount returns the Account field value
 func (o *DiscordIntegrationResponse) GetAccount() AccountResponse {
-	if o == nil || IsNil(o.Account.Get()) {
+	if o == nil {
 		var ret AccountResponse
 		return ret
 	}
-	return *o.Account.Get()
+
+	return o.Account
 }
 
-// GetAccountOk returns a tuple with the Account field value if set, nil otherwise
+// GetAccountOk returns a tuple with the Account field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DiscordIntegrationResponse) GetAccountOk() (*AccountResponse, bool) {
-	if o == nil || IsNil(o.Account.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Account.Get(), o.Account.IsSet()
+	return &o.Account, true
 }
 
-// HasAccount returns a boolean if a field has been set.
-func (o *DiscordIntegrationResponse) HasAccount() bool {
-	if o != nil && o.Account.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAccount gets a reference to the given NullableAccountResponse and assigns it to the Account field.
+// SetAccount sets field value
 func (o *DiscordIntegrationResponse) SetAccount(v AccountResponse) {
-	o.Account.Set(&v)
+	o.Account = v
 }
 
-// SetAccountNil sets the value for Account to be an explicit nil
-func (o *DiscordIntegrationResponse) SetAccountNil() {
-	o.Account.Set(nil)
-}
-
-// UnsetAccount ensures that no value is present for Account, not even an explicit nil
-func (o *DiscordIntegrationResponse) UnsetAccount() {
-	o.Account.Unset()
-}
-
-// GetEnabled returns the Enabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnabled returns the Enabled field value
 func (o *DiscordIntegrationResponse) GetEnabled() bool {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.Enabled.Get()
+
+	return o.Enabled
 }
 
-// GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
+// GetEnabledOk returns a tuple with the Enabled field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DiscordIntegrationResponse) GetEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Enabled.Get(), o.Enabled.IsSet()
+	return &o.Enabled, true
 }
 
-// HasEnabled returns a boolean if a field has been set.
-func (o *DiscordIntegrationResponse) HasEnabled() bool {
-	if o != nil && o.Enabled.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnabled gets a reference to the given NullableBool and assigns it to the Enabled field.
+// SetEnabled sets field value
 func (o *DiscordIntegrationResponse) SetEnabled(v bool) {
-	o.Enabled.Set(&v)
-}
-
-// SetEnabledNil sets the value for Enabled to be an explicit nil
-func (o *DiscordIntegrationResponse) SetEnabledNil() {
-	o.Enabled.Set(nil)
-}
-
-// UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
-func (o *DiscordIntegrationResponse) UnsetEnabled() {
-	o.Enabled.Unset()
+	o.Enabled = v
 }
 
 // GetId returns the Id field value
@@ -315,48 +279,38 @@ func (o *DiscordIntegrationResponse) SetScopes(v []string) {
 	o.Scopes = v
 }
 
-// GetUser returns the User field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUser returns the User field value if set, zero value otherwise.
 func (o *DiscordIntegrationResponse) GetUser() UserResponse {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.User.Get()
+	return *o.User
 }
 
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DiscordIntegrationResponse) GetUserOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		return nil, false
 	}
-	return o.User.Get(), o.User.IsSet()
+	return o.User, true
 }
 
 // HasUser returns a boolean if a field has been set.
 func (o *DiscordIntegrationResponse) HasUser() bool {
-	if o != nil && o.User.IsSet() {
+	if o != nil && !IsNil(o.User) {
 		return true
 	}
 
 	return false
 }
 
-// SetUser gets a reference to the given NullableUserResponse and assigns it to the User field.
+// SetUser gets a reference to the given UserResponse and assigns it to the User field.
 func (o *DiscordIntegrationResponse) SetUser(v UserResponse) {
-	o.User.Set(&v)
+	o.User = &v
 }
 
-// SetUserNil sets the value for User to be an explicit nil
-func (o *DiscordIntegrationResponse) SetUserNil() {
-	o.User.Set(nil)
-}
-
-// UnsetUser ensures that no value is present for User, not even an explicit nil
-func (o *DiscordIntegrationResponse) UnsetUser() {
-	o.User.Unset()
-}
 
 func (o DiscordIntegrationResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -372,17 +326,13 @@ func (o DiscordIntegrationResponse) ToMap() (map[string]interface{}, error) {
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if o.Account.IsSet() {
-		toSerialize["account"] = o.Account.Get()
-	}
-	if o.Enabled.IsSet() {
-		toSerialize["enabled"] = o.Enabled.Get()
-	}
+	toSerialize["account"] = o.Account
+	toSerialize["enabled"] = o.Enabled
 	toSerialize["id"] = o.Id
 	toSerialize["application"] = o.Application
 	toSerialize["scopes"] = o.Scopes
-	if o.User.IsSet() {
-		toSerialize["user"] = o.User.Get()
+	if !IsNil(o.User) {
+		toSerialize["user"] = o.User
 	}
 	return toSerialize, nil
 }
@@ -393,6 +343,8 @@ func (o *DiscordIntegrationResponse) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"type",
+		"account",
+		"enabled",
 		"id",
 		"application",
 		"scopes",
@@ -462,5 +414,4 @@ func (v *NullableDiscordIntegrationResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

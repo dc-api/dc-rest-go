@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-04T03:54:15.906780824Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,7 +58,7 @@ type PartialExternalConnectionIntegrationResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Type NullableString `json:"type"`
 	Name NullableString `json:"name,omitempty"`
-	Account NullableAccountResponse `json:"account,omitempty"`
+	Account AccountResponse `json:"account"`
 }
 
 type _PartialExternalConnectionIntegrationResponse PartialExternalConnectionIntegrationResponse
@@ -67,10 +67,11 @@ type _PartialExternalConnectionIntegrationResponse PartialExternalConnectionInte
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPartialExternalConnectionIntegrationResponse(id string, type_ NullableString) *PartialExternalConnectionIntegrationResponse {
+func NewPartialExternalConnectionIntegrationResponse(id string, type_ NullableString, account AccountResponse) *PartialExternalConnectionIntegrationResponse {
 	this := PartialExternalConnectionIntegrationResponse{}
 	this.Id = id
 	this.Type = type_
+	this.Account = account
 	return &this
 }
 
@@ -175,47 +176,28 @@ func (o *PartialExternalConnectionIntegrationResponse) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetAccount returns the Account field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAccount returns the Account field value
 func (o *PartialExternalConnectionIntegrationResponse) GetAccount() AccountResponse {
-	if o == nil || IsNil(o.Account.Get()) {
+	if o == nil {
 		var ret AccountResponse
 		return ret
 	}
-	return *o.Account.Get()
+
+	return o.Account
 }
 
-// GetAccountOk returns a tuple with the Account field value if set, nil otherwise
+// GetAccountOk returns a tuple with the Account field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PartialExternalConnectionIntegrationResponse) GetAccountOk() (*AccountResponse, bool) {
-	if o == nil || IsNil(o.Account.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Account.Get(), o.Account.IsSet()
+	return &o.Account, true
 }
 
-// HasAccount returns a boolean if a field has been set.
-func (o *PartialExternalConnectionIntegrationResponse) HasAccount() bool {
-	if o != nil && o.Account.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAccount gets a reference to the given NullableAccountResponse and assigns it to the Account field.
+// SetAccount sets field value
 func (o *PartialExternalConnectionIntegrationResponse) SetAccount(v AccountResponse) {
-	o.Account.Set(&v)
-}
-
-// SetAccountNil sets the value for Account to be an explicit nil
-func (o *PartialExternalConnectionIntegrationResponse) SetAccountNil() {
-	o.Account.Set(nil)
-}
-
-// UnsetAccount ensures that no value is present for Account, not even an explicit nil
-func (o *PartialExternalConnectionIntegrationResponse) UnsetAccount() {
-	o.Account.Unset()
+	o.Account = v
 }
 
 func (o PartialExternalConnectionIntegrationResponse) MarshalJSON() ([]byte, error) {
@@ -233,9 +215,7 @@ func (o PartialExternalConnectionIntegrationResponse) ToMap() (map[string]interf
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if o.Account.IsSet() {
-		toSerialize["account"] = o.Account.Get()
-	}
+	toSerialize["account"] = o.Account
 	return toSerialize, nil
 }
 
@@ -246,6 +226,7 @@ func (o *PartialExternalConnectionIntegrationResponse) UnmarshalJSON(data []byte
 	requiredProperties := []string{
 		"id",
 		"type",
+		"account",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -312,5 +293,4 @@ func (v *NullablePartialExternalConnectionIntegrationResponse) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 
