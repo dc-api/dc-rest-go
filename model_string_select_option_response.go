@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-04T03:54:15.906780824Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,9 +57,9 @@ var _ MappedNullable = &StringSelectOptionResponse{}
 type StringSelectOptionResponse struct {
 	Label string `json:"label"`
 	Value string `json:"value"`
-	Description NullableString `json:"description,omitempty"`
-	Emoji NullableComponentEmojiResponse `json:"emoji,omitempty"`
-	Default NullableBool `json:"default,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Emoji *ComponentEmojiResponse `json:"emoji,omitempty"`
+	Default *bool `json:"default,omitempty"`
 }
 
 type _StringSelectOptionResponse StringSelectOptionResponse
@@ -131,134 +131,104 @@ func (o *StringSelectOptionResponse) SetValue(v string) {
 	o.Value = v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *StringSelectOptionResponse) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StringSelectOptionResponse) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *StringSelectOptionResponse) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *StringSelectOptionResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *StringSelectOptionResponse) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *StringSelectOptionResponse) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetEmoji returns the Emoji field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmoji returns the Emoji field value if set, zero value otherwise.
 func (o *StringSelectOptionResponse) GetEmoji() ComponentEmojiResponse {
-	if o == nil || IsNil(o.Emoji.Get()) {
+	if o == nil || IsNil(o.Emoji) {
 		var ret ComponentEmojiResponse
 		return ret
 	}
-	return *o.Emoji.Get()
+	return *o.Emoji
 }
 
 // GetEmojiOk returns a tuple with the Emoji field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StringSelectOptionResponse) GetEmojiOk() (*ComponentEmojiResponse, bool) {
-	if o == nil || IsNil(o.Emoji.Get()) {
+	if o == nil || IsNil(o.Emoji) {
 		return nil, false
 	}
-	return o.Emoji.Get(), o.Emoji.IsSet()
+	return o.Emoji, true
 }
 
 // HasEmoji returns a boolean if a field has been set.
 func (o *StringSelectOptionResponse) HasEmoji() bool {
-	if o != nil && o.Emoji.IsSet() {
+	if o != nil && !IsNil(o.Emoji) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmoji gets a reference to the given NullableComponentEmojiResponse and assigns it to the Emoji field.
+// SetEmoji gets a reference to the given ComponentEmojiResponse and assigns it to the Emoji field.
 func (o *StringSelectOptionResponse) SetEmoji(v ComponentEmojiResponse) {
-	o.Emoji.Set(&v)
+	o.Emoji = &v
 }
 
-// SetEmojiNil sets the value for Emoji to be an explicit nil
-func (o *StringSelectOptionResponse) SetEmojiNil() {
-	o.Emoji.Set(nil)
-}
 
-// UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
-func (o *StringSelectOptionResponse) UnsetEmoji() {
-	o.Emoji.Unset()
-}
-
-// GetDefault returns the Default field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDefault returns the Default field value if set, zero value otherwise.
 func (o *StringSelectOptionResponse) GetDefault() bool {
-	if o == nil || IsNil(o.Default.Get()) {
+	if o == nil || IsNil(o.Default) {
 		var ret bool
 		return ret
 	}
-	return *o.Default.Get()
+	return *o.Default
 }
 
 // GetDefaultOk returns a tuple with the Default field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StringSelectOptionResponse) GetDefaultOk() (*bool, bool) {
-	if o == nil || IsNil(o.Default.Get()) {
+	if o == nil || IsNil(o.Default) {
 		return nil, false
 	}
-	return o.Default.Get(), o.Default.IsSet()
+	return o.Default, true
 }
 
 // HasDefault returns a boolean if a field has been set.
 func (o *StringSelectOptionResponse) HasDefault() bool {
-	if o != nil && o.Default.IsSet() {
+	if o != nil && !IsNil(o.Default) {
 		return true
 	}
 
 	return false
 }
 
-// SetDefault gets a reference to the given NullableBool and assigns it to the Default field.
+// SetDefault gets a reference to the given bool and assigns it to the Default field.
 func (o *StringSelectOptionResponse) SetDefault(v bool) {
-	o.Default.Set(&v)
+	o.Default = &v
 }
 
-// SetDefaultNil sets the value for Default to be an explicit nil
-func (o *StringSelectOptionResponse) SetDefaultNil() {
-	o.Default.Set(nil)
-}
-
-// UnsetDefault ensures that no value is present for Default, not even an explicit nil
-func (o *StringSelectOptionResponse) UnsetDefault() {
-	o.Default.Unset()
-}
 
 func (o StringSelectOptionResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -272,14 +242,14 @@ func (o StringSelectOptionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["label"] = o.Label
 	toSerialize["value"] = o.Value
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
-	if o.Emoji.IsSet() {
-		toSerialize["emoji"] = o.Emoji.Get()
+	if !IsNil(o.Emoji) {
+		toSerialize["emoji"] = o.Emoji
 	}
-	if o.Default.IsSet() {
-		toSerialize["default"] = o.Default.Get()
+	if !IsNil(o.Default) {
+		toSerialize["default"] = o.Default
 	}
 	return toSerialize, nil
 }
@@ -357,5 +327,4 @@ func (v *NullableStringSelectOptionResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

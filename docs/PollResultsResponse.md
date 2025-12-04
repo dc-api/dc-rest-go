@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AnswerCounts** | Pointer to [**[]PollResultsEntryResponse**](PollResultsEntryResponse.md) |  | [optional] 
+**AnswerCounts** | [**[]PollResultsEntryResponse**](PollResultsEntryResponse.md) |  | 
 **IsFinalized** | **bool** |  | 
 
 ## Methods
 
 ### NewPollResultsResponse
 
-`func NewPollResultsResponse(isFinalized bool, ) *PollResultsResponse`
+`func NewPollResultsResponse(answerCounts []PollResultsEntryResponse, isFinalized bool, ) *PollResultsResponse`
 
 NewPollResultsResponse instantiates a new PollResultsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -45,22 +45,7 @@ and a boolean to check if the value has been set.
 
 SetAnswerCounts sets AnswerCounts field to given value.
 
-### HasAnswerCounts
 
-`func (o *PollResultsResponse) HasAnswerCounts() bool`
-
-HasAnswerCounts returns a boolean if a field has been set.
-
-### SetAnswerCountsNil
-
-`func (o *PollResultsResponse) SetAnswerCountsNil(b bool)`
-
- SetAnswerCountsNil sets the value for AnswerCounts to be an explicit nil
-
-### UnsetAnswerCounts
-`func (o *PollResultsResponse) UnsetAnswerCounts()`
-
-UnsetAnswerCounts ensures that no value is present for AnswerCounts, not even an explicit nil
 ### GetIsFinalized
 
 `func (o *PollResultsResponse) GetIsFinalized() bool`

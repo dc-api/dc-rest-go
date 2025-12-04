@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-04T03:54:15.906780824Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,7 +55,7 @@ var _ MappedNullable = &PinnedMessagesResponse{}
 
 // PinnedMessagesResponse struct for PinnedMessagesResponse
 type PinnedMessagesResponse struct {
-	Items []PinnedMessageResponse `json:"items,omitempty"`
+	Items []PinnedMessageResponse `json:"items"`
 	HasMore bool `json:"has_more"`
 }
 
@@ -65,8 +65,9 @@ type _PinnedMessagesResponse PinnedMessagesResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPinnedMessagesResponse(hasMore bool) *PinnedMessagesResponse {
+func NewPinnedMessagesResponse(items []PinnedMessageResponse, hasMore bool) *PinnedMessagesResponse {
 	this := PinnedMessagesResponse{}
+	this.Items = items
 	this.HasMore = hasMore
 	return &this
 }
@@ -79,18 +80,18 @@ func NewPinnedMessagesResponseWithDefaults() *PinnedMessagesResponse {
 	return &this
 }
 
-// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetItems returns the Items field value
 func (o *PinnedMessagesResponse) GetItems() []PinnedMessageResponse {
 	if o == nil {
 		var ret []PinnedMessageResponse
 		return ret
 	}
+
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
+// GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PinnedMessagesResponse) GetItemsOk() ([]PinnedMessageResponse, bool) {
 	if o == nil {
 		return nil, false
@@ -98,20 +99,10 @@ func (o *PinnedMessagesResponse) GetItemsOk() ([]PinnedMessageResponse, bool) {
 	return o.Items, true
 }
 
-// HasItems returns a boolean if a field has been set.
-func (o *PinnedMessagesResponse) HasItems() bool {
-	if o != nil && !IsNil(o.Items) {
-		return true
-	}
-
-	return false
-}
-
-// SetItems gets a reference to the given []PinnedMessageResponse and assigns it to the Items field.
+// SetItems sets field value
 func (o *PinnedMessagesResponse) SetItems(v []PinnedMessageResponse) {
 	o.Items = v
 }
-
 
 // GetHasMore returns the HasMore field value
 func (o *PinnedMessagesResponse) GetHasMore() bool {
@@ -147,9 +138,7 @@ func (o PinnedMessagesResponse) MarshalJSON() ([]byte, error) {
 
 func (o PinnedMessagesResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Items != nil {
-		toSerialize["items"] = o.Items
-	}
+	toSerialize["items"] = o.Items
 	toSerialize["has_more"] = o.HasMore
 	return toSerialize, nil
 }
@@ -159,6 +148,7 @@ func (o *PinnedMessagesResponse) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"items",
 		"has_more",
 	}
 
@@ -226,5 +216,4 @@ func (v *NullablePinnedMessagesResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

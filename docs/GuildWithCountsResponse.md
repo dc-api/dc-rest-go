@@ -28,9 +28,9 @@ Name | Type | Description | Notes
 **MfaLevel** | **int32** |  | 
 **ExplicitContentFilter** | **int32** |  | 
 **MaxPresences** | Pointer to **NullableInt32** |  | [optional] 
-**MaxMembers** | Pointer to **NullableInt32** |  | [optional] 
-**MaxStageVideoChannelUsers** | Pointer to **NullableInt32** |  | [optional] 
-**MaxVideoChannelUsers** | Pointer to **NullableInt32** |  | [optional] 
+**MaxMembers** | **int32** |  | 
+**MaxStageVideoChannelUsers** | **int32** |  | 
+**MaxVideoChannelUsers** | **int32** |  | 
 **VanityUrlCode** | Pointer to **NullableString** |  | [optional] 
 **PremiumTier** | **int32** |  | 
 **PremiumSubscriptionCount** | **int32** |  | 
@@ -50,7 +50,7 @@ Name | Type | Description | Notes
 
 ### NewGuildWithCountsResponse
 
-`func NewGuildWithCountsResponse(id string, name string, features []string, ownerId string, region string, afkTimeout NullableInt32, systemChannelFlags int32, widgetEnabled bool, verificationLevel int32, roles []GuildRoleResponse, defaultMessageNotifications int32, mfaLevel int32, explicitContentFilter int32, premiumTier int32, premiumSubscriptionCount int32, preferredLocale string, premiumProgressBarEnabled bool, nsfw bool, nsfwLevel NullableInt32, emojis []EmojiResponse, stickers []GuildStickerResponse, ) *GuildWithCountsResponse`
+`func NewGuildWithCountsResponse(id string, name string, features []string, ownerId string, region string, afkTimeout NullableInt32, systemChannelFlags int32, widgetEnabled bool, verificationLevel int32, roles []GuildRoleResponse, defaultMessageNotifications int32, mfaLevel int32, explicitContentFilter int32, maxMembers int32, maxStageVideoChannelUsers int32, maxVideoChannelUsers int32, premiumTier int32, premiumSubscriptionCount int32, preferredLocale string, premiumProgressBarEnabled bool, nsfw bool, nsfwLevel NullableInt32, emojis []EmojiResponse, stickers []GuildStickerResponse, ) *GuildWithCountsResponse`
 
 NewGuildWithCountsResponse instantiates a new GuildWithCountsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -699,22 +699,7 @@ and a boolean to check if the value has been set.
 
 SetMaxMembers sets MaxMembers field to given value.
 
-### HasMaxMembers
 
-`func (o *GuildWithCountsResponse) HasMaxMembers() bool`
-
-HasMaxMembers returns a boolean if a field has been set.
-
-### SetMaxMembersNil
-
-`func (o *GuildWithCountsResponse) SetMaxMembersNil(b bool)`
-
- SetMaxMembersNil sets the value for MaxMembers to be an explicit nil
-
-### UnsetMaxMembers
-`func (o *GuildWithCountsResponse) UnsetMaxMembers()`
-
-UnsetMaxMembers ensures that no value is present for MaxMembers, not even an explicit nil
 ### GetMaxStageVideoChannelUsers
 
 `func (o *GuildWithCountsResponse) GetMaxStageVideoChannelUsers() int32`
@@ -734,22 +719,7 @@ and a boolean to check if the value has been set.
 
 SetMaxStageVideoChannelUsers sets MaxStageVideoChannelUsers field to given value.
 
-### HasMaxStageVideoChannelUsers
 
-`func (o *GuildWithCountsResponse) HasMaxStageVideoChannelUsers() bool`
-
-HasMaxStageVideoChannelUsers returns a boolean if a field has been set.
-
-### SetMaxStageVideoChannelUsersNil
-
-`func (o *GuildWithCountsResponse) SetMaxStageVideoChannelUsersNil(b bool)`
-
- SetMaxStageVideoChannelUsersNil sets the value for MaxStageVideoChannelUsers to be an explicit nil
-
-### UnsetMaxStageVideoChannelUsers
-`func (o *GuildWithCountsResponse) UnsetMaxStageVideoChannelUsers()`
-
-UnsetMaxStageVideoChannelUsers ensures that no value is present for MaxStageVideoChannelUsers, not even an explicit nil
 ### GetMaxVideoChannelUsers
 
 `func (o *GuildWithCountsResponse) GetMaxVideoChannelUsers() int32`
@@ -769,22 +739,7 @@ and a boolean to check if the value has been set.
 
 SetMaxVideoChannelUsers sets MaxVideoChannelUsers field to given value.
 
-### HasMaxVideoChannelUsers
 
-`func (o *GuildWithCountsResponse) HasMaxVideoChannelUsers() bool`
-
-HasMaxVideoChannelUsers returns a boolean if a field has been set.
-
-### SetMaxVideoChannelUsersNil
-
-`func (o *GuildWithCountsResponse) SetMaxVideoChannelUsersNil(b bool)`
-
- SetMaxVideoChannelUsersNil sets the value for MaxVideoChannelUsers to be an explicit nil
-
-### UnsetMaxVideoChannelUsers
-`func (o *GuildWithCountsResponse) UnsetMaxVideoChannelUsers()`
-
-UnsetMaxVideoChannelUsers ensures that no value is present for MaxVideoChannelUsers, not even an explicit nil
 ### GetVanityUrlCode
 
 `func (o *GuildWithCountsResponse) GetVanityUrlCode() string`

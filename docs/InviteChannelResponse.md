@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Type** | **int32** |  | 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**Icon** | Pointer to **NullableString** |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
 **Recipients** | Pointer to [**[]InviteChannelRecipientResponse**](InviteChannelRecipientResponse.md) |  | [optional] 
 
 ## Methods
@@ -129,16 +129,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *InviteChannelResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *InviteChannelResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetRecipients
 
 `func (o *InviteChannelResponse) GetRecipients() []InviteChannelRecipientResponse`
@@ -164,16 +154,6 @@ SetRecipients sets Recipients field to given value.
 
 HasRecipients returns a boolean if a field has been set.
 
-### SetRecipientsNil
-
-`func (o *InviteChannelResponse) SetRecipientsNil(b bool)`
-
- SetRecipientsNil sets the value for Recipients to be an explicit nil
-
-### UnsetRecipients
-`func (o *InviteChannelResponse) UnsetRecipients()`
-
-UnsetRecipients ensures that no value is present for Recipients, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

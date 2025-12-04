@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-04T03:54:15.906780824Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -61,13 +61,13 @@ type GuildRoleResponse struct {
 	Permissions string `json:"permissions"`
 	Position int32 `json:"position"`
 	Color int32 `json:"color"`
-	Colors NullableGuildRoleColorsResponse `json:"colors,omitempty"`
+	Colors GuildRoleColorsResponse `json:"colors"`
 	Hoist bool `json:"hoist"`
 	Managed bool `json:"managed"`
 	Mentionable bool `json:"mentionable"`
 	Icon NullableString `json:"icon,omitempty"`
 	UnicodeEmoji NullableString `json:"unicode_emoji,omitempty"`
-	Tags NullableGuildRoleTagsResponse `json:"tags,omitempty"`
+	Tags *GuildRoleTagsResponse `json:"tags,omitempty"`
 	Flags int32 `json:"flags"`
 }
 
@@ -77,13 +77,14 @@ type _GuildRoleResponse GuildRoleResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGuildRoleResponse(id string, name string, permissions string, position int32, color int32, hoist bool, managed bool, mentionable bool, flags int32) *GuildRoleResponse {
+func NewGuildRoleResponse(id string, name string, permissions string, position int32, color int32, colors GuildRoleColorsResponse, hoist bool, managed bool, mentionable bool, flags int32) *GuildRoleResponse {
 	this := GuildRoleResponse{}
 	this.Id = id
 	this.Name = name
 	this.Permissions = permissions
 	this.Position = position
 	this.Color = color
+	this.Colors = colors
 	this.Hoist = hoist
 	this.Managed = managed
 	this.Mentionable = mentionable
@@ -262,47 +263,28 @@ func (o *GuildRoleResponse) SetColor(v int32) {
 	o.Color = v
 }
 
-// GetColors returns the Colors field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetColors returns the Colors field value
 func (o *GuildRoleResponse) GetColors() GuildRoleColorsResponse {
-	if o == nil || IsNil(o.Colors.Get()) {
+	if o == nil {
 		var ret GuildRoleColorsResponse
 		return ret
 	}
-	return *o.Colors.Get()
+
+	return o.Colors
 }
 
-// GetColorsOk returns a tuple with the Colors field value if set, nil otherwise
+// GetColorsOk returns a tuple with the Colors field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildRoleResponse) GetColorsOk() (*GuildRoleColorsResponse, bool) {
-	if o == nil || IsNil(o.Colors.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Colors.Get(), o.Colors.IsSet()
+	return &o.Colors, true
 }
 
-// HasColors returns a boolean if a field has been set.
-func (o *GuildRoleResponse) HasColors() bool {
-	if o != nil && o.Colors.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetColors gets a reference to the given NullableGuildRoleColorsResponse and assigns it to the Colors field.
+// SetColors sets field value
 func (o *GuildRoleResponse) SetColors(v GuildRoleColorsResponse) {
-	o.Colors.Set(&v)
-}
-
-// SetColorsNil sets the value for Colors to be an explicit nil
-func (o *GuildRoleResponse) SetColorsNil() {
-	o.Colors.Set(nil)
-}
-
-// UnsetColors ensures that no value is present for Colors, not even an explicit nil
-func (o *GuildRoleResponse) UnsetColors() {
-	o.Colors.Unset()
+	o.Colors = v
 }
 
 // GetHoist returns the Hoist field value
@@ -463,48 +445,38 @@ func (o *GuildRoleResponse) UnsetUnicodeEmoji() {
 	o.UnicodeEmoji.Unset()
 }
 
-// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTags returns the Tags field value if set, zero value otherwise.
 func (o *GuildRoleResponse) GetTags() GuildRoleTagsResponse {
-	if o == nil || IsNil(o.Tags.Get()) {
+	if o == nil || IsNil(o.Tags) {
 		var ret GuildRoleTagsResponse
 		return ret
 	}
-	return *o.Tags.Get()
+	return *o.Tags
 }
 
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildRoleResponse) GetTagsOk() (*GuildRoleTagsResponse, bool) {
-	if o == nil || IsNil(o.Tags.Get()) {
+	if o == nil || IsNil(o.Tags) {
 		return nil, false
 	}
-	return o.Tags.Get(), o.Tags.IsSet()
+	return o.Tags, true
 }
 
 // HasTags returns a boolean if a field has been set.
 func (o *GuildRoleResponse) HasTags() bool {
-	if o != nil && o.Tags.IsSet() {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
 	return false
 }
 
-// SetTags gets a reference to the given NullableGuildRoleTagsResponse and assigns it to the Tags field.
+// SetTags gets a reference to the given GuildRoleTagsResponse and assigns it to the Tags field.
 func (o *GuildRoleResponse) SetTags(v GuildRoleTagsResponse) {
-	o.Tags.Set(&v)
+	o.Tags = &v
 }
 
-// SetTagsNil sets the value for Tags to be an explicit nil
-func (o *GuildRoleResponse) SetTagsNil() {
-	o.Tags.Set(nil)
-}
-
-// UnsetTags ensures that no value is present for Tags, not even an explicit nil
-func (o *GuildRoleResponse) UnsetTags() {
-	o.Tags.Unset()
-}
 
 // GetFlags returns the Flags field value
 func (o *GuildRoleResponse) GetFlags() int32 {
@@ -548,9 +520,7 @@ func (o GuildRoleResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["permissions"] = o.Permissions
 	toSerialize["position"] = o.Position
 	toSerialize["color"] = o.Color
-	if o.Colors.IsSet() {
-		toSerialize["colors"] = o.Colors.Get()
-	}
+	toSerialize["colors"] = o.Colors
 	toSerialize["hoist"] = o.Hoist
 	toSerialize["managed"] = o.Managed
 	toSerialize["mentionable"] = o.Mentionable
@@ -560,8 +530,8 @@ func (o GuildRoleResponse) ToMap() (map[string]interface{}, error) {
 	if o.UnicodeEmoji.IsSet() {
 		toSerialize["unicode_emoji"] = o.UnicodeEmoji.Get()
 	}
-	if o.Tags.IsSet() {
-		toSerialize["tags"] = o.Tags.Get()
+	if !IsNil(o.Tags) {
+		toSerialize["tags"] = o.Tags
 	}
 	toSerialize["flags"] = o.Flags
 	return toSerialize, nil
@@ -577,6 +547,7 @@ func (o *GuildRoleResponse) UnmarshalJSON(data []byte) (err error) {
 		"permissions",
 		"position",
 		"color",
+		"colors",
 		"hoist",
 		"managed",
 		"mentionable",
@@ -647,5 +618,4 @@ func (v *NullableGuildRoleResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **TargetId** | Pointer to **string** |  | [optional] 
 **Changes** | Pointer to [**[]AuditLogObjectChangeResponse**](AuditLogObjectChangeResponse.md) |  | [optional] 
 **Options** | Pointer to **map[string]string** |  | [optional] 
-**Reason** | Pointer to **NullableString** |  | [optional] 
+**Reason** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -156,16 +156,6 @@ SetChanges sets Changes field to given value.
 
 HasChanges returns a boolean if a field has been set.
 
-### SetChangesNil
-
-`func (o *AuditLogEntryResponse) SetChangesNil(b bool)`
-
- SetChangesNil sets the value for Changes to be an explicit nil
-
-### UnsetChanges
-`func (o *AuditLogEntryResponse) UnsetChanges()`
-
-UnsetChanges ensures that no value is present for Changes, not even an explicit nil
 ### GetOptions
 
 `func (o *AuditLogEntryResponse) GetOptions() map[string]string`
@@ -216,16 +206,6 @@ SetReason sets Reason field to given value.
 
 HasReason returns a boolean if a field has been set.
 
-### SetReasonNil
-
-`func (o *AuditLogEntryResponse) SetReasonNil(b bool)`
-
- SetReasonNil sets the value for Reason to be an explicit nil
-
-### UnsetReason
-`func (o *AuditLogEntryResponse) UnsetReason()`
-
-UnsetReason ensures that no value is present for Reason, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-04T03:54:15.906780824Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,8 +57,8 @@ var _ MappedNullable = &GuildSubscriptionIntegrationResponse{}
 type GuildSubscriptionIntegrationResponse struct {
 	Type NullableString `json:"type"`
 	Name NullableString `json:"name,omitempty"`
-	Account NullableAccountResponse `json:"account,omitempty"`
-	Enabled NullableBool `json:"enabled,omitempty"`
+	Account AccountResponse `json:"account"`
+	Enabled bool `json:"enabled"`
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
@@ -68,9 +68,11 @@ type _GuildSubscriptionIntegrationResponse GuildSubscriptionIntegrationResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGuildSubscriptionIntegrationResponse(type_ NullableString, id string) *GuildSubscriptionIntegrationResponse {
+func NewGuildSubscriptionIntegrationResponse(type_ NullableString, account AccountResponse, enabled bool, id string) *GuildSubscriptionIntegrationResponse {
 	this := GuildSubscriptionIntegrationResponse{}
 	this.Type = type_
+	this.Account = account
+	this.Enabled = enabled
 	this.Id = id
 	return &this
 }
@@ -152,90 +154,52 @@ func (o *GuildSubscriptionIntegrationResponse) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetAccount returns the Account field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAccount returns the Account field value
 func (o *GuildSubscriptionIntegrationResponse) GetAccount() AccountResponse {
-	if o == nil || IsNil(o.Account.Get()) {
+	if o == nil {
 		var ret AccountResponse
 		return ret
 	}
-	return *o.Account.Get()
+
+	return o.Account
 }
 
-// GetAccountOk returns a tuple with the Account field value if set, nil otherwise
+// GetAccountOk returns a tuple with the Account field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildSubscriptionIntegrationResponse) GetAccountOk() (*AccountResponse, bool) {
-	if o == nil || IsNil(o.Account.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Account.Get(), o.Account.IsSet()
+	return &o.Account, true
 }
 
-// HasAccount returns a boolean if a field has been set.
-func (o *GuildSubscriptionIntegrationResponse) HasAccount() bool {
-	if o != nil && o.Account.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAccount gets a reference to the given NullableAccountResponse and assigns it to the Account field.
+// SetAccount sets field value
 func (o *GuildSubscriptionIntegrationResponse) SetAccount(v AccountResponse) {
-	o.Account.Set(&v)
+	o.Account = v
 }
 
-// SetAccountNil sets the value for Account to be an explicit nil
-func (o *GuildSubscriptionIntegrationResponse) SetAccountNil() {
-	o.Account.Set(nil)
-}
-
-// UnsetAccount ensures that no value is present for Account, not even an explicit nil
-func (o *GuildSubscriptionIntegrationResponse) UnsetAccount() {
-	o.Account.Unset()
-}
-
-// GetEnabled returns the Enabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnabled returns the Enabled field value
 func (o *GuildSubscriptionIntegrationResponse) GetEnabled() bool {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.Enabled.Get()
+
+	return o.Enabled
 }
 
-// GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
+// GetEnabledOk returns a tuple with the Enabled field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildSubscriptionIntegrationResponse) GetEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Enabled.Get(), o.Enabled.IsSet()
+	return &o.Enabled, true
 }
 
-// HasEnabled returns a boolean if a field has been set.
-func (o *GuildSubscriptionIntegrationResponse) HasEnabled() bool {
-	if o != nil && o.Enabled.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnabled gets a reference to the given NullableBool and assigns it to the Enabled field.
+// SetEnabled sets field value
 func (o *GuildSubscriptionIntegrationResponse) SetEnabled(v bool) {
-	o.Enabled.Set(&v)
-}
-
-// SetEnabledNil sets the value for Enabled to be an explicit nil
-func (o *GuildSubscriptionIntegrationResponse) SetEnabledNil() {
-	o.Enabled.Set(nil)
-}
-
-// UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
-func (o *GuildSubscriptionIntegrationResponse) UnsetEnabled() {
-	o.Enabled.Unset()
+	o.Enabled = v
 }
 
 // GetId returns the Id field value
@@ -276,12 +240,8 @@ func (o GuildSubscriptionIntegrationResponse) ToMap() (map[string]interface{}, e
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if o.Account.IsSet() {
-		toSerialize["account"] = o.Account.Get()
-	}
-	if o.Enabled.IsSet() {
-		toSerialize["enabled"] = o.Enabled.Get()
-	}
+	toSerialize["account"] = o.Account
+	toSerialize["enabled"] = o.Enabled
 	toSerialize["id"] = o.Id
 	return toSerialize, nil
 }
@@ -292,6 +252,8 @@ func (o *GuildSubscriptionIntegrationResponse) UnmarshalJSON(data []byte) (err e
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"type",
+		"account",
+		"enabled",
 		"id",
 	}
 
@@ -359,5 +321,4 @@ func (v *NullableGuildSubscriptionIntegrationResponse) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

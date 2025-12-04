@@ -12,15 +12,15 @@ Name | Type | Description | Notes
 **Recipients** | [**[]UserResponse**](UserResponse.md) |  | 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Icon** | Pointer to **NullableString** |  | [optional] 
-**OwnerId** | Pointer to **string** |  | [optional] 
-**Managed** | Pointer to **NullableBool** |  | [optional] 
+**OwnerId** | **string** |  | 
+**Managed** | Pointer to **bool** |  | [optional] 
 **ApplicationId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewPrivateGroupChannelResponse
 
-`func NewPrivateGroupChannelResponse(id string, type_ int32, flags int32, recipients []UserResponse, ) *PrivateGroupChannelResponse`
+`func NewPrivateGroupChannelResponse(id string, type_ int32, flags int32, recipients []UserResponse, ownerId string, ) *PrivateGroupChannelResponse`
 
 NewPrivateGroupChannelResponse instantiates a new PrivateGroupChannelResponse object
 This constructor will assign default values to properties that have it defined,
@@ -264,11 +264,6 @@ and a boolean to check if the value has been set.
 
 SetOwnerId sets OwnerId field to given value.
 
-### HasOwnerId
-
-`func (o *PrivateGroupChannelResponse) HasOwnerId() bool`
-
-HasOwnerId returns a boolean if a field has been set.
 
 ### GetManaged
 
@@ -295,16 +290,6 @@ SetManaged sets Managed field to given value.
 
 HasManaged returns a boolean if a field has been set.
 
-### SetManagedNil
-
-`func (o *PrivateGroupChannelResponse) SetManagedNil(b bool)`
-
- SetManagedNil sets the value for Managed to be an explicit nil
-
-### UnsetManaged
-`func (o *PrivateGroupChannelResponse) UnsetManaged()`
-
-UnsetManaged ensures that no value is present for Managed, not even an explicit nil
 ### GetApplicationId
 
 `func (o *PrivateGroupChannelResponse) GetApplicationId() string`

@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-04T03:54:15.906780824Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,12 +53,12 @@ var _ MappedNullable = &GuildRoleTagsResponse{}
 
 // GuildRoleTagsResponse struct for GuildRoleTagsResponse
 type GuildRoleTagsResponse struct {
-	PremiumSubscriber interface{} `json:"premium_subscriber,omitempty"`
+	PremiumSubscriber *nil `json:"premium_subscriber,omitempty"`
 	BotId *string `json:"bot_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	IntegrationId *string `json:"integration_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	SubscriptionListingId *string `json:"subscription_listing_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	AvailableForPurchase interface{} `json:"available_for_purchase,omitempty"`
-	GuildConnections interface{} `json:"guild_connections,omitempty"`
+	AvailableForPurchase *nil `json:"available_for_purchase,omitempty"`
+	GuildConnections *nil `json:"guild_connections,omitempty"`
 }
 
 // NewGuildRoleTagsResponse instantiates a new GuildRoleTagsResponse object
@@ -78,23 +78,22 @@ func NewGuildRoleTagsResponseWithDefaults() *GuildRoleTagsResponse {
 	return &this
 }
 
-// GetPremiumSubscriber returns the PremiumSubscriber field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GuildRoleTagsResponse) GetPremiumSubscriber() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetPremiumSubscriber returns the PremiumSubscriber field value if set, zero value otherwise.
+func (o *GuildRoleTagsResponse) GetPremiumSubscriber() nil {
+	if o == nil || IsNil(o.PremiumSubscriber) {
+		var ret nil
 		return ret
 	}
-	return o.PremiumSubscriber
+	return *o.PremiumSubscriber
 }
 
 // GetPremiumSubscriberOk returns a tuple with the PremiumSubscriber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GuildRoleTagsResponse) GetPremiumSubscriberOk() (*interface{}, bool) {
-	if o == nil {
+func (o *GuildRoleTagsResponse) GetPremiumSubscriberOk() (*nil, bool) {
+	if o == nil || IsNil(o.PremiumSubscriber) {
 		return nil, false
 	}
-	return &o.PremiumSubscriber, true
+	return o.PremiumSubscriber, true
 }
 
 // HasPremiumSubscriber returns a boolean if a field has been set.
@@ -106,9 +105,9 @@ func (o *GuildRoleTagsResponse) HasPremiumSubscriber() bool {
 	return false
 }
 
-// SetPremiumSubscriber gets a reference to the given interface{} and assigns it to the PremiumSubscriber field.
-func (o *GuildRoleTagsResponse) SetPremiumSubscriber(v interface{}) {
-	o.PremiumSubscriber = v
+// SetPremiumSubscriber gets a reference to the given nil and assigns it to the PremiumSubscriber field.
+func (o *GuildRoleTagsResponse) SetPremiumSubscriber(v nil) {
+	o.PremiumSubscriber = &v
 }
 
 
@@ -211,23 +210,22 @@ func (o *GuildRoleTagsResponse) SetSubscriptionListingId(v string) {
 }
 
 
-// GetAvailableForPurchase returns the AvailableForPurchase field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GuildRoleTagsResponse) GetAvailableForPurchase() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetAvailableForPurchase returns the AvailableForPurchase field value if set, zero value otherwise.
+func (o *GuildRoleTagsResponse) GetAvailableForPurchase() nil {
+	if o == nil || IsNil(o.AvailableForPurchase) {
+		var ret nil
 		return ret
 	}
-	return o.AvailableForPurchase
+	return *o.AvailableForPurchase
 }
 
 // GetAvailableForPurchaseOk returns a tuple with the AvailableForPurchase field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GuildRoleTagsResponse) GetAvailableForPurchaseOk() (*interface{}, bool) {
-	if o == nil {
+func (o *GuildRoleTagsResponse) GetAvailableForPurchaseOk() (*nil, bool) {
+	if o == nil || IsNil(o.AvailableForPurchase) {
 		return nil, false
 	}
-	return &o.AvailableForPurchase, true
+	return o.AvailableForPurchase, true
 }
 
 // HasAvailableForPurchase returns a boolean if a field has been set.
@@ -239,29 +237,28 @@ func (o *GuildRoleTagsResponse) HasAvailableForPurchase() bool {
 	return false
 }
 
-// SetAvailableForPurchase gets a reference to the given interface{} and assigns it to the AvailableForPurchase field.
-func (o *GuildRoleTagsResponse) SetAvailableForPurchase(v interface{}) {
-	o.AvailableForPurchase = v
+// SetAvailableForPurchase gets a reference to the given nil and assigns it to the AvailableForPurchase field.
+func (o *GuildRoleTagsResponse) SetAvailableForPurchase(v nil) {
+	o.AvailableForPurchase = &v
 }
 
 
-// GetGuildConnections returns the GuildConnections field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GuildRoleTagsResponse) GetGuildConnections() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetGuildConnections returns the GuildConnections field value if set, zero value otherwise.
+func (o *GuildRoleTagsResponse) GetGuildConnections() nil {
+	if o == nil || IsNil(o.GuildConnections) {
+		var ret nil
 		return ret
 	}
-	return o.GuildConnections
+	return *o.GuildConnections
 }
 
 // GetGuildConnectionsOk returns a tuple with the GuildConnections field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GuildRoleTagsResponse) GetGuildConnectionsOk() (*interface{}, bool) {
-	if o == nil {
+func (o *GuildRoleTagsResponse) GetGuildConnectionsOk() (*nil, bool) {
+	if o == nil || IsNil(o.GuildConnections) {
 		return nil, false
 	}
-	return &o.GuildConnections, true
+	return o.GuildConnections, true
 }
 
 // HasGuildConnections returns a boolean if a field has been set.
@@ -273,9 +270,9 @@ func (o *GuildRoleTagsResponse) HasGuildConnections() bool {
 	return false
 }
 
-// SetGuildConnections gets a reference to the given interface{} and assigns it to the GuildConnections field.
-func (o *GuildRoleTagsResponse) SetGuildConnections(v interface{}) {
-	o.GuildConnections = v
+// SetGuildConnections gets a reference to the given nil and assigns it to the GuildConnections field.
+func (o *GuildRoleTagsResponse) SetGuildConnections(v nil) {
+	o.GuildConnections = &v
 }
 
 
@@ -289,7 +286,7 @@ func (o GuildRoleTagsResponse) MarshalJSON() ([]byte, error) {
 
 func (o GuildRoleTagsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.PremiumSubscriber != nil {
+	if !IsNil(o.PremiumSubscriber) {
 		toSerialize["premium_subscriber"] = o.PremiumSubscriber
 	}
 	if !IsNil(o.BotId) {
@@ -301,10 +298,10 @@ func (o GuildRoleTagsResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SubscriptionListingId) {
 		toSerialize["subscription_listing_id"] = o.SubscriptionListingId
 	}
-	if o.AvailableForPurchase != nil {
+	if !IsNil(o.AvailableForPurchase) {
 		toSerialize["available_for_purchase"] = o.AvailableForPurchase
 	}
-	if o.GuildConnections != nil {
+	if !IsNil(o.GuildConnections) {
 		toSerialize["guild_connections"] = o.GuildConnections
 	}
 	return toSerialize, nil
@@ -345,5 +342,4 @@ func (v *NullableGuildRoleTagsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-04T03:54:15.906780824Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -64,7 +64,7 @@ type ConnectedAccountResponse struct {
 	TwoWayLink bool `json:"two_way_link"`
 	Verified bool `json:"verified"`
 	Visibility NullableInt32 `json:"visibility"`
-	Revoked NullableBool `json:"revoked,omitempty"`
+	Revoked *bool `json:"revoked,omitempty"`
 }
 
 type _ConnectedAccountResponse ConnectedAccountResponse
@@ -210,9 +210,9 @@ func (o *ConnectedAccountResponse) SetFriendSync(v bool) {
 	o.FriendSync = v
 }
 
-// GetIntegrations returns the Integrations field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIntegrations returns the Integrations field value if set, zero value otherwise.
 func (o *ConnectedAccountResponse) GetIntegrations() []ConnectedAccountIntegrationResponse {
-	if o == nil {
+	if o == nil || IsNil(o.Integrations) {
 		var ret []ConnectedAccountIntegrationResponse
 		return ret
 	}
@@ -221,9 +221,8 @@ func (o *ConnectedAccountResponse) GetIntegrations() []ConnectedAccountIntegrati
 
 // GetIntegrationsOk returns a tuple with the Integrations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectedAccountResponse) GetIntegrationsOk() ([]ConnectedAccountIntegrationResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Integrations) {
 		return nil, false
 	}
 	return o.Integrations, true
@@ -342,48 +341,38 @@ func (o *ConnectedAccountResponse) SetVisibility(v int32) {
 	o.Visibility.Set(&v)
 }
 
-// GetRevoked returns the Revoked field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRevoked returns the Revoked field value if set, zero value otherwise.
 func (o *ConnectedAccountResponse) GetRevoked() bool {
-	if o == nil || IsNil(o.Revoked.Get()) {
+	if o == nil || IsNil(o.Revoked) {
 		var ret bool
 		return ret
 	}
-	return *o.Revoked.Get()
+	return *o.Revoked
 }
 
 // GetRevokedOk returns a tuple with the Revoked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectedAccountResponse) GetRevokedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Revoked.Get()) {
+	if o == nil || IsNil(o.Revoked) {
 		return nil, false
 	}
-	return o.Revoked.Get(), o.Revoked.IsSet()
+	return o.Revoked, true
 }
 
 // HasRevoked returns a boolean if a field has been set.
 func (o *ConnectedAccountResponse) HasRevoked() bool {
-	if o != nil && o.Revoked.IsSet() {
+	if o != nil && !IsNil(o.Revoked) {
 		return true
 	}
 
 	return false
 }
 
-// SetRevoked gets a reference to the given NullableBool and assigns it to the Revoked field.
+// SetRevoked gets a reference to the given bool and assigns it to the Revoked field.
 func (o *ConnectedAccountResponse) SetRevoked(v bool) {
-	o.Revoked.Set(&v)
+	o.Revoked = &v
 }
 
-// SetRevokedNil sets the value for Revoked to be an explicit nil
-func (o *ConnectedAccountResponse) SetRevokedNil() {
-	o.Revoked.Set(nil)
-}
-
-// UnsetRevoked ensures that no value is present for Revoked, not even an explicit nil
-func (o *ConnectedAccountResponse) UnsetRevoked() {
-	o.Revoked.Unset()
-}
 
 func (o ConnectedAccountResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -401,15 +390,15 @@ func (o ConnectedAccountResponse) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["type"] = o.Type.Get()
 	toSerialize["friend_sync"] = o.FriendSync
-	if o.Integrations != nil {
+	if !IsNil(o.Integrations) {
 		toSerialize["integrations"] = o.Integrations
 	}
 	toSerialize["show_activity"] = o.ShowActivity
 	toSerialize["two_way_link"] = o.TwoWayLink
 	toSerialize["verified"] = o.Verified
 	toSerialize["visibility"] = o.Visibility.Get()
-	if o.Revoked.IsSet() {
-		toSerialize["revoked"] = o.Revoked.Get()
+	if !IsNil(o.Revoked) {
+		toSerialize["revoked"] = o.Revoked
 	}
 	return toSerialize, nil
 }
@@ -492,5 +481,4 @@ func (v *NullableConnectedAccountResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 
