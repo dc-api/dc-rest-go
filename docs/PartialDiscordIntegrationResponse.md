@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Type** | **NullableString** |  | 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**Account** | Pointer to [**NullableAccountResponse**](AccountResponse.md) |  | [optional] 
+**Account** | [**AccountResponse**](AccountResponse.md) |  | 
 **ApplicationId** | **string** |  | 
 
 ## Methods
 
 ### NewPartialDiscordIntegrationResponse
 
-`func NewPartialDiscordIntegrationResponse(id string, type_ NullableString, applicationId string, ) *PartialDiscordIntegrationResponse`
+`func NewPartialDiscordIntegrationResponse(id string, type_ NullableString, account AccountResponse, applicationId string, ) *PartialDiscordIntegrationResponse`
 
 NewPartialDiscordIntegrationResponse instantiates a new PartialDiscordIntegrationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -133,22 +133,7 @@ and a boolean to check if the value has been set.
 
 SetAccount sets Account field to given value.
 
-### HasAccount
 
-`func (o *PartialDiscordIntegrationResponse) HasAccount() bool`
-
-HasAccount returns a boolean if a field has been set.
-
-### SetAccountNil
-
-`func (o *PartialDiscordIntegrationResponse) SetAccountNil(b bool)`
-
- SetAccountNil sets the value for Account to be an explicit nil
-
-### UnsetAccount
-`func (o *PartialDiscordIntegrationResponse) UnsetAccount()`
-
-UnsetAccount ensures that no value is present for Account, not even an explicit nil
 ### GetApplicationId
 
 `func (o *PartialDiscordIntegrationResponse) GetApplicationId() string`

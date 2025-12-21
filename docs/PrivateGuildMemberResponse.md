@@ -14,9 +14,11 @@ Name | Type | Description | Notes
 **Pending** | **bool** |  | 
 **PremiumSince** | Pointer to **NullableTime** |  | [optional] 
 **Roles** | **[]string** |  | 
+**Collectibles** | Pointer to [**NullableUserCollectiblesResponse**](UserCollectiblesResponse.md) |  | [optional] 
 **User** | [**UserResponse**](UserResponse.md) |  | 
 **Mute** | **bool** |  | 
 **Deaf** | **bool** |  | 
+**Permissions** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -327,6 +329,41 @@ and a boolean to check if the value has been set.
 SetRoles sets Roles field to given value.
 
 
+### GetCollectibles
+
+`func (o *PrivateGuildMemberResponse) GetCollectibles() UserCollectiblesResponse`
+
+GetCollectibles returns the Collectibles field if non-nil, zero value otherwise.
+
+### GetCollectiblesOk
+
+`func (o *PrivateGuildMemberResponse) GetCollectiblesOk() (*UserCollectiblesResponse, bool)`
+
+GetCollectiblesOk returns a tuple with the Collectibles field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCollectibles
+
+`func (o *PrivateGuildMemberResponse) SetCollectibles(v UserCollectiblesResponse)`
+
+SetCollectibles sets Collectibles field to given value.
+
+### HasCollectibles
+
+`func (o *PrivateGuildMemberResponse) HasCollectibles() bool`
+
+HasCollectibles returns a boolean if a field has been set.
+
+### SetCollectiblesNil
+
+`func (o *PrivateGuildMemberResponse) SetCollectiblesNil(b bool)`
+
+ SetCollectiblesNil sets the value for Collectibles to be an explicit nil
+
+### UnsetCollectibles
+`func (o *PrivateGuildMemberResponse) UnsetCollectibles()`
+
+UnsetCollectibles ensures that no value is present for Collectibles, not even an explicit nil
 ### GetUser
 
 `func (o *PrivateGuildMemberResponse) GetUser() UserResponse`
@@ -386,6 +423,31 @@ and a boolean to check if the value has been set.
 
 SetDeaf sets Deaf field to given value.
 
+
+### GetPermissions
+
+`func (o *PrivateGuildMemberResponse) GetPermissions() string`
+
+GetPermissions returns the Permissions field if non-nil, zero value otherwise.
+
+### GetPermissionsOk
+
+`func (o *PrivateGuildMemberResponse) GetPermissionsOk() (*string, bool)`
+
+GetPermissionsOk returns a tuple with the Permissions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPermissions
+
+`func (o *PrivateGuildMemberResponse) SetPermissions(v string)`
+
+SetPermissions sets Permissions field to given value.
+
+### HasPermissions
+
+`func (o *PrivateGuildMemberResponse) HasPermissions() bool`
+
+HasPermissions returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -11,16 +11,16 @@ Name | Type | Description | Notes
 **EventType** | **int32** |  | 
 **Actions** | [**[]DefaultKeywordRuleResponseActionsInner**](DefaultKeywordRuleResponseActionsInner.md) |  | 
 **TriggerType** | **int32** |  | 
-**Enabled** | Pointer to **bool** |  | [optional] 
-**ExemptRoles** | Pointer to **[]string** |  | [optional] 
-**ExemptChannels** | Pointer to **[]string** |  | [optional] 
+**Enabled** | **bool** |  | 
+**ExemptRoles** | **[]string** |  | 
+**ExemptChannels** | **[]string** |  | 
 **TriggerMetadata** | **map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewListAutoModerationRules200ResponseInner
 
-`func NewListAutoModerationRules200ResponseInner(id string, guildId string, creatorId string, name string, eventType int32, actions []DefaultKeywordRuleResponseActionsInner, triggerType int32, triggerMetadata map[string]interface{}, ) *ListAutoModerationRules200ResponseInner`
+`func NewListAutoModerationRules200ResponseInner(id string, guildId string, creatorId string, name string, eventType int32, actions []DefaultKeywordRuleResponseActionsInner, triggerType int32, enabled bool, exemptRoles []string, exemptChannels []string, triggerMetadata map[string]interface{}, ) *ListAutoModerationRules200ResponseInner`
 
 NewListAutoModerationRules200ResponseInner instantiates a new ListAutoModerationRules200ResponseInner object
 This constructor will assign default values to properties that have it defined,
@@ -194,11 +194,6 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
-### HasEnabled
-
-`func (o *ListAutoModerationRules200ResponseInner) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
 
 ### GetExemptRoles
 
@@ -219,11 +214,6 @@ and a boolean to check if the value has been set.
 
 SetExemptRoles sets ExemptRoles field to given value.
 
-### HasExemptRoles
-
-`func (o *ListAutoModerationRules200ResponseInner) HasExemptRoles() bool`
-
-HasExemptRoles returns a boolean if a field has been set.
 
 ### GetExemptChannels
 
@@ -244,11 +234,6 @@ and a boolean to check if the value has been set.
 
 SetExemptChannels sets ExemptChannels field to given value.
 
-### HasExemptChannels
-
-`func (o *ListAutoModerationRules200ResponseInner) HasExemptChannels() bool`
-
-HasExemptChannels returns a boolean if a field has been set.
 
 ### GetTriggerMetadata
 

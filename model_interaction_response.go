@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-21T03:28:05.066589019Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,8 +58,8 @@ type InteractionResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Type int32 `json:"type"`
 	ResponseMessageId *string `json:"response_message_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	ResponseMessageLoading NullableBool `json:"response_message_loading,omitempty"`
-	ResponseMessageEphemeral NullableBool `json:"response_message_ephemeral,omitempty"`
+	ResponseMessageLoading *bool `json:"response_message_loading,omitempty"`
+	ResponseMessageEphemeral *bool `json:"response_message_ephemeral,omitempty"`
 	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	GuildId *string `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
@@ -166,91 +166,71 @@ func (o *InteractionResponse) SetResponseMessageId(v string) {
 }
 
 
-// GetResponseMessageLoading returns the ResponseMessageLoading field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetResponseMessageLoading returns the ResponseMessageLoading field value if set, zero value otherwise.
 func (o *InteractionResponse) GetResponseMessageLoading() bool {
-	if o == nil || IsNil(o.ResponseMessageLoading.Get()) {
+	if o == nil || IsNil(o.ResponseMessageLoading) {
 		var ret bool
 		return ret
 	}
-	return *o.ResponseMessageLoading.Get()
+	return *o.ResponseMessageLoading
 }
 
 // GetResponseMessageLoadingOk returns a tuple with the ResponseMessageLoading field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InteractionResponse) GetResponseMessageLoadingOk() (*bool, bool) {
-	if o == nil || IsNil(o.ResponseMessageLoading.Get()) {
+	if o == nil || IsNil(o.ResponseMessageLoading) {
 		return nil, false
 	}
-	return o.ResponseMessageLoading.Get(), o.ResponseMessageLoading.IsSet()
+	return o.ResponseMessageLoading, true
 }
 
 // HasResponseMessageLoading returns a boolean if a field has been set.
 func (o *InteractionResponse) HasResponseMessageLoading() bool {
-	if o != nil && o.ResponseMessageLoading.IsSet() {
+	if o != nil && !IsNil(o.ResponseMessageLoading) {
 		return true
 	}
 
 	return false
 }
 
-// SetResponseMessageLoading gets a reference to the given NullableBool and assigns it to the ResponseMessageLoading field.
+// SetResponseMessageLoading gets a reference to the given bool and assigns it to the ResponseMessageLoading field.
 func (o *InteractionResponse) SetResponseMessageLoading(v bool) {
-	o.ResponseMessageLoading.Set(&v)
+	o.ResponseMessageLoading = &v
 }
 
-// SetResponseMessageLoadingNil sets the value for ResponseMessageLoading to be an explicit nil
-func (o *InteractionResponse) SetResponseMessageLoadingNil() {
-	o.ResponseMessageLoading.Set(nil)
-}
 
-// UnsetResponseMessageLoading ensures that no value is present for ResponseMessageLoading, not even an explicit nil
-func (o *InteractionResponse) UnsetResponseMessageLoading() {
-	o.ResponseMessageLoading.Unset()
-}
-
-// GetResponseMessageEphemeral returns the ResponseMessageEphemeral field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetResponseMessageEphemeral returns the ResponseMessageEphemeral field value if set, zero value otherwise.
 func (o *InteractionResponse) GetResponseMessageEphemeral() bool {
-	if o == nil || IsNil(o.ResponseMessageEphemeral.Get()) {
+	if o == nil || IsNil(o.ResponseMessageEphemeral) {
 		var ret bool
 		return ret
 	}
-	return *o.ResponseMessageEphemeral.Get()
+	return *o.ResponseMessageEphemeral
 }
 
 // GetResponseMessageEphemeralOk returns a tuple with the ResponseMessageEphemeral field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InteractionResponse) GetResponseMessageEphemeralOk() (*bool, bool) {
-	if o == nil || IsNil(o.ResponseMessageEphemeral.Get()) {
+	if o == nil || IsNil(o.ResponseMessageEphemeral) {
 		return nil, false
 	}
-	return o.ResponseMessageEphemeral.Get(), o.ResponseMessageEphemeral.IsSet()
+	return o.ResponseMessageEphemeral, true
 }
 
 // HasResponseMessageEphemeral returns a boolean if a field has been set.
 func (o *InteractionResponse) HasResponseMessageEphemeral() bool {
-	if o != nil && o.ResponseMessageEphemeral.IsSet() {
+	if o != nil && !IsNil(o.ResponseMessageEphemeral) {
 		return true
 	}
 
 	return false
 }
 
-// SetResponseMessageEphemeral gets a reference to the given NullableBool and assigns it to the ResponseMessageEphemeral field.
+// SetResponseMessageEphemeral gets a reference to the given bool and assigns it to the ResponseMessageEphemeral field.
 func (o *InteractionResponse) SetResponseMessageEphemeral(v bool) {
-	o.ResponseMessageEphemeral.Set(&v)
+	o.ResponseMessageEphemeral = &v
 }
 
-// SetResponseMessageEphemeralNil sets the value for ResponseMessageEphemeral to be an explicit nil
-func (o *InteractionResponse) SetResponseMessageEphemeralNil() {
-	o.ResponseMessageEphemeral.Set(nil)
-}
-
-// UnsetResponseMessageEphemeral ensures that no value is present for ResponseMessageEphemeral, not even an explicit nil
-func (o *InteractionResponse) UnsetResponseMessageEphemeral() {
-	o.ResponseMessageEphemeral.Unset()
-}
 
 // GetChannelId returns the ChannelId field value if set, zero value otherwise.
 func (o *InteractionResponse) GetChannelId() string {
@@ -333,11 +313,11 @@ func (o InteractionResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ResponseMessageId) {
 		toSerialize["response_message_id"] = o.ResponseMessageId
 	}
-	if o.ResponseMessageLoading.IsSet() {
-		toSerialize["response_message_loading"] = o.ResponseMessageLoading.Get()
+	if !IsNil(o.ResponseMessageLoading) {
+		toSerialize["response_message_loading"] = o.ResponseMessageLoading
 	}
-	if o.ResponseMessageEphemeral.IsSet() {
-		toSerialize["response_message_ephemeral"] = o.ResponseMessageEphemeral.Get()
+	if !IsNil(o.ResponseMessageEphemeral) {
+		toSerialize["response_message_ephemeral"] = o.ResponseMessageEphemeral
 	}
 	if !IsNil(o.ChannelId) {
 		toSerialize["channel_id"] = o.ChannelId
@@ -421,5 +401,4 @@ func (v *NullableInteractionResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

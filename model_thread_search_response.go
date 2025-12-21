@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-21T03:28:05.066589019Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,9 +57,9 @@ var _ MappedNullable = &ThreadSearchResponse{}
 type ThreadSearchResponse struct {
 	Threads []ThreadResponse `json:"threads"`
 	Members []ThreadMemberResponse `json:"members"`
-	HasMore NullableBool `json:"has_more,omitempty"`
+	HasMore bool `json:"has_more"`
 	FirstMessages []MessageResponse `json:"first_messages,omitempty"`
-	TotalResults NullableInt32 `json:"total_results,omitempty"`
+	TotalResults int32 `json:"total_results"`
 }
 
 type _ThreadSearchResponse ThreadSearchResponse
@@ -68,10 +68,12 @@ type _ThreadSearchResponse ThreadSearchResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewThreadSearchResponse(threads []ThreadResponse, members []ThreadMemberResponse) *ThreadSearchResponse {
+func NewThreadSearchResponse(threads []ThreadResponse, members []ThreadMemberResponse, hasMore bool, totalResults int32) *ThreadSearchResponse {
 	this := ThreadSearchResponse{}
 	this.Threads = threads
 	this.Members = members
+	this.HasMore = hasMore
+	this.TotalResults = totalResults
 	return &this
 }
 
@@ -131,52 +133,33 @@ func (o *ThreadSearchResponse) SetMembers(v []ThreadMemberResponse) {
 	o.Members = v
 }
 
-// GetHasMore returns the HasMore field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHasMore returns the HasMore field value
 func (o *ThreadSearchResponse) GetHasMore() bool {
-	if o == nil || IsNil(o.HasMore.Get()) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.HasMore.Get()
+
+	return o.HasMore
 }
 
-// GetHasMoreOk returns a tuple with the HasMore field value if set, nil otherwise
+// GetHasMoreOk returns a tuple with the HasMore field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ThreadSearchResponse) GetHasMoreOk() (*bool, bool) {
-	if o == nil || IsNil(o.HasMore.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HasMore.Get(), o.HasMore.IsSet()
+	return &o.HasMore, true
 }
 
-// HasHasMore returns a boolean if a field has been set.
-func (o *ThreadSearchResponse) HasHasMore() bool {
-	if o != nil && o.HasMore.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHasMore gets a reference to the given NullableBool and assigns it to the HasMore field.
+// SetHasMore sets field value
 func (o *ThreadSearchResponse) SetHasMore(v bool) {
-	o.HasMore.Set(&v)
+	o.HasMore = v
 }
 
-// SetHasMoreNil sets the value for HasMore to be an explicit nil
-func (o *ThreadSearchResponse) SetHasMoreNil() {
-	o.HasMore.Set(nil)
-}
-
-// UnsetHasMore ensures that no value is present for HasMore, not even an explicit nil
-func (o *ThreadSearchResponse) UnsetHasMore() {
-	o.HasMore.Unset()
-}
-
-// GetFirstMessages returns the FirstMessages field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFirstMessages returns the FirstMessages field value if set, zero value otherwise.
 func (o *ThreadSearchResponse) GetFirstMessages() []MessageResponse {
-	if o == nil {
+	if o == nil || IsNil(o.FirstMessages) {
 		var ret []MessageResponse
 		return ret
 	}
@@ -185,9 +168,8 @@ func (o *ThreadSearchResponse) GetFirstMessages() []MessageResponse {
 
 // GetFirstMessagesOk returns a tuple with the FirstMessages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ThreadSearchResponse) GetFirstMessagesOk() ([]MessageResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FirstMessages) {
 		return nil, false
 	}
 	return o.FirstMessages, true
@@ -208,47 +190,28 @@ func (o *ThreadSearchResponse) SetFirstMessages(v []MessageResponse) {
 }
 
 
-// GetTotalResults returns the TotalResults field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTotalResults returns the TotalResults field value
 func (o *ThreadSearchResponse) GetTotalResults() int32 {
-	if o == nil || IsNil(o.TotalResults.Get()) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.TotalResults.Get()
+
+	return o.TotalResults
 }
 
-// GetTotalResultsOk returns a tuple with the TotalResults field value if set, nil otherwise
+// GetTotalResultsOk returns a tuple with the TotalResults field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ThreadSearchResponse) GetTotalResultsOk() (*int32, bool) {
-	if o == nil || IsNil(o.TotalResults.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TotalResults.Get(), o.TotalResults.IsSet()
+	return &o.TotalResults, true
 }
 
-// HasTotalResults returns a boolean if a field has been set.
-func (o *ThreadSearchResponse) HasTotalResults() bool {
-	if o != nil && o.TotalResults.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTotalResults gets a reference to the given NullableInt32 and assigns it to the TotalResults field.
+// SetTotalResults sets field value
 func (o *ThreadSearchResponse) SetTotalResults(v int32) {
-	o.TotalResults.Set(&v)
-}
-
-// SetTotalResultsNil sets the value for TotalResults to be an explicit nil
-func (o *ThreadSearchResponse) SetTotalResultsNil() {
-	o.TotalResults.Set(nil)
-}
-
-// UnsetTotalResults ensures that no value is present for TotalResults, not even an explicit nil
-func (o *ThreadSearchResponse) UnsetTotalResults() {
-	o.TotalResults.Unset()
+	o.TotalResults = v
 }
 
 func (o ThreadSearchResponse) MarshalJSON() ([]byte, error) {
@@ -263,15 +226,11 @@ func (o ThreadSearchResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["threads"] = o.Threads
 	toSerialize["members"] = o.Members
-	if o.HasMore.IsSet() {
-		toSerialize["has_more"] = o.HasMore.Get()
-	}
-	if o.FirstMessages != nil {
+	toSerialize["has_more"] = o.HasMore
+	if !IsNil(o.FirstMessages) {
 		toSerialize["first_messages"] = o.FirstMessages
 	}
-	if o.TotalResults.IsSet() {
-		toSerialize["total_results"] = o.TotalResults.Get()
-	}
+	toSerialize["total_results"] = o.TotalResults
 	return toSerialize, nil
 }
 
@@ -282,6 +241,8 @@ func (o *ThreadSearchResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"threads",
 		"members",
+		"has_more",
+		"total_results",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -348,5 +309,4 @@ func (v *NullableThreadSearchResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

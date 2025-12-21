@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Pending** | **bool** |  | 
 **PremiumSince** | Pointer to **NullableTime** |  | [optional] 
 **Roles** | **[]string** |  | 
+**Collectibles** | Pointer to [**NullableUserCollectiblesResponse**](UserCollectiblesResponse.md) |  | [optional] 
 **User** | [**UserResponse**](UserResponse.md) |  | 
 **Mute** | **bool** |  | 
 **Deaf** | **bool** |  | 
@@ -327,6 +328,41 @@ and a boolean to check if the value has been set.
 SetRoles sets Roles field to given value.
 
 
+### GetCollectibles
+
+`func (o *GuildMemberResponse) GetCollectibles() UserCollectiblesResponse`
+
+GetCollectibles returns the Collectibles field if non-nil, zero value otherwise.
+
+### GetCollectiblesOk
+
+`func (o *GuildMemberResponse) GetCollectiblesOk() (*UserCollectiblesResponse, bool)`
+
+GetCollectiblesOk returns a tuple with the Collectibles field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCollectibles
+
+`func (o *GuildMemberResponse) SetCollectibles(v UserCollectiblesResponse)`
+
+SetCollectibles sets Collectibles field to given value.
+
+### HasCollectibles
+
+`func (o *GuildMemberResponse) HasCollectibles() bool`
+
+HasCollectibles returns a boolean if a field has been set.
+
+### SetCollectiblesNil
+
+`func (o *GuildMemberResponse) SetCollectiblesNil(b bool)`
+
+ SetCollectiblesNil sets the value for Collectibles to be an explicit nil
+
+### UnsetCollectibles
+`func (o *GuildMemberResponse) UnsetCollectibles()`
+
+UnsetCollectibles ensures that no value is present for Collectibles, not even an explicit nil
 ### GetUser
 
 `func (o *GuildMemberResponse) GetUser() UserResponse`

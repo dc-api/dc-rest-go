@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-21T03:28:05.066589019Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -59,6 +59,7 @@ type GuildTemplateRoleResponse struct {
 	Name string `json:"name"`
 	Permissions string `json:"permissions"`
 	Color int32 `json:"color"`
+	Colors NullableGuildTemplateRoleColorsResponse `json:"colors,omitempty"`
 	Hoist bool `json:"hoist"`
 	Mentionable bool `json:"mentionable"`
 	Icon NullableString `json:"icon,omitempty"`
@@ -184,6 +185,49 @@ func (o *GuildTemplateRoleResponse) GetColorOk() (*int32, bool) {
 // SetColor sets field value
 func (o *GuildTemplateRoleResponse) SetColor(v int32) {
 	o.Color = v
+}
+
+// GetColors returns the Colors field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GuildTemplateRoleResponse) GetColors() GuildTemplateRoleColorsResponse {
+	if o == nil || IsNil(o.Colors.Get()) {
+		var ret GuildTemplateRoleColorsResponse
+		return ret
+	}
+	return *o.Colors.Get()
+}
+
+// GetColorsOk returns a tuple with the Colors field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GuildTemplateRoleResponse) GetColorsOk() (*GuildTemplateRoleColorsResponse, bool) {
+	if o == nil || IsNil(o.Colors.Get()) {
+		return nil, false
+	}
+	return o.Colors.Get(), o.Colors.IsSet()
+}
+
+// HasColors returns a boolean if a field has been set.
+func (o *GuildTemplateRoleResponse) HasColors() bool {
+	if o != nil && o.Colors.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetColors gets a reference to the given NullableGuildTemplateRoleColorsResponse and assigns it to the Colors field.
+func (o *GuildTemplateRoleResponse) SetColors(v GuildTemplateRoleColorsResponse) {
+	o.Colors.Set(&v)
+}
+
+// SetColorsNil sets the value for Colors to be an explicit nil
+func (o *GuildTemplateRoleResponse) SetColorsNil() {
+	o.Colors.Set(nil)
+}
+
+// UnsetColors ensures that no value is present for Colors, not even an explicit nil
+func (o *GuildTemplateRoleResponse) UnsetColors() {
+	o.Colors.Unset()
 }
 
 // GetHoist returns the Hoist field value
@@ -334,6 +378,9 @@ func (o GuildTemplateRoleResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["permissions"] = o.Permissions
 	toSerialize["color"] = o.Color
+	if o.Colors.IsSet() {
+		toSerialize["colors"] = o.Colors.Get()
+	}
 	toSerialize["hoist"] = o.Hoist
 	toSerialize["mentionable"] = o.Mentionable
 	if o.Icon.IsSet() {
@@ -422,5 +469,4 @@ func (v *NullableGuildTemplateRoleResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

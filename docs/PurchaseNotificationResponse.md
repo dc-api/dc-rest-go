@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **NullableInt32** |  | 
-**GuildProductPurchase** | Pointer to [**NullableGuildProductPurchaseResponse**](GuildProductPurchaseResponse.md) |  | [optional] 
+**GuildProductPurchase** | Pointer to [**GuildProductPurchaseResponse**](GuildProductPurchaseResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -81,16 +81,6 @@ SetGuildProductPurchase sets GuildProductPurchase field to given value.
 
 HasGuildProductPurchase returns a boolean if a field has been set.
 
-### SetGuildProductPurchaseNil
-
-`func (o *PurchaseNotificationResponse) SetGuildProductPurchaseNil(b bool)`
-
- SetGuildProductPurchaseNil sets the value for GuildProductPurchase to be an explicit nil
-
-### UnsetGuildProductPurchase
-`func (o *PurchaseNotificationResponse) UnsetGuildProductPurchase()`
-
-UnsetGuildProductPurchase ensures that no value is present for GuildProductPurchase, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

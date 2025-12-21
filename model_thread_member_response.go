@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-21T03:28:05.066589019Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -60,7 +60,7 @@ type ThreadMemberResponse struct {
 	UserId string `json:"user_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	JoinTimestamp time.Time `json:"join_timestamp"`
 	Flags int32 `json:"flags"`
-	Member NullableGuildMemberResponse `json:"member,omitempty"`
+	Member *GuildMemberResponse `json:"member,omitempty"`
 }
 
 type _ThreadMemberResponse ThreadMemberResponse
@@ -182,48 +182,38 @@ func (o *ThreadMemberResponse) SetFlags(v int32) {
 	o.Flags = v
 }
 
-// GetMember returns the Member field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMember returns the Member field value if set, zero value otherwise.
 func (o *ThreadMemberResponse) GetMember() GuildMemberResponse {
-	if o == nil || IsNil(o.Member.Get()) {
+	if o == nil || IsNil(o.Member) {
 		var ret GuildMemberResponse
 		return ret
 	}
-	return *o.Member.Get()
+	return *o.Member
 }
 
 // GetMemberOk returns a tuple with the Member field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ThreadMemberResponse) GetMemberOk() (*GuildMemberResponse, bool) {
-	if o == nil || IsNil(o.Member.Get()) {
+	if o == nil || IsNil(o.Member) {
 		return nil, false
 	}
-	return o.Member.Get(), o.Member.IsSet()
+	return o.Member, true
 }
 
 // HasMember returns a boolean if a field has been set.
 func (o *ThreadMemberResponse) HasMember() bool {
-	if o != nil && o.Member.IsSet() {
+	if o != nil && !IsNil(o.Member) {
 		return true
 	}
 
 	return false
 }
 
-// SetMember gets a reference to the given NullableGuildMemberResponse and assigns it to the Member field.
+// SetMember gets a reference to the given GuildMemberResponse and assigns it to the Member field.
 func (o *ThreadMemberResponse) SetMember(v GuildMemberResponse) {
-	o.Member.Set(&v)
+	o.Member = &v
 }
 
-// SetMemberNil sets the value for Member to be an explicit nil
-func (o *ThreadMemberResponse) SetMemberNil() {
-	o.Member.Set(nil)
-}
-
-// UnsetMember ensures that no value is present for Member, not even an explicit nil
-func (o *ThreadMemberResponse) UnsetMember() {
-	o.Member.Unset()
-}
 
 func (o ThreadMemberResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -239,8 +229,8 @@ func (o ThreadMemberResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["user_id"] = o.UserId
 	toSerialize["join_timestamp"] = o.JoinTimestamp
 	toSerialize["flags"] = o.Flags
-	if o.Member.IsSet() {
-		toSerialize["member"] = o.Member.Get()
+	if !IsNil(o.Member) {
+		toSerialize["member"] = o.Member
 	}
 	return toSerialize, nil
 }
@@ -320,5 +310,4 @@ func (v *NullableThreadMemberResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

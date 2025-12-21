@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-21T03:28:05.066589019Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -74,11 +74,6 @@ func PrivateChannelLocationAsEmbeddedActivityInstanceLocation(v *PrivateChannelL
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *EmbeddedActivityInstanceLocation) UnmarshalJSON(data []byte) error {
 	var err error
-	// this object is nullable so check if the payload is null or empty string
-	if string(data) == "" || string(data) == "{}" {
-		return nil
-	}
-
 	match := 0
 	// try to unmarshal data into GuildChannelLocation
 	err = newStrictDecoder(data).Decode(&dst.GuildChannelLocation)
@@ -206,5 +201,4 @@ func (v *NullableEmbeddedActivityInstanceLocation) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 
