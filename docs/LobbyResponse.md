@@ -7,14 +7,16 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **ApplicationId** | **string** |  | 
 **Metadata** | Pointer to **map[string]string** |  | [optional] 
-**Members** | Pointer to [**[]LobbyMemberResponse**](LobbyMemberResponse.md) |  | [optional] 
-**LinkedChannel** | Pointer to [**NullableGuildChannelResponse**](GuildChannelResponse.md) |  | [optional] 
+**Members** | [**[]LobbyMemberResponse**](LobbyMemberResponse.md) |  | 
+**LinkedChannel** | Pointer to [**GuildChannelResponse**](GuildChannelResponse.md) |  | [optional] 
+**Flags** | **int64** |  | 
+**OverrideEventWebhooksUrl** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewLobbyResponse
 
-`func NewLobbyResponse(id string, applicationId string, ) *LobbyResponse`
+`func NewLobbyResponse(id string, applicationId string, members []LobbyMemberResponse, flags int64, ) *LobbyResponse`
 
 NewLobbyResponse instantiates a new LobbyResponse object
 This constructor will assign default values to properties that have it defined,
@@ -113,22 +115,7 @@ and a boolean to check if the value has been set.
 
 SetMembers sets Members field to given value.
 
-### HasMembers
 
-`func (o *LobbyResponse) HasMembers() bool`
-
-HasMembers returns a boolean if a field has been set.
-
-### SetMembersNil
-
-`func (o *LobbyResponse) SetMembersNil(b bool)`
-
- SetMembersNil sets the value for Members to be an explicit nil
-
-### UnsetMembers
-`func (o *LobbyResponse) UnsetMembers()`
-
-UnsetMembers ensures that no value is present for Members, not even an explicit nil
 ### GetLinkedChannel
 
 `func (o *LobbyResponse) GetLinkedChannel() GuildChannelResponse`
@@ -154,16 +141,61 @@ SetLinkedChannel sets LinkedChannel field to given value.
 
 HasLinkedChannel returns a boolean if a field has been set.
 
-### SetLinkedChannelNil
+### GetFlags
 
-`func (o *LobbyResponse) SetLinkedChannelNil(b bool)`
+`func (o *LobbyResponse) GetFlags() int64`
 
- SetLinkedChannelNil sets the value for LinkedChannel to be an explicit nil
+GetFlags returns the Flags field if non-nil, zero value otherwise.
 
-### UnsetLinkedChannel
-`func (o *LobbyResponse) UnsetLinkedChannel()`
+### GetFlagsOk
 
-UnsetLinkedChannel ensures that no value is present for LinkedChannel, not even an explicit nil
+`func (o *LobbyResponse) GetFlagsOk() (*int64, bool)`
+
+GetFlagsOk returns a tuple with the Flags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFlags
+
+`func (o *LobbyResponse) SetFlags(v int64)`
+
+SetFlags sets Flags field to given value.
+
+
+### GetOverrideEventWebhooksUrl
+
+`func (o *LobbyResponse) GetOverrideEventWebhooksUrl() string`
+
+GetOverrideEventWebhooksUrl returns the OverrideEventWebhooksUrl field if non-nil, zero value otherwise.
+
+### GetOverrideEventWebhooksUrlOk
+
+`func (o *LobbyResponse) GetOverrideEventWebhooksUrlOk() (*string, bool)`
+
+GetOverrideEventWebhooksUrlOk returns a tuple with the OverrideEventWebhooksUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOverrideEventWebhooksUrl
+
+`func (o *LobbyResponse) SetOverrideEventWebhooksUrl(v string)`
+
+SetOverrideEventWebhooksUrl sets OverrideEventWebhooksUrl field to given value.
+
+### HasOverrideEventWebhooksUrl
+
+`func (o *LobbyResponse) HasOverrideEventWebhooksUrl() bool`
+
+HasOverrideEventWebhooksUrl returns a boolean if a field has been set.
+
+### SetOverrideEventWebhooksUrlNil
+
+`func (o *LobbyResponse) SetOverrideEventWebhooksUrlNil(b bool)`
+
+ SetOverrideEventWebhooksUrlNil sets the value for OverrideEventWebhooksUrl to be an explicit nil
+
+### UnsetOverrideEventWebhooksUrl
+`func (o *LobbyResponse) UnsetOverrideEventWebhooksUrl()`
+
+UnsetOverrideEventWebhooksUrl ensures that no value is present for OverrideEventWebhooksUrl, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

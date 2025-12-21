@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-21T03:28:05.066589019Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,11 +56,13 @@ var _ MappedNullable = &UserSelectComponentForMessageRequest{}
 // UserSelectComponentForMessageRequest struct for UserSelectComponentForMessageRequest
 type UserSelectComponentForMessageRequest struct {
 	Type int32 `json:"type"`
+	Id NullableInt32 `json:"id,omitempty"`
 	CustomId string `json:"custom_id"`
 	Placeholder NullableString `json:"placeholder,omitempty"`
 	MinValues NullableInt32 `json:"min_values,omitempty"`
 	MaxValues NullableInt32 `json:"max_values,omitempty"`
 	Disabled NullableBool `json:"disabled,omitempty"`
+	Required NullableBool `json:"required,omitempty"`
 	DefaultValues []UserSelectDefaultValue `json:"default_values,omitempty"`
 }
 
@@ -107,6 +109,49 @@ func (o *UserSelectComponentForMessageRequest) GetTypeOk() (*int32, bool) {
 // SetType sets field value
 func (o *UserSelectComponentForMessageRequest) SetType(v int32) {
 	o.Type = v
+}
+
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UserSelectComponentForMessageRequest) GetId() int32 {
+	if o == nil || IsNil(o.Id.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.Id.Get()
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UserSelectComponentForMessageRequest) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id.Get()) {
+		return nil, false
+	}
+	return o.Id.Get(), o.Id.IsSet()
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *UserSelectComponentForMessageRequest) HasId() bool {
+	if o != nil && o.Id.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given NullableInt32 and assigns it to the Id field.
+func (o *UserSelectComponentForMessageRequest) SetId(v int32) {
+	o.Id.Set(&v)
+}
+
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *UserSelectComponentForMessageRequest) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *UserSelectComponentForMessageRequest) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetCustomId returns the CustomId field value
@@ -305,6 +350,49 @@ func (o *UserSelectComponentForMessageRequest) UnsetDisabled() {
 	o.Disabled.Unset()
 }
 
+// GetRequired returns the Required field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UserSelectComponentForMessageRequest) GetRequired() bool {
+	if o == nil || IsNil(o.Required.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.Required.Get()
+}
+
+// GetRequiredOk returns a tuple with the Required field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UserSelectComponentForMessageRequest) GetRequiredOk() (*bool, bool) {
+	if o == nil || IsNil(o.Required.Get()) {
+		return nil, false
+	}
+	return o.Required.Get(), o.Required.IsSet()
+}
+
+// HasRequired returns a boolean if a field has been set.
+func (o *UserSelectComponentForMessageRequest) HasRequired() bool {
+	if o != nil && o.Required.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRequired gets a reference to the given NullableBool and assigns it to the Required field.
+func (o *UserSelectComponentForMessageRequest) SetRequired(v bool) {
+	o.Required.Set(&v)
+}
+
+// SetRequiredNil sets the value for Required to be an explicit nil
+func (o *UserSelectComponentForMessageRequest) SetRequiredNil() {
+	o.Required.Set(nil)
+}
+
+// UnsetRequired ensures that no value is present for Required, not even an explicit nil
+func (o *UserSelectComponentForMessageRequest) UnsetRequired() {
+	o.Required.Unset()
+}
+
 // GetDefaultValues returns the DefaultValues field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserSelectComponentForMessageRequest) GetDefaultValues() []UserSelectDefaultValue {
 	if o == nil {
@@ -350,6 +438,9 @@ func (o UserSelectComponentForMessageRequest) MarshalJSON() ([]byte, error) {
 func (o UserSelectComponentForMessageRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
+	}
 	toSerialize["custom_id"] = o.CustomId
 	if o.Placeholder.IsSet() {
 		toSerialize["placeholder"] = o.Placeholder.Get()
@@ -362,6 +453,9 @@ func (o UserSelectComponentForMessageRequest) ToMap() (map[string]interface{}, e
 	}
 	if o.Disabled.IsSet() {
 		toSerialize["disabled"] = o.Disabled.Get()
+	}
+	if o.Required.IsSet() {
+		toSerialize["required"] = o.Required.Get()
 	}
 	if o.DefaultValues != nil {
 		toSerialize["default_values"] = o.DefaultValues
@@ -442,5 +536,4 @@ func (v *NullableUserSelectComponentForMessageRequest) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

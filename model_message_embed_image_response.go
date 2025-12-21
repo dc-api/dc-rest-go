@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-21T03:28:05.066589019Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,14 +53,14 @@ var _ MappedNullable = &MessageEmbedImageResponse{}
 
 // MessageEmbedImageResponse struct for MessageEmbedImageResponse
 type MessageEmbedImageResponse struct {
-	Url NullableString `json:"url,omitempty"`
-	ProxyUrl NullableString `json:"proxy_url,omitempty"`
+	Url *string `json:"url,omitempty"`
+	ProxyUrl *string `json:"proxy_url,omitempty"`
 	Width *int64 `json:"width,omitempty"`
 	Height *int64 `json:"height,omitempty"`
-	ContentType NullableString `json:"content_type,omitempty"`
-	Placeholder NullableString `json:"placeholder,omitempty"`
+	ContentType *string `json:"content_type,omitempty"`
+	Placeholder *string `json:"placeholder,omitempty"`
 	PlaceholderVersion *int64 `json:"placeholder_version,omitempty"`
-	Description NullableString `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 	Flags *int64 `json:"flags,omitempty"`
 }
 
@@ -81,91 +81,71 @@ func NewMessageEmbedImageResponseWithDefaults() *MessageEmbedImageResponse {
 	return &this
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUrl returns the Url field value if set, zero value otherwise.
 func (o *MessageEmbedImageResponse) GetUrl() string {
-	if o == nil || IsNil(o.Url.Get()) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
-	return *o.Url.Get()
+	return *o.Url
 }
 
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedImageResponse) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url.Get()) {
+	if o == nil || IsNil(o.Url) {
 		return nil, false
 	}
-	return o.Url.Get(), o.Url.IsSet()
+	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *MessageEmbedImageResponse) HasUrl() bool {
-	if o != nil && o.Url.IsSet() {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
 	return false
 }
 
-// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
+// SetUrl gets a reference to the given string and assigns it to the Url field.
 func (o *MessageEmbedImageResponse) SetUrl(v string) {
-	o.Url.Set(&v)
+	o.Url = &v
 }
 
-// SetUrlNil sets the value for Url to be an explicit nil
-func (o *MessageEmbedImageResponse) SetUrlNil() {
-	o.Url.Set(nil)
-}
 
-// UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *MessageEmbedImageResponse) UnsetUrl() {
-	o.Url.Unset()
-}
-
-// GetProxyUrl returns the ProxyUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetProxyUrl returns the ProxyUrl field value if set, zero value otherwise.
 func (o *MessageEmbedImageResponse) GetProxyUrl() string {
-	if o == nil || IsNil(o.ProxyUrl.Get()) {
+	if o == nil || IsNil(o.ProxyUrl) {
 		var ret string
 		return ret
 	}
-	return *o.ProxyUrl.Get()
+	return *o.ProxyUrl
 }
 
 // GetProxyUrlOk returns a tuple with the ProxyUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedImageResponse) GetProxyUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.ProxyUrl.Get()) {
+	if o == nil || IsNil(o.ProxyUrl) {
 		return nil, false
 	}
-	return o.ProxyUrl.Get(), o.ProxyUrl.IsSet()
+	return o.ProxyUrl, true
 }
 
 // HasProxyUrl returns a boolean if a field has been set.
 func (o *MessageEmbedImageResponse) HasProxyUrl() bool {
-	if o != nil && o.ProxyUrl.IsSet() {
+	if o != nil && !IsNil(o.ProxyUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetProxyUrl gets a reference to the given NullableString and assigns it to the ProxyUrl field.
+// SetProxyUrl gets a reference to the given string and assigns it to the ProxyUrl field.
 func (o *MessageEmbedImageResponse) SetProxyUrl(v string) {
-	o.ProxyUrl.Set(&v)
+	o.ProxyUrl = &v
 }
 
-// SetProxyUrlNil sets the value for ProxyUrl to be an explicit nil
-func (o *MessageEmbedImageResponse) SetProxyUrlNil() {
-	o.ProxyUrl.Set(nil)
-}
-
-// UnsetProxyUrl ensures that no value is present for ProxyUrl, not even an explicit nil
-func (o *MessageEmbedImageResponse) UnsetProxyUrl() {
-	o.ProxyUrl.Unset()
-}
 
 // GetWidth returns the Width field value if set, zero value otherwise.
 func (o *MessageEmbedImageResponse) GetWidth() int64 {
@@ -233,91 +213,71 @@ func (o *MessageEmbedImageResponse) SetHeight(v int64) {
 }
 
 
-// GetContentType returns the ContentType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetContentType returns the ContentType field value if set, zero value otherwise.
 func (o *MessageEmbedImageResponse) GetContentType() string {
-	if o == nil || IsNil(o.ContentType.Get()) {
+	if o == nil || IsNil(o.ContentType) {
 		var ret string
 		return ret
 	}
-	return *o.ContentType.Get()
+	return *o.ContentType
 }
 
 // GetContentTypeOk returns a tuple with the ContentType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedImageResponse) GetContentTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.ContentType.Get()) {
+	if o == nil || IsNil(o.ContentType) {
 		return nil, false
 	}
-	return o.ContentType.Get(), o.ContentType.IsSet()
+	return o.ContentType, true
 }
 
 // HasContentType returns a boolean if a field has been set.
 func (o *MessageEmbedImageResponse) HasContentType() bool {
-	if o != nil && o.ContentType.IsSet() {
+	if o != nil && !IsNil(o.ContentType) {
 		return true
 	}
 
 	return false
 }
 
-// SetContentType gets a reference to the given NullableString and assigns it to the ContentType field.
+// SetContentType gets a reference to the given string and assigns it to the ContentType field.
 func (o *MessageEmbedImageResponse) SetContentType(v string) {
-	o.ContentType.Set(&v)
+	o.ContentType = &v
 }
 
-// SetContentTypeNil sets the value for ContentType to be an explicit nil
-func (o *MessageEmbedImageResponse) SetContentTypeNil() {
-	o.ContentType.Set(nil)
-}
 
-// UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
-func (o *MessageEmbedImageResponse) UnsetContentType() {
-	o.ContentType.Unset()
-}
-
-// GetPlaceholder returns the Placeholder field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPlaceholder returns the Placeholder field value if set, zero value otherwise.
 func (o *MessageEmbedImageResponse) GetPlaceholder() string {
-	if o == nil || IsNil(o.Placeholder.Get()) {
+	if o == nil || IsNil(o.Placeholder) {
 		var ret string
 		return ret
 	}
-	return *o.Placeholder.Get()
+	return *o.Placeholder
 }
 
 // GetPlaceholderOk returns a tuple with the Placeholder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedImageResponse) GetPlaceholderOk() (*string, bool) {
-	if o == nil || IsNil(o.Placeholder.Get()) {
+	if o == nil || IsNil(o.Placeholder) {
 		return nil, false
 	}
-	return o.Placeholder.Get(), o.Placeholder.IsSet()
+	return o.Placeholder, true
 }
 
 // HasPlaceholder returns a boolean if a field has been set.
 func (o *MessageEmbedImageResponse) HasPlaceholder() bool {
-	if o != nil && o.Placeholder.IsSet() {
+	if o != nil && !IsNil(o.Placeholder) {
 		return true
 	}
 
 	return false
 }
 
-// SetPlaceholder gets a reference to the given NullableString and assigns it to the Placeholder field.
+// SetPlaceholder gets a reference to the given string and assigns it to the Placeholder field.
 func (o *MessageEmbedImageResponse) SetPlaceholder(v string) {
-	o.Placeholder.Set(&v)
+	o.Placeholder = &v
 }
 
-// SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-func (o *MessageEmbedImageResponse) SetPlaceholderNil() {
-	o.Placeholder.Set(nil)
-}
-
-// UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
-func (o *MessageEmbedImageResponse) UnsetPlaceholder() {
-	o.Placeholder.Unset()
-}
 
 // GetPlaceholderVersion returns the PlaceholderVersion field value if set, zero value otherwise.
 func (o *MessageEmbedImageResponse) GetPlaceholderVersion() int64 {
@@ -352,48 +312,38 @@ func (o *MessageEmbedImageResponse) SetPlaceholderVersion(v int64) {
 }
 
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *MessageEmbedImageResponse) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedImageResponse) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *MessageEmbedImageResponse) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *MessageEmbedImageResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *MessageEmbedImageResponse) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *MessageEmbedImageResponse) UnsetDescription() {
-	o.Description.Unset()
-}
 
 // GetFlags returns the Flags field value if set, zero value otherwise.
 func (o *MessageEmbedImageResponse) GetFlags() int64 {
@@ -438,11 +388,11 @@ func (o MessageEmbedImageResponse) MarshalJSON() ([]byte, error) {
 
 func (o MessageEmbedImageResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Url.IsSet() {
-		toSerialize["url"] = o.Url.Get()
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
 	}
-	if o.ProxyUrl.IsSet() {
-		toSerialize["proxy_url"] = o.ProxyUrl.Get()
+	if !IsNil(o.ProxyUrl) {
+		toSerialize["proxy_url"] = o.ProxyUrl
 	}
 	if !IsNil(o.Width) {
 		toSerialize["width"] = o.Width
@@ -450,17 +400,17 @@ func (o MessageEmbedImageResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Height) {
 		toSerialize["height"] = o.Height
 	}
-	if o.ContentType.IsSet() {
-		toSerialize["content_type"] = o.ContentType.Get()
+	if !IsNil(o.ContentType) {
+		toSerialize["content_type"] = o.ContentType
 	}
-	if o.Placeholder.IsSet() {
-		toSerialize["placeholder"] = o.Placeholder.Get()
+	if !IsNil(o.Placeholder) {
+		toSerialize["placeholder"] = o.Placeholder
 	}
 	if !IsNil(o.PlaceholderVersion) {
 		toSerialize["placeholder_version"] = o.PlaceholderVersion
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
 	if !IsNil(o.Flags) {
 		toSerialize["flags"] = o.Flags
@@ -503,5 +453,4 @@ func (v *NullableMessageEmbedImageResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

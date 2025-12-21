@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-21T03:28:05.066589019Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -66,7 +66,6 @@ type BasicMessageResponse struct {
 	EditedTimestamp NullableTime `json:"edited_timestamp,omitempty"`
 	Flags int32 `json:"flags"`
 	Components []BasicMessageResponseComponentsInner `json:"components"`
-	Resolved NullableResolvedObjectsResponse `json:"resolved,omitempty"`
 	Stickers []GetSticker200Response `json:"stickers,omitempty"`
 	StickerItems []MessageStickerItemResponse `json:"sticker_items,omitempty"`
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
@@ -75,21 +74,23 @@ type BasicMessageResponse struct {
 	Pinned bool `json:"pinned"`
 	MentionEveryone bool `json:"mention_everyone"`
 	Tts bool `json:"tts"`
-	Call NullableMessageCallResponse `json:"call,omitempty"`
+	Call *MessageCallResponse `json:"call,omitempty"`
 	Activity map[string]interface{} `json:"activity,omitempty"`
-	Application NullableBasicApplicationResponse `json:"application,omitempty"`
+	Application *BasicApplicationResponse `json:"application,omitempty"`
 	ApplicationId *string `json:"application_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Interaction NullableMessageInteractionResponse `json:"interaction,omitempty"`
+	Interaction *MessageInteractionResponse `json:"interaction,omitempty"`
 	Nonce NullableBasicMessageResponseNonce `json:"nonce,omitempty"`
 	WebhookId *string `json:"webhook_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	MessageReference NullableMessageReferenceResponse `json:"message_reference,omitempty"`
-	Thread NullableThreadResponse `json:"thread,omitempty"`
+	MessageReference *MessageReferenceResponse `json:"message_reference,omitempty"`
+	Thread *ThreadResponse `json:"thread,omitempty"`
 	MentionChannels []*MessageMentionChannelResponse `json:"mention_channels,omitempty"`
-	RoleSubscriptionData NullableMessageRoleSubscriptionDataResponse `json:"role_subscription_data,omitempty"`
-	PurchaseNotification NullablePurchaseNotificationResponse `json:"purchase_notification,omitempty"`
-	Position NullableInt32 `json:"position,omitempty"`
-	Poll NullablePollResponse `json:"poll,omitempty"`
-	InteractionMetadata NullableBasicMessageResponseInteractionMetadata `json:"interaction_metadata,omitempty"`
+	RoleSubscriptionData *MessageRoleSubscriptionDataResponse `json:"role_subscription_data,omitempty"`
+	PurchaseNotification *PurchaseNotificationResponse `json:"purchase_notification,omitempty"`
+	Position *int32 `json:"position,omitempty"`
+	Resolved *ResolvedObjectsResponse `json:"resolved,omitempty"`
+	Poll *PollResponse `json:"poll,omitempty"`
+	SharedClientTheme NullableCustomClientThemeResponse `json:"shared_client_theme,omitempty"`
+	InteractionMetadata *BasicMessageResponseInteractionMetadata `json:"interaction_metadata,omitempty"`
 	MessageSnapshots []MessageSnapshotResponse `json:"message_snapshots,omitempty"`
 }
 
@@ -386,52 +387,9 @@ func (o *BasicMessageResponse) SetComponents(v []BasicMessageResponseComponentsI
 	o.Components = v
 }
 
-// GetResolved returns the Resolved field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BasicMessageResponse) GetResolved() ResolvedObjectsResponse {
-	if o == nil || IsNil(o.Resolved.Get()) {
-		var ret ResolvedObjectsResponse
-		return ret
-	}
-	return *o.Resolved.Get()
-}
-
-// GetResolvedOk returns a tuple with the Resolved field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BasicMessageResponse) GetResolvedOk() (*ResolvedObjectsResponse, bool) {
-	if o == nil || IsNil(o.Resolved.Get()) {
-		return nil, false
-	}
-	return o.Resolved.Get(), o.Resolved.IsSet()
-}
-
-// HasResolved returns a boolean if a field has been set.
-func (o *BasicMessageResponse) HasResolved() bool {
-	if o != nil && o.Resolved.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetResolved gets a reference to the given NullableResolvedObjectsResponse and assigns it to the Resolved field.
-func (o *BasicMessageResponse) SetResolved(v ResolvedObjectsResponse) {
-	o.Resolved.Set(&v)
-}
-
-// SetResolvedNil sets the value for Resolved to be an explicit nil
-func (o *BasicMessageResponse) SetResolvedNil() {
-	o.Resolved.Set(nil)
-}
-
-// UnsetResolved ensures that no value is present for Resolved, not even an explicit nil
-func (o *BasicMessageResponse) UnsetResolved() {
-	o.Resolved.Unset()
-}
-
-// GetStickers returns the Stickers field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStickers returns the Stickers field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetStickers() []GetSticker200Response {
-	if o == nil {
+	if o == nil || IsNil(o.Stickers) {
 		var ret []GetSticker200Response
 		return ret
 	}
@@ -440,9 +398,8 @@ func (o *BasicMessageResponse) GetStickers() []GetSticker200Response {
 
 // GetStickersOk returns a tuple with the Stickers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicMessageResponse) GetStickersOk() ([]GetSticker200Response, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Stickers) {
 		return nil, false
 	}
 	return o.Stickers, true
@@ -463,9 +420,9 @@ func (o *BasicMessageResponse) SetStickers(v []GetSticker200Response) {
 }
 
 
-// GetStickerItems returns the StickerItems field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStickerItems returns the StickerItems field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetStickerItems() []MessageStickerItemResponse {
-	if o == nil {
+	if o == nil || IsNil(o.StickerItems) {
 		var ret []MessageStickerItemResponse
 		return ret
 	}
@@ -474,9 +431,8 @@ func (o *BasicMessageResponse) GetStickerItems() []MessageStickerItemResponse {
 
 // GetStickerItemsOk returns a tuple with the StickerItems field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicMessageResponse) GetStickerItemsOk() ([]MessageStickerItemResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StickerItems) {
 		return nil, false
 	}
 	return o.StickerItems, true
@@ -641,48 +597,38 @@ func (o *BasicMessageResponse) SetTts(v bool) {
 	o.Tts = v
 }
 
-// GetCall returns the Call field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCall returns the Call field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetCall() MessageCallResponse {
-	if o == nil || IsNil(o.Call.Get()) {
+	if o == nil || IsNil(o.Call) {
 		var ret MessageCallResponse
 		return ret
 	}
-	return *o.Call.Get()
+	return *o.Call
 }
 
 // GetCallOk returns a tuple with the Call field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicMessageResponse) GetCallOk() (*MessageCallResponse, bool) {
-	if o == nil || IsNil(o.Call.Get()) {
+	if o == nil || IsNil(o.Call) {
 		return nil, false
 	}
-	return o.Call.Get(), o.Call.IsSet()
+	return o.Call, true
 }
 
 // HasCall returns a boolean if a field has been set.
 func (o *BasicMessageResponse) HasCall() bool {
-	if o != nil && o.Call.IsSet() {
+	if o != nil && !IsNil(o.Call) {
 		return true
 	}
 
 	return false
 }
 
-// SetCall gets a reference to the given NullableMessageCallResponse and assigns it to the Call field.
+// SetCall gets a reference to the given MessageCallResponse and assigns it to the Call field.
 func (o *BasicMessageResponse) SetCall(v MessageCallResponse) {
-	o.Call.Set(&v)
+	o.Call = &v
 }
 
-// SetCallNil sets the value for Call to be an explicit nil
-func (o *BasicMessageResponse) SetCallNil() {
-	o.Call.Set(nil)
-}
-
-// UnsetCall ensures that no value is present for Call, not even an explicit nil
-func (o *BasicMessageResponse) UnsetCall() {
-	o.Call.Unset()
-}
 
 // GetActivity returns the Activity field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetActivity() map[string]interface{} {
@@ -717,48 +663,38 @@ func (o *BasicMessageResponse) SetActivity(v map[string]interface{}) {
 }
 
 
-// GetApplication returns the Application field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetApplication returns the Application field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetApplication() BasicApplicationResponse {
-	if o == nil || IsNil(o.Application.Get()) {
+	if o == nil || IsNil(o.Application) {
 		var ret BasicApplicationResponse
 		return ret
 	}
-	return *o.Application.Get()
+	return *o.Application
 }
 
 // GetApplicationOk returns a tuple with the Application field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicMessageResponse) GetApplicationOk() (*BasicApplicationResponse, bool) {
-	if o == nil || IsNil(o.Application.Get()) {
+	if o == nil || IsNil(o.Application) {
 		return nil, false
 	}
-	return o.Application.Get(), o.Application.IsSet()
+	return o.Application, true
 }
 
 // HasApplication returns a boolean if a field has been set.
 func (o *BasicMessageResponse) HasApplication() bool {
-	if o != nil && o.Application.IsSet() {
+	if o != nil && !IsNil(o.Application) {
 		return true
 	}
 
 	return false
 }
 
-// SetApplication gets a reference to the given NullableBasicApplicationResponse and assigns it to the Application field.
+// SetApplication gets a reference to the given BasicApplicationResponse and assigns it to the Application field.
 func (o *BasicMessageResponse) SetApplication(v BasicApplicationResponse) {
-	o.Application.Set(&v)
+	o.Application = &v
 }
 
-// SetApplicationNil sets the value for Application to be an explicit nil
-func (o *BasicMessageResponse) SetApplicationNil() {
-	o.Application.Set(nil)
-}
-
-// UnsetApplication ensures that no value is present for Application, not even an explicit nil
-func (o *BasicMessageResponse) UnsetApplication() {
-	o.Application.Unset()
-}
 
 // GetApplicationId returns the ApplicationId field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetApplicationId() string {
@@ -793,48 +729,38 @@ func (o *BasicMessageResponse) SetApplicationId(v string) {
 }
 
 
-// GetInteraction returns the Interaction field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInteraction returns the Interaction field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetInteraction() MessageInteractionResponse {
-	if o == nil || IsNil(o.Interaction.Get()) {
+	if o == nil || IsNil(o.Interaction) {
 		var ret MessageInteractionResponse
 		return ret
 	}
-	return *o.Interaction.Get()
+	return *o.Interaction
 }
 
 // GetInteractionOk returns a tuple with the Interaction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicMessageResponse) GetInteractionOk() (*MessageInteractionResponse, bool) {
-	if o == nil || IsNil(o.Interaction.Get()) {
+	if o == nil || IsNil(o.Interaction) {
 		return nil, false
 	}
-	return o.Interaction.Get(), o.Interaction.IsSet()
+	return o.Interaction, true
 }
 
 // HasInteraction returns a boolean if a field has been set.
 func (o *BasicMessageResponse) HasInteraction() bool {
-	if o != nil && o.Interaction.IsSet() {
+	if o != nil && !IsNil(o.Interaction) {
 		return true
 	}
 
 	return false
 }
 
-// SetInteraction gets a reference to the given NullableMessageInteractionResponse and assigns it to the Interaction field.
+// SetInteraction gets a reference to the given MessageInteractionResponse and assigns it to the Interaction field.
 func (o *BasicMessageResponse) SetInteraction(v MessageInteractionResponse) {
-	o.Interaction.Set(&v)
+	o.Interaction = &v
 }
 
-// SetInteractionNil sets the value for Interaction to be an explicit nil
-func (o *BasicMessageResponse) SetInteractionNil() {
-	o.Interaction.Set(nil)
-}
-
-// UnsetInteraction ensures that no value is present for Interaction, not even an explicit nil
-func (o *BasicMessageResponse) UnsetInteraction() {
-	o.Interaction.Unset()
-}
 
 // GetNonce returns the Nonce field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BasicMessageResponse) GetNonce() BasicMessageResponseNonce {
@@ -912,95 +838,75 @@ func (o *BasicMessageResponse) SetWebhookId(v string) {
 }
 
 
-// GetMessageReference returns the MessageReference field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMessageReference returns the MessageReference field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetMessageReference() MessageReferenceResponse {
-	if o == nil || IsNil(o.MessageReference.Get()) {
+	if o == nil || IsNil(o.MessageReference) {
 		var ret MessageReferenceResponse
 		return ret
 	}
-	return *o.MessageReference.Get()
+	return *o.MessageReference
 }
 
 // GetMessageReferenceOk returns a tuple with the MessageReference field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicMessageResponse) GetMessageReferenceOk() (*MessageReferenceResponse, bool) {
-	if o == nil || IsNil(o.MessageReference.Get()) {
+	if o == nil || IsNil(o.MessageReference) {
 		return nil, false
 	}
-	return o.MessageReference.Get(), o.MessageReference.IsSet()
+	return o.MessageReference, true
 }
 
 // HasMessageReference returns a boolean if a field has been set.
 func (o *BasicMessageResponse) HasMessageReference() bool {
-	if o != nil && o.MessageReference.IsSet() {
+	if o != nil && !IsNil(o.MessageReference) {
 		return true
 	}
 
 	return false
 }
 
-// SetMessageReference gets a reference to the given NullableMessageReferenceResponse and assigns it to the MessageReference field.
+// SetMessageReference gets a reference to the given MessageReferenceResponse and assigns it to the MessageReference field.
 func (o *BasicMessageResponse) SetMessageReference(v MessageReferenceResponse) {
-	o.MessageReference.Set(&v)
+	o.MessageReference = &v
 }
 
-// SetMessageReferenceNil sets the value for MessageReference to be an explicit nil
-func (o *BasicMessageResponse) SetMessageReferenceNil() {
-	o.MessageReference.Set(nil)
-}
 
-// UnsetMessageReference ensures that no value is present for MessageReference, not even an explicit nil
-func (o *BasicMessageResponse) UnsetMessageReference() {
-	o.MessageReference.Unset()
-}
-
-// GetThread returns the Thread field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetThread returns the Thread field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetThread() ThreadResponse {
-	if o == nil || IsNil(o.Thread.Get()) {
+	if o == nil || IsNil(o.Thread) {
 		var ret ThreadResponse
 		return ret
 	}
-	return *o.Thread.Get()
+	return *o.Thread
 }
 
 // GetThreadOk returns a tuple with the Thread field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicMessageResponse) GetThreadOk() (*ThreadResponse, bool) {
-	if o == nil || IsNil(o.Thread.Get()) {
+	if o == nil || IsNil(o.Thread) {
 		return nil, false
 	}
-	return o.Thread.Get(), o.Thread.IsSet()
+	return o.Thread, true
 }
 
 // HasThread returns a boolean if a field has been set.
 func (o *BasicMessageResponse) HasThread() bool {
-	if o != nil && o.Thread.IsSet() {
+	if o != nil && !IsNil(o.Thread) {
 		return true
 	}
 
 	return false
 }
 
-// SetThread gets a reference to the given NullableThreadResponse and assigns it to the Thread field.
+// SetThread gets a reference to the given ThreadResponse and assigns it to the Thread field.
 func (o *BasicMessageResponse) SetThread(v ThreadResponse) {
-	o.Thread.Set(&v)
+	o.Thread = &v
 }
 
-// SetThreadNil sets the value for Thread to be an explicit nil
-func (o *BasicMessageResponse) SetThreadNil() {
-	o.Thread.Set(nil)
-}
 
-// UnsetThread ensures that no value is present for Thread, not even an explicit nil
-func (o *BasicMessageResponse) UnsetThread() {
-	o.Thread.Unset()
-}
-
-// GetMentionChannels returns the MentionChannels field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMentionChannels returns the MentionChannels field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetMentionChannels() []*MessageMentionChannelResponse {
-	if o == nil {
+	if o == nil || IsNil(o.MentionChannels) {
 		var ret []*MessageMentionChannelResponse
 		return ret
 	}
@@ -1009,9 +915,8 @@ func (o *BasicMessageResponse) GetMentionChannels() []*MessageMentionChannelResp
 
 // GetMentionChannelsOk returns a tuple with the MentionChannels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicMessageResponse) GetMentionChannelsOk() ([]*MessageMentionChannelResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MentionChannels) {
 		return nil, false
 	}
 	return o.MentionChannels, true
@@ -1032,224 +937,250 @@ func (o *BasicMessageResponse) SetMentionChannels(v []*MessageMentionChannelResp
 }
 
 
-// GetRoleSubscriptionData returns the RoleSubscriptionData field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRoleSubscriptionData returns the RoleSubscriptionData field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetRoleSubscriptionData() MessageRoleSubscriptionDataResponse {
-	if o == nil || IsNil(o.RoleSubscriptionData.Get()) {
+	if o == nil || IsNil(o.RoleSubscriptionData) {
 		var ret MessageRoleSubscriptionDataResponse
 		return ret
 	}
-	return *o.RoleSubscriptionData.Get()
+	return *o.RoleSubscriptionData
 }
 
 // GetRoleSubscriptionDataOk returns a tuple with the RoleSubscriptionData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicMessageResponse) GetRoleSubscriptionDataOk() (*MessageRoleSubscriptionDataResponse, bool) {
-	if o == nil || IsNil(o.RoleSubscriptionData.Get()) {
+	if o == nil || IsNil(o.RoleSubscriptionData) {
 		return nil, false
 	}
-	return o.RoleSubscriptionData.Get(), o.RoleSubscriptionData.IsSet()
+	return o.RoleSubscriptionData, true
 }
 
 // HasRoleSubscriptionData returns a boolean if a field has been set.
 func (o *BasicMessageResponse) HasRoleSubscriptionData() bool {
-	if o != nil && o.RoleSubscriptionData.IsSet() {
+	if o != nil && !IsNil(o.RoleSubscriptionData) {
 		return true
 	}
 
 	return false
 }
 
-// SetRoleSubscriptionData gets a reference to the given NullableMessageRoleSubscriptionDataResponse and assigns it to the RoleSubscriptionData field.
+// SetRoleSubscriptionData gets a reference to the given MessageRoleSubscriptionDataResponse and assigns it to the RoleSubscriptionData field.
 func (o *BasicMessageResponse) SetRoleSubscriptionData(v MessageRoleSubscriptionDataResponse) {
-	o.RoleSubscriptionData.Set(&v)
+	o.RoleSubscriptionData = &v
 }
 
-// SetRoleSubscriptionDataNil sets the value for RoleSubscriptionData to be an explicit nil
-func (o *BasicMessageResponse) SetRoleSubscriptionDataNil() {
-	o.RoleSubscriptionData.Set(nil)
-}
 
-// UnsetRoleSubscriptionData ensures that no value is present for RoleSubscriptionData, not even an explicit nil
-func (o *BasicMessageResponse) UnsetRoleSubscriptionData() {
-	o.RoleSubscriptionData.Unset()
-}
-
-// GetPurchaseNotification returns the PurchaseNotification field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPurchaseNotification returns the PurchaseNotification field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetPurchaseNotification() PurchaseNotificationResponse {
-	if o == nil || IsNil(o.PurchaseNotification.Get()) {
+	if o == nil || IsNil(o.PurchaseNotification) {
 		var ret PurchaseNotificationResponse
 		return ret
 	}
-	return *o.PurchaseNotification.Get()
+	return *o.PurchaseNotification
 }
 
 // GetPurchaseNotificationOk returns a tuple with the PurchaseNotification field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicMessageResponse) GetPurchaseNotificationOk() (*PurchaseNotificationResponse, bool) {
-	if o == nil || IsNil(o.PurchaseNotification.Get()) {
+	if o == nil || IsNil(o.PurchaseNotification) {
 		return nil, false
 	}
-	return o.PurchaseNotification.Get(), o.PurchaseNotification.IsSet()
+	return o.PurchaseNotification, true
 }
 
 // HasPurchaseNotification returns a boolean if a field has been set.
 func (o *BasicMessageResponse) HasPurchaseNotification() bool {
-	if o != nil && o.PurchaseNotification.IsSet() {
+	if o != nil && !IsNil(o.PurchaseNotification) {
 		return true
 	}
 
 	return false
 }
 
-// SetPurchaseNotification gets a reference to the given NullablePurchaseNotificationResponse and assigns it to the PurchaseNotification field.
+// SetPurchaseNotification gets a reference to the given PurchaseNotificationResponse and assigns it to the PurchaseNotification field.
 func (o *BasicMessageResponse) SetPurchaseNotification(v PurchaseNotificationResponse) {
-	o.PurchaseNotification.Set(&v)
+	o.PurchaseNotification = &v
 }
 
-// SetPurchaseNotificationNil sets the value for PurchaseNotification to be an explicit nil
-func (o *BasicMessageResponse) SetPurchaseNotificationNil() {
-	o.PurchaseNotification.Set(nil)
-}
 
-// UnsetPurchaseNotification ensures that no value is present for PurchaseNotification, not even an explicit nil
-func (o *BasicMessageResponse) UnsetPurchaseNotification() {
-	o.PurchaseNotification.Unset()
-}
-
-// GetPosition returns the Position field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPosition returns the Position field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetPosition() int32 {
-	if o == nil || IsNil(o.Position.Get()) {
+	if o == nil || IsNil(o.Position) {
 		var ret int32
 		return ret
 	}
-	return *o.Position.Get()
+	return *o.Position
 }
 
 // GetPositionOk returns a tuple with the Position field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicMessageResponse) GetPositionOk() (*int32, bool) {
-	if o == nil || IsNil(o.Position.Get()) {
+	if o == nil || IsNil(o.Position) {
 		return nil, false
 	}
-	return o.Position.Get(), o.Position.IsSet()
+	return o.Position, true
 }
 
 // HasPosition returns a boolean if a field has been set.
 func (o *BasicMessageResponse) HasPosition() bool {
-	if o != nil && o.Position.IsSet() {
+	if o != nil && !IsNil(o.Position) {
 		return true
 	}
 
 	return false
 }
 
-// SetPosition gets a reference to the given NullableInt32 and assigns it to the Position field.
+// SetPosition gets a reference to the given int32 and assigns it to the Position field.
 func (o *BasicMessageResponse) SetPosition(v int32) {
-	o.Position.Set(&v)
+	o.Position = &v
 }
 
-// SetPositionNil sets the value for Position to be an explicit nil
-func (o *BasicMessageResponse) SetPositionNil() {
-	o.Position.Set(nil)
+
+// GetResolved returns the Resolved field value if set, zero value otherwise.
+func (o *BasicMessageResponse) GetResolved() ResolvedObjectsResponse {
+	if o == nil || IsNil(o.Resolved) {
+		var ret ResolvedObjectsResponse
+		return ret
+	}
+	return *o.Resolved
 }
 
-// UnsetPosition ensures that no value is present for Position, not even an explicit nil
-func (o *BasicMessageResponse) UnsetPosition() {
-	o.Position.Unset()
+// GetResolvedOk returns a tuple with the Resolved field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BasicMessageResponse) GetResolvedOk() (*ResolvedObjectsResponse, bool) {
+	if o == nil || IsNil(o.Resolved) {
+		return nil, false
+	}
+	return o.Resolved, true
 }
 
-// GetPoll returns the Poll field value if set, zero value otherwise (both if not set or set to explicit null).
+// HasResolved returns a boolean if a field has been set.
+func (o *BasicMessageResponse) HasResolved() bool {
+	if o != nil && !IsNil(o.Resolved) {
+		return true
+	}
+
+	return false
+}
+
+// SetResolved gets a reference to the given ResolvedObjectsResponse and assigns it to the Resolved field.
+func (o *BasicMessageResponse) SetResolved(v ResolvedObjectsResponse) {
+	o.Resolved = &v
+}
+
+
+// GetPoll returns the Poll field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetPoll() PollResponse {
-	if o == nil || IsNil(o.Poll.Get()) {
+	if o == nil || IsNil(o.Poll) {
 		var ret PollResponse
 		return ret
 	}
-	return *o.Poll.Get()
+	return *o.Poll
 }
 
 // GetPollOk returns a tuple with the Poll field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicMessageResponse) GetPollOk() (*PollResponse, bool) {
-	if o == nil || IsNil(o.Poll.Get()) {
+	if o == nil || IsNil(o.Poll) {
 		return nil, false
 	}
-	return o.Poll.Get(), o.Poll.IsSet()
+	return o.Poll, true
 }
 
 // HasPoll returns a boolean if a field has been set.
 func (o *BasicMessageResponse) HasPoll() bool {
-	if o != nil && o.Poll.IsSet() {
+	if o != nil && !IsNil(o.Poll) {
 		return true
 	}
 
 	return false
 }
 
-// SetPoll gets a reference to the given NullablePollResponse and assigns it to the Poll field.
+// SetPoll gets a reference to the given PollResponse and assigns it to the Poll field.
 func (o *BasicMessageResponse) SetPoll(v PollResponse) {
-	o.Poll.Set(&v)
+	o.Poll = &v
 }
 
-// SetPollNil sets the value for Poll to be an explicit nil
-func (o *BasicMessageResponse) SetPollNil() {
-	o.Poll.Set(nil)
+
+// GetSharedClientTheme returns the SharedClientTheme field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BasicMessageResponse) GetSharedClientTheme() CustomClientThemeResponse {
+	if o == nil || IsNil(o.SharedClientTheme.Get()) {
+		var ret CustomClientThemeResponse
+		return ret
+	}
+	return *o.SharedClientTheme.Get()
 }
 
-// UnsetPoll ensures that no value is present for Poll, not even an explicit nil
-func (o *BasicMessageResponse) UnsetPoll() {
-	o.Poll.Unset()
+// GetSharedClientThemeOk returns a tuple with the SharedClientTheme field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BasicMessageResponse) GetSharedClientThemeOk() (*CustomClientThemeResponse, bool) {
+	if o == nil || IsNil(o.SharedClientTheme.Get()) {
+		return nil, false
+	}
+	return o.SharedClientTheme.Get(), o.SharedClientTheme.IsSet()
 }
 
-// GetInteractionMetadata returns the InteractionMetadata field value if set, zero value otherwise (both if not set or set to explicit null).
+// HasSharedClientTheme returns a boolean if a field has been set.
+func (o *BasicMessageResponse) HasSharedClientTheme() bool {
+	if o != nil && o.SharedClientTheme.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSharedClientTheme gets a reference to the given NullableCustomClientThemeResponse and assigns it to the SharedClientTheme field.
+func (o *BasicMessageResponse) SetSharedClientTheme(v CustomClientThemeResponse) {
+	o.SharedClientTheme.Set(&v)
+}
+
+// SetSharedClientThemeNil sets the value for SharedClientTheme to be an explicit nil
+func (o *BasicMessageResponse) SetSharedClientThemeNil() {
+	o.SharedClientTheme.Set(nil)
+}
+
+// UnsetSharedClientTheme ensures that no value is present for SharedClientTheme, not even an explicit nil
+func (o *BasicMessageResponse) UnsetSharedClientTheme() {
+	o.SharedClientTheme.Unset()
+}
+
+// GetInteractionMetadata returns the InteractionMetadata field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetInteractionMetadata() BasicMessageResponseInteractionMetadata {
-	if o == nil || IsNil(o.InteractionMetadata.Get()) {
+	if o == nil || IsNil(o.InteractionMetadata) {
 		var ret BasicMessageResponseInteractionMetadata
 		return ret
 	}
-	return *o.InteractionMetadata.Get()
+	return *o.InteractionMetadata
 }
 
 // GetInteractionMetadataOk returns a tuple with the InteractionMetadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicMessageResponse) GetInteractionMetadataOk() (*BasicMessageResponseInteractionMetadata, bool) {
-	if o == nil || IsNil(o.InteractionMetadata.Get()) {
+	if o == nil || IsNil(o.InteractionMetadata) {
 		return nil, false
 	}
-	return o.InteractionMetadata.Get(), o.InteractionMetadata.IsSet()
+	return o.InteractionMetadata, true
 }
 
 // HasInteractionMetadata returns a boolean if a field has been set.
 func (o *BasicMessageResponse) HasInteractionMetadata() bool {
-	if o != nil && o.InteractionMetadata.IsSet() {
+	if o != nil && !IsNil(o.InteractionMetadata) {
 		return true
 	}
 
 	return false
 }
 
-// SetInteractionMetadata gets a reference to the given NullableBasicMessageResponseInteractionMetadata and assigns it to the InteractionMetadata field.
+// SetInteractionMetadata gets a reference to the given BasicMessageResponseInteractionMetadata and assigns it to the InteractionMetadata field.
 func (o *BasicMessageResponse) SetInteractionMetadata(v BasicMessageResponseInteractionMetadata) {
-	o.InteractionMetadata.Set(&v)
+	o.InteractionMetadata = &v
 }
 
-// SetInteractionMetadataNil sets the value for InteractionMetadata to be an explicit nil
-func (o *BasicMessageResponse) SetInteractionMetadataNil() {
-	o.InteractionMetadata.Set(nil)
-}
 
-// UnsetInteractionMetadata ensures that no value is present for InteractionMetadata, not even an explicit nil
-func (o *BasicMessageResponse) UnsetInteractionMetadata() {
-	o.InteractionMetadata.Unset()
-}
-
-// GetMessageSnapshots returns the MessageSnapshots field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMessageSnapshots returns the MessageSnapshots field value if set, zero value otherwise.
 func (o *BasicMessageResponse) GetMessageSnapshots() []MessageSnapshotResponse {
-	if o == nil {
+	if o == nil || IsNil(o.MessageSnapshots) {
 		var ret []MessageSnapshotResponse
 		return ret
 	}
@@ -1258,9 +1189,8 @@ func (o *BasicMessageResponse) GetMessageSnapshots() []MessageSnapshotResponse {
 
 // GetMessageSnapshotsOk returns a tuple with the MessageSnapshots field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BasicMessageResponse) GetMessageSnapshotsOk() ([]MessageSnapshotResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MessageSnapshots) {
 		return nil, false
 	}
 	return o.MessageSnapshots, true
@@ -1303,13 +1233,10 @@ func (o BasicMessageResponse) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["flags"] = o.Flags
 	toSerialize["components"] = o.Components
-	if o.Resolved.IsSet() {
-		toSerialize["resolved"] = o.Resolved.Get()
-	}
-	if o.Stickers != nil {
+	if !IsNil(o.Stickers) {
 		toSerialize["stickers"] = o.Stickers
 	}
-	if o.StickerItems != nil {
+	if !IsNil(o.StickerItems) {
 		toSerialize["sticker_items"] = o.StickerItems
 	}
 	toSerialize["id"] = o.Id
@@ -1318,20 +1245,20 @@ func (o BasicMessageResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["pinned"] = o.Pinned
 	toSerialize["mention_everyone"] = o.MentionEveryone
 	toSerialize["tts"] = o.Tts
-	if o.Call.IsSet() {
-		toSerialize["call"] = o.Call.Get()
+	if !IsNil(o.Call) {
+		toSerialize["call"] = o.Call
 	}
 	if !IsNil(o.Activity) {
 		toSerialize["activity"] = o.Activity
 	}
-	if o.Application.IsSet() {
-		toSerialize["application"] = o.Application.Get()
+	if !IsNil(o.Application) {
+		toSerialize["application"] = o.Application
 	}
 	if !IsNil(o.ApplicationId) {
 		toSerialize["application_id"] = o.ApplicationId
 	}
-	if o.Interaction.IsSet() {
-		toSerialize["interaction"] = o.Interaction.Get()
+	if !IsNil(o.Interaction) {
+		toSerialize["interaction"] = o.Interaction
 	}
 	if o.Nonce.IsSet() {
 		toSerialize["nonce"] = o.Nonce.Get()
@@ -1339,31 +1266,37 @@ func (o BasicMessageResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.WebhookId) {
 		toSerialize["webhook_id"] = o.WebhookId
 	}
-	if o.MessageReference.IsSet() {
-		toSerialize["message_reference"] = o.MessageReference.Get()
+	if !IsNil(o.MessageReference) {
+		toSerialize["message_reference"] = o.MessageReference
 	}
-	if o.Thread.IsSet() {
-		toSerialize["thread"] = o.Thread.Get()
+	if !IsNil(o.Thread) {
+		toSerialize["thread"] = o.Thread
 	}
-	if o.MentionChannels != nil {
+	if !IsNil(o.MentionChannels) {
 		toSerialize["mention_channels"] = o.MentionChannels
 	}
-	if o.RoleSubscriptionData.IsSet() {
-		toSerialize["role_subscription_data"] = o.RoleSubscriptionData.Get()
+	if !IsNil(o.RoleSubscriptionData) {
+		toSerialize["role_subscription_data"] = o.RoleSubscriptionData
 	}
-	if o.PurchaseNotification.IsSet() {
-		toSerialize["purchase_notification"] = o.PurchaseNotification.Get()
+	if !IsNil(o.PurchaseNotification) {
+		toSerialize["purchase_notification"] = o.PurchaseNotification
 	}
-	if o.Position.IsSet() {
-		toSerialize["position"] = o.Position.Get()
+	if !IsNil(o.Position) {
+		toSerialize["position"] = o.Position
 	}
-	if o.Poll.IsSet() {
-		toSerialize["poll"] = o.Poll.Get()
+	if !IsNil(o.Resolved) {
+		toSerialize["resolved"] = o.Resolved
 	}
-	if o.InteractionMetadata.IsSet() {
-		toSerialize["interaction_metadata"] = o.InteractionMetadata.Get()
+	if !IsNil(o.Poll) {
+		toSerialize["poll"] = o.Poll
 	}
-	if o.MessageSnapshots != nil {
+	if o.SharedClientTheme.IsSet() {
+		toSerialize["shared_client_theme"] = o.SharedClientTheme.Get()
+	}
+	if !IsNil(o.InteractionMetadata) {
+		toSerialize["interaction_metadata"] = o.InteractionMetadata
+	}
+	if !IsNil(o.MessageSnapshots) {
 		toSerialize["message_snapshots"] = o.MessageSnapshots
 	}
 	return toSerialize, nil
@@ -1455,5 +1388,4 @@ func (v *NullableBasicMessageResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

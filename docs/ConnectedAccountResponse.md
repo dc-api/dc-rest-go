@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **TwoWayLink** | **bool** |  | 
 **Verified** | **bool** |  | 
 **Visibility** | **NullableInt32** |  | 
-**Revoked** | Pointer to **NullableBool** |  | [optional] 
+**Revoked** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -164,16 +164,6 @@ SetIntegrations sets Integrations field to given value.
 
 HasIntegrations returns a boolean if a field has been set.
 
-### SetIntegrationsNil
-
-`func (o *ConnectedAccountResponse) SetIntegrationsNil(b bool)`
-
- SetIntegrationsNil sets the value for Integrations to be an explicit nil
-
-### UnsetIntegrations
-`func (o *ConnectedAccountResponse) UnsetIntegrations()`
-
-UnsetIntegrations ensures that no value is present for Integrations, not even an explicit nil
 ### GetShowActivity
 
 `func (o *ConnectedAccountResponse) GetShowActivity() bool`
@@ -289,16 +279,6 @@ SetRevoked sets Revoked field to given value.
 
 HasRevoked returns a boolean if a field has been set.
 
-### SetRevokedNil
-
-`func (o *ConnectedAccountResponse) SetRevokedNil(b bool)`
-
- SetRevokedNil sets the value for Revoked to be an explicit nil
-
-### UnsetRevoked
-`func (o *ConnectedAccountResponse) UnsetRevoked()`
-
-UnsetRevoked ensures that no value is present for Revoked, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | 
 **Count** | **int32** |  | 
-**MeVoted** | Pointer to **NullableBool** |  | [optional] 
+**MeVoted** | **bool** |  | 
 
 ## Methods
 
 ### NewPollResultsEntryResponse
 
-`func NewPollResultsEntryResponse(id int32, count int32, ) *PollResultsEntryResponse`
+`func NewPollResultsEntryResponse(id int32, count int32, meVoted bool, ) *PollResultsEntryResponse`
 
 NewPollResultsEntryResponse instantiates a new PollResultsEntryResponse object
 This constructor will assign default values to properties that have it defined,
@@ -86,22 +86,7 @@ and a boolean to check if the value has been set.
 
 SetMeVoted sets MeVoted field to given value.
 
-### HasMeVoted
 
-`func (o *PollResultsEntryResponse) HasMeVoted() bool`
-
-HasMeVoted returns a boolean if a field has been set.
-
-### SetMeVotedNil
-
-`func (o *PollResultsEntryResponse) SetMeVotedNil(b bool)`
-
- SetMeVotedNil sets the value for MeVoted to be an explicit nil
-
-### UnsetMeVoted
-`func (o *PollResultsEntryResponse) UnsetMeVoted()`
-
-UnsetMeVoted ensures that no value is present for MeVoted, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

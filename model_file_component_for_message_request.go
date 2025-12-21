@@ -6,8 +6,8 @@
  *    * - **Copyright**: Copyright (c) 2025 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2025-12-21T03:28:05.066589019Z[Etc/UTC]
+ *    * - **Generator Version**: 7.17.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,6 +56,7 @@ var _ MappedNullable = &FileComponentForMessageRequest{}
 // FileComponentForMessageRequest struct for FileComponentForMessageRequest
 type FileComponentForMessageRequest struct {
 	Type int32 `json:"type"`
+	Id NullableInt32 `json:"id,omitempty"`
 	Spoiler NullableBool `json:"spoiler,omitempty"`
 	File UnfurledMediaRequestWithAttachmentReferenceRequired `json:"file"`
 }
@@ -103,6 +104,49 @@ func (o *FileComponentForMessageRequest) GetTypeOk() (*int32, bool) {
 // SetType sets field value
 func (o *FileComponentForMessageRequest) SetType(v int32) {
 	o.Type = v
+}
+
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FileComponentForMessageRequest) GetId() int32 {
+	if o == nil || IsNil(o.Id.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.Id.Get()
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FileComponentForMessageRequest) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id.Get()) {
+		return nil, false
+	}
+	return o.Id.Get(), o.Id.IsSet()
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *FileComponentForMessageRequest) HasId() bool {
+	if o != nil && o.Id.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given NullableInt32 and assigns it to the Id field.
+func (o *FileComponentForMessageRequest) SetId(v int32) {
+	o.Id.Set(&v)
+}
+
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *FileComponentForMessageRequest) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *FileComponentForMessageRequest) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetSpoiler returns the Spoiler field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -183,6 +227,9 @@ func (o FileComponentForMessageRequest) MarshalJSON() ([]byte, error) {
 func (o FileComponentForMessageRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
+	}
 	if o.Spoiler.IsSet() {
 		toSerialize["spoiler"] = o.Spoiler.Get()
 	}
@@ -263,5 +310,4 @@ func (v *NullableFileComponentForMessageRequest) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

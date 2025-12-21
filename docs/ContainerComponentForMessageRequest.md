@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **int32** |  | 
+**Id** | Pointer to **NullableInt32** |  | [optional] 
 **AccentColor** | Pointer to **NullableInt32** |  | [optional] 
 **Components** | [**[]ContainerComponentForMessageRequestComponentsInner**](ContainerComponentForMessageRequestComponentsInner.md) |  | 
 **Spoiler** | Pointer to **NullableBool** |  | [optional] 
@@ -48,6 +49,41 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
+### GetId
+
+`func (o *ContainerComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ContainerComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ContainerComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *ContainerComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *ContainerComponentForMessageRequest) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *ContainerComponentForMessageRequest) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetAccentColor
 
 `func (o *ContainerComponentForMessageRequest) GetAccentColor() int32`

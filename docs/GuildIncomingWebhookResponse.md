@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **Type** | **int32** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**Token** | Pointer to **NullableString** |  | [optional] 
-**Url** | Pointer to **NullableString** |  | [optional] 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**Token** | Pointer to **string** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -229,16 +229,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *GuildIncomingWebhookResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *GuildIncomingWebhookResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetToken
 
 `func (o *GuildIncomingWebhookResponse) GetToken() string`
@@ -264,16 +254,6 @@ SetToken sets Token field to given value.
 
 HasToken returns a boolean if a field has been set.
 
-### SetTokenNil
-
-`func (o *GuildIncomingWebhookResponse) SetTokenNil(b bool)`
-
- SetTokenNil sets the value for Token to be an explicit nil
-
-### UnsetToken
-`func (o *GuildIncomingWebhookResponse) UnsetToken()`
-
-UnsetToken ensures that no value is present for Token, not even an explicit nil
 ### GetUrl
 
 `func (o *GuildIncomingWebhookResponse) GetUrl() string`
@@ -299,16 +279,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *GuildIncomingWebhookResponse) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *GuildIncomingWebhookResponse) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
