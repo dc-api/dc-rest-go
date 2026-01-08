@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,9 +55,9 @@ var _ MappedNullable = &ActionRowComponentResponse{}
 
 // ActionRowComponentResponse struct for ActionRowComponentResponse
 type ActionRowComponentResponse struct {
-	Type int32 `json:"type"`
+	Type MessageComponentTypes `json:"type"`
 	Id int32 `json:"id"`
-	Components []ActionRowComponentResponseComponentsInner `json:"components,omitempty"`
+	Components []ActionRowComponentResponseComponentsInner `json:"components"`
 }
 
 type _ActionRowComponentResponse ActionRowComponentResponse
@@ -66,10 +66,11 @@ type _ActionRowComponentResponse ActionRowComponentResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActionRowComponentResponse(type_ int32, id int32) *ActionRowComponentResponse {
+func NewActionRowComponentResponse(type_ MessageComponentTypes, id int32, components []ActionRowComponentResponseComponentsInner) *ActionRowComponentResponse {
 	this := ActionRowComponentResponse{}
 	this.Type = type_
 	this.Id = id
+	this.Components = components
 	return &this
 }
 
@@ -82,9 +83,9 @@ func NewActionRowComponentResponseWithDefaults() *ActionRowComponentResponse {
 }
 
 // GetType returns the Type field value
-func (o *ActionRowComponentResponse) GetType() int32 {
+func (o *ActionRowComponentResponse) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -93,7 +94,7 @@ func (o *ActionRowComponentResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ActionRowComponentResponse) GetTypeOk() (*int32, bool) {
+func (o *ActionRowComponentResponse) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -101,7 +102,7 @@ func (o *ActionRowComponentResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *ActionRowComponentResponse) SetType(v int32) {
+func (o *ActionRowComponentResponse) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
 
@@ -129,18 +130,18 @@ func (o *ActionRowComponentResponse) SetId(v int32) {
 	o.Id = v
 }
 
-// GetComponents returns the Components field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetComponents returns the Components field value
 func (o *ActionRowComponentResponse) GetComponents() []ActionRowComponentResponseComponentsInner {
 	if o == nil {
 		var ret []ActionRowComponentResponseComponentsInner
 		return ret
 	}
+
 	return o.Components
 }
 
-// GetComponentsOk returns a tuple with the Components field value if set, nil otherwise
+// GetComponentsOk returns a tuple with the Components field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ActionRowComponentResponse) GetComponentsOk() ([]ActionRowComponentResponseComponentsInner, bool) {
 	if o == nil {
 		return nil, false
@@ -148,20 +149,10 @@ func (o *ActionRowComponentResponse) GetComponentsOk() ([]ActionRowComponentResp
 	return o.Components, true
 }
 
-// HasComponents returns a boolean if a field has been set.
-func (o *ActionRowComponentResponse) HasComponents() bool {
-	if o != nil && !IsNil(o.Components) {
-		return true
-	}
-
-	return false
-}
-
-// SetComponents gets a reference to the given []ActionRowComponentResponseComponentsInner and assigns it to the Components field.
+// SetComponents sets field value
 func (o *ActionRowComponentResponse) SetComponents(v []ActionRowComponentResponseComponentsInner) {
 	o.Components = v
 }
-
 
 func (o ActionRowComponentResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -175,9 +166,7 @@ func (o ActionRowComponentResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
 	toSerialize["id"] = o.Id
-	if o.Components != nil {
-		toSerialize["components"] = o.Components
-	}
+	toSerialize["components"] = o.Components
 	return toSerialize, nil
 }
 
@@ -188,6 +177,7 @@ func (o *ActionRowComponentResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"type",
 		"id",
+		"components",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -254,5 +244,4 @@ func (v *NullableActionRowComponentResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

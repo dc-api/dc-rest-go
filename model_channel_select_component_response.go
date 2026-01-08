@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,14 +55,14 @@ var _ MappedNullable = &ChannelSelectComponentResponse{}
 
 // ChannelSelectComponentResponse struct for ChannelSelectComponentResponse
 type ChannelSelectComponentResponse struct {
-	Type int32 `json:"type"`
+	Type MessageComponentTypes `json:"type"`
 	Id int32 `json:"id"`
 	CustomId string `json:"custom_id"`
-	Placeholder NullableString `json:"placeholder,omitempty"`
-	MinValues NullableInt32 `json:"min_values,omitempty"`
-	MaxValues NullableInt32 `json:"max_values,omitempty"`
-	Disabled NullableBool `json:"disabled,omitempty"`
-	ChannelTypes []int32 `json:"channel_types,omitempty"`
+	Placeholder *string `json:"placeholder,omitempty"`
+	MinValues *int32 `json:"min_values,omitempty"`
+	MaxValues *int32 `json:"max_values,omitempty"`
+	Disabled *bool `json:"disabled,omitempty"`
+	ChannelTypes []ChannelTypes `json:"channel_types,omitempty"`
 	DefaultValues []ChannelSelectDefaultValueResponse `json:"default_values,omitempty"`
 }
 
@@ -72,7 +72,7 @@ type _ChannelSelectComponentResponse ChannelSelectComponentResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewChannelSelectComponentResponse(type_ int32, id int32, customId string) *ChannelSelectComponentResponse {
+func NewChannelSelectComponentResponse(type_ MessageComponentTypes, id int32, customId string) *ChannelSelectComponentResponse {
 	this := ChannelSelectComponentResponse{}
 	this.Type = type_
 	this.Id = id
@@ -89,9 +89,9 @@ func NewChannelSelectComponentResponseWithDefaults() *ChannelSelectComponentResp
 }
 
 // GetType returns the Type field value
-func (o *ChannelSelectComponentResponse) GetType() int32 {
+func (o *ChannelSelectComponentResponse) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -100,7 +100,7 @@ func (o *ChannelSelectComponentResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ChannelSelectComponentResponse) GetTypeOk() (*int32, bool) {
+func (o *ChannelSelectComponentResponse) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -108,7 +108,7 @@ func (o *ChannelSelectComponentResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *ChannelSelectComponentResponse) SetType(v int32) {
+func (o *ChannelSelectComponentResponse) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
 
@@ -160,182 +160,142 @@ func (o *ChannelSelectComponentResponse) SetCustomId(v string) {
 	o.CustomId = v
 }
 
-// GetPlaceholder returns the Placeholder field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPlaceholder returns the Placeholder field value if set, zero value otherwise.
 func (o *ChannelSelectComponentResponse) GetPlaceholder() string {
-	if o == nil || IsNil(o.Placeholder.Get()) {
+	if o == nil || IsNil(o.Placeholder) {
 		var ret string
 		return ret
 	}
-	return *o.Placeholder.Get()
+	return *o.Placeholder
 }
 
 // GetPlaceholderOk returns a tuple with the Placeholder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelSelectComponentResponse) GetPlaceholderOk() (*string, bool) {
-	if o == nil || IsNil(o.Placeholder.Get()) {
+	if o == nil || IsNil(o.Placeholder) {
 		return nil, false
 	}
-	return o.Placeholder.Get(), o.Placeholder.IsSet()
+	return o.Placeholder, true
 }
 
 // HasPlaceholder returns a boolean if a field has been set.
 func (o *ChannelSelectComponentResponse) HasPlaceholder() bool {
-	if o != nil && o.Placeholder.IsSet() {
+	if o != nil && !IsNil(o.Placeholder) {
 		return true
 	}
 
 	return false
 }
 
-// SetPlaceholder gets a reference to the given NullableString and assigns it to the Placeholder field.
+// SetPlaceholder gets a reference to the given string and assigns it to the Placeholder field.
 func (o *ChannelSelectComponentResponse) SetPlaceholder(v string) {
-	o.Placeholder.Set(&v)
+	o.Placeholder = &v
 }
 
-// SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-func (o *ChannelSelectComponentResponse) SetPlaceholderNil() {
-	o.Placeholder.Set(nil)
-}
 
-// UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
-func (o *ChannelSelectComponentResponse) UnsetPlaceholder() {
-	o.Placeholder.Unset()
-}
-
-// GetMinValues returns the MinValues field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMinValues returns the MinValues field value if set, zero value otherwise.
 func (o *ChannelSelectComponentResponse) GetMinValues() int32 {
-	if o == nil || IsNil(o.MinValues.Get()) {
+	if o == nil || IsNil(o.MinValues) {
 		var ret int32
 		return ret
 	}
-	return *o.MinValues.Get()
+	return *o.MinValues
 }
 
 // GetMinValuesOk returns a tuple with the MinValues field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelSelectComponentResponse) GetMinValuesOk() (*int32, bool) {
-	if o == nil || IsNil(o.MinValues.Get()) {
+	if o == nil || IsNil(o.MinValues) {
 		return nil, false
 	}
-	return o.MinValues.Get(), o.MinValues.IsSet()
+	return o.MinValues, true
 }
 
 // HasMinValues returns a boolean if a field has been set.
 func (o *ChannelSelectComponentResponse) HasMinValues() bool {
-	if o != nil && o.MinValues.IsSet() {
+	if o != nil && !IsNil(o.MinValues) {
 		return true
 	}
 
 	return false
 }
 
-// SetMinValues gets a reference to the given NullableInt32 and assigns it to the MinValues field.
+// SetMinValues gets a reference to the given int32 and assigns it to the MinValues field.
 func (o *ChannelSelectComponentResponse) SetMinValues(v int32) {
-	o.MinValues.Set(&v)
+	o.MinValues = &v
 }
 
-// SetMinValuesNil sets the value for MinValues to be an explicit nil
-func (o *ChannelSelectComponentResponse) SetMinValuesNil() {
-	o.MinValues.Set(nil)
-}
 
-// UnsetMinValues ensures that no value is present for MinValues, not even an explicit nil
-func (o *ChannelSelectComponentResponse) UnsetMinValues() {
-	o.MinValues.Unset()
-}
-
-// GetMaxValues returns the MaxValues field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxValues returns the MaxValues field value if set, zero value otherwise.
 func (o *ChannelSelectComponentResponse) GetMaxValues() int32 {
-	if o == nil || IsNil(o.MaxValues.Get()) {
+	if o == nil || IsNil(o.MaxValues) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxValues.Get()
+	return *o.MaxValues
 }
 
 // GetMaxValuesOk returns a tuple with the MaxValues field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelSelectComponentResponse) GetMaxValuesOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxValues.Get()) {
+	if o == nil || IsNil(o.MaxValues) {
 		return nil, false
 	}
-	return o.MaxValues.Get(), o.MaxValues.IsSet()
+	return o.MaxValues, true
 }
 
 // HasMaxValues returns a boolean if a field has been set.
 func (o *ChannelSelectComponentResponse) HasMaxValues() bool {
-	if o != nil && o.MaxValues.IsSet() {
+	if o != nil && !IsNil(o.MaxValues) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxValues gets a reference to the given NullableInt32 and assigns it to the MaxValues field.
+// SetMaxValues gets a reference to the given int32 and assigns it to the MaxValues field.
 func (o *ChannelSelectComponentResponse) SetMaxValues(v int32) {
-	o.MaxValues.Set(&v)
+	o.MaxValues = &v
 }
 
-// SetMaxValuesNil sets the value for MaxValues to be an explicit nil
-func (o *ChannelSelectComponentResponse) SetMaxValuesNil() {
-	o.MaxValues.Set(nil)
-}
 
-// UnsetMaxValues ensures that no value is present for MaxValues, not even an explicit nil
-func (o *ChannelSelectComponentResponse) UnsetMaxValues() {
-	o.MaxValues.Unset()
-}
-
-// GetDisabled returns the Disabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDisabled returns the Disabled field value if set, zero value otherwise.
 func (o *ChannelSelectComponentResponse) GetDisabled() bool {
-	if o == nil || IsNil(o.Disabled.Get()) {
+	if o == nil || IsNil(o.Disabled) {
 		var ret bool
 		return ret
 	}
-	return *o.Disabled.Get()
+	return *o.Disabled
 }
 
 // GetDisabledOk returns a tuple with the Disabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelSelectComponentResponse) GetDisabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Disabled.Get()) {
+	if o == nil || IsNil(o.Disabled) {
 		return nil, false
 	}
-	return o.Disabled.Get(), o.Disabled.IsSet()
+	return o.Disabled, true
 }
 
 // HasDisabled returns a boolean if a field has been set.
 func (o *ChannelSelectComponentResponse) HasDisabled() bool {
-	if o != nil && o.Disabled.IsSet() {
+	if o != nil && !IsNil(o.Disabled) {
 		return true
 	}
 
 	return false
 }
 
-// SetDisabled gets a reference to the given NullableBool and assigns it to the Disabled field.
+// SetDisabled gets a reference to the given bool and assigns it to the Disabled field.
 func (o *ChannelSelectComponentResponse) SetDisabled(v bool) {
-	o.Disabled.Set(&v)
+	o.Disabled = &v
 }
 
-// SetDisabledNil sets the value for Disabled to be an explicit nil
-func (o *ChannelSelectComponentResponse) SetDisabledNil() {
-	o.Disabled.Set(nil)
-}
 
-// UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
-func (o *ChannelSelectComponentResponse) UnsetDisabled() {
-	o.Disabled.Unset()
-}
-
-// GetChannelTypes returns the ChannelTypes field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ChannelSelectComponentResponse) GetChannelTypes() []int32 {
-	if o == nil {
-		var ret []int32
+// GetChannelTypes returns the ChannelTypes field value if set, zero value otherwise.
+func (o *ChannelSelectComponentResponse) GetChannelTypes() []ChannelTypes {
+	if o == nil || IsNil(o.ChannelTypes) {
+		var ret []ChannelTypes
 		return ret
 	}
 	return o.ChannelTypes
@@ -343,9 +303,8 @@ func (o *ChannelSelectComponentResponse) GetChannelTypes() []int32 {
 
 // GetChannelTypesOk returns a tuple with the ChannelTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ChannelSelectComponentResponse) GetChannelTypesOk() ([]int32, bool) {
-	if o == nil {
+func (o *ChannelSelectComponentResponse) GetChannelTypesOk() ([]ChannelTypes, bool) {
+	if o == nil || IsNil(o.ChannelTypes) {
 		return nil, false
 	}
 	return o.ChannelTypes, true
@@ -360,15 +319,15 @@ func (o *ChannelSelectComponentResponse) HasChannelTypes() bool {
 	return false
 }
 
-// SetChannelTypes gets a reference to the given []int32 and assigns it to the ChannelTypes field.
-func (o *ChannelSelectComponentResponse) SetChannelTypes(v []int32) {
+// SetChannelTypes gets a reference to the given []ChannelTypes and assigns it to the ChannelTypes field.
+func (o *ChannelSelectComponentResponse) SetChannelTypes(v []ChannelTypes) {
 	o.ChannelTypes = v
 }
 
 
-// GetDefaultValues returns the DefaultValues field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDefaultValues returns the DefaultValues field value if set, zero value otherwise.
 func (o *ChannelSelectComponentResponse) GetDefaultValues() []ChannelSelectDefaultValueResponse {
-	if o == nil {
+	if o == nil || IsNil(o.DefaultValues) {
 		var ret []ChannelSelectDefaultValueResponse
 		return ret
 	}
@@ -377,9 +336,8 @@ func (o *ChannelSelectComponentResponse) GetDefaultValues() []ChannelSelectDefau
 
 // GetDefaultValuesOk returns a tuple with the DefaultValues field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelSelectComponentResponse) GetDefaultValuesOk() ([]ChannelSelectDefaultValueResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DefaultValues) {
 		return nil, false
 	}
 	return o.DefaultValues, true
@@ -413,22 +371,22 @@ func (o ChannelSelectComponentResponse) ToMap() (map[string]interface{}, error) 
 	toSerialize["type"] = o.Type
 	toSerialize["id"] = o.Id
 	toSerialize["custom_id"] = o.CustomId
-	if o.Placeholder.IsSet() {
-		toSerialize["placeholder"] = o.Placeholder.Get()
+	if !IsNil(o.Placeholder) {
+		toSerialize["placeholder"] = o.Placeholder
 	}
-	if o.MinValues.IsSet() {
-		toSerialize["min_values"] = o.MinValues.Get()
+	if !IsNil(o.MinValues) {
+		toSerialize["min_values"] = o.MinValues
 	}
-	if o.MaxValues.IsSet() {
-		toSerialize["max_values"] = o.MaxValues.Get()
+	if !IsNil(o.MaxValues) {
+		toSerialize["max_values"] = o.MaxValues
 	}
-	if o.Disabled.IsSet() {
-		toSerialize["disabled"] = o.Disabled.Get()
+	if !IsNil(o.Disabled) {
+		toSerialize["disabled"] = o.Disabled
 	}
-	if o.ChannelTypes != nil {
+	if !IsNil(o.ChannelTypes) {
 		toSerialize["channel_types"] = o.ChannelTypes
 	}
-	if o.DefaultValues != nil {
+	if !IsNil(o.DefaultValues) {
 		toSerialize["default_values"] = o.DefaultValues
 	}
 	return toSerialize, nil
@@ -508,5 +466,4 @@ func (v *NullableChannelSelectComponentResponse) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

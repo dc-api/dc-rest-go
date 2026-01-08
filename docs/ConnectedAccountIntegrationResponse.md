@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **NullableString** |  | 
+**Type** | [**IntegrationTypes**](IntegrationTypes.md) |  | 
 **Account** | [**AccountResponse**](AccountResponse.md) |  | 
 **Guild** | [**ConnectedAccountGuildResponse**](ConnectedAccountGuildResponse.md) |  | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewConnectedAccountIntegrationResponse
 
-`func NewConnectedAccountIntegrationResponse(id string, type_ NullableString, account AccountResponse, guild ConnectedAccountGuildResponse, ) *ConnectedAccountIntegrationResponse`
+`func NewConnectedAccountIntegrationResponse(id string, type_ IntegrationTypes, account AccountResponse, guild ConnectedAccountGuildResponse, ) *ConnectedAccountIntegrationResponse`
 
 NewConnectedAccountIntegrationResponse instantiates a new ConnectedAccountIntegrationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -50,34 +50,24 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *ConnectedAccountIntegrationResponse) GetType() string`
+`func (o *ConnectedAccountIntegrationResponse) GetType() IntegrationTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ConnectedAccountIntegrationResponse) GetTypeOk() (*string, bool)`
+`func (o *ConnectedAccountIntegrationResponse) GetTypeOk() (*IntegrationTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ConnectedAccountIntegrationResponse) SetType(v string)`
+`func (o *ConnectedAccountIntegrationResponse) SetType(v IntegrationTypes)`
 
 SetType sets Type field to given value.
 
 
-### SetTypeNil
-
-`func (o *ConnectedAccountIntegrationResponse) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *ConnectedAccountIntegrationResponse) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetAccount
 
 `func (o *ConnectedAccountIntegrationResponse) GetAccount() AccountResponse`

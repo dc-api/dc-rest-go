@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **Temporary** | Pointer to **bool** |  | [optional] 
 **MaxUses** | Pointer to **int32** |  | [optional] 
 **Unique** | Pointer to **bool** |  | [optional] 
-**TargetUserId** | Pointer to **string** |  | [optional] 
-**TargetApplicationId** | Pointer to **string** |  | [optional] 
-**TargetType** | Pointer to **NullableInt32** |  | [optional] 
+**TargetUserId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**TargetApplicationId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**TargetType** | Pointer to [**CreateGuildInviteRequestTargetType**](CreateGuildInviteRequestTargetType.md) |  | [optional] 
 
 ## Methods
 
@@ -133,20 +133,20 @@ HasUnique returns a boolean if a field has been set.
 
 ### GetTargetUserId
 
-`func (o *CreateChannelInviteRequest) GetTargetUserId() string`
+`func (o *CreateChannelInviteRequest) GetTargetUserId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetTargetUserId returns the TargetUserId field if non-nil, zero value otherwise.
 
 ### GetTargetUserIdOk
 
-`func (o *CreateChannelInviteRequest) GetTargetUserIdOk() (*string, bool)`
+`func (o *CreateChannelInviteRequest) GetTargetUserIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetTargetUserIdOk returns a tuple with the TargetUserId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTargetUserId
 
-`func (o *CreateChannelInviteRequest) SetTargetUserId(v string)`
+`func (o *CreateChannelInviteRequest) SetTargetUserId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetTargetUserId sets TargetUserId field to given value.
 
@@ -158,20 +158,20 @@ HasTargetUserId returns a boolean if a field has been set.
 
 ### GetTargetApplicationId
 
-`func (o *CreateChannelInviteRequest) GetTargetApplicationId() string`
+`func (o *CreateChannelInviteRequest) GetTargetApplicationId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetTargetApplicationId returns the TargetApplicationId field if non-nil, zero value otherwise.
 
 ### GetTargetApplicationIdOk
 
-`func (o *CreateChannelInviteRequest) GetTargetApplicationIdOk() (*string, bool)`
+`func (o *CreateChannelInviteRequest) GetTargetApplicationIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetTargetApplicationIdOk returns a tuple with the TargetApplicationId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTargetApplicationId
 
-`func (o *CreateChannelInviteRequest) SetTargetApplicationId(v string)`
+`func (o *CreateChannelInviteRequest) SetTargetApplicationId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetTargetApplicationId sets TargetApplicationId field to given value.
 
@@ -183,20 +183,20 @@ HasTargetApplicationId returns a boolean if a field has been set.
 
 ### GetTargetType
 
-`func (o *CreateChannelInviteRequest) GetTargetType() int32`
+`func (o *CreateChannelInviteRequest) GetTargetType() CreateGuildInviteRequestTargetType`
 
 GetTargetType returns the TargetType field if non-nil, zero value otherwise.
 
 ### GetTargetTypeOk
 
-`func (o *CreateChannelInviteRequest) GetTargetTypeOk() (*int32, bool)`
+`func (o *CreateChannelInviteRequest) GetTargetTypeOk() (*CreateGuildInviteRequestTargetType, bool)`
 
 GetTargetTypeOk returns a tuple with the TargetType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTargetType
 
-`func (o *CreateChannelInviteRequest) SetTargetType(v int32)`
+`func (o *CreateChannelInviteRequest) SetTargetType(v CreateGuildInviteRequestTargetType)`
 
 SetTargetType sets TargetType field to given value.
 
@@ -206,16 +206,6 @@ SetTargetType sets TargetType field to given value.
 
 HasTargetType returns a boolean if a field has been set.
 
-### SetTargetTypeNil
-
-`func (o *CreateChannelInviteRequest) SetTargetTypeNil(b bool)`
-
- SetTargetTypeNil sets the value for TargetType to be an explicit nil
-
-### UnsetTargetType
-`func (o *CreateChannelInviteRequest) UnsetTargetType()`
-
-UnsetTargetType ensures that no value is present for TargetType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **string** |  | 
 **Options** | [**[]OnboardingPromptOptionRequest**](OnboardingPromptOptionRequest.md) |  | 
-**SingleSelect** | Pointer to **NullableBool** |  | [optional] 
-**Required** | Pointer to **NullableBool** |  | [optional] 
-**InOnboarding** | Pointer to **NullableBool** |  | [optional] 
-**Type** | Pointer to **int32** |  | [optional] 
+**SingleSelect** | Pointer to **bool** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
+**InOnboarding** | Pointer to **bool** |  | [optional] 
+**Type** | Pointer to [**UpdateOnboardingPromptRequestType**](UpdateOnboardingPromptRequestType.md) |  | [optional] 
 **Id** | **string** |  | 
 
 ## Methods
@@ -96,16 +96,6 @@ SetSingleSelect sets SingleSelect field to given value.
 
 HasSingleSelect returns a boolean if a field has been set.
 
-### SetSingleSelectNil
-
-`func (o *UpdateOnboardingPromptRequest) SetSingleSelectNil(b bool)`
-
- SetSingleSelectNil sets the value for SingleSelect to be an explicit nil
-
-### UnsetSingleSelect
-`func (o *UpdateOnboardingPromptRequest) UnsetSingleSelect()`
-
-UnsetSingleSelect ensures that no value is present for SingleSelect, not even an explicit nil
 ### GetRequired
 
 `func (o *UpdateOnboardingPromptRequest) GetRequired() bool`
@@ -131,16 +121,6 @@ SetRequired sets Required field to given value.
 
 HasRequired returns a boolean if a field has been set.
 
-### SetRequiredNil
-
-`func (o *UpdateOnboardingPromptRequest) SetRequiredNil(b bool)`
-
- SetRequiredNil sets the value for Required to be an explicit nil
-
-### UnsetRequired
-`func (o *UpdateOnboardingPromptRequest) UnsetRequired()`
-
-UnsetRequired ensures that no value is present for Required, not even an explicit nil
 ### GetInOnboarding
 
 `func (o *UpdateOnboardingPromptRequest) GetInOnboarding() bool`
@@ -166,32 +146,22 @@ SetInOnboarding sets InOnboarding field to given value.
 
 HasInOnboarding returns a boolean if a field has been set.
 
-### SetInOnboardingNil
-
-`func (o *UpdateOnboardingPromptRequest) SetInOnboardingNil(b bool)`
-
- SetInOnboardingNil sets the value for InOnboarding to be an explicit nil
-
-### UnsetInOnboarding
-`func (o *UpdateOnboardingPromptRequest) UnsetInOnboarding()`
-
-UnsetInOnboarding ensures that no value is present for InOnboarding, not even an explicit nil
 ### GetType
 
-`func (o *UpdateOnboardingPromptRequest) GetType() int32`
+`func (o *UpdateOnboardingPromptRequest) GetType() UpdateOnboardingPromptRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *UpdateOnboardingPromptRequest) GetTypeOk() (*int32, bool)`
+`func (o *UpdateOnboardingPromptRequest) GetTypeOk() (*UpdateOnboardingPromptRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *UpdateOnboardingPromptRequest) SetType(v int32)`
+`func (o *UpdateOnboardingPromptRequest) SetType(v UpdateOnboardingPromptRequestType)`
 
 SetType sets Type field to given value.
 

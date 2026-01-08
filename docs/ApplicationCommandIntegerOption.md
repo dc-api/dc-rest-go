@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**ApplicationCommandOptionType**](ApplicationCommandOptionType.md) |  | 
 **Name** | **string** |  | 
 **NameLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Description** | **string** |  | 
 **DescriptionLocalizations** | Pointer to **map[string]string** |  | [optional] 
-**Required** | Pointer to **NullableBool** |  | [optional] 
-**Autocomplete** | Pointer to **NullableBool** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
+**Autocomplete** | Pointer to **bool** |  | [optional] 
 **Choices** | Pointer to [**[]ApplicationCommandOptionIntegerChoice**](ApplicationCommandOptionIntegerChoice.md) |  | [optional] 
-**MinValue** | Pointer to **int64** |  | [optional] 
-**MaxValue** | Pointer to **int64** |  | [optional] 
+**MinValue** | Pointer to [**ApplicationCommandIntegerOptionMinValue**](ApplicationCommandIntegerOptionMinValue.md) |  | [optional] 
+**MaxValue** | Pointer to [**ApplicationCommandIntegerOptionMinValue**](ApplicationCommandIntegerOptionMinValue.md) |  | [optional] 
 
 ## Methods
 
 ### NewApplicationCommandIntegerOption
 
-`func NewApplicationCommandIntegerOption(type_ int32, name string, description string, ) *ApplicationCommandIntegerOption`
+`func NewApplicationCommandIntegerOption(type_ ApplicationCommandOptionType, name string, description string, ) *ApplicationCommandIntegerOption`
 
 NewApplicationCommandIntegerOption instantiates a new ApplicationCommandIntegerOption object
 This constructor will assign default values to properties that have it defined,
@@ -36,20 +36,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ApplicationCommandIntegerOption) GetType() int32`
+`func (o *ApplicationCommandIntegerOption) GetType() ApplicationCommandOptionType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ApplicationCommandIntegerOption) GetTypeOk() (*int32, bool)`
+`func (o *ApplicationCommandIntegerOption) GetTypeOk() (*ApplicationCommandOptionType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ApplicationCommandIntegerOption) SetType(v int32)`
+`func (o *ApplicationCommandIntegerOption) SetType(v ApplicationCommandOptionType)`
 
 SetType sets Type field to given value.
 
@@ -169,16 +169,6 @@ SetRequired sets Required field to given value.
 
 HasRequired returns a boolean if a field has been set.
 
-### SetRequiredNil
-
-`func (o *ApplicationCommandIntegerOption) SetRequiredNil(b bool)`
-
- SetRequiredNil sets the value for Required to be an explicit nil
-
-### UnsetRequired
-`func (o *ApplicationCommandIntegerOption) UnsetRequired()`
-
-UnsetRequired ensures that no value is present for Required, not even an explicit nil
 ### GetAutocomplete
 
 `func (o *ApplicationCommandIntegerOption) GetAutocomplete() bool`
@@ -204,16 +194,6 @@ SetAutocomplete sets Autocomplete field to given value.
 
 HasAutocomplete returns a boolean if a field has been set.
 
-### SetAutocompleteNil
-
-`func (o *ApplicationCommandIntegerOption) SetAutocompleteNil(b bool)`
-
- SetAutocompleteNil sets the value for Autocomplete to be an explicit nil
-
-### UnsetAutocomplete
-`func (o *ApplicationCommandIntegerOption) UnsetAutocomplete()`
-
-UnsetAutocomplete ensures that no value is present for Autocomplete, not even an explicit nil
 ### GetChoices
 
 `func (o *ApplicationCommandIntegerOption) GetChoices() []ApplicationCommandOptionIntegerChoice`
@@ -239,32 +219,22 @@ SetChoices sets Choices field to given value.
 
 HasChoices returns a boolean if a field has been set.
 
-### SetChoicesNil
-
-`func (o *ApplicationCommandIntegerOption) SetChoicesNil(b bool)`
-
- SetChoicesNil sets the value for Choices to be an explicit nil
-
-### UnsetChoices
-`func (o *ApplicationCommandIntegerOption) UnsetChoices()`
-
-UnsetChoices ensures that no value is present for Choices, not even an explicit nil
 ### GetMinValue
 
-`func (o *ApplicationCommandIntegerOption) GetMinValue() int64`
+`func (o *ApplicationCommandIntegerOption) GetMinValue() ApplicationCommandIntegerOptionMinValue`
 
 GetMinValue returns the MinValue field if non-nil, zero value otherwise.
 
 ### GetMinValueOk
 
-`func (o *ApplicationCommandIntegerOption) GetMinValueOk() (*int64, bool)`
+`func (o *ApplicationCommandIntegerOption) GetMinValueOk() (*ApplicationCommandIntegerOptionMinValue, bool)`
 
 GetMinValueOk returns a tuple with the MinValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMinValue
 
-`func (o *ApplicationCommandIntegerOption) SetMinValue(v int64)`
+`func (o *ApplicationCommandIntegerOption) SetMinValue(v ApplicationCommandIntegerOptionMinValue)`
 
 SetMinValue sets MinValue field to given value.
 
@@ -276,20 +246,20 @@ HasMinValue returns a boolean if a field has been set.
 
 ### GetMaxValue
 
-`func (o *ApplicationCommandIntegerOption) GetMaxValue() int64`
+`func (o *ApplicationCommandIntegerOption) GetMaxValue() ApplicationCommandIntegerOptionMinValue`
 
 GetMaxValue returns the MaxValue field if non-nil, zero value otherwise.
 
 ### GetMaxValueOk
 
-`func (o *ApplicationCommandIntegerOption) GetMaxValueOk() (*int64, bool)`
+`func (o *ApplicationCommandIntegerOption) GetMaxValueOk() (*ApplicationCommandIntegerOptionMinValue, bool)`
 
 GetMaxValueOk returns a tuple with the MaxValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMaxValue
 
-`func (o *ApplicationCommandIntegerOption) SetMaxValue(v int64)`
+`func (o *ApplicationCommandIntegerOption) SetMaxValue(v ApplicationCommandIntegerOptionMinValue)`
 
 SetMaxValue sets MaxValue field to given value.
 

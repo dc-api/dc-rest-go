@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -75,9 +75,9 @@ func NewKeywordTriggerMetadataWithDefaults() *KeywordTriggerMetadata {
 	return &this
 }
 
-// GetKeywordFilter returns the KeywordFilter field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetKeywordFilter returns the KeywordFilter field value if set, zero value otherwise.
 func (o *KeywordTriggerMetadata) GetKeywordFilter() []string {
-	if o == nil {
+	if o == nil || IsNil(o.KeywordFilter) {
 		var ret []string
 		return ret
 	}
@@ -86,9 +86,8 @@ func (o *KeywordTriggerMetadata) GetKeywordFilter() []string {
 
 // GetKeywordFilterOk returns a tuple with the KeywordFilter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *KeywordTriggerMetadata) GetKeywordFilterOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.KeywordFilter) {
 		return nil, false
 	}
 	return o.KeywordFilter, true
@@ -109,9 +108,9 @@ func (o *KeywordTriggerMetadata) SetKeywordFilter(v []string) {
 }
 
 
-// GetRegexPatterns returns the RegexPatterns field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRegexPatterns returns the RegexPatterns field value if set, zero value otherwise.
 func (o *KeywordTriggerMetadata) GetRegexPatterns() []string {
-	if o == nil {
+	if o == nil || IsNil(o.RegexPatterns) {
 		var ret []string
 		return ret
 	}
@@ -120,9 +119,8 @@ func (o *KeywordTriggerMetadata) GetRegexPatterns() []string {
 
 // GetRegexPatternsOk returns a tuple with the RegexPatterns field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *KeywordTriggerMetadata) GetRegexPatternsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RegexPatterns) {
 		return nil, false
 	}
 	return o.RegexPatterns, true
@@ -143,9 +141,9 @@ func (o *KeywordTriggerMetadata) SetRegexPatterns(v []string) {
 }
 
 
-// GetAllowList returns the AllowList field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAllowList returns the AllowList field value if set, zero value otherwise.
 func (o *KeywordTriggerMetadata) GetAllowList() []string {
-	if o == nil {
+	if o == nil || IsNil(o.AllowList) {
 		var ret []string
 		return ret
 	}
@@ -154,9 +152,8 @@ func (o *KeywordTriggerMetadata) GetAllowList() []string {
 
 // GetAllowListOk returns a tuple with the AllowList field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *KeywordTriggerMetadata) GetAllowListOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AllowList) {
 		return nil, false
 	}
 	return o.AllowList, true
@@ -187,13 +184,13 @@ func (o KeywordTriggerMetadata) MarshalJSON() ([]byte, error) {
 
 func (o KeywordTriggerMetadata) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.KeywordFilter != nil {
+	if !IsNil(o.KeywordFilter) {
 		toSerialize["keyword_filter"] = o.KeywordFilter
 	}
-	if o.RegexPatterns != nil {
+	if !IsNil(o.RegexPatterns) {
 		toSerialize["regex_patterns"] = o.RegexPatterns
 	}
-	if o.AllowList != nil {
+	if !IsNil(o.AllowList) {
 		toSerialize["allow_list"] = o.AllowList
 	}
 	return toSerialize, nil
@@ -234,5 +231,4 @@ func (v *NullableKeywordTriggerMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

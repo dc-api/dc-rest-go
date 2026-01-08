@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EmojiId** | Pointer to **string** |  | [optional] 
-**EmojiName** | Pointer to **NullableString** |  | [optional] 
+**EmojiId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**EmojiName** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetEmojiId
 
-`func (o *DefaultReactionEmojiResponse) GetEmojiId() string`
+`func (o *DefaultReactionEmojiResponse) GetEmojiId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetEmojiId returns the EmojiId field if non-nil, zero value otherwise.
 
 ### GetEmojiIdOk
 
-`func (o *DefaultReactionEmojiResponse) GetEmojiIdOk() (*string, bool)`
+`func (o *DefaultReactionEmojiResponse) GetEmojiIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetEmojiIdOk returns a tuple with the EmojiId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmojiId
 
-`func (o *DefaultReactionEmojiResponse) SetEmojiId(v string)`
+`func (o *DefaultReactionEmojiResponse) SetEmojiId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetEmojiId sets EmojiId field to given value.
 
@@ -76,16 +76,6 @@ SetEmojiName sets EmojiName field to given value.
 
 HasEmojiName returns a boolean if a field has been set.
 
-### SetEmojiNameNil
-
-`func (o *DefaultReactionEmojiResponse) SetEmojiNameNil(b bool)`
-
- SetEmojiNameNil sets the value for EmojiName to be an explicit nil
-
-### UnsetEmojiName
-`func (o *DefaultReactionEmojiResponse) UnsetEmojiName()`
-
-UnsetEmojiName ensures that no value is present for EmojiName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

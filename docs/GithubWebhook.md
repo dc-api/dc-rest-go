@@ -4,26 +4,26 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Action** | Pointer to **NullableString** |  | [optional] 
-**Ref** | Pointer to **NullableString** |  | [optional] 
-**RefType** | Pointer to **NullableString** |  | [optional] 
-**Comment** | Pointer to [**NullableGithubComment**](GithubComment.md) |  | [optional] 
-**Issue** | Pointer to [**NullableGithubIssue**](GithubIssue.md) |  | [optional] 
-**PullRequest** | Pointer to [**NullableGithubIssue**](GithubIssue.md) |  | [optional] 
-**Repository** | Pointer to [**NullableGithubRepository**](GithubRepository.md) |  | [optional] 
-**Forkee** | Pointer to [**NullableGithubRepository**](GithubRepository.md) |  | [optional] 
+**Action** | Pointer to **string** |  | [optional] 
+**Ref** | Pointer to **string** |  | [optional] 
+**RefType** | Pointer to **string** |  | [optional] 
+**Comment** | Pointer to [**GithubWebhookComment**](GithubWebhookComment.md) |  | [optional] 
+**Issue** | Pointer to [**GithubWebhookIssue**](GithubWebhookIssue.md) |  | [optional] 
+**PullRequest** | Pointer to [**GithubWebhookIssue**](GithubWebhookIssue.md) |  | [optional] 
+**Repository** | Pointer to [**GithubWebhookRepository**](GithubWebhookRepository.md) |  | [optional] 
+**Forkee** | Pointer to [**GithubWebhookRepository**](GithubWebhookRepository.md) |  | [optional] 
 **Sender** | [**GithubUser**](GithubUser.md) |  | 
-**Member** | Pointer to [**NullableGithubUser**](GithubUser.md) |  | [optional] 
-**Release** | Pointer to [**NullableGithubRelease**](GithubRelease.md) |  | [optional] 
-**HeadCommit** | Pointer to [**NullableGithubCommit**](GithubCommit.md) |  | [optional] 
+**Member** | Pointer to [**GithubWebhookMember**](GithubWebhookMember.md) |  | [optional] 
+**Release** | Pointer to [**GithubWebhookRelease**](GithubWebhookRelease.md) |  | [optional] 
+**HeadCommit** | Pointer to [**GithubWebhookHeadCommit**](GithubWebhookHeadCommit.md) |  | [optional] 
 **Commits** | Pointer to [**[]GithubCommit**](GithubCommit.md) |  | [optional] 
-**Forced** | Pointer to **NullableBool** |  | [optional] 
-**Compare** | Pointer to **NullableString** |  | [optional] 
-**Review** | Pointer to [**NullableGithubReview**](GithubReview.md) |  | [optional] 
-**CheckRun** | Pointer to [**NullableGithubCheckRun**](GithubCheckRun.md) |  | [optional] 
-**CheckSuite** | Pointer to [**NullableGithubCheckSuite**](GithubCheckSuite.md) |  | [optional] 
-**Discussion** | Pointer to [**NullableGithubDiscussion**](GithubDiscussion.md) |  | [optional] 
-**Answer** | Pointer to [**NullableGithubComment**](GithubComment.md) |  | [optional] 
+**Forced** | Pointer to **bool** |  | [optional] 
+**Compare** | Pointer to **string** |  | [optional] 
+**Review** | Pointer to [**GithubWebhookReview**](GithubWebhookReview.md) |  | [optional] 
+**CheckRun** | Pointer to [**GithubWebhookCheckRun**](GithubWebhookCheckRun.md) |  | [optional] 
+**CheckSuite** | Pointer to [**GithubWebhookCheckSuite**](GithubWebhookCheckSuite.md) |  | [optional] 
+**Discussion** | Pointer to [**GithubWebhookDiscussion**](GithubWebhookDiscussion.md) |  | [optional] 
+**Answer** | Pointer to [**GithubWebhookComment**](GithubWebhookComment.md) |  | [optional] 
 
 ## Methods
 
@@ -69,16 +69,6 @@ SetAction sets Action field to given value.
 
 HasAction returns a boolean if a field has been set.
 
-### SetActionNil
-
-`func (o *GithubWebhook) SetActionNil(b bool)`
-
- SetActionNil sets the value for Action to be an explicit nil
-
-### UnsetAction
-`func (o *GithubWebhook) UnsetAction()`
-
-UnsetAction ensures that no value is present for Action, not even an explicit nil
 ### GetRef
 
 `func (o *GithubWebhook) GetRef() string`
@@ -104,16 +94,6 @@ SetRef sets Ref field to given value.
 
 HasRef returns a boolean if a field has been set.
 
-### SetRefNil
-
-`func (o *GithubWebhook) SetRefNil(b bool)`
-
- SetRefNil sets the value for Ref to be an explicit nil
-
-### UnsetRef
-`func (o *GithubWebhook) UnsetRef()`
-
-UnsetRef ensures that no value is present for Ref, not even an explicit nil
 ### GetRefType
 
 `func (o *GithubWebhook) GetRefType() string`
@@ -139,32 +119,22 @@ SetRefType sets RefType field to given value.
 
 HasRefType returns a boolean if a field has been set.
 
-### SetRefTypeNil
-
-`func (o *GithubWebhook) SetRefTypeNil(b bool)`
-
- SetRefTypeNil sets the value for RefType to be an explicit nil
-
-### UnsetRefType
-`func (o *GithubWebhook) UnsetRefType()`
-
-UnsetRefType ensures that no value is present for RefType, not even an explicit nil
 ### GetComment
 
-`func (o *GithubWebhook) GetComment() GithubComment`
+`func (o *GithubWebhook) GetComment() GithubWebhookComment`
 
 GetComment returns the Comment field if non-nil, zero value otherwise.
 
 ### GetCommentOk
 
-`func (o *GithubWebhook) GetCommentOk() (*GithubComment, bool)`
+`func (o *GithubWebhook) GetCommentOk() (*GithubWebhookComment, bool)`
 
 GetCommentOk returns a tuple with the Comment field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetComment
 
-`func (o *GithubWebhook) SetComment(v GithubComment)`
+`func (o *GithubWebhook) SetComment(v GithubWebhookComment)`
 
 SetComment sets Comment field to given value.
 
@@ -174,32 +144,22 @@ SetComment sets Comment field to given value.
 
 HasComment returns a boolean if a field has been set.
 
-### SetCommentNil
-
-`func (o *GithubWebhook) SetCommentNil(b bool)`
-
- SetCommentNil sets the value for Comment to be an explicit nil
-
-### UnsetComment
-`func (o *GithubWebhook) UnsetComment()`
-
-UnsetComment ensures that no value is present for Comment, not even an explicit nil
 ### GetIssue
 
-`func (o *GithubWebhook) GetIssue() GithubIssue`
+`func (o *GithubWebhook) GetIssue() GithubWebhookIssue`
 
 GetIssue returns the Issue field if non-nil, zero value otherwise.
 
 ### GetIssueOk
 
-`func (o *GithubWebhook) GetIssueOk() (*GithubIssue, bool)`
+`func (o *GithubWebhook) GetIssueOk() (*GithubWebhookIssue, bool)`
 
 GetIssueOk returns a tuple with the Issue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIssue
 
-`func (o *GithubWebhook) SetIssue(v GithubIssue)`
+`func (o *GithubWebhook) SetIssue(v GithubWebhookIssue)`
 
 SetIssue sets Issue field to given value.
 
@@ -209,32 +169,22 @@ SetIssue sets Issue field to given value.
 
 HasIssue returns a boolean if a field has been set.
 
-### SetIssueNil
-
-`func (o *GithubWebhook) SetIssueNil(b bool)`
-
- SetIssueNil sets the value for Issue to be an explicit nil
-
-### UnsetIssue
-`func (o *GithubWebhook) UnsetIssue()`
-
-UnsetIssue ensures that no value is present for Issue, not even an explicit nil
 ### GetPullRequest
 
-`func (o *GithubWebhook) GetPullRequest() GithubIssue`
+`func (o *GithubWebhook) GetPullRequest() GithubWebhookIssue`
 
 GetPullRequest returns the PullRequest field if non-nil, zero value otherwise.
 
 ### GetPullRequestOk
 
-`func (o *GithubWebhook) GetPullRequestOk() (*GithubIssue, bool)`
+`func (o *GithubWebhook) GetPullRequestOk() (*GithubWebhookIssue, bool)`
 
 GetPullRequestOk returns a tuple with the PullRequest field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPullRequest
 
-`func (o *GithubWebhook) SetPullRequest(v GithubIssue)`
+`func (o *GithubWebhook) SetPullRequest(v GithubWebhookIssue)`
 
 SetPullRequest sets PullRequest field to given value.
 
@@ -244,32 +194,22 @@ SetPullRequest sets PullRequest field to given value.
 
 HasPullRequest returns a boolean if a field has been set.
 
-### SetPullRequestNil
-
-`func (o *GithubWebhook) SetPullRequestNil(b bool)`
-
- SetPullRequestNil sets the value for PullRequest to be an explicit nil
-
-### UnsetPullRequest
-`func (o *GithubWebhook) UnsetPullRequest()`
-
-UnsetPullRequest ensures that no value is present for PullRequest, not even an explicit nil
 ### GetRepository
 
-`func (o *GithubWebhook) GetRepository() GithubRepository`
+`func (o *GithubWebhook) GetRepository() GithubWebhookRepository`
 
 GetRepository returns the Repository field if non-nil, zero value otherwise.
 
 ### GetRepositoryOk
 
-`func (o *GithubWebhook) GetRepositoryOk() (*GithubRepository, bool)`
+`func (o *GithubWebhook) GetRepositoryOk() (*GithubWebhookRepository, bool)`
 
 GetRepositoryOk returns a tuple with the Repository field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRepository
 
-`func (o *GithubWebhook) SetRepository(v GithubRepository)`
+`func (o *GithubWebhook) SetRepository(v GithubWebhookRepository)`
 
 SetRepository sets Repository field to given value.
 
@@ -279,32 +219,22 @@ SetRepository sets Repository field to given value.
 
 HasRepository returns a boolean if a field has been set.
 
-### SetRepositoryNil
-
-`func (o *GithubWebhook) SetRepositoryNil(b bool)`
-
- SetRepositoryNil sets the value for Repository to be an explicit nil
-
-### UnsetRepository
-`func (o *GithubWebhook) UnsetRepository()`
-
-UnsetRepository ensures that no value is present for Repository, not even an explicit nil
 ### GetForkee
 
-`func (o *GithubWebhook) GetForkee() GithubRepository`
+`func (o *GithubWebhook) GetForkee() GithubWebhookRepository`
 
 GetForkee returns the Forkee field if non-nil, zero value otherwise.
 
 ### GetForkeeOk
 
-`func (o *GithubWebhook) GetForkeeOk() (*GithubRepository, bool)`
+`func (o *GithubWebhook) GetForkeeOk() (*GithubWebhookRepository, bool)`
 
 GetForkeeOk returns a tuple with the Forkee field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetForkee
 
-`func (o *GithubWebhook) SetForkee(v GithubRepository)`
+`func (o *GithubWebhook) SetForkee(v GithubWebhookRepository)`
 
 SetForkee sets Forkee field to given value.
 
@@ -314,16 +244,6 @@ SetForkee sets Forkee field to given value.
 
 HasForkee returns a boolean if a field has been set.
 
-### SetForkeeNil
-
-`func (o *GithubWebhook) SetForkeeNil(b bool)`
-
- SetForkeeNil sets the value for Forkee to be an explicit nil
-
-### UnsetForkee
-`func (o *GithubWebhook) UnsetForkee()`
-
-UnsetForkee ensures that no value is present for Forkee, not even an explicit nil
 ### GetSender
 
 `func (o *GithubWebhook) GetSender() GithubUser`
@@ -346,20 +266,20 @@ SetSender sets Sender field to given value.
 
 ### GetMember
 
-`func (o *GithubWebhook) GetMember() GithubUser`
+`func (o *GithubWebhook) GetMember() GithubWebhookMember`
 
 GetMember returns the Member field if non-nil, zero value otherwise.
 
 ### GetMemberOk
 
-`func (o *GithubWebhook) GetMemberOk() (*GithubUser, bool)`
+`func (o *GithubWebhook) GetMemberOk() (*GithubWebhookMember, bool)`
 
 GetMemberOk returns a tuple with the Member field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMember
 
-`func (o *GithubWebhook) SetMember(v GithubUser)`
+`func (o *GithubWebhook) SetMember(v GithubWebhookMember)`
 
 SetMember sets Member field to given value.
 
@@ -369,32 +289,22 @@ SetMember sets Member field to given value.
 
 HasMember returns a boolean if a field has been set.
 
-### SetMemberNil
-
-`func (o *GithubWebhook) SetMemberNil(b bool)`
-
- SetMemberNil sets the value for Member to be an explicit nil
-
-### UnsetMember
-`func (o *GithubWebhook) UnsetMember()`
-
-UnsetMember ensures that no value is present for Member, not even an explicit nil
 ### GetRelease
 
-`func (o *GithubWebhook) GetRelease() GithubRelease`
+`func (o *GithubWebhook) GetRelease() GithubWebhookRelease`
 
 GetRelease returns the Release field if non-nil, zero value otherwise.
 
 ### GetReleaseOk
 
-`func (o *GithubWebhook) GetReleaseOk() (*GithubRelease, bool)`
+`func (o *GithubWebhook) GetReleaseOk() (*GithubWebhookRelease, bool)`
 
 GetReleaseOk returns a tuple with the Release field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRelease
 
-`func (o *GithubWebhook) SetRelease(v GithubRelease)`
+`func (o *GithubWebhook) SetRelease(v GithubWebhookRelease)`
 
 SetRelease sets Release field to given value.
 
@@ -404,32 +314,22 @@ SetRelease sets Release field to given value.
 
 HasRelease returns a boolean if a field has been set.
 
-### SetReleaseNil
-
-`func (o *GithubWebhook) SetReleaseNil(b bool)`
-
- SetReleaseNil sets the value for Release to be an explicit nil
-
-### UnsetRelease
-`func (o *GithubWebhook) UnsetRelease()`
-
-UnsetRelease ensures that no value is present for Release, not even an explicit nil
 ### GetHeadCommit
 
-`func (o *GithubWebhook) GetHeadCommit() GithubCommit`
+`func (o *GithubWebhook) GetHeadCommit() GithubWebhookHeadCommit`
 
 GetHeadCommit returns the HeadCommit field if non-nil, zero value otherwise.
 
 ### GetHeadCommitOk
 
-`func (o *GithubWebhook) GetHeadCommitOk() (*GithubCommit, bool)`
+`func (o *GithubWebhook) GetHeadCommitOk() (*GithubWebhookHeadCommit, bool)`
 
 GetHeadCommitOk returns a tuple with the HeadCommit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeadCommit
 
-`func (o *GithubWebhook) SetHeadCommit(v GithubCommit)`
+`func (o *GithubWebhook) SetHeadCommit(v GithubWebhookHeadCommit)`
 
 SetHeadCommit sets HeadCommit field to given value.
 
@@ -439,16 +339,6 @@ SetHeadCommit sets HeadCommit field to given value.
 
 HasHeadCommit returns a boolean if a field has been set.
 
-### SetHeadCommitNil
-
-`func (o *GithubWebhook) SetHeadCommitNil(b bool)`
-
- SetHeadCommitNil sets the value for HeadCommit to be an explicit nil
-
-### UnsetHeadCommit
-`func (o *GithubWebhook) UnsetHeadCommit()`
-
-UnsetHeadCommit ensures that no value is present for HeadCommit, not even an explicit nil
 ### GetCommits
 
 `func (o *GithubWebhook) GetCommits() []GithubCommit`
@@ -474,16 +364,6 @@ SetCommits sets Commits field to given value.
 
 HasCommits returns a boolean if a field has been set.
 
-### SetCommitsNil
-
-`func (o *GithubWebhook) SetCommitsNil(b bool)`
-
- SetCommitsNil sets the value for Commits to be an explicit nil
-
-### UnsetCommits
-`func (o *GithubWebhook) UnsetCommits()`
-
-UnsetCommits ensures that no value is present for Commits, not even an explicit nil
 ### GetForced
 
 `func (o *GithubWebhook) GetForced() bool`
@@ -509,16 +389,6 @@ SetForced sets Forced field to given value.
 
 HasForced returns a boolean if a field has been set.
 
-### SetForcedNil
-
-`func (o *GithubWebhook) SetForcedNil(b bool)`
-
- SetForcedNil sets the value for Forced to be an explicit nil
-
-### UnsetForced
-`func (o *GithubWebhook) UnsetForced()`
-
-UnsetForced ensures that no value is present for Forced, not even an explicit nil
 ### GetCompare
 
 `func (o *GithubWebhook) GetCompare() string`
@@ -544,32 +414,22 @@ SetCompare sets Compare field to given value.
 
 HasCompare returns a boolean if a field has been set.
 
-### SetCompareNil
-
-`func (o *GithubWebhook) SetCompareNil(b bool)`
-
- SetCompareNil sets the value for Compare to be an explicit nil
-
-### UnsetCompare
-`func (o *GithubWebhook) UnsetCompare()`
-
-UnsetCompare ensures that no value is present for Compare, not even an explicit nil
 ### GetReview
 
-`func (o *GithubWebhook) GetReview() GithubReview`
+`func (o *GithubWebhook) GetReview() GithubWebhookReview`
 
 GetReview returns the Review field if non-nil, zero value otherwise.
 
 ### GetReviewOk
 
-`func (o *GithubWebhook) GetReviewOk() (*GithubReview, bool)`
+`func (o *GithubWebhook) GetReviewOk() (*GithubWebhookReview, bool)`
 
 GetReviewOk returns a tuple with the Review field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReview
 
-`func (o *GithubWebhook) SetReview(v GithubReview)`
+`func (o *GithubWebhook) SetReview(v GithubWebhookReview)`
 
 SetReview sets Review field to given value.
 
@@ -579,32 +439,22 @@ SetReview sets Review field to given value.
 
 HasReview returns a boolean if a field has been set.
 
-### SetReviewNil
-
-`func (o *GithubWebhook) SetReviewNil(b bool)`
-
- SetReviewNil sets the value for Review to be an explicit nil
-
-### UnsetReview
-`func (o *GithubWebhook) UnsetReview()`
-
-UnsetReview ensures that no value is present for Review, not even an explicit nil
 ### GetCheckRun
 
-`func (o *GithubWebhook) GetCheckRun() GithubCheckRun`
+`func (o *GithubWebhook) GetCheckRun() GithubWebhookCheckRun`
 
 GetCheckRun returns the CheckRun field if non-nil, zero value otherwise.
 
 ### GetCheckRunOk
 
-`func (o *GithubWebhook) GetCheckRunOk() (*GithubCheckRun, bool)`
+`func (o *GithubWebhook) GetCheckRunOk() (*GithubWebhookCheckRun, bool)`
 
 GetCheckRunOk returns a tuple with the CheckRun field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCheckRun
 
-`func (o *GithubWebhook) SetCheckRun(v GithubCheckRun)`
+`func (o *GithubWebhook) SetCheckRun(v GithubWebhookCheckRun)`
 
 SetCheckRun sets CheckRun field to given value.
 
@@ -614,32 +464,22 @@ SetCheckRun sets CheckRun field to given value.
 
 HasCheckRun returns a boolean if a field has been set.
 
-### SetCheckRunNil
-
-`func (o *GithubWebhook) SetCheckRunNil(b bool)`
-
- SetCheckRunNil sets the value for CheckRun to be an explicit nil
-
-### UnsetCheckRun
-`func (o *GithubWebhook) UnsetCheckRun()`
-
-UnsetCheckRun ensures that no value is present for CheckRun, not even an explicit nil
 ### GetCheckSuite
 
-`func (o *GithubWebhook) GetCheckSuite() GithubCheckSuite`
+`func (o *GithubWebhook) GetCheckSuite() GithubWebhookCheckSuite`
 
 GetCheckSuite returns the CheckSuite field if non-nil, zero value otherwise.
 
 ### GetCheckSuiteOk
 
-`func (o *GithubWebhook) GetCheckSuiteOk() (*GithubCheckSuite, bool)`
+`func (o *GithubWebhook) GetCheckSuiteOk() (*GithubWebhookCheckSuite, bool)`
 
 GetCheckSuiteOk returns a tuple with the CheckSuite field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCheckSuite
 
-`func (o *GithubWebhook) SetCheckSuite(v GithubCheckSuite)`
+`func (o *GithubWebhook) SetCheckSuite(v GithubWebhookCheckSuite)`
 
 SetCheckSuite sets CheckSuite field to given value.
 
@@ -649,32 +489,22 @@ SetCheckSuite sets CheckSuite field to given value.
 
 HasCheckSuite returns a boolean if a field has been set.
 
-### SetCheckSuiteNil
-
-`func (o *GithubWebhook) SetCheckSuiteNil(b bool)`
-
- SetCheckSuiteNil sets the value for CheckSuite to be an explicit nil
-
-### UnsetCheckSuite
-`func (o *GithubWebhook) UnsetCheckSuite()`
-
-UnsetCheckSuite ensures that no value is present for CheckSuite, not even an explicit nil
 ### GetDiscussion
 
-`func (o *GithubWebhook) GetDiscussion() GithubDiscussion`
+`func (o *GithubWebhook) GetDiscussion() GithubWebhookDiscussion`
 
 GetDiscussion returns the Discussion field if non-nil, zero value otherwise.
 
 ### GetDiscussionOk
 
-`func (o *GithubWebhook) GetDiscussionOk() (*GithubDiscussion, bool)`
+`func (o *GithubWebhook) GetDiscussionOk() (*GithubWebhookDiscussion, bool)`
 
 GetDiscussionOk returns a tuple with the Discussion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDiscussion
 
-`func (o *GithubWebhook) SetDiscussion(v GithubDiscussion)`
+`func (o *GithubWebhook) SetDiscussion(v GithubWebhookDiscussion)`
 
 SetDiscussion sets Discussion field to given value.
 
@@ -684,32 +514,22 @@ SetDiscussion sets Discussion field to given value.
 
 HasDiscussion returns a boolean if a field has been set.
 
-### SetDiscussionNil
-
-`func (o *GithubWebhook) SetDiscussionNil(b bool)`
-
- SetDiscussionNil sets the value for Discussion to be an explicit nil
-
-### UnsetDiscussion
-`func (o *GithubWebhook) UnsetDiscussion()`
-
-UnsetDiscussion ensures that no value is present for Discussion, not even an explicit nil
 ### GetAnswer
 
-`func (o *GithubWebhook) GetAnswer() GithubComment`
+`func (o *GithubWebhook) GetAnswer() GithubWebhookComment`
 
 GetAnswer returns the Answer field if non-nil, zero value otherwise.
 
 ### GetAnswerOk
 
-`func (o *GithubWebhook) GetAnswerOk() (*GithubComment, bool)`
+`func (o *GithubWebhook) GetAnswerOk() (*GithubWebhookComment, bool)`
 
 GetAnswerOk returns a tuple with the Answer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAnswer
 
-`func (o *GithubWebhook) SetAnswer(v GithubComment)`
+`func (o *GithubWebhook) SetAnswer(v GithubWebhookComment)`
 
 SetAnswer sets Answer field to given value.
 
@@ -719,16 +539,6 @@ SetAnswer sets Answer field to given value.
 
 HasAnswer returns a boolean if a field has been set.
 
-### SetAnswerNil
-
-`func (o *GithubWebhook) SetAnswerNil(b bool)`
-
- SetAnswerNil sets the value for Answer to be an explicit nil
-
-### UnsetAnswer
-`func (o *GithubWebhook) UnsetAnswer()`
-
-UnsetAnswer ensures that no value is present for Answer, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

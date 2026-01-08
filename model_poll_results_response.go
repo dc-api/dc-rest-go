@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,7 +55,7 @@ var _ MappedNullable = &PollResultsResponse{}
 
 // PollResultsResponse struct for PollResultsResponse
 type PollResultsResponse struct {
-	AnswerCounts []PollResultsEntryResponse `json:"answer_counts,omitempty"`
+	AnswerCounts []PollResultsEntryResponse `json:"answer_counts"`
 	IsFinalized bool `json:"is_finalized"`
 }
 
@@ -65,8 +65,9 @@ type _PollResultsResponse PollResultsResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPollResultsResponse(isFinalized bool) *PollResultsResponse {
+func NewPollResultsResponse(answerCounts []PollResultsEntryResponse, isFinalized bool) *PollResultsResponse {
 	this := PollResultsResponse{}
+	this.AnswerCounts = answerCounts
 	this.IsFinalized = isFinalized
 	return &this
 }
@@ -79,18 +80,18 @@ func NewPollResultsResponseWithDefaults() *PollResultsResponse {
 	return &this
 }
 
-// GetAnswerCounts returns the AnswerCounts field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAnswerCounts returns the AnswerCounts field value
 func (o *PollResultsResponse) GetAnswerCounts() []PollResultsEntryResponse {
 	if o == nil {
 		var ret []PollResultsEntryResponse
 		return ret
 	}
+
 	return o.AnswerCounts
 }
 
-// GetAnswerCountsOk returns a tuple with the AnswerCounts field value if set, nil otherwise
+// GetAnswerCountsOk returns a tuple with the AnswerCounts field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PollResultsResponse) GetAnswerCountsOk() ([]PollResultsEntryResponse, bool) {
 	if o == nil {
 		return nil, false
@@ -98,20 +99,10 @@ func (o *PollResultsResponse) GetAnswerCountsOk() ([]PollResultsEntryResponse, b
 	return o.AnswerCounts, true
 }
 
-// HasAnswerCounts returns a boolean if a field has been set.
-func (o *PollResultsResponse) HasAnswerCounts() bool {
-	if o != nil && !IsNil(o.AnswerCounts) {
-		return true
-	}
-
-	return false
-}
-
-// SetAnswerCounts gets a reference to the given []PollResultsEntryResponse and assigns it to the AnswerCounts field.
+// SetAnswerCounts sets field value
 func (o *PollResultsResponse) SetAnswerCounts(v []PollResultsEntryResponse) {
 	o.AnswerCounts = v
 }
-
 
 // GetIsFinalized returns the IsFinalized field value
 func (o *PollResultsResponse) GetIsFinalized() bool {
@@ -147,9 +138,7 @@ func (o PollResultsResponse) MarshalJSON() ([]byte, error) {
 
 func (o PollResultsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.AnswerCounts != nil {
-		toSerialize["answer_counts"] = o.AnswerCounts
-	}
+	toSerialize["answer_counts"] = o.AnswerCounts
 	toSerialize["is_finalized"] = o.IsFinalized
 	return toSerialize, nil
 }
@@ -159,6 +148,7 @@ func (o *PollResultsResponse) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"answer_counts",
 		"is_finalized",
 	}
 
@@ -226,5 +216,4 @@ func (v *NullablePollResultsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

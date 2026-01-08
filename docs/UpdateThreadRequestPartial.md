@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Archived** | Pointer to **NullableBool** |  | [optional] 
-**Locked** | Pointer to **NullableBool** |  | [optional] 
-**Invitable** | Pointer to **NullableBool** |  | [optional] 
-**AutoArchiveDuration** | Pointer to **int32** |  | [optional] 
-**RateLimitPerUser** | Pointer to **NullableInt32** |  | [optional] 
-**Flags** | Pointer to **NullableInt32** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Archived** | Pointer to **bool** |  | [optional] 
+**Locked** | Pointer to **bool** |  | [optional] 
+**Invitable** | Pointer to **bool** |  | [optional] 
+**AutoArchiveDuration** | Pointer to [**CreateForumThreadRequestAutoArchiveDuration**](CreateForumThreadRequestAutoArchiveDuration.md) |  | [optional] 
+**RateLimitPerUser** | Pointer to **int32** |  | [optional] 
+**Flags** | Pointer to **int32** |  | [optional] 
 **AppliedTags** | Pointer to **[]string** |  | [optional] 
-**Bitrate** | Pointer to **NullableInt32** |  | [optional] 
-**UserLimit** | Pointer to **NullableInt32** |  | [optional] 
-**RtcRegion** | Pointer to **NullableString** |  | [optional] 
-**VideoQualityMode** | Pointer to **int32** |  | [optional] 
+**Bitrate** | Pointer to **int32** |  | [optional] 
+**UserLimit** | Pointer to **int32** |  | [optional] 
+**RtcRegion** | Pointer to **string** |  | [optional] 
+**VideoQualityMode** | Pointer to [**CreateGuildChannelRequestVideoQualityMode**](CreateGuildChannelRequestVideoQualityMode.md) |  | [optional] 
 
 ## Methods
 
@@ -61,16 +61,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *UpdateThreadRequestPartial) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *UpdateThreadRequestPartial) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetArchived
 
 `func (o *UpdateThreadRequestPartial) GetArchived() bool`
@@ -96,16 +86,6 @@ SetArchived sets Archived field to given value.
 
 HasArchived returns a boolean if a field has been set.
 
-### SetArchivedNil
-
-`func (o *UpdateThreadRequestPartial) SetArchivedNil(b bool)`
-
- SetArchivedNil sets the value for Archived to be an explicit nil
-
-### UnsetArchived
-`func (o *UpdateThreadRequestPartial) UnsetArchived()`
-
-UnsetArchived ensures that no value is present for Archived, not even an explicit nil
 ### GetLocked
 
 `func (o *UpdateThreadRequestPartial) GetLocked() bool`
@@ -131,16 +111,6 @@ SetLocked sets Locked field to given value.
 
 HasLocked returns a boolean if a field has been set.
 
-### SetLockedNil
-
-`func (o *UpdateThreadRequestPartial) SetLockedNil(b bool)`
-
- SetLockedNil sets the value for Locked to be an explicit nil
-
-### UnsetLocked
-`func (o *UpdateThreadRequestPartial) UnsetLocked()`
-
-UnsetLocked ensures that no value is present for Locked, not even an explicit nil
 ### GetInvitable
 
 `func (o *UpdateThreadRequestPartial) GetInvitable() bool`
@@ -166,32 +136,22 @@ SetInvitable sets Invitable field to given value.
 
 HasInvitable returns a boolean if a field has been set.
 
-### SetInvitableNil
-
-`func (o *UpdateThreadRequestPartial) SetInvitableNil(b bool)`
-
- SetInvitableNil sets the value for Invitable to be an explicit nil
-
-### UnsetInvitable
-`func (o *UpdateThreadRequestPartial) UnsetInvitable()`
-
-UnsetInvitable ensures that no value is present for Invitable, not even an explicit nil
 ### GetAutoArchiveDuration
 
-`func (o *UpdateThreadRequestPartial) GetAutoArchiveDuration() int32`
+`func (o *UpdateThreadRequestPartial) GetAutoArchiveDuration() CreateForumThreadRequestAutoArchiveDuration`
 
 GetAutoArchiveDuration returns the AutoArchiveDuration field if non-nil, zero value otherwise.
 
 ### GetAutoArchiveDurationOk
 
-`func (o *UpdateThreadRequestPartial) GetAutoArchiveDurationOk() (*int32, bool)`
+`func (o *UpdateThreadRequestPartial) GetAutoArchiveDurationOk() (*CreateForumThreadRequestAutoArchiveDuration, bool)`
 
 GetAutoArchiveDurationOk returns a tuple with the AutoArchiveDuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutoArchiveDuration
 
-`func (o *UpdateThreadRequestPartial) SetAutoArchiveDuration(v int32)`
+`func (o *UpdateThreadRequestPartial) SetAutoArchiveDuration(v CreateForumThreadRequestAutoArchiveDuration)`
 
 SetAutoArchiveDuration sets AutoArchiveDuration field to given value.
 
@@ -226,16 +186,6 @@ SetRateLimitPerUser sets RateLimitPerUser field to given value.
 
 HasRateLimitPerUser returns a boolean if a field has been set.
 
-### SetRateLimitPerUserNil
-
-`func (o *UpdateThreadRequestPartial) SetRateLimitPerUserNil(b bool)`
-
- SetRateLimitPerUserNil sets the value for RateLimitPerUser to be an explicit nil
-
-### UnsetRateLimitPerUser
-`func (o *UpdateThreadRequestPartial) UnsetRateLimitPerUser()`
-
-UnsetRateLimitPerUser ensures that no value is present for RateLimitPerUser, not even an explicit nil
 ### GetFlags
 
 `func (o *UpdateThreadRequestPartial) GetFlags() int32`
@@ -261,16 +211,6 @@ SetFlags sets Flags field to given value.
 
 HasFlags returns a boolean if a field has been set.
 
-### SetFlagsNil
-
-`func (o *UpdateThreadRequestPartial) SetFlagsNil(b bool)`
-
- SetFlagsNil sets the value for Flags to be an explicit nil
-
-### UnsetFlags
-`func (o *UpdateThreadRequestPartial) UnsetFlags()`
-
-UnsetFlags ensures that no value is present for Flags, not even an explicit nil
 ### GetAppliedTags
 
 `func (o *UpdateThreadRequestPartial) GetAppliedTags() []string`
@@ -296,16 +236,6 @@ SetAppliedTags sets AppliedTags field to given value.
 
 HasAppliedTags returns a boolean if a field has been set.
 
-### SetAppliedTagsNil
-
-`func (o *UpdateThreadRequestPartial) SetAppliedTagsNil(b bool)`
-
- SetAppliedTagsNil sets the value for AppliedTags to be an explicit nil
-
-### UnsetAppliedTags
-`func (o *UpdateThreadRequestPartial) UnsetAppliedTags()`
-
-UnsetAppliedTags ensures that no value is present for AppliedTags, not even an explicit nil
 ### GetBitrate
 
 `func (o *UpdateThreadRequestPartial) GetBitrate() int32`
@@ -331,16 +261,6 @@ SetBitrate sets Bitrate field to given value.
 
 HasBitrate returns a boolean if a field has been set.
 
-### SetBitrateNil
-
-`func (o *UpdateThreadRequestPartial) SetBitrateNil(b bool)`
-
- SetBitrateNil sets the value for Bitrate to be an explicit nil
-
-### UnsetBitrate
-`func (o *UpdateThreadRequestPartial) UnsetBitrate()`
-
-UnsetBitrate ensures that no value is present for Bitrate, not even an explicit nil
 ### GetUserLimit
 
 `func (o *UpdateThreadRequestPartial) GetUserLimit() int32`
@@ -366,16 +286,6 @@ SetUserLimit sets UserLimit field to given value.
 
 HasUserLimit returns a boolean if a field has been set.
 
-### SetUserLimitNil
-
-`func (o *UpdateThreadRequestPartial) SetUserLimitNil(b bool)`
-
- SetUserLimitNil sets the value for UserLimit to be an explicit nil
-
-### UnsetUserLimit
-`func (o *UpdateThreadRequestPartial) UnsetUserLimit()`
-
-UnsetUserLimit ensures that no value is present for UserLimit, not even an explicit nil
 ### GetRtcRegion
 
 `func (o *UpdateThreadRequestPartial) GetRtcRegion() string`
@@ -401,32 +311,22 @@ SetRtcRegion sets RtcRegion field to given value.
 
 HasRtcRegion returns a boolean if a field has been set.
 
-### SetRtcRegionNil
-
-`func (o *UpdateThreadRequestPartial) SetRtcRegionNil(b bool)`
-
- SetRtcRegionNil sets the value for RtcRegion to be an explicit nil
-
-### UnsetRtcRegion
-`func (o *UpdateThreadRequestPartial) UnsetRtcRegion()`
-
-UnsetRtcRegion ensures that no value is present for RtcRegion, not even an explicit nil
 ### GetVideoQualityMode
 
-`func (o *UpdateThreadRequestPartial) GetVideoQualityMode() int32`
+`func (o *UpdateThreadRequestPartial) GetVideoQualityMode() CreateGuildChannelRequestVideoQualityMode`
 
 GetVideoQualityMode returns the VideoQualityMode field if non-nil, zero value otherwise.
 
 ### GetVideoQualityModeOk
 
-`func (o *UpdateThreadRequestPartial) GetVideoQualityModeOk() (*int32, bool)`
+`func (o *UpdateThreadRequestPartial) GetVideoQualityModeOk() (*CreateGuildChannelRequestVideoQualityMode, bool)`
 
 GetVideoQualityModeOk returns a tuple with the VideoQualityMode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVideoQualityMode
 
-`func (o *UpdateThreadRequestPartial) SetVideoQualityMode(v int32)`
+`func (o *UpdateThreadRequestPartial) SetVideoQualityMode(v CreateGuildChannelRequestVideoQualityMode)`
 
 SetVideoQualityMode sets VideoQualityMode field to given value.
 

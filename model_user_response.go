@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,18 +57,18 @@ var _ MappedNullable = &UserResponse{}
 type UserResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Username string `json:"username"`
-	Avatar NullableString `json:"avatar,omitempty"`
+	Avatar *string `json:"avatar,omitempty"`
 	Discriminator string `json:"discriminator"`
 	PublicFlags int32 `json:"public_flags"`
 	Flags int64 `json:"flags"`
-	Bot NullableBool `json:"bot,omitempty"`
-	System NullableBool `json:"system,omitempty"`
-	Banner NullableString `json:"banner,omitempty"`
-	AccentColor NullableInt32 `json:"accent_color,omitempty"`
-	GlobalName NullableString `json:"global_name,omitempty"`
-	AvatarDecorationData NullableUserAvatarDecorationResponse `json:"avatar_decoration_data,omitempty"`
-	Collectibles NullableUserCollectiblesResponse `json:"collectibles,omitempty"`
-	PrimaryGuild NullableUserPrimaryGuildResponse `json:"primary_guild,omitempty"`
+	Bot *bool `json:"bot,omitempty"`
+	System *bool `json:"system,omitempty"`
+	Banner *string `json:"banner,omitempty"`
+	AccentColor *int32 `json:"accent_color,omitempty"`
+	GlobalName *string `json:"global_name,omitempty"`
+	AvatarDecorationData *BasicGuildMemberResponseAvatarDecorationData `json:"avatar_decoration_data,omitempty"`
+	Collectibles *BasicGuildMemberResponseCollectibles `json:"collectibles,omitempty"`
+	PrimaryGuild *UserPIIResponsePrimaryGuild `json:"primary_guild,omitempty"`
 }
 
 type _UserResponse UserResponse
@@ -143,48 +143,38 @@ func (o *UserResponse) SetUsername(v string) {
 	o.Username = v
 }
 
-// GetAvatar returns the Avatar field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAvatar returns the Avatar field value if set, zero value otherwise.
 func (o *UserResponse) GetAvatar() string {
-	if o == nil || IsNil(o.Avatar.Get()) {
+	if o == nil || IsNil(o.Avatar) {
 		var ret string
 		return ret
 	}
-	return *o.Avatar.Get()
+	return *o.Avatar
 }
 
 // GetAvatarOk returns a tuple with the Avatar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserResponse) GetAvatarOk() (*string, bool) {
-	if o == nil || IsNil(o.Avatar.Get()) {
+	if o == nil || IsNil(o.Avatar) {
 		return nil, false
 	}
-	return o.Avatar.Get(), o.Avatar.IsSet()
+	return o.Avatar, true
 }
 
 // HasAvatar returns a boolean if a field has been set.
 func (o *UserResponse) HasAvatar() bool {
-	if o != nil && o.Avatar.IsSet() {
+	if o != nil && !IsNil(o.Avatar) {
 		return true
 	}
 
 	return false
 }
 
-// SetAvatar gets a reference to the given NullableString and assigns it to the Avatar field.
+// SetAvatar gets a reference to the given string and assigns it to the Avatar field.
 func (o *UserResponse) SetAvatar(v string) {
-	o.Avatar.Set(&v)
+	o.Avatar = &v
 }
 
-// SetAvatarNil sets the value for Avatar to be an explicit nil
-func (o *UserResponse) SetAvatarNil() {
-	o.Avatar.Set(nil)
-}
-
-// UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
-func (o *UserResponse) UnsetAvatar() {
-	o.Avatar.Unset()
-}
 
 // GetDiscriminator returns the Discriminator field value
 func (o *UserResponse) GetDiscriminator() string {
@@ -258,349 +248,269 @@ func (o *UserResponse) SetFlags(v int64) {
 	o.Flags = v
 }
 
-// GetBot returns the Bot field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBot returns the Bot field value if set, zero value otherwise.
 func (o *UserResponse) GetBot() bool {
-	if o == nil || IsNil(o.Bot.Get()) {
+	if o == nil || IsNil(o.Bot) {
 		var ret bool
 		return ret
 	}
-	return *o.Bot.Get()
+	return *o.Bot
 }
 
 // GetBotOk returns a tuple with the Bot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserResponse) GetBotOk() (*bool, bool) {
-	if o == nil || IsNil(o.Bot.Get()) {
+	if o == nil || IsNil(o.Bot) {
 		return nil, false
 	}
-	return o.Bot.Get(), o.Bot.IsSet()
+	return o.Bot, true
 }
 
 // HasBot returns a boolean if a field has been set.
 func (o *UserResponse) HasBot() bool {
-	if o != nil && o.Bot.IsSet() {
+	if o != nil && !IsNil(o.Bot) {
 		return true
 	}
 
 	return false
 }
 
-// SetBot gets a reference to the given NullableBool and assigns it to the Bot field.
+// SetBot gets a reference to the given bool and assigns it to the Bot field.
 func (o *UserResponse) SetBot(v bool) {
-	o.Bot.Set(&v)
+	o.Bot = &v
 }
 
-// SetBotNil sets the value for Bot to be an explicit nil
-func (o *UserResponse) SetBotNil() {
-	o.Bot.Set(nil)
-}
 
-// UnsetBot ensures that no value is present for Bot, not even an explicit nil
-func (o *UserResponse) UnsetBot() {
-	o.Bot.Unset()
-}
-
-// GetSystem returns the System field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSystem returns the System field value if set, zero value otherwise.
 func (o *UserResponse) GetSystem() bool {
-	if o == nil || IsNil(o.System.Get()) {
+	if o == nil || IsNil(o.System) {
 		var ret bool
 		return ret
 	}
-	return *o.System.Get()
+	return *o.System
 }
 
 // GetSystemOk returns a tuple with the System field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserResponse) GetSystemOk() (*bool, bool) {
-	if o == nil || IsNil(o.System.Get()) {
+	if o == nil || IsNil(o.System) {
 		return nil, false
 	}
-	return o.System.Get(), o.System.IsSet()
+	return o.System, true
 }
 
 // HasSystem returns a boolean if a field has been set.
 func (o *UserResponse) HasSystem() bool {
-	if o != nil && o.System.IsSet() {
+	if o != nil && !IsNil(o.System) {
 		return true
 	}
 
 	return false
 }
 
-// SetSystem gets a reference to the given NullableBool and assigns it to the System field.
+// SetSystem gets a reference to the given bool and assigns it to the System field.
 func (o *UserResponse) SetSystem(v bool) {
-	o.System.Set(&v)
+	o.System = &v
 }
 
-// SetSystemNil sets the value for System to be an explicit nil
-func (o *UserResponse) SetSystemNil() {
-	o.System.Set(nil)
-}
 
-// UnsetSystem ensures that no value is present for System, not even an explicit nil
-func (o *UserResponse) UnsetSystem() {
-	o.System.Unset()
-}
-
-// GetBanner returns the Banner field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBanner returns the Banner field value if set, zero value otherwise.
 func (o *UserResponse) GetBanner() string {
-	if o == nil || IsNil(o.Banner.Get()) {
+	if o == nil || IsNil(o.Banner) {
 		var ret string
 		return ret
 	}
-	return *o.Banner.Get()
+	return *o.Banner
 }
 
 // GetBannerOk returns a tuple with the Banner field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserResponse) GetBannerOk() (*string, bool) {
-	if o == nil || IsNil(o.Banner.Get()) {
+	if o == nil || IsNil(o.Banner) {
 		return nil, false
 	}
-	return o.Banner.Get(), o.Banner.IsSet()
+	return o.Banner, true
 }
 
 // HasBanner returns a boolean if a field has been set.
 func (o *UserResponse) HasBanner() bool {
-	if o != nil && o.Banner.IsSet() {
+	if o != nil && !IsNil(o.Banner) {
 		return true
 	}
 
 	return false
 }
 
-// SetBanner gets a reference to the given NullableString and assigns it to the Banner field.
+// SetBanner gets a reference to the given string and assigns it to the Banner field.
 func (o *UserResponse) SetBanner(v string) {
-	o.Banner.Set(&v)
+	o.Banner = &v
 }
 
-// SetBannerNil sets the value for Banner to be an explicit nil
-func (o *UserResponse) SetBannerNil() {
-	o.Banner.Set(nil)
-}
 
-// UnsetBanner ensures that no value is present for Banner, not even an explicit nil
-func (o *UserResponse) UnsetBanner() {
-	o.Banner.Unset()
-}
-
-// GetAccentColor returns the AccentColor field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAccentColor returns the AccentColor field value if set, zero value otherwise.
 func (o *UserResponse) GetAccentColor() int32 {
-	if o == nil || IsNil(o.AccentColor.Get()) {
+	if o == nil || IsNil(o.AccentColor) {
 		var ret int32
 		return ret
 	}
-	return *o.AccentColor.Get()
+	return *o.AccentColor
 }
 
 // GetAccentColorOk returns a tuple with the AccentColor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserResponse) GetAccentColorOk() (*int32, bool) {
-	if o == nil || IsNil(o.AccentColor.Get()) {
+	if o == nil || IsNil(o.AccentColor) {
 		return nil, false
 	}
-	return o.AccentColor.Get(), o.AccentColor.IsSet()
+	return o.AccentColor, true
 }
 
 // HasAccentColor returns a boolean if a field has been set.
 func (o *UserResponse) HasAccentColor() bool {
-	if o != nil && o.AccentColor.IsSet() {
+	if o != nil && !IsNil(o.AccentColor) {
 		return true
 	}
 
 	return false
 }
 
-// SetAccentColor gets a reference to the given NullableInt32 and assigns it to the AccentColor field.
+// SetAccentColor gets a reference to the given int32 and assigns it to the AccentColor field.
 func (o *UserResponse) SetAccentColor(v int32) {
-	o.AccentColor.Set(&v)
+	o.AccentColor = &v
 }
 
-// SetAccentColorNil sets the value for AccentColor to be an explicit nil
-func (o *UserResponse) SetAccentColorNil() {
-	o.AccentColor.Set(nil)
-}
 
-// UnsetAccentColor ensures that no value is present for AccentColor, not even an explicit nil
-func (o *UserResponse) UnsetAccentColor() {
-	o.AccentColor.Unset()
-}
-
-// GetGlobalName returns the GlobalName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGlobalName returns the GlobalName field value if set, zero value otherwise.
 func (o *UserResponse) GetGlobalName() string {
-	if o == nil || IsNil(o.GlobalName.Get()) {
+	if o == nil || IsNil(o.GlobalName) {
 		var ret string
 		return ret
 	}
-	return *o.GlobalName.Get()
+	return *o.GlobalName
 }
 
 // GetGlobalNameOk returns a tuple with the GlobalName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserResponse) GetGlobalNameOk() (*string, bool) {
-	if o == nil || IsNil(o.GlobalName.Get()) {
+	if o == nil || IsNil(o.GlobalName) {
 		return nil, false
 	}
-	return o.GlobalName.Get(), o.GlobalName.IsSet()
+	return o.GlobalName, true
 }
 
 // HasGlobalName returns a boolean if a field has been set.
 func (o *UserResponse) HasGlobalName() bool {
-	if o != nil && o.GlobalName.IsSet() {
+	if o != nil && !IsNil(o.GlobalName) {
 		return true
 	}
 
 	return false
 }
 
-// SetGlobalName gets a reference to the given NullableString and assigns it to the GlobalName field.
+// SetGlobalName gets a reference to the given string and assigns it to the GlobalName field.
 func (o *UserResponse) SetGlobalName(v string) {
-	o.GlobalName.Set(&v)
+	o.GlobalName = &v
 }
 
-// SetGlobalNameNil sets the value for GlobalName to be an explicit nil
-func (o *UserResponse) SetGlobalNameNil() {
-	o.GlobalName.Set(nil)
-}
 
-// UnsetGlobalName ensures that no value is present for GlobalName, not even an explicit nil
-func (o *UserResponse) UnsetGlobalName() {
-	o.GlobalName.Unset()
-}
-
-// GetAvatarDecorationData returns the AvatarDecorationData field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UserResponse) GetAvatarDecorationData() UserAvatarDecorationResponse {
-	if o == nil || IsNil(o.AvatarDecorationData.Get()) {
-		var ret UserAvatarDecorationResponse
+// GetAvatarDecorationData returns the AvatarDecorationData field value if set, zero value otherwise.
+func (o *UserResponse) GetAvatarDecorationData() BasicGuildMemberResponseAvatarDecorationData {
+	if o == nil || IsNil(o.AvatarDecorationData) {
+		var ret BasicGuildMemberResponseAvatarDecorationData
 		return ret
 	}
-	return *o.AvatarDecorationData.Get()
+	return *o.AvatarDecorationData
 }
 
 // GetAvatarDecorationDataOk returns a tuple with the AvatarDecorationData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UserResponse) GetAvatarDecorationDataOk() (*UserAvatarDecorationResponse, bool) {
-	if o == nil || IsNil(o.AvatarDecorationData.Get()) {
+func (o *UserResponse) GetAvatarDecorationDataOk() (*BasicGuildMemberResponseAvatarDecorationData, bool) {
+	if o == nil || IsNil(o.AvatarDecorationData) {
 		return nil, false
 	}
-	return o.AvatarDecorationData.Get(), o.AvatarDecorationData.IsSet()
+	return o.AvatarDecorationData, true
 }
 
 // HasAvatarDecorationData returns a boolean if a field has been set.
 func (o *UserResponse) HasAvatarDecorationData() bool {
-	if o != nil && o.AvatarDecorationData.IsSet() {
+	if o != nil && !IsNil(o.AvatarDecorationData) {
 		return true
 	}
 
 	return false
 }
 
-// SetAvatarDecorationData gets a reference to the given NullableUserAvatarDecorationResponse and assigns it to the AvatarDecorationData field.
-func (o *UserResponse) SetAvatarDecorationData(v UserAvatarDecorationResponse) {
-	o.AvatarDecorationData.Set(&v)
+// SetAvatarDecorationData gets a reference to the given BasicGuildMemberResponseAvatarDecorationData and assigns it to the AvatarDecorationData field.
+func (o *UserResponse) SetAvatarDecorationData(v BasicGuildMemberResponseAvatarDecorationData) {
+	o.AvatarDecorationData = &v
 }
 
-// SetAvatarDecorationDataNil sets the value for AvatarDecorationData to be an explicit nil
-func (o *UserResponse) SetAvatarDecorationDataNil() {
-	o.AvatarDecorationData.Set(nil)
-}
 
-// UnsetAvatarDecorationData ensures that no value is present for AvatarDecorationData, not even an explicit nil
-func (o *UserResponse) UnsetAvatarDecorationData() {
-	o.AvatarDecorationData.Unset()
-}
-
-// GetCollectibles returns the Collectibles field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UserResponse) GetCollectibles() UserCollectiblesResponse {
-	if o == nil || IsNil(o.Collectibles.Get()) {
-		var ret UserCollectiblesResponse
+// GetCollectibles returns the Collectibles field value if set, zero value otherwise.
+func (o *UserResponse) GetCollectibles() BasicGuildMemberResponseCollectibles {
+	if o == nil || IsNil(o.Collectibles) {
+		var ret BasicGuildMemberResponseCollectibles
 		return ret
 	}
-	return *o.Collectibles.Get()
+	return *o.Collectibles
 }
 
 // GetCollectiblesOk returns a tuple with the Collectibles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UserResponse) GetCollectiblesOk() (*UserCollectiblesResponse, bool) {
-	if o == nil || IsNil(o.Collectibles.Get()) {
+func (o *UserResponse) GetCollectiblesOk() (*BasicGuildMemberResponseCollectibles, bool) {
+	if o == nil || IsNil(o.Collectibles) {
 		return nil, false
 	}
-	return o.Collectibles.Get(), o.Collectibles.IsSet()
+	return o.Collectibles, true
 }
 
 // HasCollectibles returns a boolean if a field has been set.
 func (o *UserResponse) HasCollectibles() bool {
-	if o != nil && o.Collectibles.IsSet() {
+	if o != nil && !IsNil(o.Collectibles) {
 		return true
 	}
 
 	return false
 }
 
-// SetCollectibles gets a reference to the given NullableUserCollectiblesResponse and assigns it to the Collectibles field.
-func (o *UserResponse) SetCollectibles(v UserCollectiblesResponse) {
-	o.Collectibles.Set(&v)
+// SetCollectibles gets a reference to the given BasicGuildMemberResponseCollectibles and assigns it to the Collectibles field.
+func (o *UserResponse) SetCollectibles(v BasicGuildMemberResponseCollectibles) {
+	o.Collectibles = &v
 }
 
-// SetCollectiblesNil sets the value for Collectibles to be an explicit nil
-func (o *UserResponse) SetCollectiblesNil() {
-	o.Collectibles.Set(nil)
-}
 
-// UnsetCollectibles ensures that no value is present for Collectibles, not even an explicit nil
-func (o *UserResponse) UnsetCollectibles() {
-	o.Collectibles.Unset()
-}
-
-// GetPrimaryGuild returns the PrimaryGuild field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UserResponse) GetPrimaryGuild() UserPrimaryGuildResponse {
-	if o == nil || IsNil(o.PrimaryGuild.Get()) {
-		var ret UserPrimaryGuildResponse
+// GetPrimaryGuild returns the PrimaryGuild field value if set, zero value otherwise.
+func (o *UserResponse) GetPrimaryGuild() UserPIIResponsePrimaryGuild {
+	if o == nil || IsNil(o.PrimaryGuild) {
+		var ret UserPIIResponsePrimaryGuild
 		return ret
 	}
-	return *o.PrimaryGuild.Get()
+	return *o.PrimaryGuild
 }
 
 // GetPrimaryGuildOk returns a tuple with the PrimaryGuild field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UserResponse) GetPrimaryGuildOk() (*UserPrimaryGuildResponse, bool) {
-	if o == nil || IsNil(o.PrimaryGuild.Get()) {
+func (o *UserResponse) GetPrimaryGuildOk() (*UserPIIResponsePrimaryGuild, bool) {
+	if o == nil || IsNil(o.PrimaryGuild) {
 		return nil, false
 	}
-	return o.PrimaryGuild.Get(), o.PrimaryGuild.IsSet()
+	return o.PrimaryGuild, true
 }
 
 // HasPrimaryGuild returns a boolean if a field has been set.
 func (o *UserResponse) HasPrimaryGuild() bool {
-	if o != nil && o.PrimaryGuild.IsSet() {
+	if o != nil && !IsNil(o.PrimaryGuild) {
 		return true
 	}
 
 	return false
 }
 
-// SetPrimaryGuild gets a reference to the given NullableUserPrimaryGuildResponse and assigns it to the PrimaryGuild field.
-func (o *UserResponse) SetPrimaryGuild(v UserPrimaryGuildResponse) {
-	o.PrimaryGuild.Set(&v)
+// SetPrimaryGuild gets a reference to the given UserPIIResponsePrimaryGuild and assigns it to the PrimaryGuild field.
+func (o *UserResponse) SetPrimaryGuild(v UserPIIResponsePrimaryGuild) {
+	o.PrimaryGuild = &v
 }
 
-// SetPrimaryGuildNil sets the value for PrimaryGuild to be an explicit nil
-func (o *UserResponse) SetPrimaryGuildNil() {
-	o.PrimaryGuild.Set(nil)
-}
-
-// UnsetPrimaryGuild ensures that no value is present for PrimaryGuild, not even an explicit nil
-func (o *UserResponse) UnsetPrimaryGuild() {
-	o.PrimaryGuild.Unset()
-}
 
 func (o UserResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -614,35 +524,35 @@ func (o UserResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["username"] = o.Username
-	if o.Avatar.IsSet() {
-		toSerialize["avatar"] = o.Avatar.Get()
+	if !IsNil(o.Avatar) {
+		toSerialize["avatar"] = o.Avatar
 	}
 	toSerialize["discriminator"] = o.Discriminator
 	toSerialize["public_flags"] = o.PublicFlags
 	toSerialize["flags"] = o.Flags
-	if o.Bot.IsSet() {
-		toSerialize["bot"] = o.Bot.Get()
+	if !IsNil(o.Bot) {
+		toSerialize["bot"] = o.Bot
 	}
-	if o.System.IsSet() {
-		toSerialize["system"] = o.System.Get()
+	if !IsNil(o.System) {
+		toSerialize["system"] = o.System
 	}
-	if o.Banner.IsSet() {
-		toSerialize["banner"] = o.Banner.Get()
+	if !IsNil(o.Banner) {
+		toSerialize["banner"] = o.Banner
 	}
-	if o.AccentColor.IsSet() {
-		toSerialize["accent_color"] = o.AccentColor.Get()
+	if !IsNil(o.AccentColor) {
+		toSerialize["accent_color"] = o.AccentColor
 	}
-	if o.GlobalName.IsSet() {
-		toSerialize["global_name"] = o.GlobalName.Get()
+	if !IsNil(o.GlobalName) {
+		toSerialize["global_name"] = o.GlobalName
 	}
-	if o.AvatarDecorationData.IsSet() {
-		toSerialize["avatar_decoration_data"] = o.AvatarDecorationData.Get()
+	if !IsNil(o.AvatarDecorationData) {
+		toSerialize["avatar_decoration_data"] = o.AvatarDecorationData
 	}
-	if o.Collectibles.IsSet() {
-		toSerialize["collectibles"] = o.Collectibles.Get()
+	if !IsNil(o.Collectibles) {
+		toSerialize["collectibles"] = o.Collectibles
 	}
-	if o.PrimaryGuild.IsSet() {
-		toSerialize["primary_guild"] = o.PrimaryGuild.Get()
+	if !IsNil(o.PrimaryGuild) {
+		toSerialize["primary_guild"] = o.PrimaryGuild
 	}
 	return toSerialize, nil
 }
@@ -723,5 +633,4 @@ func (v *NullableUserResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

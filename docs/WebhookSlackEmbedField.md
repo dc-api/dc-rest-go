@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Value** | Pointer to **NullableString** |  | [optional] 
-**Inline** | Pointer to **NullableBool** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Value** | Pointer to **string** |  | [optional] 
+**Inline** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -52,16 +52,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *WebhookSlackEmbedField) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *WebhookSlackEmbedField) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetValue
 
 `func (o *WebhookSlackEmbedField) GetValue() string`
@@ -87,16 +77,6 @@ SetValue sets Value field to given value.
 
 HasValue returns a boolean if a field has been set.
 
-### SetValueNil
-
-`func (o *WebhookSlackEmbedField) SetValueNil(b bool)`
-
- SetValueNil sets the value for Value to be an explicit nil
-
-### UnsetValue
-`func (o *WebhookSlackEmbedField) UnsetValue()`
-
-UnsetValue ensures that no value is present for Value, not even an explicit nil
 ### GetInline
 
 `func (o *WebhookSlackEmbedField) GetInline() bool`
@@ -122,16 +102,6 @@ SetInline sets Inline field to given value.
 
 HasInline returns a boolean if a field has been set.
 
-### SetInlineNil
-
-`func (o *WebhookSlackEmbedField) SetInlineNil(b bool)`
-
- SetInlineNil sets the value for Inline to be an explicit nil
-
-### UnsetInline
-`func (o *WebhookSlackEmbedField) UnsetInline()`
-
-UnsetInline ensures that no value is present for Inline, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

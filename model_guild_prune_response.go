@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,7 +53,7 @@ var _ MappedNullable = &GuildPruneResponse{}
 
 // GuildPruneResponse struct for GuildPruneResponse
 type GuildPruneResponse struct {
-	Pruned NullableInt32 `json:"pruned,omitempty"`
+	Pruned *int32 `json:"pruned,omitempty"`
 }
 
 // NewGuildPruneResponse instantiates a new GuildPruneResponse object
@@ -73,48 +73,38 @@ func NewGuildPruneResponseWithDefaults() *GuildPruneResponse {
 	return &this
 }
 
-// GetPruned returns the Pruned field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPruned returns the Pruned field value if set, zero value otherwise.
 func (o *GuildPruneResponse) GetPruned() int32 {
-	if o == nil || IsNil(o.Pruned.Get()) {
+	if o == nil || IsNil(o.Pruned) {
 		var ret int32
 		return ret
 	}
-	return *o.Pruned.Get()
+	return *o.Pruned
 }
 
 // GetPrunedOk returns a tuple with the Pruned field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPruneResponse) GetPrunedOk() (*int32, bool) {
-	if o == nil || IsNil(o.Pruned.Get()) {
+	if o == nil || IsNil(o.Pruned) {
 		return nil, false
 	}
-	return o.Pruned.Get(), o.Pruned.IsSet()
+	return o.Pruned, true
 }
 
 // HasPruned returns a boolean if a field has been set.
 func (o *GuildPruneResponse) HasPruned() bool {
-	if o != nil && o.Pruned.IsSet() {
+	if o != nil && !IsNil(o.Pruned) {
 		return true
 	}
 
 	return false
 }
 
-// SetPruned gets a reference to the given NullableInt32 and assigns it to the Pruned field.
+// SetPruned gets a reference to the given int32 and assigns it to the Pruned field.
 func (o *GuildPruneResponse) SetPruned(v int32) {
-	o.Pruned.Set(&v)
+	o.Pruned = &v
 }
 
-// SetPrunedNil sets the value for Pruned to be an explicit nil
-func (o *GuildPruneResponse) SetPrunedNil() {
-	o.Pruned.Set(nil)
-}
-
-// UnsetPruned ensures that no value is present for Pruned, not even an explicit nil
-func (o *GuildPruneResponse) UnsetPruned() {
-	o.Pruned.Unset()
-}
 
 func (o GuildPruneResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -126,8 +116,8 @@ func (o GuildPruneResponse) MarshalJSON() ([]byte, error) {
 
 func (o GuildPruneResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Pruned.IsSet() {
-		toSerialize["pruned"] = o.Pruned.Get()
+	if !IsNil(o.Pruned) {
+		toSerialize["pruned"] = o.Pruned
 	}
 	return toSerialize, nil
 }
@@ -167,5 +157,4 @@ func (v *NullableGuildPruneResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

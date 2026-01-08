@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **SkuId** | **string** |  | 
 **Name** | **string** |  | 
-**Description** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **Stickers** | [**[]StandardStickerResponse**](StandardStickerResponse.md) |  | 
 **CoverStickerId** | Pointer to **string** |  | [optional] 
 **BannerAssetId** | Pointer to **string** |  | [optional] 
@@ -116,16 +116,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *StickerPackResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *StickerPackResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetStickers
 
 `func (o *StickerPackResponse) GetStickers() []StandardStickerResponse`

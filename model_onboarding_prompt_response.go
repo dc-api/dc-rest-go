@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -61,7 +61,7 @@ type OnboardingPromptResponse struct {
 	SingleSelect bool `json:"single_select"`
 	Required bool `json:"required"`
 	InOnboarding bool `json:"in_onboarding"`
-	Type int32 `json:"type"`
+	Type OnboardingPromptType `json:"type"`
 }
 
 type _OnboardingPromptResponse OnboardingPromptResponse
@@ -70,7 +70,7 @@ type _OnboardingPromptResponse OnboardingPromptResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOnboardingPromptResponse(id string, title string, options []OnboardingPromptOptionResponse, singleSelect bool, required bool, inOnboarding bool, type_ int32) *OnboardingPromptResponse {
+func NewOnboardingPromptResponse(id string, title string, options []OnboardingPromptOptionResponse, singleSelect bool, required bool, inOnboarding bool, type_ OnboardingPromptType) *OnboardingPromptResponse {
 	this := OnboardingPromptResponse{}
 	this.Id = id
 	this.Title = title
@@ -235,9 +235,9 @@ func (o *OnboardingPromptResponse) SetInOnboarding(v bool) {
 }
 
 // GetType returns the Type field value
-func (o *OnboardingPromptResponse) GetType() int32 {
+func (o *OnboardingPromptResponse) GetType() OnboardingPromptType {
 	if o == nil {
-		var ret int32
+		var ret OnboardingPromptType
 		return ret
 	}
 
@@ -246,7 +246,7 @@ func (o *OnboardingPromptResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *OnboardingPromptResponse) GetTypeOk() (*int32, bool) {
+func (o *OnboardingPromptResponse) GetTypeOk() (*OnboardingPromptType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -254,7 +254,7 @@ func (o *OnboardingPromptResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *OnboardingPromptResponse) SetType(v int32) {
+func (o *OnboardingPromptResponse) SetType(v OnboardingPromptType) {
 	o.Type = v
 }
 
@@ -356,5 +356,4 @@ func (v *NullableOnboardingPromptResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -60,9 +60,9 @@ type ProvisionalTokenResponse struct {
 	ExpiresIn int32 `json:"expires_in"`
 	Scope string `json:"scope"`
 	IdToken string `json:"id_token"`
-	RefreshToken NullableString `json:"refresh_token,omitempty"`
+	RefreshToken *string `json:"refresh_token,omitempty"`
 	Scopes []string `json:"scopes,omitempty"`
-	ExpiresAtS NullableInt32 `json:"expires_at_s,omitempty"`
+	ExpiresAtS *int32 `json:"expires_at_s,omitempty"`
 }
 
 type _ProvisionalTokenResponse ProvisionalTokenResponse
@@ -209,52 +209,42 @@ func (o *ProvisionalTokenResponse) SetIdToken(v string) {
 	o.IdToken = v
 }
 
-// GetRefreshToken returns the RefreshToken field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRefreshToken returns the RefreshToken field value if set, zero value otherwise.
 func (o *ProvisionalTokenResponse) GetRefreshToken() string {
-	if o == nil || IsNil(o.RefreshToken.Get()) {
+	if o == nil || IsNil(o.RefreshToken) {
 		var ret string
 		return ret
 	}
-	return *o.RefreshToken.Get()
+	return *o.RefreshToken
 }
 
 // GetRefreshTokenOk returns a tuple with the RefreshToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProvisionalTokenResponse) GetRefreshTokenOk() (*string, bool) {
-	if o == nil || IsNil(o.RefreshToken.Get()) {
+	if o == nil || IsNil(o.RefreshToken) {
 		return nil, false
 	}
-	return o.RefreshToken.Get(), o.RefreshToken.IsSet()
+	return o.RefreshToken, true
 }
 
 // HasRefreshToken returns a boolean if a field has been set.
 func (o *ProvisionalTokenResponse) HasRefreshToken() bool {
-	if o != nil && o.RefreshToken.IsSet() {
+	if o != nil && !IsNil(o.RefreshToken) {
 		return true
 	}
 
 	return false
 }
 
-// SetRefreshToken gets a reference to the given NullableString and assigns it to the RefreshToken field.
+// SetRefreshToken gets a reference to the given string and assigns it to the RefreshToken field.
 func (o *ProvisionalTokenResponse) SetRefreshToken(v string) {
-	o.RefreshToken.Set(&v)
+	o.RefreshToken = &v
 }
 
-// SetRefreshTokenNil sets the value for RefreshToken to be an explicit nil
-func (o *ProvisionalTokenResponse) SetRefreshTokenNil() {
-	o.RefreshToken.Set(nil)
-}
 
-// UnsetRefreshToken ensures that no value is present for RefreshToken, not even an explicit nil
-func (o *ProvisionalTokenResponse) UnsetRefreshToken() {
-	o.RefreshToken.Unset()
-}
-
-// GetScopes returns the Scopes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetScopes returns the Scopes field value if set, zero value otherwise.
 func (o *ProvisionalTokenResponse) GetScopes() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Scopes) {
 		var ret []string
 		return ret
 	}
@@ -263,9 +253,8 @@ func (o *ProvisionalTokenResponse) GetScopes() []string {
 
 // GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProvisionalTokenResponse) GetScopesOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Scopes) {
 		return nil, false
 	}
 	return o.Scopes, true
@@ -286,48 +275,38 @@ func (o *ProvisionalTokenResponse) SetScopes(v []string) {
 }
 
 
-// GetExpiresAtS returns the ExpiresAtS field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExpiresAtS returns the ExpiresAtS field value if set, zero value otherwise.
 func (o *ProvisionalTokenResponse) GetExpiresAtS() int32 {
-	if o == nil || IsNil(o.ExpiresAtS.Get()) {
+	if o == nil || IsNil(o.ExpiresAtS) {
 		var ret int32
 		return ret
 	}
-	return *o.ExpiresAtS.Get()
+	return *o.ExpiresAtS
 }
 
 // GetExpiresAtSOk returns a tuple with the ExpiresAtS field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProvisionalTokenResponse) GetExpiresAtSOk() (*int32, bool) {
-	if o == nil || IsNil(o.ExpiresAtS.Get()) {
+	if o == nil || IsNil(o.ExpiresAtS) {
 		return nil, false
 	}
-	return o.ExpiresAtS.Get(), o.ExpiresAtS.IsSet()
+	return o.ExpiresAtS, true
 }
 
 // HasExpiresAtS returns a boolean if a field has been set.
 func (o *ProvisionalTokenResponse) HasExpiresAtS() bool {
-	if o != nil && o.ExpiresAtS.IsSet() {
+	if o != nil && !IsNil(o.ExpiresAtS) {
 		return true
 	}
 
 	return false
 }
 
-// SetExpiresAtS gets a reference to the given NullableInt32 and assigns it to the ExpiresAtS field.
+// SetExpiresAtS gets a reference to the given int32 and assigns it to the ExpiresAtS field.
 func (o *ProvisionalTokenResponse) SetExpiresAtS(v int32) {
-	o.ExpiresAtS.Set(&v)
+	o.ExpiresAtS = &v
 }
 
-// SetExpiresAtSNil sets the value for ExpiresAtS to be an explicit nil
-func (o *ProvisionalTokenResponse) SetExpiresAtSNil() {
-	o.ExpiresAtS.Set(nil)
-}
-
-// UnsetExpiresAtS ensures that no value is present for ExpiresAtS, not even an explicit nil
-func (o *ProvisionalTokenResponse) UnsetExpiresAtS() {
-	o.ExpiresAtS.Unset()
-}
 
 func (o ProvisionalTokenResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -344,14 +323,14 @@ func (o ProvisionalTokenResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["expires_in"] = o.ExpiresIn
 	toSerialize["scope"] = o.Scope
 	toSerialize["id_token"] = o.IdToken
-	if o.RefreshToken.IsSet() {
-		toSerialize["refresh_token"] = o.RefreshToken.Get()
+	if !IsNil(o.RefreshToken) {
+		toSerialize["refresh_token"] = o.RefreshToken
 	}
-	if o.Scopes != nil {
+	if !IsNil(o.Scopes) {
 		toSerialize["scopes"] = o.Scopes
 	}
-	if o.ExpiresAtS.IsSet() {
-		toSerialize["expires_at_s"] = o.ExpiresAtS.Get()
+	if !IsNil(o.ExpiresAtS) {
+		toSerialize["expires_at_s"] = o.ExpiresAtS
 	}
 	return toSerialize, nil
 }
@@ -432,5 +411,4 @@ func (v *NullableProvisionalTokenResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ var _ MappedNullable = &DefaultKeywordListTriggerMetadataResponse{}
 // DefaultKeywordListTriggerMetadataResponse struct for DefaultKeywordListTriggerMetadataResponse
 type DefaultKeywordListTriggerMetadataResponse struct {
 	AllowList []string `json:"allow_list"`
-	Presets []int32 `json:"presets"`
+	Presets []AutomodKeywordPresetType `json:"presets"`
 }
 
 type _DefaultKeywordListTriggerMetadataResponse DefaultKeywordListTriggerMetadataResponse
@@ -65,7 +65,7 @@ type _DefaultKeywordListTriggerMetadataResponse DefaultKeywordListTriggerMetadat
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDefaultKeywordListTriggerMetadataResponse(allowList []string, presets []int32) *DefaultKeywordListTriggerMetadataResponse {
+func NewDefaultKeywordListTriggerMetadataResponse(allowList []string, presets []AutomodKeywordPresetType) *DefaultKeywordListTriggerMetadataResponse {
 	this := DefaultKeywordListTriggerMetadataResponse{}
 	this.AllowList = allowList
 	this.Presets = presets
@@ -105,9 +105,9 @@ func (o *DefaultKeywordListTriggerMetadataResponse) SetAllowList(v []string) {
 }
 
 // GetPresets returns the Presets field value
-func (o *DefaultKeywordListTriggerMetadataResponse) GetPresets() []int32 {
+func (o *DefaultKeywordListTriggerMetadataResponse) GetPresets() []AutomodKeywordPresetType {
 	if o == nil {
-		var ret []int32
+		var ret []AutomodKeywordPresetType
 		return ret
 	}
 
@@ -116,7 +116,7 @@ func (o *DefaultKeywordListTriggerMetadataResponse) GetPresets() []int32 {
 
 // GetPresetsOk returns a tuple with the Presets field value
 // and a boolean to check if the value has been set.
-func (o *DefaultKeywordListTriggerMetadataResponse) GetPresetsOk() ([]int32, bool) {
+func (o *DefaultKeywordListTriggerMetadataResponse) GetPresetsOk() ([]AutomodKeywordPresetType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -124,7 +124,7 @@ func (o *DefaultKeywordListTriggerMetadataResponse) GetPresetsOk() ([]int32, boo
 }
 
 // SetPresets sets field value
-func (o *DefaultKeywordListTriggerMetadataResponse) SetPresets(v []int32) {
+func (o *DefaultKeywordListTriggerMetadataResponse) SetPresets(v []AutomodKeywordPresetType) {
 	o.Presets = v
 }
 
@@ -216,5 +216,4 @@ func (v *NullableDefaultKeywordListTriggerMetadataResponse) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

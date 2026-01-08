@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,7 +57,7 @@ var _ MappedNullable = &MessageMentionChannelResponse{}
 type MessageMentionChannelResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
-	Type int32 `json:"type"`
+	Type ChannelTypes `json:"type"`
 	GuildId string `json:"guild_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
@@ -67,7 +67,7 @@ type _MessageMentionChannelResponse MessageMentionChannelResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMessageMentionChannelResponse(id string, name string, type_ int32, guildId string) *MessageMentionChannelResponse {
+func NewMessageMentionChannelResponse(id string, name string, type_ ChannelTypes, guildId string) *MessageMentionChannelResponse {
 	this := MessageMentionChannelResponse{}
 	this.Id = id
 	this.Name = name
@@ -133,9 +133,9 @@ func (o *MessageMentionChannelResponse) SetName(v string) {
 }
 
 // GetType returns the Type field value
-func (o *MessageMentionChannelResponse) GetType() int32 {
+func (o *MessageMentionChannelResponse) GetType() ChannelTypes {
 	if o == nil {
-		var ret int32
+		var ret ChannelTypes
 		return ret
 	}
 
@@ -144,7 +144,7 @@ func (o *MessageMentionChannelResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *MessageMentionChannelResponse) GetTypeOk() (*int32, bool) {
+func (o *MessageMentionChannelResponse) GetTypeOk() (*ChannelTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -152,7 +152,7 @@ func (o *MessageMentionChannelResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *MessageMentionChannelResponse) SetType(v int32) {
+func (o *MessageMentionChannelResponse) SetType(v ChannelTypes) {
 	o.Type = v
 }
 
@@ -272,5 +272,4 @@ func (v *NullableMessageMentionChannelResponse) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

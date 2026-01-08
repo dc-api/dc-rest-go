@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,10 +56,10 @@ var _ MappedNullable = &UpdateThreadTagRequest{}
 // UpdateThreadTagRequest struct for UpdateThreadTagRequest
 type UpdateThreadTagRequest struct {
 	Name string `json:"name"`
-	EmojiId *string `json:"emoji_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	EmojiName NullableString `json:"emoji_name,omitempty"`
-	Moderated NullableBool `json:"moderated,omitempty"`
-	Id *string `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	EmojiId *GetEntitlementsSkuIdsParameterOneOfInner `json:"emoji_id,omitempty"`
+	EmojiName *string `json:"emoji_name,omitempty"`
+	Moderated *bool `json:"moderated,omitempty"`
+	Id *GetEntitlementsSkuIdsParameterOneOfInner `json:"id,omitempty"`
 }
 
 type _UpdateThreadTagRequest UpdateThreadTagRequest
@@ -107,9 +107,9 @@ func (o *UpdateThreadTagRequest) SetName(v string) {
 }
 
 // GetEmojiId returns the EmojiId field value if set, zero value otherwise.
-func (o *UpdateThreadTagRequest) GetEmojiId() string {
+func (o *UpdateThreadTagRequest) GetEmojiId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.EmojiId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.EmojiId
@@ -117,7 +117,7 @@ func (o *UpdateThreadTagRequest) GetEmojiId() string {
 
 // GetEmojiIdOk returns a tuple with the EmojiId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateThreadTagRequest) GetEmojiIdOk() (*string, bool) {
+func (o *UpdateThreadTagRequest) GetEmojiIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.EmojiId) {
 		return nil, false
 	}
@@ -133,102 +133,82 @@ func (o *UpdateThreadTagRequest) HasEmojiId() bool {
 	return false
 }
 
-// SetEmojiId gets a reference to the given string and assigns it to the EmojiId field.
-func (o *UpdateThreadTagRequest) SetEmojiId(v string) {
+// SetEmojiId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the EmojiId field.
+func (o *UpdateThreadTagRequest) SetEmojiId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.EmojiId = &v
 }
 
 
-// GetEmojiName returns the EmojiName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmojiName returns the EmojiName field value if set, zero value otherwise.
 func (o *UpdateThreadTagRequest) GetEmojiName() string {
-	if o == nil || IsNil(o.EmojiName.Get()) {
+	if o == nil || IsNil(o.EmojiName) {
 		var ret string
 		return ret
 	}
-	return *o.EmojiName.Get()
+	return *o.EmojiName
 }
 
 // GetEmojiNameOk returns a tuple with the EmojiName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateThreadTagRequest) GetEmojiNameOk() (*string, bool) {
-	if o == nil || IsNil(o.EmojiName.Get()) {
+	if o == nil || IsNil(o.EmojiName) {
 		return nil, false
 	}
-	return o.EmojiName.Get(), o.EmojiName.IsSet()
+	return o.EmojiName, true
 }
 
 // HasEmojiName returns a boolean if a field has been set.
 func (o *UpdateThreadTagRequest) HasEmojiName() bool {
-	if o != nil && o.EmojiName.IsSet() {
+	if o != nil && !IsNil(o.EmojiName) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmojiName gets a reference to the given NullableString and assigns it to the EmojiName field.
+// SetEmojiName gets a reference to the given string and assigns it to the EmojiName field.
 func (o *UpdateThreadTagRequest) SetEmojiName(v string) {
-	o.EmojiName.Set(&v)
+	o.EmojiName = &v
 }
 
-// SetEmojiNameNil sets the value for EmojiName to be an explicit nil
-func (o *UpdateThreadTagRequest) SetEmojiNameNil() {
-	o.EmojiName.Set(nil)
-}
 
-// UnsetEmojiName ensures that no value is present for EmojiName, not even an explicit nil
-func (o *UpdateThreadTagRequest) UnsetEmojiName() {
-	o.EmojiName.Unset()
-}
-
-// GetModerated returns the Moderated field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetModerated returns the Moderated field value if set, zero value otherwise.
 func (o *UpdateThreadTagRequest) GetModerated() bool {
-	if o == nil || IsNil(o.Moderated.Get()) {
+	if o == nil || IsNil(o.Moderated) {
 		var ret bool
 		return ret
 	}
-	return *o.Moderated.Get()
+	return *o.Moderated
 }
 
 // GetModeratedOk returns a tuple with the Moderated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateThreadTagRequest) GetModeratedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Moderated.Get()) {
+	if o == nil || IsNil(o.Moderated) {
 		return nil, false
 	}
-	return o.Moderated.Get(), o.Moderated.IsSet()
+	return o.Moderated, true
 }
 
 // HasModerated returns a boolean if a field has been set.
 func (o *UpdateThreadTagRequest) HasModerated() bool {
-	if o != nil && o.Moderated.IsSet() {
+	if o != nil && !IsNil(o.Moderated) {
 		return true
 	}
 
 	return false
 }
 
-// SetModerated gets a reference to the given NullableBool and assigns it to the Moderated field.
+// SetModerated gets a reference to the given bool and assigns it to the Moderated field.
 func (o *UpdateThreadTagRequest) SetModerated(v bool) {
-	o.Moderated.Set(&v)
+	o.Moderated = &v
 }
 
-// SetModeratedNil sets the value for Moderated to be an explicit nil
-func (o *UpdateThreadTagRequest) SetModeratedNil() {
-	o.Moderated.Set(nil)
-}
-
-// UnsetModerated ensures that no value is present for Moderated, not even an explicit nil
-func (o *UpdateThreadTagRequest) UnsetModerated() {
-	o.Moderated.Unset()
-}
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *UpdateThreadTagRequest) GetId() string {
+func (o *UpdateThreadTagRequest) GetId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.Id) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.Id
@@ -236,7 +216,7 @@ func (o *UpdateThreadTagRequest) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateThreadTagRequest) GetIdOk() (*string, bool) {
+func (o *UpdateThreadTagRequest) GetIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -252,8 +232,8 @@ func (o *UpdateThreadTagRequest) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *UpdateThreadTagRequest) SetId(v string) {
+// SetId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the Id field.
+func (o *UpdateThreadTagRequest) SetId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.Id = &v
 }
 
@@ -272,11 +252,11 @@ func (o UpdateThreadTagRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EmojiId) {
 		toSerialize["emoji_id"] = o.EmojiId
 	}
-	if o.EmojiName.IsSet() {
-		toSerialize["emoji_name"] = o.EmojiName.Get()
+	if !IsNil(o.EmojiName) {
+		toSerialize["emoji_name"] = o.EmojiName
 	}
-	if o.Moderated.IsSet() {
-		toSerialize["moderated"] = o.Moderated.Get()
+	if !IsNil(o.Moderated) {
+		toSerialize["moderated"] = o.Moderated
 	}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
@@ -356,5 +336,4 @@ func (v *NullableUpdateThreadTagRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

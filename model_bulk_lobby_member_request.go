@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,8 +57,8 @@ var _ MappedNullable = &BulkLobbyMemberRequest{}
 type BulkLobbyMemberRequest struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Metadata map[string]string `json:"metadata,omitempty"`
-	Flags NullableInt32 `json:"flags,omitempty"`
-	RemoveMember NullableBool `json:"remove_member,omitempty"`
+	Flags *CreateOrJoinLobbyRequestFlags `json:"flags,omitempty"`
+	RemoveMember *bool `json:"remove_member,omitempty"`
 }
 
 type _BulkLobbyMemberRequest BulkLobbyMemberRequest
@@ -138,91 +138,71 @@ func (o *BulkLobbyMemberRequest) SetMetadata(v map[string]string) {
 }
 
 
-// GetFlags returns the Flags field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BulkLobbyMemberRequest) GetFlags() int32 {
-	if o == nil || IsNil(o.Flags.Get()) {
-		var ret int32
+// GetFlags returns the Flags field value if set, zero value otherwise.
+func (o *BulkLobbyMemberRequest) GetFlags() CreateOrJoinLobbyRequestFlags {
+	if o == nil || IsNil(o.Flags) {
+		var ret CreateOrJoinLobbyRequestFlags
 		return ret
 	}
-	return *o.Flags.Get()
+	return *o.Flags
 }
 
 // GetFlagsOk returns a tuple with the Flags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BulkLobbyMemberRequest) GetFlagsOk() (*int32, bool) {
-	if o == nil || IsNil(o.Flags.Get()) {
+func (o *BulkLobbyMemberRequest) GetFlagsOk() (*CreateOrJoinLobbyRequestFlags, bool) {
+	if o == nil || IsNil(o.Flags) {
 		return nil, false
 	}
-	return o.Flags.Get(), o.Flags.IsSet()
+	return o.Flags, true
 }
 
 // HasFlags returns a boolean if a field has been set.
 func (o *BulkLobbyMemberRequest) HasFlags() bool {
-	if o != nil && o.Flags.IsSet() {
+	if o != nil && !IsNil(o.Flags) {
 		return true
 	}
 
 	return false
 }
 
-// SetFlags gets a reference to the given NullableInt32 and assigns it to the Flags field.
-func (o *BulkLobbyMemberRequest) SetFlags(v int32) {
-	o.Flags.Set(&v)
+// SetFlags gets a reference to the given CreateOrJoinLobbyRequestFlags and assigns it to the Flags field.
+func (o *BulkLobbyMemberRequest) SetFlags(v CreateOrJoinLobbyRequestFlags) {
+	o.Flags = &v
 }
 
-// SetFlagsNil sets the value for Flags to be an explicit nil
-func (o *BulkLobbyMemberRequest) SetFlagsNil() {
-	o.Flags.Set(nil)
-}
 
-// UnsetFlags ensures that no value is present for Flags, not even an explicit nil
-func (o *BulkLobbyMemberRequest) UnsetFlags() {
-	o.Flags.Unset()
-}
-
-// GetRemoveMember returns the RemoveMember field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRemoveMember returns the RemoveMember field value if set, zero value otherwise.
 func (o *BulkLobbyMemberRequest) GetRemoveMember() bool {
-	if o == nil || IsNil(o.RemoveMember.Get()) {
+	if o == nil || IsNil(o.RemoveMember) {
 		var ret bool
 		return ret
 	}
-	return *o.RemoveMember.Get()
+	return *o.RemoveMember
 }
 
 // GetRemoveMemberOk returns a tuple with the RemoveMember field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BulkLobbyMemberRequest) GetRemoveMemberOk() (*bool, bool) {
-	if o == nil || IsNil(o.RemoveMember.Get()) {
+	if o == nil || IsNil(o.RemoveMember) {
 		return nil, false
 	}
-	return o.RemoveMember.Get(), o.RemoveMember.IsSet()
+	return o.RemoveMember, true
 }
 
 // HasRemoveMember returns a boolean if a field has been set.
 func (o *BulkLobbyMemberRequest) HasRemoveMember() bool {
-	if o != nil && o.RemoveMember.IsSet() {
+	if o != nil && !IsNil(o.RemoveMember) {
 		return true
 	}
 
 	return false
 }
 
-// SetRemoveMember gets a reference to the given NullableBool and assigns it to the RemoveMember field.
+// SetRemoveMember gets a reference to the given bool and assigns it to the RemoveMember field.
 func (o *BulkLobbyMemberRequest) SetRemoveMember(v bool) {
-	o.RemoveMember.Set(&v)
+	o.RemoveMember = &v
 }
 
-// SetRemoveMemberNil sets the value for RemoveMember to be an explicit nil
-func (o *BulkLobbyMemberRequest) SetRemoveMemberNil() {
-	o.RemoveMember.Set(nil)
-}
-
-// UnsetRemoveMember ensures that no value is present for RemoveMember, not even an explicit nil
-func (o *BulkLobbyMemberRequest) UnsetRemoveMember() {
-	o.RemoveMember.Unset()
-}
 
 func (o BulkLobbyMemberRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -238,11 +218,11 @@ func (o BulkLobbyMemberRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Metadata) {
 		toSerialize["metadata"] = o.Metadata
 	}
-	if o.Flags.IsSet() {
-		toSerialize["flags"] = o.Flags.Get()
+	if !IsNil(o.Flags) {
+		toSerialize["flags"] = o.Flags
 	}
-	if o.RemoveMember.IsSet() {
-		toSerialize["remove_member"] = o.RemoveMember.Get()
+	if !IsNil(o.RemoveMember) {
+		toSerialize["remove_member"] = o.RemoveMember
 	}
 	return toSerialize, nil
 }
@@ -319,5 +299,4 @@ func (v *NullableBulkLobbyMemberRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

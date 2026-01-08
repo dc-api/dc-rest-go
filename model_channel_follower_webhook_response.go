@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,16 +55,16 @@ var _ MappedNullable = &ChannelFollowerWebhookResponse{}
 
 // ChannelFollowerWebhookResponse struct for ChannelFollowerWebhookResponse
 type ChannelFollowerWebhookResponse struct {
-	ApplicationId *string `json:"application_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Avatar NullableString `json:"avatar,omitempty"`
-	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	GuildId *string `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	ApplicationId *GetEntitlementsSkuIdsParameterOneOfInner `json:"application_id,omitempty"`
+	Avatar *string `json:"avatar,omitempty"`
+	ChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"channel_id,omitempty"`
+	GuildId *GetEntitlementsSkuIdsParameterOneOfInner `json:"guild_id,omitempty"`
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
-	Type int32 `json:"type"`
-	User NullableUserResponse `json:"user,omitempty"`
-	SourceGuild NullableWebhookSourceGuildResponse `json:"source_guild,omitempty"`
-	SourceChannel NullableWebhookSourceChannelResponse `json:"source_channel,omitempty"`
+	Type WebhookTypes `json:"type"`
+	User *UserResponse `json:"user,omitempty"`
+	SourceGuild *WebhookSourceGuildResponse `json:"source_guild,omitempty"`
+	SourceChannel *WebhookSourceChannelResponse `json:"source_channel,omitempty"`
 }
 
 type _ChannelFollowerWebhookResponse ChannelFollowerWebhookResponse
@@ -73,7 +73,7 @@ type _ChannelFollowerWebhookResponse ChannelFollowerWebhookResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewChannelFollowerWebhookResponse(id string, name string, type_ int32) *ChannelFollowerWebhookResponse {
+func NewChannelFollowerWebhookResponse(id string, name string, type_ WebhookTypes) *ChannelFollowerWebhookResponse {
 	this := ChannelFollowerWebhookResponse{}
 	this.Id = id
 	this.Name = name
@@ -90,9 +90,9 @@ func NewChannelFollowerWebhookResponseWithDefaults() *ChannelFollowerWebhookResp
 }
 
 // GetApplicationId returns the ApplicationId field value if set, zero value otherwise.
-func (o *ChannelFollowerWebhookResponse) GetApplicationId() string {
+func (o *ChannelFollowerWebhookResponse) GetApplicationId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.ApplicationId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.ApplicationId
@@ -100,7 +100,7 @@ func (o *ChannelFollowerWebhookResponse) GetApplicationId() string {
 
 // GetApplicationIdOk returns a tuple with the ApplicationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ChannelFollowerWebhookResponse) GetApplicationIdOk() (*string, bool) {
+func (o *ChannelFollowerWebhookResponse) GetApplicationIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.ApplicationId) {
 		return nil, false
 	}
@@ -116,59 +116,49 @@ func (o *ChannelFollowerWebhookResponse) HasApplicationId() bool {
 	return false
 }
 
-// SetApplicationId gets a reference to the given string and assigns it to the ApplicationId field.
-func (o *ChannelFollowerWebhookResponse) SetApplicationId(v string) {
+// SetApplicationId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the ApplicationId field.
+func (o *ChannelFollowerWebhookResponse) SetApplicationId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.ApplicationId = &v
 }
 
 
-// GetAvatar returns the Avatar field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAvatar returns the Avatar field value if set, zero value otherwise.
 func (o *ChannelFollowerWebhookResponse) GetAvatar() string {
-	if o == nil || IsNil(o.Avatar.Get()) {
+	if o == nil || IsNil(o.Avatar) {
 		var ret string
 		return ret
 	}
-	return *o.Avatar.Get()
+	return *o.Avatar
 }
 
 // GetAvatarOk returns a tuple with the Avatar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelFollowerWebhookResponse) GetAvatarOk() (*string, bool) {
-	if o == nil || IsNil(o.Avatar.Get()) {
+	if o == nil || IsNil(o.Avatar) {
 		return nil, false
 	}
-	return o.Avatar.Get(), o.Avatar.IsSet()
+	return o.Avatar, true
 }
 
 // HasAvatar returns a boolean if a field has been set.
 func (o *ChannelFollowerWebhookResponse) HasAvatar() bool {
-	if o != nil && o.Avatar.IsSet() {
+	if o != nil && !IsNil(o.Avatar) {
 		return true
 	}
 
 	return false
 }
 
-// SetAvatar gets a reference to the given NullableString and assigns it to the Avatar field.
+// SetAvatar gets a reference to the given string and assigns it to the Avatar field.
 func (o *ChannelFollowerWebhookResponse) SetAvatar(v string) {
-	o.Avatar.Set(&v)
+	o.Avatar = &v
 }
 
-// SetAvatarNil sets the value for Avatar to be an explicit nil
-func (o *ChannelFollowerWebhookResponse) SetAvatarNil() {
-	o.Avatar.Set(nil)
-}
-
-// UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
-func (o *ChannelFollowerWebhookResponse) UnsetAvatar() {
-	o.Avatar.Unset()
-}
 
 // GetChannelId returns the ChannelId field value if set, zero value otherwise.
-func (o *ChannelFollowerWebhookResponse) GetChannelId() string {
+func (o *ChannelFollowerWebhookResponse) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.ChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.ChannelId
@@ -176,7 +166,7 @@ func (o *ChannelFollowerWebhookResponse) GetChannelId() string {
 
 // GetChannelIdOk returns a tuple with the ChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ChannelFollowerWebhookResponse) GetChannelIdOk() (*string, bool) {
+func (o *ChannelFollowerWebhookResponse) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.ChannelId) {
 		return nil, false
 	}
@@ -192,16 +182,16 @@ func (o *ChannelFollowerWebhookResponse) HasChannelId() bool {
 	return false
 }
 
-// SetChannelId gets a reference to the given string and assigns it to the ChannelId field.
-func (o *ChannelFollowerWebhookResponse) SetChannelId(v string) {
+// SetChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the ChannelId field.
+func (o *ChannelFollowerWebhookResponse) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.ChannelId = &v
 }
 
 
 // GetGuildId returns the GuildId field value if set, zero value otherwise.
-func (o *ChannelFollowerWebhookResponse) GetGuildId() string {
+func (o *ChannelFollowerWebhookResponse) GetGuildId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.GuildId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.GuildId
@@ -209,7 +199,7 @@ func (o *ChannelFollowerWebhookResponse) GetGuildId() string {
 
 // GetGuildIdOk returns a tuple with the GuildId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ChannelFollowerWebhookResponse) GetGuildIdOk() (*string, bool) {
+func (o *ChannelFollowerWebhookResponse) GetGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.GuildId) {
 		return nil, false
 	}
@@ -225,8 +215,8 @@ func (o *ChannelFollowerWebhookResponse) HasGuildId() bool {
 	return false
 }
 
-// SetGuildId gets a reference to the given string and assigns it to the GuildId field.
-func (o *ChannelFollowerWebhookResponse) SetGuildId(v string) {
+// SetGuildId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the GuildId field.
+func (o *ChannelFollowerWebhookResponse) SetGuildId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.GuildId = &v
 }
 
@@ -280,9 +270,9 @@ func (o *ChannelFollowerWebhookResponse) SetName(v string) {
 }
 
 // GetType returns the Type field value
-func (o *ChannelFollowerWebhookResponse) GetType() int32 {
+func (o *ChannelFollowerWebhookResponse) GetType() WebhookTypes {
 	if o == nil {
-		var ret int32
+		var ret WebhookTypes
 		return ret
 	}
 
@@ -291,7 +281,7 @@ func (o *ChannelFollowerWebhookResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ChannelFollowerWebhookResponse) GetTypeOk() (*int32, bool) {
+func (o *ChannelFollowerWebhookResponse) GetTypeOk() (*WebhookTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -299,138 +289,108 @@ func (o *ChannelFollowerWebhookResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *ChannelFollowerWebhookResponse) SetType(v int32) {
+func (o *ChannelFollowerWebhookResponse) SetType(v WebhookTypes) {
 	o.Type = v
 }
 
-// GetUser returns the User field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUser returns the User field value if set, zero value otherwise.
 func (o *ChannelFollowerWebhookResponse) GetUser() UserResponse {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.User.Get()
+	return *o.User
 }
 
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelFollowerWebhookResponse) GetUserOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		return nil, false
 	}
-	return o.User.Get(), o.User.IsSet()
+	return o.User, true
 }
 
 // HasUser returns a boolean if a field has been set.
 func (o *ChannelFollowerWebhookResponse) HasUser() bool {
-	if o != nil && o.User.IsSet() {
+	if o != nil && !IsNil(o.User) {
 		return true
 	}
 
 	return false
 }
 
-// SetUser gets a reference to the given NullableUserResponse and assigns it to the User field.
+// SetUser gets a reference to the given UserResponse and assigns it to the User field.
 func (o *ChannelFollowerWebhookResponse) SetUser(v UserResponse) {
-	o.User.Set(&v)
+	o.User = &v
 }
 
-// SetUserNil sets the value for User to be an explicit nil
-func (o *ChannelFollowerWebhookResponse) SetUserNil() {
-	o.User.Set(nil)
-}
 
-// UnsetUser ensures that no value is present for User, not even an explicit nil
-func (o *ChannelFollowerWebhookResponse) UnsetUser() {
-	o.User.Unset()
-}
-
-// GetSourceGuild returns the SourceGuild field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSourceGuild returns the SourceGuild field value if set, zero value otherwise.
 func (o *ChannelFollowerWebhookResponse) GetSourceGuild() WebhookSourceGuildResponse {
-	if o == nil || IsNil(o.SourceGuild.Get()) {
+	if o == nil || IsNil(o.SourceGuild) {
 		var ret WebhookSourceGuildResponse
 		return ret
 	}
-	return *o.SourceGuild.Get()
+	return *o.SourceGuild
 }
 
 // GetSourceGuildOk returns a tuple with the SourceGuild field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelFollowerWebhookResponse) GetSourceGuildOk() (*WebhookSourceGuildResponse, bool) {
-	if o == nil || IsNil(o.SourceGuild.Get()) {
+	if o == nil || IsNil(o.SourceGuild) {
 		return nil, false
 	}
-	return o.SourceGuild.Get(), o.SourceGuild.IsSet()
+	return o.SourceGuild, true
 }
 
 // HasSourceGuild returns a boolean if a field has been set.
 func (o *ChannelFollowerWebhookResponse) HasSourceGuild() bool {
-	if o != nil && o.SourceGuild.IsSet() {
+	if o != nil && !IsNil(o.SourceGuild) {
 		return true
 	}
 
 	return false
 }
 
-// SetSourceGuild gets a reference to the given NullableWebhookSourceGuildResponse and assigns it to the SourceGuild field.
+// SetSourceGuild gets a reference to the given WebhookSourceGuildResponse and assigns it to the SourceGuild field.
 func (o *ChannelFollowerWebhookResponse) SetSourceGuild(v WebhookSourceGuildResponse) {
-	o.SourceGuild.Set(&v)
+	o.SourceGuild = &v
 }
 
-// SetSourceGuildNil sets the value for SourceGuild to be an explicit nil
-func (o *ChannelFollowerWebhookResponse) SetSourceGuildNil() {
-	o.SourceGuild.Set(nil)
-}
 
-// UnsetSourceGuild ensures that no value is present for SourceGuild, not even an explicit nil
-func (o *ChannelFollowerWebhookResponse) UnsetSourceGuild() {
-	o.SourceGuild.Unset()
-}
-
-// GetSourceChannel returns the SourceChannel field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSourceChannel returns the SourceChannel field value if set, zero value otherwise.
 func (o *ChannelFollowerWebhookResponse) GetSourceChannel() WebhookSourceChannelResponse {
-	if o == nil || IsNil(o.SourceChannel.Get()) {
+	if o == nil || IsNil(o.SourceChannel) {
 		var ret WebhookSourceChannelResponse
 		return ret
 	}
-	return *o.SourceChannel.Get()
+	return *o.SourceChannel
 }
 
 // GetSourceChannelOk returns a tuple with the SourceChannel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelFollowerWebhookResponse) GetSourceChannelOk() (*WebhookSourceChannelResponse, bool) {
-	if o == nil || IsNil(o.SourceChannel.Get()) {
+	if o == nil || IsNil(o.SourceChannel) {
 		return nil, false
 	}
-	return o.SourceChannel.Get(), o.SourceChannel.IsSet()
+	return o.SourceChannel, true
 }
 
 // HasSourceChannel returns a boolean if a field has been set.
 func (o *ChannelFollowerWebhookResponse) HasSourceChannel() bool {
-	if o != nil && o.SourceChannel.IsSet() {
+	if o != nil && !IsNil(o.SourceChannel) {
 		return true
 	}
 
 	return false
 }
 
-// SetSourceChannel gets a reference to the given NullableWebhookSourceChannelResponse and assigns it to the SourceChannel field.
+// SetSourceChannel gets a reference to the given WebhookSourceChannelResponse and assigns it to the SourceChannel field.
 func (o *ChannelFollowerWebhookResponse) SetSourceChannel(v WebhookSourceChannelResponse) {
-	o.SourceChannel.Set(&v)
+	o.SourceChannel = &v
 }
 
-// SetSourceChannelNil sets the value for SourceChannel to be an explicit nil
-func (o *ChannelFollowerWebhookResponse) SetSourceChannelNil() {
-	o.SourceChannel.Set(nil)
-}
-
-// UnsetSourceChannel ensures that no value is present for SourceChannel, not even an explicit nil
-func (o *ChannelFollowerWebhookResponse) UnsetSourceChannel() {
-	o.SourceChannel.Unset()
-}
 
 func (o ChannelFollowerWebhookResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -445,8 +405,8 @@ func (o ChannelFollowerWebhookResponse) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.ApplicationId) {
 		toSerialize["application_id"] = o.ApplicationId
 	}
-	if o.Avatar.IsSet() {
-		toSerialize["avatar"] = o.Avatar.Get()
+	if !IsNil(o.Avatar) {
+		toSerialize["avatar"] = o.Avatar
 	}
 	if !IsNil(o.ChannelId) {
 		toSerialize["channel_id"] = o.ChannelId
@@ -457,14 +417,14 @@ func (o ChannelFollowerWebhookResponse) ToMap() (map[string]interface{}, error) 
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	toSerialize["type"] = o.Type
-	if o.User.IsSet() {
-		toSerialize["user"] = o.User.Get()
+	if !IsNil(o.User) {
+		toSerialize["user"] = o.User
 	}
-	if o.SourceGuild.IsSet() {
-		toSerialize["source_guild"] = o.SourceGuild.Get()
+	if !IsNil(o.SourceGuild) {
+		toSerialize["source_guild"] = o.SourceGuild
 	}
-	if o.SourceChannel.IsSet() {
-		toSerialize["source_channel"] = o.SourceChannel.Get()
+	if !IsNil(o.SourceChannel) {
+		toSerialize["source_channel"] = o.SourceChannel
 	}
 	return toSerialize, nil
 }
@@ -543,5 +503,4 @@ func (v *NullableChannelFollowerWebhookResponse) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

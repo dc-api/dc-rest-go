@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**AutoArchiveDuration** | Pointer to **int32** |  | [optional] 
-**RateLimitPerUser** | Pointer to **NullableInt32** |  | [optional] 
-**Type** | Pointer to **NullableInt32** |  | [optional] 
-**Invitable** | Pointer to **NullableBool** |  | [optional] 
+**AutoArchiveDuration** | Pointer to [**CreateForumThreadRequestAutoArchiveDuration**](CreateForumThreadRequestAutoArchiveDuration.md) |  | [optional] 
+**RateLimitPerUser** | Pointer to **int32** |  | [optional] 
+**Type** | Pointer to [**CreateTextThreadWithoutMessageRequestType**](CreateTextThreadWithoutMessageRequestType.md) |  | [optional] 
+**Invitable** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -51,20 +51,20 @@ SetName sets Name field to given value.
 
 ### GetAutoArchiveDuration
 
-`func (o *CreateTextThreadWithoutMessageRequest) GetAutoArchiveDuration() int32`
+`func (o *CreateTextThreadWithoutMessageRequest) GetAutoArchiveDuration() CreateForumThreadRequestAutoArchiveDuration`
 
 GetAutoArchiveDuration returns the AutoArchiveDuration field if non-nil, zero value otherwise.
 
 ### GetAutoArchiveDurationOk
 
-`func (o *CreateTextThreadWithoutMessageRequest) GetAutoArchiveDurationOk() (*int32, bool)`
+`func (o *CreateTextThreadWithoutMessageRequest) GetAutoArchiveDurationOk() (*CreateForumThreadRequestAutoArchiveDuration, bool)`
 
 GetAutoArchiveDurationOk returns a tuple with the AutoArchiveDuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutoArchiveDuration
 
-`func (o *CreateTextThreadWithoutMessageRequest) SetAutoArchiveDuration(v int32)`
+`func (o *CreateTextThreadWithoutMessageRequest) SetAutoArchiveDuration(v CreateForumThreadRequestAutoArchiveDuration)`
 
 SetAutoArchiveDuration sets AutoArchiveDuration field to given value.
 
@@ -99,32 +99,22 @@ SetRateLimitPerUser sets RateLimitPerUser field to given value.
 
 HasRateLimitPerUser returns a boolean if a field has been set.
 
-### SetRateLimitPerUserNil
-
-`func (o *CreateTextThreadWithoutMessageRequest) SetRateLimitPerUserNil(b bool)`
-
- SetRateLimitPerUserNil sets the value for RateLimitPerUser to be an explicit nil
-
-### UnsetRateLimitPerUser
-`func (o *CreateTextThreadWithoutMessageRequest) UnsetRateLimitPerUser()`
-
-UnsetRateLimitPerUser ensures that no value is present for RateLimitPerUser, not even an explicit nil
 ### GetType
 
-`func (o *CreateTextThreadWithoutMessageRequest) GetType() int32`
+`func (o *CreateTextThreadWithoutMessageRequest) GetType() CreateTextThreadWithoutMessageRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *CreateTextThreadWithoutMessageRequest) GetTypeOk() (*int32, bool)`
+`func (o *CreateTextThreadWithoutMessageRequest) GetTypeOk() (*CreateTextThreadWithoutMessageRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *CreateTextThreadWithoutMessageRequest) SetType(v int32)`
+`func (o *CreateTextThreadWithoutMessageRequest) SetType(v CreateTextThreadWithoutMessageRequestType)`
 
 SetType sets Type field to given value.
 
@@ -134,16 +124,6 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
-### SetTypeNil
-
-`func (o *CreateTextThreadWithoutMessageRequest) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *CreateTextThreadWithoutMessageRequest) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetInvitable
 
 `func (o *CreateTextThreadWithoutMessageRequest) GetInvitable() bool`
@@ -169,16 +149,6 @@ SetInvitable sets Invitable field to given value.
 
 HasInvitable returns a boolean if a field has been set.
 
-### SetInvitableNil
-
-`func (o *CreateTextThreadWithoutMessageRequest) SetInvitableNil(b bool)`
-
- SetInvitableNil sets the value for Invitable to be an explicit nil
-
-### UnsetInvitable
-`func (o *CreateTextThreadWithoutMessageRequest) UnsetInvitable()`
-
-UnsetInvitable ensures that no value is present for Invitable, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

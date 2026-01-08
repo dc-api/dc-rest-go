@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Prompts** | Pointer to [**[]UpdateOnboardingPromptRequest**](UpdateOnboardingPromptRequest.md) |  | [optional] 
-**Enabled** | Pointer to **NullableBool** |  | [optional] 
+**Enabled** | Pointer to **bool** |  | [optional] 
 **DefaultChannelIds** | Pointer to **[]string** |  | [optional] 
-**Mode** | Pointer to **int32** |  | [optional] 
+**Mode** | Pointer to [**UpdateGuildOnboardingRequestMode**](UpdateGuildOnboardingRequestMode.md) |  | [optional] 
 
 ## Methods
 
@@ -53,16 +53,6 @@ SetPrompts sets Prompts field to given value.
 
 HasPrompts returns a boolean if a field has been set.
 
-### SetPromptsNil
-
-`func (o *UpdateGuildOnboardingRequest) SetPromptsNil(b bool)`
-
- SetPromptsNil sets the value for Prompts to be an explicit nil
-
-### UnsetPrompts
-`func (o *UpdateGuildOnboardingRequest) UnsetPrompts()`
-
-UnsetPrompts ensures that no value is present for Prompts, not even an explicit nil
 ### GetEnabled
 
 `func (o *UpdateGuildOnboardingRequest) GetEnabled() bool`
@@ -88,16 +78,6 @@ SetEnabled sets Enabled field to given value.
 
 HasEnabled returns a boolean if a field has been set.
 
-### SetEnabledNil
-
-`func (o *UpdateGuildOnboardingRequest) SetEnabledNil(b bool)`
-
- SetEnabledNil sets the value for Enabled to be an explicit nil
-
-### UnsetEnabled
-`func (o *UpdateGuildOnboardingRequest) UnsetEnabled()`
-
-UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 ### GetDefaultChannelIds
 
 `func (o *UpdateGuildOnboardingRequest) GetDefaultChannelIds() []string`
@@ -123,32 +103,22 @@ SetDefaultChannelIds sets DefaultChannelIds field to given value.
 
 HasDefaultChannelIds returns a boolean if a field has been set.
 
-### SetDefaultChannelIdsNil
-
-`func (o *UpdateGuildOnboardingRequest) SetDefaultChannelIdsNil(b bool)`
-
- SetDefaultChannelIdsNil sets the value for DefaultChannelIds to be an explicit nil
-
-### UnsetDefaultChannelIds
-`func (o *UpdateGuildOnboardingRequest) UnsetDefaultChannelIds()`
-
-UnsetDefaultChannelIds ensures that no value is present for DefaultChannelIds, not even an explicit nil
 ### GetMode
 
-`func (o *UpdateGuildOnboardingRequest) GetMode() int32`
+`func (o *UpdateGuildOnboardingRequest) GetMode() UpdateGuildOnboardingRequestMode`
 
 GetMode returns the Mode field if non-nil, zero value otherwise.
 
 ### GetModeOk
 
-`func (o *UpdateGuildOnboardingRequest) GetModeOk() (*int32, bool)`
+`func (o *UpdateGuildOnboardingRequest) GetModeOk() (*UpdateGuildOnboardingRequestMode, bool)`
 
 GetModeOk returns a tuple with the Mode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMode
 
-`func (o *UpdateGuildOnboardingRequest) SetMode(v int32)`
+`func (o *UpdateGuildOnboardingRequest) SetMode(v UpdateGuildOnboardingRequestMode)`
 
 SetMode sets Mode field to given value.
 

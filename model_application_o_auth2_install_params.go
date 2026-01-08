@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,8 +53,8 @@ var _ MappedNullable = &ApplicationOAuth2InstallParams{}
 
 // ApplicationOAuth2InstallParams struct for ApplicationOAuth2InstallParams
 type ApplicationOAuth2InstallParams struct {
-	Scopes []string `json:"scopes,omitempty"`
-	Permissions NullableInt32 `json:"permissions,omitempty"`
+	Scopes []OAuth2Scopes `json:"scopes,omitempty"`
+	Permissions *int32 `json:"permissions,omitempty"`
 }
 
 // NewApplicationOAuth2InstallParams instantiates a new ApplicationOAuth2InstallParams object
@@ -74,10 +74,10 @@ func NewApplicationOAuth2InstallParamsWithDefaults() *ApplicationOAuth2InstallPa
 	return &this
 }
 
-// GetScopes returns the Scopes field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ApplicationOAuth2InstallParams) GetScopes() []string {
-	if o == nil {
-		var ret []string
+// GetScopes returns the Scopes field value if set, zero value otherwise.
+func (o *ApplicationOAuth2InstallParams) GetScopes() []OAuth2Scopes {
+	if o == nil || IsNil(o.Scopes) {
+		var ret []OAuth2Scopes
 		return ret
 	}
 	return o.Scopes
@@ -85,9 +85,8 @@ func (o *ApplicationOAuth2InstallParams) GetScopes() []string {
 
 // GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ApplicationOAuth2InstallParams) GetScopesOk() ([]string, bool) {
-	if o == nil {
+func (o *ApplicationOAuth2InstallParams) GetScopesOk() ([]OAuth2Scopes, bool) {
+	if o == nil || IsNil(o.Scopes) {
 		return nil, false
 	}
 	return o.Scopes, true
@@ -102,54 +101,44 @@ func (o *ApplicationOAuth2InstallParams) HasScopes() bool {
 	return false
 }
 
-// SetScopes gets a reference to the given []string and assigns it to the Scopes field.
-func (o *ApplicationOAuth2InstallParams) SetScopes(v []string) {
+// SetScopes gets a reference to the given []OAuth2Scopes and assigns it to the Scopes field.
+func (o *ApplicationOAuth2InstallParams) SetScopes(v []OAuth2Scopes) {
 	o.Scopes = v
 }
 
 
-// GetPermissions returns the Permissions field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPermissions returns the Permissions field value if set, zero value otherwise.
 func (o *ApplicationOAuth2InstallParams) GetPermissions() int32 {
-	if o == nil || IsNil(o.Permissions.Get()) {
+	if o == nil || IsNil(o.Permissions) {
 		var ret int32
 		return ret
 	}
-	return *o.Permissions.Get()
+	return *o.Permissions
 }
 
 // GetPermissionsOk returns a tuple with the Permissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationOAuth2InstallParams) GetPermissionsOk() (*int32, bool) {
-	if o == nil || IsNil(o.Permissions.Get()) {
+	if o == nil || IsNil(o.Permissions) {
 		return nil, false
 	}
-	return o.Permissions.Get(), o.Permissions.IsSet()
+	return o.Permissions, true
 }
 
 // HasPermissions returns a boolean if a field has been set.
 func (o *ApplicationOAuth2InstallParams) HasPermissions() bool {
-	if o != nil && o.Permissions.IsSet() {
+	if o != nil && !IsNil(o.Permissions) {
 		return true
 	}
 
 	return false
 }
 
-// SetPermissions gets a reference to the given NullableInt32 and assigns it to the Permissions field.
+// SetPermissions gets a reference to the given int32 and assigns it to the Permissions field.
 func (o *ApplicationOAuth2InstallParams) SetPermissions(v int32) {
-	o.Permissions.Set(&v)
+	o.Permissions = &v
 }
 
-// SetPermissionsNil sets the value for Permissions to be an explicit nil
-func (o *ApplicationOAuth2InstallParams) SetPermissionsNil() {
-	o.Permissions.Set(nil)
-}
-
-// UnsetPermissions ensures that no value is present for Permissions, not even an explicit nil
-func (o *ApplicationOAuth2InstallParams) UnsetPermissions() {
-	o.Permissions.Unset()
-}
 
 func (o ApplicationOAuth2InstallParams) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -161,11 +150,11 @@ func (o ApplicationOAuth2InstallParams) MarshalJSON() ([]byte, error) {
 
 func (o ApplicationOAuth2InstallParams) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Scopes != nil {
+	if !IsNil(o.Scopes) {
 		toSerialize["scopes"] = o.Scopes
 	}
-	if o.Permissions.IsSet() {
-		toSerialize["permissions"] = o.Permissions.Get()
+	if !IsNil(o.Permissions) {
+		toSerialize["permissions"] = o.Permissions
 	}
 	return toSerialize, nil
 }
@@ -205,5 +194,4 @@ func (v *NullableApplicationOAuth2InstallParams) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

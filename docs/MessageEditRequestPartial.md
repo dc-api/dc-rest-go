@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Content** | Pointer to **NullableString** |  | [optional] 
+**Content** | Pointer to **string** |  | [optional] 
 **Embeds** | Pointer to [**[]RichEmbed**](RichEmbed.md) |  | [optional] 
-**Flags** | Pointer to **NullableInt32** |  | [optional] 
-**AllowedMentions** | Pointer to [**NullableMessageAllowedMentionsRequest**](MessageAllowedMentionsRequest.md) |  | [optional] 
+**Flags** | Pointer to **int32** |  | [optional] 
+**AllowedMentions** | Pointer to [**BaseCreateMessageCreateRequestAllowedMentions**](BaseCreateMessageCreateRequestAllowedMentions.md) |  | [optional] 
 **StickerIds** | Pointer to **[]string** |  | [optional] 
 **Components** | Pointer to [**[]BaseCreateMessageCreateRequestComponentsInner**](BaseCreateMessageCreateRequestComponentsInner.md) |  | [optional] 
 **Attachments** | Pointer to [**[]MessageAttachmentRequest**](MessageAttachmentRequest.md) |  | [optional] 
@@ -56,16 +56,6 @@ SetContent sets Content field to given value.
 
 HasContent returns a boolean if a field has been set.
 
-### SetContentNil
-
-`func (o *MessageEditRequestPartial) SetContentNil(b bool)`
-
- SetContentNil sets the value for Content to be an explicit nil
-
-### UnsetContent
-`func (o *MessageEditRequestPartial) UnsetContent()`
-
-UnsetContent ensures that no value is present for Content, not even an explicit nil
 ### GetEmbeds
 
 `func (o *MessageEditRequestPartial) GetEmbeds() []RichEmbed`
@@ -91,16 +81,6 @@ SetEmbeds sets Embeds field to given value.
 
 HasEmbeds returns a boolean if a field has been set.
 
-### SetEmbedsNil
-
-`func (o *MessageEditRequestPartial) SetEmbedsNil(b bool)`
-
- SetEmbedsNil sets the value for Embeds to be an explicit nil
-
-### UnsetEmbeds
-`func (o *MessageEditRequestPartial) UnsetEmbeds()`
-
-UnsetEmbeds ensures that no value is present for Embeds, not even an explicit nil
 ### GetFlags
 
 `func (o *MessageEditRequestPartial) GetFlags() int32`
@@ -126,32 +106,22 @@ SetFlags sets Flags field to given value.
 
 HasFlags returns a boolean if a field has been set.
 
-### SetFlagsNil
-
-`func (o *MessageEditRequestPartial) SetFlagsNil(b bool)`
-
- SetFlagsNil sets the value for Flags to be an explicit nil
-
-### UnsetFlags
-`func (o *MessageEditRequestPartial) UnsetFlags()`
-
-UnsetFlags ensures that no value is present for Flags, not even an explicit nil
 ### GetAllowedMentions
 
-`func (o *MessageEditRequestPartial) GetAllowedMentions() MessageAllowedMentionsRequest`
+`func (o *MessageEditRequestPartial) GetAllowedMentions() BaseCreateMessageCreateRequestAllowedMentions`
 
 GetAllowedMentions returns the AllowedMentions field if non-nil, zero value otherwise.
 
 ### GetAllowedMentionsOk
 
-`func (o *MessageEditRequestPartial) GetAllowedMentionsOk() (*MessageAllowedMentionsRequest, bool)`
+`func (o *MessageEditRequestPartial) GetAllowedMentionsOk() (*BaseCreateMessageCreateRequestAllowedMentions, bool)`
 
 GetAllowedMentionsOk returns a tuple with the AllowedMentions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllowedMentions
 
-`func (o *MessageEditRequestPartial) SetAllowedMentions(v MessageAllowedMentionsRequest)`
+`func (o *MessageEditRequestPartial) SetAllowedMentions(v BaseCreateMessageCreateRequestAllowedMentions)`
 
 SetAllowedMentions sets AllowedMentions field to given value.
 
@@ -161,16 +131,6 @@ SetAllowedMentions sets AllowedMentions field to given value.
 
 HasAllowedMentions returns a boolean if a field has been set.
 
-### SetAllowedMentionsNil
-
-`func (o *MessageEditRequestPartial) SetAllowedMentionsNil(b bool)`
-
- SetAllowedMentionsNil sets the value for AllowedMentions to be an explicit nil
-
-### UnsetAllowedMentions
-`func (o *MessageEditRequestPartial) UnsetAllowedMentions()`
-
-UnsetAllowedMentions ensures that no value is present for AllowedMentions, not even an explicit nil
 ### GetStickerIds
 
 `func (o *MessageEditRequestPartial) GetStickerIds() []string`
@@ -196,16 +156,6 @@ SetStickerIds sets StickerIds field to given value.
 
 HasStickerIds returns a boolean if a field has been set.
 
-### SetStickerIdsNil
-
-`func (o *MessageEditRequestPartial) SetStickerIdsNil(b bool)`
-
- SetStickerIdsNil sets the value for StickerIds to be an explicit nil
-
-### UnsetStickerIds
-`func (o *MessageEditRequestPartial) UnsetStickerIds()`
-
-UnsetStickerIds ensures that no value is present for StickerIds, not even an explicit nil
 ### GetComponents
 
 `func (o *MessageEditRequestPartial) GetComponents() []BaseCreateMessageCreateRequestComponentsInner`
@@ -231,16 +181,6 @@ SetComponents sets Components field to given value.
 
 HasComponents returns a boolean if a field has been set.
 
-### SetComponentsNil
-
-`func (o *MessageEditRequestPartial) SetComponentsNil(b bool)`
-
- SetComponentsNil sets the value for Components to be an explicit nil
-
-### UnsetComponents
-`func (o *MessageEditRequestPartial) UnsetComponents()`
-
-UnsetComponents ensures that no value is present for Components, not even an explicit nil
 ### GetAttachments
 
 `func (o *MessageEditRequestPartial) GetAttachments() []MessageAttachmentRequest`
@@ -266,16 +206,6 @@ SetAttachments sets Attachments field to given value.
 
 HasAttachments returns a boolean if a field has been set.
 
-### SetAttachmentsNil
-
-`func (o *MessageEditRequestPartial) SetAttachmentsNil(b bool)`
-
- SetAttachmentsNil sets the value for Attachments to be an explicit nil
-
-### UnsetAttachments
-`func (o *MessageEditRequestPartial) UnsetAttachments()`
-
-UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

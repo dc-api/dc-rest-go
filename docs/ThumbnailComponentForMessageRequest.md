@@ -4,16 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Spoiler** | Pointer to **NullableBool** |  | [optional] 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Spoiler** | Pointer to **bool** |  | [optional] 
 **Media** | [**UnfurledMediaRequest**](UnfurledMediaRequest.md) |  | 
 
 ## Methods
 
 ### NewThumbnailComponentForMessageRequest
 
-`func NewThumbnailComponentForMessageRequest(type_ int32, media UnfurledMediaRequest, ) *ThumbnailComponentForMessageRequest`
+`func NewThumbnailComponentForMessageRequest(type_ MessageComponentTypes, media UnfurledMediaRequest, ) *ThumbnailComponentForMessageRequest`
 
 NewThumbnailComponentForMessageRequest instantiates a new ThumbnailComponentForMessageRequest object
 This constructor will assign default values to properties that have it defined,
@@ -30,23 +31,48 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ThumbnailComponentForMessageRequest) GetType() int32`
+`func (o *ThumbnailComponentForMessageRequest) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ThumbnailComponentForMessageRequest) GetTypeOk() (*int32, bool)`
+`func (o *ThumbnailComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ThumbnailComponentForMessageRequest) SetType(v int32)`
+`func (o *ThumbnailComponentForMessageRequest) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *ThumbnailComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ThumbnailComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ThumbnailComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *ThumbnailComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -73,16 +99,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *ThumbnailComponentForMessageRequest) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *ThumbnailComponentForMessageRequest) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetSpoiler
 
 `func (o *ThumbnailComponentForMessageRequest) GetSpoiler() bool`
@@ -108,16 +124,6 @@ SetSpoiler sets Spoiler field to given value.
 
 HasSpoiler returns a boolean if a field has been set.
 
-### SetSpoilerNil
-
-`func (o *ThumbnailComponentForMessageRequest) SetSpoilerNil(b bool)`
-
- SetSpoilerNil sets the value for Spoiler to be an explicit nil
-
-### UnsetSpoiler
-`func (o *ThumbnailComponentForMessageRequest) UnsetSpoiler()`
-
-UnsetSpoiler ensures that no value is present for Spoiler, not even an explicit nil
 ### GetMedia
 
 `func (o *ThumbnailComponentForMessageRequest) GetMedia() UnfurledMediaRequest`

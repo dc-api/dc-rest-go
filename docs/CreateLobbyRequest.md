@@ -4,9 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdleTimeoutSeconds** | Pointer to **NullableInt32** |  | [optional] 
+**IdleTimeoutSeconds** | Pointer to **int32** |  | [optional] 
 **Members** | Pointer to [**[]LobbyMemberRequest**](LobbyMemberRequest.md) |  | [optional] 
 **Metadata** | Pointer to **map[string]string** |  | [optional] 
+**Flags** | Pointer to [**CreateOrJoinLobbyRequestFlags**](CreateOrJoinLobbyRequestFlags.md) |  | [optional] 
+**OverrideEventWebhooksUrl** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -52,16 +54,6 @@ SetIdleTimeoutSeconds sets IdleTimeoutSeconds field to given value.
 
 HasIdleTimeoutSeconds returns a boolean if a field has been set.
 
-### SetIdleTimeoutSecondsNil
-
-`func (o *CreateLobbyRequest) SetIdleTimeoutSecondsNil(b bool)`
-
- SetIdleTimeoutSecondsNil sets the value for IdleTimeoutSeconds to be an explicit nil
-
-### UnsetIdleTimeoutSeconds
-`func (o *CreateLobbyRequest) UnsetIdleTimeoutSeconds()`
-
-UnsetIdleTimeoutSeconds ensures that no value is present for IdleTimeoutSeconds, not even an explicit nil
 ### GetMembers
 
 `func (o *CreateLobbyRequest) GetMembers() []LobbyMemberRequest`
@@ -87,16 +79,6 @@ SetMembers sets Members field to given value.
 
 HasMembers returns a boolean if a field has been set.
 
-### SetMembersNil
-
-`func (o *CreateLobbyRequest) SetMembersNil(b bool)`
-
- SetMembersNil sets the value for Members to be an explicit nil
-
-### UnsetMembers
-`func (o *CreateLobbyRequest) UnsetMembers()`
-
-UnsetMembers ensures that no value is present for Members, not even an explicit nil
 ### GetMetadata
 
 `func (o *CreateLobbyRequest) GetMetadata() map[string]string`
@@ -121,6 +103,56 @@ SetMetadata sets Metadata field to given value.
 `func (o *CreateLobbyRequest) HasMetadata() bool`
 
 HasMetadata returns a boolean if a field has been set.
+
+### GetFlags
+
+`func (o *CreateLobbyRequest) GetFlags() CreateOrJoinLobbyRequestFlags`
+
+GetFlags returns the Flags field if non-nil, zero value otherwise.
+
+### GetFlagsOk
+
+`func (o *CreateLobbyRequest) GetFlagsOk() (*CreateOrJoinLobbyRequestFlags, bool)`
+
+GetFlagsOk returns a tuple with the Flags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFlags
+
+`func (o *CreateLobbyRequest) SetFlags(v CreateOrJoinLobbyRequestFlags)`
+
+SetFlags sets Flags field to given value.
+
+### HasFlags
+
+`func (o *CreateLobbyRequest) HasFlags() bool`
+
+HasFlags returns a boolean if a field has been set.
+
+### GetOverrideEventWebhooksUrl
+
+`func (o *CreateLobbyRequest) GetOverrideEventWebhooksUrl() string`
+
+GetOverrideEventWebhooksUrl returns the OverrideEventWebhooksUrl field if non-nil, zero value otherwise.
+
+### GetOverrideEventWebhooksUrlOk
+
+`func (o *CreateLobbyRequest) GetOverrideEventWebhooksUrlOk() (*string, bool)`
+
+GetOverrideEventWebhooksUrlOk returns a tuple with the OverrideEventWebhooksUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOverrideEventWebhooksUrl
+
+`func (o *CreateLobbyRequest) SetOverrideEventWebhooksUrl(v string)`
+
+SetOverrideEventWebhooksUrl sets OverrideEventWebhooksUrl field to given value.
+
+### HasOverrideEventWebhooksUrl
+
+`func (o *CreateLobbyRequest) HasOverrideEventWebhooksUrl() bool`
+
+HasOverrideEventWebhooksUrl returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

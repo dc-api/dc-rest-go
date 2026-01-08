@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ var _ MappedNullable = &GithubReview{}
 // GithubReview struct for GithubReview
 type GithubReview struct {
 	User GithubUser `json:"user"`
-	Body NullableString `json:"body,omitempty"`
+	Body *string `json:"body,omitempty"`
 	HtmlUrl string `json:"html_url"`
 	State string `json:"state"`
 }
@@ -107,48 +107,38 @@ func (o *GithubReview) SetUser(v GithubUser) {
 	o.User = v
 }
 
-// GetBody returns the Body field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBody returns the Body field value if set, zero value otherwise.
 func (o *GithubReview) GetBody() string {
-	if o == nil || IsNil(o.Body.Get()) {
+	if o == nil || IsNil(o.Body) {
 		var ret string
 		return ret
 	}
-	return *o.Body.Get()
+	return *o.Body
 }
 
 // GetBodyOk returns a tuple with the Body field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubReview) GetBodyOk() (*string, bool) {
-	if o == nil || IsNil(o.Body.Get()) {
+	if o == nil || IsNil(o.Body) {
 		return nil, false
 	}
-	return o.Body.Get(), o.Body.IsSet()
+	return o.Body, true
 }
 
 // HasBody returns a boolean if a field has been set.
 func (o *GithubReview) HasBody() bool {
-	if o != nil && o.Body.IsSet() {
+	if o != nil && !IsNil(o.Body) {
 		return true
 	}
 
 	return false
 }
 
-// SetBody gets a reference to the given NullableString and assigns it to the Body field.
+// SetBody gets a reference to the given string and assigns it to the Body field.
 func (o *GithubReview) SetBody(v string) {
-	o.Body.Set(&v)
+	o.Body = &v
 }
 
-// SetBodyNil sets the value for Body to be an explicit nil
-func (o *GithubReview) SetBodyNil() {
-	o.Body.Set(nil)
-}
-
-// UnsetBody ensures that no value is present for Body, not even an explicit nil
-func (o *GithubReview) UnsetBody() {
-	o.Body.Unset()
-}
 
 // GetHtmlUrl returns the HtmlUrl field value
 func (o *GithubReview) GetHtmlUrl() string {
@@ -209,8 +199,8 @@ func (o GithubReview) MarshalJSON() ([]byte, error) {
 func (o GithubReview) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["user"] = o.User
-	if o.Body.IsSet() {
-		toSerialize["body"] = o.Body.Get()
+	if !IsNil(o.Body) {
+		toSerialize["body"] = o.Body
 	}
 	toSerialize["html_url"] = o.HtmlUrl
 	toSerialize["state"] = o.State
@@ -291,5 +281,4 @@ func (v *NullableGithubReview) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

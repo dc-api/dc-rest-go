@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to **NullableInt32** |  | [optional] 
+**Status** | Pointer to [**ExternalScheduledEventPatchRequestPartialStatus**](ExternalScheduledEventPatchRequestPartialStatus.md) |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Image** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Image** | Pointer to **string** |  | [optional] 
 **ScheduledStartTime** | Pointer to **time.Time** |  | [optional] 
-**ScheduledEndTime** | Pointer to **NullableTime** |  | [optional] 
-**EntityType** | Pointer to **NullableInt32** |  | [optional] 
-**PrivacyLevel** | Pointer to **interface{}** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
-**EntityMetadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**ScheduledEndTime** | Pointer to **time.Time** |  | [optional] 
+**EntityType** | Pointer to [**StageScheduledEventPatchRequestPartialEntityType**](StageScheduledEventPatchRequestPartialEntityType.md) |  | [optional] 
+**PrivacyLevel** | Pointer to [**GuildScheduledEventPrivacyLevels**](GuildScheduledEventPrivacyLevels.md) |  | [optional] 
+**ChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**EntityMetadata** | Pointer to [**StageScheduledEventCreateRequestEntityMetadata**](StageScheduledEventCreateRequestEntityMetadata.md) |  | [optional] 
 
 ## Methods
 
@@ -36,20 +36,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *StageScheduledEventPatchRequestPartial) GetStatus() int32`
+`func (o *StageScheduledEventPatchRequestPartial) GetStatus() ExternalScheduledEventPatchRequestPartialStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *StageScheduledEventPatchRequestPartial) GetStatusOk() (*int32, bool)`
+`func (o *StageScheduledEventPatchRequestPartial) GetStatusOk() (*ExternalScheduledEventPatchRequestPartialStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *StageScheduledEventPatchRequestPartial) SetStatus(v int32)`
+`func (o *StageScheduledEventPatchRequestPartial) SetStatus(v ExternalScheduledEventPatchRequestPartialStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -59,16 +59,6 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
-### SetStatusNil
-
-`func (o *StageScheduledEventPatchRequestPartial) SetStatusNil(b bool)`
-
- SetStatusNil sets the value for Status to be an explicit nil
-
-### UnsetStatus
-`func (o *StageScheduledEventPatchRequestPartial) UnsetStatus()`
-
-UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetName
 
 `func (o *StageScheduledEventPatchRequestPartial) GetName() string`
@@ -119,16 +109,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *StageScheduledEventPatchRequestPartial) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *StageScheduledEventPatchRequestPartial) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetImage
 
 `func (o *StageScheduledEventPatchRequestPartial) GetImage() string`
@@ -154,16 +134,6 @@ SetImage sets Image field to given value.
 
 HasImage returns a boolean if a field has been set.
 
-### SetImageNil
-
-`func (o *StageScheduledEventPatchRequestPartial) SetImageNil(b bool)`
-
- SetImageNil sets the value for Image to be an explicit nil
-
-### UnsetImage
-`func (o *StageScheduledEventPatchRequestPartial) UnsetImage()`
-
-UnsetImage ensures that no value is present for Image, not even an explicit nil
 ### GetScheduledStartTime
 
 `func (o *StageScheduledEventPatchRequestPartial) GetScheduledStartTime() time.Time`
@@ -214,32 +184,22 @@ SetScheduledEndTime sets ScheduledEndTime field to given value.
 
 HasScheduledEndTime returns a boolean if a field has been set.
 
-### SetScheduledEndTimeNil
-
-`func (o *StageScheduledEventPatchRequestPartial) SetScheduledEndTimeNil(b bool)`
-
- SetScheduledEndTimeNil sets the value for ScheduledEndTime to be an explicit nil
-
-### UnsetScheduledEndTime
-`func (o *StageScheduledEventPatchRequestPartial) UnsetScheduledEndTime()`
-
-UnsetScheduledEndTime ensures that no value is present for ScheduledEndTime, not even an explicit nil
 ### GetEntityType
 
-`func (o *StageScheduledEventPatchRequestPartial) GetEntityType() int32`
+`func (o *StageScheduledEventPatchRequestPartial) GetEntityType() StageScheduledEventPatchRequestPartialEntityType`
 
 GetEntityType returns the EntityType field if non-nil, zero value otherwise.
 
 ### GetEntityTypeOk
 
-`func (o *StageScheduledEventPatchRequestPartial) GetEntityTypeOk() (*int32, bool)`
+`func (o *StageScheduledEventPatchRequestPartial) GetEntityTypeOk() (*StageScheduledEventPatchRequestPartialEntityType, bool)`
 
 GetEntityTypeOk returns a tuple with the EntityType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityType
 
-`func (o *StageScheduledEventPatchRequestPartial) SetEntityType(v int32)`
+`func (o *StageScheduledEventPatchRequestPartial) SetEntityType(v StageScheduledEventPatchRequestPartialEntityType)`
 
 SetEntityType sets EntityType field to given value.
 
@@ -249,32 +209,22 @@ SetEntityType sets EntityType field to given value.
 
 HasEntityType returns a boolean if a field has been set.
 
-### SetEntityTypeNil
-
-`func (o *StageScheduledEventPatchRequestPartial) SetEntityTypeNil(b bool)`
-
- SetEntityTypeNil sets the value for EntityType to be an explicit nil
-
-### UnsetEntityType
-`func (o *StageScheduledEventPatchRequestPartial) UnsetEntityType()`
-
-UnsetEntityType ensures that no value is present for EntityType, not even an explicit nil
 ### GetPrivacyLevel
 
-`func (o *StageScheduledEventPatchRequestPartial) GetPrivacyLevel() interface{}`
+`func (o *StageScheduledEventPatchRequestPartial) GetPrivacyLevel() GuildScheduledEventPrivacyLevels`
 
 GetPrivacyLevel returns the PrivacyLevel field if non-nil, zero value otherwise.
 
 ### GetPrivacyLevelOk
 
-`func (o *StageScheduledEventPatchRequestPartial) GetPrivacyLevelOk() (*interface{}, bool)`
+`func (o *StageScheduledEventPatchRequestPartial) GetPrivacyLevelOk() (*GuildScheduledEventPrivacyLevels, bool)`
 
 GetPrivacyLevelOk returns a tuple with the PrivacyLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrivacyLevel
 
-`func (o *StageScheduledEventPatchRequestPartial) SetPrivacyLevel(v interface{})`
+`func (o *StageScheduledEventPatchRequestPartial) SetPrivacyLevel(v GuildScheduledEventPrivacyLevels)`
 
 SetPrivacyLevel sets PrivacyLevel field to given value.
 
@@ -284,32 +234,22 @@ SetPrivacyLevel sets PrivacyLevel field to given value.
 
 HasPrivacyLevel returns a boolean if a field has been set.
 
-### SetPrivacyLevelNil
-
-`func (o *StageScheduledEventPatchRequestPartial) SetPrivacyLevelNil(b bool)`
-
- SetPrivacyLevelNil sets the value for PrivacyLevel to be an explicit nil
-
-### UnsetPrivacyLevel
-`func (o *StageScheduledEventPatchRequestPartial) UnsetPrivacyLevel()`
-
-UnsetPrivacyLevel ensures that no value is present for PrivacyLevel, not even an explicit nil
 ### GetChannelId
 
-`func (o *StageScheduledEventPatchRequestPartial) GetChannelId() string`
+`func (o *StageScheduledEventPatchRequestPartial) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
 
 ### GetChannelIdOk
 
-`func (o *StageScheduledEventPatchRequestPartial) GetChannelIdOk() (*string, bool)`
+`func (o *StageScheduledEventPatchRequestPartial) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelId
 
-`func (o *StageScheduledEventPatchRequestPartial) SetChannelId(v string)`
+`func (o *StageScheduledEventPatchRequestPartial) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetChannelId sets ChannelId field to given value.
 
@@ -321,20 +261,20 @@ HasChannelId returns a boolean if a field has been set.
 
 ### GetEntityMetadata
 
-`func (o *StageScheduledEventPatchRequestPartial) GetEntityMetadata() map[string]interface{}`
+`func (o *StageScheduledEventPatchRequestPartial) GetEntityMetadata() StageScheduledEventCreateRequestEntityMetadata`
 
 GetEntityMetadata returns the EntityMetadata field if non-nil, zero value otherwise.
 
 ### GetEntityMetadataOk
 
-`func (o *StageScheduledEventPatchRequestPartial) GetEntityMetadataOk() (*map[string]interface{}, bool)`
+`func (o *StageScheduledEventPatchRequestPartial) GetEntityMetadataOk() (*StageScheduledEventCreateRequestEntityMetadata, bool)`
 
 GetEntityMetadataOk returns a tuple with the EntityMetadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityMetadata
 
-`func (o *StageScheduledEventPatchRequestPartial) SetEntityMetadata(v map[string]interface{})`
+`func (o *StageScheduledEventPatchRequestPartial) SetEntityMetadata(v StageScheduledEventCreateRequestEntityMetadata)`
 
 SetEntityMetadata sets EntityMetadata field to given value.
 

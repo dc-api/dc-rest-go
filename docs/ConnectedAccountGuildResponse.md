@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Icon** | Pointer to **NullableString** |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
 **Name** | **string** |  | 
 
 ## Methods
@@ -72,16 +72,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *ConnectedAccountGuildResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *ConnectedAccountGuildResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetName
 
 `func (o *ConnectedAccountGuildResponse) GetName() string`

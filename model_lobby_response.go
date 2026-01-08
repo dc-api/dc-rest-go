@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,8 +58,10 @@ type LobbyResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	ApplicationId string `json:"application_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Metadata map[string]string `json:"metadata,omitempty"`
-	Members []LobbyMemberResponse `json:"members,omitempty"`
-	LinkedChannel NullableGuildChannelResponse `json:"linked_channel,omitempty"`
+	Members []LobbyMemberResponse `json:"members"`
+	LinkedChannel *GuildChannelResponse `json:"linked_channel,omitempty"`
+	Flags int64 `json:"flags"`
+	OverrideEventWebhooksUrl *string `json:"override_event_webhooks_url,omitempty"`
 }
 
 type _LobbyResponse LobbyResponse
@@ -68,10 +70,12 @@ type _LobbyResponse LobbyResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLobbyResponse(id string, applicationId string) *LobbyResponse {
+func NewLobbyResponse(id string, applicationId string, members []LobbyMemberResponse, flags int64) *LobbyResponse {
 	this := LobbyResponse{}
 	this.Id = id
 	this.ApplicationId = applicationId
+	this.Members = members
+	this.Flags = flags
 	return &this
 }
 
@@ -164,18 +168,18 @@ func (o *LobbyResponse) SetMetadata(v map[string]string) {
 }
 
 
-// GetMembers returns the Members field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMembers returns the Members field value
 func (o *LobbyResponse) GetMembers() []LobbyMemberResponse {
 	if o == nil {
 		var ret []LobbyMemberResponse
 		return ret
 	}
+
 	return o.Members
 }
 
-// GetMembersOk returns a tuple with the Members field value if set, nil otherwise
+// GetMembersOk returns a tuple with the Members field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LobbyResponse) GetMembersOk() ([]LobbyMemberResponse, bool) {
 	if o == nil {
 		return nil, false
@@ -183,63 +187,100 @@ func (o *LobbyResponse) GetMembersOk() ([]LobbyMemberResponse, bool) {
 	return o.Members, true
 }
 
-// HasMembers returns a boolean if a field has been set.
-func (o *LobbyResponse) HasMembers() bool {
-	if o != nil && !IsNil(o.Members) {
-		return true
-	}
-
-	return false
-}
-
-// SetMembers gets a reference to the given []LobbyMemberResponse and assigns it to the Members field.
+// SetMembers sets field value
 func (o *LobbyResponse) SetMembers(v []LobbyMemberResponse) {
 	o.Members = v
 }
 
-
-// GetLinkedChannel returns the LinkedChannel field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLinkedChannel returns the LinkedChannel field value if set, zero value otherwise.
 func (o *LobbyResponse) GetLinkedChannel() GuildChannelResponse {
-	if o == nil || IsNil(o.LinkedChannel.Get()) {
+	if o == nil || IsNil(o.LinkedChannel) {
 		var ret GuildChannelResponse
 		return ret
 	}
-	return *o.LinkedChannel.Get()
+	return *o.LinkedChannel
 }
 
 // GetLinkedChannelOk returns a tuple with the LinkedChannel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LobbyResponse) GetLinkedChannelOk() (*GuildChannelResponse, bool) {
-	if o == nil || IsNil(o.LinkedChannel.Get()) {
+	if o == nil || IsNil(o.LinkedChannel) {
 		return nil, false
 	}
-	return o.LinkedChannel.Get(), o.LinkedChannel.IsSet()
+	return o.LinkedChannel, true
 }
 
 // HasLinkedChannel returns a boolean if a field has been set.
 func (o *LobbyResponse) HasLinkedChannel() bool {
-	if o != nil && o.LinkedChannel.IsSet() {
+	if o != nil && !IsNil(o.LinkedChannel) {
 		return true
 	}
 
 	return false
 }
 
-// SetLinkedChannel gets a reference to the given NullableGuildChannelResponse and assigns it to the LinkedChannel field.
+// SetLinkedChannel gets a reference to the given GuildChannelResponse and assigns it to the LinkedChannel field.
 func (o *LobbyResponse) SetLinkedChannel(v GuildChannelResponse) {
-	o.LinkedChannel.Set(&v)
+	o.LinkedChannel = &v
 }
 
-// SetLinkedChannelNil sets the value for LinkedChannel to be an explicit nil
-func (o *LobbyResponse) SetLinkedChannelNil() {
-	o.LinkedChannel.Set(nil)
+
+// GetFlags returns the Flags field value
+func (o *LobbyResponse) GetFlags() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.Flags
 }
 
-// UnsetLinkedChannel ensures that no value is present for LinkedChannel, not even an explicit nil
-func (o *LobbyResponse) UnsetLinkedChannel() {
-	o.LinkedChannel.Unset()
+// GetFlagsOk returns a tuple with the Flags field value
+// and a boolean to check if the value has been set.
+func (o *LobbyResponse) GetFlagsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Flags, true
 }
+
+// SetFlags sets field value
+func (o *LobbyResponse) SetFlags(v int64) {
+	o.Flags = v
+}
+
+// GetOverrideEventWebhooksUrl returns the OverrideEventWebhooksUrl field value if set, zero value otherwise.
+func (o *LobbyResponse) GetOverrideEventWebhooksUrl() string {
+	if o == nil || IsNil(o.OverrideEventWebhooksUrl) {
+		var ret string
+		return ret
+	}
+	return *o.OverrideEventWebhooksUrl
+}
+
+// GetOverrideEventWebhooksUrlOk returns a tuple with the OverrideEventWebhooksUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LobbyResponse) GetOverrideEventWebhooksUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.OverrideEventWebhooksUrl) {
+		return nil, false
+	}
+	return o.OverrideEventWebhooksUrl, true
+}
+
+// HasOverrideEventWebhooksUrl returns a boolean if a field has been set.
+func (o *LobbyResponse) HasOverrideEventWebhooksUrl() bool {
+	if o != nil && !IsNil(o.OverrideEventWebhooksUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetOverrideEventWebhooksUrl gets a reference to the given string and assigns it to the OverrideEventWebhooksUrl field.
+func (o *LobbyResponse) SetOverrideEventWebhooksUrl(v string) {
+	o.OverrideEventWebhooksUrl = &v
+}
+
 
 func (o LobbyResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -256,11 +297,13 @@ func (o LobbyResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Metadata) {
 		toSerialize["metadata"] = o.Metadata
 	}
-	if o.Members != nil {
-		toSerialize["members"] = o.Members
+	toSerialize["members"] = o.Members
+	if !IsNil(o.LinkedChannel) {
+		toSerialize["linked_channel"] = o.LinkedChannel
 	}
-	if o.LinkedChannel.IsSet() {
-		toSerialize["linked_channel"] = o.LinkedChannel.Get()
+	toSerialize["flags"] = o.Flags
+	if !IsNil(o.OverrideEventWebhooksUrl) {
+		toSerialize["override_event_webhooks_url"] = o.OverrideEventWebhooksUrl
 	}
 	return toSerialize, nil
 }
@@ -272,6 +315,8 @@ func (o *LobbyResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"id",
 		"application_id",
+		"members",
+		"flags",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -338,5 +383,4 @@ func (v *NullableLobbyResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

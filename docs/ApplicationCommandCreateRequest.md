@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **NameLocalizations** | Pointer to **map[string]string** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **DescriptionLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Options** | Pointer to [**[]ApplicationCommandCreateRequestOptionsInner**](ApplicationCommandCreateRequestOptionsInner.md) |  | [optional] 
-**DefaultMemberPermissions** | Pointer to **NullableInt32** |  | [optional] 
-**DmPermission** | Pointer to **NullableBool** |  | [optional] 
-**Contexts** | Pointer to **[]int32** |  | [optional] 
-**IntegrationTypes** | Pointer to **[]int32** |  | [optional] 
-**Handler** | Pointer to **int32** |  | [optional] 
-**Type** | Pointer to **int32** |  | [optional] 
+**DefaultMemberPermissions** | Pointer to **int32** |  | [optional] 
+**DmPermission** | Pointer to **bool** |  | [optional] 
+**Contexts** | Pointer to [**[]InteractionContextType**](InteractionContextType.md) |  | [optional] 
+**IntegrationTypes** | Pointer to [**[]ApplicationIntegrationType**](ApplicationIntegrationType.md) |  | [optional] 
+**Handler** | Pointer to [**ApplicationCommandCreateRequestHandler**](ApplicationCommandCreateRequestHandler.md) |  | [optional] 
+**Type** | Pointer to [**ApplicationCommandCreateRequestType**](ApplicationCommandCreateRequestType.md) |  | [optional] 
 
 ## Methods
 
@@ -105,16 +105,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *ApplicationCommandCreateRequest) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *ApplicationCommandCreateRequest) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetDescriptionLocalizations
 
 `func (o *ApplicationCommandCreateRequest) GetDescriptionLocalizations() map[string]string`
@@ -165,16 +155,6 @@ SetOptions sets Options field to given value.
 
 HasOptions returns a boolean if a field has been set.
 
-### SetOptionsNil
-
-`func (o *ApplicationCommandCreateRequest) SetOptionsNil(b bool)`
-
- SetOptionsNil sets the value for Options to be an explicit nil
-
-### UnsetOptions
-`func (o *ApplicationCommandCreateRequest) UnsetOptions()`
-
-UnsetOptions ensures that no value is present for Options, not even an explicit nil
 ### GetDefaultMemberPermissions
 
 `func (o *ApplicationCommandCreateRequest) GetDefaultMemberPermissions() int32`
@@ -200,16 +180,6 @@ SetDefaultMemberPermissions sets DefaultMemberPermissions field to given value.
 
 HasDefaultMemberPermissions returns a boolean if a field has been set.
 
-### SetDefaultMemberPermissionsNil
-
-`func (o *ApplicationCommandCreateRequest) SetDefaultMemberPermissionsNil(b bool)`
-
- SetDefaultMemberPermissionsNil sets the value for DefaultMemberPermissions to be an explicit nil
-
-### UnsetDefaultMemberPermissions
-`func (o *ApplicationCommandCreateRequest) UnsetDefaultMemberPermissions()`
-
-UnsetDefaultMemberPermissions ensures that no value is present for DefaultMemberPermissions, not even an explicit nil
 ### GetDmPermission
 
 `func (o *ApplicationCommandCreateRequest) GetDmPermission() bool`
@@ -235,32 +205,22 @@ SetDmPermission sets DmPermission field to given value.
 
 HasDmPermission returns a boolean if a field has been set.
 
-### SetDmPermissionNil
-
-`func (o *ApplicationCommandCreateRequest) SetDmPermissionNil(b bool)`
-
- SetDmPermissionNil sets the value for DmPermission to be an explicit nil
-
-### UnsetDmPermission
-`func (o *ApplicationCommandCreateRequest) UnsetDmPermission()`
-
-UnsetDmPermission ensures that no value is present for DmPermission, not even an explicit nil
 ### GetContexts
 
-`func (o *ApplicationCommandCreateRequest) GetContexts() []int32`
+`func (o *ApplicationCommandCreateRequest) GetContexts() []InteractionContextType`
 
 GetContexts returns the Contexts field if non-nil, zero value otherwise.
 
 ### GetContextsOk
 
-`func (o *ApplicationCommandCreateRequest) GetContextsOk() (*[]int32, bool)`
+`func (o *ApplicationCommandCreateRequest) GetContextsOk() (*[]InteractionContextType, bool)`
 
 GetContextsOk returns a tuple with the Contexts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetContexts
 
-`func (o *ApplicationCommandCreateRequest) SetContexts(v []int32)`
+`func (o *ApplicationCommandCreateRequest) SetContexts(v []InteractionContextType)`
 
 SetContexts sets Contexts field to given value.
 
@@ -270,32 +230,22 @@ SetContexts sets Contexts field to given value.
 
 HasContexts returns a boolean if a field has been set.
 
-### SetContextsNil
-
-`func (o *ApplicationCommandCreateRequest) SetContextsNil(b bool)`
-
- SetContextsNil sets the value for Contexts to be an explicit nil
-
-### UnsetContexts
-`func (o *ApplicationCommandCreateRequest) UnsetContexts()`
-
-UnsetContexts ensures that no value is present for Contexts, not even an explicit nil
 ### GetIntegrationTypes
 
-`func (o *ApplicationCommandCreateRequest) GetIntegrationTypes() []int32`
+`func (o *ApplicationCommandCreateRequest) GetIntegrationTypes() []ApplicationIntegrationType`
 
 GetIntegrationTypes returns the IntegrationTypes field if non-nil, zero value otherwise.
 
 ### GetIntegrationTypesOk
 
-`func (o *ApplicationCommandCreateRequest) GetIntegrationTypesOk() (*[]int32, bool)`
+`func (o *ApplicationCommandCreateRequest) GetIntegrationTypesOk() (*[]ApplicationIntegrationType, bool)`
 
 GetIntegrationTypesOk returns a tuple with the IntegrationTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIntegrationTypes
 
-`func (o *ApplicationCommandCreateRequest) SetIntegrationTypes(v []int32)`
+`func (o *ApplicationCommandCreateRequest) SetIntegrationTypes(v []ApplicationIntegrationType)`
 
 SetIntegrationTypes sets IntegrationTypes field to given value.
 
@@ -305,32 +255,22 @@ SetIntegrationTypes sets IntegrationTypes field to given value.
 
 HasIntegrationTypes returns a boolean if a field has been set.
 
-### SetIntegrationTypesNil
-
-`func (o *ApplicationCommandCreateRequest) SetIntegrationTypesNil(b bool)`
-
- SetIntegrationTypesNil sets the value for IntegrationTypes to be an explicit nil
-
-### UnsetIntegrationTypes
-`func (o *ApplicationCommandCreateRequest) UnsetIntegrationTypes()`
-
-UnsetIntegrationTypes ensures that no value is present for IntegrationTypes, not even an explicit nil
 ### GetHandler
 
-`func (o *ApplicationCommandCreateRequest) GetHandler() int32`
+`func (o *ApplicationCommandCreateRequest) GetHandler() ApplicationCommandCreateRequestHandler`
 
 GetHandler returns the Handler field if non-nil, zero value otherwise.
 
 ### GetHandlerOk
 
-`func (o *ApplicationCommandCreateRequest) GetHandlerOk() (*int32, bool)`
+`func (o *ApplicationCommandCreateRequest) GetHandlerOk() (*ApplicationCommandCreateRequestHandler, bool)`
 
 GetHandlerOk returns a tuple with the Handler field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHandler
 
-`func (o *ApplicationCommandCreateRequest) SetHandler(v int32)`
+`func (o *ApplicationCommandCreateRequest) SetHandler(v ApplicationCommandCreateRequestHandler)`
 
 SetHandler sets Handler field to given value.
 
@@ -342,20 +282,20 @@ HasHandler returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *ApplicationCommandCreateRequest) GetType() int32`
+`func (o *ApplicationCommandCreateRequest) GetType() ApplicationCommandCreateRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ApplicationCommandCreateRequest) GetTypeOk() (*int32, bool)`
+`func (o *ApplicationCommandCreateRequest) GetTypeOk() (*ApplicationCommandCreateRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ApplicationCommandCreateRequest) SetType(v int32)`
+`func (o *ApplicationCommandCreateRequest) SetType(v ApplicationCommandCreateRequestType)`
 
 SetType sets Type field to given value.
 

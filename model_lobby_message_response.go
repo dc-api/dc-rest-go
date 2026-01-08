@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ var _ MappedNullable = &LobbyMessageResponse{}
 // LobbyMessageResponse struct for LobbyMessageResponse
 type LobbyMessageResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Type int32 `json:"type"`
+	Type MessageType `json:"type"`
 	Content string `json:"content"`
 	LobbyId string `json:"lobby_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	ChannelId string `json:"channel_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
@@ -72,7 +72,7 @@ type _LobbyMessageResponse LobbyMessageResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLobbyMessageResponse(id string, type_ int32, content string, lobbyId string, channelId string, author UserResponse, flags int32) *LobbyMessageResponse {
+func NewLobbyMessageResponse(id string, type_ MessageType, content string, lobbyId string, channelId string, author UserResponse, flags int32) *LobbyMessageResponse {
 	this := LobbyMessageResponse{}
 	this.Id = id
 	this.Type = type_
@@ -117,9 +117,9 @@ func (o *LobbyMessageResponse) SetId(v string) {
 }
 
 // GetType returns the Type field value
-func (o *LobbyMessageResponse) GetType() int32 {
+func (o *LobbyMessageResponse) GetType() MessageType {
 	if o == nil {
-		var ret int32
+		var ret MessageType
 		return ret
 	}
 
@@ -128,7 +128,7 @@ func (o *LobbyMessageResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *LobbyMessageResponse) GetTypeOk() (*int32, bool) {
+func (o *LobbyMessageResponse) GetTypeOk() (*MessageType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -136,7 +136,7 @@ func (o *LobbyMessageResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *LobbyMessageResponse) SetType(v int32) {
+func (o *LobbyMessageResponse) SetType(v MessageType) {
 	o.Type = v
 }
 
@@ -430,5 +430,4 @@ func (v *NullableLobbyMessageResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 **SingleSelect** | **bool** |  | 
 **Required** | **bool** |  | 
 **InOnboarding** | **bool** |  | 
-**Type** | **int32** |  | 
+**Type** | [**OnboardingPromptType**](OnboardingPromptType.md) |  | 
 
 ## Methods
 
 ### NewOnboardingPromptResponse
 
-`func NewOnboardingPromptResponse(id string, title string, options []OnboardingPromptOptionResponse, singleSelect bool, required bool, inOnboarding bool, type_ int32, ) *OnboardingPromptResponse`
+`func NewOnboardingPromptResponse(id string, title string, options []OnboardingPromptOptionResponse, singleSelect bool, required bool, inOnboarding bool, type_ OnboardingPromptType, ) *OnboardingPromptResponse`
 
 NewOnboardingPromptResponse instantiates a new OnboardingPromptResponse object
 This constructor will assign default values to properties that have it defined,
@@ -153,20 +153,20 @@ SetInOnboarding sets InOnboarding field to given value.
 
 ### GetType
 
-`func (o *OnboardingPromptResponse) GetType() int32`
+`func (o *OnboardingPromptResponse) GetType() OnboardingPromptType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *OnboardingPromptResponse) GetTypeOk() (*int32, bool)`
+`func (o *OnboardingPromptResponse) GetTypeOk() (*OnboardingPromptType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *OnboardingPromptResponse) SetType(v int32)`
+`func (o *OnboardingPromptResponse) SetType(v OnboardingPromptType)`
 
 SetType sets Type field to given value.
 

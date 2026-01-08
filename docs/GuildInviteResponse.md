@@ -4,33 +4,33 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **NullableInt32** |  | [optional] 
+**Type** | [**InviteTypes**](InviteTypes.md) |  | 
 **Code** | **string** |  | 
-**Inviter** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**MaxAge** | Pointer to **NullableInt32** |  | [optional] 
-**CreatedAt** | Pointer to **NullableTime** |  | [optional] 
-**ExpiresAt** | Pointer to **NullableTime** |  | [optional] 
-**IsContact** | Pointer to **NullableBool** |  | [optional] 
-**Flags** | Pointer to **NullableInt32** |  | [optional] 
-**Guild** | Pointer to [**NullableInviteGuildResponse**](InviteGuildResponse.md) |  | [optional] 
-**GuildId** | Pointer to **string** |  | [optional] 
-**Channel** | Pointer to [**NullableInviteChannelResponse**](InviteChannelResponse.md) |  | [optional] 
-**TargetType** | Pointer to **NullableInt32** |  | [optional] 
-**TargetUser** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**TargetApplication** | Pointer to [**NullableInviteApplicationResponse**](InviteApplicationResponse.md) |  | [optional] 
-**GuildScheduledEvent** | Pointer to [**NullableScheduledEventResponse**](ScheduledEventResponse.md) |  | [optional] 
-**Uses** | Pointer to **NullableInt32** |  | [optional] 
-**MaxUses** | Pointer to **NullableInt32** |  | [optional] 
-**Temporary** | Pointer to **NullableBool** |  | [optional] 
-**ApproximateMemberCount** | Pointer to **NullableInt32** |  | [optional] 
-**ApproximatePresenceCount** | Pointer to **NullableInt32** |  | [optional] 
-**IsNicknameChangeable** | Pointer to **NullableBool** |  | [optional] 
+**Inviter** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**MaxAge** | Pointer to **int32** |  | [optional] 
+**CreatedAt** | Pointer to **time.Time** |  | [optional] 
+**ExpiresAt** | Pointer to **time.Time** |  | [optional] 
+**IsContact** | Pointer to **bool** |  | [optional] 
+**Flags** | Pointer to **int32** |  | [optional] 
+**Guild** | [**InviteGuildResponse**](InviteGuildResponse.md) |  | 
+**GuildId** | **string** |  | 
+**Channel** | [**InviteChannelResponse**](InviteChannelResponse.md) |  | 
+**TargetType** | Pointer to [**InviteTargetTypes**](InviteTargetTypes.md) |  | [optional] 
+**TargetUser** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**TargetApplication** | Pointer to [**InviteApplicationResponse**](InviteApplicationResponse.md) |  | [optional] 
+**GuildScheduledEvent** | Pointer to [**ScheduledEventResponse**](ScheduledEventResponse.md) |  | [optional] 
+**Uses** | Pointer to **int32** |  | [optional] 
+**MaxUses** | Pointer to **int32** |  | [optional] 
+**Temporary** | Pointer to **bool** |  | [optional] 
+**ApproximateMemberCount** | Pointer to **int32** |  | [optional] 
+**ApproximatePresenceCount** | Pointer to **int32** |  | [optional] 
+**IsNicknameChangeable** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewGuildInviteResponse
 
-`func NewGuildInviteResponse(code string, ) *GuildInviteResponse`
+`func NewGuildInviteResponse(type_ InviteTypes, code string, guild InviteGuildResponse, guildId string, channel InviteChannelResponse, ) *GuildInviteResponse`
 
 NewGuildInviteResponse instantiates a new GuildInviteResponse object
 This constructor will assign default values to properties that have it defined,
@@ -47,39 +47,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *GuildInviteResponse) GetType() int32`
+`func (o *GuildInviteResponse) GetType() InviteTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *GuildInviteResponse) GetTypeOk() (*int32, bool)`
+`func (o *GuildInviteResponse) GetTypeOk() (*InviteTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *GuildInviteResponse) SetType(v int32)`
+`func (o *GuildInviteResponse) SetType(v InviteTypes)`
 
 SetType sets Type field to given value.
 
-### HasType
 
-`func (o *GuildInviteResponse) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### SetTypeNil
-
-`func (o *GuildInviteResponse) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *GuildInviteResponse) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetCode
 
 `func (o *GuildInviteResponse) GetCode() string`
@@ -125,16 +110,6 @@ SetInviter sets Inviter field to given value.
 
 HasInviter returns a boolean if a field has been set.
 
-### SetInviterNil
-
-`func (o *GuildInviteResponse) SetInviterNil(b bool)`
-
- SetInviterNil sets the value for Inviter to be an explicit nil
-
-### UnsetInviter
-`func (o *GuildInviteResponse) UnsetInviter()`
-
-UnsetInviter ensures that no value is present for Inviter, not even an explicit nil
 ### GetMaxAge
 
 `func (o *GuildInviteResponse) GetMaxAge() int32`
@@ -160,16 +135,6 @@ SetMaxAge sets MaxAge field to given value.
 
 HasMaxAge returns a boolean if a field has been set.
 
-### SetMaxAgeNil
-
-`func (o *GuildInviteResponse) SetMaxAgeNil(b bool)`
-
- SetMaxAgeNil sets the value for MaxAge to be an explicit nil
-
-### UnsetMaxAge
-`func (o *GuildInviteResponse) UnsetMaxAge()`
-
-UnsetMaxAge ensures that no value is present for MaxAge, not even an explicit nil
 ### GetCreatedAt
 
 `func (o *GuildInviteResponse) GetCreatedAt() time.Time`
@@ -195,16 +160,6 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
-### SetCreatedAtNil
-
-`func (o *GuildInviteResponse) SetCreatedAtNil(b bool)`
-
- SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
-
-### UnsetCreatedAt
-`func (o *GuildInviteResponse) UnsetCreatedAt()`
-
-UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
 ### GetExpiresAt
 
 `func (o *GuildInviteResponse) GetExpiresAt() time.Time`
@@ -230,16 +185,6 @@ SetExpiresAt sets ExpiresAt field to given value.
 
 HasExpiresAt returns a boolean if a field has been set.
 
-### SetExpiresAtNil
-
-`func (o *GuildInviteResponse) SetExpiresAtNil(b bool)`
-
- SetExpiresAtNil sets the value for ExpiresAt to be an explicit nil
-
-### UnsetExpiresAt
-`func (o *GuildInviteResponse) UnsetExpiresAt()`
-
-UnsetExpiresAt ensures that no value is present for ExpiresAt, not even an explicit nil
 ### GetIsContact
 
 `func (o *GuildInviteResponse) GetIsContact() bool`
@@ -265,16 +210,6 @@ SetIsContact sets IsContact field to given value.
 
 HasIsContact returns a boolean if a field has been set.
 
-### SetIsContactNil
-
-`func (o *GuildInviteResponse) SetIsContactNil(b bool)`
-
- SetIsContactNil sets the value for IsContact to be an explicit nil
-
-### UnsetIsContact
-`func (o *GuildInviteResponse) UnsetIsContact()`
-
-UnsetIsContact ensures that no value is present for IsContact, not even an explicit nil
 ### GetFlags
 
 `func (o *GuildInviteResponse) GetFlags() int32`
@@ -300,16 +235,6 @@ SetFlags sets Flags field to given value.
 
 HasFlags returns a boolean if a field has been set.
 
-### SetFlagsNil
-
-`func (o *GuildInviteResponse) SetFlagsNil(b bool)`
-
- SetFlagsNil sets the value for Flags to be an explicit nil
-
-### UnsetFlags
-`func (o *GuildInviteResponse) UnsetFlags()`
-
-UnsetFlags ensures that no value is present for Flags, not even an explicit nil
 ### GetGuild
 
 `func (o *GuildInviteResponse) GetGuild() InviteGuildResponse`
@@ -329,22 +254,7 @@ and a boolean to check if the value has been set.
 
 SetGuild sets Guild field to given value.
 
-### HasGuild
 
-`func (o *GuildInviteResponse) HasGuild() bool`
-
-HasGuild returns a boolean if a field has been set.
-
-### SetGuildNil
-
-`func (o *GuildInviteResponse) SetGuildNil(b bool)`
-
- SetGuildNil sets the value for Guild to be an explicit nil
-
-### UnsetGuild
-`func (o *GuildInviteResponse) UnsetGuild()`
-
-UnsetGuild ensures that no value is present for Guild, not even an explicit nil
 ### GetGuildId
 
 `func (o *GuildInviteResponse) GetGuildId() string`
@@ -364,11 +274,6 @@ and a boolean to check if the value has been set.
 
 SetGuildId sets GuildId field to given value.
 
-### HasGuildId
-
-`func (o *GuildInviteResponse) HasGuildId() bool`
-
-HasGuildId returns a boolean if a field has been set.
 
 ### GetChannel
 
@@ -389,38 +294,23 @@ and a boolean to check if the value has been set.
 
 SetChannel sets Channel field to given value.
 
-### HasChannel
 
-`func (o *GuildInviteResponse) HasChannel() bool`
-
-HasChannel returns a boolean if a field has been set.
-
-### SetChannelNil
-
-`func (o *GuildInviteResponse) SetChannelNil(b bool)`
-
- SetChannelNil sets the value for Channel to be an explicit nil
-
-### UnsetChannel
-`func (o *GuildInviteResponse) UnsetChannel()`
-
-UnsetChannel ensures that no value is present for Channel, not even an explicit nil
 ### GetTargetType
 
-`func (o *GuildInviteResponse) GetTargetType() int32`
+`func (o *GuildInviteResponse) GetTargetType() InviteTargetTypes`
 
 GetTargetType returns the TargetType field if non-nil, zero value otherwise.
 
 ### GetTargetTypeOk
 
-`func (o *GuildInviteResponse) GetTargetTypeOk() (*int32, bool)`
+`func (o *GuildInviteResponse) GetTargetTypeOk() (*InviteTargetTypes, bool)`
 
 GetTargetTypeOk returns a tuple with the TargetType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTargetType
 
-`func (o *GuildInviteResponse) SetTargetType(v int32)`
+`func (o *GuildInviteResponse) SetTargetType(v InviteTargetTypes)`
 
 SetTargetType sets TargetType field to given value.
 
@@ -430,16 +320,6 @@ SetTargetType sets TargetType field to given value.
 
 HasTargetType returns a boolean if a field has been set.
 
-### SetTargetTypeNil
-
-`func (o *GuildInviteResponse) SetTargetTypeNil(b bool)`
-
- SetTargetTypeNil sets the value for TargetType to be an explicit nil
-
-### UnsetTargetType
-`func (o *GuildInviteResponse) UnsetTargetType()`
-
-UnsetTargetType ensures that no value is present for TargetType, not even an explicit nil
 ### GetTargetUser
 
 `func (o *GuildInviteResponse) GetTargetUser() UserResponse`
@@ -465,16 +345,6 @@ SetTargetUser sets TargetUser field to given value.
 
 HasTargetUser returns a boolean if a field has been set.
 
-### SetTargetUserNil
-
-`func (o *GuildInviteResponse) SetTargetUserNil(b bool)`
-
- SetTargetUserNil sets the value for TargetUser to be an explicit nil
-
-### UnsetTargetUser
-`func (o *GuildInviteResponse) UnsetTargetUser()`
-
-UnsetTargetUser ensures that no value is present for TargetUser, not even an explicit nil
 ### GetTargetApplication
 
 `func (o *GuildInviteResponse) GetTargetApplication() InviteApplicationResponse`
@@ -500,16 +370,6 @@ SetTargetApplication sets TargetApplication field to given value.
 
 HasTargetApplication returns a boolean if a field has been set.
 
-### SetTargetApplicationNil
-
-`func (o *GuildInviteResponse) SetTargetApplicationNil(b bool)`
-
- SetTargetApplicationNil sets the value for TargetApplication to be an explicit nil
-
-### UnsetTargetApplication
-`func (o *GuildInviteResponse) UnsetTargetApplication()`
-
-UnsetTargetApplication ensures that no value is present for TargetApplication, not even an explicit nil
 ### GetGuildScheduledEvent
 
 `func (o *GuildInviteResponse) GetGuildScheduledEvent() ScheduledEventResponse`
@@ -535,16 +395,6 @@ SetGuildScheduledEvent sets GuildScheduledEvent field to given value.
 
 HasGuildScheduledEvent returns a boolean if a field has been set.
 
-### SetGuildScheduledEventNil
-
-`func (o *GuildInviteResponse) SetGuildScheduledEventNil(b bool)`
-
- SetGuildScheduledEventNil sets the value for GuildScheduledEvent to be an explicit nil
-
-### UnsetGuildScheduledEvent
-`func (o *GuildInviteResponse) UnsetGuildScheduledEvent()`
-
-UnsetGuildScheduledEvent ensures that no value is present for GuildScheduledEvent, not even an explicit nil
 ### GetUses
 
 `func (o *GuildInviteResponse) GetUses() int32`
@@ -570,16 +420,6 @@ SetUses sets Uses field to given value.
 
 HasUses returns a boolean if a field has been set.
 
-### SetUsesNil
-
-`func (o *GuildInviteResponse) SetUsesNil(b bool)`
-
- SetUsesNil sets the value for Uses to be an explicit nil
-
-### UnsetUses
-`func (o *GuildInviteResponse) UnsetUses()`
-
-UnsetUses ensures that no value is present for Uses, not even an explicit nil
 ### GetMaxUses
 
 `func (o *GuildInviteResponse) GetMaxUses() int32`
@@ -605,16 +445,6 @@ SetMaxUses sets MaxUses field to given value.
 
 HasMaxUses returns a boolean if a field has been set.
 
-### SetMaxUsesNil
-
-`func (o *GuildInviteResponse) SetMaxUsesNil(b bool)`
-
- SetMaxUsesNil sets the value for MaxUses to be an explicit nil
-
-### UnsetMaxUses
-`func (o *GuildInviteResponse) UnsetMaxUses()`
-
-UnsetMaxUses ensures that no value is present for MaxUses, not even an explicit nil
 ### GetTemporary
 
 `func (o *GuildInviteResponse) GetTemporary() bool`
@@ -640,16 +470,6 @@ SetTemporary sets Temporary field to given value.
 
 HasTemporary returns a boolean if a field has been set.
 
-### SetTemporaryNil
-
-`func (o *GuildInviteResponse) SetTemporaryNil(b bool)`
-
- SetTemporaryNil sets the value for Temporary to be an explicit nil
-
-### UnsetTemporary
-`func (o *GuildInviteResponse) UnsetTemporary()`
-
-UnsetTemporary ensures that no value is present for Temporary, not even an explicit nil
 ### GetApproximateMemberCount
 
 `func (o *GuildInviteResponse) GetApproximateMemberCount() int32`
@@ -675,16 +495,6 @@ SetApproximateMemberCount sets ApproximateMemberCount field to given value.
 
 HasApproximateMemberCount returns a boolean if a field has been set.
 
-### SetApproximateMemberCountNil
-
-`func (o *GuildInviteResponse) SetApproximateMemberCountNil(b bool)`
-
- SetApproximateMemberCountNil sets the value for ApproximateMemberCount to be an explicit nil
-
-### UnsetApproximateMemberCount
-`func (o *GuildInviteResponse) UnsetApproximateMemberCount()`
-
-UnsetApproximateMemberCount ensures that no value is present for ApproximateMemberCount, not even an explicit nil
 ### GetApproximatePresenceCount
 
 `func (o *GuildInviteResponse) GetApproximatePresenceCount() int32`
@@ -710,16 +520,6 @@ SetApproximatePresenceCount sets ApproximatePresenceCount field to given value.
 
 HasApproximatePresenceCount returns a boolean if a field has been set.
 
-### SetApproximatePresenceCountNil
-
-`func (o *GuildInviteResponse) SetApproximatePresenceCountNil(b bool)`
-
- SetApproximatePresenceCountNil sets the value for ApproximatePresenceCount to be an explicit nil
-
-### UnsetApproximatePresenceCount
-`func (o *GuildInviteResponse) UnsetApproximatePresenceCount()`
-
-UnsetApproximatePresenceCount ensures that no value is present for ApproximatePresenceCount, not even an explicit nil
 ### GetIsNicknameChangeable
 
 `func (o *GuildInviteResponse) GetIsNicknameChangeable() bool`
@@ -745,16 +545,6 @@ SetIsNicknameChangeable sets IsNicknameChangeable field to given value.
 
 HasIsNicknameChangeable returns a boolean if a field has been set.
 
-### SetIsNicknameChangeableNil
-
-`func (o *GuildInviteResponse) SetIsNicknameChangeableNil(b bool)`
-
- SetIsNicknameChangeableNil sets the value for IsNicknameChangeable to be an explicit nil
-
-### UnsetIsNicknameChangeable
-`func (o *GuildInviteResponse) UnsetIsNicknameChangeable()`
-
-UnsetIsNicknameChangeable ensures that no value is present for IsNicknameChangeable, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

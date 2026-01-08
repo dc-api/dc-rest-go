@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PlatformName** | Pointer to **NullableString** |  | [optional] 
-**PlatformUsername** | Pointer to **NullableString** |  | [optional] 
+**PlatformName** | Pointer to **string** |  | [optional] 
+**PlatformUsername** | Pointer to **string** |  | [optional] 
 **Metadata** | Pointer to **map[string]string** |  | [optional] 
 
 ## Methods
@@ -52,16 +52,6 @@ SetPlatformName sets PlatformName field to given value.
 
 HasPlatformName returns a boolean if a field has been set.
 
-### SetPlatformNameNil
-
-`func (o *ApplicationUserRoleConnectionResponse) SetPlatformNameNil(b bool)`
-
- SetPlatformNameNil sets the value for PlatformName to be an explicit nil
-
-### UnsetPlatformName
-`func (o *ApplicationUserRoleConnectionResponse) UnsetPlatformName()`
-
-UnsetPlatformName ensures that no value is present for PlatformName, not even an explicit nil
 ### GetPlatformUsername
 
 `func (o *ApplicationUserRoleConnectionResponse) GetPlatformUsername() string`
@@ -87,16 +77,6 @@ SetPlatformUsername sets PlatformUsername field to given value.
 
 HasPlatformUsername returns a boolean if a field has been set.
 
-### SetPlatformUsernameNil
-
-`func (o *ApplicationUserRoleConnectionResponse) SetPlatformUsernameNil(b bool)`
-
- SetPlatformUsernameNil sets the value for PlatformUsername to be an explicit nil
-
-### UnsetPlatformUsername
-`func (o *ApplicationUserRoleConnectionResponse) UnsetPlatformUsername()`
-
-UnsetPlatformUsername ensures that no value is present for PlatformUsername, not even an explicit nil
 ### GetMetadata
 
 `func (o *ApplicationUserRoleConnectionResponse) GetMetadata() map[string]string`

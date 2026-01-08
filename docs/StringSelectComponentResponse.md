@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
 **Id** | **int32** |  | 
 **CustomId** | **string** |  | 
-**Placeholder** | Pointer to **NullableString** |  | [optional] 
-**MinValues** | Pointer to **NullableInt32** |  | [optional] 
-**MaxValues** | Pointer to **NullableInt32** |  | [optional] 
-**Disabled** | Pointer to **NullableBool** |  | [optional] 
+**Placeholder** | Pointer to **string** |  | [optional] 
+**MinValues** | Pointer to **int32** |  | [optional] 
+**MaxValues** | Pointer to **int32** |  | [optional] 
+**Disabled** | Pointer to **bool** |  | [optional] 
 **Options** | [**[]StringSelectOptionResponse**](StringSelectOptionResponse.md) |  | 
 
 ## Methods
 
 ### NewStringSelectComponentResponse
 
-`func NewStringSelectComponentResponse(type_ int32, id int32, customId string, options []StringSelectOptionResponse, ) *StringSelectComponentResponse`
+`func NewStringSelectComponentResponse(type_ MessageComponentTypes, id int32, customId string, options []StringSelectOptionResponse, ) *StringSelectComponentResponse`
 
 NewStringSelectComponentResponse instantiates a new StringSelectComponentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -34,20 +34,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *StringSelectComponentResponse) GetType() int32`
+`func (o *StringSelectComponentResponse) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *StringSelectComponentResponse) GetTypeOk() (*int32, bool)`
+`func (o *StringSelectComponentResponse) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *StringSelectComponentResponse) SetType(v int32)`
+`func (o *StringSelectComponentResponse) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
@@ -117,16 +117,6 @@ SetPlaceholder sets Placeholder field to given value.
 
 HasPlaceholder returns a boolean if a field has been set.
 
-### SetPlaceholderNil
-
-`func (o *StringSelectComponentResponse) SetPlaceholderNil(b bool)`
-
- SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-
-### UnsetPlaceholder
-`func (o *StringSelectComponentResponse) UnsetPlaceholder()`
-
-UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
 ### GetMinValues
 
 `func (o *StringSelectComponentResponse) GetMinValues() int32`
@@ -152,16 +142,6 @@ SetMinValues sets MinValues field to given value.
 
 HasMinValues returns a boolean if a field has been set.
 
-### SetMinValuesNil
-
-`func (o *StringSelectComponentResponse) SetMinValuesNil(b bool)`
-
- SetMinValuesNil sets the value for MinValues to be an explicit nil
-
-### UnsetMinValues
-`func (o *StringSelectComponentResponse) UnsetMinValues()`
-
-UnsetMinValues ensures that no value is present for MinValues, not even an explicit nil
 ### GetMaxValues
 
 `func (o *StringSelectComponentResponse) GetMaxValues() int32`
@@ -187,16 +167,6 @@ SetMaxValues sets MaxValues field to given value.
 
 HasMaxValues returns a boolean if a field has been set.
 
-### SetMaxValuesNil
-
-`func (o *StringSelectComponentResponse) SetMaxValuesNil(b bool)`
-
- SetMaxValuesNil sets the value for MaxValues to be an explicit nil
-
-### UnsetMaxValues
-`func (o *StringSelectComponentResponse) UnsetMaxValues()`
-
-UnsetMaxValues ensures that no value is present for MaxValues, not even an explicit nil
 ### GetDisabled
 
 `func (o *StringSelectComponentResponse) GetDisabled() bool`
@@ -222,16 +192,6 @@ SetDisabled sets Disabled field to given value.
 
 HasDisabled returns a boolean if a field has been set.
 
-### SetDisabledNil
-
-`func (o *StringSelectComponentResponse) SetDisabledNil(b bool)`
-
- SetDisabledNil sets the value for Disabled to be an explicit nil
-
-### UnsetDisabled
-`func (o *StringSelectComponentResponse) UnsetDisabled()`
-
-UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
 ### GetOptions
 
 `func (o *StringSelectComponentResponse) GetOptions() []StringSelectOptionResponse`

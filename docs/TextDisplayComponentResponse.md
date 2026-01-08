@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
 **Id** | **int32** |  | 
 **Content** | **string** |  | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewTextDisplayComponentResponse
 
-`func NewTextDisplayComponentResponse(type_ int32, id int32, content string, ) *TextDisplayComponentResponse`
+`func NewTextDisplayComponentResponse(type_ MessageComponentTypes, id int32, content string, ) *TextDisplayComponentResponse`
 
 NewTextDisplayComponentResponse instantiates a new TextDisplayComponentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *TextDisplayComponentResponse) GetType() int32`
+`func (o *TextDisplayComponentResponse) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *TextDisplayComponentResponse) GetTypeOk() (*int32, bool)`
+`func (o *TextDisplayComponentResponse) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *TextDisplayComponentResponse) SetType(v int32)`
+`func (o *TextDisplayComponentResponse) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 

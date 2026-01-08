@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -46,137 +46,91 @@ package dc_rest
 
 import (
 	"encoding/json"
+	"fmt"
+	"gopkg.in/validator.v2"
 )
 
-// checks if the GithubCheckRunOutput type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &GithubCheckRunOutput{}
-
-// GithubCheckRunOutput struct for GithubCheckRunOutput
+// GithubCheckRunOutput - struct for GithubCheckRunOutput
 type GithubCheckRunOutput struct {
-	Title NullableString `json:"title,omitempty"`
-	Summary NullableString `json:"summary,omitempty"`
+	GithubCheckRunOutput *GithubCheckRunOutput
 }
 
-// NewGithubCheckRunOutput instantiates a new GithubCheckRunOutput object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewGithubCheckRunOutput() *GithubCheckRunOutput {
-	this := GithubCheckRunOutput{}
-	return &this
-}
-
-// NewGithubCheckRunOutputWithDefaults instantiates a new GithubCheckRunOutput object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewGithubCheckRunOutputWithDefaults() *GithubCheckRunOutput {
-	this := GithubCheckRunOutput{}
-	return &this
-}
-
-// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubCheckRunOutput) GetTitle() string {
-	if o == nil || IsNil(o.Title.Get()) {
-		var ret string
-		return ret
+// GithubCheckRunOutputAsGithubCheckRunOutput is a convenience function that returns GithubCheckRunOutput wrapped in GithubCheckRunOutput
+func GithubCheckRunOutputAsGithubCheckRunOutput(v *GithubCheckRunOutput) GithubCheckRunOutput {
+	return GithubCheckRunOutput{
+		GithubCheckRunOutput: v,
 	}
-	return *o.Title.Get()
 }
 
-// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubCheckRunOutput) GetTitleOk() (*string, bool) {
-	if o == nil || IsNil(o.Title.Get()) {
-		return nil, false
-	}
-	return o.Title.Get(), o.Title.IsSet()
-}
 
-// HasTitle returns a boolean if a field has been set.
-func (o *GithubCheckRunOutput) HasTitle() bool {
-	if o != nil && o.Title.IsSet() {
-		return true
+// Unmarshal JSON data into one of the pointers in the struct
+func (dst *GithubCheckRunOutput) UnmarshalJSON(data []byte) error {
+	var err error
+	// this object is nullable so check if the payload is null or empty string
+	if string(data) == "" || string(data) == "{}" {
+		return nil
 	}
 
-	return false
-}
-
-// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
-func (o *GithubCheckRunOutput) SetTitle(v string) {
-	o.Title.Set(&v)
-}
-
-// SetTitleNil sets the value for Title to be an explicit nil
-func (o *GithubCheckRunOutput) SetTitleNil() {
-	o.Title.Set(nil)
-}
-
-// UnsetTitle ensures that no value is present for Title, not even an explicit nil
-func (o *GithubCheckRunOutput) UnsetTitle() {
-	o.Title.Unset()
-}
-
-// GetSummary returns the Summary field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubCheckRunOutput) GetSummary() string {
-	if o == nil || IsNil(o.Summary.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Summary.Get()
-}
-
-// GetSummaryOk returns a tuple with the Summary field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubCheckRunOutput) GetSummaryOk() (*string, bool) {
-	if o == nil || IsNil(o.Summary.Get()) {
-		return nil, false
-	}
-	return o.Summary.Get(), o.Summary.IsSet()
-}
-
-// HasSummary returns a boolean if a field has been set.
-func (o *GithubCheckRunOutput) HasSummary() bool {
-	if o != nil && o.Summary.IsSet() {
-		return true
+	match := 0
+	// try to unmarshal data into GithubCheckRunOutput
+	err = newStrictDecoder(data).Decode(&dst.GithubCheckRunOutput)
+	if err == nil {
+		jsonGithubCheckRunOutput, _ := json.Marshal(dst.GithubCheckRunOutput)
+		if string(jsonGithubCheckRunOutput) == "{}" { // empty struct
+			dst.GithubCheckRunOutput = nil
+		} else {
+			if err = validator.Validate(dst.GithubCheckRunOutput); err != nil {
+				dst.GithubCheckRunOutput = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.GithubCheckRunOutput = nil
 	}
 
-	return false
-}
+	if match > 1 { // more than 1 match
+		// reset to nil
+		dst.GithubCheckRunOutput = nil
 
-// SetSummary gets a reference to the given NullableString and assigns it to the Summary field.
-func (o *GithubCheckRunOutput) SetSummary(v string) {
-	o.Summary.Set(&v)
-}
-
-// SetSummaryNil sets the value for Summary to be an explicit nil
-func (o *GithubCheckRunOutput) SetSummaryNil() {
-	o.Summary.Set(nil)
-}
-
-// UnsetSummary ensures that no value is present for Summary, not even an explicit nil
-func (o *GithubCheckRunOutput) UnsetSummary() {
-	o.Summary.Unset()
-}
-
-func (o GithubCheckRunOutput) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
-	if err != nil {
-		return []byte{}, err
+		return fmt.Errorf("data matches more than one schema in oneOf(GithubCheckRunOutput)")
+	} else if match == 1 {
+		return nil // exactly one match
+	} else { // no match
+		return fmt.Errorf("data failed to match schemas in oneOf(GithubCheckRunOutput)")
 	}
-	return json.Marshal(toSerialize)
 }
 
-func (o GithubCheckRunOutput) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
-	if o.Title.IsSet() {
-		toSerialize["title"] = o.Title.Get()
+// Marshal data from the first non-nil pointers in the struct to JSON
+func (src GithubCheckRunOutput) MarshalJSON() ([]byte, error) {
+	if src.GithubCheckRunOutput != nil {
+		return json.Marshal(&src.GithubCheckRunOutput)
 	}
-	if o.Summary.IsSet() {
-		toSerialize["summary"] = o.Summary.Get()
+
+	return nil, nil // no data in oneOf schemas
+}
+
+// Get the actual instance
+func (obj *GithubCheckRunOutput) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
 	}
-	return toSerialize, nil
+	if obj.GithubCheckRunOutput != nil {
+		return obj.GithubCheckRunOutput
+	}
+
+	// all schemas are nil
+	return nil
+}
+
+// Get the actual instance value
+func (obj GithubCheckRunOutput) GetActualInstanceValue() (interface{}) {
+	if obj.GithubCheckRunOutput != nil {
+		return *obj.GithubCheckRunOutput
+	}
+
+	// all schemas are nil
+	return nil
 }
 
 type NullableGithubCheckRunOutput struct {
@@ -214,5 +168,4 @@ func (v *NullableGithubCheckRunOutput) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

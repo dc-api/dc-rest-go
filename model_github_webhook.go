@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,26 +55,26 @@ var _ MappedNullable = &GithubWebhook{}
 
 // GithubWebhook struct for GithubWebhook
 type GithubWebhook struct {
-	Action NullableString `json:"action,omitempty"`
-	Ref NullableString `json:"ref,omitempty"`
-	RefType NullableString `json:"ref_type,omitempty"`
-	Comment NullableGithubComment `json:"comment,omitempty"`
-	Issue NullableGithubIssue `json:"issue,omitempty"`
-	PullRequest NullableGithubIssue `json:"pull_request,omitempty"`
-	Repository NullableGithubRepository `json:"repository,omitempty"`
-	Forkee NullableGithubRepository `json:"forkee,omitempty"`
+	Action *string `json:"action,omitempty"`
+	Ref *string `json:"ref,omitempty"`
+	RefType *string `json:"ref_type,omitempty"`
+	Comment *GithubWebhookComment `json:"comment,omitempty"`
+	Issue *GithubWebhookIssue `json:"issue,omitempty"`
+	PullRequest *GithubWebhookIssue `json:"pull_request,omitempty"`
+	Repository *GithubWebhookRepository `json:"repository,omitempty"`
+	Forkee *GithubWebhookRepository `json:"forkee,omitempty"`
 	Sender GithubUser `json:"sender"`
-	Member NullableGithubUser `json:"member,omitempty"`
-	Release NullableGithubRelease `json:"release,omitempty"`
-	HeadCommit NullableGithubCommit `json:"head_commit,omitempty"`
+	Member *GithubWebhookMember `json:"member,omitempty"`
+	Release *GithubWebhookRelease `json:"release,omitempty"`
+	HeadCommit *GithubWebhookHeadCommit `json:"head_commit,omitempty"`
 	Commits []GithubCommit `json:"commits,omitempty"`
-	Forced NullableBool `json:"forced,omitempty"`
-	Compare NullableString `json:"compare,omitempty"`
-	Review NullableGithubReview `json:"review,omitempty"`
-	CheckRun NullableGithubCheckRun `json:"check_run,omitempty"`
-	CheckSuite NullableGithubCheckSuite `json:"check_suite,omitempty"`
-	Discussion NullableGithubDiscussion `json:"discussion,omitempty"`
-	Answer NullableGithubComment `json:"answer,omitempty"`
+	Forced *bool `json:"forced,omitempty"`
+	Compare *string `json:"compare,omitempty"`
+	Review *GithubWebhookReview `json:"review,omitempty"`
+	CheckRun *GithubWebhookCheckRun `json:"check_run,omitempty"`
+	CheckSuite *GithubWebhookCheckSuite `json:"check_suite,omitempty"`
+	Discussion *GithubWebhookDiscussion `json:"discussion,omitempty"`
+	Answer *GithubWebhookComment `json:"answer,omitempty"`
 }
 
 type _GithubWebhook GithubWebhook
@@ -97,349 +97,269 @@ func NewGithubWebhookWithDefaults() *GithubWebhook {
 	return &this
 }
 
-// GetAction returns the Action field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAction returns the Action field value if set, zero value otherwise.
 func (o *GithubWebhook) GetAction() string {
-	if o == nil || IsNil(o.Action.Get()) {
+	if o == nil || IsNil(o.Action) {
 		var ret string
 		return ret
 	}
-	return *o.Action.Get()
+	return *o.Action
 }
 
 // GetActionOk returns a tuple with the Action field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubWebhook) GetActionOk() (*string, bool) {
-	if o == nil || IsNil(o.Action.Get()) {
+	if o == nil || IsNil(o.Action) {
 		return nil, false
 	}
-	return o.Action.Get(), o.Action.IsSet()
+	return o.Action, true
 }
 
 // HasAction returns a boolean if a field has been set.
 func (o *GithubWebhook) HasAction() bool {
-	if o != nil && o.Action.IsSet() {
+	if o != nil && !IsNil(o.Action) {
 		return true
 	}
 
 	return false
 }
 
-// SetAction gets a reference to the given NullableString and assigns it to the Action field.
+// SetAction gets a reference to the given string and assigns it to the Action field.
 func (o *GithubWebhook) SetAction(v string) {
-	o.Action.Set(&v)
+	o.Action = &v
 }
 
-// SetActionNil sets the value for Action to be an explicit nil
-func (o *GithubWebhook) SetActionNil() {
-	o.Action.Set(nil)
-}
 
-// UnsetAction ensures that no value is present for Action, not even an explicit nil
-func (o *GithubWebhook) UnsetAction() {
-	o.Action.Unset()
-}
-
-// GetRef returns the Ref field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRef returns the Ref field value if set, zero value otherwise.
 func (o *GithubWebhook) GetRef() string {
-	if o == nil || IsNil(o.Ref.Get()) {
+	if o == nil || IsNil(o.Ref) {
 		var ret string
 		return ret
 	}
-	return *o.Ref.Get()
+	return *o.Ref
 }
 
 // GetRefOk returns a tuple with the Ref field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubWebhook) GetRefOk() (*string, bool) {
-	if o == nil || IsNil(o.Ref.Get()) {
+	if o == nil || IsNil(o.Ref) {
 		return nil, false
 	}
-	return o.Ref.Get(), o.Ref.IsSet()
+	return o.Ref, true
 }
 
 // HasRef returns a boolean if a field has been set.
 func (o *GithubWebhook) HasRef() bool {
-	if o != nil && o.Ref.IsSet() {
+	if o != nil && !IsNil(o.Ref) {
 		return true
 	}
 
 	return false
 }
 
-// SetRef gets a reference to the given NullableString and assigns it to the Ref field.
+// SetRef gets a reference to the given string and assigns it to the Ref field.
 func (o *GithubWebhook) SetRef(v string) {
-	o.Ref.Set(&v)
+	o.Ref = &v
 }
 
-// SetRefNil sets the value for Ref to be an explicit nil
-func (o *GithubWebhook) SetRefNil() {
-	o.Ref.Set(nil)
-}
 
-// UnsetRef ensures that no value is present for Ref, not even an explicit nil
-func (o *GithubWebhook) UnsetRef() {
-	o.Ref.Unset()
-}
-
-// GetRefType returns the RefType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRefType returns the RefType field value if set, zero value otherwise.
 func (o *GithubWebhook) GetRefType() string {
-	if o == nil || IsNil(o.RefType.Get()) {
+	if o == nil || IsNil(o.RefType) {
 		var ret string
 		return ret
 	}
-	return *o.RefType.Get()
+	return *o.RefType
 }
 
 // GetRefTypeOk returns a tuple with the RefType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubWebhook) GetRefTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.RefType.Get()) {
+	if o == nil || IsNil(o.RefType) {
 		return nil, false
 	}
-	return o.RefType.Get(), o.RefType.IsSet()
+	return o.RefType, true
 }
 
 // HasRefType returns a boolean if a field has been set.
 func (o *GithubWebhook) HasRefType() bool {
-	if o != nil && o.RefType.IsSet() {
+	if o != nil && !IsNil(o.RefType) {
 		return true
 	}
 
 	return false
 }
 
-// SetRefType gets a reference to the given NullableString and assigns it to the RefType field.
+// SetRefType gets a reference to the given string and assigns it to the RefType field.
 func (o *GithubWebhook) SetRefType(v string) {
-	o.RefType.Set(&v)
+	o.RefType = &v
 }
 
-// SetRefTypeNil sets the value for RefType to be an explicit nil
-func (o *GithubWebhook) SetRefTypeNil() {
-	o.RefType.Set(nil)
-}
 
-// UnsetRefType ensures that no value is present for RefType, not even an explicit nil
-func (o *GithubWebhook) UnsetRefType() {
-	o.RefType.Unset()
-}
-
-// GetComment returns the Comment field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubWebhook) GetComment() GithubComment {
-	if o == nil || IsNil(o.Comment.Get()) {
-		var ret GithubComment
+// GetComment returns the Comment field value if set, zero value otherwise.
+func (o *GithubWebhook) GetComment() GithubWebhookComment {
+	if o == nil || IsNil(o.Comment) {
+		var ret GithubWebhookComment
 		return ret
 	}
-	return *o.Comment.Get()
+	return *o.Comment
 }
 
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubWebhook) GetCommentOk() (*GithubComment, bool) {
-	if o == nil || IsNil(o.Comment.Get()) {
+func (o *GithubWebhook) GetCommentOk() (*GithubWebhookComment, bool) {
+	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
-	return o.Comment.Get(), o.Comment.IsSet()
+	return o.Comment, true
 }
 
 // HasComment returns a boolean if a field has been set.
 func (o *GithubWebhook) HasComment() bool {
-	if o != nil && o.Comment.IsSet() {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
 	return false
 }
 
-// SetComment gets a reference to the given NullableGithubComment and assigns it to the Comment field.
-func (o *GithubWebhook) SetComment(v GithubComment) {
-	o.Comment.Set(&v)
+// SetComment gets a reference to the given GithubWebhookComment and assigns it to the Comment field.
+func (o *GithubWebhook) SetComment(v GithubWebhookComment) {
+	o.Comment = &v
 }
 
-// SetCommentNil sets the value for Comment to be an explicit nil
-func (o *GithubWebhook) SetCommentNil() {
-	o.Comment.Set(nil)
-}
 
-// UnsetComment ensures that no value is present for Comment, not even an explicit nil
-func (o *GithubWebhook) UnsetComment() {
-	o.Comment.Unset()
-}
-
-// GetIssue returns the Issue field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubWebhook) GetIssue() GithubIssue {
-	if o == nil || IsNil(o.Issue.Get()) {
-		var ret GithubIssue
+// GetIssue returns the Issue field value if set, zero value otherwise.
+func (o *GithubWebhook) GetIssue() GithubWebhookIssue {
+	if o == nil || IsNil(o.Issue) {
+		var ret GithubWebhookIssue
 		return ret
 	}
-	return *o.Issue.Get()
+	return *o.Issue
 }
 
 // GetIssueOk returns a tuple with the Issue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubWebhook) GetIssueOk() (*GithubIssue, bool) {
-	if o == nil || IsNil(o.Issue.Get()) {
+func (o *GithubWebhook) GetIssueOk() (*GithubWebhookIssue, bool) {
+	if o == nil || IsNil(o.Issue) {
 		return nil, false
 	}
-	return o.Issue.Get(), o.Issue.IsSet()
+	return o.Issue, true
 }
 
 // HasIssue returns a boolean if a field has been set.
 func (o *GithubWebhook) HasIssue() bool {
-	if o != nil && o.Issue.IsSet() {
+	if o != nil && !IsNil(o.Issue) {
 		return true
 	}
 
 	return false
 }
 
-// SetIssue gets a reference to the given NullableGithubIssue and assigns it to the Issue field.
-func (o *GithubWebhook) SetIssue(v GithubIssue) {
-	o.Issue.Set(&v)
+// SetIssue gets a reference to the given GithubWebhookIssue and assigns it to the Issue field.
+func (o *GithubWebhook) SetIssue(v GithubWebhookIssue) {
+	o.Issue = &v
 }
 
-// SetIssueNil sets the value for Issue to be an explicit nil
-func (o *GithubWebhook) SetIssueNil() {
-	o.Issue.Set(nil)
-}
 
-// UnsetIssue ensures that no value is present for Issue, not even an explicit nil
-func (o *GithubWebhook) UnsetIssue() {
-	o.Issue.Unset()
-}
-
-// GetPullRequest returns the PullRequest field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubWebhook) GetPullRequest() GithubIssue {
-	if o == nil || IsNil(o.PullRequest.Get()) {
-		var ret GithubIssue
+// GetPullRequest returns the PullRequest field value if set, zero value otherwise.
+func (o *GithubWebhook) GetPullRequest() GithubWebhookIssue {
+	if o == nil || IsNil(o.PullRequest) {
+		var ret GithubWebhookIssue
 		return ret
 	}
-	return *o.PullRequest.Get()
+	return *o.PullRequest
 }
 
 // GetPullRequestOk returns a tuple with the PullRequest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubWebhook) GetPullRequestOk() (*GithubIssue, bool) {
-	if o == nil || IsNil(o.PullRequest.Get()) {
+func (o *GithubWebhook) GetPullRequestOk() (*GithubWebhookIssue, bool) {
+	if o == nil || IsNil(o.PullRequest) {
 		return nil, false
 	}
-	return o.PullRequest.Get(), o.PullRequest.IsSet()
+	return o.PullRequest, true
 }
 
 // HasPullRequest returns a boolean if a field has been set.
 func (o *GithubWebhook) HasPullRequest() bool {
-	if o != nil && o.PullRequest.IsSet() {
+	if o != nil && !IsNil(o.PullRequest) {
 		return true
 	}
 
 	return false
 }
 
-// SetPullRequest gets a reference to the given NullableGithubIssue and assigns it to the PullRequest field.
-func (o *GithubWebhook) SetPullRequest(v GithubIssue) {
-	o.PullRequest.Set(&v)
+// SetPullRequest gets a reference to the given GithubWebhookIssue and assigns it to the PullRequest field.
+func (o *GithubWebhook) SetPullRequest(v GithubWebhookIssue) {
+	o.PullRequest = &v
 }
 
-// SetPullRequestNil sets the value for PullRequest to be an explicit nil
-func (o *GithubWebhook) SetPullRequestNil() {
-	o.PullRequest.Set(nil)
-}
 
-// UnsetPullRequest ensures that no value is present for PullRequest, not even an explicit nil
-func (o *GithubWebhook) UnsetPullRequest() {
-	o.PullRequest.Unset()
-}
-
-// GetRepository returns the Repository field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubWebhook) GetRepository() GithubRepository {
-	if o == nil || IsNil(o.Repository.Get()) {
-		var ret GithubRepository
+// GetRepository returns the Repository field value if set, zero value otherwise.
+func (o *GithubWebhook) GetRepository() GithubWebhookRepository {
+	if o == nil || IsNil(o.Repository) {
+		var ret GithubWebhookRepository
 		return ret
 	}
-	return *o.Repository.Get()
+	return *o.Repository
 }
 
 // GetRepositoryOk returns a tuple with the Repository field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubWebhook) GetRepositoryOk() (*GithubRepository, bool) {
-	if o == nil || IsNil(o.Repository.Get()) {
+func (o *GithubWebhook) GetRepositoryOk() (*GithubWebhookRepository, bool) {
+	if o == nil || IsNil(o.Repository) {
 		return nil, false
 	}
-	return o.Repository.Get(), o.Repository.IsSet()
+	return o.Repository, true
 }
 
 // HasRepository returns a boolean if a field has been set.
 func (o *GithubWebhook) HasRepository() bool {
-	if o != nil && o.Repository.IsSet() {
+	if o != nil && !IsNil(o.Repository) {
 		return true
 	}
 
 	return false
 }
 
-// SetRepository gets a reference to the given NullableGithubRepository and assigns it to the Repository field.
-func (o *GithubWebhook) SetRepository(v GithubRepository) {
-	o.Repository.Set(&v)
+// SetRepository gets a reference to the given GithubWebhookRepository and assigns it to the Repository field.
+func (o *GithubWebhook) SetRepository(v GithubWebhookRepository) {
+	o.Repository = &v
 }
 
-// SetRepositoryNil sets the value for Repository to be an explicit nil
-func (o *GithubWebhook) SetRepositoryNil() {
-	o.Repository.Set(nil)
-}
 
-// UnsetRepository ensures that no value is present for Repository, not even an explicit nil
-func (o *GithubWebhook) UnsetRepository() {
-	o.Repository.Unset()
-}
-
-// GetForkee returns the Forkee field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubWebhook) GetForkee() GithubRepository {
-	if o == nil || IsNil(o.Forkee.Get()) {
-		var ret GithubRepository
+// GetForkee returns the Forkee field value if set, zero value otherwise.
+func (o *GithubWebhook) GetForkee() GithubWebhookRepository {
+	if o == nil || IsNil(o.Forkee) {
+		var ret GithubWebhookRepository
 		return ret
 	}
-	return *o.Forkee.Get()
+	return *o.Forkee
 }
 
 // GetForkeeOk returns a tuple with the Forkee field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubWebhook) GetForkeeOk() (*GithubRepository, bool) {
-	if o == nil || IsNil(o.Forkee.Get()) {
+func (o *GithubWebhook) GetForkeeOk() (*GithubWebhookRepository, bool) {
+	if o == nil || IsNil(o.Forkee) {
 		return nil, false
 	}
-	return o.Forkee.Get(), o.Forkee.IsSet()
+	return o.Forkee, true
 }
 
 // HasForkee returns a boolean if a field has been set.
 func (o *GithubWebhook) HasForkee() bool {
-	if o != nil && o.Forkee.IsSet() {
+	if o != nil && !IsNil(o.Forkee) {
 		return true
 	}
 
 	return false
 }
 
-// SetForkee gets a reference to the given NullableGithubRepository and assigns it to the Forkee field.
-func (o *GithubWebhook) SetForkee(v GithubRepository) {
-	o.Forkee.Set(&v)
+// SetForkee gets a reference to the given GithubWebhookRepository and assigns it to the Forkee field.
+func (o *GithubWebhook) SetForkee(v GithubWebhookRepository) {
+	o.Forkee = &v
 }
 
-// SetForkeeNil sets the value for Forkee to be an explicit nil
-func (o *GithubWebhook) SetForkeeNil() {
-	o.Forkee.Set(nil)
-}
-
-// UnsetForkee ensures that no value is present for Forkee, not even an explicit nil
-func (o *GithubWebhook) UnsetForkee() {
-	o.Forkee.Unset()
-}
 
 // GetSender returns the Sender field value
 func (o *GithubWebhook) GetSender() GithubUser {
@@ -465,138 +385,108 @@ func (o *GithubWebhook) SetSender(v GithubUser) {
 	o.Sender = v
 }
 
-// GetMember returns the Member field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubWebhook) GetMember() GithubUser {
-	if o == nil || IsNil(o.Member.Get()) {
-		var ret GithubUser
+// GetMember returns the Member field value if set, zero value otherwise.
+func (o *GithubWebhook) GetMember() GithubWebhookMember {
+	if o == nil || IsNil(o.Member) {
+		var ret GithubWebhookMember
 		return ret
 	}
-	return *o.Member.Get()
+	return *o.Member
 }
 
 // GetMemberOk returns a tuple with the Member field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubWebhook) GetMemberOk() (*GithubUser, bool) {
-	if o == nil || IsNil(o.Member.Get()) {
+func (o *GithubWebhook) GetMemberOk() (*GithubWebhookMember, bool) {
+	if o == nil || IsNil(o.Member) {
 		return nil, false
 	}
-	return o.Member.Get(), o.Member.IsSet()
+	return o.Member, true
 }
 
 // HasMember returns a boolean if a field has been set.
 func (o *GithubWebhook) HasMember() bool {
-	if o != nil && o.Member.IsSet() {
+	if o != nil && !IsNil(o.Member) {
 		return true
 	}
 
 	return false
 }
 
-// SetMember gets a reference to the given NullableGithubUser and assigns it to the Member field.
-func (o *GithubWebhook) SetMember(v GithubUser) {
-	o.Member.Set(&v)
+// SetMember gets a reference to the given GithubWebhookMember and assigns it to the Member field.
+func (o *GithubWebhook) SetMember(v GithubWebhookMember) {
+	o.Member = &v
 }
 
-// SetMemberNil sets the value for Member to be an explicit nil
-func (o *GithubWebhook) SetMemberNil() {
-	o.Member.Set(nil)
-}
 
-// UnsetMember ensures that no value is present for Member, not even an explicit nil
-func (o *GithubWebhook) UnsetMember() {
-	o.Member.Unset()
-}
-
-// GetRelease returns the Release field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubWebhook) GetRelease() GithubRelease {
-	if o == nil || IsNil(o.Release.Get()) {
-		var ret GithubRelease
+// GetRelease returns the Release field value if set, zero value otherwise.
+func (o *GithubWebhook) GetRelease() GithubWebhookRelease {
+	if o == nil || IsNil(o.Release) {
+		var ret GithubWebhookRelease
 		return ret
 	}
-	return *o.Release.Get()
+	return *o.Release
 }
 
 // GetReleaseOk returns a tuple with the Release field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubWebhook) GetReleaseOk() (*GithubRelease, bool) {
-	if o == nil || IsNil(o.Release.Get()) {
+func (o *GithubWebhook) GetReleaseOk() (*GithubWebhookRelease, bool) {
+	if o == nil || IsNil(o.Release) {
 		return nil, false
 	}
-	return o.Release.Get(), o.Release.IsSet()
+	return o.Release, true
 }
 
 // HasRelease returns a boolean if a field has been set.
 func (o *GithubWebhook) HasRelease() bool {
-	if o != nil && o.Release.IsSet() {
+	if o != nil && !IsNil(o.Release) {
 		return true
 	}
 
 	return false
 }
 
-// SetRelease gets a reference to the given NullableGithubRelease and assigns it to the Release field.
-func (o *GithubWebhook) SetRelease(v GithubRelease) {
-	o.Release.Set(&v)
+// SetRelease gets a reference to the given GithubWebhookRelease and assigns it to the Release field.
+func (o *GithubWebhook) SetRelease(v GithubWebhookRelease) {
+	o.Release = &v
 }
 
-// SetReleaseNil sets the value for Release to be an explicit nil
-func (o *GithubWebhook) SetReleaseNil() {
-	o.Release.Set(nil)
-}
 
-// UnsetRelease ensures that no value is present for Release, not even an explicit nil
-func (o *GithubWebhook) UnsetRelease() {
-	o.Release.Unset()
-}
-
-// GetHeadCommit returns the HeadCommit field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubWebhook) GetHeadCommit() GithubCommit {
-	if o == nil || IsNil(o.HeadCommit.Get()) {
-		var ret GithubCommit
+// GetHeadCommit returns the HeadCommit field value if set, zero value otherwise.
+func (o *GithubWebhook) GetHeadCommit() GithubWebhookHeadCommit {
+	if o == nil || IsNil(o.HeadCommit) {
+		var ret GithubWebhookHeadCommit
 		return ret
 	}
-	return *o.HeadCommit.Get()
+	return *o.HeadCommit
 }
 
 // GetHeadCommitOk returns a tuple with the HeadCommit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubWebhook) GetHeadCommitOk() (*GithubCommit, bool) {
-	if o == nil || IsNil(o.HeadCommit.Get()) {
+func (o *GithubWebhook) GetHeadCommitOk() (*GithubWebhookHeadCommit, bool) {
+	if o == nil || IsNil(o.HeadCommit) {
 		return nil, false
 	}
-	return o.HeadCommit.Get(), o.HeadCommit.IsSet()
+	return o.HeadCommit, true
 }
 
 // HasHeadCommit returns a boolean if a field has been set.
 func (o *GithubWebhook) HasHeadCommit() bool {
-	if o != nil && o.HeadCommit.IsSet() {
+	if o != nil && !IsNil(o.HeadCommit) {
 		return true
 	}
 
 	return false
 }
 
-// SetHeadCommit gets a reference to the given NullableGithubCommit and assigns it to the HeadCommit field.
-func (o *GithubWebhook) SetHeadCommit(v GithubCommit) {
-	o.HeadCommit.Set(&v)
+// SetHeadCommit gets a reference to the given GithubWebhookHeadCommit and assigns it to the HeadCommit field.
+func (o *GithubWebhook) SetHeadCommit(v GithubWebhookHeadCommit) {
+	o.HeadCommit = &v
 }
 
-// SetHeadCommitNil sets the value for HeadCommit to be an explicit nil
-func (o *GithubWebhook) SetHeadCommitNil() {
-	o.HeadCommit.Set(nil)
-}
 
-// UnsetHeadCommit ensures that no value is present for HeadCommit, not even an explicit nil
-func (o *GithubWebhook) UnsetHeadCommit() {
-	o.HeadCommit.Unset()
-}
-
-// GetCommits returns the Commits field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCommits returns the Commits field value if set, zero value otherwise.
 func (o *GithubWebhook) GetCommits() []GithubCommit {
-	if o == nil {
+	if o == nil || IsNil(o.Commits) {
 		var ret []GithubCommit
 		return ret
 	}
@@ -605,9 +495,8 @@ func (o *GithubWebhook) GetCommits() []GithubCommit {
 
 // GetCommitsOk returns a tuple with the Commits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubWebhook) GetCommitsOk() ([]GithubCommit, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Commits) {
 		return nil, false
 	}
 	return o.Commits, true
@@ -628,306 +517,236 @@ func (o *GithubWebhook) SetCommits(v []GithubCommit) {
 }
 
 
-// GetForced returns the Forced field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetForced returns the Forced field value if set, zero value otherwise.
 func (o *GithubWebhook) GetForced() bool {
-	if o == nil || IsNil(o.Forced.Get()) {
+	if o == nil || IsNil(o.Forced) {
 		var ret bool
 		return ret
 	}
-	return *o.Forced.Get()
+	return *o.Forced
 }
 
 // GetForcedOk returns a tuple with the Forced field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubWebhook) GetForcedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Forced.Get()) {
+	if o == nil || IsNil(o.Forced) {
 		return nil, false
 	}
-	return o.Forced.Get(), o.Forced.IsSet()
+	return o.Forced, true
 }
 
 // HasForced returns a boolean if a field has been set.
 func (o *GithubWebhook) HasForced() bool {
-	if o != nil && o.Forced.IsSet() {
+	if o != nil && !IsNil(o.Forced) {
 		return true
 	}
 
 	return false
 }
 
-// SetForced gets a reference to the given NullableBool and assigns it to the Forced field.
+// SetForced gets a reference to the given bool and assigns it to the Forced field.
 func (o *GithubWebhook) SetForced(v bool) {
-	o.Forced.Set(&v)
+	o.Forced = &v
 }
 
-// SetForcedNil sets the value for Forced to be an explicit nil
-func (o *GithubWebhook) SetForcedNil() {
-	o.Forced.Set(nil)
-}
 
-// UnsetForced ensures that no value is present for Forced, not even an explicit nil
-func (o *GithubWebhook) UnsetForced() {
-	o.Forced.Unset()
-}
-
-// GetCompare returns the Compare field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCompare returns the Compare field value if set, zero value otherwise.
 func (o *GithubWebhook) GetCompare() string {
-	if o == nil || IsNil(o.Compare.Get()) {
+	if o == nil || IsNil(o.Compare) {
 		var ret string
 		return ret
 	}
-	return *o.Compare.Get()
+	return *o.Compare
 }
 
 // GetCompareOk returns a tuple with the Compare field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubWebhook) GetCompareOk() (*string, bool) {
-	if o == nil || IsNil(o.Compare.Get()) {
+	if o == nil || IsNil(o.Compare) {
 		return nil, false
 	}
-	return o.Compare.Get(), o.Compare.IsSet()
+	return o.Compare, true
 }
 
 // HasCompare returns a boolean if a field has been set.
 func (o *GithubWebhook) HasCompare() bool {
-	if o != nil && o.Compare.IsSet() {
+	if o != nil && !IsNil(o.Compare) {
 		return true
 	}
 
 	return false
 }
 
-// SetCompare gets a reference to the given NullableString and assigns it to the Compare field.
+// SetCompare gets a reference to the given string and assigns it to the Compare field.
 func (o *GithubWebhook) SetCompare(v string) {
-	o.Compare.Set(&v)
+	o.Compare = &v
 }
 
-// SetCompareNil sets the value for Compare to be an explicit nil
-func (o *GithubWebhook) SetCompareNil() {
-	o.Compare.Set(nil)
-}
 
-// UnsetCompare ensures that no value is present for Compare, not even an explicit nil
-func (o *GithubWebhook) UnsetCompare() {
-	o.Compare.Unset()
-}
-
-// GetReview returns the Review field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubWebhook) GetReview() GithubReview {
-	if o == nil || IsNil(o.Review.Get()) {
-		var ret GithubReview
+// GetReview returns the Review field value if set, zero value otherwise.
+func (o *GithubWebhook) GetReview() GithubWebhookReview {
+	if o == nil || IsNil(o.Review) {
+		var ret GithubWebhookReview
 		return ret
 	}
-	return *o.Review.Get()
+	return *o.Review
 }
 
 // GetReviewOk returns a tuple with the Review field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubWebhook) GetReviewOk() (*GithubReview, bool) {
-	if o == nil || IsNil(o.Review.Get()) {
+func (o *GithubWebhook) GetReviewOk() (*GithubWebhookReview, bool) {
+	if o == nil || IsNil(o.Review) {
 		return nil, false
 	}
-	return o.Review.Get(), o.Review.IsSet()
+	return o.Review, true
 }
 
 // HasReview returns a boolean if a field has been set.
 func (o *GithubWebhook) HasReview() bool {
-	if o != nil && o.Review.IsSet() {
+	if o != nil && !IsNil(o.Review) {
 		return true
 	}
 
 	return false
 }
 
-// SetReview gets a reference to the given NullableGithubReview and assigns it to the Review field.
-func (o *GithubWebhook) SetReview(v GithubReview) {
-	o.Review.Set(&v)
+// SetReview gets a reference to the given GithubWebhookReview and assigns it to the Review field.
+func (o *GithubWebhook) SetReview(v GithubWebhookReview) {
+	o.Review = &v
 }
 
-// SetReviewNil sets the value for Review to be an explicit nil
-func (o *GithubWebhook) SetReviewNil() {
-	o.Review.Set(nil)
-}
 
-// UnsetReview ensures that no value is present for Review, not even an explicit nil
-func (o *GithubWebhook) UnsetReview() {
-	o.Review.Unset()
-}
-
-// GetCheckRun returns the CheckRun field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubWebhook) GetCheckRun() GithubCheckRun {
-	if o == nil || IsNil(o.CheckRun.Get()) {
-		var ret GithubCheckRun
+// GetCheckRun returns the CheckRun field value if set, zero value otherwise.
+func (o *GithubWebhook) GetCheckRun() GithubWebhookCheckRun {
+	if o == nil || IsNil(o.CheckRun) {
+		var ret GithubWebhookCheckRun
 		return ret
 	}
-	return *o.CheckRun.Get()
+	return *o.CheckRun
 }
 
 // GetCheckRunOk returns a tuple with the CheckRun field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubWebhook) GetCheckRunOk() (*GithubCheckRun, bool) {
-	if o == nil || IsNil(o.CheckRun.Get()) {
+func (o *GithubWebhook) GetCheckRunOk() (*GithubWebhookCheckRun, bool) {
+	if o == nil || IsNil(o.CheckRun) {
 		return nil, false
 	}
-	return o.CheckRun.Get(), o.CheckRun.IsSet()
+	return o.CheckRun, true
 }
 
 // HasCheckRun returns a boolean if a field has been set.
 func (o *GithubWebhook) HasCheckRun() bool {
-	if o != nil && o.CheckRun.IsSet() {
+	if o != nil && !IsNil(o.CheckRun) {
 		return true
 	}
 
 	return false
 }
 
-// SetCheckRun gets a reference to the given NullableGithubCheckRun and assigns it to the CheckRun field.
-func (o *GithubWebhook) SetCheckRun(v GithubCheckRun) {
-	o.CheckRun.Set(&v)
+// SetCheckRun gets a reference to the given GithubWebhookCheckRun and assigns it to the CheckRun field.
+func (o *GithubWebhook) SetCheckRun(v GithubWebhookCheckRun) {
+	o.CheckRun = &v
 }
 
-// SetCheckRunNil sets the value for CheckRun to be an explicit nil
-func (o *GithubWebhook) SetCheckRunNil() {
-	o.CheckRun.Set(nil)
-}
 
-// UnsetCheckRun ensures that no value is present for CheckRun, not even an explicit nil
-func (o *GithubWebhook) UnsetCheckRun() {
-	o.CheckRun.Unset()
-}
-
-// GetCheckSuite returns the CheckSuite field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubWebhook) GetCheckSuite() GithubCheckSuite {
-	if o == nil || IsNil(o.CheckSuite.Get()) {
-		var ret GithubCheckSuite
+// GetCheckSuite returns the CheckSuite field value if set, zero value otherwise.
+func (o *GithubWebhook) GetCheckSuite() GithubWebhookCheckSuite {
+	if o == nil || IsNil(o.CheckSuite) {
+		var ret GithubWebhookCheckSuite
 		return ret
 	}
-	return *o.CheckSuite.Get()
+	return *o.CheckSuite
 }
 
 // GetCheckSuiteOk returns a tuple with the CheckSuite field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubWebhook) GetCheckSuiteOk() (*GithubCheckSuite, bool) {
-	if o == nil || IsNil(o.CheckSuite.Get()) {
+func (o *GithubWebhook) GetCheckSuiteOk() (*GithubWebhookCheckSuite, bool) {
+	if o == nil || IsNil(o.CheckSuite) {
 		return nil, false
 	}
-	return o.CheckSuite.Get(), o.CheckSuite.IsSet()
+	return o.CheckSuite, true
 }
 
 // HasCheckSuite returns a boolean if a field has been set.
 func (o *GithubWebhook) HasCheckSuite() bool {
-	if o != nil && o.CheckSuite.IsSet() {
+	if o != nil && !IsNil(o.CheckSuite) {
 		return true
 	}
 
 	return false
 }
 
-// SetCheckSuite gets a reference to the given NullableGithubCheckSuite and assigns it to the CheckSuite field.
-func (o *GithubWebhook) SetCheckSuite(v GithubCheckSuite) {
-	o.CheckSuite.Set(&v)
+// SetCheckSuite gets a reference to the given GithubWebhookCheckSuite and assigns it to the CheckSuite field.
+func (o *GithubWebhook) SetCheckSuite(v GithubWebhookCheckSuite) {
+	o.CheckSuite = &v
 }
 
-// SetCheckSuiteNil sets the value for CheckSuite to be an explicit nil
-func (o *GithubWebhook) SetCheckSuiteNil() {
-	o.CheckSuite.Set(nil)
-}
 
-// UnsetCheckSuite ensures that no value is present for CheckSuite, not even an explicit nil
-func (o *GithubWebhook) UnsetCheckSuite() {
-	o.CheckSuite.Unset()
-}
-
-// GetDiscussion returns the Discussion field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubWebhook) GetDiscussion() GithubDiscussion {
-	if o == nil || IsNil(o.Discussion.Get()) {
-		var ret GithubDiscussion
+// GetDiscussion returns the Discussion field value if set, zero value otherwise.
+func (o *GithubWebhook) GetDiscussion() GithubWebhookDiscussion {
+	if o == nil || IsNil(o.Discussion) {
+		var ret GithubWebhookDiscussion
 		return ret
 	}
-	return *o.Discussion.Get()
+	return *o.Discussion
 }
 
 // GetDiscussionOk returns a tuple with the Discussion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubWebhook) GetDiscussionOk() (*GithubDiscussion, bool) {
-	if o == nil || IsNil(o.Discussion.Get()) {
+func (o *GithubWebhook) GetDiscussionOk() (*GithubWebhookDiscussion, bool) {
+	if o == nil || IsNil(o.Discussion) {
 		return nil, false
 	}
-	return o.Discussion.Get(), o.Discussion.IsSet()
+	return o.Discussion, true
 }
 
 // HasDiscussion returns a boolean if a field has been set.
 func (o *GithubWebhook) HasDiscussion() bool {
-	if o != nil && o.Discussion.IsSet() {
+	if o != nil && !IsNil(o.Discussion) {
 		return true
 	}
 
 	return false
 }
 
-// SetDiscussion gets a reference to the given NullableGithubDiscussion and assigns it to the Discussion field.
-func (o *GithubWebhook) SetDiscussion(v GithubDiscussion) {
-	o.Discussion.Set(&v)
+// SetDiscussion gets a reference to the given GithubWebhookDiscussion and assigns it to the Discussion field.
+func (o *GithubWebhook) SetDiscussion(v GithubWebhookDiscussion) {
+	o.Discussion = &v
 }
 
-// SetDiscussionNil sets the value for Discussion to be an explicit nil
-func (o *GithubWebhook) SetDiscussionNil() {
-	o.Discussion.Set(nil)
-}
 
-// UnsetDiscussion ensures that no value is present for Discussion, not even an explicit nil
-func (o *GithubWebhook) UnsetDiscussion() {
-	o.Discussion.Unset()
-}
-
-// GetAnswer returns the Answer field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GithubWebhook) GetAnswer() GithubComment {
-	if o == nil || IsNil(o.Answer.Get()) {
-		var ret GithubComment
+// GetAnswer returns the Answer field value if set, zero value otherwise.
+func (o *GithubWebhook) GetAnswer() GithubWebhookComment {
+	if o == nil || IsNil(o.Answer) {
+		var ret GithubWebhookComment
 		return ret
 	}
-	return *o.Answer.Get()
+	return *o.Answer
 }
 
 // GetAnswerOk returns a tuple with the Answer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GithubWebhook) GetAnswerOk() (*GithubComment, bool) {
-	if o == nil || IsNil(o.Answer.Get()) {
+func (o *GithubWebhook) GetAnswerOk() (*GithubWebhookComment, bool) {
+	if o == nil || IsNil(o.Answer) {
 		return nil, false
 	}
-	return o.Answer.Get(), o.Answer.IsSet()
+	return o.Answer, true
 }
 
 // HasAnswer returns a boolean if a field has been set.
 func (o *GithubWebhook) HasAnswer() bool {
-	if o != nil && o.Answer.IsSet() {
+	if o != nil && !IsNil(o.Answer) {
 		return true
 	}
 
 	return false
 }
 
-// SetAnswer gets a reference to the given NullableGithubComment and assigns it to the Answer field.
-func (o *GithubWebhook) SetAnswer(v GithubComment) {
-	o.Answer.Set(&v)
+// SetAnswer gets a reference to the given GithubWebhookComment and assigns it to the Answer field.
+func (o *GithubWebhook) SetAnswer(v GithubWebhookComment) {
+	o.Answer = &v
 }
 
-// SetAnswerNil sets the value for Answer to be an explicit nil
-func (o *GithubWebhook) SetAnswerNil() {
-	o.Answer.Set(nil)
-}
-
-// UnsetAnswer ensures that no value is present for Answer, not even an explicit nil
-func (o *GithubWebhook) UnsetAnswer() {
-	o.Answer.Unset()
-}
 
 func (o GithubWebhook) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -939,63 +758,63 @@ func (o GithubWebhook) MarshalJSON() ([]byte, error) {
 
 func (o GithubWebhook) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Action.IsSet() {
-		toSerialize["action"] = o.Action.Get()
+	if !IsNil(o.Action) {
+		toSerialize["action"] = o.Action
 	}
-	if o.Ref.IsSet() {
-		toSerialize["ref"] = o.Ref.Get()
+	if !IsNil(o.Ref) {
+		toSerialize["ref"] = o.Ref
 	}
-	if o.RefType.IsSet() {
-		toSerialize["ref_type"] = o.RefType.Get()
+	if !IsNil(o.RefType) {
+		toSerialize["ref_type"] = o.RefType
 	}
-	if o.Comment.IsSet() {
-		toSerialize["comment"] = o.Comment.Get()
+	if !IsNil(o.Comment) {
+		toSerialize["comment"] = o.Comment
 	}
-	if o.Issue.IsSet() {
-		toSerialize["issue"] = o.Issue.Get()
+	if !IsNil(o.Issue) {
+		toSerialize["issue"] = o.Issue
 	}
-	if o.PullRequest.IsSet() {
-		toSerialize["pull_request"] = o.PullRequest.Get()
+	if !IsNil(o.PullRequest) {
+		toSerialize["pull_request"] = o.PullRequest
 	}
-	if o.Repository.IsSet() {
-		toSerialize["repository"] = o.Repository.Get()
+	if !IsNil(o.Repository) {
+		toSerialize["repository"] = o.Repository
 	}
-	if o.Forkee.IsSet() {
-		toSerialize["forkee"] = o.Forkee.Get()
+	if !IsNil(o.Forkee) {
+		toSerialize["forkee"] = o.Forkee
 	}
 	toSerialize["sender"] = o.Sender
-	if o.Member.IsSet() {
-		toSerialize["member"] = o.Member.Get()
+	if !IsNil(o.Member) {
+		toSerialize["member"] = o.Member
 	}
-	if o.Release.IsSet() {
-		toSerialize["release"] = o.Release.Get()
+	if !IsNil(o.Release) {
+		toSerialize["release"] = o.Release
 	}
-	if o.HeadCommit.IsSet() {
-		toSerialize["head_commit"] = o.HeadCommit.Get()
+	if !IsNil(o.HeadCommit) {
+		toSerialize["head_commit"] = o.HeadCommit
 	}
-	if o.Commits != nil {
+	if !IsNil(o.Commits) {
 		toSerialize["commits"] = o.Commits
 	}
-	if o.Forced.IsSet() {
-		toSerialize["forced"] = o.Forced.Get()
+	if !IsNil(o.Forced) {
+		toSerialize["forced"] = o.Forced
 	}
-	if o.Compare.IsSet() {
-		toSerialize["compare"] = o.Compare.Get()
+	if !IsNil(o.Compare) {
+		toSerialize["compare"] = o.Compare
 	}
-	if o.Review.IsSet() {
-		toSerialize["review"] = o.Review.Get()
+	if !IsNil(o.Review) {
+		toSerialize["review"] = o.Review
 	}
-	if o.CheckRun.IsSet() {
-		toSerialize["check_run"] = o.CheckRun.Get()
+	if !IsNil(o.CheckRun) {
+		toSerialize["check_run"] = o.CheckRun
 	}
-	if o.CheckSuite.IsSet() {
-		toSerialize["check_suite"] = o.CheckSuite.Get()
+	if !IsNil(o.CheckSuite) {
+		toSerialize["check_suite"] = o.CheckSuite
 	}
-	if o.Discussion.IsSet() {
-		toSerialize["discussion"] = o.Discussion.Get()
+	if !IsNil(o.Discussion) {
+		toSerialize["discussion"] = o.Discussion
 	}
-	if o.Answer.IsSet() {
-		toSerialize["answer"] = o.Answer.Get()
+	if !IsNil(o.Answer) {
+		toSerialize["answer"] = o.Answer
 	}
 	return toSerialize, nil
 }
@@ -1072,5 +891,4 @@ func (v *NullableGithubWebhook) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

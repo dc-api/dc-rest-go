@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,8 +57,8 @@ var _ MappedNullable = &ResourceChannelResponse{}
 type ResourceChannelResponse struct {
 	ChannelId string `json:"channel_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Title string `json:"title"`
-	Emoji NullableSettingsEmojiResponse `json:"emoji,omitempty"`
-	Icon NullableString `json:"icon,omitempty"`
+	Emoji *SettingsEmojiResponse `json:"emoji,omitempty"`
+	Icon *string `json:"icon,omitempty"`
 	Description string `json:"description"`
 }
 
@@ -132,91 +132,71 @@ func (o *ResourceChannelResponse) SetTitle(v string) {
 	o.Title = v
 }
 
-// GetEmoji returns the Emoji field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmoji returns the Emoji field value if set, zero value otherwise.
 func (o *ResourceChannelResponse) GetEmoji() SettingsEmojiResponse {
-	if o == nil || IsNil(o.Emoji.Get()) {
+	if o == nil || IsNil(o.Emoji) {
 		var ret SettingsEmojiResponse
 		return ret
 	}
-	return *o.Emoji.Get()
+	return *o.Emoji
 }
 
 // GetEmojiOk returns a tuple with the Emoji field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceChannelResponse) GetEmojiOk() (*SettingsEmojiResponse, bool) {
-	if o == nil || IsNil(o.Emoji.Get()) {
+	if o == nil || IsNil(o.Emoji) {
 		return nil, false
 	}
-	return o.Emoji.Get(), o.Emoji.IsSet()
+	return o.Emoji, true
 }
 
 // HasEmoji returns a boolean if a field has been set.
 func (o *ResourceChannelResponse) HasEmoji() bool {
-	if o != nil && o.Emoji.IsSet() {
+	if o != nil && !IsNil(o.Emoji) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmoji gets a reference to the given NullableSettingsEmojiResponse and assigns it to the Emoji field.
+// SetEmoji gets a reference to the given SettingsEmojiResponse and assigns it to the Emoji field.
 func (o *ResourceChannelResponse) SetEmoji(v SettingsEmojiResponse) {
-	o.Emoji.Set(&v)
+	o.Emoji = &v
 }
 
-// SetEmojiNil sets the value for Emoji to be an explicit nil
-func (o *ResourceChannelResponse) SetEmojiNil() {
-	o.Emoji.Set(nil)
-}
 
-// UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
-func (o *ResourceChannelResponse) UnsetEmoji() {
-	o.Emoji.Unset()
-}
-
-// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIcon returns the Icon field value if set, zero value otherwise.
 func (o *ResourceChannelResponse) GetIcon() string {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		var ret string
 		return ret
 	}
-	return *o.Icon.Get()
+	return *o.Icon
 }
 
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceChannelResponse) GetIconOk() (*string, bool) {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		return nil, false
 	}
-	return o.Icon.Get(), o.Icon.IsSet()
+	return o.Icon, true
 }
 
 // HasIcon returns a boolean if a field has been set.
 func (o *ResourceChannelResponse) HasIcon() bool {
-	if o != nil && o.Icon.IsSet() {
+	if o != nil && !IsNil(o.Icon) {
 		return true
 	}
 
 	return false
 }
 
-// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+// SetIcon gets a reference to the given string and assigns it to the Icon field.
 func (o *ResourceChannelResponse) SetIcon(v string) {
-	o.Icon.Set(&v)
+	o.Icon = &v
 }
 
-// SetIconNil sets the value for Icon to be an explicit nil
-func (o *ResourceChannelResponse) SetIconNil() {
-	o.Icon.Set(nil)
-}
-
-// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
-func (o *ResourceChannelResponse) UnsetIcon() {
-	o.Icon.Unset()
-}
 
 // GetDescription returns the Description field value
 func (o *ResourceChannelResponse) GetDescription() string {
@@ -254,11 +234,11 @@ func (o ResourceChannelResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["channel_id"] = o.ChannelId
 	toSerialize["title"] = o.Title
-	if o.Emoji.IsSet() {
-		toSerialize["emoji"] = o.Emoji.Get()
+	if !IsNil(o.Emoji) {
+		toSerialize["emoji"] = o.Emoji
 	}
-	if o.Icon.IsSet() {
-		toSerialize["icon"] = o.Icon.Get()
+	if !IsNil(o.Icon) {
+		toSerialize["icon"] = o.Icon
 	}
 	toSerialize["description"] = o.Description
 	return toSerialize, nil
@@ -338,5 +318,4 @@ func (v *NullableResourceChannelResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

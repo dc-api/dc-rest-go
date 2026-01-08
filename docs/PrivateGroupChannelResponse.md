@@ -5,22 +5,22 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **int32** |  | 
-**LastMessageId** | Pointer to **string** |  | [optional] 
+**Type** | [**ChannelTypes**](ChannelTypes.md) |  | 
+**LastMessageId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Flags** | **int32** |  | 
-**LastPinTimestamp** | Pointer to **NullableTime** |  | [optional] 
+**LastPinTimestamp** | Pointer to **time.Time** |  | [optional] 
 **Recipients** | [**[]UserResponse**](UserResponse.md) |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Icon** | Pointer to **NullableString** |  | [optional] 
-**OwnerId** | Pointer to **string** |  | [optional] 
-**Managed** | Pointer to **NullableBool** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
+**OwnerId** | **string** |  | 
+**Managed** | Pointer to **bool** |  | [optional] 
 **ApplicationId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewPrivateGroupChannelResponse
 
-`func NewPrivateGroupChannelResponse(id string, type_ int32, flags int32, recipients []UserResponse, ) *PrivateGroupChannelResponse`
+`func NewPrivateGroupChannelResponse(id string, type_ ChannelTypes, flags int32, recipients []UserResponse, ownerId string, ) *PrivateGroupChannelResponse`
 
 NewPrivateGroupChannelResponse instantiates a new PrivateGroupChannelResponse object
 This constructor will assign default values to properties that have it defined,
@@ -57,40 +57,40 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *PrivateGroupChannelResponse) GetType() int32`
+`func (o *PrivateGroupChannelResponse) GetType() ChannelTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *PrivateGroupChannelResponse) GetTypeOk() (*int32, bool)`
+`func (o *PrivateGroupChannelResponse) GetTypeOk() (*ChannelTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *PrivateGroupChannelResponse) SetType(v int32)`
+`func (o *PrivateGroupChannelResponse) SetType(v ChannelTypes)`
 
 SetType sets Type field to given value.
 
 
 ### GetLastMessageId
 
-`func (o *PrivateGroupChannelResponse) GetLastMessageId() string`
+`func (o *PrivateGroupChannelResponse) GetLastMessageId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetLastMessageId returns the LastMessageId field if non-nil, zero value otherwise.
 
 ### GetLastMessageIdOk
 
-`func (o *PrivateGroupChannelResponse) GetLastMessageIdOk() (*string, bool)`
+`func (o *PrivateGroupChannelResponse) GetLastMessageIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetLastMessageIdOk returns a tuple with the LastMessageId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastMessageId
 
-`func (o *PrivateGroupChannelResponse) SetLastMessageId(v string)`
+`func (o *PrivateGroupChannelResponse) SetLastMessageId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetLastMessageId sets LastMessageId field to given value.
 
@@ -145,16 +145,6 @@ SetLastPinTimestamp sets LastPinTimestamp field to given value.
 
 HasLastPinTimestamp returns a boolean if a field has been set.
 
-### SetLastPinTimestampNil
-
-`func (o *PrivateGroupChannelResponse) SetLastPinTimestampNil(b bool)`
-
- SetLastPinTimestampNil sets the value for LastPinTimestamp to be an explicit nil
-
-### UnsetLastPinTimestamp
-`func (o *PrivateGroupChannelResponse) UnsetLastPinTimestamp()`
-
-UnsetLastPinTimestamp ensures that no value is present for LastPinTimestamp, not even an explicit nil
 ### GetRecipients
 
 `func (o *PrivateGroupChannelResponse) GetRecipients() []UserResponse`
@@ -200,16 +190,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *PrivateGroupChannelResponse) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *PrivateGroupChannelResponse) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIcon
 
 `func (o *PrivateGroupChannelResponse) GetIcon() string`
@@ -235,16 +215,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *PrivateGroupChannelResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *PrivateGroupChannelResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetOwnerId
 
 `func (o *PrivateGroupChannelResponse) GetOwnerId() string`
@@ -264,11 +234,6 @@ and a boolean to check if the value has been set.
 
 SetOwnerId sets OwnerId field to given value.
 
-### HasOwnerId
-
-`func (o *PrivateGroupChannelResponse) HasOwnerId() bool`
-
-HasOwnerId returns a boolean if a field has been set.
 
 ### GetManaged
 
@@ -295,16 +260,6 @@ SetManaged sets Managed field to given value.
 
 HasManaged returns a boolean if a field has been set.
 
-### SetManagedNil
-
-`func (o *PrivateGroupChannelResponse) SetManagedNil(b bool)`
-
- SetManagedNil sets the value for Managed to be an explicit nil
-
-### UnsetManaged
-`func (o *PrivateGroupChannelResponse) UnsetManaged()`
-
-UnsetManaged ensures that no value is present for Managed, not even an explicit nil
 ### GetApplicationId
 
 `func (o *PrivateGroupChannelResponse) GetApplicationId() string`

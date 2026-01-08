@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **HtmlUrl** | **string** |  | 
 **User** | [**GithubUser**](GithubUser.md) |  | 
 **Title** | **string** |  | 
-**Body** | Pointer to **NullableString** |  | [optional] 
+**Body** | Pointer to **string** |  | [optional] 
 **PullRequest** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
@@ -156,16 +156,6 @@ SetBody sets Body field to given value.
 
 HasBody returns a boolean if a field has been set.
 
-### SetBodyNil
-
-`func (o *GithubIssue) SetBodyNil(b bool)`
-
- SetBodyNil sets the value for Body to be an explicit nil
-
-### UnsetBody
-`func (o *GithubIssue) UnsetBody()`
-
-UnsetBody ensures that no value is present for Body, not even an explicit nil
 ### GetPullRequest
 
 `func (o *GithubIssue) GetPullRequest() interface{}`

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**AutoArchiveDuration** | Pointer to **int32** |  | [optional] 
-**RateLimitPerUser** | Pointer to **NullableInt32** |  | [optional] 
+**AutoArchiveDuration** | Pointer to [**CreateForumThreadRequestAutoArchiveDuration**](CreateForumThreadRequestAutoArchiveDuration.md) |  | [optional] 
+**RateLimitPerUser** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -49,20 +49,20 @@ SetName sets Name field to given value.
 
 ### GetAutoArchiveDuration
 
-`func (o *CreateTextThreadWithMessageRequest) GetAutoArchiveDuration() int32`
+`func (o *CreateTextThreadWithMessageRequest) GetAutoArchiveDuration() CreateForumThreadRequestAutoArchiveDuration`
 
 GetAutoArchiveDuration returns the AutoArchiveDuration field if non-nil, zero value otherwise.
 
 ### GetAutoArchiveDurationOk
 
-`func (o *CreateTextThreadWithMessageRequest) GetAutoArchiveDurationOk() (*int32, bool)`
+`func (o *CreateTextThreadWithMessageRequest) GetAutoArchiveDurationOk() (*CreateForumThreadRequestAutoArchiveDuration, bool)`
 
 GetAutoArchiveDurationOk returns a tuple with the AutoArchiveDuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutoArchiveDuration
 
-`func (o *CreateTextThreadWithMessageRequest) SetAutoArchiveDuration(v int32)`
+`func (o *CreateTextThreadWithMessageRequest) SetAutoArchiveDuration(v CreateForumThreadRequestAutoArchiveDuration)`
 
 SetAutoArchiveDuration sets AutoArchiveDuration field to given value.
 
@@ -97,16 +97,6 @@ SetRateLimitPerUser sets RateLimitPerUser field to given value.
 
 HasRateLimitPerUser returns a boolean if a field has been set.
 
-### SetRateLimitPerUserNil
-
-`func (o *CreateTextThreadWithMessageRequest) SetRateLimitPerUserNil(b bool)`
-
- SetRateLimitPerUserNil sets the value for RateLimitPerUser to be an explicit nil
-
-### UnsetRateLimitPerUser
-`func (o *CreateTextThreadWithMessageRequest) UnsetRateLimitPerUser()`
-
-UnsetRateLimitPerUser ensures that no value is present for RateLimitPerUser, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

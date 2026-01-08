@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Username** | **string** |  | 
-**Avatar** | Pointer to **NullableString** |  | [optional] 
-**Banner** | Pointer to **NullableString** |  | [optional] 
+**Avatar** | Pointer to **string** |  | [optional] 
+**Banner** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -72,16 +72,6 @@ SetAvatar sets Avatar field to given value.
 
 HasAvatar returns a boolean if a field has been set.
 
-### SetAvatarNil
-
-`func (o *BotAccountPatchRequest) SetAvatarNil(b bool)`
-
- SetAvatarNil sets the value for Avatar to be an explicit nil
-
-### UnsetAvatar
-`func (o *BotAccountPatchRequest) UnsetAvatar()`
-
-UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
 ### GetBanner
 
 `func (o *BotAccountPatchRequest) GetBanner() string`
@@ -107,16 +97,6 @@ SetBanner sets Banner field to given value.
 
 HasBanner returns a boolean if a field has been set.
 
-### SetBannerNil
-
-`func (o *BotAccountPatchRequest) SetBannerNil(b bool)`
-
- SetBannerNil sets the value for Banner to be an explicit nil
-
-### UnsetBanner
-`func (o *BotAccountPatchRequest) UnsetBanner()`
-
-UnsetBanner ensures that no value is present for Banner, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

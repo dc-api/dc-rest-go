@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,9 +53,9 @@ var _ MappedNullable = &PruneGuildRequest{}
 
 // PruneGuildRequest struct for PruneGuildRequest
 type PruneGuildRequest struct {
-	Days NullableInt32 `json:"days,omitempty"`
-	ComputePruneCount NullableBool `json:"compute_prune_count,omitempty"`
-	IncludeRoles NullablePruneGuildRequestIncludeRoles `json:"include_roles,omitempty"`
+	Days *int32 `json:"days,omitempty"`
+	ComputePruneCount *bool `json:"compute_prune_count,omitempty"`
+	IncludeRoles *PruneGuildRequestIncludeRoles `json:"include_roles,omitempty"`
 }
 
 // NewPruneGuildRequest instantiates a new PruneGuildRequest object
@@ -75,134 +75,104 @@ func NewPruneGuildRequestWithDefaults() *PruneGuildRequest {
 	return &this
 }
 
-// GetDays returns the Days field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDays returns the Days field value if set, zero value otherwise.
 func (o *PruneGuildRequest) GetDays() int32 {
-	if o == nil || IsNil(o.Days.Get()) {
+	if o == nil || IsNil(o.Days) {
 		var ret int32
 		return ret
 	}
-	return *o.Days.Get()
+	return *o.Days
 }
 
 // GetDaysOk returns a tuple with the Days field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PruneGuildRequest) GetDaysOk() (*int32, bool) {
-	if o == nil || IsNil(o.Days.Get()) {
+	if o == nil || IsNil(o.Days) {
 		return nil, false
 	}
-	return o.Days.Get(), o.Days.IsSet()
+	return o.Days, true
 }
 
 // HasDays returns a boolean if a field has been set.
 func (o *PruneGuildRequest) HasDays() bool {
-	if o != nil && o.Days.IsSet() {
+	if o != nil && !IsNil(o.Days) {
 		return true
 	}
 
 	return false
 }
 
-// SetDays gets a reference to the given NullableInt32 and assigns it to the Days field.
+// SetDays gets a reference to the given int32 and assigns it to the Days field.
 func (o *PruneGuildRequest) SetDays(v int32) {
-	o.Days.Set(&v)
+	o.Days = &v
 }
 
-// SetDaysNil sets the value for Days to be an explicit nil
-func (o *PruneGuildRequest) SetDaysNil() {
-	o.Days.Set(nil)
-}
 
-// UnsetDays ensures that no value is present for Days, not even an explicit nil
-func (o *PruneGuildRequest) UnsetDays() {
-	o.Days.Unset()
-}
-
-// GetComputePruneCount returns the ComputePruneCount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetComputePruneCount returns the ComputePruneCount field value if set, zero value otherwise.
 func (o *PruneGuildRequest) GetComputePruneCount() bool {
-	if o == nil || IsNil(o.ComputePruneCount.Get()) {
+	if o == nil || IsNil(o.ComputePruneCount) {
 		var ret bool
 		return ret
 	}
-	return *o.ComputePruneCount.Get()
+	return *o.ComputePruneCount
 }
 
 // GetComputePruneCountOk returns a tuple with the ComputePruneCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PruneGuildRequest) GetComputePruneCountOk() (*bool, bool) {
-	if o == nil || IsNil(o.ComputePruneCount.Get()) {
+	if o == nil || IsNil(o.ComputePruneCount) {
 		return nil, false
 	}
-	return o.ComputePruneCount.Get(), o.ComputePruneCount.IsSet()
+	return o.ComputePruneCount, true
 }
 
 // HasComputePruneCount returns a boolean if a field has been set.
 func (o *PruneGuildRequest) HasComputePruneCount() bool {
-	if o != nil && o.ComputePruneCount.IsSet() {
+	if o != nil && !IsNil(o.ComputePruneCount) {
 		return true
 	}
 
 	return false
 }
 
-// SetComputePruneCount gets a reference to the given NullableBool and assigns it to the ComputePruneCount field.
+// SetComputePruneCount gets a reference to the given bool and assigns it to the ComputePruneCount field.
 func (o *PruneGuildRequest) SetComputePruneCount(v bool) {
-	o.ComputePruneCount.Set(&v)
+	o.ComputePruneCount = &v
 }
 
-// SetComputePruneCountNil sets the value for ComputePruneCount to be an explicit nil
-func (o *PruneGuildRequest) SetComputePruneCountNil() {
-	o.ComputePruneCount.Set(nil)
-}
 
-// UnsetComputePruneCount ensures that no value is present for ComputePruneCount, not even an explicit nil
-func (o *PruneGuildRequest) UnsetComputePruneCount() {
-	o.ComputePruneCount.Unset()
-}
-
-// GetIncludeRoles returns the IncludeRoles field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIncludeRoles returns the IncludeRoles field value if set, zero value otherwise.
 func (o *PruneGuildRequest) GetIncludeRoles() PruneGuildRequestIncludeRoles {
-	if o == nil || IsNil(o.IncludeRoles.Get()) {
+	if o == nil || IsNil(o.IncludeRoles) {
 		var ret PruneGuildRequestIncludeRoles
 		return ret
 	}
-	return *o.IncludeRoles.Get()
+	return *o.IncludeRoles
 }
 
 // GetIncludeRolesOk returns a tuple with the IncludeRoles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PruneGuildRequest) GetIncludeRolesOk() (*PruneGuildRequestIncludeRoles, bool) {
-	if o == nil || IsNil(o.IncludeRoles.Get()) {
+	if o == nil || IsNil(o.IncludeRoles) {
 		return nil, false
 	}
-	return o.IncludeRoles.Get(), o.IncludeRoles.IsSet()
+	return o.IncludeRoles, true
 }
 
 // HasIncludeRoles returns a boolean if a field has been set.
 func (o *PruneGuildRequest) HasIncludeRoles() bool {
-	if o != nil && o.IncludeRoles.IsSet() {
+	if o != nil && !IsNil(o.IncludeRoles) {
 		return true
 	}
 
 	return false
 }
 
-// SetIncludeRoles gets a reference to the given NullablePruneGuildRequestIncludeRoles and assigns it to the IncludeRoles field.
+// SetIncludeRoles gets a reference to the given PruneGuildRequestIncludeRoles and assigns it to the IncludeRoles field.
 func (o *PruneGuildRequest) SetIncludeRoles(v PruneGuildRequestIncludeRoles) {
-	o.IncludeRoles.Set(&v)
+	o.IncludeRoles = &v
 }
 
-// SetIncludeRolesNil sets the value for IncludeRoles to be an explicit nil
-func (o *PruneGuildRequest) SetIncludeRolesNil() {
-	o.IncludeRoles.Set(nil)
-}
-
-// UnsetIncludeRoles ensures that no value is present for IncludeRoles, not even an explicit nil
-func (o *PruneGuildRequest) UnsetIncludeRoles() {
-	o.IncludeRoles.Unset()
-}
 
 func (o PruneGuildRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -214,14 +184,14 @@ func (o PruneGuildRequest) MarshalJSON() ([]byte, error) {
 
 func (o PruneGuildRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Days.IsSet() {
-		toSerialize["days"] = o.Days.Get()
+	if !IsNil(o.Days) {
+		toSerialize["days"] = o.Days
 	}
-	if o.ComputePruneCount.IsSet() {
-		toSerialize["compute_prune_count"] = o.ComputePruneCount.Get()
+	if !IsNil(o.ComputePruneCount) {
+		toSerialize["compute_prune_count"] = o.ComputePruneCount
 	}
-	if o.IncludeRoles.IsSet() {
-		toSerialize["include_roles"] = o.IncludeRoles.Get()
+	if !IsNil(o.IncludeRoles) {
+		toSerialize["include_roles"] = o.IncludeRoles
 	}
 	return toSerialize, nil
 }
@@ -261,5 +231,4 @@ func (v *NullablePruneGuildRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

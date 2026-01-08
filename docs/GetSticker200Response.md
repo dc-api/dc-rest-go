@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **Tags** | **string** |  | 
-**Type** | **int32** |  | 
-**FormatType** | Pointer to **int32** |  | [optional] 
+**Type** | [**StickerTypes**](StickerTypes.md) |  | 
+**FormatType** | Pointer to [**GuildStickerResponseFormatType**](GuildStickerResponseFormatType.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Available** | **bool** |  | 
 **GuildId** | **string** |  | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewGetSticker200Response
 
-`func NewGetSticker200Response(id string, name string, tags string, type_ int32, available bool, guildId string, packId string, sortValue int32, ) *GetSticker200Response`
+`func NewGetSticker200Response(id string, name string, tags string, type_ StickerTypes, available bool, guildId string, packId string, sortValue int32, ) *GetSticker200Response`
 
 NewGetSticker200Response instantiates a new GetSticker200Response object
 This constructor will assign default values to properties that have it defined,
@@ -97,40 +97,40 @@ SetTags sets Tags field to given value.
 
 ### GetType
 
-`func (o *GetSticker200Response) GetType() int32`
+`func (o *GetSticker200Response) GetType() StickerTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *GetSticker200Response) GetTypeOk() (*int32, bool)`
+`func (o *GetSticker200Response) GetTypeOk() (*StickerTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *GetSticker200Response) SetType(v int32)`
+`func (o *GetSticker200Response) SetType(v StickerTypes)`
 
 SetType sets Type field to given value.
 
 
 ### GetFormatType
 
-`func (o *GetSticker200Response) GetFormatType() int32`
+`func (o *GetSticker200Response) GetFormatType() GuildStickerResponseFormatType`
 
 GetFormatType returns the FormatType field if non-nil, zero value otherwise.
 
 ### GetFormatTypeOk
 
-`func (o *GetSticker200Response) GetFormatTypeOk() (*int32, bool)`
+`func (o *GetSticker200Response) GetFormatTypeOk() (*GuildStickerResponseFormatType, bool)`
 
 GetFormatTypeOk returns a tuple with the FormatType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFormatType
 
-`func (o *GetSticker200Response) SetFormatType(v int32)`
+`func (o *GetSticker200Response) SetFormatType(v GuildStickerResponseFormatType)`
 
 SetFormatType sets FormatType field to given value.
 

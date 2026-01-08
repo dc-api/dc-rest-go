@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,12 +55,12 @@ var _ MappedNullable = &ApplicationCommandBooleanOption{}
 
 // ApplicationCommandBooleanOption struct for ApplicationCommandBooleanOption
 type ApplicationCommandBooleanOption struct {
-	Type int32 `json:"type"`
+	Type ApplicationCommandOptionType `json:"type"`
 	Name string `json:"name"`
 	NameLocalizations map[string]string `json:"name_localizations,omitempty"`
 	Description string `json:"description"`
 	DescriptionLocalizations map[string]string `json:"description_localizations,omitempty"`
-	Required NullableBool `json:"required,omitempty"`
+	Required *bool `json:"required,omitempty"`
 }
 
 type _ApplicationCommandBooleanOption ApplicationCommandBooleanOption
@@ -69,7 +69,7 @@ type _ApplicationCommandBooleanOption ApplicationCommandBooleanOption
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApplicationCommandBooleanOption(type_ int32, name string, description string) *ApplicationCommandBooleanOption {
+func NewApplicationCommandBooleanOption(type_ ApplicationCommandOptionType, name string, description string) *ApplicationCommandBooleanOption {
 	this := ApplicationCommandBooleanOption{}
 	this.Type = type_
 	this.Name = name
@@ -86,9 +86,9 @@ func NewApplicationCommandBooleanOptionWithDefaults() *ApplicationCommandBoolean
 }
 
 // GetType returns the Type field value
-func (o *ApplicationCommandBooleanOption) GetType() int32 {
+func (o *ApplicationCommandBooleanOption) GetType() ApplicationCommandOptionType {
 	if o == nil {
-		var ret int32
+		var ret ApplicationCommandOptionType
 		return ret
 	}
 
@@ -97,7 +97,7 @@ func (o *ApplicationCommandBooleanOption) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ApplicationCommandBooleanOption) GetTypeOk() (*int32, bool) {
+func (o *ApplicationCommandBooleanOption) GetTypeOk() (*ApplicationCommandOptionType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -105,7 +105,7 @@ func (o *ApplicationCommandBooleanOption) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *ApplicationCommandBooleanOption) SetType(v int32) {
+func (o *ApplicationCommandBooleanOption) SetType(v ApplicationCommandOptionType) {
 	o.Type = v
 }
 
@@ -223,48 +223,38 @@ func (o *ApplicationCommandBooleanOption) SetDescriptionLocalizations(v map[stri
 }
 
 
-// GetRequired returns the Required field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRequired returns the Required field value if set, zero value otherwise.
 func (o *ApplicationCommandBooleanOption) GetRequired() bool {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		var ret bool
 		return ret
 	}
-	return *o.Required.Get()
+	return *o.Required
 }
 
 // GetRequiredOk returns a tuple with the Required field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandBooleanOption) GetRequiredOk() (*bool, bool) {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		return nil, false
 	}
-	return o.Required.Get(), o.Required.IsSet()
+	return o.Required, true
 }
 
 // HasRequired returns a boolean if a field has been set.
 func (o *ApplicationCommandBooleanOption) HasRequired() bool {
-	if o != nil && o.Required.IsSet() {
+	if o != nil && !IsNil(o.Required) {
 		return true
 	}
 
 	return false
 }
 
-// SetRequired gets a reference to the given NullableBool and assigns it to the Required field.
+// SetRequired gets a reference to the given bool and assigns it to the Required field.
 func (o *ApplicationCommandBooleanOption) SetRequired(v bool) {
-	o.Required.Set(&v)
+	o.Required = &v
 }
 
-// SetRequiredNil sets the value for Required to be an explicit nil
-func (o *ApplicationCommandBooleanOption) SetRequiredNil() {
-	o.Required.Set(nil)
-}
-
-// UnsetRequired ensures that no value is present for Required, not even an explicit nil
-func (o *ApplicationCommandBooleanOption) UnsetRequired() {
-	o.Required.Unset()
-}
 
 func (o ApplicationCommandBooleanOption) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -285,8 +275,8 @@ func (o ApplicationCommandBooleanOption) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.DescriptionLocalizations) {
 		toSerialize["description_localizations"] = o.DescriptionLocalizations
 	}
-	if o.Required.IsSet() {
-		toSerialize["required"] = o.Required.Get()
+	if !IsNil(o.Required) {
+		toSerialize["required"] = o.Required
 	}
 	return toSerialize, nil
 }
@@ -365,5 +355,4 @@ func (v *NullableApplicationCommandBooleanOption) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

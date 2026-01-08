@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**InstantInvite** | Pointer to **NullableString** |  | [optional] 
+**InstantInvite** | Pointer to **string** |  | [optional] 
 **Channels** | [**[]WidgetChannel**](WidgetChannel.md) |  | 
 **Members** | [**[]WidgetMember**](WidgetMember.md) |  | 
 **PresenceCount** | **int32** |  | 
@@ -95,16 +95,6 @@ SetInstantInvite sets InstantInvite field to given value.
 
 HasInstantInvite returns a boolean if a field has been set.
 
-### SetInstantInviteNil
-
-`func (o *WidgetResponse) SetInstantInviteNil(b bool)`
-
- SetInstantInviteNil sets the value for InstantInvite to be an explicit nil
-
-### UnsetInstantInvite
-`func (o *WidgetResponse) UnsetInstantInvite()`
-
-UnsetInstantInvite ensures that no value is present for InstantInvite, not even an explicit nil
 ### GetChannels
 
 `func (o *WidgetResponse) GetChannels() []WidgetChannel`

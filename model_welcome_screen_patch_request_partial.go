@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,9 +53,9 @@ var _ MappedNullable = &WelcomeScreenPatchRequestPartial{}
 
 // WelcomeScreenPatchRequestPartial struct for WelcomeScreenPatchRequestPartial
 type WelcomeScreenPatchRequestPartial struct {
-	Description NullableString `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 	WelcomeChannels []GuildWelcomeChannel `json:"welcome_channels,omitempty"`
-	Enabled NullableBool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
 }
 
 // NewWelcomeScreenPatchRequestPartial instantiates a new WelcomeScreenPatchRequestPartial object
@@ -75,52 +75,42 @@ func NewWelcomeScreenPatchRequestPartialWithDefaults() *WelcomeScreenPatchReques
 	return &this
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *WelcomeScreenPatchRequestPartial) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WelcomeScreenPatchRequestPartial) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *WelcomeScreenPatchRequestPartial) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *WelcomeScreenPatchRequestPartial) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *WelcomeScreenPatchRequestPartial) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *WelcomeScreenPatchRequestPartial) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetWelcomeChannels returns the WelcomeChannels field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetWelcomeChannels returns the WelcomeChannels field value if set, zero value otherwise.
 func (o *WelcomeScreenPatchRequestPartial) GetWelcomeChannels() []GuildWelcomeChannel {
-	if o == nil {
+	if o == nil || IsNil(o.WelcomeChannels) {
 		var ret []GuildWelcomeChannel
 		return ret
 	}
@@ -129,9 +119,8 @@ func (o *WelcomeScreenPatchRequestPartial) GetWelcomeChannels() []GuildWelcomeCh
 
 // GetWelcomeChannelsOk returns a tuple with the WelcomeChannels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WelcomeScreenPatchRequestPartial) GetWelcomeChannelsOk() ([]GuildWelcomeChannel, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WelcomeChannels) {
 		return nil, false
 	}
 	return o.WelcomeChannels, true
@@ -152,48 +141,38 @@ func (o *WelcomeScreenPatchRequestPartial) SetWelcomeChannels(v []GuildWelcomeCh
 }
 
 
-// GetEnabled returns the Enabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *WelcomeScreenPatchRequestPartial) GetEnabled() bool {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil || IsNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
-	return *o.Enabled.Get()
+	return *o.Enabled
 }
 
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WelcomeScreenPatchRequestPartial) GetEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil || IsNil(o.Enabled) {
 		return nil, false
 	}
-	return o.Enabled.Get(), o.Enabled.IsSet()
+	return o.Enabled, true
 }
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *WelcomeScreenPatchRequestPartial) HasEnabled() bool {
-	if o != nil && o.Enabled.IsSet() {
+	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
 
 	return false
 }
 
-// SetEnabled gets a reference to the given NullableBool and assigns it to the Enabled field.
+// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
 func (o *WelcomeScreenPatchRequestPartial) SetEnabled(v bool) {
-	o.Enabled.Set(&v)
+	o.Enabled = &v
 }
 
-// SetEnabledNil sets the value for Enabled to be an explicit nil
-func (o *WelcomeScreenPatchRequestPartial) SetEnabledNil() {
-	o.Enabled.Set(nil)
-}
-
-// UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
-func (o *WelcomeScreenPatchRequestPartial) UnsetEnabled() {
-	o.Enabled.Unset()
-}
 
 func (o WelcomeScreenPatchRequestPartial) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -205,14 +184,14 @@ func (o WelcomeScreenPatchRequestPartial) MarshalJSON() ([]byte, error) {
 
 func (o WelcomeScreenPatchRequestPartial) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
-	if o.WelcomeChannels != nil {
+	if !IsNil(o.WelcomeChannels) {
 		toSerialize["welcome_channels"] = o.WelcomeChannels
 	}
-	if o.Enabled.IsSet() {
-		toSerialize["enabled"] = o.Enabled.Get()
+	if !IsNil(o.Enabled) {
+		toSerialize["enabled"] = o.Enabled
 	}
 	return toSerialize, nil
 }
@@ -252,5 +231,4 @@ func (v *NullableWelcomeScreenPatchRequestPartial) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **NullableString** |  | 
+**Type** | [**SnowflakeSelectDefaultValueTypes**](SnowflakeSelectDefaultValueTypes.md) |  | 
 **Id** | **string** |  | 
 
 ## Methods
 
 ### NewUserSelectDefaultValueResponse
 
-`func NewUserSelectDefaultValueResponse(type_ NullableString, id string, ) *UserSelectDefaultValueResponse`
+`func NewUserSelectDefaultValueResponse(type_ SnowflakeSelectDefaultValueTypes, id string, ) *UserSelectDefaultValueResponse`
 
 NewUserSelectDefaultValueResponse instantiates a new UserSelectDefaultValueResponse object
 This constructor will assign default values to properties that have it defined,
@@ -28,34 +28,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *UserSelectDefaultValueResponse) GetType() string`
+`func (o *UserSelectDefaultValueResponse) GetType() SnowflakeSelectDefaultValueTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *UserSelectDefaultValueResponse) GetTypeOk() (*string, bool)`
+`func (o *UserSelectDefaultValueResponse) GetTypeOk() (*SnowflakeSelectDefaultValueTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *UserSelectDefaultValueResponse) SetType(v string)`
+`func (o *UserSelectDefaultValueResponse) SetType(v SnowflakeSelectDefaultValueTypes)`
 
 SetType sets Type field to given value.
 
 
-### SetTypeNil
-
-`func (o *UserSelectDefaultValueResponse) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *UserSelectDefaultValueResponse) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetId
 
 `func (o *UserSelectDefaultValueResponse) GetId() string`

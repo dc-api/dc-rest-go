@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**ApplicationCommandOptionType**](ApplicationCommandOptionType.md) |  | 
 **Name** | **string** |  | 
-**NameLocalized** | Pointer to **NullableString** |  | [optional] 
+**NameLocalized** | Pointer to **string** |  | [optional] 
 **NameLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Description** | **string** |  | 
-**DescriptionLocalized** | Pointer to **NullableString** |  | [optional] 
+**DescriptionLocalized** | Pointer to **string** |  | [optional] 
 **DescriptionLocalizations** | Pointer to **map[string]string** |  | [optional] 
-**Required** | Pointer to **NullableBool** |  | [optional] 
-**ChannelTypes** | Pointer to **[]int32** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
+**ChannelTypes** | Pointer to [**[]ChannelTypes**](ChannelTypes.md) |  | [optional] 
 
 ## Methods
 
 ### NewApplicationCommandChannelOptionResponse
 
-`func NewApplicationCommandChannelOptionResponse(type_ int32, name string, description string, ) *ApplicationCommandChannelOptionResponse`
+`func NewApplicationCommandChannelOptionResponse(type_ ApplicationCommandOptionType, name string, description string, ) *ApplicationCommandChannelOptionResponse`
 
 NewApplicationCommandChannelOptionResponse instantiates a new ApplicationCommandChannelOptionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -35,20 +35,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ApplicationCommandChannelOptionResponse) GetType() int32`
+`func (o *ApplicationCommandChannelOptionResponse) GetType() ApplicationCommandOptionType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ApplicationCommandChannelOptionResponse) GetTypeOk() (*int32, bool)`
+`func (o *ApplicationCommandChannelOptionResponse) GetTypeOk() (*ApplicationCommandOptionType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ApplicationCommandChannelOptionResponse) SetType(v int32)`
+`func (o *ApplicationCommandChannelOptionResponse) SetType(v ApplicationCommandOptionType)`
 
 SetType sets Type field to given value.
 
@@ -98,16 +98,6 @@ SetNameLocalized sets NameLocalized field to given value.
 
 HasNameLocalized returns a boolean if a field has been set.
 
-### SetNameLocalizedNil
-
-`func (o *ApplicationCommandChannelOptionResponse) SetNameLocalizedNil(b bool)`
-
- SetNameLocalizedNil sets the value for NameLocalized to be an explicit nil
-
-### UnsetNameLocalized
-`func (o *ApplicationCommandChannelOptionResponse) UnsetNameLocalized()`
-
-UnsetNameLocalized ensures that no value is present for NameLocalized, not even an explicit nil
 ### GetNameLocalizations
 
 `func (o *ApplicationCommandChannelOptionResponse) GetNameLocalizations() map[string]string`
@@ -178,16 +168,6 @@ SetDescriptionLocalized sets DescriptionLocalized field to given value.
 
 HasDescriptionLocalized returns a boolean if a field has been set.
 
-### SetDescriptionLocalizedNil
-
-`func (o *ApplicationCommandChannelOptionResponse) SetDescriptionLocalizedNil(b bool)`
-
- SetDescriptionLocalizedNil sets the value for DescriptionLocalized to be an explicit nil
-
-### UnsetDescriptionLocalized
-`func (o *ApplicationCommandChannelOptionResponse) UnsetDescriptionLocalized()`
-
-UnsetDescriptionLocalized ensures that no value is present for DescriptionLocalized, not even an explicit nil
 ### GetDescriptionLocalizations
 
 `func (o *ApplicationCommandChannelOptionResponse) GetDescriptionLocalizations() map[string]string`
@@ -238,32 +218,22 @@ SetRequired sets Required field to given value.
 
 HasRequired returns a boolean if a field has been set.
 
-### SetRequiredNil
-
-`func (o *ApplicationCommandChannelOptionResponse) SetRequiredNil(b bool)`
-
- SetRequiredNil sets the value for Required to be an explicit nil
-
-### UnsetRequired
-`func (o *ApplicationCommandChannelOptionResponse) UnsetRequired()`
-
-UnsetRequired ensures that no value is present for Required, not even an explicit nil
 ### GetChannelTypes
 
-`func (o *ApplicationCommandChannelOptionResponse) GetChannelTypes() []int32`
+`func (o *ApplicationCommandChannelOptionResponse) GetChannelTypes() []ChannelTypes`
 
 GetChannelTypes returns the ChannelTypes field if non-nil, zero value otherwise.
 
 ### GetChannelTypesOk
 
-`func (o *ApplicationCommandChannelOptionResponse) GetChannelTypesOk() (*[]int32, bool)`
+`func (o *ApplicationCommandChannelOptionResponse) GetChannelTypesOk() (*[]ChannelTypes, bool)`
 
 GetChannelTypesOk returns a tuple with the ChannelTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelTypes
 
-`func (o *ApplicationCommandChannelOptionResponse) SetChannelTypes(v []int32)`
+`func (o *ApplicationCommandChannelOptionResponse) SetChannelTypes(v []ChannelTypes)`
 
 SetChannelTypes sets ChannelTypes field to given value.
 
@@ -273,16 +243,6 @@ SetChannelTypes sets ChannelTypes field to given value.
 
 HasChannelTypes returns a boolean if a field has been set.
 
-### SetChannelTypesNil
-
-`func (o *ApplicationCommandChannelOptionResponse) SetChannelTypesNil(b bool)`
-
- SetChannelTypesNil sets the value for ChannelTypes to be an explicit nil
-
-### UnsetChannelTypes
-`func (o *ApplicationCommandChannelOptionResponse) UnsetChannelTypes()`
-
-UnsetChannelTypes ensures that no value is present for ChannelTypes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

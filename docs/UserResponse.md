@@ -6,18 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Username** | **string** |  | 
-**Avatar** | Pointer to **NullableString** |  | [optional] 
+**Avatar** | Pointer to **string** |  | [optional] 
 **Discriminator** | **string** |  | 
 **PublicFlags** | **int32** |  | 
 **Flags** | **int64** |  | 
-**Bot** | Pointer to **NullableBool** |  | [optional] 
-**System** | Pointer to **NullableBool** |  | [optional] 
-**Banner** | Pointer to **NullableString** |  | [optional] 
-**AccentColor** | Pointer to **NullableInt32** |  | [optional] 
-**GlobalName** | Pointer to **NullableString** |  | [optional] 
-**AvatarDecorationData** | Pointer to [**NullableUserAvatarDecorationResponse**](UserAvatarDecorationResponse.md) |  | [optional] 
-**Collectibles** | Pointer to [**NullableUserCollectiblesResponse**](UserCollectiblesResponse.md) |  | [optional] 
-**PrimaryGuild** | Pointer to [**NullableUserPrimaryGuildResponse**](UserPrimaryGuildResponse.md) |  | [optional] 
+**Bot** | Pointer to **bool** |  | [optional] 
+**System** | Pointer to **bool** |  | [optional] 
+**Banner** | Pointer to **string** |  | [optional] 
+**AccentColor** | Pointer to **int32** |  | [optional] 
+**GlobalName** | Pointer to **string** |  | [optional] 
+**AvatarDecorationData** | Pointer to [**BasicGuildMemberResponseAvatarDecorationData**](BasicGuildMemberResponseAvatarDecorationData.md) |  | [optional] 
+**Collectibles** | Pointer to [**BasicGuildMemberResponseCollectibles**](BasicGuildMemberResponseCollectibles.md) |  | [optional] 
+**PrimaryGuild** | Pointer to [**UserPIIResponsePrimaryGuild**](UserPIIResponsePrimaryGuild.md) |  | [optional] 
 
 ## Methods
 
@@ -103,16 +103,6 @@ SetAvatar sets Avatar field to given value.
 
 HasAvatar returns a boolean if a field has been set.
 
-### SetAvatarNil
-
-`func (o *UserResponse) SetAvatarNil(b bool)`
-
- SetAvatarNil sets the value for Avatar to be an explicit nil
-
-### UnsetAvatar
-`func (o *UserResponse) UnsetAvatar()`
-
-UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
 ### GetDiscriminator
 
 `func (o *UserResponse) GetDiscriminator() string`
@@ -198,16 +188,6 @@ SetBot sets Bot field to given value.
 
 HasBot returns a boolean if a field has been set.
 
-### SetBotNil
-
-`func (o *UserResponse) SetBotNil(b bool)`
-
- SetBotNil sets the value for Bot to be an explicit nil
-
-### UnsetBot
-`func (o *UserResponse) UnsetBot()`
-
-UnsetBot ensures that no value is present for Bot, not even an explicit nil
 ### GetSystem
 
 `func (o *UserResponse) GetSystem() bool`
@@ -233,16 +213,6 @@ SetSystem sets System field to given value.
 
 HasSystem returns a boolean if a field has been set.
 
-### SetSystemNil
-
-`func (o *UserResponse) SetSystemNil(b bool)`
-
- SetSystemNil sets the value for System to be an explicit nil
-
-### UnsetSystem
-`func (o *UserResponse) UnsetSystem()`
-
-UnsetSystem ensures that no value is present for System, not even an explicit nil
 ### GetBanner
 
 `func (o *UserResponse) GetBanner() string`
@@ -268,16 +238,6 @@ SetBanner sets Banner field to given value.
 
 HasBanner returns a boolean if a field has been set.
 
-### SetBannerNil
-
-`func (o *UserResponse) SetBannerNil(b bool)`
-
- SetBannerNil sets the value for Banner to be an explicit nil
-
-### UnsetBanner
-`func (o *UserResponse) UnsetBanner()`
-
-UnsetBanner ensures that no value is present for Banner, not even an explicit nil
 ### GetAccentColor
 
 `func (o *UserResponse) GetAccentColor() int32`
@@ -303,16 +263,6 @@ SetAccentColor sets AccentColor field to given value.
 
 HasAccentColor returns a boolean if a field has been set.
 
-### SetAccentColorNil
-
-`func (o *UserResponse) SetAccentColorNil(b bool)`
-
- SetAccentColorNil sets the value for AccentColor to be an explicit nil
-
-### UnsetAccentColor
-`func (o *UserResponse) UnsetAccentColor()`
-
-UnsetAccentColor ensures that no value is present for AccentColor, not even an explicit nil
 ### GetGlobalName
 
 `func (o *UserResponse) GetGlobalName() string`
@@ -338,32 +288,22 @@ SetGlobalName sets GlobalName field to given value.
 
 HasGlobalName returns a boolean if a field has been set.
 
-### SetGlobalNameNil
-
-`func (o *UserResponse) SetGlobalNameNil(b bool)`
-
- SetGlobalNameNil sets the value for GlobalName to be an explicit nil
-
-### UnsetGlobalName
-`func (o *UserResponse) UnsetGlobalName()`
-
-UnsetGlobalName ensures that no value is present for GlobalName, not even an explicit nil
 ### GetAvatarDecorationData
 
-`func (o *UserResponse) GetAvatarDecorationData() UserAvatarDecorationResponse`
+`func (o *UserResponse) GetAvatarDecorationData() BasicGuildMemberResponseAvatarDecorationData`
 
 GetAvatarDecorationData returns the AvatarDecorationData field if non-nil, zero value otherwise.
 
 ### GetAvatarDecorationDataOk
 
-`func (o *UserResponse) GetAvatarDecorationDataOk() (*UserAvatarDecorationResponse, bool)`
+`func (o *UserResponse) GetAvatarDecorationDataOk() (*BasicGuildMemberResponseAvatarDecorationData, bool)`
 
 GetAvatarDecorationDataOk returns a tuple with the AvatarDecorationData field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAvatarDecorationData
 
-`func (o *UserResponse) SetAvatarDecorationData(v UserAvatarDecorationResponse)`
+`func (o *UserResponse) SetAvatarDecorationData(v BasicGuildMemberResponseAvatarDecorationData)`
 
 SetAvatarDecorationData sets AvatarDecorationData field to given value.
 
@@ -373,32 +313,22 @@ SetAvatarDecorationData sets AvatarDecorationData field to given value.
 
 HasAvatarDecorationData returns a boolean if a field has been set.
 
-### SetAvatarDecorationDataNil
-
-`func (o *UserResponse) SetAvatarDecorationDataNil(b bool)`
-
- SetAvatarDecorationDataNil sets the value for AvatarDecorationData to be an explicit nil
-
-### UnsetAvatarDecorationData
-`func (o *UserResponse) UnsetAvatarDecorationData()`
-
-UnsetAvatarDecorationData ensures that no value is present for AvatarDecorationData, not even an explicit nil
 ### GetCollectibles
 
-`func (o *UserResponse) GetCollectibles() UserCollectiblesResponse`
+`func (o *UserResponse) GetCollectibles() BasicGuildMemberResponseCollectibles`
 
 GetCollectibles returns the Collectibles field if non-nil, zero value otherwise.
 
 ### GetCollectiblesOk
 
-`func (o *UserResponse) GetCollectiblesOk() (*UserCollectiblesResponse, bool)`
+`func (o *UserResponse) GetCollectiblesOk() (*BasicGuildMemberResponseCollectibles, bool)`
 
 GetCollectiblesOk returns a tuple with the Collectibles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCollectibles
 
-`func (o *UserResponse) SetCollectibles(v UserCollectiblesResponse)`
+`func (o *UserResponse) SetCollectibles(v BasicGuildMemberResponseCollectibles)`
 
 SetCollectibles sets Collectibles field to given value.
 
@@ -408,32 +338,22 @@ SetCollectibles sets Collectibles field to given value.
 
 HasCollectibles returns a boolean if a field has been set.
 
-### SetCollectiblesNil
-
-`func (o *UserResponse) SetCollectiblesNil(b bool)`
-
- SetCollectiblesNil sets the value for Collectibles to be an explicit nil
-
-### UnsetCollectibles
-`func (o *UserResponse) UnsetCollectibles()`
-
-UnsetCollectibles ensures that no value is present for Collectibles, not even an explicit nil
 ### GetPrimaryGuild
 
-`func (o *UserResponse) GetPrimaryGuild() UserPrimaryGuildResponse`
+`func (o *UserResponse) GetPrimaryGuild() UserPIIResponsePrimaryGuild`
 
 GetPrimaryGuild returns the PrimaryGuild field if non-nil, zero value otherwise.
 
 ### GetPrimaryGuildOk
 
-`func (o *UserResponse) GetPrimaryGuildOk() (*UserPrimaryGuildResponse, bool)`
+`func (o *UserResponse) GetPrimaryGuildOk() (*UserPIIResponsePrimaryGuild, bool)`
 
 GetPrimaryGuildOk returns a tuple with the PrimaryGuild field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrimaryGuild
 
-`func (o *UserResponse) SetPrimaryGuild(v UserPrimaryGuildResponse)`
+`func (o *UserResponse) SetPrimaryGuild(v UserPIIResponsePrimaryGuild)`
 
 SetPrimaryGuild sets PrimaryGuild field to given value.
 
@@ -443,16 +363,6 @@ SetPrimaryGuild sets PrimaryGuild field to given value.
 
 HasPrimaryGuild returns a boolean if a field has been set.
 
-### SetPrimaryGuildNil
-
-`func (o *UserResponse) SetPrimaryGuildNil(b bool)`
-
- SetPrimaryGuildNil sets the value for PrimaryGuild to be an explicit nil
-
-### UnsetPrimaryGuild
-`func (o *UserResponse) UnsetPrimaryGuild()`
-
-UnsetPrimaryGuild ensures that no value is present for PrimaryGuild, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

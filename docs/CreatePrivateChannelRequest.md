@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RecipientId** | Pointer to **string** |  | [optional] 
+**RecipientId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **AccessTokens** | Pointer to **[]string** |  | [optional] 
 **Nicks** | Pointer to **map[string]string** |  | [optional] 
 
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetRecipientId
 
-`func (o *CreatePrivateChannelRequest) GetRecipientId() string`
+`func (o *CreatePrivateChannelRequest) GetRecipientId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetRecipientId returns the RecipientId field if non-nil, zero value otherwise.
 
 ### GetRecipientIdOk
 
-`func (o *CreatePrivateChannelRequest) GetRecipientIdOk() (*string, bool)`
+`func (o *CreatePrivateChannelRequest) GetRecipientIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetRecipientIdOk returns a tuple with the RecipientId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipientId
 
-`func (o *CreatePrivateChannelRequest) SetRecipientId(v string)`
+`func (o *CreatePrivateChannelRequest) SetRecipientId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetRecipientId sets RecipientId field to given value.
 
@@ -77,16 +77,6 @@ SetAccessTokens sets AccessTokens field to given value.
 
 HasAccessTokens returns a boolean if a field has been set.
 
-### SetAccessTokensNil
-
-`func (o *CreatePrivateChannelRequest) SetAccessTokensNil(b bool)`
-
- SetAccessTokensNil sets the value for AccessTokens to be an explicit nil
-
-### UnsetAccessTokens
-`func (o *CreatePrivateChannelRequest) UnsetAccessTokens()`
-
-UnsetAccessTokens ensures that no value is present for AccessTokens, not even an explicit nil
 ### GetNicks
 
 `func (o *CreatePrivateChannelRequest) GetNicks() map[string]string`

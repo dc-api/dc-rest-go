@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,13 +55,13 @@ var _ MappedNullable = &ApplicationCommandChannelOption{}
 
 // ApplicationCommandChannelOption struct for ApplicationCommandChannelOption
 type ApplicationCommandChannelOption struct {
-	Type int32 `json:"type"`
+	Type ApplicationCommandOptionType `json:"type"`
 	Name string `json:"name"`
 	NameLocalizations map[string]string `json:"name_localizations,omitempty"`
 	Description string `json:"description"`
 	DescriptionLocalizations map[string]string `json:"description_localizations,omitempty"`
-	Required NullableBool `json:"required,omitempty"`
-	ChannelTypes []int32 `json:"channel_types,omitempty"`
+	Required *bool `json:"required,omitempty"`
+	ChannelTypes []ChannelTypes `json:"channel_types,omitempty"`
 }
 
 type _ApplicationCommandChannelOption ApplicationCommandChannelOption
@@ -70,7 +70,7 @@ type _ApplicationCommandChannelOption ApplicationCommandChannelOption
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApplicationCommandChannelOption(type_ int32, name string, description string) *ApplicationCommandChannelOption {
+func NewApplicationCommandChannelOption(type_ ApplicationCommandOptionType, name string, description string) *ApplicationCommandChannelOption {
 	this := ApplicationCommandChannelOption{}
 	this.Type = type_
 	this.Name = name
@@ -87,9 +87,9 @@ func NewApplicationCommandChannelOptionWithDefaults() *ApplicationCommandChannel
 }
 
 // GetType returns the Type field value
-func (o *ApplicationCommandChannelOption) GetType() int32 {
+func (o *ApplicationCommandChannelOption) GetType() ApplicationCommandOptionType {
 	if o == nil {
-		var ret int32
+		var ret ApplicationCommandOptionType
 		return ret
 	}
 
@@ -98,7 +98,7 @@ func (o *ApplicationCommandChannelOption) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ApplicationCommandChannelOption) GetTypeOk() (*int32, bool) {
+func (o *ApplicationCommandChannelOption) GetTypeOk() (*ApplicationCommandOptionType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -106,7 +106,7 @@ func (o *ApplicationCommandChannelOption) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *ApplicationCommandChannelOption) SetType(v int32) {
+func (o *ApplicationCommandChannelOption) SetType(v ApplicationCommandOptionType) {
 	o.Type = v
 }
 
@@ -224,53 +224,43 @@ func (o *ApplicationCommandChannelOption) SetDescriptionLocalizations(v map[stri
 }
 
 
-// GetRequired returns the Required field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRequired returns the Required field value if set, zero value otherwise.
 func (o *ApplicationCommandChannelOption) GetRequired() bool {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		var ret bool
 		return ret
 	}
-	return *o.Required.Get()
+	return *o.Required
 }
 
 // GetRequiredOk returns a tuple with the Required field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandChannelOption) GetRequiredOk() (*bool, bool) {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		return nil, false
 	}
-	return o.Required.Get(), o.Required.IsSet()
+	return o.Required, true
 }
 
 // HasRequired returns a boolean if a field has been set.
 func (o *ApplicationCommandChannelOption) HasRequired() bool {
-	if o != nil && o.Required.IsSet() {
+	if o != nil && !IsNil(o.Required) {
 		return true
 	}
 
 	return false
 }
 
-// SetRequired gets a reference to the given NullableBool and assigns it to the Required field.
+// SetRequired gets a reference to the given bool and assigns it to the Required field.
 func (o *ApplicationCommandChannelOption) SetRequired(v bool) {
-	o.Required.Set(&v)
+	o.Required = &v
 }
 
-// SetRequiredNil sets the value for Required to be an explicit nil
-func (o *ApplicationCommandChannelOption) SetRequiredNil() {
-	o.Required.Set(nil)
-}
 
-// UnsetRequired ensures that no value is present for Required, not even an explicit nil
-func (o *ApplicationCommandChannelOption) UnsetRequired() {
-	o.Required.Unset()
-}
-
-// GetChannelTypes returns the ChannelTypes field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ApplicationCommandChannelOption) GetChannelTypes() []int32 {
-	if o == nil {
-		var ret []int32
+// GetChannelTypes returns the ChannelTypes field value if set, zero value otherwise.
+func (o *ApplicationCommandChannelOption) GetChannelTypes() []ChannelTypes {
+	if o == nil || IsNil(o.ChannelTypes) {
+		var ret []ChannelTypes
 		return ret
 	}
 	return o.ChannelTypes
@@ -278,9 +268,8 @@ func (o *ApplicationCommandChannelOption) GetChannelTypes() []int32 {
 
 // GetChannelTypesOk returns a tuple with the ChannelTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ApplicationCommandChannelOption) GetChannelTypesOk() ([]int32, bool) {
-	if o == nil {
+func (o *ApplicationCommandChannelOption) GetChannelTypesOk() ([]ChannelTypes, bool) {
+	if o == nil || IsNil(o.ChannelTypes) {
 		return nil, false
 	}
 	return o.ChannelTypes, true
@@ -295,8 +284,8 @@ func (o *ApplicationCommandChannelOption) HasChannelTypes() bool {
 	return false
 }
 
-// SetChannelTypes gets a reference to the given []int32 and assigns it to the ChannelTypes field.
-func (o *ApplicationCommandChannelOption) SetChannelTypes(v []int32) {
+// SetChannelTypes gets a reference to the given []ChannelTypes and assigns it to the ChannelTypes field.
+func (o *ApplicationCommandChannelOption) SetChannelTypes(v []ChannelTypes) {
 	o.ChannelTypes = v
 }
 
@@ -320,10 +309,10 @@ func (o ApplicationCommandChannelOption) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.DescriptionLocalizations) {
 		toSerialize["description_localizations"] = o.DescriptionLocalizations
 	}
-	if o.Required.IsSet() {
-		toSerialize["required"] = o.Required.Get()
+	if !IsNil(o.Required) {
+		toSerialize["required"] = o.Required
 	}
-	if o.ChannelTypes != nil {
+	if !IsNil(o.ChannelTypes) {
 		toSerialize["channel_types"] = o.ChannelTypes
 	}
 	return toSerialize, nil
@@ -403,5 +392,4 @@ func (v *NullableApplicationCommandChannelOption) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 
