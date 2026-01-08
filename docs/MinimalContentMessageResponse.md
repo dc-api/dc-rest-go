@@ -4,17 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageType**](MessageType.md) |  | 
 **Content** | **string** |  | 
 **Mentions** | [**[]UserResponse**](UserResponse.md) |  | 
 **MentionRoles** | **[]string** |  | 
 **Attachments** | [**[]MessageAttachmentResponse**](MessageAttachmentResponse.md) |  | 
 **Embeds** | [**[]MessageEmbedResponse**](MessageEmbedResponse.md) |  | 
 **Timestamp** | **time.Time** |  | 
-**EditedTimestamp** | Pointer to **NullableTime** |  | [optional] 
+**EditedTimestamp** | Pointer to **time.Time** |  | [optional] 
 **Flags** | **int32** |  | 
 **Components** | [**[]BasicMessageResponseComponentsInner**](BasicMessageResponseComponentsInner.md) |  | 
-**Resolved** | Pointer to [**NullableResolvedObjectsResponse**](ResolvedObjectsResponse.md) |  | [optional] 
 **Stickers** | Pointer to [**[]GetSticker200Response**](GetSticker200Response.md) |  | [optional] 
 **StickerItems** | Pointer to [**[]MessageStickerItemResponse**](MessageStickerItemResponse.md) |  | [optional] 
 
@@ -22,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewMinimalContentMessageResponse
 
-`func NewMinimalContentMessageResponse(type_ int32, content string, mentions []UserResponse, mentionRoles []string, attachments []MessageAttachmentResponse, embeds []MessageEmbedResponse, timestamp time.Time, flags int32, components []BasicMessageResponseComponentsInner, ) *MinimalContentMessageResponse`
+`func NewMinimalContentMessageResponse(type_ MessageType, content string, mentions []UserResponse, mentionRoles []string, attachments []MessageAttachmentResponse, embeds []MessageEmbedResponse, timestamp time.Time, flags int32, components []BasicMessageResponseComponentsInner, ) *MinimalContentMessageResponse`
 
 NewMinimalContentMessageResponse instantiates a new MinimalContentMessageResponse object
 This constructor will assign default values to properties that have it defined,
@@ -39,20 +38,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *MinimalContentMessageResponse) GetType() int32`
+`func (o *MinimalContentMessageResponse) GetType() MessageType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *MinimalContentMessageResponse) GetTypeOk() (*int32, bool)`
+`func (o *MinimalContentMessageResponse) GetTypeOk() (*MessageType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *MinimalContentMessageResponse) SetType(v int32)`
+`func (o *MinimalContentMessageResponse) SetType(v MessageType)`
 
 SetType sets Type field to given value.
 
@@ -202,16 +201,6 @@ SetEditedTimestamp sets EditedTimestamp field to given value.
 
 HasEditedTimestamp returns a boolean if a field has been set.
 
-### SetEditedTimestampNil
-
-`func (o *MinimalContentMessageResponse) SetEditedTimestampNil(b bool)`
-
- SetEditedTimestampNil sets the value for EditedTimestamp to be an explicit nil
-
-### UnsetEditedTimestamp
-`func (o *MinimalContentMessageResponse) UnsetEditedTimestamp()`
-
-UnsetEditedTimestamp ensures that no value is present for EditedTimestamp, not even an explicit nil
 ### GetFlags
 
 `func (o *MinimalContentMessageResponse) GetFlags() int32`
@@ -252,41 +241,6 @@ and a boolean to check if the value has been set.
 SetComponents sets Components field to given value.
 
 
-### GetResolved
-
-`func (o *MinimalContentMessageResponse) GetResolved() ResolvedObjectsResponse`
-
-GetResolved returns the Resolved field if non-nil, zero value otherwise.
-
-### GetResolvedOk
-
-`func (o *MinimalContentMessageResponse) GetResolvedOk() (*ResolvedObjectsResponse, bool)`
-
-GetResolvedOk returns a tuple with the Resolved field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetResolved
-
-`func (o *MinimalContentMessageResponse) SetResolved(v ResolvedObjectsResponse)`
-
-SetResolved sets Resolved field to given value.
-
-### HasResolved
-
-`func (o *MinimalContentMessageResponse) HasResolved() bool`
-
-HasResolved returns a boolean if a field has been set.
-
-### SetResolvedNil
-
-`func (o *MinimalContentMessageResponse) SetResolvedNil(b bool)`
-
- SetResolvedNil sets the value for Resolved to be an explicit nil
-
-### UnsetResolved
-`func (o *MinimalContentMessageResponse) UnsetResolved()`
-
-UnsetResolved ensures that no value is present for Resolved, not even an explicit nil
 ### GetStickers
 
 `func (o *MinimalContentMessageResponse) GetStickers() []GetSticker200Response`
@@ -312,16 +266,6 @@ SetStickers sets Stickers field to given value.
 
 HasStickers returns a boolean if a field has been set.
 
-### SetStickersNil
-
-`func (o *MinimalContentMessageResponse) SetStickersNil(b bool)`
-
- SetStickersNil sets the value for Stickers to be an explicit nil
-
-### UnsetStickers
-`func (o *MinimalContentMessageResponse) UnsetStickers()`
-
-UnsetStickers ensures that no value is present for Stickers, not even an explicit nil
 ### GetStickerItems
 
 `func (o *MinimalContentMessageResponse) GetStickerItems() []MessageStickerItemResponse`
@@ -347,16 +291,6 @@ SetStickerItems sets StickerItems field to given value.
 
 HasStickerItems returns a boolean if a field has been set.
 
-### SetStickerItemsNil
-
-`func (o *MinimalContentMessageResponse) SetStickerItemsNil(b bool)`
-
- SetStickerItemsNil sets the value for StickerItems to be an explicit nil
-
-### UnsetStickerItems
-`func (o *MinimalContentMessageResponse) UnsetStickerItems()`
-
-UnsetStickerItems ensures that no value is present for StickerItems, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

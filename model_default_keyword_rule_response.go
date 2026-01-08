@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -59,12 +59,12 @@ type DefaultKeywordRuleResponse struct {
 	GuildId string `json:"guild_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	CreatorId string `json:"creator_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
-	EventType int32 `json:"event_type"`
+	EventType AutomodEventType `json:"event_type"`
 	Actions []DefaultKeywordRuleResponseActionsInner `json:"actions"`
-	TriggerType int32 `json:"trigger_type"`
-	Enabled NullableBool `json:"enabled,omitempty"`
-	ExemptRoles []string `json:"exempt_roles,omitempty"`
-	ExemptChannels []string `json:"exempt_channels,omitempty"`
+	TriggerType AutomodTriggerType `json:"trigger_type"`
+	Enabled bool `json:"enabled"`
+	ExemptRoles []string `json:"exempt_roles"`
+	ExemptChannels []string `json:"exempt_channels"`
 	TriggerMetadata DefaultKeywordListTriggerMetadataResponse `json:"trigger_metadata"`
 }
 
@@ -74,7 +74,7 @@ type _DefaultKeywordRuleResponse DefaultKeywordRuleResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDefaultKeywordRuleResponse(id string, guildId string, creatorId string, name string, eventType int32, actions []DefaultKeywordRuleResponseActionsInner, triggerType int32, triggerMetadata DefaultKeywordListTriggerMetadataResponse) *DefaultKeywordRuleResponse {
+func NewDefaultKeywordRuleResponse(id string, guildId string, creatorId string, name string, eventType AutomodEventType, actions []DefaultKeywordRuleResponseActionsInner, triggerType AutomodTriggerType, enabled bool, exemptRoles []string, exemptChannels []string, triggerMetadata DefaultKeywordListTriggerMetadataResponse) *DefaultKeywordRuleResponse {
 	this := DefaultKeywordRuleResponse{}
 	this.Id = id
 	this.GuildId = guildId
@@ -83,6 +83,9 @@ func NewDefaultKeywordRuleResponse(id string, guildId string, creatorId string, 
 	this.EventType = eventType
 	this.Actions = actions
 	this.TriggerType = triggerType
+	this.Enabled = enabled
+	this.ExemptRoles = exemptRoles
+	this.ExemptChannels = exemptChannels
 	this.TriggerMetadata = triggerMetadata
 	return &this
 }
@@ -192,9 +195,9 @@ func (o *DefaultKeywordRuleResponse) SetName(v string) {
 }
 
 // GetEventType returns the EventType field value
-func (o *DefaultKeywordRuleResponse) GetEventType() int32 {
+func (o *DefaultKeywordRuleResponse) GetEventType() AutomodEventType {
 	if o == nil {
-		var ret int32
+		var ret AutomodEventType
 		return ret
 	}
 
@@ -203,7 +206,7 @@ func (o *DefaultKeywordRuleResponse) GetEventType() int32 {
 
 // GetEventTypeOk returns a tuple with the EventType field value
 // and a boolean to check if the value has been set.
-func (o *DefaultKeywordRuleResponse) GetEventTypeOk() (*int32, bool) {
+func (o *DefaultKeywordRuleResponse) GetEventTypeOk() (*AutomodEventType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -211,7 +214,7 @@ func (o *DefaultKeywordRuleResponse) GetEventTypeOk() (*int32, bool) {
 }
 
 // SetEventType sets field value
-func (o *DefaultKeywordRuleResponse) SetEventType(v int32) {
+func (o *DefaultKeywordRuleResponse) SetEventType(v AutomodEventType) {
 	o.EventType = v
 }
 
@@ -240,9 +243,9 @@ func (o *DefaultKeywordRuleResponse) SetActions(v []DefaultKeywordRuleResponseAc
 }
 
 // GetTriggerType returns the TriggerType field value
-func (o *DefaultKeywordRuleResponse) GetTriggerType() int32 {
+func (o *DefaultKeywordRuleResponse) GetTriggerType() AutomodTriggerType {
 	if o == nil {
-		var ret int32
+		var ret AutomodTriggerType
 		return ret
 	}
 
@@ -251,7 +254,7 @@ func (o *DefaultKeywordRuleResponse) GetTriggerType() int32 {
 
 // GetTriggerTypeOk returns a tuple with the TriggerType field value
 // and a boolean to check if the value has been set.
-func (o *DefaultKeywordRuleResponse) GetTriggerTypeOk() (*int32, bool) {
+func (o *DefaultKeywordRuleResponse) GetTriggerTypeOk() (*AutomodTriggerType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -259,65 +262,46 @@ func (o *DefaultKeywordRuleResponse) GetTriggerTypeOk() (*int32, bool) {
 }
 
 // SetTriggerType sets field value
-func (o *DefaultKeywordRuleResponse) SetTriggerType(v int32) {
+func (o *DefaultKeywordRuleResponse) SetTriggerType(v AutomodTriggerType) {
 	o.TriggerType = v
 }
 
-// GetEnabled returns the Enabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnabled returns the Enabled field value
 func (o *DefaultKeywordRuleResponse) GetEnabled() bool {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.Enabled.Get()
+
+	return o.Enabled
 }
 
-// GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
+// GetEnabledOk returns a tuple with the Enabled field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DefaultKeywordRuleResponse) GetEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Enabled.Get(), o.Enabled.IsSet()
+	return &o.Enabled, true
 }
 
-// HasEnabled returns a boolean if a field has been set.
-func (o *DefaultKeywordRuleResponse) HasEnabled() bool {
-	if o != nil && o.Enabled.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnabled gets a reference to the given NullableBool and assigns it to the Enabled field.
+// SetEnabled sets field value
 func (o *DefaultKeywordRuleResponse) SetEnabled(v bool) {
-	o.Enabled.Set(&v)
+	o.Enabled = v
 }
 
-// SetEnabledNil sets the value for Enabled to be an explicit nil
-func (o *DefaultKeywordRuleResponse) SetEnabledNil() {
-	o.Enabled.Set(nil)
-}
-
-// UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
-func (o *DefaultKeywordRuleResponse) UnsetEnabled() {
-	o.Enabled.Unset()
-}
-
-// GetExemptRoles returns the ExemptRoles field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExemptRoles returns the ExemptRoles field value
 func (o *DefaultKeywordRuleResponse) GetExemptRoles() []string {
 	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.ExemptRoles
 }
 
-// GetExemptRolesOk returns a tuple with the ExemptRoles field value if set, nil otherwise
+// GetExemptRolesOk returns a tuple with the ExemptRoles field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DefaultKeywordRuleResponse) GetExemptRolesOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
@@ -325,33 +309,23 @@ func (o *DefaultKeywordRuleResponse) GetExemptRolesOk() ([]string, bool) {
 	return o.ExemptRoles, true
 }
 
-// HasExemptRoles returns a boolean if a field has been set.
-func (o *DefaultKeywordRuleResponse) HasExemptRoles() bool {
-	if o != nil && !IsNil(o.ExemptRoles) {
-		return true
-	}
-
-	return false
-}
-
-// SetExemptRoles gets a reference to the given []string and assigns it to the ExemptRoles field.
+// SetExemptRoles sets field value
 func (o *DefaultKeywordRuleResponse) SetExemptRoles(v []string) {
 	o.ExemptRoles = v
 }
 
-
-// GetExemptChannels returns the ExemptChannels field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExemptChannels returns the ExemptChannels field value
 func (o *DefaultKeywordRuleResponse) GetExemptChannels() []string {
 	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.ExemptChannels
 }
 
-// GetExemptChannelsOk returns a tuple with the ExemptChannels field value if set, nil otherwise
+// GetExemptChannelsOk returns a tuple with the ExemptChannels field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DefaultKeywordRuleResponse) GetExemptChannelsOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
@@ -359,20 +333,10 @@ func (o *DefaultKeywordRuleResponse) GetExemptChannelsOk() ([]string, bool) {
 	return o.ExemptChannels, true
 }
 
-// HasExemptChannels returns a boolean if a field has been set.
-func (o *DefaultKeywordRuleResponse) HasExemptChannels() bool {
-	if o != nil && !IsNil(o.ExemptChannels) {
-		return true
-	}
-
-	return false
-}
-
-// SetExemptChannels gets a reference to the given []string and assigns it to the ExemptChannels field.
+// SetExemptChannels sets field value
 func (o *DefaultKeywordRuleResponse) SetExemptChannels(v []string) {
 	o.ExemptChannels = v
 }
-
 
 // GetTriggerMetadata returns the TriggerMetadata field value
 func (o *DefaultKeywordRuleResponse) GetTriggerMetadata() DefaultKeywordListTriggerMetadataResponse {
@@ -415,15 +379,9 @@ func (o DefaultKeywordRuleResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["event_type"] = o.EventType
 	toSerialize["actions"] = o.Actions
 	toSerialize["trigger_type"] = o.TriggerType
-	if o.Enabled.IsSet() {
-		toSerialize["enabled"] = o.Enabled.Get()
-	}
-	if o.ExemptRoles != nil {
-		toSerialize["exempt_roles"] = o.ExemptRoles
-	}
-	if o.ExemptChannels != nil {
-		toSerialize["exempt_channels"] = o.ExemptChannels
-	}
+	toSerialize["enabled"] = o.Enabled
+	toSerialize["exempt_roles"] = o.ExemptRoles
+	toSerialize["exempt_channels"] = o.ExemptChannels
 	toSerialize["trigger_metadata"] = o.TriggerMetadata
 	return toSerialize, nil
 }
@@ -440,6 +398,9 @@ func (o *DefaultKeywordRuleResponse) UnmarshalJSON(data []byte) (err error) {
 		"event_type",
 		"actions",
 		"trigger_type",
+		"enabled",
+		"exempt_roles",
+		"exempt_channels",
 		"trigger_metadata",
 	}
 
@@ -507,5 +468,4 @@ func (v *NullableDefaultKeywordRuleResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

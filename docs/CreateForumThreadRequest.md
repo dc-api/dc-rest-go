@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**AutoArchiveDuration** | Pointer to **int32** |  | [optional] 
-**RateLimitPerUser** | Pointer to **NullableInt32** |  | [optional] 
+**AutoArchiveDuration** | Pointer to [**CreateForumThreadRequestAutoArchiveDuration**](CreateForumThreadRequestAutoArchiveDuration.md) |  | [optional] 
+**RateLimitPerUser** | Pointer to **int32** |  | [optional] 
 **AppliedTags** | Pointer to **[]string** |  | [optional] 
 **Message** | [**BaseCreateMessageCreateRequest**](BaseCreateMessageCreateRequest.md) |  | 
 
@@ -51,20 +51,20 @@ SetName sets Name field to given value.
 
 ### GetAutoArchiveDuration
 
-`func (o *CreateForumThreadRequest) GetAutoArchiveDuration() int32`
+`func (o *CreateForumThreadRequest) GetAutoArchiveDuration() CreateForumThreadRequestAutoArchiveDuration`
 
 GetAutoArchiveDuration returns the AutoArchiveDuration field if non-nil, zero value otherwise.
 
 ### GetAutoArchiveDurationOk
 
-`func (o *CreateForumThreadRequest) GetAutoArchiveDurationOk() (*int32, bool)`
+`func (o *CreateForumThreadRequest) GetAutoArchiveDurationOk() (*CreateForumThreadRequestAutoArchiveDuration, bool)`
 
 GetAutoArchiveDurationOk returns a tuple with the AutoArchiveDuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutoArchiveDuration
 
-`func (o *CreateForumThreadRequest) SetAutoArchiveDuration(v int32)`
+`func (o *CreateForumThreadRequest) SetAutoArchiveDuration(v CreateForumThreadRequestAutoArchiveDuration)`
 
 SetAutoArchiveDuration sets AutoArchiveDuration field to given value.
 
@@ -99,16 +99,6 @@ SetRateLimitPerUser sets RateLimitPerUser field to given value.
 
 HasRateLimitPerUser returns a boolean if a field has been set.
 
-### SetRateLimitPerUserNil
-
-`func (o *CreateForumThreadRequest) SetRateLimitPerUserNil(b bool)`
-
- SetRateLimitPerUserNil sets the value for RateLimitPerUser to be an explicit nil
-
-### UnsetRateLimitPerUser
-`func (o *CreateForumThreadRequest) UnsetRateLimitPerUser()`
-
-UnsetRateLimitPerUser ensures that no value is present for RateLimitPerUser, not even an explicit nil
 ### GetAppliedTags
 
 `func (o *CreateForumThreadRequest) GetAppliedTags() []string`
@@ -134,16 +124,6 @@ SetAppliedTags sets AppliedTags field to given value.
 
 HasAppliedTags returns a boolean if a field has been set.
 
-### SetAppliedTagsNil
-
-`func (o *CreateForumThreadRequest) SetAppliedTagsNil(b bool)`
-
- SetAppliedTagsNil sets the value for AppliedTags to be an explicit nil
-
-### UnsetAppliedTags
-`func (o *CreateForumThreadRequest) UnsetAppliedTags()`
-
-UnsetAppliedTags ensures that no value is present for AppliedTags, not even an explicit nil
 ### GetMessage
 
 `func (o *CreateForumThreadRequest) GetMessage() BaseCreateMessageCreateRequest`

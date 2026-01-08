@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **NullableString** |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Account** | Pointer to [**NullableAccountResponse**](AccountResponse.md) |  | [optional] 
+**Type** | [**IntegrationTypes**](IntegrationTypes.md) |  | 
+**Name** | Pointer to **string** |  | [optional] 
+**Account** | [**AccountResponse**](AccountResponse.md) |  | 
 **ApplicationId** | **string** |  | 
 
 ## Methods
 
 ### NewPartialDiscordIntegrationResponse
 
-`func NewPartialDiscordIntegrationResponse(id string, type_ NullableString, applicationId string, ) *PartialDiscordIntegrationResponse`
+`func NewPartialDiscordIntegrationResponse(id string, type_ IntegrationTypes, account AccountResponse, applicationId string, ) *PartialDiscordIntegrationResponse`
 
 NewPartialDiscordIntegrationResponse instantiates a new PartialDiscordIntegrationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -51,34 +51,24 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *PartialDiscordIntegrationResponse) GetType() string`
+`func (o *PartialDiscordIntegrationResponse) GetType() IntegrationTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *PartialDiscordIntegrationResponse) GetTypeOk() (*string, bool)`
+`func (o *PartialDiscordIntegrationResponse) GetTypeOk() (*IntegrationTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *PartialDiscordIntegrationResponse) SetType(v string)`
+`func (o *PartialDiscordIntegrationResponse) SetType(v IntegrationTypes)`
 
 SetType sets Type field to given value.
 
 
-### SetTypeNil
-
-`func (o *PartialDiscordIntegrationResponse) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *PartialDiscordIntegrationResponse) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetName
 
 `func (o *PartialDiscordIntegrationResponse) GetName() string`
@@ -104,16 +94,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *PartialDiscordIntegrationResponse) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *PartialDiscordIntegrationResponse) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetAccount
 
 `func (o *PartialDiscordIntegrationResponse) GetAccount() AccountResponse`
@@ -133,22 +113,7 @@ and a boolean to check if the value has been set.
 
 SetAccount sets Account field to given value.
 
-### HasAccount
 
-`func (o *PartialDiscordIntegrationResponse) HasAccount() bool`
-
-HasAccount returns a boolean if a field has been set.
-
-### SetAccountNil
-
-`func (o *PartialDiscordIntegrationResponse) SetAccountNil(b bool)`
-
- SetAccountNil sets the value for Account to be an explicit nil
-
-### UnsetAccount
-`func (o *PartialDiscordIntegrationResponse) UnsetAccount()`
-
-UnsetAccount ensures that no value is present for Account, not even an explicit nil
 ### GetApplicationId
 
 `func (o *PartialDiscordIntegrationResponse) GetApplicationId() string`

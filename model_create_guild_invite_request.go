@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,13 +53,13 @@ var _ MappedNullable = &CreateGuildInviteRequest{}
 
 // CreateGuildInviteRequest struct for CreateGuildInviteRequest
 type CreateGuildInviteRequest struct {
-	MaxAge NullableInt32 `json:"max_age,omitempty"`
-	Temporary NullableBool `json:"temporary,omitempty"`
-	MaxUses NullableInt32 `json:"max_uses,omitempty"`
-	Unique NullableBool `json:"unique,omitempty"`
-	TargetUserId *string `json:"target_user_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	TargetApplicationId *string `json:"target_application_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	TargetType NullableInt32 `json:"target_type,omitempty"`
+	MaxAge *int32 `json:"max_age,omitempty"`
+	Temporary *bool `json:"temporary,omitempty"`
+	MaxUses *int32 `json:"max_uses,omitempty"`
+	Unique *bool `json:"unique,omitempty"`
+	TargetUserId *GetEntitlementsSkuIdsParameterOneOfInner `json:"target_user_id,omitempty"`
+	TargetApplicationId *GetEntitlementsSkuIdsParameterOneOfInner `json:"target_application_id,omitempty"`
+	TargetType *CreateGuildInviteRequestTargetType `json:"target_type,omitempty"`
 }
 
 // NewCreateGuildInviteRequest instantiates a new CreateGuildInviteRequest object
@@ -79,182 +79,142 @@ func NewCreateGuildInviteRequestWithDefaults() *CreateGuildInviteRequest {
 	return &this
 }
 
-// GetMaxAge returns the MaxAge field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxAge returns the MaxAge field value if set, zero value otherwise.
 func (o *CreateGuildInviteRequest) GetMaxAge() int32 {
-	if o == nil || IsNil(o.MaxAge.Get()) {
+	if o == nil || IsNil(o.MaxAge) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxAge.Get()
+	return *o.MaxAge
 }
 
 // GetMaxAgeOk returns a tuple with the MaxAge field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateGuildInviteRequest) GetMaxAgeOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxAge.Get()) {
+	if o == nil || IsNil(o.MaxAge) {
 		return nil, false
 	}
-	return o.MaxAge.Get(), o.MaxAge.IsSet()
+	return o.MaxAge, true
 }
 
 // HasMaxAge returns a boolean if a field has been set.
 func (o *CreateGuildInviteRequest) HasMaxAge() bool {
-	if o != nil && o.MaxAge.IsSet() {
+	if o != nil && !IsNil(o.MaxAge) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxAge gets a reference to the given NullableInt32 and assigns it to the MaxAge field.
+// SetMaxAge gets a reference to the given int32 and assigns it to the MaxAge field.
 func (o *CreateGuildInviteRequest) SetMaxAge(v int32) {
-	o.MaxAge.Set(&v)
+	o.MaxAge = &v
 }
 
-// SetMaxAgeNil sets the value for MaxAge to be an explicit nil
-func (o *CreateGuildInviteRequest) SetMaxAgeNil() {
-	o.MaxAge.Set(nil)
-}
 
-// UnsetMaxAge ensures that no value is present for MaxAge, not even an explicit nil
-func (o *CreateGuildInviteRequest) UnsetMaxAge() {
-	o.MaxAge.Unset()
-}
-
-// GetTemporary returns the Temporary field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTemporary returns the Temporary field value if set, zero value otherwise.
 func (o *CreateGuildInviteRequest) GetTemporary() bool {
-	if o == nil || IsNil(o.Temporary.Get()) {
+	if o == nil || IsNil(o.Temporary) {
 		var ret bool
 		return ret
 	}
-	return *o.Temporary.Get()
+	return *o.Temporary
 }
 
 // GetTemporaryOk returns a tuple with the Temporary field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateGuildInviteRequest) GetTemporaryOk() (*bool, bool) {
-	if o == nil || IsNil(o.Temporary.Get()) {
+	if o == nil || IsNil(o.Temporary) {
 		return nil, false
 	}
-	return o.Temporary.Get(), o.Temporary.IsSet()
+	return o.Temporary, true
 }
 
 // HasTemporary returns a boolean if a field has been set.
 func (o *CreateGuildInviteRequest) HasTemporary() bool {
-	if o != nil && o.Temporary.IsSet() {
+	if o != nil && !IsNil(o.Temporary) {
 		return true
 	}
 
 	return false
 }
 
-// SetTemporary gets a reference to the given NullableBool and assigns it to the Temporary field.
+// SetTemporary gets a reference to the given bool and assigns it to the Temporary field.
 func (o *CreateGuildInviteRequest) SetTemporary(v bool) {
-	o.Temporary.Set(&v)
+	o.Temporary = &v
 }
 
-// SetTemporaryNil sets the value for Temporary to be an explicit nil
-func (o *CreateGuildInviteRequest) SetTemporaryNil() {
-	o.Temporary.Set(nil)
-}
 
-// UnsetTemporary ensures that no value is present for Temporary, not even an explicit nil
-func (o *CreateGuildInviteRequest) UnsetTemporary() {
-	o.Temporary.Unset()
-}
-
-// GetMaxUses returns the MaxUses field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxUses returns the MaxUses field value if set, zero value otherwise.
 func (o *CreateGuildInviteRequest) GetMaxUses() int32 {
-	if o == nil || IsNil(o.MaxUses.Get()) {
+	if o == nil || IsNil(o.MaxUses) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxUses.Get()
+	return *o.MaxUses
 }
 
 // GetMaxUsesOk returns a tuple with the MaxUses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateGuildInviteRequest) GetMaxUsesOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxUses.Get()) {
+	if o == nil || IsNil(o.MaxUses) {
 		return nil, false
 	}
-	return o.MaxUses.Get(), o.MaxUses.IsSet()
+	return o.MaxUses, true
 }
 
 // HasMaxUses returns a boolean if a field has been set.
 func (o *CreateGuildInviteRequest) HasMaxUses() bool {
-	if o != nil && o.MaxUses.IsSet() {
+	if o != nil && !IsNil(o.MaxUses) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxUses gets a reference to the given NullableInt32 and assigns it to the MaxUses field.
+// SetMaxUses gets a reference to the given int32 and assigns it to the MaxUses field.
 func (o *CreateGuildInviteRequest) SetMaxUses(v int32) {
-	o.MaxUses.Set(&v)
+	o.MaxUses = &v
 }
 
-// SetMaxUsesNil sets the value for MaxUses to be an explicit nil
-func (o *CreateGuildInviteRequest) SetMaxUsesNil() {
-	o.MaxUses.Set(nil)
-}
 
-// UnsetMaxUses ensures that no value is present for MaxUses, not even an explicit nil
-func (o *CreateGuildInviteRequest) UnsetMaxUses() {
-	o.MaxUses.Unset()
-}
-
-// GetUnique returns the Unique field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUnique returns the Unique field value if set, zero value otherwise.
 func (o *CreateGuildInviteRequest) GetUnique() bool {
-	if o == nil || IsNil(o.Unique.Get()) {
+	if o == nil || IsNil(o.Unique) {
 		var ret bool
 		return ret
 	}
-	return *o.Unique.Get()
+	return *o.Unique
 }
 
 // GetUniqueOk returns a tuple with the Unique field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateGuildInviteRequest) GetUniqueOk() (*bool, bool) {
-	if o == nil || IsNil(o.Unique.Get()) {
+	if o == nil || IsNil(o.Unique) {
 		return nil, false
 	}
-	return o.Unique.Get(), o.Unique.IsSet()
+	return o.Unique, true
 }
 
 // HasUnique returns a boolean if a field has been set.
 func (o *CreateGuildInviteRequest) HasUnique() bool {
-	if o != nil && o.Unique.IsSet() {
+	if o != nil && !IsNil(o.Unique) {
 		return true
 	}
 
 	return false
 }
 
-// SetUnique gets a reference to the given NullableBool and assigns it to the Unique field.
+// SetUnique gets a reference to the given bool and assigns it to the Unique field.
 func (o *CreateGuildInviteRequest) SetUnique(v bool) {
-	o.Unique.Set(&v)
+	o.Unique = &v
 }
 
-// SetUniqueNil sets the value for Unique to be an explicit nil
-func (o *CreateGuildInviteRequest) SetUniqueNil() {
-	o.Unique.Set(nil)
-}
-
-// UnsetUnique ensures that no value is present for Unique, not even an explicit nil
-func (o *CreateGuildInviteRequest) UnsetUnique() {
-	o.Unique.Unset()
-}
 
 // GetTargetUserId returns the TargetUserId field value if set, zero value otherwise.
-func (o *CreateGuildInviteRequest) GetTargetUserId() string {
+func (o *CreateGuildInviteRequest) GetTargetUserId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.TargetUserId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.TargetUserId
@@ -262,7 +222,7 @@ func (o *CreateGuildInviteRequest) GetTargetUserId() string {
 
 // GetTargetUserIdOk returns a tuple with the TargetUserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateGuildInviteRequest) GetTargetUserIdOk() (*string, bool) {
+func (o *CreateGuildInviteRequest) GetTargetUserIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.TargetUserId) {
 		return nil, false
 	}
@@ -278,16 +238,16 @@ func (o *CreateGuildInviteRequest) HasTargetUserId() bool {
 	return false
 }
 
-// SetTargetUserId gets a reference to the given string and assigns it to the TargetUserId field.
-func (o *CreateGuildInviteRequest) SetTargetUserId(v string) {
+// SetTargetUserId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the TargetUserId field.
+func (o *CreateGuildInviteRequest) SetTargetUserId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.TargetUserId = &v
 }
 
 
 // GetTargetApplicationId returns the TargetApplicationId field value if set, zero value otherwise.
-func (o *CreateGuildInviteRequest) GetTargetApplicationId() string {
+func (o *CreateGuildInviteRequest) GetTargetApplicationId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.TargetApplicationId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.TargetApplicationId
@@ -295,7 +255,7 @@ func (o *CreateGuildInviteRequest) GetTargetApplicationId() string {
 
 // GetTargetApplicationIdOk returns a tuple with the TargetApplicationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateGuildInviteRequest) GetTargetApplicationIdOk() (*string, bool) {
+func (o *CreateGuildInviteRequest) GetTargetApplicationIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.TargetApplicationId) {
 		return nil, false
 	}
@@ -311,54 +271,44 @@ func (o *CreateGuildInviteRequest) HasTargetApplicationId() bool {
 	return false
 }
 
-// SetTargetApplicationId gets a reference to the given string and assigns it to the TargetApplicationId field.
-func (o *CreateGuildInviteRequest) SetTargetApplicationId(v string) {
+// SetTargetApplicationId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the TargetApplicationId field.
+func (o *CreateGuildInviteRequest) SetTargetApplicationId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.TargetApplicationId = &v
 }
 
 
-// GetTargetType returns the TargetType field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateGuildInviteRequest) GetTargetType() int32 {
-	if o == nil || IsNil(o.TargetType.Get()) {
-		var ret int32
+// GetTargetType returns the TargetType field value if set, zero value otherwise.
+func (o *CreateGuildInviteRequest) GetTargetType() CreateGuildInviteRequestTargetType {
+	if o == nil || IsNil(o.TargetType) {
+		var ret CreateGuildInviteRequestTargetType
 		return ret
 	}
-	return *o.TargetType.Get()
+	return *o.TargetType
 }
 
 // GetTargetTypeOk returns a tuple with the TargetType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateGuildInviteRequest) GetTargetTypeOk() (*int32, bool) {
-	if o == nil || IsNil(o.TargetType.Get()) {
+func (o *CreateGuildInviteRequest) GetTargetTypeOk() (*CreateGuildInviteRequestTargetType, bool) {
+	if o == nil || IsNil(o.TargetType) {
 		return nil, false
 	}
-	return o.TargetType.Get(), o.TargetType.IsSet()
+	return o.TargetType, true
 }
 
 // HasTargetType returns a boolean if a field has been set.
 func (o *CreateGuildInviteRequest) HasTargetType() bool {
-	if o != nil && o.TargetType.IsSet() {
+	if o != nil && !IsNil(o.TargetType) {
 		return true
 	}
 
 	return false
 }
 
-// SetTargetType gets a reference to the given NullableInt32 and assigns it to the TargetType field.
-func (o *CreateGuildInviteRequest) SetTargetType(v int32) {
-	o.TargetType.Set(&v)
+// SetTargetType gets a reference to the given CreateGuildInviteRequestTargetType and assigns it to the TargetType field.
+func (o *CreateGuildInviteRequest) SetTargetType(v CreateGuildInviteRequestTargetType) {
+	o.TargetType = &v
 }
 
-// SetTargetTypeNil sets the value for TargetType to be an explicit nil
-func (o *CreateGuildInviteRequest) SetTargetTypeNil() {
-	o.TargetType.Set(nil)
-}
-
-// UnsetTargetType ensures that no value is present for TargetType, not even an explicit nil
-func (o *CreateGuildInviteRequest) UnsetTargetType() {
-	o.TargetType.Unset()
-}
 
 func (o CreateGuildInviteRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -370,17 +320,17 @@ func (o CreateGuildInviteRequest) MarshalJSON() ([]byte, error) {
 
 func (o CreateGuildInviteRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.MaxAge.IsSet() {
-		toSerialize["max_age"] = o.MaxAge.Get()
+	if !IsNil(o.MaxAge) {
+		toSerialize["max_age"] = o.MaxAge
 	}
-	if o.Temporary.IsSet() {
-		toSerialize["temporary"] = o.Temporary.Get()
+	if !IsNil(o.Temporary) {
+		toSerialize["temporary"] = o.Temporary
 	}
-	if o.MaxUses.IsSet() {
-		toSerialize["max_uses"] = o.MaxUses.Get()
+	if !IsNil(o.MaxUses) {
+		toSerialize["max_uses"] = o.MaxUses
 	}
-	if o.Unique.IsSet() {
-		toSerialize["unique"] = o.Unique.Get()
+	if !IsNil(o.Unique) {
+		toSerialize["unique"] = o.Unique
 	}
 	if !IsNil(o.TargetUserId) {
 		toSerialize["target_user_id"] = o.TargetUserId
@@ -388,8 +338,8 @@ func (o CreateGuildInviteRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TargetApplicationId) {
 		toSerialize["target_application_id"] = o.TargetApplicationId
 	}
-	if o.TargetType.IsSet() {
-		toSerialize["target_type"] = o.TargetType.Get()
+	if !IsNil(o.TargetType) {
+		toSerialize["target_type"] = o.TargetType
 	}
 	return toSerialize, nil
 }
@@ -429,5 +379,4 @@ func (v *NullableCreateGuildInviteRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

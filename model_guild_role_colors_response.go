@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -46,6 +46,8 @@ package dc_rest
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GuildRoleColorsResponse type satisfies the MappedNullable interface at compile time
@@ -53,17 +55,20 @@ var _ MappedNullable = &GuildRoleColorsResponse{}
 
 // GuildRoleColorsResponse struct for GuildRoleColorsResponse
 type GuildRoleColorsResponse struct {
-	PrimaryColor NullableInt32 `json:"primary_color,omitempty"`
-	SecondaryColor NullableInt32 `json:"secondary_color,omitempty"`
-	TertiaryColor NullableInt32 `json:"tertiary_color,omitempty"`
+	PrimaryColor int32 `json:"primary_color"`
+	SecondaryColor *int32 `json:"secondary_color,omitempty"`
+	TertiaryColor *int32 `json:"tertiary_color,omitempty"`
 }
+
+type _GuildRoleColorsResponse GuildRoleColorsResponse
 
 // NewGuildRoleColorsResponse instantiates a new GuildRoleColorsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGuildRoleColorsResponse() *GuildRoleColorsResponse {
+func NewGuildRoleColorsResponse(primaryColor int32) *GuildRoleColorsResponse {
 	this := GuildRoleColorsResponse{}
+	this.PrimaryColor = primaryColor
 	return &this
 }
 
@@ -75,134 +80,95 @@ func NewGuildRoleColorsResponseWithDefaults() *GuildRoleColorsResponse {
 	return &this
 }
 
-// GetPrimaryColor returns the PrimaryColor field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPrimaryColor returns the PrimaryColor field value
 func (o *GuildRoleColorsResponse) GetPrimaryColor() int32 {
-	if o == nil || IsNil(o.PrimaryColor.Get()) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.PrimaryColor.Get()
+
+	return o.PrimaryColor
 }
 
-// GetPrimaryColorOk returns a tuple with the PrimaryColor field value if set, nil otherwise
+// GetPrimaryColorOk returns a tuple with the PrimaryColor field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildRoleColorsResponse) GetPrimaryColorOk() (*int32, bool) {
-	if o == nil || IsNil(o.PrimaryColor.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PrimaryColor.Get(), o.PrimaryColor.IsSet()
+	return &o.PrimaryColor, true
 }
 
-// HasPrimaryColor returns a boolean if a field has been set.
-func (o *GuildRoleColorsResponse) HasPrimaryColor() bool {
-	if o != nil && o.PrimaryColor.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPrimaryColor gets a reference to the given NullableInt32 and assigns it to the PrimaryColor field.
+// SetPrimaryColor sets field value
 func (o *GuildRoleColorsResponse) SetPrimaryColor(v int32) {
-	o.PrimaryColor.Set(&v)
+	o.PrimaryColor = v
 }
 
-// SetPrimaryColorNil sets the value for PrimaryColor to be an explicit nil
-func (o *GuildRoleColorsResponse) SetPrimaryColorNil() {
-	o.PrimaryColor.Set(nil)
-}
-
-// UnsetPrimaryColor ensures that no value is present for PrimaryColor, not even an explicit nil
-func (o *GuildRoleColorsResponse) UnsetPrimaryColor() {
-	o.PrimaryColor.Unset()
-}
-
-// GetSecondaryColor returns the SecondaryColor field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSecondaryColor returns the SecondaryColor field value if set, zero value otherwise.
 func (o *GuildRoleColorsResponse) GetSecondaryColor() int32 {
-	if o == nil || IsNil(o.SecondaryColor.Get()) {
+	if o == nil || IsNil(o.SecondaryColor) {
 		var ret int32
 		return ret
 	}
-	return *o.SecondaryColor.Get()
+	return *o.SecondaryColor
 }
 
 // GetSecondaryColorOk returns a tuple with the SecondaryColor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildRoleColorsResponse) GetSecondaryColorOk() (*int32, bool) {
-	if o == nil || IsNil(o.SecondaryColor.Get()) {
+	if o == nil || IsNil(o.SecondaryColor) {
 		return nil, false
 	}
-	return o.SecondaryColor.Get(), o.SecondaryColor.IsSet()
+	return o.SecondaryColor, true
 }
 
 // HasSecondaryColor returns a boolean if a field has been set.
 func (o *GuildRoleColorsResponse) HasSecondaryColor() bool {
-	if o != nil && o.SecondaryColor.IsSet() {
+	if o != nil && !IsNil(o.SecondaryColor) {
 		return true
 	}
 
 	return false
 }
 
-// SetSecondaryColor gets a reference to the given NullableInt32 and assigns it to the SecondaryColor field.
+// SetSecondaryColor gets a reference to the given int32 and assigns it to the SecondaryColor field.
 func (o *GuildRoleColorsResponse) SetSecondaryColor(v int32) {
-	o.SecondaryColor.Set(&v)
+	o.SecondaryColor = &v
 }
 
-// SetSecondaryColorNil sets the value for SecondaryColor to be an explicit nil
-func (o *GuildRoleColorsResponse) SetSecondaryColorNil() {
-	o.SecondaryColor.Set(nil)
-}
 
-// UnsetSecondaryColor ensures that no value is present for SecondaryColor, not even an explicit nil
-func (o *GuildRoleColorsResponse) UnsetSecondaryColor() {
-	o.SecondaryColor.Unset()
-}
-
-// GetTertiaryColor returns the TertiaryColor field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTertiaryColor returns the TertiaryColor field value if set, zero value otherwise.
 func (o *GuildRoleColorsResponse) GetTertiaryColor() int32 {
-	if o == nil || IsNil(o.TertiaryColor.Get()) {
+	if o == nil || IsNil(o.TertiaryColor) {
 		var ret int32
 		return ret
 	}
-	return *o.TertiaryColor.Get()
+	return *o.TertiaryColor
 }
 
 // GetTertiaryColorOk returns a tuple with the TertiaryColor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildRoleColorsResponse) GetTertiaryColorOk() (*int32, bool) {
-	if o == nil || IsNil(o.TertiaryColor.Get()) {
+	if o == nil || IsNil(o.TertiaryColor) {
 		return nil, false
 	}
-	return o.TertiaryColor.Get(), o.TertiaryColor.IsSet()
+	return o.TertiaryColor, true
 }
 
 // HasTertiaryColor returns a boolean if a field has been set.
 func (o *GuildRoleColorsResponse) HasTertiaryColor() bool {
-	if o != nil && o.TertiaryColor.IsSet() {
+	if o != nil && !IsNil(o.TertiaryColor) {
 		return true
 	}
 
 	return false
 }
 
-// SetTertiaryColor gets a reference to the given NullableInt32 and assigns it to the TertiaryColor field.
+// SetTertiaryColor gets a reference to the given int32 and assigns it to the TertiaryColor field.
 func (o *GuildRoleColorsResponse) SetTertiaryColor(v int32) {
-	o.TertiaryColor.Set(&v)
+	o.TertiaryColor = &v
 }
 
-// SetTertiaryColorNil sets the value for TertiaryColor to be an explicit nil
-func (o *GuildRoleColorsResponse) SetTertiaryColorNil() {
-	o.TertiaryColor.Set(nil)
-}
-
-// UnsetTertiaryColor ensures that no value is present for TertiaryColor, not even an explicit nil
-func (o *GuildRoleColorsResponse) UnsetTertiaryColor() {
-	o.TertiaryColor.Unset()
-}
 
 func (o GuildRoleColorsResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -214,16 +180,51 @@ func (o GuildRoleColorsResponse) MarshalJSON() ([]byte, error) {
 
 func (o GuildRoleColorsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.PrimaryColor.IsSet() {
-		toSerialize["primary_color"] = o.PrimaryColor.Get()
+	toSerialize["primary_color"] = o.PrimaryColor
+	if !IsNil(o.SecondaryColor) {
+		toSerialize["secondary_color"] = o.SecondaryColor
 	}
-	if o.SecondaryColor.IsSet() {
-		toSerialize["secondary_color"] = o.SecondaryColor.Get()
-	}
-	if o.TertiaryColor.IsSet() {
-		toSerialize["tertiary_color"] = o.TertiaryColor.Get()
+	if !IsNil(o.TertiaryColor) {
+		toSerialize["tertiary_color"] = o.TertiaryColor
 	}
 	return toSerialize, nil
+}
+
+func (o *GuildRoleColorsResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"primary_color",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGuildRoleColorsResponse := _GuildRoleColorsResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGuildRoleColorsResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GuildRoleColorsResponse(varGuildRoleColorsResponse)
+
+	return err
 }
 
 type NullableGuildRoleColorsResponse struct {
@@ -261,5 +262,4 @@ func (v *NullableGuildRoleColorsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

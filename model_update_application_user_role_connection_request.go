@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,8 +53,8 @@ var _ MappedNullable = &UpdateApplicationUserRoleConnectionRequest{}
 
 // UpdateApplicationUserRoleConnectionRequest struct for UpdateApplicationUserRoleConnectionRequest
 type UpdateApplicationUserRoleConnectionRequest struct {
-	PlatformName NullableString `json:"platform_name,omitempty"`
-	PlatformUsername NullableString `json:"platform_username,omitempty"`
+	PlatformName *string `json:"platform_name,omitempty"`
+	PlatformUsername *string `json:"platform_username,omitempty"`
 	Metadata map[string]string `json:"metadata,omitempty"`
 }
 
@@ -75,91 +75,71 @@ func NewUpdateApplicationUserRoleConnectionRequestWithDefaults() *UpdateApplicat
 	return &this
 }
 
-// GetPlatformName returns the PlatformName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPlatformName returns the PlatformName field value if set, zero value otherwise.
 func (o *UpdateApplicationUserRoleConnectionRequest) GetPlatformName() string {
-	if o == nil || IsNil(o.PlatformName.Get()) {
+	if o == nil || IsNil(o.PlatformName) {
 		var ret string
 		return ret
 	}
-	return *o.PlatformName.Get()
+	return *o.PlatformName
 }
 
 // GetPlatformNameOk returns a tuple with the PlatformName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateApplicationUserRoleConnectionRequest) GetPlatformNameOk() (*string, bool) {
-	if o == nil || IsNil(o.PlatformName.Get()) {
+	if o == nil || IsNil(o.PlatformName) {
 		return nil, false
 	}
-	return o.PlatformName.Get(), o.PlatformName.IsSet()
+	return o.PlatformName, true
 }
 
 // HasPlatformName returns a boolean if a field has been set.
 func (o *UpdateApplicationUserRoleConnectionRequest) HasPlatformName() bool {
-	if o != nil && o.PlatformName.IsSet() {
+	if o != nil && !IsNil(o.PlatformName) {
 		return true
 	}
 
 	return false
 }
 
-// SetPlatformName gets a reference to the given NullableString and assigns it to the PlatformName field.
+// SetPlatformName gets a reference to the given string and assigns it to the PlatformName field.
 func (o *UpdateApplicationUserRoleConnectionRequest) SetPlatformName(v string) {
-	o.PlatformName.Set(&v)
+	o.PlatformName = &v
 }
 
-// SetPlatformNameNil sets the value for PlatformName to be an explicit nil
-func (o *UpdateApplicationUserRoleConnectionRequest) SetPlatformNameNil() {
-	o.PlatformName.Set(nil)
-}
 
-// UnsetPlatformName ensures that no value is present for PlatformName, not even an explicit nil
-func (o *UpdateApplicationUserRoleConnectionRequest) UnsetPlatformName() {
-	o.PlatformName.Unset()
-}
-
-// GetPlatformUsername returns the PlatformUsername field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPlatformUsername returns the PlatformUsername field value if set, zero value otherwise.
 func (o *UpdateApplicationUserRoleConnectionRequest) GetPlatformUsername() string {
-	if o == nil || IsNil(o.PlatformUsername.Get()) {
+	if o == nil || IsNil(o.PlatformUsername) {
 		var ret string
 		return ret
 	}
-	return *o.PlatformUsername.Get()
+	return *o.PlatformUsername
 }
 
 // GetPlatformUsernameOk returns a tuple with the PlatformUsername field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateApplicationUserRoleConnectionRequest) GetPlatformUsernameOk() (*string, bool) {
-	if o == nil || IsNil(o.PlatformUsername.Get()) {
+	if o == nil || IsNil(o.PlatformUsername) {
 		return nil, false
 	}
-	return o.PlatformUsername.Get(), o.PlatformUsername.IsSet()
+	return o.PlatformUsername, true
 }
 
 // HasPlatformUsername returns a boolean if a field has been set.
 func (o *UpdateApplicationUserRoleConnectionRequest) HasPlatformUsername() bool {
-	if o != nil && o.PlatformUsername.IsSet() {
+	if o != nil && !IsNil(o.PlatformUsername) {
 		return true
 	}
 
 	return false
 }
 
-// SetPlatformUsername gets a reference to the given NullableString and assigns it to the PlatformUsername field.
+// SetPlatformUsername gets a reference to the given string and assigns it to the PlatformUsername field.
 func (o *UpdateApplicationUserRoleConnectionRequest) SetPlatformUsername(v string) {
-	o.PlatformUsername.Set(&v)
+	o.PlatformUsername = &v
 }
 
-// SetPlatformUsernameNil sets the value for PlatformUsername to be an explicit nil
-func (o *UpdateApplicationUserRoleConnectionRequest) SetPlatformUsernameNil() {
-	o.PlatformUsername.Set(nil)
-}
-
-// UnsetPlatformUsername ensures that no value is present for PlatformUsername, not even an explicit nil
-func (o *UpdateApplicationUserRoleConnectionRequest) UnsetPlatformUsername() {
-	o.PlatformUsername.Unset()
-}
 
 // GetMetadata returns the Metadata field value if set, zero value otherwise.
 func (o *UpdateApplicationUserRoleConnectionRequest) GetMetadata() map[string]string {
@@ -204,11 +184,11 @@ func (o UpdateApplicationUserRoleConnectionRequest) MarshalJSON() ([]byte, error
 
 func (o UpdateApplicationUserRoleConnectionRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.PlatformName.IsSet() {
-		toSerialize["platform_name"] = o.PlatformName.Get()
+	if !IsNil(o.PlatformName) {
+		toSerialize["platform_name"] = o.PlatformName
 	}
-	if o.PlatformUsername.IsSet() {
-		toSerialize["platform_username"] = o.PlatformUsername.Get()
+	if !IsNil(o.PlatformUsername) {
+		toSerialize["platform_username"] = o.PlatformUsername
 	}
 	if !IsNil(o.Metadata) {
 		toSerialize["metadata"] = o.Metadata
@@ -251,5 +231,4 @@ func (v *NullableUpdateApplicationUserRoleConnectionRequest) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

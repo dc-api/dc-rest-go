@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
 **Id** | **int32** |  | 
-**Spacing** | **int32** |  | 
+**Spacing** | [**MessageComponentSeparatorSpacingSize**](MessageComponentSeparatorSpacingSize.md) |  | 
 **Divider** | **bool** |  | 
 
 ## Methods
 
 ### NewSeparatorComponentResponse
 
-`func NewSeparatorComponentResponse(type_ int32, id int32, spacing int32, divider bool, ) *SeparatorComponentResponse`
+`func NewSeparatorComponentResponse(type_ MessageComponentTypes, id int32, spacing MessageComponentSeparatorSpacingSize, divider bool, ) *SeparatorComponentResponse`
 
 NewSeparatorComponentResponse instantiates a new SeparatorComponentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *SeparatorComponentResponse) GetType() int32`
+`func (o *SeparatorComponentResponse) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *SeparatorComponentResponse) GetTypeOk() (*int32, bool)`
+`func (o *SeparatorComponentResponse) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *SeparatorComponentResponse) SetType(v int32)`
+`func (o *SeparatorComponentResponse) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
@@ -70,20 +70,20 @@ SetId sets Id field to given value.
 
 ### GetSpacing
 
-`func (o *SeparatorComponentResponse) GetSpacing() int32`
+`func (o *SeparatorComponentResponse) GetSpacing() MessageComponentSeparatorSpacingSize`
 
 GetSpacing returns the Spacing field if non-nil, zero value otherwise.
 
 ### GetSpacingOk
 
-`func (o *SeparatorComponentResponse) GetSpacingOk() (*int32, bool)`
+`func (o *SeparatorComponentResponse) GetSpacingOk() (*MessageComponentSeparatorSpacingSize, bool)`
 
 GetSpacingOk returns a tuple with the Spacing field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSpacing
 
-`func (o *SeparatorComponentResponse) SetSpacing(v int32)`
+`func (o *SeparatorComponentResponse) SetSpacing(v MessageComponentSeparatorSpacingSize)`
 
 SetSpacing sets Spacing field to given value.
 

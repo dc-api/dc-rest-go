@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,8 +56,8 @@ var _ MappedNullable = &BotAccountPatchRequest{}
 // BotAccountPatchRequest struct for BotAccountPatchRequest
 type BotAccountPatchRequest struct {
 	Username string `json:"username"`
-	Avatar NullableString `json:"avatar,omitempty"`
-	Banner NullableString `json:"banner,omitempty"`
+	Avatar *string `json:"avatar,omitempty"`
+	Banner *string `json:"banner,omitempty"`
 }
 
 type _BotAccountPatchRequest BotAccountPatchRequest
@@ -104,91 +104,71 @@ func (o *BotAccountPatchRequest) SetUsername(v string) {
 	o.Username = v
 }
 
-// GetAvatar returns the Avatar field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAvatar returns the Avatar field value if set, zero value otherwise.
 func (o *BotAccountPatchRequest) GetAvatar() string {
-	if o == nil || IsNil(o.Avatar.Get()) {
+	if o == nil || IsNil(o.Avatar) {
 		var ret string
 		return ret
 	}
-	return *o.Avatar.Get()
+	return *o.Avatar
 }
 
 // GetAvatarOk returns a tuple with the Avatar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BotAccountPatchRequest) GetAvatarOk() (*string, bool) {
-	if o == nil || IsNil(o.Avatar.Get()) {
+	if o == nil || IsNil(o.Avatar) {
 		return nil, false
 	}
-	return o.Avatar.Get(), o.Avatar.IsSet()
+	return o.Avatar, true
 }
 
 // HasAvatar returns a boolean if a field has been set.
 func (o *BotAccountPatchRequest) HasAvatar() bool {
-	if o != nil && o.Avatar.IsSet() {
+	if o != nil && !IsNil(o.Avatar) {
 		return true
 	}
 
 	return false
 }
 
-// SetAvatar gets a reference to the given NullableString and assigns it to the Avatar field.
+// SetAvatar gets a reference to the given string and assigns it to the Avatar field.
 func (o *BotAccountPatchRequest) SetAvatar(v string) {
-	o.Avatar.Set(&v)
+	o.Avatar = &v
 }
 
-// SetAvatarNil sets the value for Avatar to be an explicit nil
-func (o *BotAccountPatchRequest) SetAvatarNil() {
-	o.Avatar.Set(nil)
-}
 
-// UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
-func (o *BotAccountPatchRequest) UnsetAvatar() {
-	o.Avatar.Unset()
-}
-
-// GetBanner returns the Banner field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBanner returns the Banner field value if set, zero value otherwise.
 func (o *BotAccountPatchRequest) GetBanner() string {
-	if o == nil || IsNil(o.Banner.Get()) {
+	if o == nil || IsNil(o.Banner) {
 		var ret string
 		return ret
 	}
-	return *o.Banner.Get()
+	return *o.Banner
 }
 
 // GetBannerOk returns a tuple with the Banner field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BotAccountPatchRequest) GetBannerOk() (*string, bool) {
-	if o == nil || IsNil(o.Banner.Get()) {
+	if o == nil || IsNil(o.Banner) {
 		return nil, false
 	}
-	return o.Banner.Get(), o.Banner.IsSet()
+	return o.Banner, true
 }
 
 // HasBanner returns a boolean if a field has been set.
 func (o *BotAccountPatchRequest) HasBanner() bool {
-	if o != nil && o.Banner.IsSet() {
+	if o != nil && !IsNil(o.Banner) {
 		return true
 	}
 
 	return false
 }
 
-// SetBanner gets a reference to the given NullableString and assigns it to the Banner field.
+// SetBanner gets a reference to the given string and assigns it to the Banner field.
 func (o *BotAccountPatchRequest) SetBanner(v string) {
-	o.Banner.Set(&v)
+	o.Banner = &v
 }
 
-// SetBannerNil sets the value for Banner to be an explicit nil
-func (o *BotAccountPatchRequest) SetBannerNil() {
-	o.Banner.Set(nil)
-}
-
-// UnsetBanner ensures that no value is present for Banner, not even an explicit nil
-func (o *BotAccountPatchRequest) UnsetBanner() {
-	o.Banner.Unset()
-}
 
 func (o BotAccountPatchRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -201,11 +181,11 @@ func (o BotAccountPatchRequest) MarshalJSON() ([]byte, error) {
 func (o BotAccountPatchRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["username"] = o.Username
-	if o.Avatar.IsSet() {
-		toSerialize["avatar"] = o.Avatar.Get()
+	if !IsNil(o.Avatar) {
+		toSerialize["avatar"] = o.Avatar
 	}
-	if o.Banner.IsSet() {
-		toSerialize["banner"] = o.Banner.Get()
+	if !IsNil(o.Banner) {
+		toSerialize["banner"] = o.Banner
 	}
 	return toSerialize, nil
 }
@@ -282,5 +262,4 @@ func (v *NullableBotAccountPatchRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

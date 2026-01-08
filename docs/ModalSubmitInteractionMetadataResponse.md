@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **int32** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**Type** | [**InteractionTypes**](InteractionTypes.md) |  | 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 **AuthorizingIntegrationOwners** | **map[string]string** |  | 
 **OriginalResponseMessageId** | Pointer to **string** |  | [optional] 
 **TriggeringInteractionMetadata** | [**ModalSubmitInteractionMetadataResponseTriggeringInteractionMetadata**](ModalSubmitInteractionMetadataResponseTriggeringInteractionMetadata.md) |  | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewModalSubmitInteractionMetadataResponse
 
-`func NewModalSubmitInteractionMetadataResponse(id string, type_ int32, authorizingIntegrationOwners map[string]string, triggeringInteractionMetadata ModalSubmitInteractionMetadataResponseTriggeringInteractionMetadata, ) *ModalSubmitInteractionMetadataResponse`
+`func NewModalSubmitInteractionMetadataResponse(id string, type_ InteractionTypes, authorizingIntegrationOwners map[string]string, triggeringInteractionMetadata ModalSubmitInteractionMetadataResponseTriggeringInteractionMetadata, ) *ModalSubmitInteractionMetadataResponse`
 
 NewModalSubmitInteractionMetadataResponse instantiates a new ModalSubmitInteractionMetadataResponse object
 This constructor will assign default values to properties that have it defined,
@@ -52,20 +52,20 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *ModalSubmitInteractionMetadataResponse) GetType() int32`
+`func (o *ModalSubmitInteractionMetadataResponse) GetType() InteractionTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ModalSubmitInteractionMetadataResponse) GetTypeOk() (*int32, bool)`
+`func (o *ModalSubmitInteractionMetadataResponse) GetTypeOk() (*InteractionTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ModalSubmitInteractionMetadataResponse) SetType(v int32)`
+`func (o *ModalSubmitInteractionMetadataResponse) SetType(v InteractionTypes)`
 
 SetType sets Type field to given value.
 
@@ -95,16 +95,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *ModalSubmitInteractionMetadataResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *ModalSubmitInteractionMetadataResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetAuthorizingIntegrationOwners
 
 `func (o *ModalSubmitInteractionMetadataResponse) GetAuthorizingIntegrationOwners() map[string]string`

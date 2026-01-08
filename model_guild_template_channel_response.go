@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,27 +55,27 @@ var _ MappedNullable = &GuildTemplateChannelResponse{}
 
 // GuildTemplateChannelResponse struct for GuildTemplateChannelResponse
 type GuildTemplateChannelResponse struct {
-	Id NullableInt32 `json:"id,omitempty"`
-	Type int32 `json:"type"`
-	Name NullableString `json:"name,omitempty"`
-	Position NullableInt32 `json:"position,omitempty"`
-	Topic NullableString `json:"topic,omitempty"`
+	Id *int32 `json:"id,omitempty"`
+	Type ChannelTypes `json:"type"`
+	Name *string `json:"name,omitempty"`
+	Position *int32 `json:"position,omitempty"`
+	Topic *string `json:"topic,omitempty"`
 	Bitrate int32 `json:"bitrate"`
 	UserLimit int32 `json:"user_limit"`
 	Nsfw bool `json:"nsfw"`
 	RateLimitPerUser int32 `json:"rate_limit_per_user"`
-	ParentId *string `json:"parent_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	DefaultAutoArchiveDuration *int32 `json:"default_auto_archive_duration,omitempty"`
-	PermissionOverwrites []*ChannelPermissionOverwriteResponse `json:"permission_overwrites"`
+	ParentId *GetEntitlementsSkuIdsParameterOneOfInner `json:"parent_id,omitempty"`
+	DefaultAutoArchiveDuration *CreateForumThreadRequestAutoArchiveDuration `json:"default_auto_archive_duration,omitempty"`
+	PermissionOverwrites []GuildTemplateChannelResponsePermissionOverwritesInner `json:"permission_overwrites"`
 	AvailableTags []GuildTemplateChannelTags `json:"available_tags,omitempty"`
 	Template string `json:"template"`
-	DefaultReactionEmoji NullableDefaultReactionEmojiResponse `json:"default_reaction_emoji,omitempty"`
-	DefaultThreadRateLimitPerUser NullableInt32 `json:"default_thread_rate_limit_per_user,omitempty"`
-	DefaultSortOrder *int32 `json:"default_sort_order,omitempty"`
-	DefaultForumLayout *int32 `json:"default_forum_layout,omitempty"`
-	DefaultTagSetting *string `json:"default_tag_setting,omitempty"`
-	IconEmoji map[string]interface{} `json:"icon_emoji,omitempty"`
-	ThemeColor NullableInt32 `json:"theme_color,omitempty"`
+	DefaultReactionEmoji *GuildChannelResponseDefaultReactionEmoji `json:"default_reaction_emoji,omitempty"`
+	DefaultThreadRateLimitPerUser *int32 `json:"default_thread_rate_limit_per_user,omitempty"`
+	DefaultSortOrder *CreateGuildChannelRequestDefaultSortOrder `json:"default_sort_order,omitempty"`
+	DefaultForumLayout *CreateGuildChannelRequestDefaultForumLayout `json:"default_forum_layout,omitempty"`
+	DefaultTagSetting *CreateGuildChannelRequestDefaultTagSetting `json:"default_tag_setting,omitempty"`
+	IconEmoji *GuildTemplateChannelResponseIconEmoji `json:"icon_emoji,omitempty"`
+	ThemeColor *int32 `json:"theme_color,omitempty"`
 }
 
 type _GuildTemplateChannelResponse GuildTemplateChannelResponse
@@ -84,7 +84,7 @@ type _GuildTemplateChannelResponse GuildTemplateChannelResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGuildTemplateChannelResponse(type_ int32, bitrate int32, userLimit int32, nsfw bool, rateLimitPerUser int32, permissionOverwrites []*ChannelPermissionOverwriteResponse, template string) *GuildTemplateChannelResponse {
+func NewGuildTemplateChannelResponse(type_ ChannelTypes, bitrate int32, userLimit int32, nsfw bool, rateLimitPerUser int32, permissionOverwrites []GuildTemplateChannelResponsePermissionOverwritesInner, template string) *GuildTemplateChannelResponse {
 	this := GuildTemplateChannelResponse{}
 	this.Type = type_
 	this.Bitrate = bitrate
@@ -104,53 +104,43 @@ func NewGuildTemplateChannelResponseWithDefaults() *GuildTemplateChannelResponse
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *GuildTemplateChannelResponse) GetId() int32 {
-	if o == nil || IsNil(o.Id.Get()) {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-	return *o.Id.Get()
+	return *o.Id
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateChannelResponse) GetIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.Id.Get()) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return o.Id.Get(), o.Id.IsSet()
+	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *GuildTemplateChannelResponse) HasId() bool {
-	if o != nil && o.Id.IsSet() {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
 	return false
 }
 
-// SetId gets a reference to the given NullableInt32 and assigns it to the Id field.
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *GuildTemplateChannelResponse) SetId(v int32) {
-	o.Id.Set(&v)
+	o.Id = &v
 }
 
-// SetIdNil sets the value for Id to be an explicit nil
-func (o *GuildTemplateChannelResponse) SetIdNil() {
-	o.Id.Set(nil)
-}
-
-// UnsetId ensures that no value is present for Id, not even an explicit nil
-func (o *GuildTemplateChannelResponse) UnsetId() {
-	o.Id.Unset()
-}
 
 // GetType returns the Type field value
-func (o *GuildTemplateChannelResponse) GetType() int32 {
+func (o *GuildTemplateChannelResponse) GetType() ChannelTypes {
 	if o == nil {
-		var ret int32
+		var ret ChannelTypes
 		return ret
 	}
 
@@ -159,7 +149,7 @@ func (o *GuildTemplateChannelResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateChannelResponse) GetTypeOk() (*int32, bool) {
+func (o *GuildTemplateChannelResponse) GetTypeOk() (*ChannelTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -167,138 +157,108 @@ func (o *GuildTemplateChannelResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *GuildTemplateChannelResponse) SetType(v int32) {
+func (o *GuildTemplateChannelResponse) SetType(v ChannelTypes) {
 	o.Type = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *GuildTemplateChannelResponse) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateChannelResponse) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *GuildTemplateChannelResponse) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *GuildTemplateChannelResponse) SetName(v string) {
-	o.Name.Set(&v)
+	o.Name = &v
 }
 
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *GuildTemplateChannelResponse) SetNameNil() {
-	o.Name.Set(nil)
-}
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *GuildTemplateChannelResponse) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetPosition returns the Position field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPosition returns the Position field value if set, zero value otherwise.
 func (o *GuildTemplateChannelResponse) GetPosition() int32 {
-	if o == nil || IsNil(o.Position.Get()) {
+	if o == nil || IsNil(o.Position) {
 		var ret int32
 		return ret
 	}
-	return *o.Position.Get()
+	return *o.Position
 }
 
 // GetPositionOk returns a tuple with the Position field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateChannelResponse) GetPositionOk() (*int32, bool) {
-	if o == nil || IsNil(o.Position.Get()) {
+	if o == nil || IsNil(o.Position) {
 		return nil, false
 	}
-	return o.Position.Get(), o.Position.IsSet()
+	return o.Position, true
 }
 
 // HasPosition returns a boolean if a field has been set.
 func (o *GuildTemplateChannelResponse) HasPosition() bool {
-	if o != nil && o.Position.IsSet() {
+	if o != nil && !IsNil(o.Position) {
 		return true
 	}
 
 	return false
 }
 
-// SetPosition gets a reference to the given NullableInt32 and assigns it to the Position field.
+// SetPosition gets a reference to the given int32 and assigns it to the Position field.
 func (o *GuildTemplateChannelResponse) SetPosition(v int32) {
-	o.Position.Set(&v)
+	o.Position = &v
 }
 
-// SetPositionNil sets the value for Position to be an explicit nil
-func (o *GuildTemplateChannelResponse) SetPositionNil() {
-	o.Position.Set(nil)
-}
 
-// UnsetPosition ensures that no value is present for Position, not even an explicit nil
-func (o *GuildTemplateChannelResponse) UnsetPosition() {
-	o.Position.Unset()
-}
-
-// GetTopic returns the Topic field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTopic returns the Topic field value if set, zero value otherwise.
 func (o *GuildTemplateChannelResponse) GetTopic() string {
-	if o == nil || IsNil(o.Topic.Get()) {
+	if o == nil || IsNil(o.Topic) {
 		var ret string
 		return ret
 	}
-	return *o.Topic.Get()
+	return *o.Topic
 }
 
 // GetTopicOk returns a tuple with the Topic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateChannelResponse) GetTopicOk() (*string, bool) {
-	if o == nil || IsNil(o.Topic.Get()) {
+	if o == nil || IsNil(o.Topic) {
 		return nil, false
 	}
-	return o.Topic.Get(), o.Topic.IsSet()
+	return o.Topic, true
 }
 
 // HasTopic returns a boolean if a field has been set.
 func (o *GuildTemplateChannelResponse) HasTopic() bool {
-	if o != nil && o.Topic.IsSet() {
+	if o != nil && !IsNil(o.Topic) {
 		return true
 	}
 
 	return false
 }
 
-// SetTopic gets a reference to the given NullableString and assigns it to the Topic field.
+// SetTopic gets a reference to the given string and assigns it to the Topic field.
 func (o *GuildTemplateChannelResponse) SetTopic(v string) {
-	o.Topic.Set(&v)
+	o.Topic = &v
 }
 
-// SetTopicNil sets the value for Topic to be an explicit nil
-func (o *GuildTemplateChannelResponse) SetTopicNil() {
-	o.Topic.Set(nil)
-}
-
-// UnsetTopic ensures that no value is present for Topic, not even an explicit nil
-func (o *GuildTemplateChannelResponse) UnsetTopic() {
-	o.Topic.Unset()
-}
 
 // GetBitrate returns the Bitrate field value
 func (o *GuildTemplateChannelResponse) GetBitrate() int32 {
@@ -397,9 +357,9 @@ func (o *GuildTemplateChannelResponse) SetRateLimitPerUser(v int32) {
 }
 
 // GetParentId returns the ParentId field value if set, zero value otherwise.
-func (o *GuildTemplateChannelResponse) GetParentId() string {
+func (o *GuildTemplateChannelResponse) GetParentId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.ParentId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.ParentId
@@ -407,7 +367,7 @@ func (o *GuildTemplateChannelResponse) GetParentId() string {
 
 // GetParentIdOk returns a tuple with the ParentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateChannelResponse) GetParentIdOk() (*string, bool) {
+func (o *GuildTemplateChannelResponse) GetParentIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.ParentId) {
 		return nil, false
 	}
@@ -423,16 +383,16 @@ func (o *GuildTemplateChannelResponse) HasParentId() bool {
 	return false
 }
 
-// SetParentId gets a reference to the given string and assigns it to the ParentId field.
-func (o *GuildTemplateChannelResponse) SetParentId(v string) {
+// SetParentId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the ParentId field.
+func (o *GuildTemplateChannelResponse) SetParentId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.ParentId = &v
 }
 
 
 // GetDefaultAutoArchiveDuration returns the DefaultAutoArchiveDuration field value if set, zero value otherwise.
-func (o *GuildTemplateChannelResponse) GetDefaultAutoArchiveDuration() int32 {
+func (o *GuildTemplateChannelResponse) GetDefaultAutoArchiveDuration() CreateForumThreadRequestAutoArchiveDuration {
 	if o == nil || IsNil(o.DefaultAutoArchiveDuration) {
-		var ret int32
+		var ret CreateForumThreadRequestAutoArchiveDuration
 		return ret
 	}
 	return *o.DefaultAutoArchiveDuration
@@ -440,7 +400,7 @@ func (o *GuildTemplateChannelResponse) GetDefaultAutoArchiveDuration() int32 {
 
 // GetDefaultAutoArchiveDurationOk returns a tuple with the DefaultAutoArchiveDuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateChannelResponse) GetDefaultAutoArchiveDurationOk() (*int32, bool) {
+func (o *GuildTemplateChannelResponse) GetDefaultAutoArchiveDurationOk() (*CreateForumThreadRequestAutoArchiveDuration, bool) {
 	if o == nil || IsNil(o.DefaultAutoArchiveDuration) {
 		return nil, false
 	}
@@ -456,16 +416,16 @@ func (o *GuildTemplateChannelResponse) HasDefaultAutoArchiveDuration() bool {
 	return false
 }
 
-// SetDefaultAutoArchiveDuration gets a reference to the given int32 and assigns it to the DefaultAutoArchiveDuration field.
-func (o *GuildTemplateChannelResponse) SetDefaultAutoArchiveDuration(v int32) {
+// SetDefaultAutoArchiveDuration gets a reference to the given CreateForumThreadRequestAutoArchiveDuration and assigns it to the DefaultAutoArchiveDuration field.
+func (o *GuildTemplateChannelResponse) SetDefaultAutoArchiveDuration(v CreateForumThreadRequestAutoArchiveDuration) {
 	o.DefaultAutoArchiveDuration = &v
 }
 
 
 // GetPermissionOverwrites returns the PermissionOverwrites field value
-func (o *GuildTemplateChannelResponse) GetPermissionOverwrites() []*ChannelPermissionOverwriteResponse {
+func (o *GuildTemplateChannelResponse) GetPermissionOverwrites() []GuildTemplateChannelResponsePermissionOverwritesInner {
 	if o == nil {
-		var ret []*ChannelPermissionOverwriteResponse
+		var ret []GuildTemplateChannelResponsePermissionOverwritesInner
 		return ret
 	}
 
@@ -474,7 +434,7 @@ func (o *GuildTemplateChannelResponse) GetPermissionOverwrites() []*ChannelPermi
 
 // GetPermissionOverwritesOk returns a tuple with the PermissionOverwrites field value
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateChannelResponse) GetPermissionOverwritesOk() ([]*ChannelPermissionOverwriteResponse, bool) {
+func (o *GuildTemplateChannelResponse) GetPermissionOverwritesOk() ([]GuildTemplateChannelResponsePermissionOverwritesInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -482,13 +442,13 @@ func (o *GuildTemplateChannelResponse) GetPermissionOverwritesOk() ([]*ChannelPe
 }
 
 // SetPermissionOverwrites sets field value
-func (o *GuildTemplateChannelResponse) SetPermissionOverwrites(v []*ChannelPermissionOverwriteResponse) {
+func (o *GuildTemplateChannelResponse) SetPermissionOverwrites(v []GuildTemplateChannelResponsePermissionOverwritesInner) {
 	o.PermissionOverwrites = v
 }
 
-// GetAvailableTags returns the AvailableTags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAvailableTags returns the AvailableTags field value if set, zero value otherwise.
 func (o *GuildTemplateChannelResponse) GetAvailableTags() []GuildTemplateChannelTags {
-	if o == nil {
+	if o == nil || IsNil(o.AvailableTags) {
 		var ret []GuildTemplateChannelTags
 		return ret
 	}
@@ -497,9 +457,8 @@ func (o *GuildTemplateChannelResponse) GetAvailableTags() []GuildTemplateChannel
 
 // GetAvailableTagsOk returns a tuple with the AvailableTags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateChannelResponse) GetAvailableTagsOk() ([]GuildTemplateChannelTags, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvailableTags) {
 		return nil, false
 	}
 	return o.AvailableTags, true
@@ -544,96 +503,76 @@ func (o *GuildTemplateChannelResponse) SetTemplate(v string) {
 	o.Template = v
 }
 
-// GetDefaultReactionEmoji returns the DefaultReactionEmoji field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GuildTemplateChannelResponse) GetDefaultReactionEmoji() DefaultReactionEmojiResponse {
-	if o == nil || IsNil(o.DefaultReactionEmoji.Get()) {
-		var ret DefaultReactionEmojiResponse
+// GetDefaultReactionEmoji returns the DefaultReactionEmoji field value if set, zero value otherwise.
+func (o *GuildTemplateChannelResponse) GetDefaultReactionEmoji() GuildChannelResponseDefaultReactionEmoji {
+	if o == nil || IsNil(o.DefaultReactionEmoji) {
+		var ret GuildChannelResponseDefaultReactionEmoji
 		return ret
 	}
-	return *o.DefaultReactionEmoji.Get()
+	return *o.DefaultReactionEmoji
 }
 
 // GetDefaultReactionEmojiOk returns a tuple with the DefaultReactionEmoji field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GuildTemplateChannelResponse) GetDefaultReactionEmojiOk() (*DefaultReactionEmojiResponse, bool) {
-	if o == nil || IsNil(o.DefaultReactionEmoji.Get()) {
+func (o *GuildTemplateChannelResponse) GetDefaultReactionEmojiOk() (*GuildChannelResponseDefaultReactionEmoji, bool) {
+	if o == nil || IsNil(o.DefaultReactionEmoji) {
 		return nil, false
 	}
-	return o.DefaultReactionEmoji.Get(), o.DefaultReactionEmoji.IsSet()
+	return o.DefaultReactionEmoji, true
 }
 
 // HasDefaultReactionEmoji returns a boolean if a field has been set.
 func (o *GuildTemplateChannelResponse) HasDefaultReactionEmoji() bool {
-	if o != nil && o.DefaultReactionEmoji.IsSet() {
+	if o != nil && !IsNil(o.DefaultReactionEmoji) {
 		return true
 	}
 
 	return false
 }
 
-// SetDefaultReactionEmoji gets a reference to the given NullableDefaultReactionEmojiResponse and assigns it to the DefaultReactionEmoji field.
-func (o *GuildTemplateChannelResponse) SetDefaultReactionEmoji(v DefaultReactionEmojiResponse) {
-	o.DefaultReactionEmoji.Set(&v)
+// SetDefaultReactionEmoji gets a reference to the given GuildChannelResponseDefaultReactionEmoji and assigns it to the DefaultReactionEmoji field.
+func (o *GuildTemplateChannelResponse) SetDefaultReactionEmoji(v GuildChannelResponseDefaultReactionEmoji) {
+	o.DefaultReactionEmoji = &v
 }
 
-// SetDefaultReactionEmojiNil sets the value for DefaultReactionEmoji to be an explicit nil
-func (o *GuildTemplateChannelResponse) SetDefaultReactionEmojiNil() {
-	o.DefaultReactionEmoji.Set(nil)
-}
 
-// UnsetDefaultReactionEmoji ensures that no value is present for DefaultReactionEmoji, not even an explicit nil
-func (o *GuildTemplateChannelResponse) UnsetDefaultReactionEmoji() {
-	o.DefaultReactionEmoji.Unset()
-}
-
-// GetDefaultThreadRateLimitPerUser returns the DefaultThreadRateLimitPerUser field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDefaultThreadRateLimitPerUser returns the DefaultThreadRateLimitPerUser field value if set, zero value otherwise.
 func (o *GuildTemplateChannelResponse) GetDefaultThreadRateLimitPerUser() int32 {
-	if o == nil || IsNil(o.DefaultThreadRateLimitPerUser.Get()) {
+	if o == nil || IsNil(o.DefaultThreadRateLimitPerUser) {
 		var ret int32
 		return ret
 	}
-	return *o.DefaultThreadRateLimitPerUser.Get()
+	return *o.DefaultThreadRateLimitPerUser
 }
 
 // GetDefaultThreadRateLimitPerUserOk returns a tuple with the DefaultThreadRateLimitPerUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateChannelResponse) GetDefaultThreadRateLimitPerUserOk() (*int32, bool) {
-	if o == nil || IsNil(o.DefaultThreadRateLimitPerUser.Get()) {
+	if o == nil || IsNil(o.DefaultThreadRateLimitPerUser) {
 		return nil, false
 	}
-	return o.DefaultThreadRateLimitPerUser.Get(), o.DefaultThreadRateLimitPerUser.IsSet()
+	return o.DefaultThreadRateLimitPerUser, true
 }
 
 // HasDefaultThreadRateLimitPerUser returns a boolean if a field has been set.
 func (o *GuildTemplateChannelResponse) HasDefaultThreadRateLimitPerUser() bool {
-	if o != nil && o.DefaultThreadRateLimitPerUser.IsSet() {
+	if o != nil && !IsNil(o.DefaultThreadRateLimitPerUser) {
 		return true
 	}
 
 	return false
 }
 
-// SetDefaultThreadRateLimitPerUser gets a reference to the given NullableInt32 and assigns it to the DefaultThreadRateLimitPerUser field.
+// SetDefaultThreadRateLimitPerUser gets a reference to the given int32 and assigns it to the DefaultThreadRateLimitPerUser field.
 func (o *GuildTemplateChannelResponse) SetDefaultThreadRateLimitPerUser(v int32) {
-	o.DefaultThreadRateLimitPerUser.Set(&v)
+	o.DefaultThreadRateLimitPerUser = &v
 }
 
-// SetDefaultThreadRateLimitPerUserNil sets the value for DefaultThreadRateLimitPerUser to be an explicit nil
-func (o *GuildTemplateChannelResponse) SetDefaultThreadRateLimitPerUserNil() {
-	o.DefaultThreadRateLimitPerUser.Set(nil)
-}
-
-// UnsetDefaultThreadRateLimitPerUser ensures that no value is present for DefaultThreadRateLimitPerUser, not even an explicit nil
-func (o *GuildTemplateChannelResponse) UnsetDefaultThreadRateLimitPerUser() {
-	o.DefaultThreadRateLimitPerUser.Unset()
-}
 
 // GetDefaultSortOrder returns the DefaultSortOrder field value if set, zero value otherwise.
-func (o *GuildTemplateChannelResponse) GetDefaultSortOrder() int32 {
+func (o *GuildTemplateChannelResponse) GetDefaultSortOrder() CreateGuildChannelRequestDefaultSortOrder {
 	if o == nil || IsNil(o.DefaultSortOrder) {
-		var ret int32
+		var ret CreateGuildChannelRequestDefaultSortOrder
 		return ret
 	}
 	return *o.DefaultSortOrder
@@ -641,7 +580,7 @@ func (o *GuildTemplateChannelResponse) GetDefaultSortOrder() int32 {
 
 // GetDefaultSortOrderOk returns a tuple with the DefaultSortOrder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateChannelResponse) GetDefaultSortOrderOk() (*int32, bool) {
+func (o *GuildTemplateChannelResponse) GetDefaultSortOrderOk() (*CreateGuildChannelRequestDefaultSortOrder, bool) {
 	if o == nil || IsNil(o.DefaultSortOrder) {
 		return nil, false
 	}
@@ -657,16 +596,16 @@ func (o *GuildTemplateChannelResponse) HasDefaultSortOrder() bool {
 	return false
 }
 
-// SetDefaultSortOrder gets a reference to the given int32 and assigns it to the DefaultSortOrder field.
-func (o *GuildTemplateChannelResponse) SetDefaultSortOrder(v int32) {
+// SetDefaultSortOrder gets a reference to the given CreateGuildChannelRequestDefaultSortOrder and assigns it to the DefaultSortOrder field.
+func (o *GuildTemplateChannelResponse) SetDefaultSortOrder(v CreateGuildChannelRequestDefaultSortOrder) {
 	o.DefaultSortOrder = &v
 }
 
 
 // GetDefaultForumLayout returns the DefaultForumLayout field value if set, zero value otherwise.
-func (o *GuildTemplateChannelResponse) GetDefaultForumLayout() int32 {
+func (o *GuildTemplateChannelResponse) GetDefaultForumLayout() CreateGuildChannelRequestDefaultForumLayout {
 	if o == nil || IsNil(o.DefaultForumLayout) {
-		var ret int32
+		var ret CreateGuildChannelRequestDefaultForumLayout
 		return ret
 	}
 	return *o.DefaultForumLayout
@@ -674,7 +613,7 @@ func (o *GuildTemplateChannelResponse) GetDefaultForumLayout() int32 {
 
 // GetDefaultForumLayoutOk returns a tuple with the DefaultForumLayout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateChannelResponse) GetDefaultForumLayoutOk() (*int32, bool) {
+func (o *GuildTemplateChannelResponse) GetDefaultForumLayoutOk() (*CreateGuildChannelRequestDefaultForumLayout, bool) {
 	if o == nil || IsNil(o.DefaultForumLayout) {
 		return nil, false
 	}
@@ -690,16 +629,16 @@ func (o *GuildTemplateChannelResponse) HasDefaultForumLayout() bool {
 	return false
 }
 
-// SetDefaultForumLayout gets a reference to the given int32 and assigns it to the DefaultForumLayout field.
-func (o *GuildTemplateChannelResponse) SetDefaultForumLayout(v int32) {
+// SetDefaultForumLayout gets a reference to the given CreateGuildChannelRequestDefaultForumLayout and assigns it to the DefaultForumLayout field.
+func (o *GuildTemplateChannelResponse) SetDefaultForumLayout(v CreateGuildChannelRequestDefaultForumLayout) {
 	o.DefaultForumLayout = &v
 }
 
 
 // GetDefaultTagSetting returns the DefaultTagSetting field value if set, zero value otherwise.
-func (o *GuildTemplateChannelResponse) GetDefaultTagSetting() string {
+func (o *GuildTemplateChannelResponse) GetDefaultTagSetting() CreateGuildChannelRequestDefaultTagSetting {
 	if o == nil || IsNil(o.DefaultTagSetting) {
-		var ret string
+		var ret CreateGuildChannelRequestDefaultTagSetting
 		return ret
 	}
 	return *o.DefaultTagSetting
@@ -707,7 +646,7 @@ func (o *GuildTemplateChannelResponse) GetDefaultTagSetting() string {
 
 // GetDefaultTagSettingOk returns a tuple with the DefaultTagSetting field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateChannelResponse) GetDefaultTagSettingOk() (*string, bool) {
+func (o *GuildTemplateChannelResponse) GetDefaultTagSettingOk() (*CreateGuildChannelRequestDefaultTagSetting, bool) {
 	if o == nil || IsNil(o.DefaultTagSetting) {
 		return nil, false
 	}
@@ -723,26 +662,26 @@ func (o *GuildTemplateChannelResponse) HasDefaultTagSetting() bool {
 	return false
 }
 
-// SetDefaultTagSetting gets a reference to the given string and assigns it to the DefaultTagSetting field.
-func (o *GuildTemplateChannelResponse) SetDefaultTagSetting(v string) {
+// SetDefaultTagSetting gets a reference to the given CreateGuildChannelRequestDefaultTagSetting and assigns it to the DefaultTagSetting field.
+func (o *GuildTemplateChannelResponse) SetDefaultTagSetting(v CreateGuildChannelRequestDefaultTagSetting) {
 	o.DefaultTagSetting = &v
 }
 
 
 // GetIconEmoji returns the IconEmoji field value if set, zero value otherwise.
-func (o *GuildTemplateChannelResponse) GetIconEmoji() map[string]interface{} {
+func (o *GuildTemplateChannelResponse) GetIconEmoji() GuildTemplateChannelResponseIconEmoji {
 	if o == nil || IsNil(o.IconEmoji) {
-		var ret map[string]interface{}
+		var ret GuildTemplateChannelResponseIconEmoji
 		return ret
 	}
-	return o.IconEmoji
+	return *o.IconEmoji
 }
 
 // GetIconEmojiOk returns a tuple with the IconEmoji field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateChannelResponse) GetIconEmojiOk() (map[string]interface{}, bool) {
+func (o *GuildTemplateChannelResponse) GetIconEmojiOk() (*GuildTemplateChannelResponseIconEmoji, bool) {
 	if o == nil || IsNil(o.IconEmoji) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.IconEmoji, true
 }
@@ -756,54 +695,44 @@ func (o *GuildTemplateChannelResponse) HasIconEmoji() bool {
 	return false
 }
 
-// SetIconEmoji gets a reference to the given map[string]interface{} and assigns it to the IconEmoji field.
-func (o *GuildTemplateChannelResponse) SetIconEmoji(v map[string]interface{}) {
-	o.IconEmoji = v
+// SetIconEmoji gets a reference to the given GuildTemplateChannelResponseIconEmoji and assigns it to the IconEmoji field.
+func (o *GuildTemplateChannelResponse) SetIconEmoji(v GuildTemplateChannelResponseIconEmoji) {
+	o.IconEmoji = &v
 }
 
 
-// GetThemeColor returns the ThemeColor field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetThemeColor returns the ThemeColor field value if set, zero value otherwise.
 func (o *GuildTemplateChannelResponse) GetThemeColor() int32 {
-	if o == nil || IsNil(o.ThemeColor.Get()) {
+	if o == nil || IsNil(o.ThemeColor) {
 		var ret int32
 		return ret
 	}
-	return *o.ThemeColor.Get()
+	return *o.ThemeColor
 }
 
 // GetThemeColorOk returns a tuple with the ThemeColor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateChannelResponse) GetThemeColorOk() (*int32, bool) {
-	if o == nil || IsNil(o.ThemeColor.Get()) {
+	if o == nil || IsNil(o.ThemeColor) {
 		return nil, false
 	}
-	return o.ThemeColor.Get(), o.ThemeColor.IsSet()
+	return o.ThemeColor, true
 }
 
 // HasThemeColor returns a boolean if a field has been set.
 func (o *GuildTemplateChannelResponse) HasThemeColor() bool {
-	if o != nil && o.ThemeColor.IsSet() {
+	if o != nil && !IsNil(o.ThemeColor) {
 		return true
 	}
 
 	return false
 }
 
-// SetThemeColor gets a reference to the given NullableInt32 and assigns it to the ThemeColor field.
+// SetThemeColor gets a reference to the given int32 and assigns it to the ThemeColor field.
 func (o *GuildTemplateChannelResponse) SetThemeColor(v int32) {
-	o.ThemeColor.Set(&v)
+	o.ThemeColor = &v
 }
 
-// SetThemeColorNil sets the value for ThemeColor to be an explicit nil
-func (o *GuildTemplateChannelResponse) SetThemeColorNil() {
-	o.ThemeColor.Set(nil)
-}
-
-// UnsetThemeColor ensures that no value is present for ThemeColor, not even an explicit nil
-func (o *GuildTemplateChannelResponse) UnsetThemeColor() {
-	o.ThemeColor.Unset()
-}
 
 func (o GuildTemplateChannelResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -815,18 +744,18 @@ func (o GuildTemplateChannelResponse) MarshalJSON() ([]byte, error) {
 
 func (o GuildTemplateChannelResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Id.IsSet() {
-		toSerialize["id"] = o.Id.Get()
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
 	}
 	toSerialize["type"] = o.Type
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Position.IsSet() {
-		toSerialize["position"] = o.Position.Get()
+	if !IsNil(o.Position) {
+		toSerialize["position"] = o.Position
 	}
-	if o.Topic.IsSet() {
-		toSerialize["topic"] = o.Topic.Get()
+	if !IsNil(o.Topic) {
+		toSerialize["topic"] = o.Topic
 	}
 	toSerialize["bitrate"] = o.Bitrate
 	toSerialize["user_limit"] = o.UserLimit
@@ -839,15 +768,15 @@ func (o GuildTemplateChannelResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["default_auto_archive_duration"] = o.DefaultAutoArchiveDuration
 	}
 	toSerialize["permission_overwrites"] = o.PermissionOverwrites
-	if o.AvailableTags != nil {
+	if !IsNil(o.AvailableTags) {
 		toSerialize["available_tags"] = o.AvailableTags
 	}
 	toSerialize["template"] = o.Template
-	if o.DefaultReactionEmoji.IsSet() {
-		toSerialize["default_reaction_emoji"] = o.DefaultReactionEmoji.Get()
+	if !IsNil(o.DefaultReactionEmoji) {
+		toSerialize["default_reaction_emoji"] = o.DefaultReactionEmoji
 	}
-	if o.DefaultThreadRateLimitPerUser.IsSet() {
-		toSerialize["default_thread_rate_limit_per_user"] = o.DefaultThreadRateLimitPerUser.Get()
+	if !IsNil(o.DefaultThreadRateLimitPerUser) {
+		toSerialize["default_thread_rate_limit_per_user"] = o.DefaultThreadRateLimitPerUser
 	}
 	if !IsNil(o.DefaultSortOrder) {
 		toSerialize["default_sort_order"] = o.DefaultSortOrder
@@ -861,8 +790,8 @@ func (o GuildTemplateChannelResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IconEmoji) {
 		toSerialize["icon_emoji"] = o.IconEmoji
 	}
-	if o.ThemeColor.IsSet() {
-		toSerialize["theme_color"] = o.ThemeColor.Get()
+	if !IsNil(o.ThemeColor) {
+		toSerialize["theme_color"] = o.ThemeColor
 	}
 	return toSerialize, nil
 }
@@ -945,5 +874,4 @@ func (v *NullableGuildTemplateChannelResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

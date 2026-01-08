@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**EmojiId** | Pointer to **string** |  | [optional] 
-**EmojiName** | Pointer to **NullableString** |  | [optional] 
-**Moderated** | Pointer to **NullableBool** |  | [optional] 
-**Id** | Pointer to **string** |  | [optional] 
+**EmojiId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**EmojiName** | Pointer to **string** |  | [optional] 
+**Moderated** | Pointer to **bool** |  | [optional] 
+**Id** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 
 ## Methods
 
@@ -51,20 +51,20 @@ SetName sets Name field to given value.
 
 ### GetEmojiId
 
-`func (o *UpdateThreadTagRequest) GetEmojiId() string`
+`func (o *UpdateThreadTagRequest) GetEmojiId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetEmojiId returns the EmojiId field if non-nil, zero value otherwise.
 
 ### GetEmojiIdOk
 
-`func (o *UpdateThreadTagRequest) GetEmojiIdOk() (*string, bool)`
+`func (o *UpdateThreadTagRequest) GetEmojiIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetEmojiIdOk returns a tuple with the EmojiId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmojiId
 
-`func (o *UpdateThreadTagRequest) SetEmojiId(v string)`
+`func (o *UpdateThreadTagRequest) SetEmojiId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetEmojiId sets EmojiId field to given value.
 
@@ -99,16 +99,6 @@ SetEmojiName sets EmojiName field to given value.
 
 HasEmojiName returns a boolean if a field has been set.
 
-### SetEmojiNameNil
-
-`func (o *UpdateThreadTagRequest) SetEmojiNameNil(b bool)`
-
- SetEmojiNameNil sets the value for EmojiName to be an explicit nil
-
-### UnsetEmojiName
-`func (o *UpdateThreadTagRequest) UnsetEmojiName()`
-
-UnsetEmojiName ensures that no value is present for EmojiName, not even an explicit nil
 ### GetModerated
 
 `func (o *UpdateThreadTagRequest) GetModerated() bool`
@@ -134,32 +124,22 @@ SetModerated sets Moderated field to given value.
 
 HasModerated returns a boolean if a field has been set.
 
-### SetModeratedNil
-
-`func (o *UpdateThreadTagRequest) SetModeratedNil(b bool)`
-
- SetModeratedNil sets the value for Moderated to be an explicit nil
-
-### UnsetModerated
-`func (o *UpdateThreadTagRequest) UnsetModerated()`
-
-UnsetModerated ensures that no value is present for Moderated, not even an explicit nil
 ### GetId
 
-`func (o *UpdateThreadTagRequest) GetId() string`
+`func (o *UpdateThreadTagRequest) GetId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *UpdateThreadTagRequest) GetIdOk() (*string, bool)`
+`func (o *UpdateThreadTagRequest) GetIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *UpdateThreadTagRequest) SetId(v string)`
+`func (o *UpdateThreadTagRequest) SetId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetId sets Id field to given value.
 

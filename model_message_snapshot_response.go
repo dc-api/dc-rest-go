@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -46,6 +46,8 @@ package dc_rest
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the MessageSnapshotResponse type satisfies the MappedNullable interface at compile time
@@ -53,15 +55,18 @@ var _ MappedNullable = &MessageSnapshotResponse{}
 
 // MessageSnapshotResponse struct for MessageSnapshotResponse
 type MessageSnapshotResponse struct {
-	Message NullableMinimalContentMessageResponse `json:"message,omitempty"`
+	Message MinimalContentMessageResponse `json:"message"`
 }
+
+type _MessageSnapshotResponse MessageSnapshotResponse
 
 // NewMessageSnapshotResponse instantiates a new MessageSnapshotResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMessageSnapshotResponse() *MessageSnapshotResponse {
+func NewMessageSnapshotResponse(message MinimalContentMessageResponse) *MessageSnapshotResponse {
 	this := MessageSnapshotResponse{}
+	this.Message = message
 	return &this
 }
 
@@ -73,47 +78,28 @@ func NewMessageSnapshotResponseWithDefaults() *MessageSnapshotResponse {
 	return &this
 }
 
-// GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMessage returns the Message field value
 func (o *MessageSnapshotResponse) GetMessage() MinimalContentMessageResponse {
-	if o == nil || IsNil(o.Message.Get()) {
+	if o == nil {
 		var ret MinimalContentMessageResponse
 		return ret
 	}
-	return *o.Message.Get()
+
+	return o.Message
 }
 
-// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
+// GetMessageOk returns a tuple with the Message field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageSnapshotResponse) GetMessageOk() (*MinimalContentMessageResponse, bool) {
-	if o == nil || IsNil(o.Message.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Message.Get(), o.Message.IsSet()
+	return &o.Message, true
 }
 
-// HasMessage returns a boolean if a field has been set.
-func (o *MessageSnapshotResponse) HasMessage() bool {
-	if o != nil && o.Message.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMessage gets a reference to the given NullableMinimalContentMessageResponse and assigns it to the Message field.
+// SetMessage sets field value
 func (o *MessageSnapshotResponse) SetMessage(v MinimalContentMessageResponse) {
-	o.Message.Set(&v)
-}
-
-// SetMessageNil sets the value for Message to be an explicit nil
-func (o *MessageSnapshotResponse) SetMessageNil() {
-	o.Message.Set(nil)
-}
-
-// UnsetMessage ensures that no value is present for Message, not even an explicit nil
-func (o *MessageSnapshotResponse) UnsetMessage() {
-	o.Message.Unset()
+	o.Message = v
 }
 
 func (o MessageSnapshotResponse) MarshalJSON() ([]byte, error) {
@@ -126,10 +112,45 @@ func (o MessageSnapshotResponse) MarshalJSON() ([]byte, error) {
 
 func (o MessageSnapshotResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Message.IsSet() {
-		toSerialize["message"] = o.Message.Get()
-	}
+	toSerialize["message"] = o.Message
 	return toSerialize, nil
+}
+
+func (o *MessageSnapshotResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"message",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varMessageSnapshotResponse := _MessageSnapshotResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varMessageSnapshotResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = MessageSnapshotResponse(varMessageSnapshotResponse)
+
+	return err
 }
 
 type NullableMessageSnapshotResponse struct {
@@ -167,5 +188,4 @@ func (v *NullableMessageSnapshotResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

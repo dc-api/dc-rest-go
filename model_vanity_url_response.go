@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,9 +55,9 @@ var _ MappedNullable = &VanityURLResponse{}
 
 // VanityURLResponse struct for VanityURLResponse
 type VanityURLResponse struct {
-	Code NullableString `json:"code,omitempty"`
+	Code *string `json:"code,omitempty"`
 	Uses int32 `json:"uses"`
-	Error NullableVanityURLErrorResponse `json:"error,omitempty"`
+	Error *VanityURLResponseError `json:"error,omitempty"`
 }
 
 type _VanityURLResponse VanityURLResponse
@@ -80,48 +80,38 @@ func NewVanityURLResponseWithDefaults() *VanityURLResponse {
 	return &this
 }
 
-// GetCode returns the Code field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCode returns the Code field value if set, zero value otherwise.
 func (o *VanityURLResponse) GetCode() string {
-	if o == nil || IsNil(o.Code.Get()) {
+	if o == nil || IsNil(o.Code) {
 		var ret string
 		return ret
 	}
-	return *o.Code.Get()
+	return *o.Code
 }
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VanityURLResponse) GetCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.Code.Get()) {
+	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
-	return o.Code.Get(), o.Code.IsSet()
+	return o.Code, true
 }
 
 // HasCode returns a boolean if a field has been set.
 func (o *VanityURLResponse) HasCode() bool {
-	if o != nil && o.Code.IsSet() {
+	if o != nil && !IsNil(o.Code) {
 		return true
 	}
 
 	return false
 }
 
-// SetCode gets a reference to the given NullableString and assigns it to the Code field.
+// SetCode gets a reference to the given string and assigns it to the Code field.
 func (o *VanityURLResponse) SetCode(v string) {
-	o.Code.Set(&v)
+	o.Code = &v
 }
 
-// SetCodeNil sets the value for Code to be an explicit nil
-func (o *VanityURLResponse) SetCodeNil() {
-	o.Code.Set(nil)
-}
-
-// UnsetCode ensures that no value is present for Code, not even an explicit nil
-func (o *VanityURLResponse) UnsetCode() {
-	o.Code.Unset()
-}
 
 // GetUses returns the Uses field value
 func (o *VanityURLResponse) GetUses() int32 {
@@ -147,48 +137,38 @@ func (o *VanityURLResponse) SetUses(v int32) {
 	o.Uses = v
 }
 
-// GetError returns the Error field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *VanityURLResponse) GetError() VanityURLErrorResponse {
-	if o == nil || IsNil(o.Error.Get()) {
-		var ret VanityURLErrorResponse
+// GetError returns the Error field value if set, zero value otherwise.
+func (o *VanityURLResponse) GetError() VanityURLResponseError {
+	if o == nil || IsNil(o.Error) {
+		var ret VanityURLResponseError
 		return ret
 	}
-	return *o.Error.Get()
+	return *o.Error
 }
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *VanityURLResponse) GetErrorOk() (*VanityURLErrorResponse, bool) {
-	if o == nil || IsNil(o.Error.Get()) {
+func (o *VanityURLResponse) GetErrorOk() (*VanityURLResponseError, bool) {
+	if o == nil || IsNil(o.Error) {
 		return nil, false
 	}
-	return o.Error.Get(), o.Error.IsSet()
+	return o.Error, true
 }
 
 // HasError returns a boolean if a field has been set.
 func (o *VanityURLResponse) HasError() bool {
-	if o != nil && o.Error.IsSet() {
+	if o != nil && !IsNil(o.Error) {
 		return true
 	}
 
 	return false
 }
 
-// SetError gets a reference to the given NullableVanityURLErrorResponse and assigns it to the Error field.
-func (o *VanityURLResponse) SetError(v VanityURLErrorResponse) {
-	o.Error.Set(&v)
+// SetError gets a reference to the given VanityURLResponseError and assigns it to the Error field.
+func (o *VanityURLResponse) SetError(v VanityURLResponseError) {
+	o.Error = &v
 }
 
-// SetErrorNil sets the value for Error to be an explicit nil
-func (o *VanityURLResponse) SetErrorNil() {
-	o.Error.Set(nil)
-}
-
-// UnsetError ensures that no value is present for Error, not even an explicit nil
-func (o *VanityURLResponse) UnsetError() {
-	o.Error.Unset()
-}
 
 func (o VanityURLResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -200,12 +180,12 @@ func (o VanityURLResponse) MarshalJSON() ([]byte, error) {
 
 func (o VanityURLResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Code.IsSet() {
-		toSerialize["code"] = o.Code.Get()
+	if !IsNil(o.Code) {
+		toSerialize["code"] = o.Code
 	}
 	toSerialize["uses"] = o.Uses
-	if o.Error.IsSet() {
-		toSerialize["error"] = o.Error.Get()
+	if !IsNil(o.Error) {
+		toSerialize["error"] = o.Error
 	}
 	return toSerialize, nil
 }
@@ -282,5 +262,4 @@ func (v *NullableVanityURLResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

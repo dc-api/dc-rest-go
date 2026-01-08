@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,20 +58,20 @@ type ApplicationCommandResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	ApplicationId string `json:"application_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Version string `json:"version" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	DefaultMemberPermissions NullableString `json:"default_member_permissions,omitempty"`
-	Type int32 `json:"type"`
+	DefaultMemberPermissions *string `json:"default_member_permissions,omitempty"`
+	Type ApplicationCommandType `json:"type"`
 	Name string `json:"name"`
-	NameLocalized NullableString `json:"name_localized,omitempty"`
+	NameLocalized *string `json:"name_localized,omitempty"`
 	NameLocalizations map[string]string `json:"name_localizations,omitempty"`
 	Description string `json:"description"`
-	DescriptionLocalized NullableString `json:"description_localized,omitempty"`
+	DescriptionLocalized *string `json:"description_localized,omitempty"`
 	DescriptionLocalizations map[string]string `json:"description_localizations,omitempty"`
 	GuildId *string `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	DmPermission NullableBool `json:"dm_permission,omitempty"`
-	Contexts []int32 `json:"contexts,omitempty"`
-	IntegrationTypes []int32 `json:"integration_types,omitempty"`
+	DmPermission *bool `json:"dm_permission,omitempty"`
+	Contexts []InteractionContextType `json:"contexts,omitempty"`
+	IntegrationTypes []ApplicationIntegrationType `json:"integration_types,omitempty"`
 	Options []ApplicationCommandResponseOptionsInner `json:"options,omitempty"`
-	Nsfw NullableBool `json:"nsfw,omitempty"`
+	Nsfw *bool `json:"nsfw,omitempty"`
 }
 
 type _ApplicationCommandResponse ApplicationCommandResponse
@@ -80,7 +80,7 @@ type _ApplicationCommandResponse ApplicationCommandResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApplicationCommandResponse(id string, applicationId string, version string, type_ int32, name string, description string) *ApplicationCommandResponse {
+func NewApplicationCommandResponse(id string, applicationId string, version string, type_ ApplicationCommandType, name string, description string) *ApplicationCommandResponse {
 	this := ApplicationCommandResponse{}
 	this.Id = id
 	this.ApplicationId = applicationId
@@ -171,53 +171,43 @@ func (o *ApplicationCommandResponse) SetVersion(v string) {
 	o.Version = v
 }
 
-// GetDefaultMemberPermissions returns the DefaultMemberPermissions field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDefaultMemberPermissions returns the DefaultMemberPermissions field value if set, zero value otherwise.
 func (o *ApplicationCommandResponse) GetDefaultMemberPermissions() string {
-	if o == nil || IsNil(o.DefaultMemberPermissions.Get()) {
+	if o == nil || IsNil(o.DefaultMemberPermissions) {
 		var ret string
 		return ret
 	}
-	return *o.DefaultMemberPermissions.Get()
+	return *o.DefaultMemberPermissions
 }
 
 // GetDefaultMemberPermissionsOk returns a tuple with the DefaultMemberPermissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandResponse) GetDefaultMemberPermissionsOk() (*string, bool) {
-	if o == nil || IsNil(o.DefaultMemberPermissions.Get()) {
+	if o == nil || IsNil(o.DefaultMemberPermissions) {
 		return nil, false
 	}
-	return o.DefaultMemberPermissions.Get(), o.DefaultMemberPermissions.IsSet()
+	return o.DefaultMemberPermissions, true
 }
 
 // HasDefaultMemberPermissions returns a boolean if a field has been set.
 func (o *ApplicationCommandResponse) HasDefaultMemberPermissions() bool {
-	if o != nil && o.DefaultMemberPermissions.IsSet() {
+	if o != nil && !IsNil(o.DefaultMemberPermissions) {
 		return true
 	}
 
 	return false
 }
 
-// SetDefaultMemberPermissions gets a reference to the given NullableString and assigns it to the DefaultMemberPermissions field.
+// SetDefaultMemberPermissions gets a reference to the given string and assigns it to the DefaultMemberPermissions field.
 func (o *ApplicationCommandResponse) SetDefaultMemberPermissions(v string) {
-	o.DefaultMemberPermissions.Set(&v)
+	o.DefaultMemberPermissions = &v
 }
 
-// SetDefaultMemberPermissionsNil sets the value for DefaultMemberPermissions to be an explicit nil
-func (o *ApplicationCommandResponse) SetDefaultMemberPermissionsNil() {
-	o.DefaultMemberPermissions.Set(nil)
-}
-
-// UnsetDefaultMemberPermissions ensures that no value is present for DefaultMemberPermissions, not even an explicit nil
-func (o *ApplicationCommandResponse) UnsetDefaultMemberPermissions() {
-	o.DefaultMemberPermissions.Unset()
-}
 
 // GetType returns the Type field value
-func (o *ApplicationCommandResponse) GetType() int32 {
+func (o *ApplicationCommandResponse) GetType() ApplicationCommandType {
 	if o == nil {
-		var ret int32
+		var ret ApplicationCommandType
 		return ret
 	}
 
@@ -226,7 +216,7 @@ func (o *ApplicationCommandResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ApplicationCommandResponse) GetTypeOk() (*int32, bool) {
+func (o *ApplicationCommandResponse) GetTypeOk() (*ApplicationCommandType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -234,7 +224,7 @@ func (o *ApplicationCommandResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *ApplicationCommandResponse) SetType(v int32) {
+func (o *ApplicationCommandResponse) SetType(v ApplicationCommandType) {
 	o.Type = v
 }
 
@@ -262,48 +252,38 @@ func (o *ApplicationCommandResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetNameLocalized returns the NameLocalized field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNameLocalized returns the NameLocalized field value if set, zero value otherwise.
 func (o *ApplicationCommandResponse) GetNameLocalized() string {
-	if o == nil || IsNil(o.NameLocalized.Get()) {
+	if o == nil || IsNil(o.NameLocalized) {
 		var ret string
 		return ret
 	}
-	return *o.NameLocalized.Get()
+	return *o.NameLocalized
 }
 
 // GetNameLocalizedOk returns a tuple with the NameLocalized field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandResponse) GetNameLocalizedOk() (*string, bool) {
-	if o == nil || IsNil(o.NameLocalized.Get()) {
+	if o == nil || IsNil(o.NameLocalized) {
 		return nil, false
 	}
-	return o.NameLocalized.Get(), o.NameLocalized.IsSet()
+	return o.NameLocalized, true
 }
 
 // HasNameLocalized returns a boolean if a field has been set.
 func (o *ApplicationCommandResponse) HasNameLocalized() bool {
-	if o != nil && o.NameLocalized.IsSet() {
+	if o != nil && !IsNil(o.NameLocalized) {
 		return true
 	}
 
 	return false
 }
 
-// SetNameLocalized gets a reference to the given NullableString and assigns it to the NameLocalized field.
+// SetNameLocalized gets a reference to the given string and assigns it to the NameLocalized field.
 func (o *ApplicationCommandResponse) SetNameLocalized(v string) {
-	o.NameLocalized.Set(&v)
+	o.NameLocalized = &v
 }
 
-// SetNameLocalizedNil sets the value for NameLocalized to be an explicit nil
-func (o *ApplicationCommandResponse) SetNameLocalizedNil() {
-	o.NameLocalized.Set(nil)
-}
-
-// UnsetNameLocalized ensures that no value is present for NameLocalized, not even an explicit nil
-func (o *ApplicationCommandResponse) UnsetNameLocalized() {
-	o.NameLocalized.Unset()
-}
 
 // GetNameLocalizations returns the NameLocalizations field value if set, zero value otherwise.
 func (o *ApplicationCommandResponse) GetNameLocalizations() map[string]string {
@@ -362,48 +342,38 @@ func (o *ApplicationCommandResponse) SetDescription(v string) {
 	o.Description = v
 }
 
-// GetDescriptionLocalized returns the DescriptionLocalized field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescriptionLocalized returns the DescriptionLocalized field value if set, zero value otherwise.
 func (o *ApplicationCommandResponse) GetDescriptionLocalized() string {
-	if o == nil || IsNil(o.DescriptionLocalized.Get()) {
+	if o == nil || IsNil(o.DescriptionLocalized) {
 		var ret string
 		return ret
 	}
-	return *o.DescriptionLocalized.Get()
+	return *o.DescriptionLocalized
 }
 
 // GetDescriptionLocalizedOk returns a tuple with the DescriptionLocalized field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandResponse) GetDescriptionLocalizedOk() (*string, bool) {
-	if o == nil || IsNil(o.DescriptionLocalized.Get()) {
+	if o == nil || IsNil(o.DescriptionLocalized) {
 		return nil, false
 	}
-	return o.DescriptionLocalized.Get(), o.DescriptionLocalized.IsSet()
+	return o.DescriptionLocalized, true
 }
 
 // HasDescriptionLocalized returns a boolean if a field has been set.
 func (o *ApplicationCommandResponse) HasDescriptionLocalized() bool {
-	if o != nil && o.DescriptionLocalized.IsSet() {
+	if o != nil && !IsNil(o.DescriptionLocalized) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescriptionLocalized gets a reference to the given NullableString and assigns it to the DescriptionLocalized field.
+// SetDescriptionLocalized gets a reference to the given string and assigns it to the DescriptionLocalized field.
 func (o *ApplicationCommandResponse) SetDescriptionLocalized(v string) {
-	o.DescriptionLocalized.Set(&v)
+	o.DescriptionLocalized = &v
 }
 
-// SetDescriptionLocalizedNil sets the value for DescriptionLocalized to be an explicit nil
-func (o *ApplicationCommandResponse) SetDescriptionLocalizedNil() {
-	o.DescriptionLocalized.Set(nil)
-}
-
-// UnsetDescriptionLocalized ensures that no value is present for DescriptionLocalized, not even an explicit nil
-func (o *ApplicationCommandResponse) UnsetDescriptionLocalized() {
-	o.DescriptionLocalized.Unset()
-}
 
 // GetDescriptionLocalizations returns the DescriptionLocalizations field value if set, zero value otherwise.
 func (o *ApplicationCommandResponse) GetDescriptionLocalizations() map[string]string {
@@ -471,53 +441,43 @@ func (o *ApplicationCommandResponse) SetGuildId(v string) {
 }
 
 
-// GetDmPermission returns the DmPermission field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDmPermission returns the DmPermission field value if set, zero value otherwise.
 func (o *ApplicationCommandResponse) GetDmPermission() bool {
-	if o == nil || IsNil(o.DmPermission.Get()) {
+	if o == nil || IsNil(o.DmPermission) {
 		var ret bool
 		return ret
 	}
-	return *o.DmPermission.Get()
+	return *o.DmPermission
 }
 
 // GetDmPermissionOk returns a tuple with the DmPermission field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandResponse) GetDmPermissionOk() (*bool, bool) {
-	if o == nil || IsNil(o.DmPermission.Get()) {
+	if o == nil || IsNil(o.DmPermission) {
 		return nil, false
 	}
-	return o.DmPermission.Get(), o.DmPermission.IsSet()
+	return o.DmPermission, true
 }
 
 // HasDmPermission returns a boolean if a field has been set.
 func (o *ApplicationCommandResponse) HasDmPermission() bool {
-	if o != nil && o.DmPermission.IsSet() {
+	if o != nil && !IsNil(o.DmPermission) {
 		return true
 	}
 
 	return false
 }
 
-// SetDmPermission gets a reference to the given NullableBool and assigns it to the DmPermission field.
+// SetDmPermission gets a reference to the given bool and assigns it to the DmPermission field.
 func (o *ApplicationCommandResponse) SetDmPermission(v bool) {
-	o.DmPermission.Set(&v)
+	o.DmPermission = &v
 }
 
-// SetDmPermissionNil sets the value for DmPermission to be an explicit nil
-func (o *ApplicationCommandResponse) SetDmPermissionNil() {
-	o.DmPermission.Set(nil)
-}
 
-// UnsetDmPermission ensures that no value is present for DmPermission, not even an explicit nil
-func (o *ApplicationCommandResponse) UnsetDmPermission() {
-	o.DmPermission.Unset()
-}
-
-// GetContexts returns the Contexts field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ApplicationCommandResponse) GetContexts() []int32 {
-	if o == nil {
-		var ret []int32
+// GetContexts returns the Contexts field value if set, zero value otherwise.
+func (o *ApplicationCommandResponse) GetContexts() []InteractionContextType {
+	if o == nil || IsNil(o.Contexts) {
+		var ret []InteractionContextType
 		return ret
 	}
 	return o.Contexts
@@ -525,9 +485,8 @@ func (o *ApplicationCommandResponse) GetContexts() []int32 {
 
 // GetContextsOk returns a tuple with the Contexts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ApplicationCommandResponse) GetContextsOk() ([]int32, bool) {
-	if o == nil {
+func (o *ApplicationCommandResponse) GetContextsOk() ([]InteractionContextType, bool) {
+	if o == nil || IsNil(o.Contexts) {
 		return nil, false
 	}
 	return o.Contexts, true
@@ -542,16 +501,16 @@ func (o *ApplicationCommandResponse) HasContexts() bool {
 	return false
 }
 
-// SetContexts gets a reference to the given []int32 and assigns it to the Contexts field.
-func (o *ApplicationCommandResponse) SetContexts(v []int32) {
+// SetContexts gets a reference to the given []InteractionContextType and assigns it to the Contexts field.
+func (o *ApplicationCommandResponse) SetContexts(v []InteractionContextType) {
 	o.Contexts = v
 }
 
 
-// GetIntegrationTypes returns the IntegrationTypes field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ApplicationCommandResponse) GetIntegrationTypes() []int32 {
-	if o == nil {
-		var ret []int32
+// GetIntegrationTypes returns the IntegrationTypes field value if set, zero value otherwise.
+func (o *ApplicationCommandResponse) GetIntegrationTypes() []ApplicationIntegrationType {
+	if o == nil || IsNil(o.IntegrationTypes) {
+		var ret []ApplicationIntegrationType
 		return ret
 	}
 	return o.IntegrationTypes
@@ -559,9 +518,8 @@ func (o *ApplicationCommandResponse) GetIntegrationTypes() []int32 {
 
 // GetIntegrationTypesOk returns a tuple with the IntegrationTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ApplicationCommandResponse) GetIntegrationTypesOk() ([]int32, bool) {
-	if o == nil {
+func (o *ApplicationCommandResponse) GetIntegrationTypesOk() ([]ApplicationIntegrationType, bool) {
+	if o == nil || IsNil(o.IntegrationTypes) {
 		return nil, false
 	}
 	return o.IntegrationTypes, true
@@ -576,15 +534,15 @@ func (o *ApplicationCommandResponse) HasIntegrationTypes() bool {
 	return false
 }
 
-// SetIntegrationTypes gets a reference to the given []int32 and assigns it to the IntegrationTypes field.
-func (o *ApplicationCommandResponse) SetIntegrationTypes(v []int32) {
+// SetIntegrationTypes gets a reference to the given []ApplicationIntegrationType and assigns it to the IntegrationTypes field.
+func (o *ApplicationCommandResponse) SetIntegrationTypes(v []ApplicationIntegrationType) {
 	o.IntegrationTypes = v
 }
 
 
-// GetOptions returns the Options field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOptions returns the Options field value if set, zero value otherwise.
 func (o *ApplicationCommandResponse) GetOptions() []ApplicationCommandResponseOptionsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Options) {
 		var ret []ApplicationCommandResponseOptionsInner
 		return ret
 	}
@@ -593,9 +551,8 @@ func (o *ApplicationCommandResponse) GetOptions() []ApplicationCommandResponseOp
 
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandResponse) GetOptionsOk() ([]ApplicationCommandResponseOptionsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Options) {
 		return nil, false
 	}
 	return o.Options, true
@@ -616,48 +573,38 @@ func (o *ApplicationCommandResponse) SetOptions(v []ApplicationCommandResponseOp
 }
 
 
-// GetNsfw returns the Nsfw field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNsfw returns the Nsfw field value if set, zero value otherwise.
 func (o *ApplicationCommandResponse) GetNsfw() bool {
-	if o == nil || IsNil(o.Nsfw.Get()) {
+	if o == nil || IsNil(o.Nsfw) {
 		var ret bool
 		return ret
 	}
-	return *o.Nsfw.Get()
+	return *o.Nsfw
 }
 
 // GetNsfwOk returns a tuple with the Nsfw field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandResponse) GetNsfwOk() (*bool, bool) {
-	if o == nil || IsNil(o.Nsfw.Get()) {
+	if o == nil || IsNil(o.Nsfw) {
 		return nil, false
 	}
-	return o.Nsfw.Get(), o.Nsfw.IsSet()
+	return o.Nsfw, true
 }
 
 // HasNsfw returns a boolean if a field has been set.
 func (o *ApplicationCommandResponse) HasNsfw() bool {
-	if o != nil && o.Nsfw.IsSet() {
+	if o != nil && !IsNil(o.Nsfw) {
 		return true
 	}
 
 	return false
 }
 
-// SetNsfw gets a reference to the given NullableBool and assigns it to the Nsfw field.
+// SetNsfw gets a reference to the given bool and assigns it to the Nsfw field.
 func (o *ApplicationCommandResponse) SetNsfw(v bool) {
-	o.Nsfw.Set(&v)
+	o.Nsfw = &v
 }
 
-// SetNsfwNil sets the value for Nsfw to be an explicit nil
-func (o *ApplicationCommandResponse) SetNsfwNil() {
-	o.Nsfw.Set(nil)
-}
-
-// UnsetNsfw ensures that no value is present for Nsfw, not even an explicit nil
-func (o *ApplicationCommandResponse) UnsetNsfw() {
-	o.Nsfw.Unset()
-}
 
 func (o ApplicationCommandResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -672,20 +619,20 @@ func (o ApplicationCommandResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["application_id"] = o.ApplicationId
 	toSerialize["version"] = o.Version
-	if o.DefaultMemberPermissions.IsSet() {
-		toSerialize["default_member_permissions"] = o.DefaultMemberPermissions.Get()
+	if !IsNil(o.DefaultMemberPermissions) {
+		toSerialize["default_member_permissions"] = o.DefaultMemberPermissions
 	}
 	toSerialize["type"] = o.Type
 	toSerialize["name"] = o.Name
-	if o.NameLocalized.IsSet() {
-		toSerialize["name_localized"] = o.NameLocalized.Get()
+	if !IsNil(o.NameLocalized) {
+		toSerialize["name_localized"] = o.NameLocalized
 	}
 	if !IsNil(o.NameLocalizations) {
 		toSerialize["name_localizations"] = o.NameLocalizations
 	}
 	toSerialize["description"] = o.Description
-	if o.DescriptionLocalized.IsSet() {
-		toSerialize["description_localized"] = o.DescriptionLocalized.Get()
+	if !IsNil(o.DescriptionLocalized) {
+		toSerialize["description_localized"] = o.DescriptionLocalized
 	}
 	if !IsNil(o.DescriptionLocalizations) {
 		toSerialize["description_localizations"] = o.DescriptionLocalizations
@@ -693,20 +640,20 @@ func (o ApplicationCommandResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.GuildId) {
 		toSerialize["guild_id"] = o.GuildId
 	}
-	if o.DmPermission.IsSet() {
-		toSerialize["dm_permission"] = o.DmPermission.Get()
+	if !IsNil(o.DmPermission) {
+		toSerialize["dm_permission"] = o.DmPermission
 	}
-	if o.Contexts != nil {
+	if !IsNil(o.Contexts) {
 		toSerialize["contexts"] = o.Contexts
 	}
-	if o.IntegrationTypes != nil {
+	if !IsNil(o.IntegrationTypes) {
 		toSerialize["integration_types"] = o.IntegrationTypes
 	}
-	if o.Options != nil {
+	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
-	if o.Nsfw.IsSet() {
-		toSerialize["nsfw"] = o.Nsfw.Get()
+	if !IsNil(o.Nsfw) {
+		toSerialize["nsfw"] = o.Nsfw
 	}
 	return toSerialize, nil
 }
@@ -788,5 +735,4 @@ func (v *NullableApplicationCommandResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

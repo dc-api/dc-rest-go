@@ -6,19 +6,19 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Icon** | Pointer to **NullableString** |  | [optional] 
-**Banner** | Pointer to **NullableString** |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
+**Banner** | Pointer to **string** |  | [optional] 
 **Owner** | **bool** |  | 
 **Permissions** | **string** |  | 
-**Features** | **[]string** |  | 
-**ApproximateMemberCount** | Pointer to **NullableInt32** |  | [optional] 
-**ApproximatePresenceCount** | Pointer to **NullableInt32** |  | [optional] 
+**Features** | [**[]GuildFeatures**](GuildFeatures.md) |  | 
+**ApproximateMemberCount** | Pointer to **int32** |  | [optional] 
+**ApproximatePresenceCount** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewMyGuildResponse
 
-`func NewMyGuildResponse(id string, name string, owner bool, permissions string, features []string, ) *MyGuildResponse`
+`func NewMyGuildResponse(id string, name string, owner bool, permissions string, features []GuildFeatures, ) *MyGuildResponse`
 
 NewMyGuildResponse instantiates a new MyGuildResponse object
 This constructor will assign default values to properties that have it defined,
@@ -98,16 +98,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *MyGuildResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *MyGuildResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetBanner
 
 `func (o *MyGuildResponse) GetBanner() string`
@@ -133,16 +123,6 @@ SetBanner sets Banner field to given value.
 
 HasBanner returns a boolean if a field has been set.
 
-### SetBannerNil
-
-`func (o *MyGuildResponse) SetBannerNil(b bool)`
-
- SetBannerNil sets the value for Banner to be an explicit nil
-
-### UnsetBanner
-`func (o *MyGuildResponse) UnsetBanner()`
-
-UnsetBanner ensures that no value is present for Banner, not even an explicit nil
 ### GetOwner
 
 `func (o *MyGuildResponse) GetOwner() bool`
@@ -185,20 +165,20 @@ SetPermissions sets Permissions field to given value.
 
 ### GetFeatures
 
-`func (o *MyGuildResponse) GetFeatures() []string`
+`func (o *MyGuildResponse) GetFeatures() []GuildFeatures`
 
 GetFeatures returns the Features field if non-nil, zero value otherwise.
 
 ### GetFeaturesOk
 
-`func (o *MyGuildResponse) GetFeaturesOk() (*[]string, bool)`
+`func (o *MyGuildResponse) GetFeaturesOk() (*[]GuildFeatures, bool)`
 
 GetFeaturesOk returns a tuple with the Features field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFeatures
 
-`func (o *MyGuildResponse) SetFeatures(v []string)`
+`func (o *MyGuildResponse) SetFeatures(v []GuildFeatures)`
 
 SetFeatures sets Features field to given value.
 
@@ -228,16 +208,6 @@ SetApproximateMemberCount sets ApproximateMemberCount field to given value.
 
 HasApproximateMemberCount returns a boolean if a field has been set.
 
-### SetApproximateMemberCountNil
-
-`func (o *MyGuildResponse) SetApproximateMemberCountNil(b bool)`
-
- SetApproximateMemberCountNil sets the value for ApproximateMemberCount to be an explicit nil
-
-### UnsetApproximateMemberCount
-`func (o *MyGuildResponse) UnsetApproximateMemberCount()`
-
-UnsetApproximateMemberCount ensures that no value is present for ApproximateMemberCount, not even an explicit nil
 ### GetApproximatePresenceCount
 
 `func (o *MyGuildResponse) GetApproximatePresenceCount() int32`
@@ -263,16 +233,6 @@ SetApproximatePresenceCount sets ApproximatePresenceCount field to given value.
 
 HasApproximatePresenceCount returns a boolean if a field has been set.
 
-### SetApproximatePresenceCountNil
-
-`func (o *MyGuildResponse) SetApproximatePresenceCountNil(b bool)`
-
- SetApproximatePresenceCountNil sets the value for ApproximatePresenceCount to be an explicit nil
-
-### UnsetApproximatePresenceCount
-`func (o *MyGuildResponse) UnsetApproximatePresenceCount()`
-
-UnsetApproximatePresenceCount ensures that no value is present for ApproximatePresenceCount, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

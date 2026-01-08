@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Spoiler** | Pointer to **NullableBool** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Spoiler** | Pointer to **bool** |  | [optional] 
 **Media** | [**UnfurledMediaRequest**](UnfurledMediaRequest.md) |  | 
 
 ## Methods
@@ -52,16 +52,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *MediaGalleryItemRequest) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *MediaGalleryItemRequest) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetSpoiler
 
 `func (o *MediaGalleryItemRequest) GetSpoiler() bool`
@@ -87,16 +77,6 @@ SetSpoiler sets Spoiler field to given value.
 
 HasSpoiler returns a boolean if a field has been set.
 
-### SetSpoilerNil
-
-`func (o *MediaGalleryItemRequest) SetSpoilerNil(b bool)`
-
- SetSpoilerNil sets the value for Spoiler to be an explicit nil
-
-### UnsetSpoiler
-`func (o *MediaGalleryItemRequest) UnsetSpoiler()`
-
-UnsetSpoiler ensures that no value is present for Spoiler, not even an explicit nil
 ### GetMedia
 
 `func (o *MediaGalleryItemRequest) GetMedia() UnfurledMediaRequest`

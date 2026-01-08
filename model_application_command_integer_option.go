@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,16 +55,16 @@ var _ MappedNullable = &ApplicationCommandIntegerOption{}
 
 // ApplicationCommandIntegerOption struct for ApplicationCommandIntegerOption
 type ApplicationCommandIntegerOption struct {
-	Type int32 `json:"type"`
+	Type ApplicationCommandOptionType `json:"type"`
 	Name string `json:"name"`
 	NameLocalizations map[string]string `json:"name_localizations,omitempty"`
 	Description string `json:"description"`
 	DescriptionLocalizations map[string]string `json:"description_localizations,omitempty"`
-	Required NullableBool `json:"required,omitempty"`
-	Autocomplete NullableBool `json:"autocomplete,omitempty"`
+	Required *bool `json:"required,omitempty"`
+	Autocomplete *bool `json:"autocomplete,omitempty"`
 	Choices []ApplicationCommandOptionIntegerChoice `json:"choices,omitempty"`
-	MinValue *int64 `json:"min_value,omitempty"`
-	MaxValue *int64 `json:"max_value,omitempty"`
+	MinValue *ApplicationCommandIntegerOptionMinValue `json:"min_value,omitempty"`
+	MaxValue *ApplicationCommandIntegerOptionMinValue `json:"max_value,omitempty"`
 }
 
 type _ApplicationCommandIntegerOption ApplicationCommandIntegerOption
@@ -73,7 +73,7 @@ type _ApplicationCommandIntegerOption ApplicationCommandIntegerOption
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApplicationCommandIntegerOption(type_ int32, name string, description string) *ApplicationCommandIntegerOption {
+func NewApplicationCommandIntegerOption(type_ ApplicationCommandOptionType, name string, description string) *ApplicationCommandIntegerOption {
 	this := ApplicationCommandIntegerOption{}
 	this.Type = type_
 	this.Name = name
@@ -90,9 +90,9 @@ func NewApplicationCommandIntegerOptionWithDefaults() *ApplicationCommandInteger
 }
 
 // GetType returns the Type field value
-func (o *ApplicationCommandIntegerOption) GetType() int32 {
+func (o *ApplicationCommandIntegerOption) GetType() ApplicationCommandOptionType {
 	if o == nil {
-		var ret int32
+		var ret ApplicationCommandOptionType
 		return ret
 	}
 
@@ -101,7 +101,7 @@ func (o *ApplicationCommandIntegerOption) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ApplicationCommandIntegerOption) GetTypeOk() (*int32, bool) {
+func (o *ApplicationCommandIntegerOption) GetTypeOk() (*ApplicationCommandOptionType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -109,7 +109,7 @@ func (o *ApplicationCommandIntegerOption) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *ApplicationCommandIntegerOption) SetType(v int32) {
+func (o *ApplicationCommandIntegerOption) SetType(v ApplicationCommandOptionType) {
 	o.Type = v
 }
 
@@ -227,95 +227,75 @@ func (o *ApplicationCommandIntegerOption) SetDescriptionLocalizations(v map[stri
 }
 
 
-// GetRequired returns the Required field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRequired returns the Required field value if set, zero value otherwise.
 func (o *ApplicationCommandIntegerOption) GetRequired() bool {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		var ret bool
 		return ret
 	}
-	return *o.Required.Get()
+	return *o.Required
 }
 
 // GetRequiredOk returns a tuple with the Required field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandIntegerOption) GetRequiredOk() (*bool, bool) {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		return nil, false
 	}
-	return o.Required.Get(), o.Required.IsSet()
+	return o.Required, true
 }
 
 // HasRequired returns a boolean if a field has been set.
 func (o *ApplicationCommandIntegerOption) HasRequired() bool {
-	if o != nil && o.Required.IsSet() {
+	if o != nil && !IsNil(o.Required) {
 		return true
 	}
 
 	return false
 }
 
-// SetRequired gets a reference to the given NullableBool and assigns it to the Required field.
+// SetRequired gets a reference to the given bool and assigns it to the Required field.
 func (o *ApplicationCommandIntegerOption) SetRequired(v bool) {
-	o.Required.Set(&v)
+	o.Required = &v
 }
 
-// SetRequiredNil sets the value for Required to be an explicit nil
-func (o *ApplicationCommandIntegerOption) SetRequiredNil() {
-	o.Required.Set(nil)
-}
 
-// UnsetRequired ensures that no value is present for Required, not even an explicit nil
-func (o *ApplicationCommandIntegerOption) UnsetRequired() {
-	o.Required.Unset()
-}
-
-// GetAutocomplete returns the Autocomplete field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAutocomplete returns the Autocomplete field value if set, zero value otherwise.
 func (o *ApplicationCommandIntegerOption) GetAutocomplete() bool {
-	if o == nil || IsNil(o.Autocomplete.Get()) {
+	if o == nil || IsNil(o.Autocomplete) {
 		var ret bool
 		return ret
 	}
-	return *o.Autocomplete.Get()
+	return *o.Autocomplete
 }
 
 // GetAutocompleteOk returns a tuple with the Autocomplete field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandIntegerOption) GetAutocompleteOk() (*bool, bool) {
-	if o == nil || IsNil(o.Autocomplete.Get()) {
+	if o == nil || IsNil(o.Autocomplete) {
 		return nil, false
 	}
-	return o.Autocomplete.Get(), o.Autocomplete.IsSet()
+	return o.Autocomplete, true
 }
 
 // HasAutocomplete returns a boolean if a field has been set.
 func (o *ApplicationCommandIntegerOption) HasAutocomplete() bool {
-	if o != nil && o.Autocomplete.IsSet() {
+	if o != nil && !IsNil(o.Autocomplete) {
 		return true
 	}
 
 	return false
 }
 
-// SetAutocomplete gets a reference to the given NullableBool and assigns it to the Autocomplete field.
+// SetAutocomplete gets a reference to the given bool and assigns it to the Autocomplete field.
 func (o *ApplicationCommandIntegerOption) SetAutocomplete(v bool) {
-	o.Autocomplete.Set(&v)
+	o.Autocomplete = &v
 }
 
-// SetAutocompleteNil sets the value for Autocomplete to be an explicit nil
-func (o *ApplicationCommandIntegerOption) SetAutocompleteNil() {
-	o.Autocomplete.Set(nil)
-}
 
-// UnsetAutocomplete ensures that no value is present for Autocomplete, not even an explicit nil
-func (o *ApplicationCommandIntegerOption) UnsetAutocomplete() {
-	o.Autocomplete.Unset()
-}
-
-// GetChoices returns the Choices field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetChoices returns the Choices field value if set, zero value otherwise.
 func (o *ApplicationCommandIntegerOption) GetChoices() []ApplicationCommandOptionIntegerChoice {
-	if o == nil {
+	if o == nil || IsNil(o.Choices) {
 		var ret []ApplicationCommandOptionIntegerChoice
 		return ret
 	}
@@ -324,9 +304,8 @@ func (o *ApplicationCommandIntegerOption) GetChoices() []ApplicationCommandOptio
 
 // GetChoicesOk returns a tuple with the Choices field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandIntegerOption) GetChoicesOk() ([]ApplicationCommandOptionIntegerChoice, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Choices) {
 		return nil, false
 	}
 	return o.Choices, true
@@ -348,9 +327,9 @@ func (o *ApplicationCommandIntegerOption) SetChoices(v []ApplicationCommandOptio
 
 
 // GetMinValue returns the MinValue field value if set, zero value otherwise.
-func (o *ApplicationCommandIntegerOption) GetMinValue() int64 {
+func (o *ApplicationCommandIntegerOption) GetMinValue() ApplicationCommandIntegerOptionMinValue {
 	if o == nil || IsNil(o.MinValue) {
-		var ret int64
+		var ret ApplicationCommandIntegerOptionMinValue
 		return ret
 	}
 	return *o.MinValue
@@ -358,7 +337,7 @@ func (o *ApplicationCommandIntegerOption) GetMinValue() int64 {
 
 // GetMinValueOk returns a tuple with the MinValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplicationCommandIntegerOption) GetMinValueOk() (*int64, bool) {
+func (o *ApplicationCommandIntegerOption) GetMinValueOk() (*ApplicationCommandIntegerOptionMinValue, bool) {
 	if o == nil || IsNil(o.MinValue) {
 		return nil, false
 	}
@@ -374,16 +353,16 @@ func (o *ApplicationCommandIntegerOption) HasMinValue() bool {
 	return false
 }
 
-// SetMinValue gets a reference to the given int64 and assigns it to the MinValue field.
-func (o *ApplicationCommandIntegerOption) SetMinValue(v int64) {
+// SetMinValue gets a reference to the given ApplicationCommandIntegerOptionMinValue and assigns it to the MinValue field.
+func (o *ApplicationCommandIntegerOption) SetMinValue(v ApplicationCommandIntegerOptionMinValue) {
 	o.MinValue = &v
 }
 
 
 // GetMaxValue returns the MaxValue field value if set, zero value otherwise.
-func (o *ApplicationCommandIntegerOption) GetMaxValue() int64 {
+func (o *ApplicationCommandIntegerOption) GetMaxValue() ApplicationCommandIntegerOptionMinValue {
 	if o == nil || IsNil(o.MaxValue) {
-		var ret int64
+		var ret ApplicationCommandIntegerOptionMinValue
 		return ret
 	}
 	return *o.MaxValue
@@ -391,7 +370,7 @@ func (o *ApplicationCommandIntegerOption) GetMaxValue() int64 {
 
 // GetMaxValueOk returns a tuple with the MaxValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplicationCommandIntegerOption) GetMaxValueOk() (*int64, bool) {
+func (o *ApplicationCommandIntegerOption) GetMaxValueOk() (*ApplicationCommandIntegerOptionMinValue, bool) {
 	if o == nil || IsNil(o.MaxValue) {
 		return nil, false
 	}
@@ -407,8 +386,8 @@ func (o *ApplicationCommandIntegerOption) HasMaxValue() bool {
 	return false
 }
 
-// SetMaxValue gets a reference to the given int64 and assigns it to the MaxValue field.
-func (o *ApplicationCommandIntegerOption) SetMaxValue(v int64) {
+// SetMaxValue gets a reference to the given ApplicationCommandIntegerOptionMinValue and assigns it to the MaxValue field.
+func (o *ApplicationCommandIntegerOption) SetMaxValue(v ApplicationCommandIntegerOptionMinValue) {
 	o.MaxValue = &v
 }
 
@@ -432,13 +411,13 @@ func (o ApplicationCommandIntegerOption) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.DescriptionLocalizations) {
 		toSerialize["description_localizations"] = o.DescriptionLocalizations
 	}
-	if o.Required.IsSet() {
-		toSerialize["required"] = o.Required.Get()
+	if !IsNil(o.Required) {
+		toSerialize["required"] = o.Required
 	}
-	if o.Autocomplete.IsSet() {
-		toSerialize["autocomplete"] = o.Autocomplete.Get()
+	if !IsNil(o.Autocomplete) {
+		toSerialize["autocomplete"] = o.Autocomplete
 	}
-	if o.Choices != nil {
+	if !IsNil(o.Choices) {
 		toSerialize["choices"] = o.Choices
 	}
 	if !IsNil(o.MinValue) {
@@ -524,5 +503,4 @@ func (v *NullableApplicationCommandIntegerOption) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

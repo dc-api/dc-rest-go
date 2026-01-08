@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,7 +55,7 @@ var _ MappedNullable = &MediaGalleryComponentResponse{}
 
 // MediaGalleryComponentResponse struct for MediaGalleryComponentResponse
 type MediaGalleryComponentResponse struct {
-	Type int32 `json:"type"`
+	Type MessageComponentTypes `json:"type"`
 	Id int32 `json:"id"`
 	Items []MediaGalleryItemResponse `json:"items"`
 }
@@ -66,7 +66,7 @@ type _MediaGalleryComponentResponse MediaGalleryComponentResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMediaGalleryComponentResponse(type_ int32, id int32, items []MediaGalleryItemResponse) *MediaGalleryComponentResponse {
+func NewMediaGalleryComponentResponse(type_ MessageComponentTypes, id int32, items []MediaGalleryItemResponse) *MediaGalleryComponentResponse {
 	this := MediaGalleryComponentResponse{}
 	this.Type = type_
 	this.Id = id
@@ -83,9 +83,9 @@ func NewMediaGalleryComponentResponseWithDefaults() *MediaGalleryComponentRespon
 }
 
 // GetType returns the Type field value
-func (o *MediaGalleryComponentResponse) GetType() int32 {
+func (o *MediaGalleryComponentResponse) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -94,7 +94,7 @@ func (o *MediaGalleryComponentResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *MediaGalleryComponentResponse) GetTypeOk() (*int32, bool) {
+func (o *MediaGalleryComponentResponse) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -102,7 +102,7 @@ func (o *MediaGalleryComponentResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *MediaGalleryComponentResponse) SetType(v int32) {
+func (o *MediaGalleryComponentResponse) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
 
@@ -244,5 +244,4 @@ func (v *NullableMediaGalleryComponentResponse) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

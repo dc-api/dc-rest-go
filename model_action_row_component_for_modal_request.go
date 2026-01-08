@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,7 +55,8 @@ var _ MappedNullable = &ActionRowComponentForModalRequest{}
 
 // ActionRowComponentForModalRequest struct for ActionRowComponentForModalRequest
 type ActionRowComponentForModalRequest struct {
-	Type int32 `json:"type"`
+	Type MessageComponentTypes `json:"type"`
+	Id *int32 `json:"id,omitempty"`
 	Components []TextInputComponentForModalRequest `json:"components"`
 }
 
@@ -65,7 +66,7 @@ type _ActionRowComponentForModalRequest ActionRowComponentForModalRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActionRowComponentForModalRequest(type_ int32, components []TextInputComponentForModalRequest) *ActionRowComponentForModalRequest {
+func NewActionRowComponentForModalRequest(type_ MessageComponentTypes, components []TextInputComponentForModalRequest) *ActionRowComponentForModalRequest {
 	this := ActionRowComponentForModalRequest{}
 	this.Type = type_
 	this.Components = components
@@ -81,9 +82,9 @@ func NewActionRowComponentForModalRequestWithDefaults() *ActionRowComponentForMo
 }
 
 // GetType returns the Type field value
-func (o *ActionRowComponentForModalRequest) GetType() int32 {
+func (o *ActionRowComponentForModalRequest) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -92,7 +93,7 @@ func (o *ActionRowComponentForModalRequest) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ActionRowComponentForModalRequest) GetTypeOk() (*int32, bool) {
+func (o *ActionRowComponentForModalRequest) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -100,9 +101,42 @@ func (o *ActionRowComponentForModalRequest) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *ActionRowComponentForModalRequest) SetType(v int32) {
+func (o *ActionRowComponentForModalRequest) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *ActionRowComponentForModalRequest) GetId() int32 {
+	if o == nil || IsNil(o.Id) {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActionRowComponentForModalRequest) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *ActionRowComponentForModalRequest) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *ActionRowComponentForModalRequest) SetId(v int32) {
+	o.Id = &v
+}
+
 
 // GetComponents returns the Components field value
 func (o *ActionRowComponentForModalRequest) GetComponents() []TextInputComponentForModalRequest {
@@ -139,6 +173,9 @@ func (o ActionRowComponentForModalRequest) MarshalJSON() ([]byte, error) {
 func (o ActionRowComponentForModalRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	toSerialize["components"] = o.Components
 	return toSerialize, nil
 }
@@ -216,5 +253,4 @@ func (v *NullableActionRowComponentForModalRequest) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

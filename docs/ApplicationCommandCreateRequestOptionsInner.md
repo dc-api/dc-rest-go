@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**ApplicationCommandOptionType**](ApplicationCommandOptionType.md) |  | 
 **Name** | **string** |  | 
 **NameLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Description** | **string** |  | 
 **DescriptionLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Required** | Pointer to **bool** |  | [optional] 
-**ChannelTypes** | Pointer to **[]int32** |  | [optional] 
+**ChannelTypes** | Pointer to [**[]ChannelTypes**](ChannelTypes.md) |  | [optional] 
 **Autocomplete** | Pointer to **bool** |  | [optional] 
 **Choices** | Pointer to [**[]ApplicationCommandOptionStringChoice**](ApplicationCommandOptionStringChoice.md) |  | [optional] 
 **MinValue** | Pointer to **float64** |  | [optional] 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewApplicationCommandCreateRequestOptionsInner
 
-`func NewApplicationCommandCreateRequestOptionsInner(type_ int32, name string, description string, ) *ApplicationCommandCreateRequestOptionsInner`
+`func NewApplicationCommandCreateRequestOptionsInner(type_ ApplicationCommandOptionType, name string, description string, ) *ApplicationCommandCreateRequestOptionsInner`
 
 NewApplicationCommandCreateRequestOptionsInner instantiates a new ApplicationCommandCreateRequestOptionsInner object
 This constructor will assign default values to properties that have it defined,
@@ -40,20 +40,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ApplicationCommandCreateRequestOptionsInner) GetType() int32`
+`func (o *ApplicationCommandCreateRequestOptionsInner) GetType() ApplicationCommandOptionType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ApplicationCommandCreateRequestOptionsInner) GetTypeOk() (*int32, bool)`
+`func (o *ApplicationCommandCreateRequestOptionsInner) GetTypeOk() (*ApplicationCommandOptionType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ApplicationCommandCreateRequestOptionsInner) SetType(v int32)`
+`func (o *ApplicationCommandCreateRequestOptionsInner) SetType(v ApplicationCommandOptionType)`
 
 SetType sets Type field to given value.
 
@@ -175,20 +175,20 @@ HasRequired returns a boolean if a field has been set.
 
 ### GetChannelTypes
 
-`func (o *ApplicationCommandCreateRequestOptionsInner) GetChannelTypes() []int32`
+`func (o *ApplicationCommandCreateRequestOptionsInner) GetChannelTypes() []ChannelTypes`
 
 GetChannelTypes returns the ChannelTypes field if non-nil, zero value otherwise.
 
 ### GetChannelTypesOk
 
-`func (o *ApplicationCommandCreateRequestOptionsInner) GetChannelTypesOk() (*[]int32, bool)`
+`func (o *ApplicationCommandCreateRequestOptionsInner) GetChannelTypesOk() (*[]ChannelTypes, bool)`
 
 GetChannelTypesOk returns a tuple with the ChannelTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelTypes
 
-`func (o *ApplicationCommandCreateRequestOptionsInner) SetChannelTypes(v []int32)`
+`func (o *ApplicationCommandCreateRequestOptionsInner) SetChannelTypes(v []ChannelTypes)`
 
 SetChannelTypes sets ChannelTypes field to given value.
 

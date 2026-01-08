@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,10 +53,10 @@ var _ MappedNullable = &MessageEditRequestPartial{}
 
 // MessageEditRequestPartial struct for MessageEditRequestPartial
 type MessageEditRequestPartial struct {
-	Content NullableString `json:"content,omitempty"`
+	Content *string `json:"content,omitempty"`
 	Embeds []RichEmbed `json:"embeds,omitempty"`
-	Flags NullableInt32 `json:"flags,omitempty"`
-	AllowedMentions NullableMessageAllowedMentionsRequest `json:"allowed_mentions,omitempty"`
+	Flags *int32 `json:"flags,omitempty"`
+	AllowedMentions *BaseCreateMessageCreateRequestAllowedMentions `json:"allowed_mentions,omitempty"`
 	StickerIds []string `json:"sticker_ids,omitempty"`
 	Components []BaseCreateMessageCreateRequestComponentsInner `json:"components,omitempty"`
 	Attachments []MessageAttachmentRequest `json:"attachments,omitempty"`
@@ -79,52 +79,42 @@ func NewMessageEditRequestPartialWithDefaults() *MessageEditRequestPartial {
 	return &this
 }
 
-// GetContent returns the Content field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetContent returns the Content field value if set, zero value otherwise.
 func (o *MessageEditRequestPartial) GetContent() string {
-	if o == nil || IsNil(o.Content.Get()) {
+	if o == nil || IsNil(o.Content) {
 		var ret string
 		return ret
 	}
-	return *o.Content.Get()
+	return *o.Content
 }
 
 // GetContentOk returns a tuple with the Content field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEditRequestPartial) GetContentOk() (*string, bool) {
-	if o == nil || IsNil(o.Content.Get()) {
+	if o == nil || IsNil(o.Content) {
 		return nil, false
 	}
-	return o.Content.Get(), o.Content.IsSet()
+	return o.Content, true
 }
 
 // HasContent returns a boolean if a field has been set.
 func (o *MessageEditRequestPartial) HasContent() bool {
-	if o != nil && o.Content.IsSet() {
+	if o != nil && !IsNil(o.Content) {
 		return true
 	}
 
 	return false
 }
 
-// SetContent gets a reference to the given NullableString and assigns it to the Content field.
+// SetContent gets a reference to the given string and assigns it to the Content field.
 func (o *MessageEditRequestPartial) SetContent(v string) {
-	o.Content.Set(&v)
+	o.Content = &v
 }
 
-// SetContentNil sets the value for Content to be an explicit nil
-func (o *MessageEditRequestPartial) SetContentNil() {
-	o.Content.Set(nil)
-}
 
-// UnsetContent ensures that no value is present for Content, not even an explicit nil
-func (o *MessageEditRequestPartial) UnsetContent() {
-	o.Content.Unset()
-}
-
-// GetEmbeds returns the Embeds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmbeds returns the Embeds field value if set, zero value otherwise.
 func (o *MessageEditRequestPartial) GetEmbeds() []RichEmbed {
-	if o == nil {
+	if o == nil || IsNil(o.Embeds) {
 		var ret []RichEmbed
 		return ret
 	}
@@ -133,9 +123,8 @@ func (o *MessageEditRequestPartial) GetEmbeds() []RichEmbed {
 
 // GetEmbedsOk returns a tuple with the Embeds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEditRequestPartial) GetEmbedsOk() ([]RichEmbed, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Embeds) {
 		return nil, false
 	}
 	return o.Embeds, true
@@ -156,95 +145,75 @@ func (o *MessageEditRequestPartial) SetEmbeds(v []RichEmbed) {
 }
 
 
-// GetFlags returns the Flags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFlags returns the Flags field value if set, zero value otherwise.
 func (o *MessageEditRequestPartial) GetFlags() int32 {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		var ret int32
 		return ret
 	}
-	return *o.Flags.Get()
+	return *o.Flags
 }
 
 // GetFlagsOk returns a tuple with the Flags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEditRequestPartial) GetFlagsOk() (*int32, bool) {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		return nil, false
 	}
-	return o.Flags.Get(), o.Flags.IsSet()
+	return o.Flags, true
 }
 
 // HasFlags returns a boolean if a field has been set.
 func (o *MessageEditRequestPartial) HasFlags() bool {
-	if o != nil && o.Flags.IsSet() {
+	if o != nil && !IsNil(o.Flags) {
 		return true
 	}
 
 	return false
 }
 
-// SetFlags gets a reference to the given NullableInt32 and assigns it to the Flags field.
+// SetFlags gets a reference to the given int32 and assigns it to the Flags field.
 func (o *MessageEditRequestPartial) SetFlags(v int32) {
-	o.Flags.Set(&v)
+	o.Flags = &v
 }
 
-// SetFlagsNil sets the value for Flags to be an explicit nil
-func (o *MessageEditRequestPartial) SetFlagsNil() {
-	o.Flags.Set(nil)
-}
 
-// UnsetFlags ensures that no value is present for Flags, not even an explicit nil
-func (o *MessageEditRequestPartial) UnsetFlags() {
-	o.Flags.Unset()
-}
-
-// GetAllowedMentions returns the AllowedMentions field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MessageEditRequestPartial) GetAllowedMentions() MessageAllowedMentionsRequest {
-	if o == nil || IsNil(o.AllowedMentions.Get()) {
-		var ret MessageAllowedMentionsRequest
+// GetAllowedMentions returns the AllowedMentions field value if set, zero value otherwise.
+func (o *MessageEditRequestPartial) GetAllowedMentions() BaseCreateMessageCreateRequestAllowedMentions {
+	if o == nil || IsNil(o.AllowedMentions) {
+		var ret BaseCreateMessageCreateRequestAllowedMentions
 		return ret
 	}
-	return *o.AllowedMentions.Get()
+	return *o.AllowedMentions
 }
 
 // GetAllowedMentionsOk returns a tuple with the AllowedMentions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MessageEditRequestPartial) GetAllowedMentionsOk() (*MessageAllowedMentionsRequest, bool) {
-	if o == nil || IsNil(o.AllowedMentions.Get()) {
+func (o *MessageEditRequestPartial) GetAllowedMentionsOk() (*BaseCreateMessageCreateRequestAllowedMentions, bool) {
+	if o == nil || IsNil(o.AllowedMentions) {
 		return nil, false
 	}
-	return o.AllowedMentions.Get(), o.AllowedMentions.IsSet()
+	return o.AllowedMentions, true
 }
 
 // HasAllowedMentions returns a boolean if a field has been set.
 func (o *MessageEditRequestPartial) HasAllowedMentions() bool {
-	if o != nil && o.AllowedMentions.IsSet() {
+	if o != nil && !IsNil(o.AllowedMentions) {
 		return true
 	}
 
 	return false
 }
 
-// SetAllowedMentions gets a reference to the given NullableMessageAllowedMentionsRequest and assigns it to the AllowedMentions field.
-func (o *MessageEditRequestPartial) SetAllowedMentions(v MessageAllowedMentionsRequest) {
-	o.AllowedMentions.Set(&v)
+// SetAllowedMentions gets a reference to the given BaseCreateMessageCreateRequestAllowedMentions and assigns it to the AllowedMentions field.
+func (o *MessageEditRequestPartial) SetAllowedMentions(v BaseCreateMessageCreateRequestAllowedMentions) {
+	o.AllowedMentions = &v
 }
 
-// SetAllowedMentionsNil sets the value for AllowedMentions to be an explicit nil
-func (o *MessageEditRequestPartial) SetAllowedMentionsNil() {
-	o.AllowedMentions.Set(nil)
-}
 
-// UnsetAllowedMentions ensures that no value is present for AllowedMentions, not even an explicit nil
-func (o *MessageEditRequestPartial) UnsetAllowedMentions() {
-	o.AllowedMentions.Unset()
-}
-
-// GetStickerIds returns the StickerIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStickerIds returns the StickerIds field value if set, zero value otherwise.
 func (o *MessageEditRequestPartial) GetStickerIds() []string {
-	if o == nil {
+	if o == nil || IsNil(o.StickerIds) {
 		var ret []string
 		return ret
 	}
@@ -253,9 +222,8 @@ func (o *MessageEditRequestPartial) GetStickerIds() []string {
 
 // GetStickerIdsOk returns a tuple with the StickerIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEditRequestPartial) GetStickerIdsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StickerIds) {
 		return nil, false
 	}
 	return o.StickerIds, true
@@ -276,9 +244,9 @@ func (o *MessageEditRequestPartial) SetStickerIds(v []string) {
 }
 
 
-// GetComponents returns the Components field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetComponents returns the Components field value if set, zero value otherwise.
 func (o *MessageEditRequestPartial) GetComponents() []BaseCreateMessageCreateRequestComponentsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Components) {
 		var ret []BaseCreateMessageCreateRequestComponentsInner
 		return ret
 	}
@@ -287,9 +255,8 @@ func (o *MessageEditRequestPartial) GetComponents() []BaseCreateMessageCreateReq
 
 // GetComponentsOk returns a tuple with the Components field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEditRequestPartial) GetComponentsOk() ([]BaseCreateMessageCreateRequestComponentsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Components) {
 		return nil, false
 	}
 	return o.Components, true
@@ -310,9 +277,9 @@ func (o *MessageEditRequestPartial) SetComponents(v []BaseCreateMessageCreateReq
 }
 
 
-// GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttachments returns the Attachments field value if set, zero value otherwise.
 func (o *MessageEditRequestPartial) GetAttachments() []MessageAttachmentRequest {
-	if o == nil {
+	if o == nil || IsNil(o.Attachments) {
 		var ret []MessageAttachmentRequest
 		return ret
 	}
@@ -321,9 +288,8 @@ func (o *MessageEditRequestPartial) GetAttachments() []MessageAttachmentRequest 
 
 // GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEditRequestPartial) GetAttachmentsOk() ([]MessageAttachmentRequest, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Attachments) {
 		return nil, false
 	}
 	return o.Attachments, true
@@ -354,25 +320,25 @@ func (o MessageEditRequestPartial) MarshalJSON() ([]byte, error) {
 
 func (o MessageEditRequestPartial) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Content.IsSet() {
-		toSerialize["content"] = o.Content.Get()
+	if !IsNil(o.Content) {
+		toSerialize["content"] = o.Content
 	}
-	if o.Embeds != nil {
+	if !IsNil(o.Embeds) {
 		toSerialize["embeds"] = o.Embeds
 	}
-	if o.Flags.IsSet() {
-		toSerialize["flags"] = o.Flags.Get()
+	if !IsNil(o.Flags) {
+		toSerialize["flags"] = o.Flags
 	}
-	if o.AllowedMentions.IsSet() {
-		toSerialize["allowed_mentions"] = o.AllowedMentions.Get()
+	if !IsNil(o.AllowedMentions) {
+		toSerialize["allowed_mentions"] = o.AllowedMentions
 	}
-	if o.StickerIds != nil {
+	if !IsNil(o.StickerIds) {
 		toSerialize["sticker_ids"] = o.StickerIds
 	}
-	if o.Components != nil {
+	if !IsNil(o.Components) {
 		toSerialize["components"] = o.Components
 	}
-	if o.Attachments != nil {
+	if !IsNil(o.Attachments) {
 		toSerialize["attachments"] = o.Attachments
 	}
 	return toSerialize, nil
@@ -413,5 +379,4 @@ func (v *NullableMessageEditRequestPartial) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

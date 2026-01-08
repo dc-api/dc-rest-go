@@ -6,29 +6,29 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Icon** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to **int32** |  | [optional] 
+**Type** | Pointer to [**CreateGuildChannelRequestType**](CreateGuildChannelRequestType.md) |  | [optional] 
 **Position** | Pointer to **int32** |  | [optional] 
 **Topic** | Pointer to **string** |  | [optional] 
 **Bitrate** | Pointer to **int32** |  | [optional] 
 **UserLimit** | Pointer to **int32** |  | [optional] 
 **Nsfw** | Pointer to **bool** |  | [optional] 
 **RateLimitPerUser** | Pointer to **int32** |  | [optional] 
-**ParentId** | Pointer to **string** |  | [optional] 
+**ParentId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **PermissionOverwrites** | Pointer to [**[]ChannelPermissionOverwriteRequest**](ChannelPermissionOverwriteRequest.md) |  | [optional] 
 **RtcRegion** | Pointer to **string** |  | [optional] 
-**VideoQualityMode** | Pointer to **int32** |  | [optional] 
-**DefaultAutoArchiveDuration** | Pointer to **int32** |  | [optional] 
-**DefaultReactionEmoji** | Pointer to [**UpdateDefaultReactionEmojiRequest**](UpdateDefaultReactionEmojiRequest.md) |  | [optional] 
+**VideoQualityMode** | Pointer to [**CreateGuildChannelRequestVideoQualityMode**](CreateGuildChannelRequestVideoQualityMode.md) |  | [optional] 
+**DefaultAutoArchiveDuration** | Pointer to [**CreateForumThreadRequestAutoArchiveDuration**](CreateForumThreadRequestAutoArchiveDuration.md) |  | [optional] 
+**DefaultReactionEmoji** | Pointer to [**CreateGuildChannelRequestDefaultReactionEmoji**](CreateGuildChannelRequestDefaultReactionEmoji.md) |  | [optional] 
 **DefaultThreadRateLimitPerUser** | Pointer to **int32** |  | [optional] 
-**DefaultSortOrder** | Pointer to **int32** |  | [optional] 
-**DefaultForumLayout** | Pointer to **int32** |  | [optional] 
-**DefaultTagSetting** | Pointer to **string** |  | [optional] 
+**DefaultSortOrder** | Pointer to [**CreateGuildChannelRequestDefaultSortOrder**](CreateGuildChannelRequestDefaultSortOrder.md) |  | [optional] 
+**DefaultForumLayout** | Pointer to [**CreateGuildChannelRequestDefaultForumLayout**](CreateGuildChannelRequestDefaultForumLayout.md) |  | [optional] 
+**DefaultTagSetting** | Pointer to [**CreateGuildChannelRequestDefaultTagSetting**](CreateGuildChannelRequestDefaultTagSetting.md) |  | [optional] 
 **Flags** | Pointer to **int32** |  | [optional] 
 **AvailableTags** | Pointer to [**[]UpdateThreadTagRequest**](UpdateThreadTagRequest.md) |  | [optional] 
 **Archived** | Pointer to **bool** |  | [optional] 
 **Locked** | Pointer to **bool** |  | [optional] 
 **Invitable** | Pointer to **bool** |  | [optional] 
-**AutoArchiveDuration** | Pointer to **int32** |  | [optional] 
+**AutoArchiveDuration** | Pointer to [**CreateForumThreadRequestAutoArchiveDuration**](CreateForumThreadRequestAutoArchiveDuration.md) |  | [optional] 
 **AppliedTags** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
@@ -102,20 +102,20 @@ HasIcon returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *UpdateChannelRequest) GetType() int32`
+`func (o *UpdateChannelRequest) GetType() CreateGuildChannelRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *UpdateChannelRequest) GetTypeOk() (*int32, bool)`
+`func (o *UpdateChannelRequest) GetTypeOk() (*CreateGuildChannelRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *UpdateChannelRequest) SetType(v int32)`
+`func (o *UpdateChannelRequest) SetType(v CreateGuildChannelRequestType)`
 
 SetType sets Type field to given value.
 
@@ -277,20 +277,20 @@ HasRateLimitPerUser returns a boolean if a field has been set.
 
 ### GetParentId
 
-`func (o *UpdateChannelRequest) GetParentId() string`
+`func (o *UpdateChannelRequest) GetParentId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetParentId returns the ParentId field if non-nil, zero value otherwise.
 
 ### GetParentIdOk
 
-`func (o *UpdateChannelRequest) GetParentIdOk() (*string, bool)`
+`func (o *UpdateChannelRequest) GetParentIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetParentIdOk returns a tuple with the ParentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetParentId
 
-`func (o *UpdateChannelRequest) SetParentId(v string)`
+`func (o *UpdateChannelRequest) SetParentId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetParentId sets ParentId field to given value.
 
@@ -352,20 +352,20 @@ HasRtcRegion returns a boolean if a field has been set.
 
 ### GetVideoQualityMode
 
-`func (o *UpdateChannelRequest) GetVideoQualityMode() int32`
+`func (o *UpdateChannelRequest) GetVideoQualityMode() CreateGuildChannelRequestVideoQualityMode`
 
 GetVideoQualityMode returns the VideoQualityMode field if non-nil, zero value otherwise.
 
 ### GetVideoQualityModeOk
 
-`func (o *UpdateChannelRequest) GetVideoQualityModeOk() (*int32, bool)`
+`func (o *UpdateChannelRequest) GetVideoQualityModeOk() (*CreateGuildChannelRequestVideoQualityMode, bool)`
 
 GetVideoQualityModeOk returns a tuple with the VideoQualityMode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVideoQualityMode
 
-`func (o *UpdateChannelRequest) SetVideoQualityMode(v int32)`
+`func (o *UpdateChannelRequest) SetVideoQualityMode(v CreateGuildChannelRequestVideoQualityMode)`
 
 SetVideoQualityMode sets VideoQualityMode field to given value.
 
@@ -377,20 +377,20 @@ HasVideoQualityMode returns a boolean if a field has been set.
 
 ### GetDefaultAutoArchiveDuration
 
-`func (o *UpdateChannelRequest) GetDefaultAutoArchiveDuration() int32`
+`func (o *UpdateChannelRequest) GetDefaultAutoArchiveDuration() CreateForumThreadRequestAutoArchiveDuration`
 
 GetDefaultAutoArchiveDuration returns the DefaultAutoArchiveDuration field if non-nil, zero value otherwise.
 
 ### GetDefaultAutoArchiveDurationOk
 
-`func (o *UpdateChannelRequest) GetDefaultAutoArchiveDurationOk() (*int32, bool)`
+`func (o *UpdateChannelRequest) GetDefaultAutoArchiveDurationOk() (*CreateForumThreadRequestAutoArchiveDuration, bool)`
 
 GetDefaultAutoArchiveDurationOk returns a tuple with the DefaultAutoArchiveDuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultAutoArchiveDuration
 
-`func (o *UpdateChannelRequest) SetDefaultAutoArchiveDuration(v int32)`
+`func (o *UpdateChannelRequest) SetDefaultAutoArchiveDuration(v CreateForumThreadRequestAutoArchiveDuration)`
 
 SetDefaultAutoArchiveDuration sets DefaultAutoArchiveDuration field to given value.
 
@@ -402,20 +402,20 @@ HasDefaultAutoArchiveDuration returns a boolean if a field has been set.
 
 ### GetDefaultReactionEmoji
 
-`func (o *UpdateChannelRequest) GetDefaultReactionEmoji() UpdateDefaultReactionEmojiRequest`
+`func (o *UpdateChannelRequest) GetDefaultReactionEmoji() CreateGuildChannelRequestDefaultReactionEmoji`
 
 GetDefaultReactionEmoji returns the DefaultReactionEmoji field if non-nil, zero value otherwise.
 
 ### GetDefaultReactionEmojiOk
 
-`func (o *UpdateChannelRequest) GetDefaultReactionEmojiOk() (*UpdateDefaultReactionEmojiRequest, bool)`
+`func (o *UpdateChannelRequest) GetDefaultReactionEmojiOk() (*CreateGuildChannelRequestDefaultReactionEmoji, bool)`
 
 GetDefaultReactionEmojiOk returns a tuple with the DefaultReactionEmoji field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultReactionEmoji
 
-`func (o *UpdateChannelRequest) SetDefaultReactionEmoji(v UpdateDefaultReactionEmojiRequest)`
+`func (o *UpdateChannelRequest) SetDefaultReactionEmoji(v CreateGuildChannelRequestDefaultReactionEmoji)`
 
 SetDefaultReactionEmoji sets DefaultReactionEmoji field to given value.
 
@@ -452,20 +452,20 @@ HasDefaultThreadRateLimitPerUser returns a boolean if a field has been set.
 
 ### GetDefaultSortOrder
 
-`func (o *UpdateChannelRequest) GetDefaultSortOrder() int32`
+`func (o *UpdateChannelRequest) GetDefaultSortOrder() CreateGuildChannelRequestDefaultSortOrder`
 
 GetDefaultSortOrder returns the DefaultSortOrder field if non-nil, zero value otherwise.
 
 ### GetDefaultSortOrderOk
 
-`func (o *UpdateChannelRequest) GetDefaultSortOrderOk() (*int32, bool)`
+`func (o *UpdateChannelRequest) GetDefaultSortOrderOk() (*CreateGuildChannelRequestDefaultSortOrder, bool)`
 
 GetDefaultSortOrderOk returns a tuple with the DefaultSortOrder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultSortOrder
 
-`func (o *UpdateChannelRequest) SetDefaultSortOrder(v int32)`
+`func (o *UpdateChannelRequest) SetDefaultSortOrder(v CreateGuildChannelRequestDefaultSortOrder)`
 
 SetDefaultSortOrder sets DefaultSortOrder field to given value.
 
@@ -477,20 +477,20 @@ HasDefaultSortOrder returns a boolean if a field has been set.
 
 ### GetDefaultForumLayout
 
-`func (o *UpdateChannelRequest) GetDefaultForumLayout() int32`
+`func (o *UpdateChannelRequest) GetDefaultForumLayout() CreateGuildChannelRequestDefaultForumLayout`
 
 GetDefaultForumLayout returns the DefaultForumLayout field if non-nil, zero value otherwise.
 
 ### GetDefaultForumLayoutOk
 
-`func (o *UpdateChannelRequest) GetDefaultForumLayoutOk() (*int32, bool)`
+`func (o *UpdateChannelRequest) GetDefaultForumLayoutOk() (*CreateGuildChannelRequestDefaultForumLayout, bool)`
 
 GetDefaultForumLayoutOk returns a tuple with the DefaultForumLayout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultForumLayout
 
-`func (o *UpdateChannelRequest) SetDefaultForumLayout(v int32)`
+`func (o *UpdateChannelRequest) SetDefaultForumLayout(v CreateGuildChannelRequestDefaultForumLayout)`
 
 SetDefaultForumLayout sets DefaultForumLayout field to given value.
 
@@ -502,20 +502,20 @@ HasDefaultForumLayout returns a boolean if a field has been set.
 
 ### GetDefaultTagSetting
 
-`func (o *UpdateChannelRequest) GetDefaultTagSetting() string`
+`func (o *UpdateChannelRequest) GetDefaultTagSetting() CreateGuildChannelRequestDefaultTagSetting`
 
 GetDefaultTagSetting returns the DefaultTagSetting field if non-nil, zero value otherwise.
 
 ### GetDefaultTagSettingOk
 
-`func (o *UpdateChannelRequest) GetDefaultTagSettingOk() (*string, bool)`
+`func (o *UpdateChannelRequest) GetDefaultTagSettingOk() (*CreateGuildChannelRequestDefaultTagSetting, bool)`
 
 GetDefaultTagSettingOk returns a tuple with the DefaultTagSetting field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultTagSetting
 
-`func (o *UpdateChannelRequest) SetDefaultTagSetting(v string)`
+`func (o *UpdateChannelRequest) SetDefaultTagSetting(v CreateGuildChannelRequestDefaultTagSetting)`
 
 SetDefaultTagSetting sets DefaultTagSetting field to given value.
 
@@ -652,20 +652,20 @@ HasInvitable returns a boolean if a field has been set.
 
 ### GetAutoArchiveDuration
 
-`func (o *UpdateChannelRequest) GetAutoArchiveDuration() int32`
+`func (o *UpdateChannelRequest) GetAutoArchiveDuration() CreateForumThreadRequestAutoArchiveDuration`
 
 GetAutoArchiveDuration returns the AutoArchiveDuration field if non-nil, zero value otherwise.
 
 ### GetAutoArchiveDurationOk
 
-`func (o *UpdateChannelRequest) GetAutoArchiveDurationOk() (*int32, bool)`
+`func (o *UpdateChannelRequest) GetAutoArchiveDurationOk() (*CreateForumThreadRequestAutoArchiveDuration, bool)`
 
 GetAutoArchiveDurationOk returns a tuple with the AutoArchiveDuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutoArchiveDuration
 
-`func (o *UpdateChannelRequest) SetAutoArchiveDuration(v int32)`
+`func (o *UpdateChannelRequest) SetAutoArchiveDuration(v CreateForumThreadRequestAutoArchiveDuration)`
 
 SetAutoArchiveDuration sets AutoArchiveDuration field to given value.
 

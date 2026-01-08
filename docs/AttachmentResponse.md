@@ -9,16 +9,16 @@ Name | Type | Description | Notes
 **Size** | **int32** |  | 
 **Url** | **string** |  | 
 **ProxyUrl** | **string** |  | 
-**Width** | Pointer to **NullableInt32** |  | [optional] 
-**Height** | Pointer to **NullableInt32** |  | [optional] 
-**DurationSecs** | Pointer to **NullableFloat64** |  | [optional] 
-**Waveform** | Pointer to **NullableString** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**ContentType** | Pointer to **NullableString** |  | [optional] 
-**Ephemeral** | Pointer to **NullableBool** |  | [optional] 
-**Title** | Pointer to **NullableString** |  | [optional] 
-**Application** | Pointer to [**NullableApplicationResponse**](ApplicationResponse.md) |  | [optional] 
-**ClipCreatedAt** | Pointer to **NullableTime** |  | [optional] 
+**Width** | Pointer to **int32** |  | [optional] 
+**Height** | Pointer to **int32** |  | [optional] 
+**DurationSecs** | Pointer to **float64** |  | [optional] 
+**Waveform** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**ContentType** | Pointer to **string** |  | [optional] 
+**Ephemeral** | Pointer to **bool** |  | [optional] 
+**Title** | Pointer to **string** |  | [optional] 
+**Application** | Pointer to [**ApplicationResponse**](ApplicationResponse.md) |  | [optional] 
+**ClipCreatedAt** | Pointer to **time.Time** |  | [optional] 
 **ClipParticipants** | Pointer to [**[]UserResponse**](UserResponse.md) |  | [optional] 
 
 ## Methods
@@ -165,16 +165,6 @@ SetWidth sets Width field to given value.
 
 HasWidth returns a boolean if a field has been set.
 
-### SetWidthNil
-
-`func (o *AttachmentResponse) SetWidthNil(b bool)`
-
- SetWidthNil sets the value for Width to be an explicit nil
-
-### UnsetWidth
-`func (o *AttachmentResponse) UnsetWidth()`
-
-UnsetWidth ensures that no value is present for Width, not even an explicit nil
 ### GetHeight
 
 `func (o *AttachmentResponse) GetHeight() int32`
@@ -200,16 +190,6 @@ SetHeight sets Height field to given value.
 
 HasHeight returns a boolean if a field has been set.
 
-### SetHeightNil
-
-`func (o *AttachmentResponse) SetHeightNil(b bool)`
-
- SetHeightNil sets the value for Height to be an explicit nil
-
-### UnsetHeight
-`func (o *AttachmentResponse) UnsetHeight()`
-
-UnsetHeight ensures that no value is present for Height, not even an explicit nil
 ### GetDurationSecs
 
 `func (o *AttachmentResponse) GetDurationSecs() float64`
@@ -235,16 +215,6 @@ SetDurationSecs sets DurationSecs field to given value.
 
 HasDurationSecs returns a boolean if a field has been set.
 
-### SetDurationSecsNil
-
-`func (o *AttachmentResponse) SetDurationSecsNil(b bool)`
-
- SetDurationSecsNil sets the value for DurationSecs to be an explicit nil
-
-### UnsetDurationSecs
-`func (o *AttachmentResponse) UnsetDurationSecs()`
-
-UnsetDurationSecs ensures that no value is present for DurationSecs, not even an explicit nil
 ### GetWaveform
 
 `func (o *AttachmentResponse) GetWaveform() string`
@@ -270,16 +240,6 @@ SetWaveform sets Waveform field to given value.
 
 HasWaveform returns a boolean if a field has been set.
 
-### SetWaveformNil
-
-`func (o *AttachmentResponse) SetWaveformNil(b bool)`
-
- SetWaveformNil sets the value for Waveform to be an explicit nil
-
-### UnsetWaveform
-`func (o *AttachmentResponse) UnsetWaveform()`
-
-UnsetWaveform ensures that no value is present for Waveform, not even an explicit nil
 ### GetDescription
 
 `func (o *AttachmentResponse) GetDescription() string`
@@ -305,16 +265,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *AttachmentResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *AttachmentResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetContentType
 
 `func (o *AttachmentResponse) GetContentType() string`
@@ -340,16 +290,6 @@ SetContentType sets ContentType field to given value.
 
 HasContentType returns a boolean if a field has been set.
 
-### SetContentTypeNil
-
-`func (o *AttachmentResponse) SetContentTypeNil(b bool)`
-
- SetContentTypeNil sets the value for ContentType to be an explicit nil
-
-### UnsetContentType
-`func (o *AttachmentResponse) UnsetContentType()`
-
-UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
 ### GetEphemeral
 
 `func (o *AttachmentResponse) GetEphemeral() bool`
@@ -375,16 +315,6 @@ SetEphemeral sets Ephemeral field to given value.
 
 HasEphemeral returns a boolean if a field has been set.
 
-### SetEphemeralNil
-
-`func (o *AttachmentResponse) SetEphemeralNil(b bool)`
-
- SetEphemeralNil sets the value for Ephemeral to be an explicit nil
-
-### UnsetEphemeral
-`func (o *AttachmentResponse) UnsetEphemeral()`
-
-UnsetEphemeral ensures that no value is present for Ephemeral, not even an explicit nil
 ### GetTitle
 
 `func (o *AttachmentResponse) GetTitle() string`
@@ -410,16 +340,6 @@ SetTitle sets Title field to given value.
 
 HasTitle returns a boolean if a field has been set.
 
-### SetTitleNil
-
-`func (o *AttachmentResponse) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *AttachmentResponse) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetApplication
 
 `func (o *AttachmentResponse) GetApplication() ApplicationResponse`
@@ -445,16 +365,6 @@ SetApplication sets Application field to given value.
 
 HasApplication returns a boolean if a field has been set.
 
-### SetApplicationNil
-
-`func (o *AttachmentResponse) SetApplicationNil(b bool)`
-
- SetApplicationNil sets the value for Application to be an explicit nil
-
-### UnsetApplication
-`func (o *AttachmentResponse) UnsetApplication()`
-
-UnsetApplication ensures that no value is present for Application, not even an explicit nil
 ### GetClipCreatedAt
 
 `func (o *AttachmentResponse) GetClipCreatedAt() time.Time`
@@ -480,16 +390,6 @@ SetClipCreatedAt sets ClipCreatedAt field to given value.
 
 HasClipCreatedAt returns a boolean if a field has been set.
 
-### SetClipCreatedAtNil
-
-`func (o *AttachmentResponse) SetClipCreatedAtNil(b bool)`
-
- SetClipCreatedAtNil sets the value for ClipCreatedAt to be an explicit nil
-
-### UnsetClipCreatedAt
-`func (o *AttachmentResponse) UnsetClipCreatedAt()`
-
-UnsetClipCreatedAt ensures that no value is present for ClipCreatedAt, not even an explicit nil
 ### GetClipParticipants
 
 `func (o *AttachmentResponse) GetClipParticipants() []UserResponse`
@@ -515,16 +415,6 @@ SetClipParticipants sets ClipParticipants field to given value.
 
 HasClipParticipants returns a boolean if a field has been set.
 
-### SetClipParticipantsNil
-
-`func (o *AttachmentResponse) SetClipParticipantsNil(b bool)`
-
- SetClipParticipantsNil sets the value for ClipParticipants to be an explicit nil
-
-### UnsetClipParticipants
-`func (o *AttachmentResponse) UnsetClipParticipants()`
-
-UnsetClipParticipants ensures that no value is present for ClipParticipants, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

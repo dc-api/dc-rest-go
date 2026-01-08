@@ -4,15 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
-**Spacing** | Pointer to **int32** |  | [optional] 
-**Divider** | Pointer to **NullableBool** |  | [optional] 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Spacing** | Pointer to [**SeparatorComponentForMessageRequestSpacing**](SeparatorComponentForMessageRequestSpacing.md) |  | [optional] 
+**Divider** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewSeparatorComponentForMessageRequest
 
-`func NewSeparatorComponentForMessageRequest(type_ int32, ) *SeparatorComponentForMessageRequest`
+`func NewSeparatorComponentForMessageRequest(type_ MessageComponentTypes, ) *SeparatorComponentForMessageRequest`
 
 NewSeparatorComponentForMessageRequest instantiates a new SeparatorComponentForMessageRequest object
 This constructor will assign default values to properties that have it defined,
@@ -29,40 +30,65 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *SeparatorComponentForMessageRequest) GetType() int32`
+`func (o *SeparatorComponentForMessageRequest) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *SeparatorComponentForMessageRequest) GetTypeOk() (*int32, bool)`
+`func (o *SeparatorComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *SeparatorComponentForMessageRequest) SetType(v int32)`
+`func (o *SeparatorComponentForMessageRequest) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
 
+### GetId
+
+`func (o *SeparatorComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *SeparatorComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *SeparatorComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *SeparatorComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
 ### GetSpacing
 
-`func (o *SeparatorComponentForMessageRequest) GetSpacing() int32`
+`func (o *SeparatorComponentForMessageRequest) GetSpacing() SeparatorComponentForMessageRequestSpacing`
 
 GetSpacing returns the Spacing field if non-nil, zero value otherwise.
 
 ### GetSpacingOk
 
-`func (o *SeparatorComponentForMessageRequest) GetSpacingOk() (*int32, bool)`
+`func (o *SeparatorComponentForMessageRequest) GetSpacingOk() (*SeparatorComponentForMessageRequestSpacing, bool)`
 
 GetSpacingOk returns a tuple with the Spacing field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSpacing
 
-`func (o *SeparatorComponentForMessageRequest) SetSpacing(v int32)`
+`func (o *SeparatorComponentForMessageRequest) SetSpacing(v SeparatorComponentForMessageRequestSpacing)`
 
 SetSpacing sets Spacing field to given value.
 
@@ -97,16 +123,6 @@ SetDivider sets Divider field to given value.
 
 HasDivider returns a boolean if a field has been set.
 
-### SetDividerNil
-
-`func (o *SeparatorComponentForMessageRequest) SetDividerNil(b bool)`
-
- SetDividerNil sets the value for Divider to be an explicit nil
-
-### UnsetDivider
-`func (o *SeparatorComponentForMessageRequest) UnsetDivider()`
-
-UnsetDivider ensures that no value is present for Divider, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

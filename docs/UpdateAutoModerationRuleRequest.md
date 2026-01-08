@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
-**EventType** | Pointer to **int32** |  | [optional] 
+**EventType** | Pointer to [**AutomodEventType**](AutomodEventType.md) |  | [optional] 
 **Actions** | Pointer to [**[]DefaultKeywordListUpsertRequestActionsInner**](DefaultKeywordListUpsertRequestActionsInner.md) |  | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
 **ExemptRoles** | Pointer to **[]string** |  | [optional] 
 **ExemptChannels** | Pointer to **[]string** |  | [optional] 
-**TriggerType** | Pointer to **int32** |  | [optional] 
-**TriggerMetadata** | Pointer to [**MentionSpamTriggerMetadata**](MentionSpamTriggerMetadata.md) |  | [optional] 
+**TriggerType** | Pointer to [**AutomodTriggerType**](AutomodTriggerType.md) |  | [optional] 
+**TriggerMetadata** | Pointer to [**MentionSpamUpsertRequestTriggerMetadata**](MentionSpamUpsertRequestTriggerMetadata.md) |  | [optional] 
 
 ## Methods
 
@@ -59,20 +59,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetEventType
 
-`func (o *UpdateAutoModerationRuleRequest) GetEventType() int32`
+`func (o *UpdateAutoModerationRuleRequest) GetEventType() AutomodEventType`
 
 GetEventType returns the EventType field if non-nil, zero value otherwise.
 
 ### GetEventTypeOk
 
-`func (o *UpdateAutoModerationRuleRequest) GetEventTypeOk() (*int32, bool)`
+`func (o *UpdateAutoModerationRuleRequest) GetEventTypeOk() (*AutomodEventType, bool)`
 
 GetEventTypeOk returns a tuple with the EventType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEventType
 
-`func (o *UpdateAutoModerationRuleRequest) SetEventType(v int32)`
+`func (o *UpdateAutoModerationRuleRequest) SetEventType(v AutomodEventType)`
 
 SetEventType sets EventType field to given value.
 
@@ -184,20 +184,20 @@ HasExemptChannels returns a boolean if a field has been set.
 
 ### GetTriggerType
 
-`func (o *UpdateAutoModerationRuleRequest) GetTriggerType() int32`
+`func (o *UpdateAutoModerationRuleRequest) GetTriggerType() AutomodTriggerType`
 
 GetTriggerType returns the TriggerType field if non-nil, zero value otherwise.
 
 ### GetTriggerTypeOk
 
-`func (o *UpdateAutoModerationRuleRequest) GetTriggerTypeOk() (*int32, bool)`
+`func (o *UpdateAutoModerationRuleRequest) GetTriggerTypeOk() (*AutomodTriggerType, bool)`
 
 GetTriggerTypeOk returns a tuple with the TriggerType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTriggerType
 
-`func (o *UpdateAutoModerationRuleRequest) SetTriggerType(v int32)`
+`func (o *UpdateAutoModerationRuleRequest) SetTriggerType(v AutomodTriggerType)`
 
 SetTriggerType sets TriggerType field to given value.
 
@@ -209,20 +209,20 @@ HasTriggerType returns a boolean if a field has been set.
 
 ### GetTriggerMetadata
 
-`func (o *UpdateAutoModerationRuleRequest) GetTriggerMetadata() MentionSpamTriggerMetadata`
+`func (o *UpdateAutoModerationRuleRequest) GetTriggerMetadata() MentionSpamUpsertRequestTriggerMetadata`
 
 GetTriggerMetadata returns the TriggerMetadata field if non-nil, zero value otherwise.
 
 ### GetTriggerMetadataOk
 
-`func (o *UpdateAutoModerationRuleRequest) GetTriggerMetadataOk() (*MentionSpamTriggerMetadata, bool)`
+`func (o *UpdateAutoModerationRuleRequest) GetTriggerMetadataOk() (*MentionSpamUpsertRequestTriggerMetadata, bool)`
 
 GetTriggerMetadataOk returns a tuple with the TriggerMetadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTriggerMetadata
 
-`func (o *UpdateAutoModerationRuleRequest) SetTriggerMetadata(v MentionSpamTriggerMetadata)`
+`func (o *UpdateAutoModerationRuleRequest) SetTriggerMetadata(v MentionSpamUpsertRequestTriggerMetadata)`
 
 SetTriggerMetadata sets TriggerMetadata field to given value.
 

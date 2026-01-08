@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **int32** |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Icon** | Pointer to **NullableString** |  | [optional] 
+**Type** | [**ChannelTypes**](ChannelTypes.md) |  | 
+**Name** | Pointer to **string** |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
 **Recipients** | Pointer to [**[]InviteChannelRecipientResponse**](InviteChannelRecipientResponse.md) |  | [optional] 
 
 ## Methods
 
 ### NewInviteChannelResponse
 
-`func NewInviteChannelResponse(id string, type_ int32, ) *InviteChannelResponse`
+`func NewInviteChannelResponse(id string, type_ ChannelTypes, ) *InviteChannelResponse`
 
 NewInviteChannelResponse instantiates a new InviteChannelResponse object
 This constructor will assign default values to properties that have it defined,
@@ -51,20 +51,20 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *InviteChannelResponse) GetType() int32`
+`func (o *InviteChannelResponse) GetType() ChannelTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *InviteChannelResponse) GetTypeOk() (*int32, bool)`
+`func (o *InviteChannelResponse) GetTypeOk() (*ChannelTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *InviteChannelResponse) SetType(v int32)`
+`func (o *InviteChannelResponse) SetType(v ChannelTypes)`
 
 SetType sets Type field to given value.
 
@@ -94,16 +94,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *InviteChannelResponse) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *InviteChannelResponse) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIcon
 
 `func (o *InviteChannelResponse) GetIcon() string`
@@ -129,16 +119,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *InviteChannelResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *InviteChannelResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetRecipients
 
 `func (o *InviteChannelResponse) GetRecipients() []InviteChannelRecipientResponse`
@@ -164,16 +144,6 @@ SetRecipients sets Recipients field to given value.
 
 HasRecipients returns a boolean if a field has been set.
 
-### SetRecipientsNil
-
-`func (o *InviteChannelResponse) SetRecipientsNil(b bool)`
-
- SetRecipientsNil sets the value for Recipients to be an explicit nil
-
-### UnsetRecipients
-`func (o *InviteChannelResponse) UnsetRecipients()`
-
-UnsetRecipients ensures that no value is present for Recipients, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

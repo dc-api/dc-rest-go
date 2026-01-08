@@ -9,16 +9,16 @@ Name | Type | Description | Notes
 **Image** | Pointer to **string** |  | [optional] 
 **ScheduledStartTime** | **time.Time** |  | 
 **ScheduledEndTime** | Pointer to **time.Time** |  | [optional] 
-**PrivacyLevel** | **interface{}** |  | 
-**EntityType** | **NullableInt32** |  | 
-**ChannelId** | Pointer to **string** |  | [optional] 
-**EntityMetadata** | **map[string]interface{}** |  | 
+**PrivacyLevel** | [**GuildScheduledEventPrivacyLevels**](GuildScheduledEventPrivacyLevels.md) |  | 
+**EntityType** | [**GuildScheduledEventEntityTypes**](GuildScheduledEventEntityTypes.md) |  | 
+**ChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**EntityMetadata** | [**VoiceScheduledEventCreateRequestEntityMetadata**](VoiceScheduledEventCreateRequestEntityMetadata.md) |  | 
 
 ## Methods
 
 ### NewCreateGuildScheduledEventRequest
 
-`func NewCreateGuildScheduledEventRequest(name string, scheduledStartTime time.Time, privacyLevel interface{}, entityType NullableInt32, entityMetadata map[string]interface{}, ) *CreateGuildScheduledEventRequest`
+`func NewCreateGuildScheduledEventRequest(name string, scheduledStartTime time.Time, privacyLevel GuildScheduledEventPrivacyLevels, entityType GuildScheduledEventEntityTypes, entityMetadata VoiceScheduledEventCreateRequestEntityMetadata, ) *CreateGuildScheduledEventRequest`
 
 NewCreateGuildScheduledEventRequest instantiates a new CreateGuildScheduledEventRequest object
 This constructor will assign default values to properties that have it defined,
@@ -150,80 +150,60 @@ HasScheduledEndTime returns a boolean if a field has been set.
 
 ### GetPrivacyLevel
 
-`func (o *CreateGuildScheduledEventRequest) GetPrivacyLevel() interface{}`
+`func (o *CreateGuildScheduledEventRequest) GetPrivacyLevel() GuildScheduledEventPrivacyLevels`
 
 GetPrivacyLevel returns the PrivacyLevel field if non-nil, zero value otherwise.
 
 ### GetPrivacyLevelOk
 
-`func (o *CreateGuildScheduledEventRequest) GetPrivacyLevelOk() (*interface{}, bool)`
+`func (o *CreateGuildScheduledEventRequest) GetPrivacyLevelOk() (*GuildScheduledEventPrivacyLevels, bool)`
 
 GetPrivacyLevelOk returns a tuple with the PrivacyLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrivacyLevel
 
-`func (o *CreateGuildScheduledEventRequest) SetPrivacyLevel(v interface{})`
+`func (o *CreateGuildScheduledEventRequest) SetPrivacyLevel(v GuildScheduledEventPrivacyLevels)`
 
 SetPrivacyLevel sets PrivacyLevel field to given value.
 
 
-### SetPrivacyLevelNil
-
-`func (o *CreateGuildScheduledEventRequest) SetPrivacyLevelNil(b bool)`
-
- SetPrivacyLevelNil sets the value for PrivacyLevel to be an explicit nil
-
-### UnsetPrivacyLevel
-`func (o *CreateGuildScheduledEventRequest) UnsetPrivacyLevel()`
-
-UnsetPrivacyLevel ensures that no value is present for PrivacyLevel, not even an explicit nil
 ### GetEntityType
 
-`func (o *CreateGuildScheduledEventRequest) GetEntityType() int32`
+`func (o *CreateGuildScheduledEventRequest) GetEntityType() GuildScheduledEventEntityTypes`
 
 GetEntityType returns the EntityType field if non-nil, zero value otherwise.
 
 ### GetEntityTypeOk
 
-`func (o *CreateGuildScheduledEventRequest) GetEntityTypeOk() (*int32, bool)`
+`func (o *CreateGuildScheduledEventRequest) GetEntityTypeOk() (*GuildScheduledEventEntityTypes, bool)`
 
 GetEntityTypeOk returns a tuple with the EntityType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityType
 
-`func (o *CreateGuildScheduledEventRequest) SetEntityType(v int32)`
+`func (o *CreateGuildScheduledEventRequest) SetEntityType(v GuildScheduledEventEntityTypes)`
 
 SetEntityType sets EntityType field to given value.
 
 
-### SetEntityTypeNil
-
-`func (o *CreateGuildScheduledEventRequest) SetEntityTypeNil(b bool)`
-
- SetEntityTypeNil sets the value for EntityType to be an explicit nil
-
-### UnsetEntityType
-`func (o *CreateGuildScheduledEventRequest) UnsetEntityType()`
-
-UnsetEntityType ensures that no value is present for EntityType, not even an explicit nil
 ### GetChannelId
 
-`func (o *CreateGuildScheduledEventRequest) GetChannelId() string`
+`func (o *CreateGuildScheduledEventRequest) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
 
 ### GetChannelIdOk
 
-`func (o *CreateGuildScheduledEventRequest) GetChannelIdOk() (*string, bool)`
+`func (o *CreateGuildScheduledEventRequest) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelId
 
-`func (o *CreateGuildScheduledEventRequest) SetChannelId(v string)`
+`func (o *CreateGuildScheduledEventRequest) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetChannelId sets ChannelId field to given value.
 
@@ -235,20 +215,20 @@ HasChannelId returns a boolean if a field has been set.
 
 ### GetEntityMetadata
 
-`func (o *CreateGuildScheduledEventRequest) GetEntityMetadata() map[string]interface{}`
+`func (o *CreateGuildScheduledEventRequest) GetEntityMetadata() VoiceScheduledEventCreateRequestEntityMetadata`
 
 GetEntityMetadata returns the EntityMetadata field if non-nil, zero value otherwise.
 
 ### GetEntityMetadataOk
 
-`func (o *CreateGuildScheduledEventRequest) GetEntityMetadataOk() (*map[string]interface{}, bool)`
+`func (o *CreateGuildScheduledEventRequest) GetEntityMetadataOk() (*VoiceScheduledEventCreateRequestEntityMetadata, bool)`
 
 GetEntityMetadataOk returns a tuple with the EntityMetadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityMetadata
 
-`func (o *CreateGuildScheduledEventRequest) SetEntityMetadata(v map[string]interface{})`
+`func (o *CreateGuildScheduledEventRequest) SetEntityMetadata(v VoiceScheduledEventCreateRequestEntityMetadata)`
 
 SetEntityMetadata sets EntityMetadata field to given value.
 

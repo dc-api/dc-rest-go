@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,15 +56,15 @@ var _ MappedNullable = &GuildTemplateSnapshotResponse{}
 // GuildTemplateSnapshotResponse struct for GuildTemplateSnapshotResponse
 type GuildTemplateSnapshotResponse struct {
 	Name string `json:"name"`
-	Description NullableString `json:"description,omitempty"`
-	Region NullableString `json:"region,omitempty"`
-	VerificationLevel int32 `json:"verification_level"`
-	DefaultMessageNotifications int32 `json:"default_message_notifications"`
-	ExplicitContentFilter int32 `json:"explicit_content_filter"`
-	PreferredLocale string `json:"preferred_locale"`
-	AfkChannelId *string `json:"afk_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	AfkTimeout NullableInt32 `json:"afk_timeout"`
-	SystemChannelId *string `json:"system_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	Description *string `json:"description,omitempty"`
+	Region *string `json:"region,omitempty"`
+	VerificationLevel VerificationLevels `json:"verification_level"`
+	DefaultMessageNotifications UserNotificationSettings `json:"default_message_notifications"`
+	ExplicitContentFilter GuildExplicitContentFilterTypes `json:"explicit_content_filter"`
+	PreferredLocale AvailableLocalesEnum `json:"preferred_locale"`
+	AfkChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"afk_channel_id,omitempty"`
+	AfkTimeout AfkTimeouts `json:"afk_timeout"`
+	SystemChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"system_channel_id,omitempty"`
 	SystemChannelFlags int32 `json:"system_channel_flags"`
 	Roles []GuildTemplateRoleResponse `json:"roles"`
 	Channels []GuildTemplateChannelResponse `json:"channels"`
@@ -76,7 +76,7 @@ type _GuildTemplateSnapshotResponse GuildTemplateSnapshotResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGuildTemplateSnapshotResponse(name string, verificationLevel int32, defaultMessageNotifications int32, explicitContentFilter int32, preferredLocale string, afkTimeout NullableInt32, systemChannelFlags int32, roles []GuildTemplateRoleResponse, channels []GuildTemplateChannelResponse) *GuildTemplateSnapshotResponse {
+func NewGuildTemplateSnapshotResponse(name string, verificationLevel VerificationLevels, defaultMessageNotifications UserNotificationSettings, explicitContentFilter GuildExplicitContentFilterTypes, preferredLocale AvailableLocalesEnum, afkTimeout AfkTimeouts, systemChannelFlags int32, roles []GuildTemplateRoleResponse, channels []GuildTemplateChannelResponse) *GuildTemplateSnapshotResponse {
 	this := GuildTemplateSnapshotResponse{}
 	this.Name = name
 	this.VerificationLevel = verificationLevel
@@ -122,96 +122,76 @@ func (o *GuildTemplateSnapshotResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *GuildTemplateSnapshotResponse) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateSnapshotResponse) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *GuildTemplateSnapshotResponse) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *GuildTemplateSnapshotResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *GuildTemplateSnapshotResponse) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *GuildTemplateSnapshotResponse) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetRegion returns the Region field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRegion returns the Region field value if set, zero value otherwise.
 func (o *GuildTemplateSnapshotResponse) GetRegion() string {
-	if o == nil || IsNil(o.Region.Get()) {
+	if o == nil || IsNil(o.Region) {
 		var ret string
 		return ret
 	}
-	return *o.Region.Get()
+	return *o.Region
 }
 
 // GetRegionOk returns a tuple with the Region field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateSnapshotResponse) GetRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.Region.Get()) {
+	if o == nil || IsNil(o.Region) {
 		return nil, false
 	}
-	return o.Region.Get(), o.Region.IsSet()
+	return o.Region, true
 }
 
 // HasRegion returns a boolean if a field has been set.
 func (o *GuildTemplateSnapshotResponse) HasRegion() bool {
-	if o != nil && o.Region.IsSet() {
+	if o != nil && !IsNil(o.Region) {
 		return true
 	}
 
 	return false
 }
 
-// SetRegion gets a reference to the given NullableString and assigns it to the Region field.
+// SetRegion gets a reference to the given string and assigns it to the Region field.
 func (o *GuildTemplateSnapshotResponse) SetRegion(v string) {
-	o.Region.Set(&v)
+	o.Region = &v
 }
 
-// SetRegionNil sets the value for Region to be an explicit nil
-func (o *GuildTemplateSnapshotResponse) SetRegionNil() {
-	o.Region.Set(nil)
-}
-
-// UnsetRegion ensures that no value is present for Region, not even an explicit nil
-func (o *GuildTemplateSnapshotResponse) UnsetRegion() {
-	o.Region.Unset()
-}
 
 // GetVerificationLevel returns the VerificationLevel field value
-func (o *GuildTemplateSnapshotResponse) GetVerificationLevel() int32 {
+func (o *GuildTemplateSnapshotResponse) GetVerificationLevel() VerificationLevels {
 	if o == nil {
-		var ret int32
+		var ret VerificationLevels
 		return ret
 	}
 
@@ -220,7 +200,7 @@ func (o *GuildTemplateSnapshotResponse) GetVerificationLevel() int32 {
 
 // GetVerificationLevelOk returns a tuple with the VerificationLevel field value
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateSnapshotResponse) GetVerificationLevelOk() (*int32, bool) {
+func (o *GuildTemplateSnapshotResponse) GetVerificationLevelOk() (*VerificationLevels, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -228,14 +208,14 @@ func (o *GuildTemplateSnapshotResponse) GetVerificationLevelOk() (*int32, bool) 
 }
 
 // SetVerificationLevel sets field value
-func (o *GuildTemplateSnapshotResponse) SetVerificationLevel(v int32) {
+func (o *GuildTemplateSnapshotResponse) SetVerificationLevel(v VerificationLevels) {
 	o.VerificationLevel = v
 }
 
 // GetDefaultMessageNotifications returns the DefaultMessageNotifications field value
-func (o *GuildTemplateSnapshotResponse) GetDefaultMessageNotifications() int32 {
+func (o *GuildTemplateSnapshotResponse) GetDefaultMessageNotifications() UserNotificationSettings {
 	if o == nil {
-		var ret int32
+		var ret UserNotificationSettings
 		return ret
 	}
 
@@ -244,7 +224,7 @@ func (o *GuildTemplateSnapshotResponse) GetDefaultMessageNotifications() int32 {
 
 // GetDefaultMessageNotificationsOk returns a tuple with the DefaultMessageNotifications field value
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateSnapshotResponse) GetDefaultMessageNotificationsOk() (*int32, bool) {
+func (o *GuildTemplateSnapshotResponse) GetDefaultMessageNotificationsOk() (*UserNotificationSettings, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -252,14 +232,14 @@ func (o *GuildTemplateSnapshotResponse) GetDefaultMessageNotificationsOk() (*int
 }
 
 // SetDefaultMessageNotifications sets field value
-func (o *GuildTemplateSnapshotResponse) SetDefaultMessageNotifications(v int32) {
+func (o *GuildTemplateSnapshotResponse) SetDefaultMessageNotifications(v UserNotificationSettings) {
 	o.DefaultMessageNotifications = v
 }
 
 // GetExplicitContentFilter returns the ExplicitContentFilter field value
-func (o *GuildTemplateSnapshotResponse) GetExplicitContentFilter() int32 {
+func (o *GuildTemplateSnapshotResponse) GetExplicitContentFilter() GuildExplicitContentFilterTypes {
 	if o == nil {
-		var ret int32
+		var ret GuildExplicitContentFilterTypes
 		return ret
 	}
 
@@ -268,7 +248,7 @@ func (o *GuildTemplateSnapshotResponse) GetExplicitContentFilter() int32 {
 
 // GetExplicitContentFilterOk returns a tuple with the ExplicitContentFilter field value
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateSnapshotResponse) GetExplicitContentFilterOk() (*int32, bool) {
+func (o *GuildTemplateSnapshotResponse) GetExplicitContentFilterOk() (*GuildExplicitContentFilterTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -276,14 +256,14 @@ func (o *GuildTemplateSnapshotResponse) GetExplicitContentFilterOk() (*int32, bo
 }
 
 // SetExplicitContentFilter sets field value
-func (o *GuildTemplateSnapshotResponse) SetExplicitContentFilter(v int32) {
+func (o *GuildTemplateSnapshotResponse) SetExplicitContentFilter(v GuildExplicitContentFilterTypes) {
 	o.ExplicitContentFilter = v
 }
 
 // GetPreferredLocale returns the PreferredLocale field value
-func (o *GuildTemplateSnapshotResponse) GetPreferredLocale() string {
+func (o *GuildTemplateSnapshotResponse) GetPreferredLocale() AvailableLocalesEnum {
 	if o == nil {
-		var ret string
+		var ret AvailableLocalesEnum
 		return ret
 	}
 
@@ -292,7 +272,7 @@ func (o *GuildTemplateSnapshotResponse) GetPreferredLocale() string {
 
 // GetPreferredLocaleOk returns a tuple with the PreferredLocale field value
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateSnapshotResponse) GetPreferredLocaleOk() (*string, bool) {
+func (o *GuildTemplateSnapshotResponse) GetPreferredLocaleOk() (*AvailableLocalesEnum, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -300,14 +280,14 @@ func (o *GuildTemplateSnapshotResponse) GetPreferredLocaleOk() (*string, bool) {
 }
 
 // SetPreferredLocale sets field value
-func (o *GuildTemplateSnapshotResponse) SetPreferredLocale(v string) {
+func (o *GuildTemplateSnapshotResponse) SetPreferredLocale(v AvailableLocalesEnum) {
 	o.PreferredLocale = v
 }
 
 // GetAfkChannelId returns the AfkChannelId field value if set, zero value otherwise.
-func (o *GuildTemplateSnapshotResponse) GetAfkChannelId() string {
+func (o *GuildTemplateSnapshotResponse) GetAfkChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.AfkChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.AfkChannelId
@@ -315,7 +295,7 @@ func (o *GuildTemplateSnapshotResponse) GetAfkChannelId() string {
 
 // GetAfkChannelIdOk returns a tuple with the AfkChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateSnapshotResponse) GetAfkChannelIdOk() (*string, bool) {
+func (o *GuildTemplateSnapshotResponse) GetAfkChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.AfkChannelId) {
 		return nil, false
 	}
@@ -331,42 +311,40 @@ func (o *GuildTemplateSnapshotResponse) HasAfkChannelId() bool {
 	return false
 }
 
-// SetAfkChannelId gets a reference to the given string and assigns it to the AfkChannelId field.
-func (o *GuildTemplateSnapshotResponse) SetAfkChannelId(v string) {
+// SetAfkChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the AfkChannelId field.
+func (o *GuildTemplateSnapshotResponse) SetAfkChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.AfkChannelId = &v
 }
 
 
 // GetAfkTimeout returns the AfkTimeout field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *GuildTemplateSnapshotResponse) GetAfkTimeout() int32 {
-	if o == nil || o.AfkTimeout.Get() == nil {
-		var ret int32
+func (o *GuildTemplateSnapshotResponse) GetAfkTimeout() AfkTimeouts {
+	if o == nil {
+		var ret AfkTimeouts
 		return ret
 	}
 
-	return *o.AfkTimeout.Get()
+	return o.AfkTimeout
 }
 
 // GetAfkTimeoutOk returns a tuple with the AfkTimeout field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GuildTemplateSnapshotResponse) GetAfkTimeoutOk() (*int32, bool) {
+func (o *GuildTemplateSnapshotResponse) GetAfkTimeoutOk() (*AfkTimeouts, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.AfkTimeout.Get(), o.AfkTimeout.IsSet()
+	return &o.AfkTimeout, true
 }
 
 // SetAfkTimeout sets field value
-func (o *GuildTemplateSnapshotResponse) SetAfkTimeout(v int32) {
-	o.AfkTimeout.Set(&v)
+func (o *GuildTemplateSnapshotResponse) SetAfkTimeout(v AfkTimeouts) {
+	o.AfkTimeout = v
 }
 
 // GetSystemChannelId returns the SystemChannelId field value if set, zero value otherwise.
-func (o *GuildTemplateSnapshotResponse) GetSystemChannelId() string {
+func (o *GuildTemplateSnapshotResponse) GetSystemChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.SystemChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.SystemChannelId
@@ -374,7 +352,7 @@ func (o *GuildTemplateSnapshotResponse) GetSystemChannelId() string {
 
 // GetSystemChannelIdOk returns a tuple with the SystemChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateSnapshotResponse) GetSystemChannelIdOk() (*string, bool) {
+func (o *GuildTemplateSnapshotResponse) GetSystemChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.SystemChannelId) {
 		return nil, false
 	}
@@ -390,8 +368,8 @@ func (o *GuildTemplateSnapshotResponse) HasSystemChannelId() bool {
 	return false
 }
 
-// SetSystemChannelId gets a reference to the given string and assigns it to the SystemChannelId field.
-func (o *GuildTemplateSnapshotResponse) SetSystemChannelId(v string) {
+// SetSystemChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the SystemChannelId field.
+func (o *GuildTemplateSnapshotResponse) SetSystemChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.SystemChannelId = &v
 }
 
@@ -479,11 +457,11 @@ func (o GuildTemplateSnapshotResponse) MarshalJSON() ([]byte, error) {
 func (o GuildTemplateSnapshotResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
-	if o.Region.IsSet() {
-		toSerialize["region"] = o.Region.Get()
+	if !IsNil(o.Region) {
+		toSerialize["region"] = o.Region
 	}
 	toSerialize["verification_level"] = o.VerificationLevel
 	toSerialize["default_message_notifications"] = o.DefaultMessageNotifications
@@ -492,7 +470,7 @@ func (o GuildTemplateSnapshotResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AfkChannelId) {
 		toSerialize["afk_channel_id"] = o.AfkChannelId
 	}
-	toSerialize["afk_timeout"] = o.AfkTimeout.Get()
+	toSerialize["afk_timeout"] = o.AfkTimeout
 	if !IsNil(o.SystemChannelId) {
 		toSerialize["system_channel_id"] = o.SystemChannelId
 	}
@@ -582,5 +560,4 @@ func (v *NullableGuildTemplateSnapshotResponse) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **int32** |  | 
+**Type** | [**ApplicationCommandPermissionType**](ApplicationCommandPermissionType.md) |  | 
 **Permission** | **bool** |  | 
 
 ## Methods
 
 ### NewCommandPermissionResponse
 
-`func NewCommandPermissionResponse(id string, type_ int32, permission bool, ) *CommandPermissionResponse`
+`func NewCommandPermissionResponse(id string, type_ ApplicationCommandPermissionType, permission bool, ) *CommandPermissionResponse`
 
 NewCommandPermissionResponse instantiates a new CommandPermissionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -49,20 +49,20 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *CommandPermissionResponse) GetType() int32`
+`func (o *CommandPermissionResponse) GetType() ApplicationCommandPermissionType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *CommandPermissionResponse) GetTypeOk() (*int32, bool)`
+`func (o *CommandPermissionResponse) GetTypeOk() (*ApplicationCommandPermissionType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *CommandPermissionResponse) SetType(v int32)`
+`func (o *CommandPermissionResponse) SetType(v ApplicationCommandPermissionType)`
 
 SetType sets Type field to given value.
 

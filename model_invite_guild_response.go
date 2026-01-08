@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,16 +57,16 @@ var _ MappedNullable = &InviteGuildResponse{}
 type InviteGuildResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
-	Splash NullableString `json:"splash,omitempty"`
-	Banner NullableString `json:"banner,omitempty"`
-	Description NullableString `json:"description,omitempty"`
-	Icon NullableString `json:"icon,omitempty"`
-	Features []string `json:"features"`
-	VerificationLevel *int32 `json:"verification_level,omitempty"`
-	VanityUrlCode NullableString `json:"vanity_url_code,omitempty"`
-	NsfwLevel NullableInt32 `json:"nsfw_level,omitempty"`
-	Nsfw NullableBool `json:"nsfw,omitempty"`
-	PremiumSubscriptionCount NullableInt32 `json:"premium_subscription_count,omitempty"`
+	Splash *string `json:"splash,omitempty"`
+	Banner *string `json:"banner,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Icon *string `json:"icon,omitempty"`
+	Features []GuildFeatures `json:"features"`
+	VerificationLevel *GuildPatchRequestPartialVerificationLevel `json:"verification_level,omitempty"`
+	VanityUrlCode *string `json:"vanity_url_code,omitempty"`
+	NsfwLevel *InviteGuildResponseNsfwLevel `json:"nsfw_level,omitempty"`
+	Nsfw *bool `json:"nsfw,omitempty"`
+	PremiumSubscriptionCount int32 `json:"premium_subscription_count"`
 }
 
 type _InviteGuildResponse InviteGuildResponse
@@ -75,11 +75,12 @@ type _InviteGuildResponse InviteGuildResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInviteGuildResponse(id string, name string, features []string) *InviteGuildResponse {
+func NewInviteGuildResponse(id string, name string, features []GuildFeatures, premiumSubscriptionCount int32) *InviteGuildResponse {
 	this := InviteGuildResponse{}
 	this.Id = id
 	this.Name = name
 	this.Features = features
+	this.PremiumSubscriptionCount = premiumSubscriptionCount
 	return &this
 }
 
@@ -139,182 +140,142 @@ func (o *InviteGuildResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetSplash returns the Splash field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSplash returns the Splash field value if set, zero value otherwise.
 func (o *InviteGuildResponse) GetSplash() string {
-	if o == nil || IsNil(o.Splash.Get()) {
+	if o == nil || IsNil(o.Splash) {
 		var ret string
 		return ret
 	}
-	return *o.Splash.Get()
+	return *o.Splash
 }
 
 // GetSplashOk returns a tuple with the Splash field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteGuildResponse) GetSplashOk() (*string, bool) {
-	if o == nil || IsNil(o.Splash.Get()) {
+	if o == nil || IsNil(o.Splash) {
 		return nil, false
 	}
-	return o.Splash.Get(), o.Splash.IsSet()
+	return o.Splash, true
 }
 
 // HasSplash returns a boolean if a field has been set.
 func (o *InviteGuildResponse) HasSplash() bool {
-	if o != nil && o.Splash.IsSet() {
+	if o != nil && !IsNil(o.Splash) {
 		return true
 	}
 
 	return false
 }
 
-// SetSplash gets a reference to the given NullableString and assigns it to the Splash field.
+// SetSplash gets a reference to the given string and assigns it to the Splash field.
 func (o *InviteGuildResponse) SetSplash(v string) {
-	o.Splash.Set(&v)
+	o.Splash = &v
 }
 
-// SetSplashNil sets the value for Splash to be an explicit nil
-func (o *InviteGuildResponse) SetSplashNil() {
-	o.Splash.Set(nil)
-}
 
-// UnsetSplash ensures that no value is present for Splash, not even an explicit nil
-func (o *InviteGuildResponse) UnsetSplash() {
-	o.Splash.Unset()
-}
-
-// GetBanner returns the Banner field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBanner returns the Banner field value if set, zero value otherwise.
 func (o *InviteGuildResponse) GetBanner() string {
-	if o == nil || IsNil(o.Banner.Get()) {
+	if o == nil || IsNil(o.Banner) {
 		var ret string
 		return ret
 	}
-	return *o.Banner.Get()
+	return *o.Banner
 }
 
 // GetBannerOk returns a tuple with the Banner field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteGuildResponse) GetBannerOk() (*string, bool) {
-	if o == nil || IsNil(o.Banner.Get()) {
+	if o == nil || IsNil(o.Banner) {
 		return nil, false
 	}
-	return o.Banner.Get(), o.Banner.IsSet()
+	return o.Banner, true
 }
 
 // HasBanner returns a boolean if a field has been set.
 func (o *InviteGuildResponse) HasBanner() bool {
-	if o != nil && o.Banner.IsSet() {
+	if o != nil && !IsNil(o.Banner) {
 		return true
 	}
 
 	return false
 }
 
-// SetBanner gets a reference to the given NullableString and assigns it to the Banner field.
+// SetBanner gets a reference to the given string and assigns it to the Banner field.
 func (o *InviteGuildResponse) SetBanner(v string) {
-	o.Banner.Set(&v)
+	o.Banner = &v
 }
 
-// SetBannerNil sets the value for Banner to be an explicit nil
-func (o *InviteGuildResponse) SetBannerNil() {
-	o.Banner.Set(nil)
-}
 
-// UnsetBanner ensures that no value is present for Banner, not even an explicit nil
-func (o *InviteGuildResponse) UnsetBanner() {
-	o.Banner.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *InviteGuildResponse) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteGuildResponse) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *InviteGuildResponse) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *InviteGuildResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *InviteGuildResponse) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *InviteGuildResponse) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIcon returns the Icon field value if set, zero value otherwise.
 func (o *InviteGuildResponse) GetIcon() string {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		var ret string
 		return ret
 	}
-	return *o.Icon.Get()
+	return *o.Icon
 }
 
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteGuildResponse) GetIconOk() (*string, bool) {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		return nil, false
 	}
-	return o.Icon.Get(), o.Icon.IsSet()
+	return o.Icon, true
 }
 
 // HasIcon returns a boolean if a field has been set.
 func (o *InviteGuildResponse) HasIcon() bool {
-	if o != nil && o.Icon.IsSet() {
+	if o != nil && !IsNil(o.Icon) {
 		return true
 	}
 
 	return false
 }
 
-// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+// SetIcon gets a reference to the given string and assigns it to the Icon field.
 func (o *InviteGuildResponse) SetIcon(v string) {
-	o.Icon.Set(&v)
+	o.Icon = &v
 }
 
-// SetIconNil sets the value for Icon to be an explicit nil
-func (o *InviteGuildResponse) SetIconNil() {
-	o.Icon.Set(nil)
-}
-
-// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
-func (o *InviteGuildResponse) UnsetIcon() {
-	o.Icon.Unset()
-}
 
 // GetFeatures returns the Features field value
-func (o *InviteGuildResponse) GetFeatures() []string {
+func (o *InviteGuildResponse) GetFeatures() []GuildFeatures {
 	if o == nil {
-		var ret []string
+		var ret []GuildFeatures
 		return ret
 	}
 
@@ -323,7 +284,7 @@ func (o *InviteGuildResponse) GetFeatures() []string {
 
 // GetFeaturesOk returns a tuple with the Features field value
 // and a boolean to check if the value has been set.
-func (o *InviteGuildResponse) GetFeaturesOk() ([]string, bool) {
+func (o *InviteGuildResponse) GetFeaturesOk() ([]GuildFeatures, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -331,14 +292,14 @@ func (o *InviteGuildResponse) GetFeaturesOk() ([]string, bool) {
 }
 
 // SetFeatures sets field value
-func (o *InviteGuildResponse) SetFeatures(v []string) {
+func (o *InviteGuildResponse) SetFeatures(v []GuildFeatures) {
 	o.Features = v
 }
 
 // GetVerificationLevel returns the VerificationLevel field value if set, zero value otherwise.
-func (o *InviteGuildResponse) GetVerificationLevel() int32 {
+func (o *InviteGuildResponse) GetVerificationLevel() GuildPatchRequestPartialVerificationLevel {
 	if o == nil || IsNil(o.VerificationLevel) {
-		var ret int32
+		var ret GuildPatchRequestPartialVerificationLevel
 		return ret
 	}
 	return *o.VerificationLevel
@@ -346,7 +307,7 @@ func (o *InviteGuildResponse) GetVerificationLevel() int32 {
 
 // GetVerificationLevelOk returns a tuple with the VerificationLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InviteGuildResponse) GetVerificationLevelOk() (*int32, bool) {
+func (o *InviteGuildResponse) GetVerificationLevelOk() (*GuildPatchRequestPartialVerificationLevel, bool) {
 	if o == nil || IsNil(o.VerificationLevel) {
 		return nil, false
 	}
@@ -362,182 +323,133 @@ func (o *InviteGuildResponse) HasVerificationLevel() bool {
 	return false
 }
 
-// SetVerificationLevel gets a reference to the given int32 and assigns it to the VerificationLevel field.
-func (o *InviteGuildResponse) SetVerificationLevel(v int32) {
+// SetVerificationLevel gets a reference to the given GuildPatchRequestPartialVerificationLevel and assigns it to the VerificationLevel field.
+func (o *InviteGuildResponse) SetVerificationLevel(v GuildPatchRequestPartialVerificationLevel) {
 	o.VerificationLevel = &v
 }
 
 
-// GetVanityUrlCode returns the VanityUrlCode field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetVanityUrlCode returns the VanityUrlCode field value if set, zero value otherwise.
 func (o *InviteGuildResponse) GetVanityUrlCode() string {
-	if o == nil || IsNil(o.VanityUrlCode.Get()) {
+	if o == nil || IsNil(o.VanityUrlCode) {
 		var ret string
 		return ret
 	}
-	return *o.VanityUrlCode.Get()
+	return *o.VanityUrlCode
 }
 
 // GetVanityUrlCodeOk returns a tuple with the VanityUrlCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteGuildResponse) GetVanityUrlCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.VanityUrlCode.Get()) {
+	if o == nil || IsNil(o.VanityUrlCode) {
 		return nil, false
 	}
-	return o.VanityUrlCode.Get(), o.VanityUrlCode.IsSet()
+	return o.VanityUrlCode, true
 }
 
 // HasVanityUrlCode returns a boolean if a field has been set.
 func (o *InviteGuildResponse) HasVanityUrlCode() bool {
-	if o != nil && o.VanityUrlCode.IsSet() {
+	if o != nil && !IsNil(o.VanityUrlCode) {
 		return true
 	}
 
 	return false
 }
 
-// SetVanityUrlCode gets a reference to the given NullableString and assigns it to the VanityUrlCode field.
+// SetVanityUrlCode gets a reference to the given string and assigns it to the VanityUrlCode field.
 func (o *InviteGuildResponse) SetVanityUrlCode(v string) {
-	o.VanityUrlCode.Set(&v)
+	o.VanityUrlCode = &v
 }
 
-// SetVanityUrlCodeNil sets the value for VanityUrlCode to be an explicit nil
-func (o *InviteGuildResponse) SetVanityUrlCodeNil() {
-	o.VanityUrlCode.Set(nil)
-}
 
-// UnsetVanityUrlCode ensures that no value is present for VanityUrlCode, not even an explicit nil
-func (o *InviteGuildResponse) UnsetVanityUrlCode() {
-	o.VanityUrlCode.Unset()
-}
-
-// GetNsfwLevel returns the NsfwLevel field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *InviteGuildResponse) GetNsfwLevel() int32 {
-	if o == nil || IsNil(o.NsfwLevel.Get()) {
-		var ret int32
+// GetNsfwLevel returns the NsfwLevel field value if set, zero value otherwise.
+func (o *InviteGuildResponse) GetNsfwLevel() InviteGuildResponseNsfwLevel {
+	if o == nil || IsNil(o.NsfwLevel) {
+		var ret InviteGuildResponseNsfwLevel
 		return ret
 	}
-	return *o.NsfwLevel.Get()
+	return *o.NsfwLevel
 }
 
 // GetNsfwLevelOk returns a tuple with the NsfwLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *InviteGuildResponse) GetNsfwLevelOk() (*int32, bool) {
-	if o == nil || IsNil(o.NsfwLevel.Get()) {
+func (o *InviteGuildResponse) GetNsfwLevelOk() (*InviteGuildResponseNsfwLevel, bool) {
+	if o == nil || IsNil(o.NsfwLevel) {
 		return nil, false
 	}
-	return o.NsfwLevel.Get(), o.NsfwLevel.IsSet()
+	return o.NsfwLevel, true
 }
 
 // HasNsfwLevel returns a boolean if a field has been set.
 func (o *InviteGuildResponse) HasNsfwLevel() bool {
-	if o != nil && o.NsfwLevel.IsSet() {
+	if o != nil && !IsNil(o.NsfwLevel) {
 		return true
 	}
 
 	return false
 }
 
-// SetNsfwLevel gets a reference to the given NullableInt32 and assigns it to the NsfwLevel field.
-func (o *InviteGuildResponse) SetNsfwLevel(v int32) {
-	o.NsfwLevel.Set(&v)
+// SetNsfwLevel gets a reference to the given InviteGuildResponseNsfwLevel and assigns it to the NsfwLevel field.
+func (o *InviteGuildResponse) SetNsfwLevel(v InviteGuildResponseNsfwLevel) {
+	o.NsfwLevel = &v
 }
 
-// SetNsfwLevelNil sets the value for NsfwLevel to be an explicit nil
-func (o *InviteGuildResponse) SetNsfwLevelNil() {
-	o.NsfwLevel.Set(nil)
-}
 
-// UnsetNsfwLevel ensures that no value is present for NsfwLevel, not even an explicit nil
-func (o *InviteGuildResponse) UnsetNsfwLevel() {
-	o.NsfwLevel.Unset()
-}
-
-// GetNsfw returns the Nsfw field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNsfw returns the Nsfw field value if set, zero value otherwise.
 func (o *InviteGuildResponse) GetNsfw() bool {
-	if o == nil || IsNil(o.Nsfw.Get()) {
+	if o == nil || IsNil(o.Nsfw) {
 		var ret bool
 		return ret
 	}
-	return *o.Nsfw.Get()
+	return *o.Nsfw
 }
 
 // GetNsfwOk returns a tuple with the Nsfw field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteGuildResponse) GetNsfwOk() (*bool, bool) {
-	if o == nil || IsNil(o.Nsfw.Get()) {
+	if o == nil || IsNil(o.Nsfw) {
 		return nil, false
 	}
-	return o.Nsfw.Get(), o.Nsfw.IsSet()
+	return o.Nsfw, true
 }
 
 // HasNsfw returns a boolean if a field has been set.
 func (o *InviteGuildResponse) HasNsfw() bool {
-	if o != nil && o.Nsfw.IsSet() {
+	if o != nil && !IsNil(o.Nsfw) {
 		return true
 	}
 
 	return false
 }
 
-// SetNsfw gets a reference to the given NullableBool and assigns it to the Nsfw field.
+// SetNsfw gets a reference to the given bool and assigns it to the Nsfw field.
 func (o *InviteGuildResponse) SetNsfw(v bool) {
-	o.Nsfw.Set(&v)
+	o.Nsfw = &v
 }
 
-// SetNsfwNil sets the value for Nsfw to be an explicit nil
-func (o *InviteGuildResponse) SetNsfwNil() {
-	o.Nsfw.Set(nil)
-}
 
-// UnsetNsfw ensures that no value is present for Nsfw, not even an explicit nil
-func (o *InviteGuildResponse) UnsetNsfw() {
-	o.Nsfw.Unset()
-}
-
-// GetPremiumSubscriptionCount returns the PremiumSubscriptionCount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPremiumSubscriptionCount returns the PremiumSubscriptionCount field value
 func (o *InviteGuildResponse) GetPremiumSubscriptionCount() int32 {
-	if o == nil || IsNil(o.PremiumSubscriptionCount.Get()) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.PremiumSubscriptionCount.Get()
+
+	return o.PremiumSubscriptionCount
 }
 
-// GetPremiumSubscriptionCountOk returns a tuple with the PremiumSubscriptionCount field value if set, nil otherwise
+// GetPremiumSubscriptionCountOk returns a tuple with the PremiumSubscriptionCount field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteGuildResponse) GetPremiumSubscriptionCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.PremiumSubscriptionCount.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PremiumSubscriptionCount.Get(), o.PremiumSubscriptionCount.IsSet()
+	return &o.PremiumSubscriptionCount, true
 }
 
-// HasPremiumSubscriptionCount returns a boolean if a field has been set.
-func (o *InviteGuildResponse) HasPremiumSubscriptionCount() bool {
-	if o != nil && o.PremiumSubscriptionCount.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPremiumSubscriptionCount gets a reference to the given NullableInt32 and assigns it to the PremiumSubscriptionCount field.
+// SetPremiumSubscriptionCount sets field value
 func (o *InviteGuildResponse) SetPremiumSubscriptionCount(v int32) {
-	o.PremiumSubscriptionCount.Set(&v)
-}
-
-// SetPremiumSubscriptionCountNil sets the value for PremiumSubscriptionCount to be an explicit nil
-func (o *InviteGuildResponse) SetPremiumSubscriptionCountNil() {
-	o.PremiumSubscriptionCount.Set(nil)
-}
-
-// UnsetPremiumSubscriptionCount ensures that no value is present for PremiumSubscriptionCount, not even an explicit nil
-func (o *InviteGuildResponse) UnsetPremiumSubscriptionCount() {
-	o.PremiumSubscriptionCount.Unset()
+	o.PremiumSubscriptionCount = v
 }
 
 func (o InviteGuildResponse) MarshalJSON() ([]byte, error) {
@@ -552,34 +464,32 @@ func (o InviteGuildResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
-	if o.Splash.IsSet() {
-		toSerialize["splash"] = o.Splash.Get()
+	if !IsNil(o.Splash) {
+		toSerialize["splash"] = o.Splash
 	}
-	if o.Banner.IsSet() {
-		toSerialize["banner"] = o.Banner.Get()
+	if !IsNil(o.Banner) {
+		toSerialize["banner"] = o.Banner
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
-	if o.Icon.IsSet() {
-		toSerialize["icon"] = o.Icon.Get()
+	if !IsNil(o.Icon) {
+		toSerialize["icon"] = o.Icon
 	}
 	toSerialize["features"] = o.Features
 	if !IsNil(o.VerificationLevel) {
 		toSerialize["verification_level"] = o.VerificationLevel
 	}
-	if o.VanityUrlCode.IsSet() {
-		toSerialize["vanity_url_code"] = o.VanityUrlCode.Get()
+	if !IsNil(o.VanityUrlCode) {
+		toSerialize["vanity_url_code"] = o.VanityUrlCode
 	}
-	if o.NsfwLevel.IsSet() {
-		toSerialize["nsfw_level"] = o.NsfwLevel.Get()
+	if !IsNil(o.NsfwLevel) {
+		toSerialize["nsfw_level"] = o.NsfwLevel
 	}
-	if o.Nsfw.IsSet() {
-		toSerialize["nsfw"] = o.Nsfw.Get()
+	if !IsNil(o.Nsfw) {
+		toSerialize["nsfw"] = o.Nsfw
 	}
-	if o.PremiumSubscriptionCount.IsSet() {
-		toSerialize["premium_subscription_count"] = o.PremiumSubscriptionCount.Get()
-	}
+	toSerialize["premium_subscription_count"] = o.PremiumSubscriptionCount
 	return toSerialize, nil
 }
 
@@ -591,6 +501,7 @@ func (o *InviteGuildResponse) UnmarshalJSON(data []byte) (err error) {
 		"id",
 		"name",
 		"features",
+		"premium_subscription_count",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -657,5 +568,4 @@ func (v *NullableInviteGuildResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -5,18 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to [**ApplicationFormPartialDescription**](ApplicationFormPartialDescription.md) |  | [optional] 
-**Icon** | Pointer to **NullableString** |  | [optional] 
-**CoverImage** | Pointer to **NullableString** |  | [optional] 
-**TeamId** | Pointer to **string** |  | [optional] 
-**Flags** | Pointer to **NullableInt32** |  | [optional] 
-**InteractionsEndpointUrl** | Pointer to **NullableString** |  | [optional] 
-**ExplicitContentFilter** | Pointer to **int32** |  | [optional] 
-**MaxParticipants** | Pointer to **NullableInt32** |  | [optional] 
-**Type** | Pointer to **NullableInt32** |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
+**CoverImage** | Pointer to **string** |  | [optional] 
+**TeamId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**Flags** | Pointer to **int32** |  | [optional] 
+**InteractionsEndpointUrl** | Pointer to **string** |  | [optional] 
+**ExplicitContentFilter** | Pointer to [**ApplicationFormPartialExplicitContentFilter**](ApplicationFormPartialExplicitContentFilter.md) |  | [optional] 
+**MaxParticipants** | Pointer to **int32** |  | [optional] 
+**Type** | Pointer to [**ApplicationFormPartialType**](ApplicationFormPartialType.md) |  | [optional] 
 **Tags** | Pointer to **[]string** |  | [optional] 
-**CustomInstallUrl** | Pointer to **NullableString** |  | [optional] 
-**InstallParams** | Pointer to [**NullableApplicationOAuth2InstallParams**](ApplicationOAuth2InstallParams.md) |  | [optional] 
-**RoleConnectionsVerificationUrl** | Pointer to **NullableString** |  | [optional] 
+**CustomInstallUrl** | Pointer to **string** |  | [optional] 
+**InstallParams** | Pointer to [**ApplicationFormPartialInstallParams**](ApplicationFormPartialInstallParams.md) |  | [optional] 
+**RoleConnectionsVerificationUrl** | Pointer to **string** |  | [optional] 
 **IntegrationTypesConfig** | Pointer to [**map[string]ApplicationFormPartialIntegrationTypesConfigValue**](ApplicationFormPartialIntegrationTypesConfigValue.md) |  | [optional] 
 
 ## Methods
@@ -88,16 +88,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *ApplicationFormPartial) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *ApplicationFormPartial) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetCoverImage
 
 `func (o *ApplicationFormPartial) GetCoverImage() string`
@@ -123,32 +113,22 @@ SetCoverImage sets CoverImage field to given value.
 
 HasCoverImage returns a boolean if a field has been set.
 
-### SetCoverImageNil
-
-`func (o *ApplicationFormPartial) SetCoverImageNil(b bool)`
-
- SetCoverImageNil sets the value for CoverImage to be an explicit nil
-
-### UnsetCoverImage
-`func (o *ApplicationFormPartial) UnsetCoverImage()`
-
-UnsetCoverImage ensures that no value is present for CoverImage, not even an explicit nil
 ### GetTeamId
 
-`func (o *ApplicationFormPartial) GetTeamId() string`
+`func (o *ApplicationFormPartial) GetTeamId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetTeamId returns the TeamId field if non-nil, zero value otherwise.
 
 ### GetTeamIdOk
 
-`func (o *ApplicationFormPartial) GetTeamIdOk() (*string, bool)`
+`func (o *ApplicationFormPartial) GetTeamIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetTeamIdOk returns a tuple with the TeamId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTeamId
 
-`func (o *ApplicationFormPartial) SetTeamId(v string)`
+`func (o *ApplicationFormPartial) SetTeamId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetTeamId sets TeamId field to given value.
 
@@ -183,16 +163,6 @@ SetFlags sets Flags field to given value.
 
 HasFlags returns a boolean if a field has been set.
 
-### SetFlagsNil
-
-`func (o *ApplicationFormPartial) SetFlagsNil(b bool)`
-
- SetFlagsNil sets the value for Flags to be an explicit nil
-
-### UnsetFlags
-`func (o *ApplicationFormPartial) UnsetFlags()`
-
-UnsetFlags ensures that no value is present for Flags, not even an explicit nil
 ### GetInteractionsEndpointUrl
 
 `func (o *ApplicationFormPartial) GetInteractionsEndpointUrl() string`
@@ -218,32 +188,22 @@ SetInteractionsEndpointUrl sets InteractionsEndpointUrl field to given value.
 
 HasInteractionsEndpointUrl returns a boolean if a field has been set.
 
-### SetInteractionsEndpointUrlNil
-
-`func (o *ApplicationFormPartial) SetInteractionsEndpointUrlNil(b bool)`
-
- SetInteractionsEndpointUrlNil sets the value for InteractionsEndpointUrl to be an explicit nil
-
-### UnsetInteractionsEndpointUrl
-`func (o *ApplicationFormPartial) UnsetInteractionsEndpointUrl()`
-
-UnsetInteractionsEndpointUrl ensures that no value is present for InteractionsEndpointUrl, not even an explicit nil
 ### GetExplicitContentFilter
 
-`func (o *ApplicationFormPartial) GetExplicitContentFilter() int32`
+`func (o *ApplicationFormPartial) GetExplicitContentFilter() ApplicationFormPartialExplicitContentFilter`
 
 GetExplicitContentFilter returns the ExplicitContentFilter field if non-nil, zero value otherwise.
 
 ### GetExplicitContentFilterOk
 
-`func (o *ApplicationFormPartial) GetExplicitContentFilterOk() (*int32, bool)`
+`func (o *ApplicationFormPartial) GetExplicitContentFilterOk() (*ApplicationFormPartialExplicitContentFilter, bool)`
 
 GetExplicitContentFilterOk returns a tuple with the ExplicitContentFilter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExplicitContentFilter
 
-`func (o *ApplicationFormPartial) SetExplicitContentFilter(v int32)`
+`func (o *ApplicationFormPartial) SetExplicitContentFilter(v ApplicationFormPartialExplicitContentFilter)`
 
 SetExplicitContentFilter sets ExplicitContentFilter field to given value.
 
@@ -278,32 +238,22 @@ SetMaxParticipants sets MaxParticipants field to given value.
 
 HasMaxParticipants returns a boolean if a field has been set.
 
-### SetMaxParticipantsNil
-
-`func (o *ApplicationFormPartial) SetMaxParticipantsNil(b bool)`
-
- SetMaxParticipantsNil sets the value for MaxParticipants to be an explicit nil
-
-### UnsetMaxParticipants
-`func (o *ApplicationFormPartial) UnsetMaxParticipants()`
-
-UnsetMaxParticipants ensures that no value is present for MaxParticipants, not even an explicit nil
 ### GetType
 
-`func (o *ApplicationFormPartial) GetType() int32`
+`func (o *ApplicationFormPartial) GetType() ApplicationFormPartialType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ApplicationFormPartial) GetTypeOk() (*int32, bool)`
+`func (o *ApplicationFormPartial) GetTypeOk() (*ApplicationFormPartialType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ApplicationFormPartial) SetType(v int32)`
+`func (o *ApplicationFormPartial) SetType(v ApplicationFormPartialType)`
 
 SetType sets Type field to given value.
 
@@ -313,16 +263,6 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
-### SetTypeNil
-
-`func (o *ApplicationFormPartial) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *ApplicationFormPartial) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetTags
 
 `func (o *ApplicationFormPartial) GetTags() []string`
@@ -348,16 +288,6 @@ SetTags sets Tags field to given value.
 
 HasTags returns a boolean if a field has been set.
 
-### SetTagsNil
-
-`func (o *ApplicationFormPartial) SetTagsNil(b bool)`
-
- SetTagsNil sets the value for Tags to be an explicit nil
-
-### UnsetTags
-`func (o *ApplicationFormPartial) UnsetTags()`
-
-UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetCustomInstallUrl
 
 `func (o *ApplicationFormPartial) GetCustomInstallUrl() string`
@@ -383,32 +313,22 @@ SetCustomInstallUrl sets CustomInstallUrl field to given value.
 
 HasCustomInstallUrl returns a boolean if a field has been set.
 
-### SetCustomInstallUrlNil
-
-`func (o *ApplicationFormPartial) SetCustomInstallUrlNil(b bool)`
-
- SetCustomInstallUrlNil sets the value for CustomInstallUrl to be an explicit nil
-
-### UnsetCustomInstallUrl
-`func (o *ApplicationFormPartial) UnsetCustomInstallUrl()`
-
-UnsetCustomInstallUrl ensures that no value is present for CustomInstallUrl, not even an explicit nil
 ### GetInstallParams
 
-`func (o *ApplicationFormPartial) GetInstallParams() ApplicationOAuth2InstallParams`
+`func (o *ApplicationFormPartial) GetInstallParams() ApplicationFormPartialInstallParams`
 
 GetInstallParams returns the InstallParams field if non-nil, zero value otherwise.
 
 ### GetInstallParamsOk
 
-`func (o *ApplicationFormPartial) GetInstallParamsOk() (*ApplicationOAuth2InstallParams, bool)`
+`func (o *ApplicationFormPartial) GetInstallParamsOk() (*ApplicationFormPartialInstallParams, bool)`
 
 GetInstallParamsOk returns a tuple with the InstallParams field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInstallParams
 
-`func (o *ApplicationFormPartial) SetInstallParams(v ApplicationOAuth2InstallParams)`
+`func (o *ApplicationFormPartial) SetInstallParams(v ApplicationFormPartialInstallParams)`
 
 SetInstallParams sets InstallParams field to given value.
 
@@ -418,16 +338,6 @@ SetInstallParams sets InstallParams field to given value.
 
 HasInstallParams returns a boolean if a field has been set.
 
-### SetInstallParamsNil
-
-`func (o *ApplicationFormPartial) SetInstallParamsNil(b bool)`
-
- SetInstallParamsNil sets the value for InstallParams to be an explicit nil
-
-### UnsetInstallParams
-`func (o *ApplicationFormPartial) UnsetInstallParams()`
-
-UnsetInstallParams ensures that no value is present for InstallParams, not even an explicit nil
 ### GetRoleConnectionsVerificationUrl
 
 `func (o *ApplicationFormPartial) GetRoleConnectionsVerificationUrl() string`
@@ -453,16 +363,6 @@ SetRoleConnectionsVerificationUrl sets RoleConnectionsVerificationUrl field to g
 
 HasRoleConnectionsVerificationUrl returns a boolean if a field has been set.
 
-### SetRoleConnectionsVerificationUrlNil
-
-`func (o *ApplicationFormPartial) SetRoleConnectionsVerificationUrlNil(b bool)`
-
- SetRoleConnectionsVerificationUrlNil sets the value for RoleConnectionsVerificationUrl to be an explicit nil
-
-### UnsetRoleConnectionsVerificationUrl
-`func (o *ApplicationFormPartial) UnsetRoleConnectionsVerificationUrl()`
-
-UnsetRoleConnectionsVerificationUrl ensures that no value is present for RoleConnectionsVerificationUrl, not even an explicit nil
 ### GetIntegrationTypesConfig
 
 `func (o *ApplicationFormPartial) GetIntegrationTypesConfig() map[string]ApplicationFormPartialIntegrationTypesConfigValue`

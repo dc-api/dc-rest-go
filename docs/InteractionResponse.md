@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **int32** |  | 
+**Type** | [**InteractionTypes**](InteractionTypes.md) |  | 
 **ResponseMessageId** | Pointer to **string** |  | [optional] 
-**ResponseMessageLoading** | Pointer to **NullableBool** |  | [optional] 
-**ResponseMessageEphemeral** | Pointer to **NullableBool** |  | [optional] 
+**ResponseMessageLoading** | Pointer to **bool** |  | [optional] 
+**ResponseMessageEphemeral** | Pointer to **bool** |  | [optional] 
 **ChannelId** | Pointer to **string** |  | [optional] 
 **GuildId** | Pointer to **string** |  | [optional] 
 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewInteractionResponse
 
-`func NewInteractionResponse(id string, type_ int32, ) *InteractionResponse`
+`func NewInteractionResponse(id string, type_ InteractionTypes, ) *InteractionResponse`
 
 NewInteractionResponse instantiates a new InteractionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -53,20 +53,20 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *InteractionResponse) GetType() int32`
+`func (o *InteractionResponse) GetType() InteractionTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *InteractionResponse) GetTypeOk() (*int32, bool)`
+`func (o *InteractionResponse) GetTypeOk() (*InteractionTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *InteractionResponse) SetType(v int32)`
+`func (o *InteractionResponse) SetType(v InteractionTypes)`
 
 SetType sets Type field to given value.
 
@@ -121,16 +121,6 @@ SetResponseMessageLoading sets ResponseMessageLoading field to given value.
 
 HasResponseMessageLoading returns a boolean if a field has been set.
 
-### SetResponseMessageLoadingNil
-
-`func (o *InteractionResponse) SetResponseMessageLoadingNil(b bool)`
-
- SetResponseMessageLoadingNil sets the value for ResponseMessageLoading to be an explicit nil
-
-### UnsetResponseMessageLoading
-`func (o *InteractionResponse) UnsetResponseMessageLoading()`
-
-UnsetResponseMessageLoading ensures that no value is present for ResponseMessageLoading, not even an explicit nil
 ### GetResponseMessageEphemeral
 
 `func (o *InteractionResponse) GetResponseMessageEphemeral() bool`
@@ -156,16 +146,6 @@ SetResponseMessageEphemeral sets ResponseMessageEphemeral field to given value.
 
 HasResponseMessageEphemeral returns a boolean if a field has been set.
 
-### SetResponseMessageEphemeralNil
-
-`func (o *InteractionResponse) SetResponseMessageEphemeralNil(b bool)`
-
- SetResponseMessageEphemeralNil sets the value for ResponseMessageEphemeral to be an explicit nil
-
-### UnsetResponseMessageEphemeral
-`func (o *InteractionResponse) UnsetResponseMessageEphemeral()`
-
-UnsetResponseMessageEphemeral ensures that no value is present for ResponseMessageEphemeral, not even an explicit nil
 ### GetChannelId
 
 `func (o *InteractionResponse) GetChannelId() string`

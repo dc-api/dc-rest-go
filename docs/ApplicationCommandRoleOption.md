@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**ApplicationCommandOptionType**](ApplicationCommandOptionType.md) |  | 
 **Name** | **string** |  | 
 **NameLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Description** | **string** |  | 
 **DescriptionLocalizations** | Pointer to **map[string]string** |  | [optional] 
-**Required** | Pointer to **NullableBool** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewApplicationCommandRoleOption
 
-`func NewApplicationCommandRoleOption(type_ int32, name string, description string, ) *ApplicationCommandRoleOption`
+`func NewApplicationCommandRoleOption(type_ ApplicationCommandOptionType, name string, description string, ) *ApplicationCommandRoleOption`
 
 NewApplicationCommandRoleOption instantiates a new ApplicationCommandRoleOption object
 This constructor will assign default values to properties that have it defined,
@@ -32,20 +32,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ApplicationCommandRoleOption) GetType() int32`
+`func (o *ApplicationCommandRoleOption) GetType() ApplicationCommandOptionType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ApplicationCommandRoleOption) GetTypeOk() (*int32, bool)`
+`func (o *ApplicationCommandRoleOption) GetTypeOk() (*ApplicationCommandOptionType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ApplicationCommandRoleOption) SetType(v int32)`
+`func (o *ApplicationCommandRoleOption) SetType(v ApplicationCommandOptionType)`
 
 SetType sets Type field to given value.
 
@@ -165,16 +165,6 @@ SetRequired sets Required field to given value.
 
 HasRequired returns a boolean if a field has been set.
 
-### SetRequiredNil
-
-`func (o *ApplicationCommandRoleOption) SetRequiredNil(b bool)`
-
- SetRequiredNil sets the value for Required to be an explicit nil
-
-### UnsetRequired
-`func (o *ApplicationCommandRoleOption) UnsetRequired()`
-
-UnsetRequired ensures that no value is present for Required, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

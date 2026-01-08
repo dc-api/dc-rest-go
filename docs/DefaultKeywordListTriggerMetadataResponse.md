@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AllowList** | **[]string** |  | 
-**Presets** | **[]int32** |  | 
+**Presets** | [**[]AutomodKeywordPresetType**](AutomodKeywordPresetType.md) |  | 
 
 ## Methods
 
 ### NewDefaultKeywordListTriggerMetadataResponse
 
-`func NewDefaultKeywordListTriggerMetadataResponse(allowList []string, presets []int32, ) *DefaultKeywordListTriggerMetadataResponse`
+`func NewDefaultKeywordListTriggerMetadataResponse(allowList []string, presets []AutomodKeywordPresetType, ) *DefaultKeywordListTriggerMetadataResponse`
 
 NewDefaultKeywordListTriggerMetadataResponse instantiates a new DefaultKeywordListTriggerMetadataResponse object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetAllowList sets AllowList field to given value.
 
 ### GetPresets
 
-`func (o *DefaultKeywordListTriggerMetadataResponse) GetPresets() []int32`
+`func (o *DefaultKeywordListTriggerMetadataResponse) GetPresets() []AutomodKeywordPresetType`
 
 GetPresets returns the Presets field if non-nil, zero value otherwise.
 
 ### GetPresetsOk
 
-`func (o *DefaultKeywordListTriggerMetadataResponse) GetPresetsOk() (*[]int32, bool)`
+`func (o *DefaultKeywordListTriggerMetadataResponse) GetPresetsOk() (*[]AutomodKeywordPresetType, bool)`
 
 GetPresetsOk returns a tuple with the Presets field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPresets
 
-`func (o *DefaultKeywordListTriggerMetadataResponse) SetPresets(v []int32)`
+`func (o *DefaultKeywordListTriggerMetadataResponse) SetPresets(v []AutomodKeywordPresetType)`
 
 SetPresets sets Presets field to given value.
 

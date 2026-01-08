@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Conclusion** | Pointer to **NullableString** |  | [optional] 
-**HeadBranch** | Pointer to **NullableString** |  | [optional] 
+**Conclusion** | Pointer to **string** |  | [optional] 
+**HeadBranch** | Pointer to **string** |  | [optional] 
 **HeadSha** | **string** |  | 
 **PullRequests** | Pointer to [**[]GithubCheckPullRequest**](GithubCheckPullRequest.md) |  | [optional] 
 **App** | [**GithubCheckApp**](GithubCheckApp.md) |  | 
@@ -54,16 +54,6 @@ SetConclusion sets Conclusion field to given value.
 
 HasConclusion returns a boolean if a field has been set.
 
-### SetConclusionNil
-
-`func (o *GithubCheckSuite) SetConclusionNil(b bool)`
-
- SetConclusionNil sets the value for Conclusion to be an explicit nil
-
-### UnsetConclusion
-`func (o *GithubCheckSuite) UnsetConclusion()`
-
-UnsetConclusion ensures that no value is present for Conclusion, not even an explicit nil
 ### GetHeadBranch
 
 `func (o *GithubCheckSuite) GetHeadBranch() string`
@@ -89,16 +79,6 @@ SetHeadBranch sets HeadBranch field to given value.
 
 HasHeadBranch returns a boolean if a field has been set.
 
-### SetHeadBranchNil
-
-`func (o *GithubCheckSuite) SetHeadBranchNil(b bool)`
-
- SetHeadBranchNil sets the value for HeadBranch to be an explicit nil
-
-### UnsetHeadBranch
-`func (o *GithubCheckSuite) UnsetHeadBranch()`
-
-UnsetHeadBranch ensures that no value is present for HeadBranch, not even an explicit nil
 ### GetHeadSha
 
 `func (o *GithubCheckSuite) GetHeadSha() string`
@@ -144,16 +124,6 @@ SetPullRequests sets PullRequests field to given value.
 
 HasPullRequests returns a boolean if a field has been set.
 
-### SetPullRequestsNil
-
-`func (o *GithubCheckSuite) SetPullRequestsNil(b bool)`
-
- SetPullRequestsNil sets the value for PullRequests to be an explicit nil
-
-### UnsetPullRequests
-`func (o *GithubCheckSuite) UnsetPullRequests()`
-
-UnsetPullRequests ensures that no value is present for PullRequests, not even an explicit nil
 ### GetApp
 
 `func (o *GithubCheckSuite) GetApp() GithubCheckApp`

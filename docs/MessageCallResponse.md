@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EndedTimestamp** | Pointer to **NullableTime** |  | [optional] 
+**EndedTimestamp** | Pointer to **time.Time** |  | [optional] 
 **Participants** | **[]string** |  | 
 
 ## Methods
@@ -51,16 +51,6 @@ SetEndedTimestamp sets EndedTimestamp field to given value.
 
 HasEndedTimestamp returns a boolean if a field has been set.
 
-### SetEndedTimestampNil
-
-`func (o *MessageCallResponse) SetEndedTimestampNil(b bool)`
-
- SetEndedTimestampNil sets the value for EndedTimestamp to be an explicit nil
-
-### UnsetEndedTimestamp
-`func (o *MessageCallResponse) UnsetEndedTimestamp()`
-
-UnsetEndedTimestamp ensures that no value is present for EndedTimestamp, not even an explicit nil
 ### GetParticipants
 
 `func (o *MessageCallResponse) GetParticipants() []string`

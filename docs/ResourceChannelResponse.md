@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ChannelId** | **string** |  | 
 **Title** | **string** |  | 
-**Emoji** | Pointer to [**NullableSettingsEmojiResponse**](SettingsEmojiResponse.md) |  | [optional] 
-**Icon** | Pointer to **NullableString** |  | [optional] 
+**Emoji** | Pointer to [**SettingsEmojiResponse**](SettingsEmojiResponse.md) |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
 **Description** | **string** |  | 
 
 ## Methods
@@ -94,16 +94,6 @@ SetEmoji sets Emoji field to given value.
 
 HasEmoji returns a boolean if a field has been set.
 
-### SetEmojiNil
-
-`func (o *ResourceChannelResponse) SetEmojiNil(b bool)`
-
- SetEmojiNil sets the value for Emoji to be an explicit nil
-
-### UnsetEmoji
-`func (o *ResourceChannelResponse) UnsetEmoji()`
-
-UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
 ### GetIcon
 
 `func (o *ResourceChannelResponse) GetIcon() string`
@@ -129,16 +119,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *ResourceChannelResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *ResourceChannelResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetDescription
 
 `func (o *ResourceChannelResponse) GetDescription() string`

@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**ApplicationCommandOptionType**](ApplicationCommandOptionType.md) |  | 
 **Name** | **string** |  | 
 **NameLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Description** | **string** |  | 
 **DescriptionLocalizations** | Pointer to **map[string]string** |  | [optional] 
-**Required** | Pointer to **NullableBool** |  | [optional] 
-**Autocomplete** | Pointer to **NullableBool** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
+**Autocomplete** | Pointer to **bool** |  | [optional] 
 **Choices** | Pointer to [**[]ApplicationCommandOptionNumberChoice**](ApplicationCommandOptionNumberChoice.md) |  | [optional] 
-**MinValue** | Pointer to **NullableFloat64** |  | [optional] 
-**MaxValue** | Pointer to **NullableFloat64** |  | [optional] 
+**MinValue** | Pointer to **float64** |  | [optional] 
+**MaxValue** | Pointer to **float64** |  | [optional] 
 
 ## Methods
 
 ### NewApplicationCommandNumberOption
 
-`func NewApplicationCommandNumberOption(type_ int32, name string, description string, ) *ApplicationCommandNumberOption`
+`func NewApplicationCommandNumberOption(type_ ApplicationCommandOptionType, name string, description string, ) *ApplicationCommandNumberOption`
 
 NewApplicationCommandNumberOption instantiates a new ApplicationCommandNumberOption object
 This constructor will assign default values to properties that have it defined,
@@ -36,20 +36,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ApplicationCommandNumberOption) GetType() int32`
+`func (o *ApplicationCommandNumberOption) GetType() ApplicationCommandOptionType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ApplicationCommandNumberOption) GetTypeOk() (*int32, bool)`
+`func (o *ApplicationCommandNumberOption) GetTypeOk() (*ApplicationCommandOptionType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ApplicationCommandNumberOption) SetType(v int32)`
+`func (o *ApplicationCommandNumberOption) SetType(v ApplicationCommandOptionType)`
 
 SetType sets Type field to given value.
 
@@ -169,16 +169,6 @@ SetRequired sets Required field to given value.
 
 HasRequired returns a boolean if a field has been set.
 
-### SetRequiredNil
-
-`func (o *ApplicationCommandNumberOption) SetRequiredNil(b bool)`
-
- SetRequiredNil sets the value for Required to be an explicit nil
-
-### UnsetRequired
-`func (o *ApplicationCommandNumberOption) UnsetRequired()`
-
-UnsetRequired ensures that no value is present for Required, not even an explicit nil
 ### GetAutocomplete
 
 `func (o *ApplicationCommandNumberOption) GetAutocomplete() bool`
@@ -204,16 +194,6 @@ SetAutocomplete sets Autocomplete field to given value.
 
 HasAutocomplete returns a boolean if a field has been set.
 
-### SetAutocompleteNil
-
-`func (o *ApplicationCommandNumberOption) SetAutocompleteNil(b bool)`
-
- SetAutocompleteNil sets the value for Autocomplete to be an explicit nil
-
-### UnsetAutocomplete
-`func (o *ApplicationCommandNumberOption) UnsetAutocomplete()`
-
-UnsetAutocomplete ensures that no value is present for Autocomplete, not even an explicit nil
 ### GetChoices
 
 `func (o *ApplicationCommandNumberOption) GetChoices() []ApplicationCommandOptionNumberChoice`
@@ -239,16 +219,6 @@ SetChoices sets Choices field to given value.
 
 HasChoices returns a boolean if a field has been set.
 
-### SetChoicesNil
-
-`func (o *ApplicationCommandNumberOption) SetChoicesNil(b bool)`
-
- SetChoicesNil sets the value for Choices to be an explicit nil
-
-### UnsetChoices
-`func (o *ApplicationCommandNumberOption) UnsetChoices()`
-
-UnsetChoices ensures that no value is present for Choices, not even an explicit nil
 ### GetMinValue
 
 `func (o *ApplicationCommandNumberOption) GetMinValue() float64`
@@ -274,16 +244,6 @@ SetMinValue sets MinValue field to given value.
 
 HasMinValue returns a boolean if a field has been set.
 
-### SetMinValueNil
-
-`func (o *ApplicationCommandNumberOption) SetMinValueNil(b bool)`
-
- SetMinValueNil sets the value for MinValue to be an explicit nil
-
-### UnsetMinValue
-`func (o *ApplicationCommandNumberOption) UnsetMinValue()`
-
-UnsetMinValue ensures that no value is present for MinValue, not even an explicit nil
 ### GetMaxValue
 
 `func (o *ApplicationCommandNumberOption) GetMaxValue() float64`
@@ -309,16 +269,6 @@ SetMaxValue sets MaxValue field to given value.
 
 HasMaxValue returns a boolean if a field has been set.
 
-### SetMaxValueNil
-
-`func (o *ApplicationCommandNumberOption) SetMaxValueNil(b bool)`
-
- SetMaxValueNil sets the value for MaxValue to be an explicit nil
-
-### UnsetMaxValue
-`func (o *ApplicationCommandNumberOption) UnsetMaxValue()`
-
-UnsetMaxValue ensures that no value is present for MaxValue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

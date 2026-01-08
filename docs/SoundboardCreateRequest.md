@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**Volume** | Pointer to **NullableFloat64** |  | [optional] 
-**EmojiId** | Pointer to **string** |  | [optional] 
-**EmojiName** | Pointer to **NullableString** |  | [optional] 
+**Volume** | Pointer to **float64** |  | [optional] 
+**EmojiId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**EmojiName** | Pointer to **string** |  | [optional] 
 **Sound** | **string** |  | 
 
 ## Methods
@@ -74,32 +74,22 @@ SetVolume sets Volume field to given value.
 
 HasVolume returns a boolean if a field has been set.
 
-### SetVolumeNil
-
-`func (o *SoundboardCreateRequest) SetVolumeNil(b bool)`
-
- SetVolumeNil sets the value for Volume to be an explicit nil
-
-### UnsetVolume
-`func (o *SoundboardCreateRequest) UnsetVolume()`
-
-UnsetVolume ensures that no value is present for Volume, not even an explicit nil
 ### GetEmojiId
 
-`func (o *SoundboardCreateRequest) GetEmojiId() string`
+`func (o *SoundboardCreateRequest) GetEmojiId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetEmojiId returns the EmojiId field if non-nil, zero value otherwise.
 
 ### GetEmojiIdOk
 
-`func (o *SoundboardCreateRequest) GetEmojiIdOk() (*string, bool)`
+`func (o *SoundboardCreateRequest) GetEmojiIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetEmojiIdOk returns a tuple with the EmojiId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmojiId
 
-`func (o *SoundboardCreateRequest) SetEmojiId(v string)`
+`func (o *SoundboardCreateRequest) SetEmojiId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetEmojiId sets EmojiId field to given value.
 
@@ -134,16 +124,6 @@ SetEmojiName sets EmojiName field to given value.
 
 HasEmojiName returns a boolean if a field has been set.
 
-### SetEmojiNameNil
-
-`func (o *SoundboardCreateRequest) SetEmojiNameNil(b bool)`
-
- SetEmojiNameNil sets the value for EmojiName to be an explicit nil
-
-### UnsetEmojiName
-`func (o *SoundboardCreateRequest) UnsetEmojiName()`
-
-UnsetEmojiName ensures that no value is present for EmojiName, not even an explicit nil
 ### GetSound
 
 `func (o *SoundboardCreateRequest) GetSound() string`

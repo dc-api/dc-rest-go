@@ -6,25 +6,25 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Icon** | Pointer to **NullableString** |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
 **Description** | **string** |  | 
-**Type** | Pointer to **NullableInt32** |  | [optional] 
-**CoverImage** | Pointer to **NullableString** |  | [optional] 
+**Type** | Pointer to [**ApplicationFormPartialType**](ApplicationFormPartialType.md) |  | [optional] 
+**CoverImage** | Pointer to **string** |  | [optional] 
 **PrimarySkuId** | Pointer to **string** |  | [optional] 
-**Bot** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**Slug** | Pointer to **NullableString** |  | [optional] 
+**Bot** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**Slug** | Pointer to **string** |  | [optional] 
 **GuildId** | Pointer to **string** |  | [optional] 
 **RpcOrigins** | Pointer to **[]string** |  | [optional] 
-**BotPublic** | Pointer to **NullableBool** |  | [optional] 
-**BotRequireCodeGrant** | Pointer to **NullableBool** |  | [optional] 
-**TermsOfServiceUrl** | Pointer to **NullableString** |  | [optional] 
-**PrivacyPolicyUrl** | Pointer to **NullableString** |  | [optional] 
-**CustomInstallUrl** | Pointer to **NullableString** |  | [optional] 
-**InstallParams** | Pointer to [**NullableApplicationOAuth2InstallParamsResponse**](ApplicationOAuth2InstallParamsResponse.md) |  | [optional] 
+**BotPublic** | Pointer to **bool** |  | [optional] 
+**BotRequireCodeGrant** | Pointer to **bool** |  | [optional] 
+**TermsOfServiceUrl** | Pointer to **string** |  | [optional] 
+**PrivacyPolicyUrl** | Pointer to **string** |  | [optional] 
+**CustomInstallUrl** | Pointer to **string** |  | [optional] 
+**InstallParams** | Pointer to [**ApplicationOAuth2InstallParamsResponse**](ApplicationOAuth2InstallParamsResponse.md) |  | [optional] 
 **IntegrationTypesConfig** | Pointer to [**map[string]ApplicationIntegrationTypeConfigurationResponse**](ApplicationIntegrationTypeConfigurationResponse.md) |  | [optional] 
 **VerifyKey** | **string** |  | 
 **Flags** | **int32** |  | 
-**MaxParticipants** | Pointer to **NullableInt32** |  | [optional] 
+**MaxParticipants** | Pointer to **int32** |  | [optional] 
 **Tags** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
@@ -111,16 +111,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *InviteApplicationResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *InviteApplicationResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetDescription
 
 `func (o *InviteApplicationResponse) GetDescription() string`
@@ -143,20 +133,20 @@ SetDescription sets Description field to given value.
 
 ### GetType
 
-`func (o *InviteApplicationResponse) GetType() int32`
+`func (o *InviteApplicationResponse) GetType() ApplicationFormPartialType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *InviteApplicationResponse) GetTypeOk() (*int32, bool)`
+`func (o *InviteApplicationResponse) GetTypeOk() (*ApplicationFormPartialType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *InviteApplicationResponse) SetType(v int32)`
+`func (o *InviteApplicationResponse) SetType(v ApplicationFormPartialType)`
 
 SetType sets Type field to given value.
 
@@ -166,16 +156,6 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
-### SetTypeNil
-
-`func (o *InviteApplicationResponse) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *InviteApplicationResponse) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetCoverImage
 
 `func (o *InviteApplicationResponse) GetCoverImage() string`
@@ -201,16 +181,6 @@ SetCoverImage sets CoverImage field to given value.
 
 HasCoverImage returns a boolean if a field has been set.
 
-### SetCoverImageNil
-
-`func (o *InviteApplicationResponse) SetCoverImageNil(b bool)`
-
- SetCoverImageNil sets the value for CoverImage to be an explicit nil
-
-### UnsetCoverImage
-`func (o *InviteApplicationResponse) UnsetCoverImage()`
-
-UnsetCoverImage ensures that no value is present for CoverImage, not even an explicit nil
 ### GetPrimarySkuId
 
 `func (o *InviteApplicationResponse) GetPrimarySkuId() string`
@@ -261,16 +231,6 @@ SetBot sets Bot field to given value.
 
 HasBot returns a boolean if a field has been set.
 
-### SetBotNil
-
-`func (o *InviteApplicationResponse) SetBotNil(b bool)`
-
- SetBotNil sets the value for Bot to be an explicit nil
-
-### UnsetBot
-`func (o *InviteApplicationResponse) UnsetBot()`
-
-UnsetBot ensures that no value is present for Bot, not even an explicit nil
 ### GetSlug
 
 `func (o *InviteApplicationResponse) GetSlug() string`
@@ -296,16 +256,6 @@ SetSlug sets Slug field to given value.
 
 HasSlug returns a boolean if a field has been set.
 
-### SetSlugNil
-
-`func (o *InviteApplicationResponse) SetSlugNil(b bool)`
-
- SetSlugNil sets the value for Slug to be an explicit nil
-
-### UnsetSlug
-`func (o *InviteApplicationResponse) UnsetSlug()`
-
-UnsetSlug ensures that no value is present for Slug, not even an explicit nil
 ### GetGuildId
 
 `func (o *InviteApplicationResponse) GetGuildId() string`
@@ -333,20 +283,20 @@ HasGuildId returns a boolean if a field has been set.
 
 ### GetRpcOrigins
 
-`func (o *InviteApplicationResponse) GetRpcOrigins() []*string`
+`func (o *InviteApplicationResponse) GetRpcOrigins() []string`
 
 GetRpcOrigins returns the RpcOrigins field if non-nil, zero value otherwise.
 
 ### GetRpcOriginsOk
 
-`func (o *InviteApplicationResponse) GetRpcOriginsOk() (*[]*string, bool)`
+`func (o *InviteApplicationResponse) GetRpcOriginsOk() (*[]string, bool)`
 
 GetRpcOriginsOk returns a tuple with the RpcOrigins field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRpcOrigins
 
-`func (o *InviteApplicationResponse) SetRpcOrigins(v []*string)`
+`func (o *InviteApplicationResponse) SetRpcOrigins(v []string)`
 
 SetRpcOrigins sets RpcOrigins field to given value.
 
@@ -356,16 +306,6 @@ SetRpcOrigins sets RpcOrigins field to given value.
 
 HasRpcOrigins returns a boolean if a field has been set.
 
-### SetRpcOriginsNil
-
-`func (o *InviteApplicationResponse) SetRpcOriginsNil(b bool)`
-
- SetRpcOriginsNil sets the value for RpcOrigins to be an explicit nil
-
-### UnsetRpcOrigins
-`func (o *InviteApplicationResponse) UnsetRpcOrigins()`
-
-UnsetRpcOrigins ensures that no value is present for RpcOrigins, not even an explicit nil
 ### GetBotPublic
 
 `func (o *InviteApplicationResponse) GetBotPublic() bool`
@@ -391,16 +331,6 @@ SetBotPublic sets BotPublic field to given value.
 
 HasBotPublic returns a boolean if a field has been set.
 
-### SetBotPublicNil
-
-`func (o *InviteApplicationResponse) SetBotPublicNil(b bool)`
-
- SetBotPublicNil sets the value for BotPublic to be an explicit nil
-
-### UnsetBotPublic
-`func (o *InviteApplicationResponse) UnsetBotPublic()`
-
-UnsetBotPublic ensures that no value is present for BotPublic, not even an explicit nil
 ### GetBotRequireCodeGrant
 
 `func (o *InviteApplicationResponse) GetBotRequireCodeGrant() bool`
@@ -426,16 +356,6 @@ SetBotRequireCodeGrant sets BotRequireCodeGrant field to given value.
 
 HasBotRequireCodeGrant returns a boolean if a field has been set.
 
-### SetBotRequireCodeGrantNil
-
-`func (o *InviteApplicationResponse) SetBotRequireCodeGrantNil(b bool)`
-
- SetBotRequireCodeGrantNil sets the value for BotRequireCodeGrant to be an explicit nil
-
-### UnsetBotRequireCodeGrant
-`func (o *InviteApplicationResponse) UnsetBotRequireCodeGrant()`
-
-UnsetBotRequireCodeGrant ensures that no value is present for BotRequireCodeGrant, not even an explicit nil
 ### GetTermsOfServiceUrl
 
 `func (o *InviteApplicationResponse) GetTermsOfServiceUrl() string`
@@ -461,16 +381,6 @@ SetTermsOfServiceUrl sets TermsOfServiceUrl field to given value.
 
 HasTermsOfServiceUrl returns a boolean if a field has been set.
 
-### SetTermsOfServiceUrlNil
-
-`func (o *InviteApplicationResponse) SetTermsOfServiceUrlNil(b bool)`
-
- SetTermsOfServiceUrlNil sets the value for TermsOfServiceUrl to be an explicit nil
-
-### UnsetTermsOfServiceUrl
-`func (o *InviteApplicationResponse) UnsetTermsOfServiceUrl()`
-
-UnsetTermsOfServiceUrl ensures that no value is present for TermsOfServiceUrl, not even an explicit nil
 ### GetPrivacyPolicyUrl
 
 `func (o *InviteApplicationResponse) GetPrivacyPolicyUrl() string`
@@ -496,16 +406,6 @@ SetPrivacyPolicyUrl sets PrivacyPolicyUrl field to given value.
 
 HasPrivacyPolicyUrl returns a boolean if a field has been set.
 
-### SetPrivacyPolicyUrlNil
-
-`func (o *InviteApplicationResponse) SetPrivacyPolicyUrlNil(b bool)`
-
- SetPrivacyPolicyUrlNil sets the value for PrivacyPolicyUrl to be an explicit nil
-
-### UnsetPrivacyPolicyUrl
-`func (o *InviteApplicationResponse) UnsetPrivacyPolicyUrl()`
-
-UnsetPrivacyPolicyUrl ensures that no value is present for PrivacyPolicyUrl, not even an explicit nil
 ### GetCustomInstallUrl
 
 `func (o *InviteApplicationResponse) GetCustomInstallUrl() string`
@@ -531,16 +431,6 @@ SetCustomInstallUrl sets CustomInstallUrl field to given value.
 
 HasCustomInstallUrl returns a boolean if a field has been set.
 
-### SetCustomInstallUrlNil
-
-`func (o *InviteApplicationResponse) SetCustomInstallUrlNil(b bool)`
-
- SetCustomInstallUrlNil sets the value for CustomInstallUrl to be an explicit nil
-
-### UnsetCustomInstallUrl
-`func (o *InviteApplicationResponse) UnsetCustomInstallUrl()`
-
-UnsetCustomInstallUrl ensures that no value is present for CustomInstallUrl, not even an explicit nil
 ### GetInstallParams
 
 `func (o *InviteApplicationResponse) GetInstallParams() ApplicationOAuth2InstallParamsResponse`
@@ -566,16 +456,6 @@ SetInstallParams sets InstallParams field to given value.
 
 HasInstallParams returns a boolean if a field has been set.
 
-### SetInstallParamsNil
-
-`func (o *InviteApplicationResponse) SetInstallParamsNil(b bool)`
-
- SetInstallParamsNil sets the value for InstallParams to be an explicit nil
-
-### UnsetInstallParams
-`func (o *InviteApplicationResponse) UnsetInstallParams()`
-
-UnsetInstallParams ensures that no value is present for InstallParams, not even an explicit nil
 ### GetIntegrationTypesConfig
 
 `func (o *InviteApplicationResponse) GetIntegrationTypesConfig() map[string]ApplicationIntegrationTypeConfigurationResponse`
@@ -666,16 +546,6 @@ SetMaxParticipants sets MaxParticipants field to given value.
 
 HasMaxParticipants returns a boolean if a field has been set.
 
-### SetMaxParticipantsNil
-
-`func (o *InviteApplicationResponse) SetMaxParticipantsNil(b bool)`
-
- SetMaxParticipantsNil sets the value for MaxParticipants to be an explicit nil
-
-### UnsetMaxParticipants
-`func (o *InviteApplicationResponse) UnsetMaxParticipants()`
-
-UnsetMaxParticipants ensures that no value is present for MaxParticipants, not even an explicit nil
 ### GetTags
 
 `func (o *InviteApplicationResponse) GetTags() []string`
@@ -701,16 +571,6 @@ SetTags sets Tags field to given value.
 
 HasTags returns a boolean if a field has been set.
 
-### SetTagsNil
-
-`func (o *InviteApplicationResponse) SetTagsNil(b bool)`
-
- SetTagsNil sets the value for Tags to be an explicit nil
-
-### UnsetTags
-`func (o *InviteApplicationResponse) UnsetTags()`
-
-UnsetTags ensures that no value is present for Tags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

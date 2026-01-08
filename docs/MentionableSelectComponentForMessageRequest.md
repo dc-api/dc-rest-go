@@ -4,19 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 **CustomId** | **string** |  | 
-**Placeholder** | Pointer to **NullableString** |  | [optional] 
-**MinValues** | Pointer to **NullableInt32** |  | [optional] 
-**MaxValues** | Pointer to **NullableInt32** |  | [optional] 
-**Disabled** | Pointer to **NullableBool** |  | [optional] 
+**Placeholder** | Pointer to **string** |  | [optional] 
+**MinValues** | Pointer to **int32** |  | [optional] 
+**MaxValues** | Pointer to **int32** |  | [optional] 
+**Disabled** | Pointer to **bool** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
 **DefaultValues** | Pointer to [**[]MentionableSelectComponentForMessageRequestDefaultValuesInner**](MentionableSelectComponentForMessageRequestDefaultValuesInner.md) |  | [optional] 
 
 ## Methods
 
 ### NewMentionableSelectComponentForMessageRequest
 
-`func NewMentionableSelectComponentForMessageRequest(type_ int32, customId string, ) *MentionableSelectComponentForMessageRequest`
+`func NewMentionableSelectComponentForMessageRequest(type_ MessageComponentTypes, customId string, ) *MentionableSelectComponentForMessageRequest`
 
 NewMentionableSelectComponentForMessageRequest instantiates a new MentionableSelectComponentForMessageRequest object
 This constructor will assign default values to properties that have it defined,
@@ -33,23 +35,48 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *MentionableSelectComponentForMessageRequest) GetType() int32`
+`func (o *MentionableSelectComponentForMessageRequest) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *MentionableSelectComponentForMessageRequest) GetTypeOk() (*int32, bool)`
+`func (o *MentionableSelectComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *MentionableSelectComponentForMessageRequest) SetType(v int32)`
+`func (o *MentionableSelectComponentForMessageRequest) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *MentionableSelectComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *MentionableSelectComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *MentionableSelectComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *MentionableSelectComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetCustomId
 
@@ -96,16 +123,6 @@ SetPlaceholder sets Placeholder field to given value.
 
 HasPlaceholder returns a boolean if a field has been set.
 
-### SetPlaceholderNil
-
-`func (o *MentionableSelectComponentForMessageRequest) SetPlaceholderNil(b bool)`
-
- SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-
-### UnsetPlaceholder
-`func (o *MentionableSelectComponentForMessageRequest) UnsetPlaceholder()`
-
-UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
 ### GetMinValues
 
 `func (o *MentionableSelectComponentForMessageRequest) GetMinValues() int32`
@@ -131,16 +148,6 @@ SetMinValues sets MinValues field to given value.
 
 HasMinValues returns a boolean if a field has been set.
 
-### SetMinValuesNil
-
-`func (o *MentionableSelectComponentForMessageRequest) SetMinValuesNil(b bool)`
-
- SetMinValuesNil sets the value for MinValues to be an explicit nil
-
-### UnsetMinValues
-`func (o *MentionableSelectComponentForMessageRequest) UnsetMinValues()`
-
-UnsetMinValues ensures that no value is present for MinValues, not even an explicit nil
 ### GetMaxValues
 
 `func (o *MentionableSelectComponentForMessageRequest) GetMaxValues() int32`
@@ -166,16 +173,6 @@ SetMaxValues sets MaxValues field to given value.
 
 HasMaxValues returns a boolean if a field has been set.
 
-### SetMaxValuesNil
-
-`func (o *MentionableSelectComponentForMessageRequest) SetMaxValuesNil(b bool)`
-
- SetMaxValuesNil sets the value for MaxValues to be an explicit nil
-
-### UnsetMaxValues
-`func (o *MentionableSelectComponentForMessageRequest) UnsetMaxValues()`
-
-UnsetMaxValues ensures that no value is present for MaxValues, not even an explicit nil
 ### GetDisabled
 
 `func (o *MentionableSelectComponentForMessageRequest) GetDisabled() bool`
@@ -201,16 +198,31 @@ SetDisabled sets Disabled field to given value.
 
 HasDisabled returns a boolean if a field has been set.
 
-### SetDisabledNil
+### GetRequired
 
-`func (o *MentionableSelectComponentForMessageRequest) SetDisabledNil(b bool)`
+`func (o *MentionableSelectComponentForMessageRequest) GetRequired() bool`
 
- SetDisabledNil sets the value for Disabled to be an explicit nil
+GetRequired returns the Required field if non-nil, zero value otherwise.
 
-### UnsetDisabled
-`func (o *MentionableSelectComponentForMessageRequest) UnsetDisabled()`
+### GetRequiredOk
 
-UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
+`func (o *MentionableSelectComponentForMessageRequest) GetRequiredOk() (*bool, bool)`
+
+GetRequiredOk returns a tuple with the Required field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequired
+
+`func (o *MentionableSelectComponentForMessageRequest) SetRequired(v bool)`
+
+SetRequired sets Required field to given value.
+
+### HasRequired
+
+`func (o *MentionableSelectComponentForMessageRequest) HasRequired() bool`
+
+HasRequired returns a boolean if a field has been set.
+
 ### GetDefaultValues
 
 `func (o *MentionableSelectComponentForMessageRequest) GetDefaultValues() []MentionableSelectComponentForMessageRequestDefaultValuesInner`
@@ -236,16 +248,6 @@ SetDefaultValues sets DefaultValues field to given value.
 
 HasDefaultValues returns a boolean if a field has been set.
 
-### SetDefaultValuesNil
-
-`func (o *MentionableSelectComponentForMessageRequest) SetDefaultValuesNil(b bool)`
-
- SetDefaultValuesNil sets the value for DefaultValues to be an explicit nil
-
-### UnsetDefaultValues
-`func (o *MentionableSelectComponentForMessageRequest) UnsetDefaultValues()`
-
-UnsetDefaultValues ensures that no value is present for DefaultValues, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

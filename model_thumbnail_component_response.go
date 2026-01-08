@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,10 +55,10 @@ var _ MappedNullable = &ThumbnailComponentResponse{}
 
 // ThumbnailComponentResponse struct for ThumbnailComponentResponse
 type ThumbnailComponentResponse struct {
-	Type int32 `json:"type"`
+	Type MessageComponentTypes `json:"type"`
 	Id int32 `json:"id"`
 	Media UnfurledMediaResponse `json:"media"`
-	Description NullableString `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 	Spoiler bool `json:"spoiler"`
 }
 
@@ -68,7 +68,7 @@ type _ThumbnailComponentResponse ThumbnailComponentResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewThumbnailComponentResponse(type_ int32, id int32, media UnfurledMediaResponse, spoiler bool) *ThumbnailComponentResponse {
+func NewThumbnailComponentResponse(type_ MessageComponentTypes, id int32, media UnfurledMediaResponse, spoiler bool) *ThumbnailComponentResponse {
 	this := ThumbnailComponentResponse{}
 	this.Type = type_
 	this.Id = id
@@ -86,9 +86,9 @@ func NewThumbnailComponentResponseWithDefaults() *ThumbnailComponentResponse {
 }
 
 // GetType returns the Type field value
-func (o *ThumbnailComponentResponse) GetType() int32 {
+func (o *ThumbnailComponentResponse) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -97,7 +97,7 @@ func (o *ThumbnailComponentResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ThumbnailComponentResponse) GetTypeOk() (*int32, bool) {
+func (o *ThumbnailComponentResponse) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -105,7 +105,7 @@ func (o *ThumbnailComponentResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *ThumbnailComponentResponse) SetType(v int32) {
+func (o *ThumbnailComponentResponse) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
 
@@ -157,48 +157,38 @@ func (o *ThumbnailComponentResponse) SetMedia(v UnfurledMediaResponse) {
 	o.Media = v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ThumbnailComponentResponse) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ThumbnailComponentResponse) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *ThumbnailComponentResponse) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *ThumbnailComponentResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *ThumbnailComponentResponse) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *ThumbnailComponentResponse) UnsetDescription() {
-	o.Description.Unset()
-}
 
 // GetSpoiler returns the Spoiler field value
 func (o *ThumbnailComponentResponse) GetSpoiler() bool {
@@ -237,8 +227,8 @@ func (o ThumbnailComponentResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["type"] = o.Type
 	toSerialize["id"] = o.Id
 	toSerialize["media"] = o.Media
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
 	toSerialize["spoiler"] = o.Spoiler
 	return toSerialize, nil
@@ -319,5 +309,4 @@ func (v *NullableThumbnailComponentResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Title** | **string** |  | 
 **Number** | **int32** |  | 
 **HtmlUrl** | **string** |  | 
-**AnswerHtmlUrl** | Pointer to **NullableString** |  | [optional] 
-**Body** | Pointer to **NullableString** |  | [optional] 
+**AnswerHtmlUrl** | Pointer to **string** |  | [optional] 
+**Body** | Pointer to **string** |  | [optional] 
 **User** | [**GithubUser**](GithubUser.md) |  | 
 
 ## Methods
@@ -115,16 +115,6 @@ SetAnswerHtmlUrl sets AnswerHtmlUrl field to given value.
 
 HasAnswerHtmlUrl returns a boolean if a field has been set.
 
-### SetAnswerHtmlUrlNil
-
-`func (o *GithubDiscussion) SetAnswerHtmlUrlNil(b bool)`
-
- SetAnswerHtmlUrlNil sets the value for AnswerHtmlUrl to be an explicit nil
-
-### UnsetAnswerHtmlUrl
-`func (o *GithubDiscussion) UnsetAnswerHtmlUrl()`
-
-UnsetAnswerHtmlUrl ensures that no value is present for AnswerHtmlUrl, not even an explicit nil
 ### GetBody
 
 `func (o *GithubDiscussion) GetBody() string`
@@ -150,16 +140,6 @@ SetBody sets Body field to given value.
 
 HasBody returns a boolean if a field has been set.
 
-### SetBodyNil
-
-`func (o *GithubDiscussion) SetBodyNil(b bool)`
-
- SetBodyNil sets the value for Body to be an explicit nil
-
-### UnsetBody
-`func (o *GithubDiscussion) UnsetBody()`
-
-UnsetBody ensures that no value is present for Body, not even an explicit nil
 ### GetUser
 
 `func (o *GithubDiscussion) GetUser() GithubUser`

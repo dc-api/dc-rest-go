@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,9 +56,9 @@ var _ MappedNullable = &InviteChannelResponse{}
 // InviteChannelResponse struct for InviteChannelResponse
 type InviteChannelResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Type int32 `json:"type"`
-	Name NullableString `json:"name,omitempty"`
-	Icon NullableString `json:"icon,omitempty"`
+	Type ChannelTypes `json:"type"`
+	Name *string `json:"name,omitempty"`
+	Icon *string `json:"icon,omitempty"`
 	Recipients []InviteChannelRecipientResponse `json:"recipients,omitempty"`
 }
 
@@ -68,7 +68,7 @@ type _InviteChannelResponse InviteChannelResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInviteChannelResponse(id string, type_ int32) *InviteChannelResponse {
+func NewInviteChannelResponse(id string, type_ ChannelTypes) *InviteChannelResponse {
 	this := InviteChannelResponse{}
 	this.Id = id
 	this.Type = type_
@@ -108,9 +108,9 @@ func (o *InviteChannelResponse) SetId(v string) {
 }
 
 // GetType returns the Type field value
-func (o *InviteChannelResponse) GetType() int32 {
+func (o *InviteChannelResponse) GetType() ChannelTypes {
 	if o == nil {
-		var ret int32
+		var ret ChannelTypes
 		return ret
 	}
 
@@ -119,7 +119,7 @@ func (o *InviteChannelResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *InviteChannelResponse) GetTypeOk() (*int32, bool) {
+func (o *InviteChannelResponse) GetTypeOk() (*ChannelTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -127,99 +127,79 @@ func (o *InviteChannelResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *InviteChannelResponse) SetType(v int32) {
+func (o *InviteChannelResponse) SetType(v ChannelTypes) {
 	o.Type = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *InviteChannelResponse) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteChannelResponse) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *InviteChannelResponse) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *InviteChannelResponse) SetName(v string) {
-	o.Name.Set(&v)
+	o.Name = &v
 }
 
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *InviteChannelResponse) SetNameNil() {
-	o.Name.Set(nil)
-}
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *InviteChannelResponse) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIcon returns the Icon field value if set, zero value otherwise.
 func (o *InviteChannelResponse) GetIcon() string {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		var ret string
 		return ret
 	}
-	return *o.Icon.Get()
+	return *o.Icon
 }
 
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteChannelResponse) GetIconOk() (*string, bool) {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		return nil, false
 	}
-	return o.Icon.Get(), o.Icon.IsSet()
+	return o.Icon, true
 }
 
 // HasIcon returns a boolean if a field has been set.
 func (o *InviteChannelResponse) HasIcon() bool {
-	if o != nil && o.Icon.IsSet() {
+	if o != nil && !IsNil(o.Icon) {
 		return true
 	}
 
 	return false
 }
 
-// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+// SetIcon gets a reference to the given string and assigns it to the Icon field.
 func (o *InviteChannelResponse) SetIcon(v string) {
-	o.Icon.Set(&v)
+	o.Icon = &v
 }
 
-// SetIconNil sets the value for Icon to be an explicit nil
-func (o *InviteChannelResponse) SetIconNil() {
-	o.Icon.Set(nil)
-}
 
-// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
-func (o *InviteChannelResponse) UnsetIcon() {
-	o.Icon.Unset()
-}
-
-// GetRecipients returns the Recipients field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRecipients returns the Recipients field value if set, zero value otherwise.
 func (o *InviteChannelResponse) GetRecipients() []InviteChannelRecipientResponse {
-	if o == nil {
+	if o == nil || IsNil(o.Recipients) {
 		var ret []InviteChannelRecipientResponse
 		return ret
 	}
@@ -228,9 +208,8 @@ func (o *InviteChannelResponse) GetRecipients() []InviteChannelRecipientResponse
 
 // GetRecipientsOk returns a tuple with the Recipients field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteChannelResponse) GetRecipientsOk() ([]InviteChannelRecipientResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Recipients) {
 		return nil, false
 	}
 	return o.Recipients, true
@@ -263,13 +242,13 @@ func (o InviteChannelResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["type"] = o.Type
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Icon.IsSet() {
-		toSerialize["icon"] = o.Icon.Get()
+	if !IsNil(o.Icon) {
+		toSerialize["icon"] = o.Icon
 	}
-	if o.Recipients != nil {
+	if !IsNil(o.Recipients) {
 		toSerialize["recipients"] = o.Recipients
 	}
 	return toSerialize, nil
@@ -348,5 +327,4 @@ func (v *NullableInviteChannelResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

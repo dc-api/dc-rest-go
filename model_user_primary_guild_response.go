@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,10 +53,10 @@ var _ MappedNullable = &UserPrimaryGuildResponse{}
 
 // UserPrimaryGuildResponse struct for UserPrimaryGuildResponse
 type UserPrimaryGuildResponse struct {
-	IdentityGuildId *string `json:"identity_guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	IdentityEnabled NullableBool `json:"identity_enabled,omitempty"`
-	Tag NullableString `json:"tag,omitempty"`
-	Badge NullableString `json:"badge,omitempty"`
+	IdentityGuildId *GetEntitlementsSkuIdsParameterOneOfInner `json:"identity_guild_id,omitempty"`
+	IdentityEnabled *bool `json:"identity_enabled,omitempty"`
+	Tag *string `json:"tag,omitempty"`
+	Badge *string `json:"badge,omitempty"`
 }
 
 // NewUserPrimaryGuildResponse instantiates a new UserPrimaryGuildResponse object
@@ -77,9 +77,9 @@ func NewUserPrimaryGuildResponseWithDefaults() *UserPrimaryGuildResponse {
 }
 
 // GetIdentityGuildId returns the IdentityGuildId field value if set, zero value otherwise.
-func (o *UserPrimaryGuildResponse) GetIdentityGuildId() string {
+func (o *UserPrimaryGuildResponse) GetIdentityGuildId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.IdentityGuildId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.IdentityGuildId
@@ -87,7 +87,7 @@ func (o *UserPrimaryGuildResponse) GetIdentityGuildId() string {
 
 // GetIdentityGuildIdOk returns a tuple with the IdentityGuildId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserPrimaryGuildResponse) GetIdentityGuildIdOk() (*string, bool) {
+func (o *UserPrimaryGuildResponse) GetIdentityGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.IdentityGuildId) {
 		return nil, false
 	}
@@ -103,140 +103,110 @@ func (o *UserPrimaryGuildResponse) HasIdentityGuildId() bool {
 	return false
 }
 
-// SetIdentityGuildId gets a reference to the given string and assigns it to the IdentityGuildId field.
-func (o *UserPrimaryGuildResponse) SetIdentityGuildId(v string) {
+// SetIdentityGuildId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the IdentityGuildId field.
+func (o *UserPrimaryGuildResponse) SetIdentityGuildId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.IdentityGuildId = &v
 }
 
 
-// GetIdentityEnabled returns the IdentityEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIdentityEnabled returns the IdentityEnabled field value if set, zero value otherwise.
 func (o *UserPrimaryGuildResponse) GetIdentityEnabled() bool {
-	if o == nil || IsNil(o.IdentityEnabled.Get()) {
+	if o == nil || IsNil(o.IdentityEnabled) {
 		var ret bool
 		return ret
 	}
-	return *o.IdentityEnabled.Get()
+	return *o.IdentityEnabled
 }
 
 // GetIdentityEnabledOk returns a tuple with the IdentityEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserPrimaryGuildResponse) GetIdentityEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.IdentityEnabled.Get()) {
+	if o == nil || IsNil(o.IdentityEnabled) {
 		return nil, false
 	}
-	return o.IdentityEnabled.Get(), o.IdentityEnabled.IsSet()
+	return o.IdentityEnabled, true
 }
 
 // HasIdentityEnabled returns a boolean if a field has been set.
 func (o *UserPrimaryGuildResponse) HasIdentityEnabled() bool {
-	if o != nil && o.IdentityEnabled.IsSet() {
+	if o != nil && !IsNil(o.IdentityEnabled) {
 		return true
 	}
 
 	return false
 }
 
-// SetIdentityEnabled gets a reference to the given NullableBool and assigns it to the IdentityEnabled field.
+// SetIdentityEnabled gets a reference to the given bool and assigns it to the IdentityEnabled field.
 func (o *UserPrimaryGuildResponse) SetIdentityEnabled(v bool) {
-	o.IdentityEnabled.Set(&v)
+	o.IdentityEnabled = &v
 }
 
-// SetIdentityEnabledNil sets the value for IdentityEnabled to be an explicit nil
-func (o *UserPrimaryGuildResponse) SetIdentityEnabledNil() {
-	o.IdentityEnabled.Set(nil)
-}
 
-// UnsetIdentityEnabled ensures that no value is present for IdentityEnabled, not even an explicit nil
-func (o *UserPrimaryGuildResponse) UnsetIdentityEnabled() {
-	o.IdentityEnabled.Unset()
-}
-
-// GetTag returns the Tag field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTag returns the Tag field value if set, zero value otherwise.
 func (o *UserPrimaryGuildResponse) GetTag() string {
-	if o == nil || IsNil(o.Tag.Get()) {
+	if o == nil || IsNil(o.Tag) {
 		var ret string
 		return ret
 	}
-	return *o.Tag.Get()
+	return *o.Tag
 }
 
 // GetTagOk returns a tuple with the Tag field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserPrimaryGuildResponse) GetTagOk() (*string, bool) {
-	if o == nil || IsNil(o.Tag.Get()) {
+	if o == nil || IsNil(o.Tag) {
 		return nil, false
 	}
-	return o.Tag.Get(), o.Tag.IsSet()
+	return o.Tag, true
 }
 
 // HasTag returns a boolean if a field has been set.
 func (o *UserPrimaryGuildResponse) HasTag() bool {
-	if o != nil && o.Tag.IsSet() {
+	if o != nil && !IsNil(o.Tag) {
 		return true
 	}
 
 	return false
 }
 
-// SetTag gets a reference to the given NullableString and assigns it to the Tag field.
+// SetTag gets a reference to the given string and assigns it to the Tag field.
 func (o *UserPrimaryGuildResponse) SetTag(v string) {
-	o.Tag.Set(&v)
+	o.Tag = &v
 }
 
-// SetTagNil sets the value for Tag to be an explicit nil
-func (o *UserPrimaryGuildResponse) SetTagNil() {
-	o.Tag.Set(nil)
-}
 
-// UnsetTag ensures that no value is present for Tag, not even an explicit nil
-func (o *UserPrimaryGuildResponse) UnsetTag() {
-	o.Tag.Unset()
-}
-
-// GetBadge returns the Badge field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBadge returns the Badge field value if set, zero value otherwise.
 func (o *UserPrimaryGuildResponse) GetBadge() string {
-	if o == nil || IsNil(o.Badge.Get()) {
+	if o == nil || IsNil(o.Badge) {
 		var ret string
 		return ret
 	}
-	return *o.Badge.Get()
+	return *o.Badge
 }
 
 // GetBadgeOk returns a tuple with the Badge field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserPrimaryGuildResponse) GetBadgeOk() (*string, bool) {
-	if o == nil || IsNil(o.Badge.Get()) {
+	if o == nil || IsNil(o.Badge) {
 		return nil, false
 	}
-	return o.Badge.Get(), o.Badge.IsSet()
+	return o.Badge, true
 }
 
 // HasBadge returns a boolean if a field has been set.
 func (o *UserPrimaryGuildResponse) HasBadge() bool {
-	if o != nil && o.Badge.IsSet() {
+	if o != nil && !IsNil(o.Badge) {
 		return true
 	}
 
 	return false
 }
 
-// SetBadge gets a reference to the given NullableString and assigns it to the Badge field.
+// SetBadge gets a reference to the given string and assigns it to the Badge field.
 func (o *UserPrimaryGuildResponse) SetBadge(v string) {
-	o.Badge.Set(&v)
+	o.Badge = &v
 }
 
-// SetBadgeNil sets the value for Badge to be an explicit nil
-func (o *UserPrimaryGuildResponse) SetBadgeNil() {
-	o.Badge.Set(nil)
-}
-
-// UnsetBadge ensures that no value is present for Badge, not even an explicit nil
-func (o *UserPrimaryGuildResponse) UnsetBadge() {
-	o.Badge.Unset()
-}
 
 func (o UserPrimaryGuildResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -251,14 +221,14 @@ func (o UserPrimaryGuildResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IdentityGuildId) {
 		toSerialize["identity_guild_id"] = o.IdentityGuildId
 	}
-	if o.IdentityEnabled.IsSet() {
-		toSerialize["identity_enabled"] = o.IdentityEnabled.Get()
+	if !IsNil(o.IdentityEnabled) {
+		toSerialize["identity_enabled"] = o.IdentityEnabled
 	}
-	if o.Tag.IsSet() {
-		toSerialize["tag"] = o.Tag.Get()
+	if !IsNil(o.Tag) {
+		toSerialize["tag"] = o.Tag
 	}
-	if o.Badge.IsSet() {
-		toSerialize["badge"] = o.Badge.Get()
+	if !IsNil(o.Badge) {
+		toSerialize["badge"] = o.Badge
 	}
 	return toSerialize, nil
 }
@@ -298,5 +268,4 @@ func (v *NullableUserPrimaryGuildResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

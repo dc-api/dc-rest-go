@@ -6,41 +6,41 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Icon** | Pointer to **NullableString** |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
 **Description** | **string** |  | 
-**Type** | Pointer to **NullableInt32** |  | [optional] 
-**CoverImage** | Pointer to **NullableString** |  | [optional] 
+**Type** | Pointer to [**ApplicationFormPartialType**](ApplicationFormPartialType.md) |  | [optional] 
+**CoverImage** | Pointer to **string** |  | [optional] 
 **PrimarySkuId** | Pointer to **string** |  | [optional] 
-**Bot** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**Slug** | Pointer to **NullableString** |  | [optional] 
+**Bot** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**Slug** | Pointer to **string** |  | [optional] 
 **GuildId** | Pointer to **string** |  | [optional] 
 **RpcOrigins** | Pointer to **[]string** |  | [optional] 
-**BotPublic** | Pointer to **NullableBool** |  | [optional] 
-**BotRequireCodeGrant** | Pointer to **NullableBool** |  | [optional] 
-**TermsOfServiceUrl** | Pointer to **NullableString** |  | [optional] 
-**PrivacyPolicyUrl** | Pointer to **NullableString** |  | [optional] 
-**CustomInstallUrl** | Pointer to **NullableString** |  | [optional] 
-**InstallParams** | Pointer to [**NullableApplicationOAuth2InstallParamsResponse**](ApplicationOAuth2InstallParamsResponse.md) |  | [optional] 
+**BotPublic** | Pointer to **bool** |  | [optional] 
+**BotRequireCodeGrant** | Pointer to **bool** |  | [optional] 
+**TermsOfServiceUrl** | Pointer to **string** |  | [optional] 
+**PrivacyPolicyUrl** | Pointer to **string** |  | [optional] 
+**CustomInstallUrl** | Pointer to **string** |  | [optional] 
+**InstallParams** | Pointer to [**ApplicationOAuth2InstallParamsResponse**](ApplicationOAuth2InstallParamsResponse.md) |  | [optional] 
 **IntegrationTypesConfig** | Pointer to [**map[string]ApplicationIntegrationTypeConfigurationResponse**](ApplicationIntegrationTypeConfigurationResponse.md) |  | [optional] 
 **VerifyKey** | **string** |  | 
 **Flags** | **int32** |  | 
-**MaxParticipants** | Pointer to **NullableInt32** |  | [optional] 
+**MaxParticipants** | Pointer to **int32** |  | [optional] 
 **Tags** | Pointer to **[]string** |  | [optional] 
 **RedirectUris** | **[]string** |  | 
-**InteractionsEndpointUrl** | Pointer to **NullableString** |  | [optional] 
-**RoleConnectionsVerificationUrl** | Pointer to **NullableString** |  | [optional] 
+**InteractionsEndpointUrl** | Pointer to **string** |  | [optional] 
+**RoleConnectionsVerificationUrl** | Pointer to **string** |  | [optional] 
 **Owner** | [**UserResponse**](UserResponse.md) |  | 
-**ApproximateGuildCount** | Pointer to **NullableInt32** |  | [optional] 
+**ApproximateGuildCount** | Pointer to **int32** |  | [optional] 
 **ApproximateUserInstallCount** | **int32** |  | 
 **ApproximateUserAuthorizationCount** | **int32** |  | 
-**ExplicitContentFilter** | **int32** |  | 
-**Team** | Pointer to [**NullableTeamResponse**](TeamResponse.md) |  | [optional] 
+**ExplicitContentFilter** | [**ApplicationExplicitContentFilterTypes**](ApplicationExplicitContentFilterTypes.md) |  | 
+**Team** | Pointer to [**PrivateApplicationResponseTeam**](PrivateApplicationResponseTeam.md) |  | [optional] 
 
 ## Methods
 
 ### NewPrivateApplicationResponse
 
-`func NewPrivateApplicationResponse(id string, name string, description string, verifyKey string, flags int32, redirectUris []*string, owner UserResponse, approximateUserInstallCount int32, approximateUserAuthorizationCount int32, explicitContentFilter int32, ) *PrivateApplicationResponse`
+`func NewPrivateApplicationResponse(id string, name string, description string, verifyKey string, flags int32, redirectUris []string, owner UserResponse, approximateUserInstallCount int32, approximateUserAuthorizationCount int32, explicitContentFilter ApplicationExplicitContentFilterTypes, ) *PrivateApplicationResponse`
 
 NewPrivateApplicationResponse instantiates a new PrivateApplicationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -120,16 +120,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *PrivateApplicationResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *PrivateApplicationResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetDescription
 
 `func (o *PrivateApplicationResponse) GetDescription() string`
@@ -152,20 +142,20 @@ SetDescription sets Description field to given value.
 
 ### GetType
 
-`func (o *PrivateApplicationResponse) GetType() int32`
+`func (o *PrivateApplicationResponse) GetType() ApplicationFormPartialType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *PrivateApplicationResponse) GetTypeOk() (*int32, bool)`
+`func (o *PrivateApplicationResponse) GetTypeOk() (*ApplicationFormPartialType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *PrivateApplicationResponse) SetType(v int32)`
+`func (o *PrivateApplicationResponse) SetType(v ApplicationFormPartialType)`
 
 SetType sets Type field to given value.
 
@@ -175,16 +165,6 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
-### SetTypeNil
-
-`func (o *PrivateApplicationResponse) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *PrivateApplicationResponse) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetCoverImage
 
 `func (o *PrivateApplicationResponse) GetCoverImage() string`
@@ -210,16 +190,6 @@ SetCoverImage sets CoverImage field to given value.
 
 HasCoverImage returns a boolean if a field has been set.
 
-### SetCoverImageNil
-
-`func (o *PrivateApplicationResponse) SetCoverImageNil(b bool)`
-
- SetCoverImageNil sets the value for CoverImage to be an explicit nil
-
-### UnsetCoverImage
-`func (o *PrivateApplicationResponse) UnsetCoverImage()`
-
-UnsetCoverImage ensures that no value is present for CoverImage, not even an explicit nil
 ### GetPrimarySkuId
 
 `func (o *PrivateApplicationResponse) GetPrimarySkuId() string`
@@ -270,16 +240,6 @@ SetBot sets Bot field to given value.
 
 HasBot returns a boolean if a field has been set.
 
-### SetBotNil
-
-`func (o *PrivateApplicationResponse) SetBotNil(b bool)`
-
- SetBotNil sets the value for Bot to be an explicit nil
-
-### UnsetBot
-`func (o *PrivateApplicationResponse) UnsetBot()`
-
-UnsetBot ensures that no value is present for Bot, not even an explicit nil
 ### GetSlug
 
 `func (o *PrivateApplicationResponse) GetSlug() string`
@@ -305,16 +265,6 @@ SetSlug sets Slug field to given value.
 
 HasSlug returns a boolean if a field has been set.
 
-### SetSlugNil
-
-`func (o *PrivateApplicationResponse) SetSlugNil(b bool)`
-
- SetSlugNil sets the value for Slug to be an explicit nil
-
-### UnsetSlug
-`func (o *PrivateApplicationResponse) UnsetSlug()`
-
-UnsetSlug ensures that no value is present for Slug, not even an explicit nil
 ### GetGuildId
 
 `func (o *PrivateApplicationResponse) GetGuildId() string`
@@ -342,20 +292,20 @@ HasGuildId returns a boolean if a field has been set.
 
 ### GetRpcOrigins
 
-`func (o *PrivateApplicationResponse) GetRpcOrigins() []*string`
+`func (o *PrivateApplicationResponse) GetRpcOrigins() []string`
 
 GetRpcOrigins returns the RpcOrigins field if non-nil, zero value otherwise.
 
 ### GetRpcOriginsOk
 
-`func (o *PrivateApplicationResponse) GetRpcOriginsOk() (*[]*string, bool)`
+`func (o *PrivateApplicationResponse) GetRpcOriginsOk() (*[]string, bool)`
 
 GetRpcOriginsOk returns a tuple with the RpcOrigins field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRpcOrigins
 
-`func (o *PrivateApplicationResponse) SetRpcOrigins(v []*string)`
+`func (o *PrivateApplicationResponse) SetRpcOrigins(v []string)`
 
 SetRpcOrigins sets RpcOrigins field to given value.
 
@@ -365,16 +315,6 @@ SetRpcOrigins sets RpcOrigins field to given value.
 
 HasRpcOrigins returns a boolean if a field has been set.
 
-### SetRpcOriginsNil
-
-`func (o *PrivateApplicationResponse) SetRpcOriginsNil(b bool)`
-
- SetRpcOriginsNil sets the value for RpcOrigins to be an explicit nil
-
-### UnsetRpcOrigins
-`func (o *PrivateApplicationResponse) UnsetRpcOrigins()`
-
-UnsetRpcOrigins ensures that no value is present for RpcOrigins, not even an explicit nil
 ### GetBotPublic
 
 `func (o *PrivateApplicationResponse) GetBotPublic() bool`
@@ -400,16 +340,6 @@ SetBotPublic sets BotPublic field to given value.
 
 HasBotPublic returns a boolean if a field has been set.
 
-### SetBotPublicNil
-
-`func (o *PrivateApplicationResponse) SetBotPublicNil(b bool)`
-
- SetBotPublicNil sets the value for BotPublic to be an explicit nil
-
-### UnsetBotPublic
-`func (o *PrivateApplicationResponse) UnsetBotPublic()`
-
-UnsetBotPublic ensures that no value is present for BotPublic, not even an explicit nil
 ### GetBotRequireCodeGrant
 
 `func (o *PrivateApplicationResponse) GetBotRequireCodeGrant() bool`
@@ -435,16 +365,6 @@ SetBotRequireCodeGrant sets BotRequireCodeGrant field to given value.
 
 HasBotRequireCodeGrant returns a boolean if a field has been set.
 
-### SetBotRequireCodeGrantNil
-
-`func (o *PrivateApplicationResponse) SetBotRequireCodeGrantNil(b bool)`
-
- SetBotRequireCodeGrantNil sets the value for BotRequireCodeGrant to be an explicit nil
-
-### UnsetBotRequireCodeGrant
-`func (o *PrivateApplicationResponse) UnsetBotRequireCodeGrant()`
-
-UnsetBotRequireCodeGrant ensures that no value is present for BotRequireCodeGrant, not even an explicit nil
 ### GetTermsOfServiceUrl
 
 `func (o *PrivateApplicationResponse) GetTermsOfServiceUrl() string`
@@ -470,16 +390,6 @@ SetTermsOfServiceUrl sets TermsOfServiceUrl field to given value.
 
 HasTermsOfServiceUrl returns a boolean if a field has been set.
 
-### SetTermsOfServiceUrlNil
-
-`func (o *PrivateApplicationResponse) SetTermsOfServiceUrlNil(b bool)`
-
- SetTermsOfServiceUrlNil sets the value for TermsOfServiceUrl to be an explicit nil
-
-### UnsetTermsOfServiceUrl
-`func (o *PrivateApplicationResponse) UnsetTermsOfServiceUrl()`
-
-UnsetTermsOfServiceUrl ensures that no value is present for TermsOfServiceUrl, not even an explicit nil
 ### GetPrivacyPolicyUrl
 
 `func (o *PrivateApplicationResponse) GetPrivacyPolicyUrl() string`
@@ -505,16 +415,6 @@ SetPrivacyPolicyUrl sets PrivacyPolicyUrl field to given value.
 
 HasPrivacyPolicyUrl returns a boolean if a field has been set.
 
-### SetPrivacyPolicyUrlNil
-
-`func (o *PrivateApplicationResponse) SetPrivacyPolicyUrlNil(b bool)`
-
- SetPrivacyPolicyUrlNil sets the value for PrivacyPolicyUrl to be an explicit nil
-
-### UnsetPrivacyPolicyUrl
-`func (o *PrivateApplicationResponse) UnsetPrivacyPolicyUrl()`
-
-UnsetPrivacyPolicyUrl ensures that no value is present for PrivacyPolicyUrl, not even an explicit nil
 ### GetCustomInstallUrl
 
 `func (o *PrivateApplicationResponse) GetCustomInstallUrl() string`
@@ -540,16 +440,6 @@ SetCustomInstallUrl sets CustomInstallUrl field to given value.
 
 HasCustomInstallUrl returns a boolean if a field has been set.
 
-### SetCustomInstallUrlNil
-
-`func (o *PrivateApplicationResponse) SetCustomInstallUrlNil(b bool)`
-
- SetCustomInstallUrlNil sets the value for CustomInstallUrl to be an explicit nil
-
-### UnsetCustomInstallUrl
-`func (o *PrivateApplicationResponse) UnsetCustomInstallUrl()`
-
-UnsetCustomInstallUrl ensures that no value is present for CustomInstallUrl, not even an explicit nil
 ### GetInstallParams
 
 `func (o *PrivateApplicationResponse) GetInstallParams() ApplicationOAuth2InstallParamsResponse`
@@ -575,16 +465,6 @@ SetInstallParams sets InstallParams field to given value.
 
 HasInstallParams returns a boolean if a field has been set.
 
-### SetInstallParamsNil
-
-`func (o *PrivateApplicationResponse) SetInstallParamsNil(b bool)`
-
- SetInstallParamsNil sets the value for InstallParams to be an explicit nil
-
-### UnsetInstallParams
-`func (o *PrivateApplicationResponse) UnsetInstallParams()`
-
-UnsetInstallParams ensures that no value is present for InstallParams, not even an explicit nil
 ### GetIntegrationTypesConfig
 
 `func (o *PrivateApplicationResponse) GetIntegrationTypesConfig() map[string]ApplicationIntegrationTypeConfigurationResponse`
@@ -675,16 +555,6 @@ SetMaxParticipants sets MaxParticipants field to given value.
 
 HasMaxParticipants returns a boolean if a field has been set.
 
-### SetMaxParticipantsNil
-
-`func (o *PrivateApplicationResponse) SetMaxParticipantsNil(b bool)`
-
- SetMaxParticipantsNil sets the value for MaxParticipants to be an explicit nil
-
-### UnsetMaxParticipants
-`func (o *PrivateApplicationResponse) UnsetMaxParticipants()`
-
-UnsetMaxParticipants ensures that no value is present for MaxParticipants, not even an explicit nil
 ### GetTags
 
 `func (o *PrivateApplicationResponse) GetTags() []string`
@@ -710,32 +580,22 @@ SetTags sets Tags field to given value.
 
 HasTags returns a boolean if a field has been set.
 
-### SetTagsNil
-
-`func (o *PrivateApplicationResponse) SetTagsNil(b bool)`
-
- SetTagsNil sets the value for Tags to be an explicit nil
-
-### UnsetTags
-`func (o *PrivateApplicationResponse) UnsetTags()`
-
-UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetRedirectUris
 
-`func (o *PrivateApplicationResponse) GetRedirectUris() []*string`
+`func (o *PrivateApplicationResponse) GetRedirectUris() []string`
 
 GetRedirectUris returns the RedirectUris field if non-nil, zero value otherwise.
 
 ### GetRedirectUrisOk
 
-`func (o *PrivateApplicationResponse) GetRedirectUrisOk() (*[]*string, bool)`
+`func (o *PrivateApplicationResponse) GetRedirectUrisOk() (*[]string, bool)`
 
 GetRedirectUrisOk returns a tuple with the RedirectUris field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRedirectUris
 
-`func (o *PrivateApplicationResponse) SetRedirectUris(v []*string)`
+`func (o *PrivateApplicationResponse) SetRedirectUris(v []string)`
 
 SetRedirectUris sets RedirectUris field to given value.
 
@@ -765,16 +625,6 @@ SetInteractionsEndpointUrl sets InteractionsEndpointUrl field to given value.
 
 HasInteractionsEndpointUrl returns a boolean if a field has been set.
 
-### SetInteractionsEndpointUrlNil
-
-`func (o *PrivateApplicationResponse) SetInteractionsEndpointUrlNil(b bool)`
-
- SetInteractionsEndpointUrlNil sets the value for InteractionsEndpointUrl to be an explicit nil
-
-### UnsetInteractionsEndpointUrl
-`func (o *PrivateApplicationResponse) UnsetInteractionsEndpointUrl()`
-
-UnsetInteractionsEndpointUrl ensures that no value is present for InteractionsEndpointUrl, not even an explicit nil
 ### GetRoleConnectionsVerificationUrl
 
 `func (o *PrivateApplicationResponse) GetRoleConnectionsVerificationUrl() string`
@@ -800,16 +650,6 @@ SetRoleConnectionsVerificationUrl sets RoleConnectionsVerificationUrl field to g
 
 HasRoleConnectionsVerificationUrl returns a boolean if a field has been set.
 
-### SetRoleConnectionsVerificationUrlNil
-
-`func (o *PrivateApplicationResponse) SetRoleConnectionsVerificationUrlNil(b bool)`
-
- SetRoleConnectionsVerificationUrlNil sets the value for RoleConnectionsVerificationUrl to be an explicit nil
-
-### UnsetRoleConnectionsVerificationUrl
-`func (o *PrivateApplicationResponse) UnsetRoleConnectionsVerificationUrl()`
-
-UnsetRoleConnectionsVerificationUrl ensures that no value is present for RoleConnectionsVerificationUrl, not even an explicit nil
 ### GetOwner
 
 `func (o *PrivateApplicationResponse) GetOwner() UserResponse`
@@ -855,16 +695,6 @@ SetApproximateGuildCount sets ApproximateGuildCount field to given value.
 
 HasApproximateGuildCount returns a boolean if a field has been set.
 
-### SetApproximateGuildCountNil
-
-`func (o *PrivateApplicationResponse) SetApproximateGuildCountNil(b bool)`
-
- SetApproximateGuildCountNil sets the value for ApproximateGuildCount to be an explicit nil
-
-### UnsetApproximateGuildCount
-`func (o *PrivateApplicationResponse) UnsetApproximateGuildCount()`
-
-UnsetApproximateGuildCount ensures that no value is present for ApproximateGuildCount, not even an explicit nil
 ### GetApproximateUserInstallCount
 
 `func (o *PrivateApplicationResponse) GetApproximateUserInstallCount() int32`
@@ -907,40 +737,40 @@ SetApproximateUserAuthorizationCount sets ApproximateUserAuthorizationCount fiel
 
 ### GetExplicitContentFilter
 
-`func (o *PrivateApplicationResponse) GetExplicitContentFilter() int32`
+`func (o *PrivateApplicationResponse) GetExplicitContentFilter() ApplicationExplicitContentFilterTypes`
 
 GetExplicitContentFilter returns the ExplicitContentFilter field if non-nil, zero value otherwise.
 
 ### GetExplicitContentFilterOk
 
-`func (o *PrivateApplicationResponse) GetExplicitContentFilterOk() (*int32, bool)`
+`func (o *PrivateApplicationResponse) GetExplicitContentFilterOk() (*ApplicationExplicitContentFilterTypes, bool)`
 
 GetExplicitContentFilterOk returns a tuple with the ExplicitContentFilter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExplicitContentFilter
 
-`func (o *PrivateApplicationResponse) SetExplicitContentFilter(v int32)`
+`func (o *PrivateApplicationResponse) SetExplicitContentFilter(v ApplicationExplicitContentFilterTypes)`
 
 SetExplicitContentFilter sets ExplicitContentFilter field to given value.
 
 
 ### GetTeam
 
-`func (o *PrivateApplicationResponse) GetTeam() TeamResponse`
+`func (o *PrivateApplicationResponse) GetTeam() PrivateApplicationResponseTeam`
 
 GetTeam returns the Team field if non-nil, zero value otherwise.
 
 ### GetTeamOk
 
-`func (o *PrivateApplicationResponse) GetTeamOk() (*TeamResponse, bool)`
+`func (o *PrivateApplicationResponse) GetTeamOk() (*PrivateApplicationResponseTeam, bool)`
 
 GetTeamOk returns a tuple with the Team field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTeam
 
-`func (o *PrivateApplicationResponse) SetTeam(v TeamResponse)`
+`func (o *PrivateApplicationResponse) SetTeam(v PrivateApplicationResponseTeam)`
 
 SetTeam sets Team field to given value.
 
@@ -950,16 +780,6 @@ SetTeam sets Team field to given value.
 
 HasTeam returns a boolean if a field has been set.
 
-### SetTeamNil
-
-`func (o *PrivateApplicationResponse) SetTeamNil(b bool)`
-
- SetTeamNil sets the value for Team to be an explicit nil
-
-### UnsetTeam
-`func (o *PrivateApplicationResponse) UnsetTeam()`
-
-UnsetTeam ensures that no value is present for Team, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

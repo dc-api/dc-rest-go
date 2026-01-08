@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Days** | Pointer to **NullableInt32** |  | [optional] 
-**ComputePruneCount** | Pointer to **NullableBool** |  | [optional] 
-**IncludeRoles** | Pointer to [**NullablePruneGuildRequestIncludeRoles**](PruneGuildRequestIncludeRoles.md) |  | [optional] 
+**Days** | Pointer to **int32** |  | [optional] 
+**ComputePruneCount** | Pointer to **bool** |  | [optional] 
+**IncludeRoles** | Pointer to [**PruneGuildRequestIncludeRoles**](PruneGuildRequestIncludeRoles.md) |  | [optional] 
 
 ## Methods
 
@@ -52,16 +52,6 @@ SetDays sets Days field to given value.
 
 HasDays returns a boolean if a field has been set.
 
-### SetDaysNil
-
-`func (o *PruneGuildRequest) SetDaysNil(b bool)`
-
- SetDaysNil sets the value for Days to be an explicit nil
-
-### UnsetDays
-`func (o *PruneGuildRequest) UnsetDays()`
-
-UnsetDays ensures that no value is present for Days, not even an explicit nil
 ### GetComputePruneCount
 
 `func (o *PruneGuildRequest) GetComputePruneCount() bool`
@@ -87,16 +77,6 @@ SetComputePruneCount sets ComputePruneCount field to given value.
 
 HasComputePruneCount returns a boolean if a field has been set.
 
-### SetComputePruneCountNil
-
-`func (o *PruneGuildRequest) SetComputePruneCountNil(b bool)`
-
- SetComputePruneCountNil sets the value for ComputePruneCount to be an explicit nil
-
-### UnsetComputePruneCount
-`func (o *PruneGuildRequest) UnsetComputePruneCount()`
-
-UnsetComputePruneCount ensures that no value is present for ComputePruneCount, not even an explicit nil
 ### GetIncludeRoles
 
 `func (o *PruneGuildRequest) GetIncludeRoles() PruneGuildRequestIncludeRoles`
@@ -122,16 +102,6 @@ SetIncludeRoles sets IncludeRoles field to given value.
 
 HasIncludeRoles returns a boolean if a field has been set.
 
-### SetIncludeRolesNil
-
-`func (o *PruneGuildRequest) SetIncludeRolesNil(b bool)`
-
- SetIncludeRolesNil sets the value for IncludeRoles to be an explicit nil
-
-### UnsetIncludeRoles
-`func (o *PruneGuildRequest) UnsetIncludeRoles()`
-
-UnsetIncludeRoles ensures that no value is present for IncludeRoles, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

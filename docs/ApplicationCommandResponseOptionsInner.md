@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**ApplicationCommandOptionType**](ApplicationCommandOptionType.md) |  | 
 **Name** | **string** |  | 
 **NameLocalized** | Pointer to **string** |  | [optional] 
 **NameLocalizations** | Pointer to **map[string]string** |  | [optional] 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **DescriptionLocalized** | Pointer to **string** |  | [optional] 
 **DescriptionLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Required** | Pointer to **bool** |  | [optional] 
-**ChannelTypes** | Pointer to **[]int32** |  | [optional] 
+**ChannelTypes** | Pointer to [**[]ChannelTypes**](ChannelTypes.md) |  | [optional] 
 **Autocomplete** | Pointer to **bool** |  | [optional] 
 **Choices** | Pointer to [**[]ApplicationCommandOptionStringChoiceResponse**](ApplicationCommandOptionStringChoiceResponse.md) |  | [optional] 
 **MinValue** | Pointer to **float64** |  | [optional] 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewApplicationCommandResponseOptionsInner
 
-`func NewApplicationCommandResponseOptionsInner(type_ int32, name string, description string, ) *ApplicationCommandResponseOptionsInner`
+`func NewApplicationCommandResponseOptionsInner(type_ ApplicationCommandOptionType, name string, description string, ) *ApplicationCommandResponseOptionsInner`
 
 NewApplicationCommandResponseOptionsInner instantiates a new ApplicationCommandResponseOptionsInner object
 This constructor will assign default values to properties that have it defined,
@@ -42,20 +42,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ApplicationCommandResponseOptionsInner) GetType() int32`
+`func (o *ApplicationCommandResponseOptionsInner) GetType() ApplicationCommandOptionType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ApplicationCommandResponseOptionsInner) GetTypeOk() (*int32, bool)`
+`func (o *ApplicationCommandResponseOptionsInner) GetTypeOk() (*ApplicationCommandOptionType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ApplicationCommandResponseOptionsInner) SetType(v int32)`
+`func (o *ApplicationCommandResponseOptionsInner) SetType(v ApplicationCommandOptionType)`
 
 SetType sets Type field to given value.
 
@@ -227,20 +227,20 @@ HasRequired returns a boolean if a field has been set.
 
 ### GetChannelTypes
 
-`func (o *ApplicationCommandResponseOptionsInner) GetChannelTypes() []int32`
+`func (o *ApplicationCommandResponseOptionsInner) GetChannelTypes() []ChannelTypes`
 
 GetChannelTypes returns the ChannelTypes field if non-nil, zero value otherwise.
 
 ### GetChannelTypesOk
 
-`func (o *ApplicationCommandResponseOptionsInner) GetChannelTypesOk() (*[]int32, bool)`
+`func (o *ApplicationCommandResponseOptionsInner) GetChannelTypesOk() (*[]ChannelTypes, bool)`
 
 GetChannelTypesOk returns a tuple with the ChannelTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelTypes
 
-`func (o *ApplicationCommandResponseOptionsInner) SetChannelTypes(v []int32)`
+`func (o *ApplicationCommandResponseOptionsInner) SetChannelTypes(v []ChannelTypes)`
 
 SetChannelTypes sets ChannelTypes field to given value.
 

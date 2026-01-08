@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Kind** | **string** |  | 
+**Kind** | [**EmbeddedActivityLocationKind**](EmbeddedActivityLocationKind.md) |  | 
 **ChannelId** | **string** |  | 
 **GuildId** | **string** |  | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewGuildChannelLocation
 
-`func NewGuildChannelLocation(id string, kind string, channelId string, guildId string, ) *GuildChannelLocation`
+`func NewGuildChannelLocation(id string, kind EmbeddedActivityLocationKind, channelId string, guildId string, ) *GuildChannelLocation`
 
 NewGuildChannelLocation instantiates a new GuildChannelLocation object
 This constructor will assign default values to properties that have it defined,
@@ -50,20 +50,20 @@ SetId sets Id field to given value.
 
 ### GetKind
 
-`func (o *GuildChannelLocation) GetKind() string`
+`func (o *GuildChannelLocation) GetKind() EmbeddedActivityLocationKind`
 
 GetKind returns the Kind field if non-nil, zero value otherwise.
 
 ### GetKindOk
 
-`func (o *GuildChannelLocation) GetKindOk() (*string, bool)`
+`func (o *GuildChannelLocation) GetKindOk() (*EmbeddedActivityLocationKind, bool)`
 
 GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKind
 
-`func (o *GuildChannelLocation) SetKind(v string)`
+`func (o *GuildChannelLocation) SetKind(v EmbeddedActivityLocationKind)`
 
 SetKind sets Kind field to given value.
 

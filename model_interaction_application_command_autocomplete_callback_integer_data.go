@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,7 +53,7 @@ var _ MappedNullable = &InteractionApplicationCommandAutocompleteCallbackInteger
 
 // InteractionApplicationCommandAutocompleteCallbackIntegerData struct for InteractionApplicationCommandAutocompleteCallbackIntegerData
 type InteractionApplicationCommandAutocompleteCallbackIntegerData struct {
-	Choices []*ApplicationCommandOptionIntegerChoice `json:"choices,omitempty"`
+	Choices []InteractionApplicationCommandAutocompleteCallbackIntegerDataChoicesInner `json:"choices,omitempty"`
 }
 
 // NewInteractionApplicationCommandAutocompleteCallbackIntegerData instantiates a new InteractionApplicationCommandAutocompleteCallbackIntegerData object
@@ -73,10 +73,10 @@ func NewInteractionApplicationCommandAutocompleteCallbackIntegerDataWithDefaults
 	return &this
 }
 
-// GetChoices returns the Choices field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *InteractionApplicationCommandAutocompleteCallbackIntegerData) GetChoices() []*ApplicationCommandOptionIntegerChoice {
-	if o == nil {
-		var ret []*ApplicationCommandOptionIntegerChoice
+// GetChoices returns the Choices field value if set, zero value otherwise.
+func (o *InteractionApplicationCommandAutocompleteCallbackIntegerData) GetChoices() []InteractionApplicationCommandAutocompleteCallbackIntegerDataChoicesInner {
+	if o == nil || IsNil(o.Choices) {
+		var ret []InteractionApplicationCommandAutocompleteCallbackIntegerDataChoicesInner
 		return ret
 	}
 	return o.Choices
@@ -84,9 +84,8 @@ func (o *InteractionApplicationCommandAutocompleteCallbackIntegerData) GetChoice
 
 // GetChoicesOk returns a tuple with the Choices field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *InteractionApplicationCommandAutocompleteCallbackIntegerData) GetChoicesOk() ([]*ApplicationCommandOptionIntegerChoice, bool) {
-	if o == nil {
+func (o *InteractionApplicationCommandAutocompleteCallbackIntegerData) GetChoicesOk() ([]InteractionApplicationCommandAutocompleteCallbackIntegerDataChoicesInner, bool) {
+	if o == nil || IsNil(o.Choices) {
 		return nil, false
 	}
 	return o.Choices, true
@@ -101,8 +100,8 @@ func (o *InteractionApplicationCommandAutocompleteCallbackIntegerData) HasChoice
 	return false
 }
 
-// SetChoices gets a reference to the given []*ApplicationCommandOptionIntegerChoice and assigns it to the Choices field.
-func (o *InteractionApplicationCommandAutocompleteCallbackIntegerData) SetChoices(v []*ApplicationCommandOptionIntegerChoice) {
+// SetChoices gets a reference to the given []InteractionApplicationCommandAutocompleteCallbackIntegerDataChoicesInner and assigns it to the Choices field.
+func (o *InteractionApplicationCommandAutocompleteCallbackIntegerData) SetChoices(v []InteractionApplicationCommandAutocompleteCallbackIntegerDataChoicesInner) {
 	o.Choices = v
 }
 
@@ -117,7 +116,7 @@ func (o InteractionApplicationCommandAutocompleteCallbackIntegerData) MarshalJSO
 
 func (o InteractionApplicationCommandAutocompleteCallbackIntegerData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Choices != nil {
+	if !IsNil(o.Choices) {
 		toSerialize["choices"] = o.Choices
 	}
 	return toSerialize, nil
@@ -158,5 +157,4 @@ func (v *NullableInteractionApplicationCommandAutocompleteCallbackIntegerData) U
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

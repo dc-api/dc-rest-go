@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**EmojiId** | Pointer to **string** |  | [optional] 
-**EmojiName** | Pointer to **NullableString** |  | [optional] 
-**Moderated** | Pointer to **NullableBool** |  | [optional] 
+**EmojiId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**EmojiName** | Pointer to **string** |  | [optional] 
+**Moderated** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -50,20 +50,20 @@ SetName sets Name field to given value.
 
 ### GetEmojiId
 
-`func (o *CreateOrUpdateThreadTagRequest) GetEmojiId() string`
+`func (o *CreateOrUpdateThreadTagRequest) GetEmojiId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetEmojiId returns the EmojiId field if non-nil, zero value otherwise.
 
 ### GetEmojiIdOk
 
-`func (o *CreateOrUpdateThreadTagRequest) GetEmojiIdOk() (*string, bool)`
+`func (o *CreateOrUpdateThreadTagRequest) GetEmojiIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetEmojiIdOk returns a tuple with the EmojiId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmojiId
 
-`func (o *CreateOrUpdateThreadTagRequest) SetEmojiId(v string)`
+`func (o *CreateOrUpdateThreadTagRequest) SetEmojiId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetEmojiId sets EmojiId field to given value.
 
@@ -98,16 +98,6 @@ SetEmojiName sets EmojiName field to given value.
 
 HasEmojiName returns a boolean if a field has been set.
 
-### SetEmojiNameNil
-
-`func (o *CreateOrUpdateThreadTagRequest) SetEmojiNameNil(b bool)`
-
- SetEmojiNameNil sets the value for EmojiName to be an explicit nil
-
-### UnsetEmojiName
-`func (o *CreateOrUpdateThreadTagRequest) UnsetEmojiName()`
-
-UnsetEmojiName ensures that no value is present for EmojiName, not even an explicit nil
 ### GetModerated
 
 `func (o *CreateOrUpdateThreadTagRequest) GetModerated() bool`
@@ -133,16 +123,6 @@ SetModerated sets Moderated field to given value.
 
 HasModerated returns a boolean if a field has been set.
 
-### SetModeratedNil
-
-`func (o *CreateOrUpdateThreadTagRequest) SetModeratedNil(b bool)`
-
- SetModeratedNil sets the value for Moderated to be an explicit nil
-
-### UnsetModerated
-`func (o *CreateOrUpdateThreadTagRequest) UnsetModerated()`
-
-UnsetModerated ensures that no value is present for Moderated, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

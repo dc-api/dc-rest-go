@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,10 +57,10 @@ var _ MappedNullable = &UpdateOnboardingPromptRequest{}
 type UpdateOnboardingPromptRequest struct {
 	Title string `json:"title"`
 	Options []OnboardingPromptOptionRequest `json:"options"`
-	SingleSelect NullableBool `json:"single_select,omitempty"`
-	Required NullableBool `json:"required,omitempty"`
-	InOnboarding NullableBool `json:"in_onboarding,omitempty"`
-	Type *int32 `json:"type,omitempty"`
+	SingleSelect *bool `json:"single_select,omitempty"`
+	Required *bool `json:"required,omitempty"`
+	InOnboarding *bool `json:"in_onboarding,omitempty"`
+	Type *UpdateOnboardingPromptRequestType `json:"type,omitempty"`
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
@@ -134,139 +134,109 @@ func (o *UpdateOnboardingPromptRequest) SetOptions(v []OnboardingPromptOptionReq
 	o.Options = v
 }
 
-// GetSingleSelect returns the SingleSelect field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSingleSelect returns the SingleSelect field value if set, zero value otherwise.
 func (o *UpdateOnboardingPromptRequest) GetSingleSelect() bool {
-	if o == nil || IsNil(o.SingleSelect.Get()) {
+	if o == nil || IsNil(o.SingleSelect) {
 		var ret bool
 		return ret
 	}
-	return *o.SingleSelect.Get()
+	return *o.SingleSelect
 }
 
 // GetSingleSelectOk returns a tuple with the SingleSelect field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateOnboardingPromptRequest) GetSingleSelectOk() (*bool, bool) {
-	if o == nil || IsNil(o.SingleSelect.Get()) {
+	if o == nil || IsNil(o.SingleSelect) {
 		return nil, false
 	}
-	return o.SingleSelect.Get(), o.SingleSelect.IsSet()
+	return o.SingleSelect, true
 }
 
 // HasSingleSelect returns a boolean if a field has been set.
 func (o *UpdateOnboardingPromptRequest) HasSingleSelect() bool {
-	if o != nil && o.SingleSelect.IsSet() {
+	if o != nil && !IsNil(o.SingleSelect) {
 		return true
 	}
 
 	return false
 }
 
-// SetSingleSelect gets a reference to the given NullableBool and assigns it to the SingleSelect field.
+// SetSingleSelect gets a reference to the given bool and assigns it to the SingleSelect field.
 func (o *UpdateOnboardingPromptRequest) SetSingleSelect(v bool) {
-	o.SingleSelect.Set(&v)
+	o.SingleSelect = &v
 }
 
-// SetSingleSelectNil sets the value for SingleSelect to be an explicit nil
-func (o *UpdateOnboardingPromptRequest) SetSingleSelectNil() {
-	o.SingleSelect.Set(nil)
-}
 
-// UnsetSingleSelect ensures that no value is present for SingleSelect, not even an explicit nil
-func (o *UpdateOnboardingPromptRequest) UnsetSingleSelect() {
-	o.SingleSelect.Unset()
-}
-
-// GetRequired returns the Required field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRequired returns the Required field value if set, zero value otherwise.
 func (o *UpdateOnboardingPromptRequest) GetRequired() bool {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		var ret bool
 		return ret
 	}
-	return *o.Required.Get()
+	return *o.Required
 }
 
 // GetRequiredOk returns a tuple with the Required field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateOnboardingPromptRequest) GetRequiredOk() (*bool, bool) {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		return nil, false
 	}
-	return o.Required.Get(), o.Required.IsSet()
+	return o.Required, true
 }
 
 // HasRequired returns a boolean if a field has been set.
 func (o *UpdateOnboardingPromptRequest) HasRequired() bool {
-	if o != nil && o.Required.IsSet() {
+	if o != nil && !IsNil(o.Required) {
 		return true
 	}
 
 	return false
 }
 
-// SetRequired gets a reference to the given NullableBool and assigns it to the Required field.
+// SetRequired gets a reference to the given bool and assigns it to the Required field.
 func (o *UpdateOnboardingPromptRequest) SetRequired(v bool) {
-	o.Required.Set(&v)
+	o.Required = &v
 }
 
-// SetRequiredNil sets the value for Required to be an explicit nil
-func (o *UpdateOnboardingPromptRequest) SetRequiredNil() {
-	o.Required.Set(nil)
-}
 
-// UnsetRequired ensures that no value is present for Required, not even an explicit nil
-func (o *UpdateOnboardingPromptRequest) UnsetRequired() {
-	o.Required.Unset()
-}
-
-// GetInOnboarding returns the InOnboarding field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInOnboarding returns the InOnboarding field value if set, zero value otherwise.
 func (o *UpdateOnboardingPromptRequest) GetInOnboarding() bool {
-	if o == nil || IsNil(o.InOnboarding.Get()) {
+	if o == nil || IsNil(o.InOnboarding) {
 		var ret bool
 		return ret
 	}
-	return *o.InOnboarding.Get()
+	return *o.InOnboarding
 }
 
 // GetInOnboardingOk returns a tuple with the InOnboarding field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateOnboardingPromptRequest) GetInOnboardingOk() (*bool, bool) {
-	if o == nil || IsNil(o.InOnboarding.Get()) {
+	if o == nil || IsNil(o.InOnboarding) {
 		return nil, false
 	}
-	return o.InOnboarding.Get(), o.InOnboarding.IsSet()
+	return o.InOnboarding, true
 }
 
 // HasInOnboarding returns a boolean if a field has been set.
 func (o *UpdateOnboardingPromptRequest) HasInOnboarding() bool {
-	if o != nil && o.InOnboarding.IsSet() {
+	if o != nil && !IsNil(o.InOnboarding) {
 		return true
 	}
 
 	return false
 }
 
-// SetInOnboarding gets a reference to the given NullableBool and assigns it to the InOnboarding field.
+// SetInOnboarding gets a reference to the given bool and assigns it to the InOnboarding field.
 func (o *UpdateOnboardingPromptRequest) SetInOnboarding(v bool) {
-	o.InOnboarding.Set(&v)
+	o.InOnboarding = &v
 }
 
-// SetInOnboardingNil sets the value for InOnboarding to be an explicit nil
-func (o *UpdateOnboardingPromptRequest) SetInOnboardingNil() {
-	o.InOnboarding.Set(nil)
-}
-
-// UnsetInOnboarding ensures that no value is present for InOnboarding, not even an explicit nil
-func (o *UpdateOnboardingPromptRequest) UnsetInOnboarding() {
-	o.InOnboarding.Unset()
-}
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *UpdateOnboardingPromptRequest) GetType() int32 {
+func (o *UpdateOnboardingPromptRequest) GetType() UpdateOnboardingPromptRequestType {
 	if o == nil || IsNil(o.Type) {
-		var ret int32
+		var ret UpdateOnboardingPromptRequestType
 		return ret
 	}
 	return *o.Type
@@ -274,7 +244,7 @@ func (o *UpdateOnboardingPromptRequest) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateOnboardingPromptRequest) GetTypeOk() (*int32, bool) {
+func (o *UpdateOnboardingPromptRequest) GetTypeOk() (*UpdateOnboardingPromptRequestType, bool) {
 	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
@@ -290,8 +260,8 @@ func (o *UpdateOnboardingPromptRequest) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given int32 and assigns it to the Type field.
-func (o *UpdateOnboardingPromptRequest) SetType(v int32) {
+// SetType gets a reference to the given UpdateOnboardingPromptRequestType and assigns it to the Type field.
+func (o *UpdateOnboardingPromptRequest) SetType(v UpdateOnboardingPromptRequestType) {
 	o.Type = &v
 }
 
@@ -332,14 +302,14 @@ func (o UpdateOnboardingPromptRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["title"] = o.Title
 	toSerialize["options"] = o.Options
-	if o.SingleSelect.IsSet() {
-		toSerialize["single_select"] = o.SingleSelect.Get()
+	if !IsNil(o.SingleSelect) {
+		toSerialize["single_select"] = o.SingleSelect
 	}
-	if o.Required.IsSet() {
-		toSerialize["required"] = o.Required.Get()
+	if !IsNil(o.Required) {
+		toSerialize["required"] = o.Required
 	}
-	if o.InOnboarding.IsSet() {
-		toSerialize["in_onboarding"] = o.InOnboarding.Get()
+	if !IsNil(o.InOnboarding) {
+		toSerialize["in_onboarding"] = o.InOnboarding
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
@@ -422,5 +392,4 @@ func (v *NullableUpdateOnboardingPromptRequest) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

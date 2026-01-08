@@ -8,20 +8,22 @@ Name | Type | Description | Notes
 **SkuId** | **string** |  | 
 **ApplicationId** | **string** |  | 
 **UserId** | **string** |  | 
-**GuildId** | Pointer to **string** |  | [optional] 
+**GuildId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Deleted** | **bool** |  | 
-**StartsAt** | Pointer to **NullableTime** |  | [optional] 
-**EndsAt** | Pointer to **NullableTime** |  | [optional] 
-**Type** | **NullableInt32** |  | 
-**FulfilledAt** | Pointer to **NullableTime** |  | [optional] 
-**FulfillmentStatus** | Pointer to **NullableInt32** |  | [optional] 
-**Consumed** | Pointer to **NullableBool** |  | [optional] 
+**StartsAt** | Pointer to **time.Time** |  | [optional] 
+**EndsAt** | Pointer to **time.Time** |  | [optional] 
+**Type** | [**EntitlementTypes**](EntitlementTypes.md) |  | 
+**FulfilledAt** | Pointer to **time.Time** |  | [optional] 
+**FulfillmentStatus** | Pointer to [**EntitlementResponseFulfillmentStatus**](EntitlementResponseFulfillmentStatus.md) |  | [optional] 
+**Consumed** | Pointer to **bool** |  | [optional] 
+**GifterUserId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**ParentId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 
 ## Methods
 
 ### NewEntitlementResponse
 
-`func NewEntitlementResponse(id string, skuId string, applicationId string, userId string, deleted bool, type_ NullableInt32, ) *EntitlementResponse`
+`func NewEntitlementResponse(id string, skuId string, applicationId string, userId string, deleted bool, type_ EntitlementTypes, ) *EntitlementResponse`
 
 NewEntitlementResponse instantiates a new EntitlementResponse object
 This constructor will assign default values to properties that have it defined,
@@ -118,20 +120,20 @@ SetUserId sets UserId field to given value.
 
 ### GetGuildId
 
-`func (o *EntitlementResponse) GetGuildId() string`
+`func (o *EntitlementResponse) GetGuildId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetGuildId returns the GuildId field if non-nil, zero value otherwise.
 
 ### GetGuildIdOk
 
-`func (o *EntitlementResponse) GetGuildIdOk() (*string, bool)`
+`func (o *EntitlementResponse) GetGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetGuildIdOk returns a tuple with the GuildId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGuildId
 
-`func (o *EntitlementResponse) SetGuildId(v string)`
+`func (o *EntitlementResponse) SetGuildId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetGuildId sets GuildId field to given value.
 
@@ -186,16 +188,6 @@ SetStartsAt sets StartsAt field to given value.
 
 HasStartsAt returns a boolean if a field has been set.
 
-### SetStartsAtNil
-
-`func (o *EntitlementResponse) SetStartsAtNil(b bool)`
-
- SetStartsAtNil sets the value for StartsAt to be an explicit nil
-
-### UnsetStartsAt
-`func (o *EntitlementResponse) UnsetStartsAt()`
-
-UnsetStartsAt ensures that no value is present for StartsAt, not even an explicit nil
 ### GetEndsAt
 
 `func (o *EntitlementResponse) GetEndsAt() time.Time`
@@ -221,46 +213,26 @@ SetEndsAt sets EndsAt field to given value.
 
 HasEndsAt returns a boolean if a field has been set.
 
-### SetEndsAtNil
-
-`func (o *EntitlementResponse) SetEndsAtNil(b bool)`
-
- SetEndsAtNil sets the value for EndsAt to be an explicit nil
-
-### UnsetEndsAt
-`func (o *EntitlementResponse) UnsetEndsAt()`
-
-UnsetEndsAt ensures that no value is present for EndsAt, not even an explicit nil
 ### GetType
 
-`func (o *EntitlementResponse) GetType() int32`
+`func (o *EntitlementResponse) GetType() EntitlementTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *EntitlementResponse) GetTypeOk() (*int32, bool)`
+`func (o *EntitlementResponse) GetTypeOk() (*EntitlementTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *EntitlementResponse) SetType(v int32)`
+`func (o *EntitlementResponse) SetType(v EntitlementTypes)`
 
 SetType sets Type field to given value.
 
 
-### SetTypeNil
-
-`func (o *EntitlementResponse) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *EntitlementResponse) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetFulfilledAt
 
 `func (o *EntitlementResponse) GetFulfilledAt() time.Time`
@@ -286,32 +258,22 @@ SetFulfilledAt sets FulfilledAt field to given value.
 
 HasFulfilledAt returns a boolean if a field has been set.
 
-### SetFulfilledAtNil
-
-`func (o *EntitlementResponse) SetFulfilledAtNil(b bool)`
-
- SetFulfilledAtNil sets the value for FulfilledAt to be an explicit nil
-
-### UnsetFulfilledAt
-`func (o *EntitlementResponse) UnsetFulfilledAt()`
-
-UnsetFulfilledAt ensures that no value is present for FulfilledAt, not even an explicit nil
 ### GetFulfillmentStatus
 
-`func (o *EntitlementResponse) GetFulfillmentStatus() int32`
+`func (o *EntitlementResponse) GetFulfillmentStatus() EntitlementResponseFulfillmentStatus`
 
 GetFulfillmentStatus returns the FulfillmentStatus field if non-nil, zero value otherwise.
 
 ### GetFulfillmentStatusOk
 
-`func (o *EntitlementResponse) GetFulfillmentStatusOk() (*int32, bool)`
+`func (o *EntitlementResponse) GetFulfillmentStatusOk() (*EntitlementResponseFulfillmentStatus, bool)`
 
 GetFulfillmentStatusOk returns a tuple with the FulfillmentStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFulfillmentStatus
 
-`func (o *EntitlementResponse) SetFulfillmentStatus(v int32)`
+`func (o *EntitlementResponse) SetFulfillmentStatus(v EntitlementResponseFulfillmentStatus)`
 
 SetFulfillmentStatus sets FulfillmentStatus field to given value.
 
@@ -321,16 +283,6 @@ SetFulfillmentStatus sets FulfillmentStatus field to given value.
 
 HasFulfillmentStatus returns a boolean if a field has been set.
 
-### SetFulfillmentStatusNil
-
-`func (o *EntitlementResponse) SetFulfillmentStatusNil(b bool)`
-
- SetFulfillmentStatusNil sets the value for FulfillmentStatus to be an explicit nil
-
-### UnsetFulfillmentStatus
-`func (o *EntitlementResponse) UnsetFulfillmentStatus()`
-
-UnsetFulfillmentStatus ensures that no value is present for FulfillmentStatus, not even an explicit nil
 ### GetConsumed
 
 `func (o *EntitlementResponse) GetConsumed() bool`
@@ -356,16 +308,56 @@ SetConsumed sets Consumed field to given value.
 
 HasConsumed returns a boolean if a field has been set.
 
-### SetConsumedNil
+### GetGifterUserId
 
-`func (o *EntitlementResponse) SetConsumedNil(b bool)`
+`func (o *EntitlementResponse) GetGifterUserId() GetEntitlementsSkuIdsParameterOneOfInner`
 
- SetConsumedNil sets the value for Consumed to be an explicit nil
+GetGifterUserId returns the GifterUserId field if non-nil, zero value otherwise.
 
-### UnsetConsumed
-`func (o *EntitlementResponse) UnsetConsumed()`
+### GetGifterUserIdOk
 
-UnsetConsumed ensures that no value is present for Consumed, not even an explicit nil
+`func (o *EntitlementResponse) GetGifterUserIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
+
+GetGifterUserIdOk returns a tuple with the GifterUserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGifterUserId
+
+`func (o *EntitlementResponse) SetGifterUserId(v GetEntitlementsSkuIdsParameterOneOfInner)`
+
+SetGifterUserId sets GifterUserId field to given value.
+
+### HasGifterUserId
+
+`func (o *EntitlementResponse) HasGifterUserId() bool`
+
+HasGifterUserId returns a boolean if a field has been set.
+
+### GetParentId
+
+`func (o *EntitlementResponse) GetParentId() GetEntitlementsSkuIdsParameterOneOfInner`
+
+GetParentId returns the ParentId field if non-nil, zero value otherwise.
+
+### GetParentIdOk
+
+`func (o *EntitlementResponse) GetParentIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
+
+GetParentIdOk returns a tuple with the ParentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParentId
+
+`func (o *EntitlementResponse) SetParentId(v GetEntitlementsSkuIdsParameterOneOfInner)`
+
+SetParentId sets ParentId field to given value.
+
+### HasParentId
+
+`func (o *EntitlementResponse) HasParentId() bool`
+
+HasParentId returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

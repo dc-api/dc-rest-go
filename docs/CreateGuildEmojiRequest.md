@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Image** | **string** |  | 
-**Roles** | Pointer to **[]string** |  | [optional] 
+**Roles** | Pointer to [**[]GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 
 ## Methods
 
@@ -69,20 +69,20 @@ SetImage sets Image field to given value.
 
 ### GetRoles
 
-`func (o *CreateGuildEmojiRequest) GetRoles() []string`
+`func (o *CreateGuildEmojiRequest) GetRoles() []GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetRoles returns the Roles field if non-nil, zero value otherwise.
 
 ### GetRolesOk
 
-`func (o *CreateGuildEmojiRequest) GetRolesOk() (*[]string, bool)`
+`func (o *CreateGuildEmojiRequest) GetRolesOk() (*[]GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetRolesOk returns a tuple with the Roles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRoles
 
-`func (o *CreateGuildEmojiRequest) SetRoles(v []string)`
+`func (o *CreateGuildEmojiRequest) SetRoles(v []GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetRoles sets Roles field to given value.
 
@@ -92,16 +92,6 @@ SetRoles sets Roles field to given value.
 
 HasRoles returns a boolean if a field has been set.
 
-### SetRolesNil
-
-`func (o *CreateGuildEmojiRequest) SetRolesNil(b bool)`
-
- SetRolesNil sets the value for Roles to be an explicit nil
-
-### UnsetRoles
-`func (o *CreateGuildEmojiRequest) UnsetRoles()`
-
-UnsetRoles ensures that no value is present for Roles, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

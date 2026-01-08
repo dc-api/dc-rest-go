@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,10 +56,10 @@ var _ MappedNullable = &CreateTextThreadWithoutMessageRequest{}
 // CreateTextThreadWithoutMessageRequest struct for CreateTextThreadWithoutMessageRequest
 type CreateTextThreadWithoutMessageRequest struct {
 	Name string `json:"name"`
-	AutoArchiveDuration *int32 `json:"auto_archive_duration,omitempty"`
-	RateLimitPerUser NullableInt32 `json:"rate_limit_per_user,omitempty"`
-	Type NullableInt32 `json:"type,omitempty"`
-	Invitable NullableBool `json:"invitable,omitempty"`
+	AutoArchiveDuration *CreateForumThreadRequestAutoArchiveDuration `json:"auto_archive_duration,omitempty"`
+	RateLimitPerUser *int32 `json:"rate_limit_per_user,omitempty"`
+	Type *CreateTextThreadWithoutMessageRequestType `json:"type,omitempty"`
+	Invitable *bool `json:"invitable,omitempty"`
 }
 
 type _CreateTextThreadWithoutMessageRequest CreateTextThreadWithoutMessageRequest
@@ -107,9 +107,9 @@ func (o *CreateTextThreadWithoutMessageRequest) SetName(v string) {
 }
 
 // GetAutoArchiveDuration returns the AutoArchiveDuration field value if set, zero value otherwise.
-func (o *CreateTextThreadWithoutMessageRequest) GetAutoArchiveDuration() int32 {
+func (o *CreateTextThreadWithoutMessageRequest) GetAutoArchiveDuration() CreateForumThreadRequestAutoArchiveDuration {
 	if o == nil || IsNil(o.AutoArchiveDuration) {
-		var ret int32
+		var ret CreateForumThreadRequestAutoArchiveDuration
 		return ret
 	}
 	return *o.AutoArchiveDuration
@@ -117,7 +117,7 @@ func (o *CreateTextThreadWithoutMessageRequest) GetAutoArchiveDuration() int32 {
 
 // GetAutoArchiveDurationOk returns a tuple with the AutoArchiveDuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateTextThreadWithoutMessageRequest) GetAutoArchiveDurationOk() (*int32, bool) {
+func (o *CreateTextThreadWithoutMessageRequest) GetAutoArchiveDurationOk() (*CreateForumThreadRequestAutoArchiveDuration, bool) {
 	if o == nil || IsNil(o.AutoArchiveDuration) {
 		return nil, false
 	}
@@ -133,140 +133,110 @@ func (o *CreateTextThreadWithoutMessageRequest) HasAutoArchiveDuration() bool {
 	return false
 }
 
-// SetAutoArchiveDuration gets a reference to the given int32 and assigns it to the AutoArchiveDuration field.
-func (o *CreateTextThreadWithoutMessageRequest) SetAutoArchiveDuration(v int32) {
+// SetAutoArchiveDuration gets a reference to the given CreateForumThreadRequestAutoArchiveDuration and assigns it to the AutoArchiveDuration field.
+func (o *CreateTextThreadWithoutMessageRequest) SetAutoArchiveDuration(v CreateForumThreadRequestAutoArchiveDuration) {
 	o.AutoArchiveDuration = &v
 }
 
 
-// GetRateLimitPerUser returns the RateLimitPerUser field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRateLimitPerUser returns the RateLimitPerUser field value if set, zero value otherwise.
 func (o *CreateTextThreadWithoutMessageRequest) GetRateLimitPerUser() int32 {
-	if o == nil || IsNil(o.RateLimitPerUser.Get()) {
+	if o == nil || IsNil(o.RateLimitPerUser) {
 		var ret int32
 		return ret
 	}
-	return *o.RateLimitPerUser.Get()
+	return *o.RateLimitPerUser
 }
 
 // GetRateLimitPerUserOk returns a tuple with the RateLimitPerUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateTextThreadWithoutMessageRequest) GetRateLimitPerUserOk() (*int32, bool) {
-	if o == nil || IsNil(o.RateLimitPerUser.Get()) {
+	if o == nil || IsNil(o.RateLimitPerUser) {
 		return nil, false
 	}
-	return o.RateLimitPerUser.Get(), o.RateLimitPerUser.IsSet()
+	return o.RateLimitPerUser, true
 }
 
 // HasRateLimitPerUser returns a boolean if a field has been set.
 func (o *CreateTextThreadWithoutMessageRequest) HasRateLimitPerUser() bool {
-	if o != nil && o.RateLimitPerUser.IsSet() {
+	if o != nil && !IsNil(o.RateLimitPerUser) {
 		return true
 	}
 
 	return false
 }
 
-// SetRateLimitPerUser gets a reference to the given NullableInt32 and assigns it to the RateLimitPerUser field.
+// SetRateLimitPerUser gets a reference to the given int32 and assigns it to the RateLimitPerUser field.
 func (o *CreateTextThreadWithoutMessageRequest) SetRateLimitPerUser(v int32) {
-	o.RateLimitPerUser.Set(&v)
+	o.RateLimitPerUser = &v
 }
 
-// SetRateLimitPerUserNil sets the value for RateLimitPerUser to be an explicit nil
-func (o *CreateTextThreadWithoutMessageRequest) SetRateLimitPerUserNil() {
-	o.RateLimitPerUser.Set(nil)
-}
 
-// UnsetRateLimitPerUser ensures that no value is present for RateLimitPerUser, not even an explicit nil
-func (o *CreateTextThreadWithoutMessageRequest) UnsetRateLimitPerUser() {
-	o.RateLimitPerUser.Unset()
-}
-
-// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateTextThreadWithoutMessageRequest) GetType() int32 {
-	if o == nil || IsNil(o.Type.Get()) {
-		var ret int32
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *CreateTextThreadWithoutMessageRequest) GetType() CreateTextThreadWithoutMessageRequestType {
+	if o == nil || IsNil(o.Type) {
+		var ret CreateTextThreadWithoutMessageRequestType
 		return ret
 	}
-	return *o.Type.Get()
+	return *o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateTextThreadWithoutMessageRequest) GetTypeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Type.Get()) {
+func (o *CreateTextThreadWithoutMessageRequest) GetTypeOk() (*CreateTextThreadWithoutMessageRequestType, bool) {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *CreateTextThreadWithoutMessageRequest) HasType() bool {
-	if o != nil && o.Type.IsSet() {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given NullableInt32 and assigns it to the Type field.
-func (o *CreateTextThreadWithoutMessageRequest) SetType(v int32) {
-	o.Type.Set(&v)
+// SetType gets a reference to the given CreateTextThreadWithoutMessageRequestType and assigns it to the Type field.
+func (o *CreateTextThreadWithoutMessageRequest) SetType(v CreateTextThreadWithoutMessageRequestType) {
+	o.Type = &v
 }
 
-// SetTypeNil sets the value for Type to be an explicit nil
-func (o *CreateTextThreadWithoutMessageRequest) SetTypeNil() {
-	o.Type.Set(nil)
-}
 
-// UnsetType ensures that no value is present for Type, not even an explicit nil
-func (o *CreateTextThreadWithoutMessageRequest) UnsetType() {
-	o.Type.Unset()
-}
-
-// GetInvitable returns the Invitable field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInvitable returns the Invitable field value if set, zero value otherwise.
 func (o *CreateTextThreadWithoutMessageRequest) GetInvitable() bool {
-	if o == nil || IsNil(o.Invitable.Get()) {
+	if o == nil || IsNil(o.Invitable) {
 		var ret bool
 		return ret
 	}
-	return *o.Invitable.Get()
+	return *o.Invitable
 }
 
 // GetInvitableOk returns a tuple with the Invitable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateTextThreadWithoutMessageRequest) GetInvitableOk() (*bool, bool) {
-	if o == nil || IsNil(o.Invitable.Get()) {
+	if o == nil || IsNil(o.Invitable) {
 		return nil, false
 	}
-	return o.Invitable.Get(), o.Invitable.IsSet()
+	return o.Invitable, true
 }
 
 // HasInvitable returns a boolean if a field has been set.
 func (o *CreateTextThreadWithoutMessageRequest) HasInvitable() bool {
-	if o != nil && o.Invitable.IsSet() {
+	if o != nil && !IsNil(o.Invitable) {
 		return true
 	}
 
 	return false
 }
 
-// SetInvitable gets a reference to the given NullableBool and assigns it to the Invitable field.
+// SetInvitable gets a reference to the given bool and assigns it to the Invitable field.
 func (o *CreateTextThreadWithoutMessageRequest) SetInvitable(v bool) {
-	o.Invitable.Set(&v)
+	o.Invitable = &v
 }
 
-// SetInvitableNil sets the value for Invitable to be an explicit nil
-func (o *CreateTextThreadWithoutMessageRequest) SetInvitableNil() {
-	o.Invitable.Set(nil)
-}
-
-// UnsetInvitable ensures that no value is present for Invitable, not even an explicit nil
-func (o *CreateTextThreadWithoutMessageRequest) UnsetInvitable() {
-	o.Invitable.Unset()
-}
 
 func (o CreateTextThreadWithoutMessageRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -282,14 +252,14 @@ func (o CreateTextThreadWithoutMessageRequest) ToMap() (map[string]interface{}, 
 	if !IsNil(o.AutoArchiveDuration) {
 		toSerialize["auto_archive_duration"] = o.AutoArchiveDuration
 	}
-	if o.RateLimitPerUser.IsSet() {
-		toSerialize["rate_limit_per_user"] = o.RateLimitPerUser.Get()
+	if !IsNil(o.RateLimitPerUser) {
+		toSerialize["rate_limit_per_user"] = o.RateLimitPerUser
 	}
-	if o.Type.IsSet() {
-		toSerialize["type"] = o.Type.Get()
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
 	}
-	if o.Invitable.IsSet() {
-		toSerialize["invitable"] = o.Invitable.Get()
+	if !IsNil(o.Invitable) {
+		toSerialize["invitable"] = o.Invitable
 	}
 	return toSerialize, nil
 }
@@ -366,5 +336,4 @@ func (v *NullableCreateTextThreadWithoutMessageRequest) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

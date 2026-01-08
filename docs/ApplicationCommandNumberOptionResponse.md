@@ -4,24 +4,24 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**ApplicationCommandOptionType**](ApplicationCommandOptionType.md) |  | 
 **Name** | **string** |  | 
-**NameLocalized** | Pointer to **NullableString** |  | [optional] 
+**NameLocalized** | Pointer to **string** |  | [optional] 
 **NameLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Description** | **string** |  | 
-**DescriptionLocalized** | Pointer to **NullableString** |  | [optional] 
+**DescriptionLocalized** | Pointer to **string** |  | [optional] 
 **DescriptionLocalizations** | Pointer to **map[string]string** |  | [optional] 
-**Required** | Pointer to **NullableBool** |  | [optional] 
-**Autocomplete** | Pointer to **NullableBool** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
+**Autocomplete** | Pointer to **bool** |  | [optional] 
 **Choices** | Pointer to [**[]ApplicationCommandOptionNumberChoiceResponse**](ApplicationCommandOptionNumberChoiceResponse.md) |  | [optional] 
-**MinValue** | Pointer to **NullableFloat64** |  | [optional] 
-**MaxValue** | Pointer to **NullableFloat64** |  | [optional] 
+**MinValue** | Pointer to **float64** |  | [optional] 
+**MaxValue** | Pointer to **float64** |  | [optional] 
 
 ## Methods
 
 ### NewApplicationCommandNumberOptionResponse
 
-`func NewApplicationCommandNumberOptionResponse(type_ int32, name string, description string, ) *ApplicationCommandNumberOptionResponse`
+`func NewApplicationCommandNumberOptionResponse(type_ ApplicationCommandOptionType, name string, description string, ) *ApplicationCommandNumberOptionResponse`
 
 NewApplicationCommandNumberOptionResponse instantiates a new ApplicationCommandNumberOptionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -38,20 +38,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ApplicationCommandNumberOptionResponse) GetType() int32`
+`func (o *ApplicationCommandNumberOptionResponse) GetType() ApplicationCommandOptionType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ApplicationCommandNumberOptionResponse) GetTypeOk() (*int32, bool)`
+`func (o *ApplicationCommandNumberOptionResponse) GetTypeOk() (*ApplicationCommandOptionType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ApplicationCommandNumberOptionResponse) SetType(v int32)`
+`func (o *ApplicationCommandNumberOptionResponse) SetType(v ApplicationCommandOptionType)`
 
 SetType sets Type field to given value.
 
@@ -101,16 +101,6 @@ SetNameLocalized sets NameLocalized field to given value.
 
 HasNameLocalized returns a boolean if a field has been set.
 
-### SetNameLocalizedNil
-
-`func (o *ApplicationCommandNumberOptionResponse) SetNameLocalizedNil(b bool)`
-
- SetNameLocalizedNil sets the value for NameLocalized to be an explicit nil
-
-### UnsetNameLocalized
-`func (o *ApplicationCommandNumberOptionResponse) UnsetNameLocalized()`
-
-UnsetNameLocalized ensures that no value is present for NameLocalized, not even an explicit nil
 ### GetNameLocalizations
 
 `func (o *ApplicationCommandNumberOptionResponse) GetNameLocalizations() map[string]string`
@@ -181,16 +171,6 @@ SetDescriptionLocalized sets DescriptionLocalized field to given value.
 
 HasDescriptionLocalized returns a boolean if a field has been set.
 
-### SetDescriptionLocalizedNil
-
-`func (o *ApplicationCommandNumberOptionResponse) SetDescriptionLocalizedNil(b bool)`
-
- SetDescriptionLocalizedNil sets the value for DescriptionLocalized to be an explicit nil
-
-### UnsetDescriptionLocalized
-`func (o *ApplicationCommandNumberOptionResponse) UnsetDescriptionLocalized()`
-
-UnsetDescriptionLocalized ensures that no value is present for DescriptionLocalized, not even an explicit nil
 ### GetDescriptionLocalizations
 
 `func (o *ApplicationCommandNumberOptionResponse) GetDescriptionLocalizations() map[string]string`
@@ -241,16 +221,6 @@ SetRequired sets Required field to given value.
 
 HasRequired returns a boolean if a field has been set.
 
-### SetRequiredNil
-
-`func (o *ApplicationCommandNumberOptionResponse) SetRequiredNil(b bool)`
-
- SetRequiredNil sets the value for Required to be an explicit nil
-
-### UnsetRequired
-`func (o *ApplicationCommandNumberOptionResponse) UnsetRequired()`
-
-UnsetRequired ensures that no value is present for Required, not even an explicit nil
 ### GetAutocomplete
 
 `func (o *ApplicationCommandNumberOptionResponse) GetAutocomplete() bool`
@@ -276,16 +246,6 @@ SetAutocomplete sets Autocomplete field to given value.
 
 HasAutocomplete returns a boolean if a field has been set.
 
-### SetAutocompleteNil
-
-`func (o *ApplicationCommandNumberOptionResponse) SetAutocompleteNil(b bool)`
-
- SetAutocompleteNil sets the value for Autocomplete to be an explicit nil
-
-### UnsetAutocomplete
-`func (o *ApplicationCommandNumberOptionResponse) UnsetAutocomplete()`
-
-UnsetAutocomplete ensures that no value is present for Autocomplete, not even an explicit nil
 ### GetChoices
 
 `func (o *ApplicationCommandNumberOptionResponse) GetChoices() []ApplicationCommandOptionNumberChoiceResponse`
@@ -311,16 +271,6 @@ SetChoices sets Choices field to given value.
 
 HasChoices returns a boolean if a field has been set.
 
-### SetChoicesNil
-
-`func (o *ApplicationCommandNumberOptionResponse) SetChoicesNil(b bool)`
-
- SetChoicesNil sets the value for Choices to be an explicit nil
-
-### UnsetChoices
-`func (o *ApplicationCommandNumberOptionResponse) UnsetChoices()`
-
-UnsetChoices ensures that no value is present for Choices, not even an explicit nil
 ### GetMinValue
 
 `func (o *ApplicationCommandNumberOptionResponse) GetMinValue() float64`
@@ -346,16 +296,6 @@ SetMinValue sets MinValue field to given value.
 
 HasMinValue returns a boolean if a field has been set.
 
-### SetMinValueNil
-
-`func (o *ApplicationCommandNumberOptionResponse) SetMinValueNil(b bool)`
-
- SetMinValueNil sets the value for MinValue to be an explicit nil
-
-### UnsetMinValue
-`func (o *ApplicationCommandNumberOptionResponse) UnsetMinValue()`
-
-UnsetMinValue ensures that no value is present for MinValue, not even an explicit nil
 ### GetMaxValue
 
 `func (o *ApplicationCommandNumberOptionResponse) GetMaxValue() float64`
@@ -381,16 +321,6 @@ SetMaxValue sets MaxValue field to given value.
 
 HasMaxValue returns a boolean if a field has been set.
 
-### SetMaxValueNil
-
-`func (o *ApplicationCommandNumberOptionResponse) SetMaxValueNil(b bool)`
-
- SetMaxValueNil sets the value for MaxValue to be an explicit nil
-
-### UnsetMaxValue
-`func (o *ApplicationCommandNumberOptionResponse) UnsetMaxValue()`
-
-UnsetMaxValue ensures that no value is present for MaxValue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

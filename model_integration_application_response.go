@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,12 +57,12 @@ var _ MappedNullable = &IntegrationApplicationResponse{}
 type IntegrationApplicationResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
-	Icon NullableString `json:"icon,omitempty"`
+	Icon *string `json:"icon,omitempty"`
 	Description string `json:"description"`
-	Type NullableInt32 `json:"type,omitempty"`
-	CoverImage NullableString `json:"cover_image,omitempty"`
+	Type *ApplicationFormPartialType `json:"type,omitempty"`
+	CoverImage *string `json:"cover_image,omitempty"`
 	PrimarySkuId *string `json:"primary_sku_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Bot NullableUserResponse `json:"bot,omitempty"`
+	Bot *UserResponse `json:"bot,omitempty"`
 }
 
 type _IntegrationApplicationResponse IntegrationApplicationResponse
@@ -135,48 +135,38 @@ func (o *IntegrationApplicationResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIcon returns the Icon field value if set, zero value otherwise.
 func (o *IntegrationApplicationResponse) GetIcon() string {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		var ret string
 		return ret
 	}
-	return *o.Icon.Get()
+	return *o.Icon
 }
 
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IntegrationApplicationResponse) GetIconOk() (*string, bool) {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		return nil, false
 	}
-	return o.Icon.Get(), o.Icon.IsSet()
+	return o.Icon, true
 }
 
 // HasIcon returns a boolean if a field has been set.
 func (o *IntegrationApplicationResponse) HasIcon() bool {
-	if o != nil && o.Icon.IsSet() {
+	if o != nil && !IsNil(o.Icon) {
 		return true
 	}
 
 	return false
 }
 
-// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+// SetIcon gets a reference to the given string and assigns it to the Icon field.
 func (o *IntegrationApplicationResponse) SetIcon(v string) {
-	o.Icon.Set(&v)
+	o.Icon = &v
 }
 
-// SetIconNil sets the value for Icon to be an explicit nil
-func (o *IntegrationApplicationResponse) SetIconNil() {
-	o.Icon.Set(nil)
-}
-
-// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
-func (o *IntegrationApplicationResponse) UnsetIcon() {
-	o.Icon.Unset()
-}
 
 // GetDescription returns the Description field value
 func (o *IntegrationApplicationResponse) GetDescription() string {
@@ -202,91 +192,71 @@ func (o *IntegrationApplicationResponse) SetDescription(v string) {
 	o.Description = v
 }
 
-// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IntegrationApplicationResponse) GetType() int32 {
-	if o == nil || IsNil(o.Type.Get()) {
-		var ret int32
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *IntegrationApplicationResponse) GetType() ApplicationFormPartialType {
+	if o == nil || IsNil(o.Type) {
+		var ret ApplicationFormPartialType
 		return ret
 	}
-	return *o.Type.Get()
+	return *o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IntegrationApplicationResponse) GetTypeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Type.Get()) {
+func (o *IntegrationApplicationResponse) GetTypeOk() (*ApplicationFormPartialType, bool) {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *IntegrationApplicationResponse) HasType() bool {
-	if o != nil && o.Type.IsSet() {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given NullableInt32 and assigns it to the Type field.
-func (o *IntegrationApplicationResponse) SetType(v int32) {
-	o.Type.Set(&v)
+// SetType gets a reference to the given ApplicationFormPartialType and assigns it to the Type field.
+func (o *IntegrationApplicationResponse) SetType(v ApplicationFormPartialType) {
+	o.Type = &v
 }
 
-// SetTypeNil sets the value for Type to be an explicit nil
-func (o *IntegrationApplicationResponse) SetTypeNil() {
-	o.Type.Set(nil)
-}
 
-// UnsetType ensures that no value is present for Type, not even an explicit nil
-func (o *IntegrationApplicationResponse) UnsetType() {
-	o.Type.Unset()
-}
-
-// GetCoverImage returns the CoverImage field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCoverImage returns the CoverImage field value if set, zero value otherwise.
 func (o *IntegrationApplicationResponse) GetCoverImage() string {
-	if o == nil || IsNil(o.CoverImage.Get()) {
+	if o == nil || IsNil(o.CoverImage) {
 		var ret string
 		return ret
 	}
-	return *o.CoverImage.Get()
+	return *o.CoverImage
 }
 
 // GetCoverImageOk returns a tuple with the CoverImage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IntegrationApplicationResponse) GetCoverImageOk() (*string, bool) {
-	if o == nil || IsNil(o.CoverImage.Get()) {
+	if o == nil || IsNil(o.CoverImage) {
 		return nil, false
 	}
-	return o.CoverImage.Get(), o.CoverImage.IsSet()
+	return o.CoverImage, true
 }
 
 // HasCoverImage returns a boolean if a field has been set.
 func (o *IntegrationApplicationResponse) HasCoverImage() bool {
-	if o != nil && o.CoverImage.IsSet() {
+	if o != nil && !IsNil(o.CoverImage) {
 		return true
 	}
 
 	return false
 }
 
-// SetCoverImage gets a reference to the given NullableString and assigns it to the CoverImage field.
+// SetCoverImage gets a reference to the given string and assigns it to the CoverImage field.
 func (o *IntegrationApplicationResponse) SetCoverImage(v string) {
-	o.CoverImage.Set(&v)
+	o.CoverImage = &v
 }
 
-// SetCoverImageNil sets the value for CoverImage to be an explicit nil
-func (o *IntegrationApplicationResponse) SetCoverImageNil() {
-	o.CoverImage.Set(nil)
-}
-
-// UnsetCoverImage ensures that no value is present for CoverImage, not even an explicit nil
-func (o *IntegrationApplicationResponse) UnsetCoverImage() {
-	o.CoverImage.Unset()
-}
 
 // GetPrimarySkuId returns the PrimarySkuId field value if set, zero value otherwise.
 func (o *IntegrationApplicationResponse) GetPrimarySkuId() string {
@@ -321,48 +291,38 @@ func (o *IntegrationApplicationResponse) SetPrimarySkuId(v string) {
 }
 
 
-// GetBot returns the Bot field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBot returns the Bot field value if set, zero value otherwise.
 func (o *IntegrationApplicationResponse) GetBot() UserResponse {
-	if o == nil || IsNil(o.Bot.Get()) {
+	if o == nil || IsNil(o.Bot) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.Bot.Get()
+	return *o.Bot
 }
 
 // GetBotOk returns a tuple with the Bot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IntegrationApplicationResponse) GetBotOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.Bot.Get()) {
+	if o == nil || IsNil(o.Bot) {
 		return nil, false
 	}
-	return o.Bot.Get(), o.Bot.IsSet()
+	return o.Bot, true
 }
 
 // HasBot returns a boolean if a field has been set.
 func (o *IntegrationApplicationResponse) HasBot() bool {
-	if o != nil && o.Bot.IsSet() {
+	if o != nil && !IsNil(o.Bot) {
 		return true
 	}
 
 	return false
 }
 
-// SetBot gets a reference to the given NullableUserResponse and assigns it to the Bot field.
+// SetBot gets a reference to the given UserResponse and assigns it to the Bot field.
 func (o *IntegrationApplicationResponse) SetBot(v UserResponse) {
-	o.Bot.Set(&v)
+	o.Bot = &v
 }
 
-// SetBotNil sets the value for Bot to be an explicit nil
-func (o *IntegrationApplicationResponse) SetBotNil() {
-	o.Bot.Set(nil)
-}
-
-// UnsetBot ensures that no value is present for Bot, not even an explicit nil
-func (o *IntegrationApplicationResponse) UnsetBot() {
-	o.Bot.Unset()
-}
 
 func (o IntegrationApplicationResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -376,21 +336,21 @@ func (o IntegrationApplicationResponse) ToMap() (map[string]interface{}, error) 
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
-	if o.Icon.IsSet() {
-		toSerialize["icon"] = o.Icon.Get()
+	if !IsNil(o.Icon) {
+		toSerialize["icon"] = o.Icon
 	}
 	toSerialize["description"] = o.Description
-	if o.Type.IsSet() {
-		toSerialize["type"] = o.Type.Get()
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
 	}
-	if o.CoverImage.IsSet() {
-		toSerialize["cover_image"] = o.CoverImage.Get()
+	if !IsNil(o.CoverImage) {
+		toSerialize["cover_image"] = o.CoverImage
 	}
 	if !IsNil(o.PrimarySkuId) {
 		toSerialize["primary_sku_id"] = o.PrimarySkuId
 	}
-	if o.Bot.IsSet() {
-		toSerialize["bot"] = o.Bot.Get()
+	if !IsNil(o.Bot) {
+		toSerialize["bot"] = o.Bot
 	}
 	return toSerialize, nil
 }
@@ -469,5 +429,4 @@ func (v *NullableIntegrationApplicationResponse) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

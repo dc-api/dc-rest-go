@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,15 +55,15 @@ var _ MappedNullable = &ApplicationCommandStringOption{}
 
 // ApplicationCommandStringOption struct for ApplicationCommandStringOption
 type ApplicationCommandStringOption struct {
-	Type int32 `json:"type"`
+	Type ApplicationCommandOptionType `json:"type"`
 	Name string `json:"name"`
 	NameLocalizations map[string]string `json:"name_localizations,omitempty"`
 	Description string `json:"description"`
 	DescriptionLocalizations map[string]string `json:"description_localizations,omitempty"`
-	Required NullableBool `json:"required,omitempty"`
-	Autocomplete NullableBool `json:"autocomplete,omitempty"`
-	MinLength NullableInt32 `json:"min_length,omitempty"`
-	MaxLength NullableInt32 `json:"max_length,omitempty"`
+	Required *bool `json:"required,omitempty"`
+	Autocomplete *bool `json:"autocomplete,omitempty"`
+	MinLength *int32 `json:"min_length,omitempty"`
+	MaxLength *int32 `json:"max_length,omitempty"`
 	Choices []ApplicationCommandOptionStringChoice `json:"choices,omitempty"`
 }
 
@@ -73,7 +73,7 @@ type _ApplicationCommandStringOption ApplicationCommandStringOption
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApplicationCommandStringOption(type_ int32, name string, description string) *ApplicationCommandStringOption {
+func NewApplicationCommandStringOption(type_ ApplicationCommandOptionType, name string, description string) *ApplicationCommandStringOption {
 	this := ApplicationCommandStringOption{}
 	this.Type = type_
 	this.Name = name
@@ -90,9 +90,9 @@ func NewApplicationCommandStringOptionWithDefaults() *ApplicationCommandStringOp
 }
 
 // GetType returns the Type field value
-func (o *ApplicationCommandStringOption) GetType() int32 {
+func (o *ApplicationCommandStringOption) GetType() ApplicationCommandOptionType {
 	if o == nil {
-		var ret int32
+		var ret ApplicationCommandOptionType
 		return ret
 	}
 
@@ -101,7 +101,7 @@ func (o *ApplicationCommandStringOption) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ApplicationCommandStringOption) GetTypeOk() (*int32, bool) {
+func (o *ApplicationCommandStringOption) GetTypeOk() (*ApplicationCommandOptionType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -109,7 +109,7 @@ func (o *ApplicationCommandStringOption) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *ApplicationCommandStringOption) SetType(v int32) {
+func (o *ApplicationCommandStringOption) SetType(v ApplicationCommandOptionType) {
 	o.Type = v
 }
 
@@ -227,181 +227,141 @@ func (o *ApplicationCommandStringOption) SetDescriptionLocalizations(v map[strin
 }
 
 
-// GetRequired returns the Required field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRequired returns the Required field value if set, zero value otherwise.
 func (o *ApplicationCommandStringOption) GetRequired() bool {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		var ret bool
 		return ret
 	}
-	return *o.Required.Get()
+	return *o.Required
 }
 
 // GetRequiredOk returns a tuple with the Required field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandStringOption) GetRequiredOk() (*bool, bool) {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		return nil, false
 	}
-	return o.Required.Get(), o.Required.IsSet()
+	return o.Required, true
 }
 
 // HasRequired returns a boolean if a field has been set.
 func (o *ApplicationCommandStringOption) HasRequired() bool {
-	if o != nil && o.Required.IsSet() {
+	if o != nil && !IsNil(o.Required) {
 		return true
 	}
 
 	return false
 }
 
-// SetRequired gets a reference to the given NullableBool and assigns it to the Required field.
+// SetRequired gets a reference to the given bool and assigns it to the Required field.
 func (o *ApplicationCommandStringOption) SetRequired(v bool) {
-	o.Required.Set(&v)
+	o.Required = &v
 }
 
-// SetRequiredNil sets the value for Required to be an explicit nil
-func (o *ApplicationCommandStringOption) SetRequiredNil() {
-	o.Required.Set(nil)
-}
 
-// UnsetRequired ensures that no value is present for Required, not even an explicit nil
-func (o *ApplicationCommandStringOption) UnsetRequired() {
-	o.Required.Unset()
-}
-
-// GetAutocomplete returns the Autocomplete field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAutocomplete returns the Autocomplete field value if set, zero value otherwise.
 func (o *ApplicationCommandStringOption) GetAutocomplete() bool {
-	if o == nil || IsNil(o.Autocomplete.Get()) {
+	if o == nil || IsNil(o.Autocomplete) {
 		var ret bool
 		return ret
 	}
-	return *o.Autocomplete.Get()
+	return *o.Autocomplete
 }
 
 // GetAutocompleteOk returns a tuple with the Autocomplete field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandStringOption) GetAutocompleteOk() (*bool, bool) {
-	if o == nil || IsNil(o.Autocomplete.Get()) {
+	if o == nil || IsNil(o.Autocomplete) {
 		return nil, false
 	}
-	return o.Autocomplete.Get(), o.Autocomplete.IsSet()
+	return o.Autocomplete, true
 }
 
 // HasAutocomplete returns a boolean if a field has been set.
 func (o *ApplicationCommandStringOption) HasAutocomplete() bool {
-	if o != nil && o.Autocomplete.IsSet() {
+	if o != nil && !IsNil(o.Autocomplete) {
 		return true
 	}
 
 	return false
 }
 
-// SetAutocomplete gets a reference to the given NullableBool and assigns it to the Autocomplete field.
+// SetAutocomplete gets a reference to the given bool and assigns it to the Autocomplete field.
 func (o *ApplicationCommandStringOption) SetAutocomplete(v bool) {
-	o.Autocomplete.Set(&v)
+	o.Autocomplete = &v
 }
 
-// SetAutocompleteNil sets the value for Autocomplete to be an explicit nil
-func (o *ApplicationCommandStringOption) SetAutocompleteNil() {
-	o.Autocomplete.Set(nil)
-}
 
-// UnsetAutocomplete ensures that no value is present for Autocomplete, not even an explicit nil
-func (o *ApplicationCommandStringOption) UnsetAutocomplete() {
-	o.Autocomplete.Unset()
-}
-
-// GetMinLength returns the MinLength field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMinLength returns the MinLength field value if set, zero value otherwise.
 func (o *ApplicationCommandStringOption) GetMinLength() int32 {
-	if o == nil || IsNil(o.MinLength.Get()) {
+	if o == nil || IsNil(o.MinLength) {
 		var ret int32
 		return ret
 	}
-	return *o.MinLength.Get()
+	return *o.MinLength
 }
 
 // GetMinLengthOk returns a tuple with the MinLength field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandStringOption) GetMinLengthOk() (*int32, bool) {
-	if o == nil || IsNil(o.MinLength.Get()) {
+	if o == nil || IsNil(o.MinLength) {
 		return nil, false
 	}
-	return o.MinLength.Get(), o.MinLength.IsSet()
+	return o.MinLength, true
 }
 
 // HasMinLength returns a boolean if a field has been set.
 func (o *ApplicationCommandStringOption) HasMinLength() bool {
-	if o != nil && o.MinLength.IsSet() {
+	if o != nil && !IsNil(o.MinLength) {
 		return true
 	}
 
 	return false
 }
 
-// SetMinLength gets a reference to the given NullableInt32 and assigns it to the MinLength field.
+// SetMinLength gets a reference to the given int32 and assigns it to the MinLength field.
 func (o *ApplicationCommandStringOption) SetMinLength(v int32) {
-	o.MinLength.Set(&v)
+	o.MinLength = &v
 }
 
-// SetMinLengthNil sets the value for MinLength to be an explicit nil
-func (o *ApplicationCommandStringOption) SetMinLengthNil() {
-	o.MinLength.Set(nil)
-}
 
-// UnsetMinLength ensures that no value is present for MinLength, not even an explicit nil
-func (o *ApplicationCommandStringOption) UnsetMinLength() {
-	o.MinLength.Unset()
-}
-
-// GetMaxLength returns the MaxLength field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxLength returns the MaxLength field value if set, zero value otherwise.
 func (o *ApplicationCommandStringOption) GetMaxLength() int32 {
-	if o == nil || IsNil(o.MaxLength.Get()) {
+	if o == nil || IsNil(o.MaxLength) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxLength.Get()
+	return *o.MaxLength
 }
 
 // GetMaxLengthOk returns a tuple with the MaxLength field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandStringOption) GetMaxLengthOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxLength.Get()) {
+	if o == nil || IsNil(o.MaxLength) {
 		return nil, false
 	}
-	return o.MaxLength.Get(), o.MaxLength.IsSet()
+	return o.MaxLength, true
 }
 
 // HasMaxLength returns a boolean if a field has been set.
 func (o *ApplicationCommandStringOption) HasMaxLength() bool {
-	if o != nil && o.MaxLength.IsSet() {
+	if o != nil && !IsNil(o.MaxLength) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxLength gets a reference to the given NullableInt32 and assigns it to the MaxLength field.
+// SetMaxLength gets a reference to the given int32 and assigns it to the MaxLength field.
 func (o *ApplicationCommandStringOption) SetMaxLength(v int32) {
-	o.MaxLength.Set(&v)
+	o.MaxLength = &v
 }
 
-// SetMaxLengthNil sets the value for MaxLength to be an explicit nil
-func (o *ApplicationCommandStringOption) SetMaxLengthNil() {
-	o.MaxLength.Set(nil)
-}
 
-// UnsetMaxLength ensures that no value is present for MaxLength, not even an explicit nil
-func (o *ApplicationCommandStringOption) UnsetMaxLength() {
-	o.MaxLength.Unset()
-}
-
-// GetChoices returns the Choices field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetChoices returns the Choices field value if set, zero value otherwise.
 func (o *ApplicationCommandStringOption) GetChoices() []ApplicationCommandOptionStringChoice {
-	if o == nil {
+	if o == nil || IsNil(o.Choices) {
 		var ret []ApplicationCommandOptionStringChoice
 		return ret
 	}
@@ -410,9 +370,8 @@ func (o *ApplicationCommandStringOption) GetChoices() []ApplicationCommandOption
 
 // GetChoicesOk returns a tuple with the Choices field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandStringOption) GetChoicesOk() ([]ApplicationCommandOptionStringChoice, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Choices) {
 		return nil, false
 	}
 	return o.Choices, true
@@ -452,19 +411,19 @@ func (o ApplicationCommandStringOption) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.DescriptionLocalizations) {
 		toSerialize["description_localizations"] = o.DescriptionLocalizations
 	}
-	if o.Required.IsSet() {
-		toSerialize["required"] = o.Required.Get()
+	if !IsNil(o.Required) {
+		toSerialize["required"] = o.Required
 	}
-	if o.Autocomplete.IsSet() {
-		toSerialize["autocomplete"] = o.Autocomplete.Get()
+	if !IsNil(o.Autocomplete) {
+		toSerialize["autocomplete"] = o.Autocomplete
 	}
-	if o.MinLength.IsSet() {
-		toSerialize["min_length"] = o.MinLength.Get()
+	if !IsNil(o.MinLength) {
+		toSerialize["min_length"] = o.MinLength
 	}
-	if o.MaxLength.IsSet() {
-		toSerialize["max_length"] = o.MaxLength.Get()
+	if !IsNil(o.MaxLength) {
+		toSerialize["max_length"] = o.MaxLength
 	}
-	if o.Choices != nil {
+	if !IsNil(o.Choices) {
 		toSerialize["choices"] = o.Choices
 	}
 	return toSerialize, nil
@@ -544,5 +503,4 @@ func (v *NullableApplicationCommandStringOption) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

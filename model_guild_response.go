@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,41 +57,41 @@ var _ MappedNullable = &GuildResponse{}
 type GuildResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
-	Icon NullableString `json:"icon,omitempty"`
-	Description NullableString `json:"description,omitempty"`
-	HomeHeader NullableString `json:"home_header,omitempty"`
-	Splash NullableString `json:"splash,omitempty"`
-	DiscoverySplash NullableString `json:"discovery_splash,omitempty"`
-	Features []string `json:"features"`
-	Banner NullableString `json:"banner,omitempty"`
+	Icon *string `json:"icon,omitempty"`
+	Description *string `json:"description,omitempty"`
+	HomeHeader *string `json:"home_header,omitempty"`
+	Splash *string `json:"splash,omitempty"`
+	DiscoverySplash *string `json:"discovery_splash,omitempty"`
+	Features []GuildFeatures `json:"features"`
+	Banner *string `json:"banner,omitempty"`
 	OwnerId string `json:"owner_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	ApplicationId *string `json:"application_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	ApplicationId *GetEntitlementsSkuIdsParameterOneOfInner `json:"application_id,omitempty"`
 	Region string `json:"region"`
-	AfkChannelId *string `json:"afk_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	AfkTimeout NullableInt32 `json:"afk_timeout"`
-	SystemChannelId *string `json:"system_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	AfkChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"afk_channel_id,omitempty"`
+	AfkTimeout AfkTimeouts `json:"afk_timeout"`
+	SystemChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"system_channel_id,omitempty"`
 	SystemChannelFlags int32 `json:"system_channel_flags"`
 	WidgetEnabled bool `json:"widget_enabled"`
-	WidgetChannelId *string `json:"widget_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	VerificationLevel int32 `json:"verification_level"`
+	WidgetChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"widget_channel_id,omitempty"`
+	VerificationLevel VerificationLevels `json:"verification_level"`
 	Roles []GuildRoleResponse `json:"roles"`
-	DefaultMessageNotifications int32 `json:"default_message_notifications"`
-	MfaLevel int32 `json:"mfa_level"`
-	ExplicitContentFilter int32 `json:"explicit_content_filter"`
-	MaxPresences NullableInt32 `json:"max_presences,omitempty"`
-	MaxMembers NullableInt32 `json:"max_members,omitempty"`
-	MaxStageVideoChannelUsers NullableInt32 `json:"max_stage_video_channel_users,omitempty"`
-	MaxVideoChannelUsers NullableInt32 `json:"max_video_channel_users,omitempty"`
-	VanityUrlCode NullableString `json:"vanity_url_code,omitempty"`
-	PremiumTier int32 `json:"premium_tier"`
+	DefaultMessageNotifications UserNotificationSettings `json:"default_message_notifications"`
+	MfaLevel GuildMFALevel `json:"mfa_level"`
+	ExplicitContentFilter GuildExplicitContentFilterTypes `json:"explicit_content_filter"`
+	MaxPresences *int32 `json:"max_presences,omitempty"`
+	MaxMembers int32 `json:"max_members"`
+	MaxStageVideoChannelUsers int32 `json:"max_stage_video_channel_users"`
+	MaxVideoChannelUsers int32 `json:"max_video_channel_users"`
+	VanityUrlCode *string `json:"vanity_url_code,omitempty"`
+	PremiumTier PremiumGuildTiers `json:"premium_tier"`
 	PremiumSubscriptionCount int32 `json:"premium_subscription_count"`
-	PreferredLocale string `json:"preferred_locale"`
-	RulesChannelId *string `json:"rules_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	SafetyAlertsChannelId *string `json:"safety_alerts_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	PublicUpdatesChannelId *string `json:"public_updates_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	PreferredLocale AvailableLocalesEnum `json:"preferred_locale"`
+	RulesChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"rules_channel_id,omitempty"`
+	SafetyAlertsChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"safety_alerts_channel_id,omitempty"`
+	PublicUpdatesChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"public_updates_channel_id,omitempty"`
 	PremiumProgressBarEnabled bool `json:"premium_progress_bar_enabled"`
 	Nsfw bool `json:"nsfw"`
-	NsfwLevel NullableInt32 `json:"nsfw_level"`
+	NsfwLevel GuildNSFWContentLevel `json:"nsfw_level"`
 	Emojis []EmojiResponse `json:"emojis"`
 	Stickers []GuildStickerResponse `json:"stickers"`
 }
@@ -102,7 +102,7 @@ type _GuildResponse GuildResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGuildResponse(id string, name string, features []string, ownerId string, region string, afkTimeout NullableInt32, systemChannelFlags int32, widgetEnabled bool, verificationLevel int32, roles []GuildRoleResponse, defaultMessageNotifications int32, mfaLevel int32, explicitContentFilter int32, premiumTier int32, premiumSubscriptionCount int32, preferredLocale string, premiumProgressBarEnabled bool, nsfw bool, nsfwLevel NullableInt32, emojis []EmojiResponse, stickers []GuildStickerResponse) *GuildResponse {
+func NewGuildResponse(id string, name string, features []GuildFeatures, ownerId string, region string, afkTimeout AfkTimeouts, systemChannelFlags int32, widgetEnabled bool, verificationLevel VerificationLevels, roles []GuildRoleResponse, defaultMessageNotifications UserNotificationSettings, mfaLevel GuildMFALevel, explicitContentFilter GuildExplicitContentFilterTypes, maxMembers int32, maxStageVideoChannelUsers int32, maxVideoChannelUsers int32, premiumTier PremiumGuildTiers, premiumSubscriptionCount int32, preferredLocale AvailableLocalesEnum, premiumProgressBarEnabled bool, nsfw bool, nsfwLevel GuildNSFWContentLevel, emojis []EmojiResponse, stickers []GuildStickerResponse) *GuildResponse {
 	this := GuildResponse{}
 	this.Id = id
 	this.Name = name
@@ -117,6 +117,9 @@ func NewGuildResponse(id string, name string, features []string, ownerId string,
 	this.DefaultMessageNotifications = defaultMessageNotifications
 	this.MfaLevel = mfaLevel
 	this.ExplicitContentFilter = explicitContentFilter
+	this.MaxMembers = maxMembers
+	this.MaxStageVideoChannelUsers = maxStageVideoChannelUsers
+	this.MaxVideoChannelUsers = maxVideoChannelUsers
 	this.PremiumTier = premiumTier
 	this.PremiumSubscriptionCount = premiumSubscriptionCount
 	this.PreferredLocale = preferredLocale
@@ -184,225 +187,175 @@ func (o *GuildResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIcon returns the Icon field value if set, zero value otherwise.
 func (o *GuildResponse) GetIcon() string {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		var ret string
 		return ret
 	}
-	return *o.Icon.Get()
+	return *o.Icon
 }
 
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildResponse) GetIconOk() (*string, bool) {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		return nil, false
 	}
-	return o.Icon.Get(), o.Icon.IsSet()
+	return o.Icon, true
 }
 
 // HasIcon returns a boolean if a field has been set.
 func (o *GuildResponse) HasIcon() bool {
-	if o != nil && o.Icon.IsSet() {
+	if o != nil && !IsNil(o.Icon) {
 		return true
 	}
 
 	return false
 }
 
-// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+// SetIcon gets a reference to the given string and assigns it to the Icon field.
 func (o *GuildResponse) SetIcon(v string) {
-	o.Icon.Set(&v)
+	o.Icon = &v
 }
 
-// SetIconNil sets the value for Icon to be an explicit nil
-func (o *GuildResponse) SetIconNil() {
-	o.Icon.Set(nil)
-}
 
-// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
-func (o *GuildResponse) UnsetIcon() {
-	o.Icon.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *GuildResponse) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildResponse) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *GuildResponse) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *GuildResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *GuildResponse) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *GuildResponse) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetHomeHeader returns the HomeHeader field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHomeHeader returns the HomeHeader field value if set, zero value otherwise.
 func (o *GuildResponse) GetHomeHeader() string {
-	if o == nil || IsNil(o.HomeHeader.Get()) {
+	if o == nil || IsNil(o.HomeHeader) {
 		var ret string
 		return ret
 	}
-	return *o.HomeHeader.Get()
+	return *o.HomeHeader
 }
 
 // GetHomeHeaderOk returns a tuple with the HomeHeader field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildResponse) GetHomeHeaderOk() (*string, bool) {
-	if o == nil || IsNil(o.HomeHeader.Get()) {
+	if o == nil || IsNil(o.HomeHeader) {
 		return nil, false
 	}
-	return o.HomeHeader.Get(), o.HomeHeader.IsSet()
+	return o.HomeHeader, true
 }
 
 // HasHomeHeader returns a boolean if a field has been set.
 func (o *GuildResponse) HasHomeHeader() bool {
-	if o != nil && o.HomeHeader.IsSet() {
+	if o != nil && !IsNil(o.HomeHeader) {
 		return true
 	}
 
 	return false
 }
 
-// SetHomeHeader gets a reference to the given NullableString and assigns it to the HomeHeader field.
+// SetHomeHeader gets a reference to the given string and assigns it to the HomeHeader field.
 func (o *GuildResponse) SetHomeHeader(v string) {
-	o.HomeHeader.Set(&v)
+	o.HomeHeader = &v
 }
 
-// SetHomeHeaderNil sets the value for HomeHeader to be an explicit nil
-func (o *GuildResponse) SetHomeHeaderNil() {
-	o.HomeHeader.Set(nil)
-}
 
-// UnsetHomeHeader ensures that no value is present for HomeHeader, not even an explicit nil
-func (o *GuildResponse) UnsetHomeHeader() {
-	o.HomeHeader.Unset()
-}
-
-// GetSplash returns the Splash field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSplash returns the Splash field value if set, zero value otherwise.
 func (o *GuildResponse) GetSplash() string {
-	if o == nil || IsNil(o.Splash.Get()) {
+	if o == nil || IsNil(o.Splash) {
 		var ret string
 		return ret
 	}
-	return *o.Splash.Get()
+	return *o.Splash
 }
 
 // GetSplashOk returns a tuple with the Splash field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildResponse) GetSplashOk() (*string, bool) {
-	if o == nil || IsNil(o.Splash.Get()) {
+	if o == nil || IsNil(o.Splash) {
 		return nil, false
 	}
-	return o.Splash.Get(), o.Splash.IsSet()
+	return o.Splash, true
 }
 
 // HasSplash returns a boolean if a field has been set.
 func (o *GuildResponse) HasSplash() bool {
-	if o != nil && o.Splash.IsSet() {
+	if o != nil && !IsNil(o.Splash) {
 		return true
 	}
 
 	return false
 }
 
-// SetSplash gets a reference to the given NullableString and assigns it to the Splash field.
+// SetSplash gets a reference to the given string and assigns it to the Splash field.
 func (o *GuildResponse) SetSplash(v string) {
-	o.Splash.Set(&v)
+	o.Splash = &v
 }
 
-// SetSplashNil sets the value for Splash to be an explicit nil
-func (o *GuildResponse) SetSplashNil() {
-	o.Splash.Set(nil)
-}
 
-// UnsetSplash ensures that no value is present for Splash, not even an explicit nil
-func (o *GuildResponse) UnsetSplash() {
-	o.Splash.Unset()
-}
-
-// GetDiscoverySplash returns the DiscoverySplash field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDiscoverySplash returns the DiscoverySplash field value if set, zero value otherwise.
 func (o *GuildResponse) GetDiscoverySplash() string {
-	if o == nil || IsNil(o.DiscoverySplash.Get()) {
+	if o == nil || IsNil(o.DiscoverySplash) {
 		var ret string
 		return ret
 	}
-	return *o.DiscoverySplash.Get()
+	return *o.DiscoverySplash
 }
 
 // GetDiscoverySplashOk returns a tuple with the DiscoverySplash field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildResponse) GetDiscoverySplashOk() (*string, bool) {
-	if o == nil || IsNil(o.DiscoverySplash.Get()) {
+	if o == nil || IsNil(o.DiscoverySplash) {
 		return nil, false
 	}
-	return o.DiscoverySplash.Get(), o.DiscoverySplash.IsSet()
+	return o.DiscoverySplash, true
 }
 
 // HasDiscoverySplash returns a boolean if a field has been set.
 func (o *GuildResponse) HasDiscoverySplash() bool {
-	if o != nil && o.DiscoverySplash.IsSet() {
+	if o != nil && !IsNil(o.DiscoverySplash) {
 		return true
 	}
 
 	return false
 }
 
-// SetDiscoverySplash gets a reference to the given NullableString and assigns it to the DiscoverySplash field.
+// SetDiscoverySplash gets a reference to the given string and assigns it to the DiscoverySplash field.
 func (o *GuildResponse) SetDiscoverySplash(v string) {
-	o.DiscoverySplash.Set(&v)
+	o.DiscoverySplash = &v
 }
 
-// SetDiscoverySplashNil sets the value for DiscoverySplash to be an explicit nil
-func (o *GuildResponse) SetDiscoverySplashNil() {
-	o.DiscoverySplash.Set(nil)
-}
-
-// UnsetDiscoverySplash ensures that no value is present for DiscoverySplash, not even an explicit nil
-func (o *GuildResponse) UnsetDiscoverySplash() {
-	o.DiscoverySplash.Unset()
-}
 
 // GetFeatures returns the Features field value
-func (o *GuildResponse) GetFeatures() []string {
+func (o *GuildResponse) GetFeatures() []GuildFeatures {
 	if o == nil {
-		var ret []string
+		var ret []GuildFeatures
 		return ret
 	}
 
@@ -411,7 +364,7 @@ func (o *GuildResponse) GetFeatures() []string {
 
 // GetFeaturesOk returns a tuple with the Features field value
 // and a boolean to check if the value has been set.
-func (o *GuildResponse) GetFeaturesOk() ([]string, bool) {
+func (o *GuildResponse) GetFeaturesOk() ([]GuildFeatures, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -419,52 +372,42 @@ func (o *GuildResponse) GetFeaturesOk() ([]string, bool) {
 }
 
 // SetFeatures sets field value
-func (o *GuildResponse) SetFeatures(v []string) {
+func (o *GuildResponse) SetFeatures(v []GuildFeatures) {
 	o.Features = v
 }
 
-// GetBanner returns the Banner field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBanner returns the Banner field value if set, zero value otherwise.
 func (o *GuildResponse) GetBanner() string {
-	if o == nil || IsNil(o.Banner.Get()) {
+	if o == nil || IsNil(o.Banner) {
 		var ret string
 		return ret
 	}
-	return *o.Banner.Get()
+	return *o.Banner
 }
 
 // GetBannerOk returns a tuple with the Banner field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildResponse) GetBannerOk() (*string, bool) {
-	if o == nil || IsNil(o.Banner.Get()) {
+	if o == nil || IsNil(o.Banner) {
 		return nil, false
 	}
-	return o.Banner.Get(), o.Banner.IsSet()
+	return o.Banner, true
 }
 
 // HasBanner returns a boolean if a field has been set.
 func (o *GuildResponse) HasBanner() bool {
-	if o != nil && o.Banner.IsSet() {
+	if o != nil && !IsNil(o.Banner) {
 		return true
 	}
 
 	return false
 }
 
-// SetBanner gets a reference to the given NullableString and assigns it to the Banner field.
+// SetBanner gets a reference to the given string and assigns it to the Banner field.
 func (o *GuildResponse) SetBanner(v string) {
-	o.Banner.Set(&v)
+	o.Banner = &v
 }
 
-// SetBannerNil sets the value for Banner to be an explicit nil
-func (o *GuildResponse) SetBannerNil() {
-	o.Banner.Set(nil)
-}
-
-// UnsetBanner ensures that no value is present for Banner, not even an explicit nil
-func (o *GuildResponse) UnsetBanner() {
-	o.Banner.Unset()
-}
 
 // GetOwnerId returns the OwnerId field value
 func (o *GuildResponse) GetOwnerId() string {
@@ -491,9 +434,9 @@ func (o *GuildResponse) SetOwnerId(v string) {
 }
 
 // GetApplicationId returns the ApplicationId field value if set, zero value otherwise.
-func (o *GuildResponse) GetApplicationId() string {
+func (o *GuildResponse) GetApplicationId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.ApplicationId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.ApplicationId
@@ -501,7 +444,7 @@ func (o *GuildResponse) GetApplicationId() string {
 
 // GetApplicationIdOk returns a tuple with the ApplicationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildResponse) GetApplicationIdOk() (*string, bool) {
+func (o *GuildResponse) GetApplicationIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.ApplicationId) {
 		return nil, false
 	}
@@ -517,8 +460,8 @@ func (o *GuildResponse) HasApplicationId() bool {
 	return false
 }
 
-// SetApplicationId gets a reference to the given string and assigns it to the ApplicationId field.
-func (o *GuildResponse) SetApplicationId(v string) {
+// SetApplicationId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the ApplicationId field.
+func (o *GuildResponse) SetApplicationId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.ApplicationId = &v
 }
 
@@ -548,9 +491,9 @@ func (o *GuildResponse) SetRegion(v string) {
 }
 
 // GetAfkChannelId returns the AfkChannelId field value if set, zero value otherwise.
-func (o *GuildResponse) GetAfkChannelId() string {
+func (o *GuildResponse) GetAfkChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.AfkChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.AfkChannelId
@@ -558,7 +501,7 @@ func (o *GuildResponse) GetAfkChannelId() string {
 
 // GetAfkChannelIdOk returns a tuple with the AfkChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildResponse) GetAfkChannelIdOk() (*string, bool) {
+func (o *GuildResponse) GetAfkChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.AfkChannelId) {
 		return nil, false
 	}
@@ -574,42 +517,40 @@ func (o *GuildResponse) HasAfkChannelId() bool {
 	return false
 }
 
-// SetAfkChannelId gets a reference to the given string and assigns it to the AfkChannelId field.
-func (o *GuildResponse) SetAfkChannelId(v string) {
+// SetAfkChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the AfkChannelId field.
+func (o *GuildResponse) SetAfkChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.AfkChannelId = &v
 }
 
 
 // GetAfkTimeout returns the AfkTimeout field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *GuildResponse) GetAfkTimeout() int32 {
-	if o == nil || o.AfkTimeout.Get() == nil {
-		var ret int32
+func (o *GuildResponse) GetAfkTimeout() AfkTimeouts {
+	if o == nil {
+		var ret AfkTimeouts
 		return ret
 	}
 
-	return *o.AfkTimeout.Get()
+	return o.AfkTimeout
 }
 
 // GetAfkTimeoutOk returns a tuple with the AfkTimeout field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GuildResponse) GetAfkTimeoutOk() (*int32, bool) {
+func (o *GuildResponse) GetAfkTimeoutOk() (*AfkTimeouts, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.AfkTimeout.Get(), o.AfkTimeout.IsSet()
+	return &o.AfkTimeout, true
 }
 
 // SetAfkTimeout sets field value
-func (o *GuildResponse) SetAfkTimeout(v int32) {
-	o.AfkTimeout.Set(&v)
+func (o *GuildResponse) SetAfkTimeout(v AfkTimeouts) {
+	o.AfkTimeout = v
 }
 
 // GetSystemChannelId returns the SystemChannelId field value if set, zero value otherwise.
-func (o *GuildResponse) GetSystemChannelId() string {
+func (o *GuildResponse) GetSystemChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.SystemChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.SystemChannelId
@@ -617,7 +558,7 @@ func (o *GuildResponse) GetSystemChannelId() string {
 
 // GetSystemChannelIdOk returns a tuple with the SystemChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildResponse) GetSystemChannelIdOk() (*string, bool) {
+func (o *GuildResponse) GetSystemChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.SystemChannelId) {
 		return nil, false
 	}
@@ -633,8 +574,8 @@ func (o *GuildResponse) HasSystemChannelId() bool {
 	return false
 }
 
-// SetSystemChannelId gets a reference to the given string and assigns it to the SystemChannelId field.
-func (o *GuildResponse) SetSystemChannelId(v string) {
+// SetSystemChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the SystemChannelId field.
+func (o *GuildResponse) SetSystemChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.SystemChannelId = &v
 }
 
@@ -688,9 +629,9 @@ func (o *GuildResponse) SetWidgetEnabled(v bool) {
 }
 
 // GetWidgetChannelId returns the WidgetChannelId field value if set, zero value otherwise.
-func (o *GuildResponse) GetWidgetChannelId() string {
+func (o *GuildResponse) GetWidgetChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.WidgetChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.WidgetChannelId
@@ -698,7 +639,7 @@ func (o *GuildResponse) GetWidgetChannelId() string {
 
 // GetWidgetChannelIdOk returns a tuple with the WidgetChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildResponse) GetWidgetChannelIdOk() (*string, bool) {
+func (o *GuildResponse) GetWidgetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.WidgetChannelId) {
 		return nil, false
 	}
@@ -714,16 +655,16 @@ func (o *GuildResponse) HasWidgetChannelId() bool {
 	return false
 }
 
-// SetWidgetChannelId gets a reference to the given string and assigns it to the WidgetChannelId field.
-func (o *GuildResponse) SetWidgetChannelId(v string) {
+// SetWidgetChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the WidgetChannelId field.
+func (o *GuildResponse) SetWidgetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.WidgetChannelId = &v
 }
 
 
 // GetVerificationLevel returns the VerificationLevel field value
-func (o *GuildResponse) GetVerificationLevel() int32 {
+func (o *GuildResponse) GetVerificationLevel() VerificationLevels {
 	if o == nil {
-		var ret int32
+		var ret VerificationLevels
 		return ret
 	}
 
@@ -732,7 +673,7 @@ func (o *GuildResponse) GetVerificationLevel() int32 {
 
 // GetVerificationLevelOk returns a tuple with the VerificationLevel field value
 // and a boolean to check if the value has been set.
-func (o *GuildResponse) GetVerificationLevelOk() (*int32, bool) {
+func (o *GuildResponse) GetVerificationLevelOk() (*VerificationLevels, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -740,7 +681,7 @@ func (o *GuildResponse) GetVerificationLevelOk() (*int32, bool) {
 }
 
 // SetVerificationLevel sets field value
-func (o *GuildResponse) SetVerificationLevel(v int32) {
+func (o *GuildResponse) SetVerificationLevel(v VerificationLevels) {
 	o.VerificationLevel = v
 }
 
@@ -769,9 +710,9 @@ func (o *GuildResponse) SetRoles(v []GuildRoleResponse) {
 }
 
 // GetDefaultMessageNotifications returns the DefaultMessageNotifications field value
-func (o *GuildResponse) GetDefaultMessageNotifications() int32 {
+func (o *GuildResponse) GetDefaultMessageNotifications() UserNotificationSettings {
 	if o == nil {
-		var ret int32
+		var ret UserNotificationSettings
 		return ret
 	}
 
@@ -780,7 +721,7 @@ func (o *GuildResponse) GetDefaultMessageNotifications() int32 {
 
 // GetDefaultMessageNotificationsOk returns a tuple with the DefaultMessageNotifications field value
 // and a boolean to check if the value has been set.
-func (o *GuildResponse) GetDefaultMessageNotificationsOk() (*int32, bool) {
+func (o *GuildResponse) GetDefaultMessageNotificationsOk() (*UserNotificationSettings, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -788,14 +729,14 @@ func (o *GuildResponse) GetDefaultMessageNotificationsOk() (*int32, bool) {
 }
 
 // SetDefaultMessageNotifications sets field value
-func (o *GuildResponse) SetDefaultMessageNotifications(v int32) {
+func (o *GuildResponse) SetDefaultMessageNotifications(v UserNotificationSettings) {
 	o.DefaultMessageNotifications = v
 }
 
 // GetMfaLevel returns the MfaLevel field value
-func (o *GuildResponse) GetMfaLevel() int32 {
+func (o *GuildResponse) GetMfaLevel() GuildMFALevel {
 	if o == nil {
-		var ret int32
+		var ret GuildMFALevel
 		return ret
 	}
 
@@ -804,7 +745,7 @@ func (o *GuildResponse) GetMfaLevel() int32 {
 
 // GetMfaLevelOk returns a tuple with the MfaLevel field value
 // and a boolean to check if the value has been set.
-func (o *GuildResponse) GetMfaLevelOk() (*int32, bool) {
+func (o *GuildResponse) GetMfaLevelOk() (*GuildMFALevel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -812,14 +753,14 @@ func (o *GuildResponse) GetMfaLevelOk() (*int32, bool) {
 }
 
 // SetMfaLevel sets field value
-func (o *GuildResponse) SetMfaLevel(v int32) {
+func (o *GuildResponse) SetMfaLevel(v GuildMFALevel) {
 	o.MfaLevel = v
 }
 
 // GetExplicitContentFilter returns the ExplicitContentFilter field value
-func (o *GuildResponse) GetExplicitContentFilter() int32 {
+func (o *GuildResponse) GetExplicitContentFilter() GuildExplicitContentFilterTypes {
 	if o == nil {
-		var ret int32
+		var ret GuildExplicitContentFilterTypes
 		return ret
 	}
 
@@ -828,7 +769,7 @@ func (o *GuildResponse) GetExplicitContentFilter() int32 {
 
 // GetExplicitContentFilterOk returns a tuple with the ExplicitContentFilter field value
 // and a boolean to check if the value has been set.
-func (o *GuildResponse) GetExplicitContentFilterOk() (*int32, bool) {
+func (o *GuildResponse) GetExplicitContentFilterOk() (*GuildExplicitContentFilterTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -836,229 +777,152 @@ func (o *GuildResponse) GetExplicitContentFilterOk() (*int32, bool) {
 }
 
 // SetExplicitContentFilter sets field value
-func (o *GuildResponse) SetExplicitContentFilter(v int32) {
+func (o *GuildResponse) SetExplicitContentFilter(v GuildExplicitContentFilterTypes) {
 	o.ExplicitContentFilter = v
 }
 
-// GetMaxPresences returns the MaxPresences field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxPresences returns the MaxPresences field value if set, zero value otherwise.
 func (o *GuildResponse) GetMaxPresences() int32 {
-	if o == nil || IsNil(o.MaxPresences.Get()) {
+	if o == nil || IsNil(o.MaxPresences) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxPresences.Get()
+	return *o.MaxPresences
 }
 
 // GetMaxPresencesOk returns a tuple with the MaxPresences field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildResponse) GetMaxPresencesOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxPresences.Get()) {
+	if o == nil || IsNil(o.MaxPresences) {
 		return nil, false
 	}
-	return o.MaxPresences.Get(), o.MaxPresences.IsSet()
+	return o.MaxPresences, true
 }
 
 // HasMaxPresences returns a boolean if a field has been set.
 func (o *GuildResponse) HasMaxPresences() bool {
-	if o != nil && o.MaxPresences.IsSet() {
+	if o != nil && !IsNil(o.MaxPresences) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxPresences gets a reference to the given NullableInt32 and assigns it to the MaxPresences field.
+// SetMaxPresences gets a reference to the given int32 and assigns it to the MaxPresences field.
 func (o *GuildResponse) SetMaxPresences(v int32) {
-	o.MaxPresences.Set(&v)
+	o.MaxPresences = &v
 }
 
-// SetMaxPresencesNil sets the value for MaxPresences to be an explicit nil
-func (o *GuildResponse) SetMaxPresencesNil() {
-	o.MaxPresences.Set(nil)
-}
 
-// UnsetMaxPresences ensures that no value is present for MaxPresences, not even an explicit nil
-func (o *GuildResponse) UnsetMaxPresences() {
-	o.MaxPresences.Unset()
-}
-
-// GetMaxMembers returns the MaxMembers field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxMembers returns the MaxMembers field value
 func (o *GuildResponse) GetMaxMembers() int32 {
-	if o == nil || IsNil(o.MaxMembers.Get()) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.MaxMembers.Get()
+
+	return o.MaxMembers
 }
 
-// GetMaxMembersOk returns a tuple with the MaxMembers field value if set, nil otherwise
+// GetMaxMembersOk returns a tuple with the MaxMembers field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildResponse) GetMaxMembersOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxMembers.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MaxMembers.Get(), o.MaxMembers.IsSet()
+	return &o.MaxMembers, true
 }
 
-// HasMaxMembers returns a boolean if a field has been set.
-func (o *GuildResponse) HasMaxMembers() bool {
-	if o != nil && o.MaxMembers.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxMembers gets a reference to the given NullableInt32 and assigns it to the MaxMembers field.
+// SetMaxMembers sets field value
 func (o *GuildResponse) SetMaxMembers(v int32) {
-	o.MaxMembers.Set(&v)
+	o.MaxMembers = v
 }
 
-// SetMaxMembersNil sets the value for MaxMembers to be an explicit nil
-func (o *GuildResponse) SetMaxMembersNil() {
-	o.MaxMembers.Set(nil)
-}
-
-// UnsetMaxMembers ensures that no value is present for MaxMembers, not even an explicit nil
-func (o *GuildResponse) UnsetMaxMembers() {
-	o.MaxMembers.Unset()
-}
-
-// GetMaxStageVideoChannelUsers returns the MaxStageVideoChannelUsers field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxStageVideoChannelUsers returns the MaxStageVideoChannelUsers field value
 func (o *GuildResponse) GetMaxStageVideoChannelUsers() int32 {
-	if o == nil || IsNil(o.MaxStageVideoChannelUsers.Get()) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.MaxStageVideoChannelUsers.Get()
+
+	return o.MaxStageVideoChannelUsers
 }
 
-// GetMaxStageVideoChannelUsersOk returns a tuple with the MaxStageVideoChannelUsers field value if set, nil otherwise
+// GetMaxStageVideoChannelUsersOk returns a tuple with the MaxStageVideoChannelUsers field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildResponse) GetMaxStageVideoChannelUsersOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxStageVideoChannelUsers.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MaxStageVideoChannelUsers.Get(), o.MaxStageVideoChannelUsers.IsSet()
+	return &o.MaxStageVideoChannelUsers, true
 }
 
-// HasMaxStageVideoChannelUsers returns a boolean if a field has been set.
-func (o *GuildResponse) HasMaxStageVideoChannelUsers() bool {
-	if o != nil && o.MaxStageVideoChannelUsers.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxStageVideoChannelUsers gets a reference to the given NullableInt32 and assigns it to the MaxStageVideoChannelUsers field.
+// SetMaxStageVideoChannelUsers sets field value
 func (o *GuildResponse) SetMaxStageVideoChannelUsers(v int32) {
-	o.MaxStageVideoChannelUsers.Set(&v)
+	o.MaxStageVideoChannelUsers = v
 }
 
-// SetMaxStageVideoChannelUsersNil sets the value for MaxStageVideoChannelUsers to be an explicit nil
-func (o *GuildResponse) SetMaxStageVideoChannelUsersNil() {
-	o.MaxStageVideoChannelUsers.Set(nil)
-}
-
-// UnsetMaxStageVideoChannelUsers ensures that no value is present for MaxStageVideoChannelUsers, not even an explicit nil
-func (o *GuildResponse) UnsetMaxStageVideoChannelUsers() {
-	o.MaxStageVideoChannelUsers.Unset()
-}
-
-// GetMaxVideoChannelUsers returns the MaxVideoChannelUsers field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxVideoChannelUsers returns the MaxVideoChannelUsers field value
 func (o *GuildResponse) GetMaxVideoChannelUsers() int32 {
-	if o == nil || IsNil(o.MaxVideoChannelUsers.Get()) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.MaxVideoChannelUsers.Get()
+
+	return o.MaxVideoChannelUsers
 }
 
-// GetMaxVideoChannelUsersOk returns a tuple with the MaxVideoChannelUsers field value if set, nil otherwise
+// GetMaxVideoChannelUsersOk returns a tuple with the MaxVideoChannelUsers field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildResponse) GetMaxVideoChannelUsersOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxVideoChannelUsers.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MaxVideoChannelUsers.Get(), o.MaxVideoChannelUsers.IsSet()
+	return &o.MaxVideoChannelUsers, true
 }
 
-// HasMaxVideoChannelUsers returns a boolean if a field has been set.
-func (o *GuildResponse) HasMaxVideoChannelUsers() bool {
-	if o != nil && o.MaxVideoChannelUsers.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxVideoChannelUsers gets a reference to the given NullableInt32 and assigns it to the MaxVideoChannelUsers field.
+// SetMaxVideoChannelUsers sets field value
 func (o *GuildResponse) SetMaxVideoChannelUsers(v int32) {
-	o.MaxVideoChannelUsers.Set(&v)
+	o.MaxVideoChannelUsers = v
 }
 
-// SetMaxVideoChannelUsersNil sets the value for MaxVideoChannelUsers to be an explicit nil
-func (o *GuildResponse) SetMaxVideoChannelUsersNil() {
-	o.MaxVideoChannelUsers.Set(nil)
-}
-
-// UnsetMaxVideoChannelUsers ensures that no value is present for MaxVideoChannelUsers, not even an explicit nil
-func (o *GuildResponse) UnsetMaxVideoChannelUsers() {
-	o.MaxVideoChannelUsers.Unset()
-}
-
-// GetVanityUrlCode returns the VanityUrlCode field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetVanityUrlCode returns the VanityUrlCode field value if set, zero value otherwise.
 func (o *GuildResponse) GetVanityUrlCode() string {
-	if o == nil || IsNil(o.VanityUrlCode.Get()) {
+	if o == nil || IsNil(o.VanityUrlCode) {
 		var ret string
 		return ret
 	}
-	return *o.VanityUrlCode.Get()
+	return *o.VanityUrlCode
 }
 
 // GetVanityUrlCodeOk returns a tuple with the VanityUrlCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildResponse) GetVanityUrlCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.VanityUrlCode.Get()) {
+	if o == nil || IsNil(o.VanityUrlCode) {
 		return nil, false
 	}
-	return o.VanityUrlCode.Get(), o.VanityUrlCode.IsSet()
+	return o.VanityUrlCode, true
 }
 
 // HasVanityUrlCode returns a boolean if a field has been set.
 func (o *GuildResponse) HasVanityUrlCode() bool {
-	if o != nil && o.VanityUrlCode.IsSet() {
+	if o != nil && !IsNil(o.VanityUrlCode) {
 		return true
 	}
 
 	return false
 }
 
-// SetVanityUrlCode gets a reference to the given NullableString and assigns it to the VanityUrlCode field.
+// SetVanityUrlCode gets a reference to the given string and assigns it to the VanityUrlCode field.
 func (o *GuildResponse) SetVanityUrlCode(v string) {
-	o.VanityUrlCode.Set(&v)
+	o.VanityUrlCode = &v
 }
 
-// SetVanityUrlCodeNil sets the value for VanityUrlCode to be an explicit nil
-func (o *GuildResponse) SetVanityUrlCodeNil() {
-	o.VanityUrlCode.Set(nil)
-}
-
-// UnsetVanityUrlCode ensures that no value is present for VanityUrlCode, not even an explicit nil
-func (o *GuildResponse) UnsetVanityUrlCode() {
-	o.VanityUrlCode.Unset()
-}
 
 // GetPremiumTier returns the PremiumTier field value
-func (o *GuildResponse) GetPremiumTier() int32 {
+func (o *GuildResponse) GetPremiumTier() PremiumGuildTiers {
 	if o == nil {
-		var ret int32
+		var ret PremiumGuildTiers
 		return ret
 	}
 
@@ -1067,7 +931,7 @@ func (o *GuildResponse) GetPremiumTier() int32 {
 
 // GetPremiumTierOk returns a tuple with the PremiumTier field value
 // and a boolean to check if the value has been set.
-func (o *GuildResponse) GetPremiumTierOk() (*int32, bool) {
+func (o *GuildResponse) GetPremiumTierOk() (*PremiumGuildTiers, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1075,7 +939,7 @@ func (o *GuildResponse) GetPremiumTierOk() (*int32, bool) {
 }
 
 // SetPremiumTier sets field value
-func (o *GuildResponse) SetPremiumTier(v int32) {
+func (o *GuildResponse) SetPremiumTier(v PremiumGuildTiers) {
 	o.PremiumTier = v
 }
 
@@ -1104,9 +968,9 @@ func (o *GuildResponse) SetPremiumSubscriptionCount(v int32) {
 }
 
 // GetPreferredLocale returns the PreferredLocale field value
-func (o *GuildResponse) GetPreferredLocale() string {
+func (o *GuildResponse) GetPreferredLocale() AvailableLocalesEnum {
 	if o == nil {
-		var ret string
+		var ret AvailableLocalesEnum
 		return ret
 	}
 
@@ -1115,7 +979,7 @@ func (o *GuildResponse) GetPreferredLocale() string {
 
 // GetPreferredLocaleOk returns a tuple with the PreferredLocale field value
 // and a boolean to check if the value has been set.
-func (o *GuildResponse) GetPreferredLocaleOk() (*string, bool) {
+func (o *GuildResponse) GetPreferredLocaleOk() (*AvailableLocalesEnum, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1123,14 +987,14 @@ func (o *GuildResponse) GetPreferredLocaleOk() (*string, bool) {
 }
 
 // SetPreferredLocale sets field value
-func (o *GuildResponse) SetPreferredLocale(v string) {
+func (o *GuildResponse) SetPreferredLocale(v AvailableLocalesEnum) {
 	o.PreferredLocale = v
 }
 
 // GetRulesChannelId returns the RulesChannelId field value if set, zero value otherwise.
-func (o *GuildResponse) GetRulesChannelId() string {
+func (o *GuildResponse) GetRulesChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.RulesChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.RulesChannelId
@@ -1138,7 +1002,7 @@ func (o *GuildResponse) GetRulesChannelId() string {
 
 // GetRulesChannelIdOk returns a tuple with the RulesChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildResponse) GetRulesChannelIdOk() (*string, bool) {
+func (o *GuildResponse) GetRulesChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.RulesChannelId) {
 		return nil, false
 	}
@@ -1154,16 +1018,16 @@ func (o *GuildResponse) HasRulesChannelId() bool {
 	return false
 }
 
-// SetRulesChannelId gets a reference to the given string and assigns it to the RulesChannelId field.
-func (o *GuildResponse) SetRulesChannelId(v string) {
+// SetRulesChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the RulesChannelId field.
+func (o *GuildResponse) SetRulesChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.RulesChannelId = &v
 }
 
 
 // GetSafetyAlertsChannelId returns the SafetyAlertsChannelId field value if set, zero value otherwise.
-func (o *GuildResponse) GetSafetyAlertsChannelId() string {
+func (o *GuildResponse) GetSafetyAlertsChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.SafetyAlertsChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.SafetyAlertsChannelId
@@ -1171,7 +1035,7 @@ func (o *GuildResponse) GetSafetyAlertsChannelId() string {
 
 // GetSafetyAlertsChannelIdOk returns a tuple with the SafetyAlertsChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildResponse) GetSafetyAlertsChannelIdOk() (*string, bool) {
+func (o *GuildResponse) GetSafetyAlertsChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.SafetyAlertsChannelId) {
 		return nil, false
 	}
@@ -1187,16 +1051,16 @@ func (o *GuildResponse) HasSafetyAlertsChannelId() bool {
 	return false
 }
 
-// SetSafetyAlertsChannelId gets a reference to the given string and assigns it to the SafetyAlertsChannelId field.
-func (o *GuildResponse) SetSafetyAlertsChannelId(v string) {
+// SetSafetyAlertsChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the SafetyAlertsChannelId field.
+func (o *GuildResponse) SetSafetyAlertsChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.SafetyAlertsChannelId = &v
 }
 
 
 // GetPublicUpdatesChannelId returns the PublicUpdatesChannelId field value if set, zero value otherwise.
-func (o *GuildResponse) GetPublicUpdatesChannelId() string {
+func (o *GuildResponse) GetPublicUpdatesChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.PublicUpdatesChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.PublicUpdatesChannelId
@@ -1204,7 +1068,7 @@ func (o *GuildResponse) GetPublicUpdatesChannelId() string {
 
 // GetPublicUpdatesChannelIdOk returns a tuple with the PublicUpdatesChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildResponse) GetPublicUpdatesChannelIdOk() (*string, bool) {
+func (o *GuildResponse) GetPublicUpdatesChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.PublicUpdatesChannelId) {
 		return nil, false
 	}
@@ -1220,8 +1084,8 @@ func (o *GuildResponse) HasPublicUpdatesChannelId() bool {
 	return false
 }
 
-// SetPublicUpdatesChannelId gets a reference to the given string and assigns it to the PublicUpdatesChannelId field.
-func (o *GuildResponse) SetPublicUpdatesChannelId(v string) {
+// SetPublicUpdatesChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the PublicUpdatesChannelId field.
+func (o *GuildResponse) SetPublicUpdatesChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.PublicUpdatesChannelId = &v
 }
 
@@ -1275,29 +1139,27 @@ func (o *GuildResponse) SetNsfw(v bool) {
 }
 
 // GetNsfwLevel returns the NsfwLevel field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *GuildResponse) GetNsfwLevel() int32 {
-	if o == nil || o.NsfwLevel.Get() == nil {
-		var ret int32
+func (o *GuildResponse) GetNsfwLevel() GuildNSFWContentLevel {
+	if o == nil {
+		var ret GuildNSFWContentLevel
 		return ret
 	}
 
-	return *o.NsfwLevel.Get()
+	return o.NsfwLevel
 }
 
 // GetNsfwLevelOk returns a tuple with the NsfwLevel field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GuildResponse) GetNsfwLevelOk() (*int32, bool) {
+func (o *GuildResponse) GetNsfwLevelOk() (*GuildNSFWContentLevel, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.NsfwLevel.Get(), o.NsfwLevel.IsSet()
+	return &o.NsfwLevel, true
 }
 
 // SetNsfwLevel sets field value
-func (o *GuildResponse) SetNsfwLevel(v int32) {
-	o.NsfwLevel.Set(&v)
+func (o *GuildResponse) SetNsfwLevel(v GuildNSFWContentLevel) {
+	o.NsfwLevel = v
 }
 
 // GetEmojis returns the Emojis field value
@@ -1360,24 +1222,24 @@ func (o GuildResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
-	if o.Icon.IsSet() {
-		toSerialize["icon"] = o.Icon.Get()
+	if !IsNil(o.Icon) {
+		toSerialize["icon"] = o.Icon
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
-	if o.HomeHeader.IsSet() {
-		toSerialize["home_header"] = o.HomeHeader.Get()
+	if !IsNil(o.HomeHeader) {
+		toSerialize["home_header"] = o.HomeHeader
 	}
-	if o.Splash.IsSet() {
-		toSerialize["splash"] = o.Splash.Get()
+	if !IsNil(o.Splash) {
+		toSerialize["splash"] = o.Splash
 	}
-	if o.DiscoverySplash.IsSet() {
-		toSerialize["discovery_splash"] = o.DiscoverySplash.Get()
+	if !IsNil(o.DiscoverySplash) {
+		toSerialize["discovery_splash"] = o.DiscoverySplash
 	}
 	toSerialize["features"] = o.Features
-	if o.Banner.IsSet() {
-		toSerialize["banner"] = o.Banner.Get()
+	if !IsNil(o.Banner) {
+		toSerialize["banner"] = o.Banner
 	}
 	toSerialize["owner_id"] = o.OwnerId
 	if !IsNil(o.ApplicationId) {
@@ -1387,7 +1249,7 @@ func (o GuildResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AfkChannelId) {
 		toSerialize["afk_channel_id"] = o.AfkChannelId
 	}
-	toSerialize["afk_timeout"] = o.AfkTimeout.Get()
+	toSerialize["afk_timeout"] = o.AfkTimeout
 	if !IsNil(o.SystemChannelId) {
 		toSerialize["system_channel_id"] = o.SystemChannelId
 	}
@@ -1401,20 +1263,14 @@ func (o GuildResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["default_message_notifications"] = o.DefaultMessageNotifications
 	toSerialize["mfa_level"] = o.MfaLevel
 	toSerialize["explicit_content_filter"] = o.ExplicitContentFilter
-	if o.MaxPresences.IsSet() {
-		toSerialize["max_presences"] = o.MaxPresences.Get()
+	if !IsNil(o.MaxPresences) {
+		toSerialize["max_presences"] = o.MaxPresences
 	}
-	if o.MaxMembers.IsSet() {
-		toSerialize["max_members"] = o.MaxMembers.Get()
-	}
-	if o.MaxStageVideoChannelUsers.IsSet() {
-		toSerialize["max_stage_video_channel_users"] = o.MaxStageVideoChannelUsers.Get()
-	}
-	if o.MaxVideoChannelUsers.IsSet() {
-		toSerialize["max_video_channel_users"] = o.MaxVideoChannelUsers.Get()
-	}
-	if o.VanityUrlCode.IsSet() {
-		toSerialize["vanity_url_code"] = o.VanityUrlCode.Get()
+	toSerialize["max_members"] = o.MaxMembers
+	toSerialize["max_stage_video_channel_users"] = o.MaxStageVideoChannelUsers
+	toSerialize["max_video_channel_users"] = o.MaxVideoChannelUsers
+	if !IsNil(o.VanityUrlCode) {
+		toSerialize["vanity_url_code"] = o.VanityUrlCode
 	}
 	toSerialize["premium_tier"] = o.PremiumTier
 	toSerialize["premium_subscription_count"] = o.PremiumSubscriptionCount
@@ -1430,7 +1286,7 @@ func (o GuildResponse) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["premium_progress_bar_enabled"] = o.PremiumProgressBarEnabled
 	toSerialize["nsfw"] = o.Nsfw
-	toSerialize["nsfw_level"] = o.NsfwLevel.Get()
+	toSerialize["nsfw_level"] = o.NsfwLevel
 	toSerialize["emojis"] = o.Emojis
 	toSerialize["stickers"] = o.Stickers
 	return toSerialize, nil
@@ -1454,6 +1310,9 @@ func (o *GuildResponse) UnmarshalJSON(data []byte) (err error) {
 		"default_message_notifications",
 		"mfa_level",
 		"explicit_content_filter",
+		"max_members",
+		"max_stage_video_channel_users",
+		"max_video_channel_users",
 		"premium_tier",
 		"premium_subscription_count",
 		"preferred_locale",
@@ -1528,5 +1387,4 @@ func (v *NullableGuildResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -8,19 +8,19 @@ Name | Type | Description | Notes
 **GuildId** | **string** |  | 
 **CreatorId** | **string** |  | 
 **Name** | **string** |  | 
-**EventType** | **int32** |  | 
+**EventType** | [**AutomodEventType**](AutomodEventType.md) |  | 
 **Actions** | [**[]DefaultKeywordRuleResponseActionsInner**](DefaultKeywordRuleResponseActionsInner.md) |  | 
-**TriggerType** | **int32** |  | 
-**Enabled** | Pointer to **bool** |  | [optional] 
-**ExemptRoles** | Pointer to **[]string** |  | [optional] 
-**ExemptChannels** | Pointer to **[]string** |  | [optional] 
+**TriggerType** | [**AutomodTriggerType**](AutomodTriggerType.md) |  | 
+**Enabled** | **bool** |  | 
+**ExemptRoles** | **[]string** |  | 
+**ExemptChannels** | **[]string** |  | 
 **TriggerMetadata** | **map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewListAutoModerationRules200ResponseInner
 
-`func NewListAutoModerationRules200ResponseInner(id string, guildId string, creatorId string, name string, eventType int32, actions []DefaultKeywordRuleResponseActionsInner, triggerType int32, triggerMetadata map[string]interface{}, ) *ListAutoModerationRules200ResponseInner`
+`func NewListAutoModerationRules200ResponseInner(id string, guildId string, creatorId string, name string, eventType AutomodEventType, actions []DefaultKeywordRuleResponseActionsInner, triggerType AutomodTriggerType, enabled bool, exemptRoles []string, exemptChannels []string, triggerMetadata map[string]interface{}, ) *ListAutoModerationRules200ResponseInner`
 
 NewListAutoModerationRules200ResponseInner instantiates a new ListAutoModerationRules200ResponseInner object
 This constructor will assign default values to properties that have it defined,
@@ -117,20 +117,20 @@ SetName sets Name field to given value.
 
 ### GetEventType
 
-`func (o *ListAutoModerationRules200ResponseInner) GetEventType() int32`
+`func (o *ListAutoModerationRules200ResponseInner) GetEventType() AutomodEventType`
 
 GetEventType returns the EventType field if non-nil, zero value otherwise.
 
 ### GetEventTypeOk
 
-`func (o *ListAutoModerationRules200ResponseInner) GetEventTypeOk() (*int32, bool)`
+`func (o *ListAutoModerationRules200ResponseInner) GetEventTypeOk() (*AutomodEventType, bool)`
 
 GetEventTypeOk returns a tuple with the EventType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEventType
 
-`func (o *ListAutoModerationRules200ResponseInner) SetEventType(v int32)`
+`func (o *ListAutoModerationRules200ResponseInner) SetEventType(v AutomodEventType)`
 
 SetEventType sets EventType field to given value.
 
@@ -157,20 +157,20 @@ SetActions sets Actions field to given value.
 
 ### GetTriggerType
 
-`func (o *ListAutoModerationRules200ResponseInner) GetTriggerType() int32`
+`func (o *ListAutoModerationRules200ResponseInner) GetTriggerType() AutomodTriggerType`
 
 GetTriggerType returns the TriggerType field if non-nil, zero value otherwise.
 
 ### GetTriggerTypeOk
 
-`func (o *ListAutoModerationRules200ResponseInner) GetTriggerTypeOk() (*int32, bool)`
+`func (o *ListAutoModerationRules200ResponseInner) GetTriggerTypeOk() (*AutomodTriggerType, bool)`
 
 GetTriggerTypeOk returns a tuple with the TriggerType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTriggerType
 
-`func (o *ListAutoModerationRules200ResponseInner) SetTriggerType(v int32)`
+`func (o *ListAutoModerationRules200ResponseInner) SetTriggerType(v AutomodTriggerType)`
 
 SetTriggerType sets TriggerType field to given value.
 
@@ -194,11 +194,6 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
-### HasEnabled
-
-`func (o *ListAutoModerationRules200ResponseInner) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
 
 ### GetExemptRoles
 
@@ -219,11 +214,6 @@ and a boolean to check if the value has been set.
 
 SetExemptRoles sets ExemptRoles field to given value.
 
-### HasExemptRoles
-
-`func (o *ListAutoModerationRules200ResponseInner) HasExemptRoles() bool`
-
-HasExemptRoles returns a boolean if a field has been set.
 
 ### GetExemptChannels
 
@@ -244,11 +234,6 @@ and a boolean to check if the value has been set.
 
 SetExemptChannels sets ExemptChannels field to given value.
 
-### HasExemptChannels
-
-`func (o *ListAutoModerationRules200ResponseInner) HasExemptChannels() bool`
-
-HasExemptChannels returns a boolean if a field has been set.
 
 ### GetTriggerMetadata
 

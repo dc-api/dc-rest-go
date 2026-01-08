@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-08T01:38:41.954257418Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -60,14 +60,16 @@ type EntitlementResponse struct {
 	SkuId string `json:"sku_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	ApplicationId string `json:"application_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	UserId string `json:"user_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	GuildId *string `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	GuildId *GetEntitlementsSkuIdsParameterOneOfInner `json:"guild_id,omitempty"`
 	Deleted bool `json:"deleted"`
-	StartsAt NullableTime `json:"starts_at,omitempty"`
-	EndsAt NullableTime `json:"ends_at,omitempty"`
-	Type NullableInt32 `json:"type"`
-	FulfilledAt NullableTime `json:"fulfilled_at,omitempty"`
-	FulfillmentStatus NullableInt32 `json:"fulfillment_status,omitempty"`
-	Consumed NullableBool `json:"consumed,omitempty"`
+	StartsAt *time.Time `json:"starts_at,omitempty"`
+	EndsAt *time.Time `json:"ends_at,omitempty"`
+	Type EntitlementTypes `json:"type"`
+	FulfilledAt *time.Time `json:"fulfilled_at,omitempty"`
+	FulfillmentStatus *EntitlementResponseFulfillmentStatus `json:"fulfillment_status,omitempty"`
+	Consumed *bool `json:"consumed,omitempty"`
+	GifterUserId *GetEntitlementsSkuIdsParameterOneOfInner `json:"gifter_user_id,omitempty"`
+	ParentId *GetEntitlementsSkuIdsParameterOneOfInner `json:"parent_id,omitempty"`
 }
 
 type _EntitlementResponse EntitlementResponse
@@ -76,7 +78,7 @@ type _EntitlementResponse EntitlementResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEntitlementResponse(id string, skuId string, applicationId string, userId string, deleted bool, type_ NullableInt32) *EntitlementResponse {
+func NewEntitlementResponse(id string, skuId string, applicationId string, userId string, deleted bool, type_ EntitlementTypes) *EntitlementResponse {
 	this := EntitlementResponse{}
 	this.Id = id
 	this.SkuId = skuId
@@ -192,9 +194,9 @@ func (o *EntitlementResponse) SetUserId(v string) {
 }
 
 // GetGuildId returns the GuildId field value if set, zero value otherwise.
-func (o *EntitlementResponse) GetGuildId() string {
+func (o *EntitlementResponse) GetGuildId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.GuildId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.GuildId
@@ -202,7 +204,7 @@ func (o *EntitlementResponse) GetGuildId() string {
 
 // GetGuildIdOk returns a tuple with the GuildId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EntitlementResponse) GetGuildIdOk() (*string, bool) {
+func (o *EntitlementResponse) GetGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.GuildId) {
 		return nil, false
 	}
@@ -218,8 +220,8 @@ func (o *EntitlementResponse) HasGuildId() bool {
 	return false
 }
 
-// SetGuildId gets a reference to the given string and assigns it to the GuildId field.
-func (o *EntitlementResponse) SetGuildId(v string) {
+// SetGuildId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the GuildId field.
+func (o *EntitlementResponse) SetGuildId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.GuildId = &v
 }
 
@@ -248,246 +250,260 @@ func (o *EntitlementResponse) SetDeleted(v bool) {
 	o.Deleted = v
 }
 
-// GetStartsAt returns the StartsAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStartsAt returns the StartsAt field value if set, zero value otherwise.
 func (o *EntitlementResponse) GetStartsAt() time.Time {
-	if o == nil || IsNil(o.StartsAt.Get()) {
+	if o == nil || IsNil(o.StartsAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartsAt.Get()
+	return *o.StartsAt
 }
 
 // GetStartsAtOk returns a tuple with the StartsAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EntitlementResponse) GetStartsAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.StartsAt.Get()) {
+	if o == nil || IsNil(o.StartsAt) {
 		return nil, false
 	}
-	return o.StartsAt.Get(), o.StartsAt.IsSet()
+	return o.StartsAt, true
 }
 
 // HasStartsAt returns a boolean if a field has been set.
 func (o *EntitlementResponse) HasStartsAt() bool {
-	if o != nil && o.StartsAt.IsSet() {
+	if o != nil && !IsNil(o.StartsAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetStartsAt gets a reference to the given NullableTime and assigns it to the StartsAt field.
+// SetStartsAt gets a reference to the given time.Time and assigns it to the StartsAt field.
 func (o *EntitlementResponse) SetStartsAt(v time.Time) {
-	o.StartsAt.Set(&v)
+	o.StartsAt = &v
 }
 
-// SetStartsAtNil sets the value for StartsAt to be an explicit nil
-func (o *EntitlementResponse) SetStartsAtNil() {
-	o.StartsAt.Set(nil)
-}
 
-// UnsetStartsAt ensures that no value is present for StartsAt, not even an explicit nil
-func (o *EntitlementResponse) UnsetStartsAt() {
-	o.StartsAt.Unset()
-}
-
-// GetEndsAt returns the EndsAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEndsAt returns the EndsAt field value if set, zero value otherwise.
 func (o *EntitlementResponse) GetEndsAt() time.Time {
-	if o == nil || IsNil(o.EndsAt.Get()) {
+	if o == nil || IsNil(o.EndsAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndsAt.Get()
+	return *o.EndsAt
 }
 
 // GetEndsAtOk returns a tuple with the EndsAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EntitlementResponse) GetEndsAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.EndsAt.Get()) {
+	if o == nil || IsNil(o.EndsAt) {
 		return nil, false
 	}
-	return o.EndsAt.Get(), o.EndsAt.IsSet()
+	return o.EndsAt, true
 }
 
 // HasEndsAt returns a boolean if a field has been set.
 func (o *EntitlementResponse) HasEndsAt() bool {
-	if o != nil && o.EndsAt.IsSet() {
+	if o != nil && !IsNil(o.EndsAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetEndsAt gets a reference to the given NullableTime and assigns it to the EndsAt field.
+// SetEndsAt gets a reference to the given time.Time and assigns it to the EndsAt field.
 func (o *EntitlementResponse) SetEndsAt(v time.Time) {
-	o.EndsAt.Set(&v)
+	o.EndsAt = &v
 }
 
-// SetEndsAtNil sets the value for EndsAt to be an explicit nil
-func (o *EntitlementResponse) SetEndsAtNil() {
-	o.EndsAt.Set(nil)
-}
-
-// UnsetEndsAt ensures that no value is present for EndsAt, not even an explicit nil
-func (o *EntitlementResponse) UnsetEndsAt() {
-	o.EndsAt.Unset()
-}
 
 // GetType returns the Type field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *EntitlementResponse) GetType() int32 {
-	if o == nil || o.Type.Get() == nil {
-		var ret int32
+func (o *EntitlementResponse) GetType() EntitlementTypes {
+	if o == nil {
+		var ret EntitlementTypes
 		return ret
 	}
 
-	return *o.Type.Get()
+	return o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EntitlementResponse) GetTypeOk() (*int32, bool) {
+func (o *EntitlementResponse) GetTypeOk() (*EntitlementTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return &o.Type, true
 }
 
 // SetType sets field value
-func (o *EntitlementResponse) SetType(v int32) {
-	o.Type.Set(&v)
+func (o *EntitlementResponse) SetType(v EntitlementTypes) {
+	o.Type = v
 }
 
-// GetFulfilledAt returns the FulfilledAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFulfilledAt returns the FulfilledAt field value if set, zero value otherwise.
 func (o *EntitlementResponse) GetFulfilledAt() time.Time {
-	if o == nil || IsNil(o.FulfilledAt.Get()) {
+	if o == nil || IsNil(o.FulfilledAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.FulfilledAt.Get()
+	return *o.FulfilledAt
 }
 
 // GetFulfilledAtOk returns a tuple with the FulfilledAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EntitlementResponse) GetFulfilledAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.FulfilledAt.Get()) {
+	if o == nil || IsNil(o.FulfilledAt) {
 		return nil, false
 	}
-	return o.FulfilledAt.Get(), o.FulfilledAt.IsSet()
+	return o.FulfilledAt, true
 }
 
 // HasFulfilledAt returns a boolean if a field has been set.
 func (o *EntitlementResponse) HasFulfilledAt() bool {
-	if o != nil && o.FulfilledAt.IsSet() {
+	if o != nil && !IsNil(o.FulfilledAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetFulfilledAt gets a reference to the given NullableTime and assigns it to the FulfilledAt field.
+// SetFulfilledAt gets a reference to the given time.Time and assigns it to the FulfilledAt field.
 func (o *EntitlementResponse) SetFulfilledAt(v time.Time) {
-	o.FulfilledAt.Set(&v)
+	o.FulfilledAt = &v
 }
 
-// SetFulfilledAtNil sets the value for FulfilledAt to be an explicit nil
-func (o *EntitlementResponse) SetFulfilledAtNil() {
-	o.FulfilledAt.Set(nil)
-}
 
-// UnsetFulfilledAt ensures that no value is present for FulfilledAt, not even an explicit nil
-func (o *EntitlementResponse) UnsetFulfilledAt() {
-	o.FulfilledAt.Unset()
-}
-
-// GetFulfillmentStatus returns the FulfillmentStatus field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *EntitlementResponse) GetFulfillmentStatus() int32 {
-	if o == nil || IsNil(o.FulfillmentStatus.Get()) {
-		var ret int32
+// GetFulfillmentStatus returns the FulfillmentStatus field value if set, zero value otherwise.
+func (o *EntitlementResponse) GetFulfillmentStatus() EntitlementResponseFulfillmentStatus {
+	if o == nil || IsNil(o.FulfillmentStatus) {
+		var ret EntitlementResponseFulfillmentStatus
 		return ret
 	}
-	return *o.FulfillmentStatus.Get()
+	return *o.FulfillmentStatus
 }
 
 // GetFulfillmentStatusOk returns a tuple with the FulfillmentStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EntitlementResponse) GetFulfillmentStatusOk() (*int32, bool) {
-	if o == nil || IsNil(o.FulfillmentStatus.Get()) {
+func (o *EntitlementResponse) GetFulfillmentStatusOk() (*EntitlementResponseFulfillmentStatus, bool) {
+	if o == nil || IsNil(o.FulfillmentStatus) {
 		return nil, false
 	}
-	return o.FulfillmentStatus.Get(), o.FulfillmentStatus.IsSet()
+	return o.FulfillmentStatus, true
 }
 
 // HasFulfillmentStatus returns a boolean if a field has been set.
 func (o *EntitlementResponse) HasFulfillmentStatus() bool {
-	if o != nil && o.FulfillmentStatus.IsSet() {
+	if o != nil && !IsNil(o.FulfillmentStatus) {
 		return true
 	}
 
 	return false
 }
 
-// SetFulfillmentStatus gets a reference to the given NullableInt32 and assigns it to the FulfillmentStatus field.
-func (o *EntitlementResponse) SetFulfillmentStatus(v int32) {
-	o.FulfillmentStatus.Set(&v)
+// SetFulfillmentStatus gets a reference to the given EntitlementResponseFulfillmentStatus and assigns it to the FulfillmentStatus field.
+func (o *EntitlementResponse) SetFulfillmentStatus(v EntitlementResponseFulfillmentStatus) {
+	o.FulfillmentStatus = &v
 }
 
-// SetFulfillmentStatusNil sets the value for FulfillmentStatus to be an explicit nil
-func (o *EntitlementResponse) SetFulfillmentStatusNil() {
-	o.FulfillmentStatus.Set(nil)
-}
 
-// UnsetFulfillmentStatus ensures that no value is present for FulfillmentStatus, not even an explicit nil
-func (o *EntitlementResponse) UnsetFulfillmentStatus() {
-	o.FulfillmentStatus.Unset()
-}
-
-// GetConsumed returns the Consumed field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetConsumed returns the Consumed field value if set, zero value otherwise.
 func (o *EntitlementResponse) GetConsumed() bool {
-	if o == nil || IsNil(o.Consumed.Get()) {
+	if o == nil || IsNil(o.Consumed) {
 		var ret bool
 		return ret
 	}
-	return *o.Consumed.Get()
+	return *o.Consumed
 }
 
 // GetConsumedOk returns a tuple with the Consumed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EntitlementResponse) GetConsumedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Consumed.Get()) {
+	if o == nil || IsNil(o.Consumed) {
 		return nil, false
 	}
-	return o.Consumed.Get(), o.Consumed.IsSet()
+	return o.Consumed, true
 }
 
 // HasConsumed returns a boolean if a field has been set.
 func (o *EntitlementResponse) HasConsumed() bool {
-	if o != nil && o.Consumed.IsSet() {
+	if o != nil && !IsNil(o.Consumed) {
 		return true
 	}
 
 	return false
 }
 
-// SetConsumed gets a reference to the given NullableBool and assigns it to the Consumed field.
+// SetConsumed gets a reference to the given bool and assigns it to the Consumed field.
 func (o *EntitlementResponse) SetConsumed(v bool) {
-	o.Consumed.Set(&v)
+	o.Consumed = &v
 }
 
-// SetConsumedNil sets the value for Consumed to be an explicit nil
-func (o *EntitlementResponse) SetConsumedNil() {
-	o.Consumed.Set(nil)
+
+// GetGifterUserId returns the GifterUserId field value if set, zero value otherwise.
+func (o *EntitlementResponse) GetGifterUserId() GetEntitlementsSkuIdsParameterOneOfInner {
+	if o == nil || IsNil(o.GifterUserId) {
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
+		return ret
+	}
+	return *o.GifterUserId
 }
 
-// UnsetConsumed ensures that no value is present for Consumed, not even an explicit nil
-func (o *EntitlementResponse) UnsetConsumed() {
-	o.Consumed.Unset()
+// GetGifterUserIdOk returns a tuple with the GifterUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EntitlementResponse) GetGifterUserIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
+	if o == nil || IsNil(o.GifterUserId) {
+		return nil, false
+	}
+	return o.GifterUserId, true
 }
+
+// HasGifterUserId returns a boolean if a field has been set.
+func (o *EntitlementResponse) HasGifterUserId() bool {
+	if o != nil && !IsNil(o.GifterUserId) {
+		return true
+	}
+
+	return false
+}
+
+// SetGifterUserId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the GifterUserId field.
+func (o *EntitlementResponse) SetGifterUserId(v GetEntitlementsSkuIdsParameterOneOfInner) {
+	o.GifterUserId = &v
+}
+
+
+// GetParentId returns the ParentId field value if set, zero value otherwise.
+func (o *EntitlementResponse) GetParentId() GetEntitlementsSkuIdsParameterOneOfInner {
+	if o == nil || IsNil(o.ParentId) {
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
+		return ret
+	}
+	return *o.ParentId
+}
+
+// GetParentIdOk returns a tuple with the ParentId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EntitlementResponse) GetParentIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
+	if o == nil || IsNil(o.ParentId) {
+		return nil, false
+	}
+	return o.ParentId, true
+}
+
+// HasParentId returns a boolean if a field has been set.
+func (o *EntitlementResponse) HasParentId() bool {
+	if o != nil && !IsNil(o.ParentId) {
+		return true
+	}
+
+	return false
+}
+
+// SetParentId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the ParentId field.
+func (o *EntitlementResponse) SetParentId(v GetEntitlementsSkuIdsParameterOneOfInner) {
+	o.ParentId = &v
+}
+
 
 func (o EntitlementResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -507,21 +523,27 @@ func (o EntitlementResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["guild_id"] = o.GuildId
 	}
 	toSerialize["deleted"] = o.Deleted
-	if o.StartsAt.IsSet() {
-		toSerialize["starts_at"] = o.StartsAt.Get()
+	if !IsNil(o.StartsAt) {
+		toSerialize["starts_at"] = o.StartsAt
 	}
-	if o.EndsAt.IsSet() {
-		toSerialize["ends_at"] = o.EndsAt.Get()
+	if !IsNil(o.EndsAt) {
+		toSerialize["ends_at"] = o.EndsAt
 	}
-	toSerialize["type"] = o.Type.Get()
-	if o.FulfilledAt.IsSet() {
-		toSerialize["fulfilled_at"] = o.FulfilledAt.Get()
+	toSerialize["type"] = o.Type
+	if !IsNil(o.FulfilledAt) {
+		toSerialize["fulfilled_at"] = o.FulfilledAt
 	}
-	if o.FulfillmentStatus.IsSet() {
-		toSerialize["fulfillment_status"] = o.FulfillmentStatus.Get()
+	if !IsNil(o.FulfillmentStatus) {
+		toSerialize["fulfillment_status"] = o.FulfillmentStatus
 	}
-	if o.Consumed.IsSet() {
-		toSerialize["consumed"] = o.Consumed.Get()
+	if !IsNil(o.Consumed) {
+		toSerialize["consumed"] = o.Consumed
+	}
+	if !IsNil(o.GifterUserId) {
+		toSerialize["gifter_user_id"] = o.GifterUserId
+	}
+	if !IsNil(o.ParentId) {
+		toSerialize["parent_id"] = o.ParentId
 	}
 	return toSerialize, nil
 }
@@ -603,5 +625,4 @@ func (v *NullableEntitlementResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 
