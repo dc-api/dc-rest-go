@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -54,7 +54,7 @@ var _ MappedNullable = &UpdateStageInstanceRequest{}
 // UpdateStageInstanceRequest struct for UpdateStageInstanceRequest
 type UpdateStageInstanceRequest struct {
 	Topic *string `json:"topic,omitempty"`
-	PrivacyLevel *int32 `json:"privacy_level,omitempty"`
+	PrivacyLevel *StageInstancesPrivacyLevels `json:"privacy_level,omitempty"`
 }
 
 // NewUpdateStageInstanceRequest instantiates a new UpdateStageInstanceRequest object
@@ -108,9 +108,9 @@ func (o *UpdateStageInstanceRequest) SetTopic(v string) {
 
 
 // GetPrivacyLevel returns the PrivacyLevel field value if set, zero value otherwise.
-func (o *UpdateStageInstanceRequest) GetPrivacyLevel() int32 {
+func (o *UpdateStageInstanceRequest) GetPrivacyLevel() StageInstancesPrivacyLevels {
 	if o == nil || IsNil(o.PrivacyLevel) {
-		var ret int32
+		var ret StageInstancesPrivacyLevels
 		return ret
 	}
 	return *o.PrivacyLevel
@@ -118,7 +118,7 @@ func (o *UpdateStageInstanceRequest) GetPrivacyLevel() int32 {
 
 // GetPrivacyLevelOk returns a tuple with the PrivacyLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateStageInstanceRequest) GetPrivacyLevelOk() (*int32, bool) {
+func (o *UpdateStageInstanceRequest) GetPrivacyLevelOk() (*StageInstancesPrivacyLevels, bool) {
 	if o == nil || IsNil(o.PrivacyLevel) {
 		return nil, false
 	}
@@ -134,8 +134,8 @@ func (o *UpdateStageInstanceRequest) HasPrivacyLevel() bool {
 	return false
 }
 
-// SetPrivacyLevel gets a reference to the given int32 and assigns it to the PrivacyLevel field.
-func (o *UpdateStageInstanceRequest) SetPrivacyLevel(v int32) {
+// SetPrivacyLevel gets a reference to the given StageInstancesPrivacyLevels and assigns it to the PrivacyLevel field.
+func (o *UpdateStageInstanceRequest) SetPrivacyLevel(v StageInstancesPrivacyLevels) {
 	o.PrivacyLevel = &v
 }
 
@@ -194,5 +194,4 @@ func (v *NullableUpdateStageInstanceRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

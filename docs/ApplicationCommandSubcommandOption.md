@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**ApplicationCommandOptionType**](ApplicationCommandOptionType.md) |  | 
 **Name** | **string** |  | 
 **NameLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Description** | **string** |  | 
 **DescriptionLocalizations** | Pointer to **map[string]string** |  | [optional] 
-**Required** | Pointer to **NullableBool** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
 **Options** | Pointer to [**[]ApplicationCommandSubcommandOptionOptionsInner**](ApplicationCommandSubcommandOptionOptionsInner.md) |  | [optional] 
 
 ## Methods
 
 ### NewApplicationCommandSubcommandOption
 
-`func NewApplicationCommandSubcommandOption(type_ int32, name string, description string, ) *ApplicationCommandSubcommandOption`
+`func NewApplicationCommandSubcommandOption(type_ ApplicationCommandOptionType, name string, description string, ) *ApplicationCommandSubcommandOption`
 
 NewApplicationCommandSubcommandOption instantiates a new ApplicationCommandSubcommandOption object
 This constructor will assign default values to properties that have it defined,
@@ -33,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ApplicationCommandSubcommandOption) GetType() int32`
+`func (o *ApplicationCommandSubcommandOption) GetType() ApplicationCommandOptionType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ApplicationCommandSubcommandOption) GetTypeOk() (*int32, bool)`
+`func (o *ApplicationCommandSubcommandOption) GetTypeOk() (*ApplicationCommandOptionType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ApplicationCommandSubcommandOption) SetType(v int32)`
+`func (o *ApplicationCommandSubcommandOption) SetType(v ApplicationCommandOptionType)`
 
 SetType sets Type field to given value.
 
@@ -166,16 +166,6 @@ SetRequired sets Required field to given value.
 
 HasRequired returns a boolean if a field has been set.
 
-### SetRequiredNil
-
-`func (o *ApplicationCommandSubcommandOption) SetRequiredNil(b bool)`
-
- SetRequiredNil sets the value for Required to be an explicit nil
-
-### UnsetRequired
-`func (o *ApplicationCommandSubcommandOption) UnsetRequired()`
-
-UnsetRequired ensures that no value is present for Required, not even an explicit nil
 ### GetOptions
 
 `func (o *ApplicationCommandSubcommandOption) GetOptions() []ApplicationCommandSubcommandOptionOptionsInner`
@@ -201,16 +191,6 @@ SetOptions sets Options field to given value.
 
 HasOptions returns a boolean if a field has been set.
 
-### SetOptionsNil
-
-`func (o *ApplicationCommandSubcommandOption) SetOptionsNil(b bool)`
-
- SetOptionsNil sets the value for Options to be an explicit nil
-
-### UnsetOptions
-`func (o *ApplicationCommandSubcommandOption) UnsetOptions()`
-
-UnsetOptions ensures that no value is present for Options, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

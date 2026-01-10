@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Url** | Pointer to **NullableString** |  | [optional] 
-**IconUrl** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
+**IconUrl** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -52,16 +52,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *RichEmbedAuthor) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *RichEmbedAuthor) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetUrl
 
 `func (o *RichEmbedAuthor) GetUrl() string`
@@ -87,16 +77,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *RichEmbedAuthor) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *RichEmbedAuthor) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetIconUrl
 
 `func (o *RichEmbedAuthor) GetIconUrl() string`
@@ -122,16 +102,6 @@ SetIconUrl sets IconUrl field to given value.
 
 HasIconUrl returns a boolean if a field has been set.
 
-### SetIconUrlNil
-
-`func (o *RichEmbedAuthor) SetIconUrlNil(b bool)`
-
- SetIconUrlNil sets the value for IconUrl to be an explicit nil
-
-### UnsetIconUrl
-`func (o *RichEmbedAuthor) UnsetIconUrl()`
-
-UnsetIconUrl ensures that no value is present for IconUrl, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,7 +53,7 @@ var _ MappedNullable = &ApplicationIntegrationTypeConfiguration{}
 
 // ApplicationIntegrationTypeConfiguration struct for ApplicationIntegrationTypeConfiguration
 type ApplicationIntegrationTypeConfiguration struct {
-	Oauth2InstallParams NullableApplicationOAuth2InstallParams `json:"oauth2_install_params,omitempty"`
+	Oauth2InstallParams *ApplicationFormPartialInstallParams `json:"oauth2_install_params,omitempty"`
 }
 
 // NewApplicationIntegrationTypeConfiguration instantiates a new ApplicationIntegrationTypeConfiguration object
@@ -73,48 +73,38 @@ func NewApplicationIntegrationTypeConfigurationWithDefaults() *ApplicationIntegr
 	return &this
 }
 
-// GetOauth2InstallParams returns the Oauth2InstallParams field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ApplicationIntegrationTypeConfiguration) GetOauth2InstallParams() ApplicationOAuth2InstallParams {
-	if o == nil || IsNil(o.Oauth2InstallParams.Get()) {
-		var ret ApplicationOAuth2InstallParams
+// GetOauth2InstallParams returns the Oauth2InstallParams field value if set, zero value otherwise.
+func (o *ApplicationIntegrationTypeConfiguration) GetOauth2InstallParams() ApplicationFormPartialInstallParams {
+	if o == nil || IsNil(o.Oauth2InstallParams) {
+		var ret ApplicationFormPartialInstallParams
 		return ret
 	}
-	return *o.Oauth2InstallParams.Get()
+	return *o.Oauth2InstallParams
 }
 
 // GetOauth2InstallParamsOk returns a tuple with the Oauth2InstallParams field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ApplicationIntegrationTypeConfiguration) GetOauth2InstallParamsOk() (*ApplicationOAuth2InstallParams, bool) {
-	if o == nil || IsNil(o.Oauth2InstallParams.Get()) {
+func (o *ApplicationIntegrationTypeConfiguration) GetOauth2InstallParamsOk() (*ApplicationFormPartialInstallParams, bool) {
+	if o == nil || IsNil(o.Oauth2InstallParams) {
 		return nil, false
 	}
-	return o.Oauth2InstallParams.Get(), o.Oauth2InstallParams.IsSet()
+	return o.Oauth2InstallParams, true
 }
 
 // HasOauth2InstallParams returns a boolean if a field has been set.
 func (o *ApplicationIntegrationTypeConfiguration) HasOauth2InstallParams() bool {
-	if o != nil && o.Oauth2InstallParams.IsSet() {
+	if o != nil && !IsNil(o.Oauth2InstallParams) {
 		return true
 	}
 
 	return false
 }
 
-// SetOauth2InstallParams gets a reference to the given NullableApplicationOAuth2InstallParams and assigns it to the Oauth2InstallParams field.
-func (o *ApplicationIntegrationTypeConfiguration) SetOauth2InstallParams(v ApplicationOAuth2InstallParams) {
-	o.Oauth2InstallParams.Set(&v)
+// SetOauth2InstallParams gets a reference to the given ApplicationFormPartialInstallParams and assigns it to the Oauth2InstallParams field.
+func (o *ApplicationIntegrationTypeConfiguration) SetOauth2InstallParams(v ApplicationFormPartialInstallParams) {
+	o.Oauth2InstallParams = &v
 }
 
-// SetOauth2InstallParamsNil sets the value for Oauth2InstallParams to be an explicit nil
-func (o *ApplicationIntegrationTypeConfiguration) SetOauth2InstallParamsNil() {
-	o.Oauth2InstallParams.Set(nil)
-}
-
-// UnsetOauth2InstallParams ensures that no value is present for Oauth2InstallParams, not even an explicit nil
-func (o *ApplicationIntegrationTypeConfiguration) UnsetOauth2InstallParams() {
-	o.Oauth2InstallParams.Unset()
-}
 
 func (o ApplicationIntegrationTypeConfiguration) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -126,8 +116,8 @@ func (o ApplicationIntegrationTypeConfiguration) MarshalJSON() ([]byte, error) {
 
 func (o ApplicationIntegrationTypeConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Oauth2InstallParams.IsSet() {
-		toSerialize["oauth2_install_params"] = o.Oauth2InstallParams.Get()
+	if !IsNil(o.Oauth2InstallParams) {
+		toSerialize["oauth2_install_params"] = o.Oauth2InstallParams
 	}
 	return toSerialize, nil
 }
@@ -167,5 +157,4 @@ func (v *NullableApplicationIntegrationTypeConfiguration) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

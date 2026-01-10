@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,19 +53,20 @@ var _ MappedNullable = &SDKMessageRequest{}
 
 // SDKMessageRequest struct for SDKMessageRequest
 type SDKMessageRequest struct {
-	Content NullableString `json:"content,omitempty"`
+	Content *string `json:"content,omitempty"`
 	Embeds []RichEmbed `json:"embeds,omitempty"`
-	AllowedMentions NullableMessageAllowedMentionsRequest `json:"allowed_mentions,omitempty"`
+	AllowedMentions *BaseCreateMessageCreateRequestAllowedMentions `json:"allowed_mentions,omitempty"`
 	StickerIds []string `json:"sticker_ids,omitempty"`
 	Components []BaseCreateMessageCreateRequestComponentsInner `json:"components,omitempty"`
-	Flags NullableInt32 `json:"flags,omitempty"`
+	Flags *int32 `json:"flags,omitempty"`
 	Attachments []MessageAttachmentRequest `json:"attachments,omitempty"`
-	Poll NullablePollCreateRequest `json:"poll,omitempty"`
-	ConfettiPotion map[string]interface{} `json:"confetti_potion,omitempty"`
-	MessageReference NullableMessageReferenceRequest `json:"message_reference,omitempty"`
-	Nonce NullableBasicMessageResponseNonce `json:"nonce,omitempty"`
-	EnforceNonce NullableBool `json:"enforce_nonce,omitempty"`
-	Tts NullableBool `json:"tts,omitempty"`
+	Poll *BaseCreateMessageCreateRequestPoll `json:"poll,omitempty"`
+	SharedClientTheme *BaseCreateMessageCreateRequestSharedClientTheme `json:"shared_client_theme,omitempty"`
+	ConfettiPotion *BaseCreateMessageCreateRequestConfettiPotion `json:"confetti_potion,omitempty"`
+	MessageReference *MessageCreateRequestMessageReference `json:"message_reference,omitempty"`
+	Nonce *BasicMessageResponseNonce `json:"nonce,omitempty"`
+	EnforceNonce *bool `json:"enforce_nonce,omitempty"`
+	Tts *bool `json:"tts,omitempty"`
 }
 
 // NewSDKMessageRequest instantiates a new SDKMessageRequest object
@@ -85,52 +86,42 @@ func NewSDKMessageRequestWithDefaults() *SDKMessageRequest {
 	return &this
 }
 
-// GetContent returns the Content field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetContent returns the Content field value if set, zero value otherwise.
 func (o *SDKMessageRequest) GetContent() string {
-	if o == nil || IsNil(o.Content.Get()) {
+	if o == nil || IsNil(o.Content) {
 		var ret string
 		return ret
 	}
-	return *o.Content.Get()
+	return *o.Content
 }
 
 // GetContentOk returns a tuple with the Content field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SDKMessageRequest) GetContentOk() (*string, bool) {
-	if o == nil || IsNil(o.Content.Get()) {
+	if o == nil || IsNil(o.Content) {
 		return nil, false
 	}
-	return o.Content.Get(), o.Content.IsSet()
+	return o.Content, true
 }
 
 // HasContent returns a boolean if a field has been set.
 func (o *SDKMessageRequest) HasContent() bool {
-	if o != nil && o.Content.IsSet() {
+	if o != nil && !IsNil(o.Content) {
 		return true
 	}
 
 	return false
 }
 
-// SetContent gets a reference to the given NullableString and assigns it to the Content field.
+// SetContent gets a reference to the given string and assigns it to the Content field.
 func (o *SDKMessageRequest) SetContent(v string) {
-	o.Content.Set(&v)
+	o.Content = &v
 }
 
-// SetContentNil sets the value for Content to be an explicit nil
-func (o *SDKMessageRequest) SetContentNil() {
-	o.Content.Set(nil)
-}
 
-// UnsetContent ensures that no value is present for Content, not even an explicit nil
-func (o *SDKMessageRequest) UnsetContent() {
-	o.Content.Unset()
-}
-
-// GetEmbeds returns the Embeds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmbeds returns the Embeds field value if set, zero value otherwise.
 func (o *SDKMessageRequest) GetEmbeds() []RichEmbed {
-	if o == nil {
+	if o == nil || IsNil(o.Embeds) {
 		var ret []RichEmbed
 		return ret
 	}
@@ -139,9 +130,8 @@ func (o *SDKMessageRequest) GetEmbeds() []RichEmbed {
 
 // GetEmbedsOk returns a tuple with the Embeds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SDKMessageRequest) GetEmbedsOk() ([]RichEmbed, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Embeds) {
 		return nil, false
 	}
 	return o.Embeds, true
@@ -162,52 +152,42 @@ func (o *SDKMessageRequest) SetEmbeds(v []RichEmbed) {
 }
 
 
-// GetAllowedMentions returns the AllowedMentions field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SDKMessageRequest) GetAllowedMentions() MessageAllowedMentionsRequest {
-	if o == nil || IsNil(o.AllowedMentions.Get()) {
-		var ret MessageAllowedMentionsRequest
+// GetAllowedMentions returns the AllowedMentions field value if set, zero value otherwise.
+func (o *SDKMessageRequest) GetAllowedMentions() BaseCreateMessageCreateRequestAllowedMentions {
+	if o == nil || IsNil(o.AllowedMentions) {
+		var ret BaseCreateMessageCreateRequestAllowedMentions
 		return ret
 	}
-	return *o.AllowedMentions.Get()
+	return *o.AllowedMentions
 }
 
 // GetAllowedMentionsOk returns a tuple with the AllowedMentions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SDKMessageRequest) GetAllowedMentionsOk() (*MessageAllowedMentionsRequest, bool) {
-	if o == nil || IsNil(o.AllowedMentions.Get()) {
+func (o *SDKMessageRequest) GetAllowedMentionsOk() (*BaseCreateMessageCreateRequestAllowedMentions, bool) {
+	if o == nil || IsNil(o.AllowedMentions) {
 		return nil, false
 	}
-	return o.AllowedMentions.Get(), o.AllowedMentions.IsSet()
+	return o.AllowedMentions, true
 }
 
 // HasAllowedMentions returns a boolean if a field has been set.
 func (o *SDKMessageRequest) HasAllowedMentions() bool {
-	if o != nil && o.AllowedMentions.IsSet() {
+	if o != nil && !IsNil(o.AllowedMentions) {
 		return true
 	}
 
 	return false
 }
 
-// SetAllowedMentions gets a reference to the given NullableMessageAllowedMentionsRequest and assigns it to the AllowedMentions field.
-func (o *SDKMessageRequest) SetAllowedMentions(v MessageAllowedMentionsRequest) {
-	o.AllowedMentions.Set(&v)
+// SetAllowedMentions gets a reference to the given BaseCreateMessageCreateRequestAllowedMentions and assigns it to the AllowedMentions field.
+func (o *SDKMessageRequest) SetAllowedMentions(v BaseCreateMessageCreateRequestAllowedMentions) {
+	o.AllowedMentions = &v
 }
 
-// SetAllowedMentionsNil sets the value for AllowedMentions to be an explicit nil
-func (o *SDKMessageRequest) SetAllowedMentionsNil() {
-	o.AllowedMentions.Set(nil)
-}
 
-// UnsetAllowedMentions ensures that no value is present for AllowedMentions, not even an explicit nil
-func (o *SDKMessageRequest) UnsetAllowedMentions() {
-	o.AllowedMentions.Unset()
-}
-
-// GetStickerIds returns the StickerIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStickerIds returns the StickerIds field value if set, zero value otherwise.
 func (o *SDKMessageRequest) GetStickerIds() []string {
-	if o == nil {
+	if o == nil || IsNil(o.StickerIds) {
 		var ret []string
 		return ret
 	}
@@ -216,9 +196,8 @@ func (o *SDKMessageRequest) GetStickerIds() []string {
 
 // GetStickerIdsOk returns a tuple with the StickerIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SDKMessageRequest) GetStickerIdsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StickerIds) {
 		return nil, false
 	}
 	return o.StickerIds, true
@@ -239,9 +218,9 @@ func (o *SDKMessageRequest) SetStickerIds(v []string) {
 }
 
 
-// GetComponents returns the Components field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetComponents returns the Components field value if set, zero value otherwise.
 func (o *SDKMessageRequest) GetComponents() []BaseCreateMessageCreateRequestComponentsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Components) {
 		var ret []BaseCreateMessageCreateRequestComponentsInner
 		return ret
 	}
@@ -250,9 +229,8 @@ func (o *SDKMessageRequest) GetComponents() []BaseCreateMessageCreateRequestComp
 
 // GetComponentsOk returns a tuple with the Components field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SDKMessageRequest) GetComponentsOk() ([]BaseCreateMessageCreateRequestComponentsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Components) {
 		return nil, false
 	}
 	return o.Components, true
@@ -273,52 +251,42 @@ func (o *SDKMessageRequest) SetComponents(v []BaseCreateMessageCreateRequestComp
 }
 
 
-// GetFlags returns the Flags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFlags returns the Flags field value if set, zero value otherwise.
 func (o *SDKMessageRequest) GetFlags() int32 {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		var ret int32
 		return ret
 	}
-	return *o.Flags.Get()
+	return *o.Flags
 }
 
 // GetFlagsOk returns a tuple with the Flags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SDKMessageRequest) GetFlagsOk() (*int32, bool) {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		return nil, false
 	}
-	return o.Flags.Get(), o.Flags.IsSet()
+	return o.Flags, true
 }
 
 // HasFlags returns a boolean if a field has been set.
 func (o *SDKMessageRequest) HasFlags() bool {
-	if o != nil && o.Flags.IsSet() {
+	if o != nil && !IsNil(o.Flags) {
 		return true
 	}
 
 	return false
 }
 
-// SetFlags gets a reference to the given NullableInt32 and assigns it to the Flags field.
+// SetFlags gets a reference to the given int32 and assigns it to the Flags field.
 func (o *SDKMessageRequest) SetFlags(v int32) {
-	o.Flags.Set(&v)
+	o.Flags = &v
 }
 
-// SetFlagsNil sets the value for Flags to be an explicit nil
-func (o *SDKMessageRequest) SetFlagsNil() {
-	o.Flags.Set(nil)
-}
 
-// UnsetFlags ensures that no value is present for Flags, not even an explicit nil
-func (o *SDKMessageRequest) UnsetFlags() {
-	o.Flags.Unset()
-}
-
-// GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttachments returns the Attachments field value if set, zero value otherwise.
 func (o *SDKMessageRequest) GetAttachments() []MessageAttachmentRequest {
-	if o == nil {
+	if o == nil || IsNil(o.Attachments) {
 		var ret []MessageAttachmentRequest
 		return ret
 	}
@@ -327,9 +295,8 @@ func (o *SDKMessageRequest) GetAttachments() []MessageAttachmentRequest {
 
 // GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SDKMessageRequest) GetAttachmentsOk() ([]MessageAttachmentRequest, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Attachments) {
 		return nil, false
 	}
 	return o.Attachments, true
@@ -350,63 +317,86 @@ func (o *SDKMessageRequest) SetAttachments(v []MessageAttachmentRequest) {
 }
 
 
-// GetPoll returns the Poll field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SDKMessageRequest) GetPoll() PollCreateRequest {
-	if o == nil || IsNil(o.Poll.Get()) {
-		var ret PollCreateRequest
+// GetPoll returns the Poll field value if set, zero value otherwise.
+func (o *SDKMessageRequest) GetPoll() BaseCreateMessageCreateRequestPoll {
+	if o == nil || IsNil(o.Poll) {
+		var ret BaseCreateMessageCreateRequestPoll
 		return ret
 	}
-	return *o.Poll.Get()
+	return *o.Poll
 }
 
 // GetPollOk returns a tuple with the Poll field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SDKMessageRequest) GetPollOk() (*PollCreateRequest, bool) {
-	if o == nil || IsNil(o.Poll.Get()) {
+func (o *SDKMessageRequest) GetPollOk() (*BaseCreateMessageCreateRequestPoll, bool) {
+	if o == nil || IsNil(o.Poll) {
 		return nil, false
 	}
-	return o.Poll.Get(), o.Poll.IsSet()
+	return o.Poll, true
 }
 
 // HasPoll returns a boolean if a field has been set.
 func (o *SDKMessageRequest) HasPoll() bool {
-	if o != nil && o.Poll.IsSet() {
+	if o != nil && !IsNil(o.Poll) {
 		return true
 	}
 
 	return false
 }
 
-// SetPoll gets a reference to the given NullablePollCreateRequest and assigns it to the Poll field.
-func (o *SDKMessageRequest) SetPoll(v PollCreateRequest) {
-	o.Poll.Set(&v)
+// SetPoll gets a reference to the given BaseCreateMessageCreateRequestPoll and assigns it to the Poll field.
+func (o *SDKMessageRequest) SetPoll(v BaseCreateMessageCreateRequestPoll) {
+	o.Poll = &v
 }
 
-// SetPollNil sets the value for Poll to be an explicit nil
-func (o *SDKMessageRequest) SetPollNil() {
-	o.Poll.Set(nil)
-}
 
-// UnsetPoll ensures that no value is present for Poll, not even an explicit nil
-func (o *SDKMessageRequest) UnsetPoll() {
-	o.Poll.Unset()
-}
-
-// GetConfettiPotion returns the ConfettiPotion field value if set, zero value otherwise.
-func (o *SDKMessageRequest) GetConfettiPotion() map[string]interface{} {
-	if o == nil || IsNil(o.ConfettiPotion) {
-		var ret map[string]interface{}
+// GetSharedClientTheme returns the SharedClientTheme field value if set, zero value otherwise.
+func (o *SDKMessageRequest) GetSharedClientTheme() BaseCreateMessageCreateRequestSharedClientTheme {
+	if o == nil || IsNil(o.SharedClientTheme) {
+		var ret BaseCreateMessageCreateRequestSharedClientTheme
 		return ret
 	}
-	return o.ConfettiPotion
+	return *o.SharedClientTheme
+}
+
+// GetSharedClientThemeOk returns a tuple with the SharedClientTheme field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SDKMessageRequest) GetSharedClientThemeOk() (*BaseCreateMessageCreateRequestSharedClientTheme, bool) {
+	if o == nil || IsNil(o.SharedClientTheme) {
+		return nil, false
+	}
+	return o.SharedClientTheme, true
+}
+
+// HasSharedClientTheme returns a boolean if a field has been set.
+func (o *SDKMessageRequest) HasSharedClientTheme() bool {
+	if o != nil && !IsNil(o.SharedClientTheme) {
+		return true
+	}
+
+	return false
+}
+
+// SetSharedClientTheme gets a reference to the given BaseCreateMessageCreateRequestSharedClientTheme and assigns it to the SharedClientTheme field.
+func (o *SDKMessageRequest) SetSharedClientTheme(v BaseCreateMessageCreateRequestSharedClientTheme) {
+	o.SharedClientTheme = &v
+}
+
+
+// GetConfettiPotion returns the ConfettiPotion field value if set, zero value otherwise.
+func (o *SDKMessageRequest) GetConfettiPotion() BaseCreateMessageCreateRequestConfettiPotion {
+	if o == nil || IsNil(o.ConfettiPotion) {
+		var ret BaseCreateMessageCreateRequestConfettiPotion
+		return ret
+	}
+	return *o.ConfettiPotion
 }
 
 // GetConfettiPotionOk returns a tuple with the ConfettiPotion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SDKMessageRequest) GetConfettiPotionOk() (map[string]interface{}, bool) {
+func (o *SDKMessageRequest) GetConfettiPotionOk() (*BaseCreateMessageCreateRequestConfettiPotion, bool) {
 	if o == nil || IsNil(o.ConfettiPotion) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.ConfettiPotion, true
 }
@@ -420,183 +410,143 @@ func (o *SDKMessageRequest) HasConfettiPotion() bool {
 	return false
 }
 
-// SetConfettiPotion gets a reference to the given map[string]interface{} and assigns it to the ConfettiPotion field.
-func (o *SDKMessageRequest) SetConfettiPotion(v map[string]interface{}) {
-	o.ConfettiPotion = v
+// SetConfettiPotion gets a reference to the given BaseCreateMessageCreateRequestConfettiPotion and assigns it to the ConfettiPotion field.
+func (o *SDKMessageRequest) SetConfettiPotion(v BaseCreateMessageCreateRequestConfettiPotion) {
+	o.ConfettiPotion = &v
 }
 
 
-// GetMessageReference returns the MessageReference field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SDKMessageRequest) GetMessageReference() MessageReferenceRequest {
-	if o == nil || IsNil(o.MessageReference.Get()) {
-		var ret MessageReferenceRequest
+// GetMessageReference returns the MessageReference field value if set, zero value otherwise.
+func (o *SDKMessageRequest) GetMessageReference() MessageCreateRequestMessageReference {
+	if o == nil || IsNil(o.MessageReference) {
+		var ret MessageCreateRequestMessageReference
 		return ret
 	}
-	return *o.MessageReference.Get()
+	return *o.MessageReference
 }
 
 // GetMessageReferenceOk returns a tuple with the MessageReference field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SDKMessageRequest) GetMessageReferenceOk() (*MessageReferenceRequest, bool) {
-	if o == nil || IsNil(o.MessageReference.Get()) {
+func (o *SDKMessageRequest) GetMessageReferenceOk() (*MessageCreateRequestMessageReference, bool) {
+	if o == nil || IsNil(o.MessageReference) {
 		return nil, false
 	}
-	return o.MessageReference.Get(), o.MessageReference.IsSet()
+	return o.MessageReference, true
 }
 
 // HasMessageReference returns a boolean if a field has been set.
 func (o *SDKMessageRequest) HasMessageReference() bool {
-	if o != nil && o.MessageReference.IsSet() {
+	if o != nil && !IsNil(o.MessageReference) {
 		return true
 	}
 
 	return false
 }
 
-// SetMessageReference gets a reference to the given NullableMessageReferenceRequest and assigns it to the MessageReference field.
-func (o *SDKMessageRequest) SetMessageReference(v MessageReferenceRequest) {
-	o.MessageReference.Set(&v)
+// SetMessageReference gets a reference to the given MessageCreateRequestMessageReference and assigns it to the MessageReference field.
+func (o *SDKMessageRequest) SetMessageReference(v MessageCreateRequestMessageReference) {
+	o.MessageReference = &v
 }
 
-// SetMessageReferenceNil sets the value for MessageReference to be an explicit nil
-func (o *SDKMessageRequest) SetMessageReferenceNil() {
-	o.MessageReference.Set(nil)
-}
 
-// UnsetMessageReference ensures that no value is present for MessageReference, not even an explicit nil
-func (o *SDKMessageRequest) UnsetMessageReference() {
-	o.MessageReference.Unset()
-}
-
-// GetNonce returns the Nonce field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNonce returns the Nonce field value if set, zero value otherwise.
 func (o *SDKMessageRequest) GetNonce() BasicMessageResponseNonce {
-	if o == nil || IsNil(o.Nonce.Get()) {
+	if o == nil || IsNil(o.Nonce) {
 		var ret BasicMessageResponseNonce
 		return ret
 	}
-	return *o.Nonce.Get()
+	return *o.Nonce
 }
 
 // GetNonceOk returns a tuple with the Nonce field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SDKMessageRequest) GetNonceOk() (*BasicMessageResponseNonce, bool) {
-	if o == nil || IsNil(o.Nonce.Get()) {
+	if o == nil || IsNil(o.Nonce) {
 		return nil, false
 	}
-	return o.Nonce.Get(), o.Nonce.IsSet()
+	return o.Nonce, true
 }
 
 // HasNonce returns a boolean if a field has been set.
 func (o *SDKMessageRequest) HasNonce() bool {
-	if o != nil && o.Nonce.IsSet() {
+	if o != nil && !IsNil(o.Nonce) {
 		return true
 	}
 
 	return false
 }
 
-// SetNonce gets a reference to the given NullableBasicMessageResponseNonce and assigns it to the Nonce field.
+// SetNonce gets a reference to the given BasicMessageResponseNonce and assigns it to the Nonce field.
 func (o *SDKMessageRequest) SetNonce(v BasicMessageResponseNonce) {
-	o.Nonce.Set(&v)
+	o.Nonce = &v
 }
 
-// SetNonceNil sets the value for Nonce to be an explicit nil
-func (o *SDKMessageRequest) SetNonceNil() {
-	o.Nonce.Set(nil)
-}
 
-// UnsetNonce ensures that no value is present for Nonce, not even an explicit nil
-func (o *SDKMessageRequest) UnsetNonce() {
-	o.Nonce.Unset()
-}
-
-// GetEnforceNonce returns the EnforceNonce field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnforceNonce returns the EnforceNonce field value if set, zero value otherwise.
 func (o *SDKMessageRequest) GetEnforceNonce() bool {
-	if o == nil || IsNil(o.EnforceNonce.Get()) {
+	if o == nil || IsNil(o.EnforceNonce) {
 		var ret bool
 		return ret
 	}
-	return *o.EnforceNonce.Get()
+	return *o.EnforceNonce
 }
 
 // GetEnforceNonceOk returns a tuple with the EnforceNonce field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SDKMessageRequest) GetEnforceNonceOk() (*bool, bool) {
-	if o == nil || IsNil(o.EnforceNonce.Get()) {
+	if o == nil || IsNil(o.EnforceNonce) {
 		return nil, false
 	}
-	return o.EnforceNonce.Get(), o.EnforceNonce.IsSet()
+	return o.EnforceNonce, true
 }
 
 // HasEnforceNonce returns a boolean if a field has been set.
 func (o *SDKMessageRequest) HasEnforceNonce() bool {
-	if o != nil && o.EnforceNonce.IsSet() {
+	if o != nil && !IsNil(o.EnforceNonce) {
 		return true
 	}
 
 	return false
 }
 
-// SetEnforceNonce gets a reference to the given NullableBool and assigns it to the EnforceNonce field.
+// SetEnforceNonce gets a reference to the given bool and assigns it to the EnforceNonce field.
 func (o *SDKMessageRequest) SetEnforceNonce(v bool) {
-	o.EnforceNonce.Set(&v)
+	o.EnforceNonce = &v
 }
 
-// SetEnforceNonceNil sets the value for EnforceNonce to be an explicit nil
-func (o *SDKMessageRequest) SetEnforceNonceNil() {
-	o.EnforceNonce.Set(nil)
-}
 
-// UnsetEnforceNonce ensures that no value is present for EnforceNonce, not even an explicit nil
-func (o *SDKMessageRequest) UnsetEnforceNonce() {
-	o.EnforceNonce.Unset()
-}
-
-// GetTts returns the Tts field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTts returns the Tts field value if set, zero value otherwise.
 func (o *SDKMessageRequest) GetTts() bool {
-	if o == nil || IsNil(o.Tts.Get()) {
+	if o == nil || IsNil(o.Tts) {
 		var ret bool
 		return ret
 	}
-	return *o.Tts.Get()
+	return *o.Tts
 }
 
 // GetTtsOk returns a tuple with the Tts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SDKMessageRequest) GetTtsOk() (*bool, bool) {
-	if o == nil || IsNil(o.Tts.Get()) {
+	if o == nil || IsNil(o.Tts) {
 		return nil, false
 	}
-	return o.Tts.Get(), o.Tts.IsSet()
+	return o.Tts, true
 }
 
 // HasTts returns a boolean if a field has been set.
 func (o *SDKMessageRequest) HasTts() bool {
-	if o != nil && o.Tts.IsSet() {
+	if o != nil && !IsNil(o.Tts) {
 		return true
 	}
 
 	return false
 }
 
-// SetTts gets a reference to the given NullableBool and assigns it to the Tts field.
+// SetTts gets a reference to the given bool and assigns it to the Tts field.
 func (o *SDKMessageRequest) SetTts(v bool) {
-	o.Tts.Set(&v)
+	o.Tts = &v
 }
 
-// SetTtsNil sets the value for Tts to be an explicit nil
-func (o *SDKMessageRequest) SetTtsNil() {
-	o.Tts.Set(nil)
-}
-
-// UnsetTts ensures that no value is present for Tts, not even an explicit nil
-func (o *SDKMessageRequest) UnsetTts() {
-	o.Tts.Unset()
-}
 
 func (o SDKMessageRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -608,44 +558,47 @@ func (o SDKMessageRequest) MarshalJSON() ([]byte, error) {
 
 func (o SDKMessageRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Content.IsSet() {
-		toSerialize["content"] = o.Content.Get()
+	if !IsNil(o.Content) {
+		toSerialize["content"] = o.Content
 	}
-	if o.Embeds != nil {
+	if !IsNil(o.Embeds) {
 		toSerialize["embeds"] = o.Embeds
 	}
-	if o.AllowedMentions.IsSet() {
-		toSerialize["allowed_mentions"] = o.AllowedMentions.Get()
+	if !IsNil(o.AllowedMentions) {
+		toSerialize["allowed_mentions"] = o.AllowedMentions
 	}
-	if o.StickerIds != nil {
+	if !IsNil(o.StickerIds) {
 		toSerialize["sticker_ids"] = o.StickerIds
 	}
-	if o.Components != nil {
+	if !IsNil(o.Components) {
 		toSerialize["components"] = o.Components
 	}
-	if o.Flags.IsSet() {
-		toSerialize["flags"] = o.Flags.Get()
+	if !IsNil(o.Flags) {
+		toSerialize["flags"] = o.Flags
 	}
-	if o.Attachments != nil {
+	if !IsNil(o.Attachments) {
 		toSerialize["attachments"] = o.Attachments
 	}
-	if o.Poll.IsSet() {
-		toSerialize["poll"] = o.Poll.Get()
+	if !IsNil(o.Poll) {
+		toSerialize["poll"] = o.Poll
+	}
+	if !IsNil(o.SharedClientTheme) {
+		toSerialize["shared_client_theme"] = o.SharedClientTheme
 	}
 	if !IsNil(o.ConfettiPotion) {
 		toSerialize["confetti_potion"] = o.ConfettiPotion
 	}
-	if o.MessageReference.IsSet() {
-		toSerialize["message_reference"] = o.MessageReference.Get()
+	if !IsNil(o.MessageReference) {
+		toSerialize["message_reference"] = o.MessageReference
 	}
-	if o.Nonce.IsSet() {
-		toSerialize["nonce"] = o.Nonce.Get()
+	if !IsNil(o.Nonce) {
+		toSerialize["nonce"] = o.Nonce
 	}
-	if o.EnforceNonce.IsSet() {
-		toSerialize["enforce_nonce"] = o.EnforceNonce.Get()
+	if !IsNil(o.EnforceNonce) {
+		toSerialize["enforce_nonce"] = o.EnforceNonce
 	}
-	if o.Tts.IsSet() {
-		toSerialize["tts"] = o.Tts.Get()
+	if !IsNil(o.Tts) {
+		toSerialize["tts"] = o.Tts
 	}
 	return toSerialize, nil
 }
@@ -685,5 +638,4 @@ func (v *NullableSDKMessageRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,7 +53,7 @@ var _ MappedNullable = &UserCommunicationDisabledActionMetadata{}
 
 // UserCommunicationDisabledActionMetadata struct for UserCommunicationDisabledActionMetadata
 type UserCommunicationDisabledActionMetadata struct {
-	DurationSeconds NullableInt32 `json:"duration_seconds,omitempty"`
+	DurationSeconds *int32 `json:"duration_seconds,omitempty"`
 }
 
 // NewUserCommunicationDisabledActionMetadata instantiates a new UserCommunicationDisabledActionMetadata object
@@ -73,48 +73,38 @@ func NewUserCommunicationDisabledActionMetadataWithDefaults() *UserCommunication
 	return &this
 }
 
-// GetDurationSeconds returns the DurationSeconds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDurationSeconds returns the DurationSeconds field value if set, zero value otherwise.
 func (o *UserCommunicationDisabledActionMetadata) GetDurationSeconds() int32 {
-	if o == nil || IsNil(o.DurationSeconds.Get()) {
+	if o == nil || IsNil(o.DurationSeconds) {
 		var ret int32
 		return ret
 	}
-	return *o.DurationSeconds.Get()
+	return *o.DurationSeconds
 }
 
 // GetDurationSecondsOk returns a tuple with the DurationSeconds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserCommunicationDisabledActionMetadata) GetDurationSecondsOk() (*int32, bool) {
-	if o == nil || IsNil(o.DurationSeconds.Get()) {
+	if o == nil || IsNil(o.DurationSeconds) {
 		return nil, false
 	}
-	return o.DurationSeconds.Get(), o.DurationSeconds.IsSet()
+	return o.DurationSeconds, true
 }
 
 // HasDurationSeconds returns a boolean if a field has been set.
 func (o *UserCommunicationDisabledActionMetadata) HasDurationSeconds() bool {
-	if o != nil && o.DurationSeconds.IsSet() {
+	if o != nil && !IsNil(o.DurationSeconds) {
 		return true
 	}
 
 	return false
 }
 
-// SetDurationSeconds gets a reference to the given NullableInt32 and assigns it to the DurationSeconds field.
+// SetDurationSeconds gets a reference to the given int32 and assigns it to the DurationSeconds field.
 func (o *UserCommunicationDisabledActionMetadata) SetDurationSeconds(v int32) {
-	o.DurationSeconds.Set(&v)
+	o.DurationSeconds = &v
 }
 
-// SetDurationSecondsNil sets the value for DurationSeconds to be an explicit nil
-func (o *UserCommunicationDisabledActionMetadata) SetDurationSecondsNil() {
-	o.DurationSeconds.Set(nil)
-}
-
-// UnsetDurationSeconds ensures that no value is present for DurationSeconds, not even an explicit nil
-func (o *UserCommunicationDisabledActionMetadata) UnsetDurationSeconds() {
-	o.DurationSeconds.Unset()
-}
 
 func (o UserCommunicationDisabledActionMetadata) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -126,8 +116,8 @@ func (o UserCommunicationDisabledActionMetadata) MarshalJSON() ([]byte, error) {
 
 func (o UserCommunicationDisabledActionMetadata) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.DurationSeconds.IsSet() {
-		toSerialize["duration_seconds"] = o.DurationSeconds.Get()
+	if !IsNil(o.DurationSeconds) {
+		toSerialize["duration_seconds"] = o.DurationSeconds
 	}
 	return toSerialize, nil
 }
@@ -167,5 +157,4 @@ func (v *NullableUserCommunicationDisabledActionMetadata) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **NullableInt32** |  | 
+**Type** | [**InteractionCallbackTypes**](InteractionCallbackTypes.md) |  | 
 
 ## Methods
 
 ### NewLaunchActivityInteractionCallbackResponse
 
-`func NewLaunchActivityInteractionCallbackResponse(type_ NullableInt32, ) *LaunchActivityInteractionCallbackResponse`
+`func NewLaunchActivityInteractionCallbackResponse(type_ InteractionCallbackTypes, ) *LaunchActivityInteractionCallbackResponse`
 
 NewLaunchActivityInteractionCallbackResponse instantiates a new LaunchActivityInteractionCallbackResponse object
 This constructor will assign default values to properties that have it defined,
@@ -27,34 +27,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *LaunchActivityInteractionCallbackResponse) GetType() int32`
+`func (o *LaunchActivityInteractionCallbackResponse) GetType() InteractionCallbackTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *LaunchActivityInteractionCallbackResponse) GetTypeOk() (*int32, bool)`
+`func (o *LaunchActivityInteractionCallbackResponse) GetTypeOk() (*InteractionCallbackTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *LaunchActivityInteractionCallbackResponse) SetType(v int32)`
+`func (o *LaunchActivityInteractionCallbackResponse) SetType(v InteractionCallbackTypes)`
 
 SetType sets Type field to given value.
 
 
-### SetTypeNil
-
-`func (o *LaunchActivityInteractionCallbackResponse) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *LaunchActivityInteractionCallbackResponse) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

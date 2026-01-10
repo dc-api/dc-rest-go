@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ var _ MappedNullable = &GuildChannelLocation{}
 // GuildChannelLocation struct for GuildChannelLocation
 type GuildChannelLocation struct {
 	Id string `json:"id"`
-	Kind string `json:"kind"`
+	Kind EmbeddedActivityLocationKind `json:"kind"`
 	ChannelId string `json:"channel_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	GuildId string `json:"guild_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
@@ -67,7 +67,7 @@ type _GuildChannelLocation GuildChannelLocation
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGuildChannelLocation(id string, kind string, channelId string, guildId string) *GuildChannelLocation {
+func NewGuildChannelLocation(id string, kind EmbeddedActivityLocationKind, channelId string, guildId string) *GuildChannelLocation {
 	this := GuildChannelLocation{}
 	this.Id = id
 	this.Kind = kind
@@ -109,9 +109,9 @@ func (o *GuildChannelLocation) SetId(v string) {
 }
 
 // GetKind returns the Kind field value
-func (o *GuildChannelLocation) GetKind() string {
+func (o *GuildChannelLocation) GetKind() EmbeddedActivityLocationKind {
 	if o == nil {
-		var ret string
+		var ret EmbeddedActivityLocationKind
 		return ret
 	}
 
@@ -120,7 +120,7 @@ func (o *GuildChannelLocation) GetKind() string {
 
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
-func (o *GuildChannelLocation) GetKindOk() (*string, bool) {
+func (o *GuildChannelLocation) GetKindOk() (*EmbeddedActivityLocationKind, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -128,7 +128,7 @@ func (o *GuildChannelLocation) GetKindOk() (*string, bool) {
 }
 
 // SetKind sets field value
-func (o *GuildChannelLocation) SetKind(v string) {
+func (o *GuildChannelLocation) SetKind(v EmbeddedActivityLocationKind) {
 	o.Kind = v
 }
 
@@ -272,5 +272,4 @@ func (v *NullableGuildChannelLocation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

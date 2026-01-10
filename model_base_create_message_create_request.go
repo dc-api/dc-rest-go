@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,15 +53,16 @@ var _ MappedNullable = &BaseCreateMessageCreateRequest{}
 
 // BaseCreateMessageCreateRequest struct for BaseCreateMessageCreateRequest
 type BaseCreateMessageCreateRequest struct {
-	Content NullableString `json:"content,omitempty"`
+	Content *string `json:"content,omitempty"`
 	Embeds []RichEmbed `json:"embeds,omitempty"`
-	AllowedMentions NullableMessageAllowedMentionsRequest `json:"allowed_mentions,omitempty"`
+	AllowedMentions *BaseCreateMessageCreateRequestAllowedMentions `json:"allowed_mentions,omitempty"`
 	StickerIds []string `json:"sticker_ids,omitempty"`
 	Components []BaseCreateMessageCreateRequestComponentsInner `json:"components,omitempty"`
-	Flags NullableInt32 `json:"flags,omitempty"`
+	Flags *int32 `json:"flags,omitempty"`
 	Attachments []MessageAttachmentRequest `json:"attachments,omitempty"`
-	Poll NullablePollCreateRequest `json:"poll,omitempty"`
-	ConfettiPotion map[string]interface{} `json:"confetti_potion,omitempty"`
+	Poll *BaseCreateMessageCreateRequestPoll `json:"poll,omitempty"`
+	SharedClientTheme *BaseCreateMessageCreateRequestSharedClientTheme `json:"shared_client_theme,omitempty"`
+	ConfettiPotion *BaseCreateMessageCreateRequestConfettiPotion `json:"confetti_potion,omitempty"`
 }
 
 // NewBaseCreateMessageCreateRequest instantiates a new BaseCreateMessageCreateRequest object
@@ -81,52 +82,42 @@ func NewBaseCreateMessageCreateRequestWithDefaults() *BaseCreateMessageCreateReq
 	return &this
 }
 
-// GetContent returns the Content field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetContent returns the Content field value if set, zero value otherwise.
 func (o *BaseCreateMessageCreateRequest) GetContent() string {
-	if o == nil || IsNil(o.Content.Get()) {
+	if o == nil || IsNil(o.Content) {
 		var ret string
 		return ret
 	}
-	return *o.Content.Get()
+	return *o.Content
 }
 
 // GetContentOk returns a tuple with the Content field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BaseCreateMessageCreateRequest) GetContentOk() (*string, bool) {
-	if o == nil || IsNil(o.Content.Get()) {
+	if o == nil || IsNil(o.Content) {
 		return nil, false
 	}
-	return o.Content.Get(), o.Content.IsSet()
+	return o.Content, true
 }
 
 // HasContent returns a boolean if a field has been set.
 func (o *BaseCreateMessageCreateRequest) HasContent() bool {
-	if o != nil && o.Content.IsSet() {
+	if o != nil && !IsNil(o.Content) {
 		return true
 	}
 
 	return false
 }
 
-// SetContent gets a reference to the given NullableString and assigns it to the Content field.
+// SetContent gets a reference to the given string and assigns it to the Content field.
 func (o *BaseCreateMessageCreateRequest) SetContent(v string) {
-	o.Content.Set(&v)
+	o.Content = &v
 }
 
-// SetContentNil sets the value for Content to be an explicit nil
-func (o *BaseCreateMessageCreateRequest) SetContentNil() {
-	o.Content.Set(nil)
-}
 
-// UnsetContent ensures that no value is present for Content, not even an explicit nil
-func (o *BaseCreateMessageCreateRequest) UnsetContent() {
-	o.Content.Unset()
-}
-
-// GetEmbeds returns the Embeds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmbeds returns the Embeds field value if set, zero value otherwise.
 func (o *BaseCreateMessageCreateRequest) GetEmbeds() []RichEmbed {
-	if o == nil {
+	if o == nil || IsNil(o.Embeds) {
 		var ret []RichEmbed
 		return ret
 	}
@@ -135,9 +126,8 @@ func (o *BaseCreateMessageCreateRequest) GetEmbeds() []RichEmbed {
 
 // GetEmbedsOk returns a tuple with the Embeds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BaseCreateMessageCreateRequest) GetEmbedsOk() ([]RichEmbed, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Embeds) {
 		return nil, false
 	}
 	return o.Embeds, true
@@ -158,52 +148,42 @@ func (o *BaseCreateMessageCreateRequest) SetEmbeds(v []RichEmbed) {
 }
 
 
-// GetAllowedMentions returns the AllowedMentions field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BaseCreateMessageCreateRequest) GetAllowedMentions() MessageAllowedMentionsRequest {
-	if o == nil || IsNil(o.AllowedMentions.Get()) {
-		var ret MessageAllowedMentionsRequest
+// GetAllowedMentions returns the AllowedMentions field value if set, zero value otherwise.
+func (o *BaseCreateMessageCreateRequest) GetAllowedMentions() BaseCreateMessageCreateRequestAllowedMentions {
+	if o == nil || IsNil(o.AllowedMentions) {
+		var ret BaseCreateMessageCreateRequestAllowedMentions
 		return ret
 	}
-	return *o.AllowedMentions.Get()
+	return *o.AllowedMentions
 }
 
 // GetAllowedMentionsOk returns a tuple with the AllowedMentions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BaseCreateMessageCreateRequest) GetAllowedMentionsOk() (*MessageAllowedMentionsRequest, bool) {
-	if o == nil || IsNil(o.AllowedMentions.Get()) {
+func (o *BaseCreateMessageCreateRequest) GetAllowedMentionsOk() (*BaseCreateMessageCreateRequestAllowedMentions, bool) {
+	if o == nil || IsNil(o.AllowedMentions) {
 		return nil, false
 	}
-	return o.AllowedMentions.Get(), o.AllowedMentions.IsSet()
+	return o.AllowedMentions, true
 }
 
 // HasAllowedMentions returns a boolean if a field has been set.
 func (o *BaseCreateMessageCreateRequest) HasAllowedMentions() bool {
-	if o != nil && o.AllowedMentions.IsSet() {
+	if o != nil && !IsNil(o.AllowedMentions) {
 		return true
 	}
 
 	return false
 }
 
-// SetAllowedMentions gets a reference to the given NullableMessageAllowedMentionsRequest and assigns it to the AllowedMentions field.
-func (o *BaseCreateMessageCreateRequest) SetAllowedMentions(v MessageAllowedMentionsRequest) {
-	o.AllowedMentions.Set(&v)
+// SetAllowedMentions gets a reference to the given BaseCreateMessageCreateRequestAllowedMentions and assigns it to the AllowedMentions field.
+func (o *BaseCreateMessageCreateRequest) SetAllowedMentions(v BaseCreateMessageCreateRequestAllowedMentions) {
+	o.AllowedMentions = &v
 }
 
-// SetAllowedMentionsNil sets the value for AllowedMentions to be an explicit nil
-func (o *BaseCreateMessageCreateRequest) SetAllowedMentionsNil() {
-	o.AllowedMentions.Set(nil)
-}
 
-// UnsetAllowedMentions ensures that no value is present for AllowedMentions, not even an explicit nil
-func (o *BaseCreateMessageCreateRequest) UnsetAllowedMentions() {
-	o.AllowedMentions.Unset()
-}
-
-// GetStickerIds returns the StickerIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStickerIds returns the StickerIds field value if set, zero value otherwise.
 func (o *BaseCreateMessageCreateRequest) GetStickerIds() []string {
-	if o == nil {
+	if o == nil || IsNil(o.StickerIds) {
 		var ret []string
 		return ret
 	}
@@ -212,9 +192,8 @@ func (o *BaseCreateMessageCreateRequest) GetStickerIds() []string {
 
 // GetStickerIdsOk returns a tuple with the StickerIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BaseCreateMessageCreateRequest) GetStickerIdsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StickerIds) {
 		return nil, false
 	}
 	return o.StickerIds, true
@@ -235,9 +214,9 @@ func (o *BaseCreateMessageCreateRequest) SetStickerIds(v []string) {
 }
 
 
-// GetComponents returns the Components field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetComponents returns the Components field value if set, zero value otherwise.
 func (o *BaseCreateMessageCreateRequest) GetComponents() []BaseCreateMessageCreateRequestComponentsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Components) {
 		var ret []BaseCreateMessageCreateRequestComponentsInner
 		return ret
 	}
@@ -246,9 +225,8 @@ func (o *BaseCreateMessageCreateRequest) GetComponents() []BaseCreateMessageCrea
 
 // GetComponentsOk returns a tuple with the Components field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BaseCreateMessageCreateRequest) GetComponentsOk() ([]BaseCreateMessageCreateRequestComponentsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Components) {
 		return nil, false
 	}
 	return o.Components, true
@@ -269,52 +247,42 @@ func (o *BaseCreateMessageCreateRequest) SetComponents(v []BaseCreateMessageCrea
 }
 
 
-// GetFlags returns the Flags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFlags returns the Flags field value if set, zero value otherwise.
 func (o *BaseCreateMessageCreateRequest) GetFlags() int32 {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		var ret int32
 		return ret
 	}
-	return *o.Flags.Get()
+	return *o.Flags
 }
 
 // GetFlagsOk returns a tuple with the Flags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BaseCreateMessageCreateRequest) GetFlagsOk() (*int32, bool) {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		return nil, false
 	}
-	return o.Flags.Get(), o.Flags.IsSet()
+	return o.Flags, true
 }
 
 // HasFlags returns a boolean if a field has been set.
 func (o *BaseCreateMessageCreateRequest) HasFlags() bool {
-	if o != nil && o.Flags.IsSet() {
+	if o != nil && !IsNil(o.Flags) {
 		return true
 	}
 
 	return false
 }
 
-// SetFlags gets a reference to the given NullableInt32 and assigns it to the Flags field.
+// SetFlags gets a reference to the given int32 and assigns it to the Flags field.
 func (o *BaseCreateMessageCreateRequest) SetFlags(v int32) {
-	o.Flags.Set(&v)
+	o.Flags = &v
 }
 
-// SetFlagsNil sets the value for Flags to be an explicit nil
-func (o *BaseCreateMessageCreateRequest) SetFlagsNil() {
-	o.Flags.Set(nil)
-}
 
-// UnsetFlags ensures that no value is present for Flags, not even an explicit nil
-func (o *BaseCreateMessageCreateRequest) UnsetFlags() {
-	o.Flags.Unset()
-}
-
-// GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttachments returns the Attachments field value if set, zero value otherwise.
 func (o *BaseCreateMessageCreateRequest) GetAttachments() []MessageAttachmentRequest {
-	if o == nil {
+	if o == nil || IsNil(o.Attachments) {
 		var ret []MessageAttachmentRequest
 		return ret
 	}
@@ -323,9 +291,8 @@ func (o *BaseCreateMessageCreateRequest) GetAttachments() []MessageAttachmentReq
 
 // GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BaseCreateMessageCreateRequest) GetAttachmentsOk() ([]MessageAttachmentRequest, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Attachments) {
 		return nil, false
 	}
 	return o.Attachments, true
@@ -346,63 +313,86 @@ func (o *BaseCreateMessageCreateRequest) SetAttachments(v []MessageAttachmentReq
 }
 
 
-// GetPoll returns the Poll field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BaseCreateMessageCreateRequest) GetPoll() PollCreateRequest {
-	if o == nil || IsNil(o.Poll.Get()) {
-		var ret PollCreateRequest
+// GetPoll returns the Poll field value if set, zero value otherwise.
+func (o *BaseCreateMessageCreateRequest) GetPoll() BaseCreateMessageCreateRequestPoll {
+	if o == nil || IsNil(o.Poll) {
+		var ret BaseCreateMessageCreateRequestPoll
 		return ret
 	}
-	return *o.Poll.Get()
+	return *o.Poll
 }
 
 // GetPollOk returns a tuple with the Poll field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BaseCreateMessageCreateRequest) GetPollOk() (*PollCreateRequest, bool) {
-	if o == nil || IsNil(o.Poll.Get()) {
+func (o *BaseCreateMessageCreateRequest) GetPollOk() (*BaseCreateMessageCreateRequestPoll, bool) {
+	if o == nil || IsNil(o.Poll) {
 		return nil, false
 	}
-	return o.Poll.Get(), o.Poll.IsSet()
+	return o.Poll, true
 }
 
 // HasPoll returns a boolean if a field has been set.
 func (o *BaseCreateMessageCreateRequest) HasPoll() bool {
-	if o != nil && o.Poll.IsSet() {
+	if o != nil && !IsNil(o.Poll) {
 		return true
 	}
 
 	return false
 }
 
-// SetPoll gets a reference to the given NullablePollCreateRequest and assigns it to the Poll field.
-func (o *BaseCreateMessageCreateRequest) SetPoll(v PollCreateRequest) {
-	o.Poll.Set(&v)
+// SetPoll gets a reference to the given BaseCreateMessageCreateRequestPoll and assigns it to the Poll field.
+func (o *BaseCreateMessageCreateRequest) SetPoll(v BaseCreateMessageCreateRequestPoll) {
+	o.Poll = &v
 }
 
-// SetPollNil sets the value for Poll to be an explicit nil
-func (o *BaseCreateMessageCreateRequest) SetPollNil() {
-	o.Poll.Set(nil)
-}
 
-// UnsetPoll ensures that no value is present for Poll, not even an explicit nil
-func (o *BaseCreateMessageCreateRequest) UnsetPoll() {
-	o.Poll.Unset()
-}
-
-// GetConfettiPotion returns the ConfettiPotion field value if set, zero value otherwise.
-func (o *BaseCreateMessageCreateRequest) GetConfettiPotion() map[string]interface{} {
-	if o == nil || IsNil(o.ConfettiPotion) {
-		var ret map[string]interface{}
+// GetSharedClientTheme returns the SharedClientTheme field value if set, zero value otherwise.
+func (o *BaseCreateMessageCreateRequest) GetSharedClientTheme() BaseCreateMessageCreateRequestSharedClientTheme {
+	if o == nil || IsNil(o.SharedClientTheme) {
+		var ret BaseCreateMessageCreateRequestSharedClientTheme
 		return ret
 	}
-	return o.ConfettiPotion
+	return *o.SharedClientTheme
+}
+
+// GetSharedClientThemeOk returns a tuple with the SharedClientTheme field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BaseCreateMessageCreateRequest) GetSharedClientThemeOk() (*BaseCreateMessageCreateRequestSharedClientTheme, bool) {
+	if o == nil || IsNil(o.SharedClientTheme) {
+		return nil, false
+	}
+	return o.SharedClientTheme, true
+}
+
+// HasSharedClientTheme returns a boolean if a field has been set.
+func (o *BaseCreateMessageCreateRequest) HasSharedClientTheme() bool {
+	if o != nil && !IsNil(o.SharedClientTheme) {
+		return true
+	}
+
+	return false
+}
+
+// SetSharedClientTheme gets a reference to the given BaseCreateMessageCreateRequestSharedClientTheme and assigns it to the SharedClientTheme field.
+func (o *BaseCreateMessageCreateRequest) SetSharedClientTheme(v BaseCreateMessageCreateRequestSharedClientTheme) {
+	o.SharedClientTheme = &v
+}
+
+
+// GetConfettiPotion returns the ConfettiPotion field value if set, zero value otherwise.
+func (o *BaseCreateMessageCreateRequest) GetConfettiPotion() BaseCreateMessageCreateRequestConfettiPotion {
+	if o == nil || IsNil(o.ConfettiPotion) {
+		var ret BaseCreateMessageCreateRequestConfettiPotion
+		return ret
+	}
+	return *o.ConfettiPotion
 }
 
 // GetConfettiPotionOk returns a tuple with the ConfettiPotion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BaseCreateMessageCreateRequest) GetConfettiPotionOk() (map[string]interface{}, bool) {
+func (o *BaseCreateMessageCreateRequest) GetConfettiPotionOk() (*BaseCreateMessageCreateRequestConfettiPotion, bool) {
 	if o == nil || IsNil(o.ConfettiPotion) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.ConfettiPotion, true
 }
@@ -416,9 +406,9 @@ func (o *BaseCreateMessageCreateRequest) HasConfettiPotion() bool {
 	return false
 }
 
-// SetConfettiPotion gets a reference to the given map[string]interface{} and assigns it to the ConfettiPotion field.
-func (o *BaseCreateMessageCreateRequest) SetConfettiPotion(v map[string]interface{}) {
-	o.ConfettiPotion = v
+// SetConfettiPotion gets a reference to the given BaseCreateMessageCreateRequestConfettiPotion and assigns it to the ConfettiPotion field.
+func (o *BaseCreateMessageCreateRequest) SetConfettiPotion(v BaseCreateMessageCreateRequestConfettiPotion) {
+	o.ConfettiPotion = &v
 }
 
 
@@ -432,29 +422,32 @@ func (o BaseCreateMessageCreateRequest) MarshalJSON() ([]byte, error) {
 
 func (o BaseCreateMessageCreateRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Content.IsSet() {
-		toSerialize["content"] = o.Content.Get()
+	if !IsNil(o.Content) {
+		toSerialize["content"] = o.Content
 	}
-	if o.Embeds != nil {
+	if !IsNil(o.Embeds) {
 		toSerialize["embeds"] = o.Embeds
 	}
-	if o.AllowedMentions.IsSet() {
-		toSerialize["allowed_mentions"] = o.AllowedMentions.Get()
+	if !IsNil(o.AllowedMentions) {
+		toSerialize["allowed_mentions"] = o.AllowedMentions
 	}
-	if o.StickerIds != nil {
+	if !IsNil(o.StickerIds) {
 		toSerialize["sticker_ids"] = o.StickerIds
 	}
-	if o.Components != nil {
+	if !IsNil(o.Components) {
 		toSerialize["components"] = o.Components
 	}
-	if o.Flags.IsSet() {
-		toSerialize["flags"] = o.Flags.Get()
+	if !IsNil(o.Flags) {
+		toSerialize["flags"] = o.Flags
 	}
-	if o.Attachments != nil {
+	if !IsNil(o.Attachments) {
 		toSerialize["attachments"] = o.Attachments
 	}
-	if o.Poll.IsSet() {
-		toSerialize["poll"] = o.Poll.Get()
+	if !IsNil(o.Poll) {
+		toSerialize["poll"] = o.Poll
+	}
+	if !IsNil(o.SharedClientTheme) {
+		toSerialize["shared_client_theme"] = o.SharedClientTheme
 	}
 	if !IsNil(o.ConfettiPotion) {
 		toSerialize["confetti_potion"] = o.ConfettiPotion
@@ -497,5 +490,4 @@ func (v *NullableBaseCreateMessageCreateRequest) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

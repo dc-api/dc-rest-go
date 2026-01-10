@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,16 +55,16 @@ var _ MappedNullable = &GuildIncomingWebhookResponse{}
 
 // GuildIncomingWebhookResponse struct for GuildIncomingWebhookResponse
 type GuildIncomingWebhookResponse struct {
-	ApplicationId *string `json:"application_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Avatar NullableString `json:"avatar,omitempty"`
-	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	GuildId *string `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	ApplicationId *GetEntitlementsSkuIdsParameterOneOfInner `json:"application_id,omitempty"`
+	Avatar *string `json:"avatar,omitempty"`
+	ChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"channel_id,omitempty"`
+	GuildId *GetEntitlementsSkuIdsParameterOneOfInner `json:"guild_id,omitempty"`
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
-	Type int32 `json:"type"`
-	User NullableUserResponse `json:"user,omitempty"`
-	Token NullableString `json:"token,omitempty"`
-	Url NullableString `json:"url,omitempty"`
+	Type WebhookTypes `json:"type"`
+	User *UserResponse `json:"user,omitempty"`
+	Token *string `json:"token,omitempty"`
+	Url *string `json:"url,omitempty"`
 }
 
 type _GuildIncomingWebhookResponse GuildIncomingWebhookResponse
@@ -73,7 +73,7 @@ type _GuildIncomingWebhookResponse GuildIncomingWebhookResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGuildIncomingWebhookResponse(id string, name string, type_ int32) *GuildIncomingWebhookResponse {
+func NewGuildIncomingWebhookResponse(id string, name string, type_ WebhookTypes) *GuildIncomingWebhookResponse {
 	this := GuildIncomingWebhookResponse{}
 	this.Id = id
 	this.Name = name
@@ -90,9 +90,9 @@ func NewGuildIncomingWebhookResponseWithDefaults() *GuildIncomingWebhookResponse
 }
 
 // GetApplicationId returns the ApplicationId field value if set, zero value otherwise.
-func (o *GuildIncomingWebhookResponse) GetApplicationId() string {
+func (o *GuildIncomingWebhookResponse) GetApplicationId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.ApplicationId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.ApplicationId
@@ -100,7 +100,7 @@ func (o *GuildIncomingWebhookResponse) GetApplicationId() string {
 
 // GetApplicationIdOk returns a tuple with the ApplicationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildIncomingWebhookResponse) GetApplicationIdOk() (*string, bool) {
+func (o *GuildIncomingWebhookResponse) GetApplicationIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.ApplicationId) {
 		return nil, false
 	}
@@ -116,59 +116,49 @@ func (o *GuildIncomingWebhookResponse) HasApplicationId() bool {
 	return false
 }
 
-// SetApplicationId gets a reference to the given string and assigns it to the ApplicationId field.
-func (o *GuildIncomingWebhookResponse) SetApplicationId(v string) {
+// SetApplicationId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the ApplicationId field.
+func (o *GuildIncomingWebhookResponse) SetApplicationId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.ApplicationId = &v
 }
 
 
-// GetAvatar returns the Avatar field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAvatar returns the Avatar field value if set, zero value otherwise.
 func (o *GuildIncomingWebhookResponse) GetAvatar() string {
-	if o == nil || IsNil(o.Avatar.Get()) {
+	if o == nil || IsNil(o.Avatar) {
 		var ret string
 		return ret
 	}
-	return *o.Avatar.Get()
+	return *o.Avatar
 }
 
 // GetAvatarOk returns a tuple with the Avatar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildIncomingWebhookResponse) GetAvatarOk() (*string, bool) {
-	if o == nil || IsNil(o.Avatar.Get()) {
+	if o == nil || IsNil(o.Avatar) {
 		return nil, false
 	}
-	return o.Avatar.Get(), o.Avatar.IsSet()
+	return o.Avatar, true
 }
 
 // HasAvatar returns a boolean if a field has been set.
 func (o *GuildIncomingWebhookResponse) HasAvatar() bool {
-	if o != nil && o.Avatar.IsSet() {
+	if o != nil && !IsNil(o.Avatar) {
 		return true
 	}
 
 	return false
 }
 
-// SetAvatar gets a reference to the given NullableString and assigns it to the Avatar field.
+// SetAvatar gets a reference to the given string and assigns it to the Avatar field.
 func (o *GuildIncomingWebhookResponse) SetAvatar(v string) {
-	o.Avatar.Set(&v)
+	o.Avatar = &v
 }
 
-// SetAvatarNil sets the value for Avatar to be an explicit nil
-func (o *GuildIncomingWebhookResponse) SetAvatarNil() {
-	o.Avatar.Set(nil)
-}
-
-// UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
-func (o *GuildIncomingWebhookResponse) UnsetAvatar() {
-	o.Avatar.Unset()
-}
 
 // GetChannelId returns the ChannelId field value if set, zero value otherwise.
-func (o *GuildIncomingWebhookResponse) GetChannelId() string {
+func (o *GuildIncomingWebhookResponse) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.ChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.ChannelId
@@ -176,7 +166,7 @@ func (o *GuildIncomingWebhookResponse) GetChannelId() string {
 
 // GetChannelIdOk returns a tuple with the ChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildIncomingWebhookResponse) GetChannelIdOk() (*string, bool) {
+func (o *GuildIncomingWebhookResponse) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.ChannelId) {
 		return nil, false
 	}
@@ -192,16 +182,16 @@ func (o *GuildIncomingWebhookResponse) HasChannelId() bool {
 	return false
 }
 
-// SetChannelId gets a reference to the given string and assigns it to the ChannelId field.
-func (o *GuildIncomingWebhookResponse) SetChannelId(v string) {
+// SetChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the ChannelId field.
+func (o *GuildIncomingWebhookResponse) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.ChannelId = &v
 }
 
 
 // GetGuildId returns the GuildId field value if set, zero value otherwise.
-func (o *GuildIncomingWebhookResponse) GetGuildId() string {
+func (o *GuildIncomingWebhookResponse) GetGuildId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.GuildId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.GuildId
@@ -209,7 +199,7 @@ func (o *GuildIncomingWebhookResponse) GetGuildId() string {
 
 // GetGuildIdOk returns a tuple with the GuildId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildIncomingWebhookResponse) GetGuildIdOk() (*string, bool) {
+func (o *GuildIncomingWebhookResponse) GetGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.GuildId) {
 		return nil, false
 	}
@@ -225,8 +215,8 @@ func (o *GuildIncomingWebhookResponse) HasGuildId() bool {
 	return false
 }
 
-// SetGuildId gets a reference to the given string and assigns it to the GuildId field.
-func (o *GuildIncomingWebhookResponse) SetGuildId(v string) {
+// SetGuildId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the GuildId field.
+func (o *GuildIncomingWebhookResponse) SetGuildId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.GuildId = &v
 }
 
@@ -280,9 +270,9 @@ func (o *GuildIncomingWebhookResponse) SetName(v string) {
 }
 
 // GetType returns the Type field value
-func (o *GuildIncomingWebhookResponse) GetType() int32 {
+func (o *GuildIncomingWebhookResponse) GetType() WebhookTypes {
 	if o == nil {
-		var ret int32
+		var ret WebhookTypes
 		return ret
 	}
 
@@ -291,7 +281,7 @@ func (o *GuildIncomingWebhookResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *GuildIncomingWebhookResponse) GetTypeOk() (*int32, bool) {
+func (o *GuildIncomingWebhookResponse) GetTypeOk() (*WebhookTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -299,138 +289,108 @@ func (o *GuildIncomingWebhookResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *GuildIncomingWebhookResponse) SetType(v int32) {
+func (o *GuildIncomingWebhookResponse) SetType(v WebhookTypes) {
 	o.Type = v
 }
 
-// GetUser returns the User field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUser returns the User field value if set, zero value otherwise.
 func (o *GuildIncomingWebhookResponse) GetUser() UserResponse {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.User.Get()
+	return *o.User
 }
 
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildIncomingWebhookResponse) GetUserOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		return nil, false
 	}
-	return o.User.Get(), o.User.IsSet()
+	return o.User, true
 }
 
 // HasUser returns a boolean if a field has been set.
 func (o *GuildIncomingWebhookResponse) HasUser() bool {
-	if o != nil && o.User.IsSet() {
+	if o != nil && !IsNil(o.User) {
 		return true
 	}
 
 	return false
 }
 
-// SetUser gets a reference to the given NullableUserResponse and assigns it to the User field.
+// SetUser gets a reference to the given UserResponse and assigns it to the User field.
 func (o *GuildIncomingWebhookResponse) SetUser(v UserResponse) {
-	o.User.Set(&v)
+	o.User = &v
 }
 
-// SetUserNil sets the value for User to be an explicit nil
-func (o *GuildIncomingWebhookResponse) SetUserNil() {
-	o.User.Set(nil)
-}
 
-// UnsetUser ensures that no value is present for User, not even an explicit nil
-func (o *GuildIncomingWebhookResponse) UnsetUser() {
-	o.User.Unset()
-}
-
-// GetToken returns the Token field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetToken returns the Token field value if set, zero value otherwise.
 func (o *GuildIncomingWebhookResponse) GetToken() string {
-	if o == nil || IsNil(o.Token.Get()) {
+	if o == nil || IsNil(o.Token) {
 		var ret string
 		return ret
 	}
-	return *o.Token.Get()
+	return *o.Token
 }
 
 // GetTokenOk returns a tuple with the Token field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildIncomingWebhookResponse) GetTokenOk() (*string, bool) {
-	if o == nil || IsNil(o.Token.Get()) {
+	if o == nil || IsNil(o.Token) {
 		return nil, false
 	}
-	return o.Token.Get(), o.Token.IsSet()
+	return o.Token, true
 }
 
 // HasToken returns a boolean if a field has been set.
 func (o *GuildIncomingWebhookResponse) HasToken() bool {
-	if o != nil && o.Token.IsSet() {
+	if o != nil && !IsNil(o.Token) {
 		return true
 	}
 
 	return false
 }
 
-// SetToken gets a reference to the given NullableString and assigns it to the Token field.
+// SetToken gets a reference to the given string and assigns it to the Token field.
 func (o *GuildIncomingWebhookResponse) SetToken(v string) {
-	o.Token.Set(&v)
+	o.Token = &v
 }
 
-// SetTokenNil sets the value for Token to be an explicit nil
-func (o *GuildIncomingWebhookResponse) SetTokenNil() {
-	o.Token.Set(nil)
-}
 
-// UnsetToken ensures that no value is present for Token, not even an explicit nil
-func (o *GuildIncomingWebhookResponse) UnsetToken() {
-	o.Token.Unset()
-}
-
-// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUrl returns the Url field value if set, zero value otherwise.
 func (o *GuildIncomingWebhookResponse) GetUrl() string {
-	if o == nil || IsNil(o.Url.Get()) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
-	return *o.Url.Get()
+	return *o.Url
 }
 
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildIncomingWebhookResponse) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url.Get()) {
+	if o == nil || IsNil(o.Url) {
 		return nil, false
 	}
-	return o.Url.Get(), o.Url.IsSet()
+	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *GuildIncomingWebhookResponse) HasUrl() bool {
-	if o != nil && o.Url.IsSet() {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
 	return false
 }
 
-// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
+// SetUrl gets a reference to the given string and assigns it to the Url field.
 func (o *GuildIncomingWebhookResponse) SetUrl(v string) {
-	o.Url.Set(&v)
+	o.Url = &v
 }
 
-// SetUrlNil sets the value for Url to be an explicit nil
-func (o *GuildIncomingWebhookResponse) SetUrlNil() {
-	o.Url.Set(nil)
-}
-
-// UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *GuildIncomingWebhookResponse) UnsetUrl() {
-	o.Url.Unset()
-}
 
 func (o GuildIncomingWebhookResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -445,8 +405,8 @@ func (o GuildIncomingWebhookResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ApplicationId) {
 		toSerialize["application_id"] = o.ApplicationId
 	}
-	if o.Avatar.IsSet() {
-		toSerialize["avatar"] = o.Avatar.Get()
+	if !IsNil(o.Avatar) {
+		toSerialize["avatar"] = o.Avatar
 	}
 	if !IsNil(o.ChannelId) {
 		toSerialize["channel_id"] = o.ChannelId
@@ -457,14 +417,14 @@ func (o GuildIncomingWebhookResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	toSerialize["type"] = o.Type
-	if o.User.IsSet() {
-		toSerialize["user"] = o.User.Get()
+	if !IsNil(o.User) {
+		toSerialize["user"] = o.User
 	}
-	if o.Token.IsSet() {
-		toSerialize["token"] = o.Token.Get()
+	if !IsNil(o.Token) {
+		toSerialize["token"] = o.Token
 	}
-	if o.Url.IsSet() {
-		toSerialize["url"] = o.Url.Get()
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
 	}
 	return toSerialize, nil
 }
@@ -543,5 +503,4 @@ func (v *NullableGuildIncomingWebhookResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

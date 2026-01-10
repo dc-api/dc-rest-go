@@ -5,27 +5,26 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Region** | Pointer to **NullableString** |  | [optional] 
-**Icon** | Pointer to **NullableString** |  | [optional] 
-**VerificationLevel** | Pointer to **int32** |  | [optional] 
-**DefaultMessageNotifications** | Pointer to **int32** |  | [optional] 
-**ExplicitContentFilter** | Pointer to **int32** |  | [optional] 
-**PreferredLocale** | Pointer to **string** |  | [optional] 
-**AfkTimeout** | Pointer to **NullableInt32** |  | [optional] 
-**AfkChannelId** | Pointer to **string** |  | [optional] 
-**SystemChannelId** | Pointer to **string** |  | [optional] 
-**OwnerId** | Pointer to **string** |  | [optional] 
-**Splash** | Pointer to **NullableString** |  | [optional] 
-**Banner** | Pointer to **NullableString** |  | [optional] 
-**SystemChannelFlags** | Pointer to **NullableInt32** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Region** | Pointer to **string** |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
+**VerificationLevel** | Pointer to [**GuildPatchRequestPartialVerificationLevel**](GuildPatchRequestPartialVerificationLevel.md) |  | [optional] 
+**DefaultMessageNotifications** | Pointer to [**GuildPatchRequestPartialDefaultMessageNotifications**](GuildPatchRequestPartialDefaultMessageNotifications.md) |  | [optional] 
+**ExplicitContentFilter** | Pointer to [**GuildPatchRequestPartialExplicitContentFilter**](GuildPatchRequestPartialExplicitContentFilter.md) |  | [optional] 
+**PreferredLocale** | Pointer to [**GuildPatchRequestPartialPreferredLocale**](GuildPatchRequestPartialPreferredLocale.md) |  | [optional] 
+**AfkTimeout** | Pointer to [**GuildPatchRequestPartialAfkTimeout**](GuildPatchRequestPartialAfkTimeout.md) |  | [optional] 
+**AfkChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**SystemChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**Splash** | Pointer to **string** |  | [optional] 
+**Banner** | Pointer to **string** |  | [optional] 
+**SystemChannelFlags** | Pointer to **int32** |  | [optional] 
 **Features** | Pointer to **[]string** |  | [optional] 
-**DiscoverySplash** | Pointer to **NullableString** |  | [optional] 
-**HomeHeader** | Pointer to **NullableString** |  | [optional] 
-**RulesChannelId** | Pointer to **string** |  | [optional] 
-**SafetyAlertsChannelId** | Pointer to **string** |  | [optional] 
-**PublicUpdatesChannelId** | Pointer to **string** |  | [optional] 
-**PremiumProgressBarEnabled** | Pointer to **NullableBool** |  | [optional] 
+**DiscoverySplash** | Pointer to **string** |  | [optional] 
+**HomeHeader** | Pointer to **string** |  | [optional] 
+**RulesChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**SafetyAlertsChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**PublicUpdatesChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**PremiumProgressBarEnabled** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -96,16 +95,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *GuildPatchRequestPartial) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *GuildPatchRequestPartial) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetRegion
 
 `func (o *GuildPatchRequestPartial) GetRegion() string`
@@ -131,16 +120,6 @@ SetRegion sets Region field to given value.
 
 HasRegion returns a boolean if a field has been set.
 
-### SetRegionNil
-
-`func (o *GuildPatchRequestPartial) SetRegionNil(b bool)`
-
- SetRegionNil sets the value for Region to be an explicit nil
-
-### UnsetRegion
-`func (o *GuildPatchRequestPartial) UnsetRegion()`
-
-UnsetRegion ensures that no value is present for Region, not even an explicit nil
 ### GetIcon
 
 `func (o *GuildPatchRequestPartial) GetIcon() string`
@@ -166,32 +145,22 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *GuildPatchRequestPartial) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *GuildPatchRequestPartial) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetVerificationLevel
 
-`func (o *GuildPatchRequestPartial) GetVerificationLevel() int32`
+`func (o *GuildPatchRequestPartial) GetVerificationLevel() GuildPatchRequestPartialVerificationLevel`
 
 GetVerificationLevel returns the VerificationLevel field if non-nil, zero value otherwise.
 
 ### GetVerificationLevelOk
 
-`func (o *GuildPatchRequestPartial) GetVerificationLevelOk() (*int32, bool)`
+`func (o *GuildPatchRequestPartial) GetVerificationLevelOk() (*GuildPatchRequestPartialVerificationLevel, bool)`
 
 GetVerificationLevelOk returns a tuple with the VerificationLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVerificationLevel
 
-`func (o *GuildPatchRequestPartial) SetVerificationLevel(v int32)`
+`func (o *GuildPatchRequestPartial) SetVerificationLevel(v GuildPatchRequestPartialVerificationLevel)`
 
 SetVerificationLevel sets VerificationLevel field to given value.
 
@@ -203,20 +172,20 @@ HasVerificationLevel returns a boolean if a field has been set.
 
 ### GetDefaultMessageNotifications
 
-`func (o *GuildPatchRequestPartial) GetDefaultMessageNotifications() int32`
+`func (o *GuildPatchRequestPartial) GetDefaultMessageNotifications() GuildPatchRequestPartialDefaultMessageNotifications`
 
 GetDefaultMessageNotifications returns the DefaultMessageNotifications field if non-nil, zero value otherwise.
 
 ### GetDefaultMessageNotificationsOk
 
-`func (o *GuildPatchRequestPartial) GetDefaultMessageNotificationsOk() (*int32, bool)`
+`func (o *GuildPatchRequestPartial) GetDefaultMessageNotificationsOk() (*GuildPatchRequestPartialDefaultMessageNotifications, bool)`
 
 GetDefaultMessageNotificationsOk returns a tuple with the DefaultMessageNotifications field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultMessageNotifications
 
-`func (o *GuildPatchRequestPartial) SetDefaultMessageNotifications(v int32)`
+`func (o *GuildPatchRequestPartial) SetDefaultMessageNotifications(v GuildPatchRequestPartialDefaultMessageNotifications)`
 
 SetDefaultMessageNotifications sets DefaultMessageNotifications field to given value.
 
@@ -228,20 +197,20 @@ HasDefaultMessageNotifications returns a boolean if a field has been set.
 
 ### GetExplicitContentFilter
 
-`func (o *GuildPatchRequestPartial) GetExplicitContentFilter() int32`
+`func (o *GuildPatchRequestPartial) GetExplicitContentFilter() GuildPatchRequestPartialExplicitContentFilter`
 
 GetExplicitContentFilter returns the ExplicitContentFilter field if non-nil, zero value otherwise.
 
 ### GetExplicitContentFilterOk
 
-`func (o *GuildPatchRequestPartial) GetExplicitContentFilterOk() (*int32, bool)`
+`func (o *GuildPatchRequestPartial) GetExplicitContentFilterOk() (*GuildPatchRequestPartialExplicitContentFilter, bool)`
 
 GetExplicitContentFilterOk returns a tuple with the ExplicitContentFilter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExplicitContentFilter
 
-`func (o *GuildPatchRequestPartial) SetExplicitContentFilter(v int32)`
+`func (o *GuildPatchRequestPartial) SetExplicitContentFilter(v GuildPatchRequestPartialExplicitContentFilter)`
 
 SetExplicitContentFilter sets ExplicitContentFilter field to given value.
 
@@ -253,20 +222,20 @@ HasExplicitContentFilter returns a boolean if a field has been set.
 
 ### GetPreferredLocale
 
-`func (o *GuildPatchRequestPartial) GetPreferredLocale() string`
+`func (o *GuildPatchRequestPartial) GetPreferredLocale() GuildPatchRequestPartialPreferredLocale`
 
 GetPreferredLocale returns the PreferredLocale field if non-nil, zero value otherwise.
 
 ### GetPreferredLocaleOk
 
-`func (o *GuildPatchRequestPartial) GetPreferredLocaleOk() (*string, bool)`
+`func (o *GuildPatchRequestPartial) GetPreferredLocaleOk() (*GuildPatchRequestPartialPreferredLocale, bool)`
 
 GetPreferredLocaleOk returns a tuple with the PreferredLocale field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPreferredLocale
 
-`func (o *GuildPatchRequestPartial) SetPreferredLocale(v string)`
+`func (o *GuildPatchRequestPartial) SetPreferredLocale(v GuildPatchRequestPartialPreferredLocale)`
 
 SetPreferredLocale sets PreferredLocale field to given value.
 
@@ -278,20 +247,20 @@ HasPreferredLocale returns a boolean if a field has been set.
 
 ### GetAfkTimeout
 
-`func (o *GuildPatchRequestPartial) GetAfkTimeout() int32`
+`func (o *GuildPatchRequestPartial) GetAfkTimeout() GuildPatchRequestPartialAfkTimeout`
 
 GetAfkTimeout returns the AfkTimeout field if non-nil, zero value otherwise.
 
 ### GetAfkTimeoutOk
 
-`func (o *GuildPatchRequestPartial) GetAfkTimeoutOk() (*int32, bool)`
+`func (o *GuildPatchRequestPartial) GetAfkTimeoutOk() (*GuildPatchRequestPartialAfkTimeout, bool)`
 
 GetAfkTimeoutOk returns a tuple with the AfkTimeout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAfkTimeout
 
-`func (o *GuildPatchRequestPartial) SetAfkTimeout(v int32)`
+`func (o *GuildPatchRequestPartial) SetAfkTimeout(v GuildPatchRequestPartialAfkTimeout)`
 
 SetAfkTimeout sets AfkTimeout field to given value.
 
@@ -301,32 +270,22 @@ SetAfkTimeout sets AfkTimeout field to given value.
 
 HasAfkTimeout returns a boolean if a field has been set.
 
-### SetAfkTimeoutNil
-
-`func (o *GuildPatchRequestPartial) SetAfkTimeoutNil(b bool)`
-
- SetAfkTimeoutNil sets the value for AfkTimeout to be an explicit nil
-
-### UnsetAfkTimeout
-`func (o *GuildPatchRequestPartial) UnsetAfkTimeout()`
-
-UnsetAfkTimeout ensures that no value is present for AfkTimeout, not even an explicit nil
 ### GetAfkChannelId
 
-`func (o *GuildPatchRequestPartial) GetAfkChannelId() string`
+`func (o *GuildPatchRequestPartial) GetAfkChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetAfkChannelId returns the AfkChannelId field if non-nil, zero value otherwise.
 
 ### GetAfkChannelIdOk
 
-`func (o *GuildPatchRequestPartial) GetAfkChannelIdOk() (*string, bool)`
+`func (o *GuildPatchRequestPartial) GetAfkChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetAfkChannelIdOk returns a tuple with the AfkChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAfkChannelId
 
-`func (o *GuildPatchRequestPartial) SetAfkChannelId(v string)`
+`func (o *GuildPatchRequestPartial) SetAfkChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetAfkChannelId sets AfkChannelId field to given value.
 
@@ -338,20 +297,20 @@ HasAfkChannelId returns a boolean if a field has been set.
 
 ### GetSystemChannelId
 
-`func (o *GuildPatchRequestPartial) GetSystemChannelId() string`
+`func (o *GuildPatchRequestPartial) GetSystemChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetSystemChannelId returns the SystemChannelId field if non-nil, zero value otherwise.
 
 ### GetSystemChannelIdOk
 
-`func (o *GuildPatchRequestPartial) GetSystemChannelIdOk() (*string, bool)`
+`func (o *GuildPatchRequestPartial) GetSystemChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetSystemChannelIdOk returns a tuple with the SystemChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSystemChannelId
 
-`func (o *GuildPatchRequestPartial) SetSystemChannelId(v string)`
+`func (o *GuildPatchRequestPartial) SetSystemChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetSystemChannelId sets SystemChannelId field to given value.
 
@@ -360,31 +319,6 @@ SetSystemChannelId sets SystemChannelId field to given value.
 `func (o *GuildPatchRequestPartial) HasSystemChannelId() bool`
 
 HasSystemChannelId returns a boolean if a field has been set.
-
-### GetOwnerId
-
-`func (o *GuildPatchRequestPartial) GetOwnerId() string`
-
-GetOwnerId returns the OwnerId field if non-nil, zero value otherwise.
-
-### GetOwnerIdOk
-
-`func (o *GuildPatchRequestPartial) GetOwnerIdOk() (*string, bool)`
-
-GetOwnerIdOk returns a tuple with the OwnerId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOwnerId
-
-`func (o *GuildPatchRequestPartial) SetOwnerId(v string)`
-
-SetOwnerId sets OwnerId field to given value.
-
-### HasOwnerId
-
-`func (o *GuildPatchRequestPartial) HasOwnerId() bool`
-
-HasOwnerId returns a boolean if a field has been set.
 
 ### GetSplash
 
@@ -411,16 +345,6 @@ SetSplash sets Splash field to given value.
 
 HasSplash returns a boolean if a field has been set.
 
-### SetSplashNil
-
-`func (o *GuildPatchRequestPartial) SetSplashNil(b bool)`
-
- SetSplashNil sets the value for Splash to be an explicit nil
-
-### UnsetSplash
-`func (o *GuildPatchRequestPartial) UnsetSplash()`
-
-UnsetSplash ensures that no value is present for Splash, not even an explicit nil
 ### GetBanner
 
 `func (o *GuildPatchRequestPartial) GetBanner() string`
@@ -446,16 +370,6 @@ SetBanner sets Banner field to given value.
 
 HasBanner returns a boolean if a field has been set.
 
-### SetBannerNil
-
-`func (o *GuildPatchRequestPartial) SetBannerNil(b bool)`
-
- SetBannerNil sets the value for Banner to be an explicit nil
-
-### UnsetBanner
-`func (o *GuildPatchRequestPartial) UnsetBanner()`
-
-UnsetBanner ensures that no value is present for Banner, not even an explicit nil
 ### GetSystemChannelFlags
 
 `func (o *GuildPatchRequestPartial) GetSystemChannelFlags() int32`
@@ -481,32 +395,22 @@ SetSystemChannelFlags sets SystemChannelFlags field to given value.
 
 HasSystemChannelFlags returns a boolean if a field has been set.
 
-### SetSystemChannelFlagsNil
-
-`func (o *GuildPatchRequestPartial) SetSystemChannelFlagsNil(b bool)`
-
- SetSystemChannelFlagsNil sets the value for SystemChannelFlags to be an explicit nil
-
-### UnsetSystemChannelFlags
-`func (o *GuildPatchRequestPartial) UnsetSystemChannelFlags()`
-
-UnsetSystemChannelFlags ensures that no value is present for SystemChannelFlags, not even an explicit nil
 ### GetFeatures
 
-`func (o *GuildPatchRequestPartial) GetFeatures() []*string`
+`func (o *GuildPatchRequestPartial) GetFeatures() []string`
 
 GetFeatures returns the Features field if non-nil, zero value otherwise.
 
 ### GetFeaturesOk
 
-`func (o *GuildPatchRequestPartial) GetFeaturesOk() (*[]*string, bool)`
+`func (o *GuildPatchRequestPartial) GetFeaturesOk() (*[]string, bool)`
 
 GetFeaturesOk returns a tuple with the Features field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFeatures
 
-`func (o *GuildPatchRequestPartial) SetFeatures(v []*string)`
+`func (o *GuildPatchRequestPartial) SetFeatures(v []string)`
 
 SetFeatures sets Features field to given value.
 
@@ -516,16 +420,6 @@ SetFeatures sets Features field to given value.
 
 HasFeatures returns a boolean if a field has been set.
 
-### SetFeaturesNil
-
-`func (o *GuildPatchRequestPartial) SetFeaturesNil(b bool)`
-
- SetFeaturesNil sets the value for Features to be an explicit nil
-
-### UnsetFeatures
-`func (o *GuildPatchRequestPartial) UnsetFeatures()`
-
-UnsetFeatures ensures that no value is present for Features, not even an explicit nil
 ### GetDiscoverySplash
 
 `func (o *GuildPatchRequestPartial) GetDiscoverySplash() string`
@@ -551,16 +445,6 @@ SetDiscoverySplash sets DiscoverySplash field to given value.
 
 HasDiscoverySplash returns a boolean if a field has been set.
 
-### SetDiscoverySplashNil
-
-`func (o *GuildPatchRequestPartial) SetDiscoverySplashNil(b bool)`
-
- SetDiscoverySplashNil sets the value for DiscoverySplash to be an explicit nil
-
-### UnsetDiscoverySplash
-`func (o *GuildPatchRequestPartial) UnsetDiscoverySplash()`
-
-UnsetDiscoverySplash ensures that no value is present for DiscoverySplash, not even an explicit nil
 ### GetHomeHeader
 
 `func (o *GuildPatchRequestPartial) GetHomeHeader() string`
@@ -586,32 +470,22 @@ SetHomeHeader sets HomeHeader field to given value.
 
 HasHomeHeader returns a boolean if a field has been set.
 
-### SetHomeHeaderNil
-
-`func (o *GuildPatchRequestPartial) SetHomeHeaderNil(b bool)`
-
- SetHomeHeaderNil sets the value for HomeHeader to be an explicit nil
-
-### UnsetHomeHeader
-`func (o *GuildPatchRequestPartial) UnsetHomeHeader()`
-
-UnsetHomeHeader ensures that no value is present for HomeHeader, not even an explicit nil
 ### GetRulesChannelId
 
-`func (o *GuildPatchRequestPartial) GetRulesChannelId() string`
+`func (o *GuildPatchRequestPartial) GetRulesChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetRulesChannelId returns the RulesChannelId field if non-nil, zero value otherwise.
 
 ### GetRulesChannelIdOk
 
-`func (o *GuildPatchRequestPartial) GetRulesChannelIdOk() (*string, bool)`
+`func (o *GuildPatchRequestPartial) GetRulesChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetRulesChannelIdOk returns a tuple with the RulesChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRulesChannelId
 
-`func (o *GuildPatchRequestPartial) SetRulesChannelId(v string)`
+`func (o *GuildPatchRequestPartial) SetRulesChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetRulesChannelId sets RulesChannelId field to given value.
 
@@ -623,20 +497,20 @@ HasRulesChannelId returns a boolean if a field has been set.
 
 ### GetSafetyAlertsChannelId
 
-`func (o *GuildPatchRequestPartial) GetSafetyAlertsChannelId() string`
+`func (o *GuildPatchRequestPartial) GetSafetyAlertsChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetSafetyAlertsChannelId returns the SafetyAlertsChannelId field if non-nil, zero value otherwise.
 
 ### GetSafetyAlertsChannelIdOk
 
-`func (o *GuildPatchRequestPartial) GetSafetyAlertsChannelIdOk() (*string, bool)`
+`func (o *GuildPatchRequestPartial) GetSafetyAlertsChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetSafetyAlertsChannelIdOk returns a tuple with the SafetyAlertsChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSafetyAlertsChannelId
 
-`func (o *GuildPatchRequestPartial) SetSafetyAlertsChannelId(v string)`
+`func (o *GuildPatchRequestPartial) SetSafetyAlertsChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetSafetyAlertsChannelId sets SafetyAlertsChannelId field to given value.
 
@@ -648,20 +522,20 @@ HasSafetyAlertsChannelId returns a boolean if a field has been set.
 
 ### GetPublicUpdatesChannelId
 
-`func (o *GuildPatchRequestPartial) GetPublicUpdatesChannelId() string`
+`func (o *GuildPatchRequestPartial) GetPublicUpdatesChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetPublicUpdatesChannelId returns the PublicUpdatesChannelId field if non-nil, zero value otherwise.
 
 ### GetPublicUpdatesChannelIdOk
 
-`func (o *GuildPatchRequestPartial) GetPublicUpdatesChannelIdOk() (*string, bool)`
+`func (o *GuildPatchRequestPartial) GetPublicUpdatesChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetPublicUpdatesChannelIdOk returns a tuple with the PublicUpdatesChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPublicUpdatesChannelId
 
-`func (o *GuildPatchRequestPartial) SetPublicUpdatesChannelId(v string)`
+`func (o *GuildPatchRequestPartial) SetPublicUpdatesChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetPublicUpdatesChannelId sets PublicUpdatesChannelId field to given value.
 
@@ -696,16 +570,6 @@ SetPremiumProgressBarEnabled sets PremiumProgressBarEnabled field to given value
 
 HasPremiumProgressBarEnabled returns a boolean if a field has been set.
 
-### SetPremiumProgressBarEnabledNil
-
-`func (o *GuildPatchRequestPartial) SetPremiumProgressBarEnabledNil(b bool)`
-
- SetPremiumProgressBarEnabledNil sets the value for PremiumProgressBarEnabled to be an explicit nil
-
-### UnsetPremiumProgressBarEnabled
-`func (o *GuildPatchRequestPartial) UnsetPremiumProgressBarEnabled()`
-
-UnsetPremiumProgressBarEnabled ensures that no value is present for PremiumProgressBarEnabled, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

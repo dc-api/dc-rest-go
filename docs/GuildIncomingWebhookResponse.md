@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | Pointer to **string** |  | [optional] 
-**Avatar** | Pointer to **NullableString** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
-**GuildId** | Pointer to **string** |  | [optional] 
+**ApplicationId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**Avatar** | Pointer to **string** |  | [optional] 
+**ChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**GuildId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Type** | **int32** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**Token** | Pointer to **NullableString** |  | [optional] 
-**Url** | Pointer to **NullableString** |  | [optional] 
+**Type** | [**WebhookTypes**](WebhookTypes.md) |  | 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**Token** | Pointer to **string** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewGuildIncomingWebhookResponse
 
-`func NewGuildIncomingWebhookResponse(id string, name string, type_ int32, ) *GuildIncomingWebhookResponse`
+`func NewGuildIncomingWebhookResponse(id string, name string, type_ WebhookTypes, ) *GuildIncomingWebhookResponse`
 
 NewGuildIncomingWebhookResponse instantiates a new GuildIncomingWebhookResponse object
 This constructor will assign default values to properties that have it defined,
@@ -36,20 +36,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetApplicationId
 
-`func (o *GuildIncomingWebhookResponse) GetApplicationId() string`
+`func (o *GuildIncomingWebhookResponse) GetApplicationId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetApplicationId returns the ApplicationId field if non-nil, zero value otherwise.
 
 ### GetApplicationIdOk
 
-`func (o *GuildIncomingWebhookResponse) GetApplicationIdOk() (*string, bool)`
+`func (o *GuildIncomingWebhookResponse) GetApplicationIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetApplicationIdOk returns a tuple with the ApplicationId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApplicationId
 
-`func (o *GuildIncomingWebhookResponse) SetApplicationId(v string)`
+`func (o *GuildIncomingWebhookResponse) SetApplicationId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetApplicationId sets ApplicationId field to given value.
 
@@ -84,32 +84,22 @@ SetAvatar sets Avatar field to given value.
 
 HasAvatar returns a boolean if a field has been set.
 
-### SetAvatarNil
-
-`func (o *GuildIncomingWebhookResponse) SetAvatarNil(b bool)`
-
- SetAvatarNil sets the value for Avatar to be an explicit nil
-
-### UnsetAvatar
-`func (o *GuildIncomingWebhookResponse) UnsetAvatar()`
-
-UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
 ### GetChannelId
 
-`func (o *GuildIncomingWebhookResponse) GetChannelId() string`
+`func (o *GuildIncomingWebhookResponse) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
 
 ### GetChannelIdOk
 
-`func (o *GuildIncomingWebhookResponse) GetChannelIdOk() (*string, bool)`
+`func (o *GuildIncomingWebhookResponse) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelId
 
-`func (o *GuildIncomingWebhookResponse) SetChannelId(v string)`
+`func (o *GuildIncomingWebhookResponse) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetChannelId sets ChannelId field to given value.
 
@@ -121,20 +111,20 @@ HasChannelId returns a boolean if a field has been set.
 
 ### GetGuildId
 
-`func (o *GuildIncomingWebhookResponse) GetGuildId() string`
+`func (o *GuildIncomingWebhookResponse) GetGuildId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetGuildId returns the GuildId field if non-nil, zero value otherwise.
 
 ### GetGuildIdOk
 
-`func (o *GuildIncomingWebhookResponse) GetGuildIdOk() (*string, bool)`
+`func (o *GuildIncomingWebhookResponse) GetGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetGuildIdOk returns a tuple with the GuildId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGuildId
 
-`func (o *GuildIncomingWebhookResponse) SetGuildId(v string)`
+`func (o *GuildIncomingWebhookResponse) SetGuildId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetGuildId sets GuildId field to given value.
 
@@ -186,20 +176,20 @@ SetName sets Name field to given value.
 
 ### GetType
 
-`func (o *GuildIncomingWebhookResponse) GetType() int32`
+`func (o *GuildIncomingWebhookResponse) GetType() WebhookTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *GuildIncomingWebhookResponse) GetTypeOk() (*int32, bool)`
+`func (o *GuildIncomingWebhookResponse) GetTypeOk() (*WebhookTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *GuildIncomingWebhookResponse) SetType(v int32)`
+`func (o *GuildIncomingWebhookResponse) SetType(v WebhookTypes)`
 
 SetType sets Type field to given value.
 
@@ -229,16 +219,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *GuildIncomingWebhookResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *GuildIncomingWebhookResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetToken
 
 `func (o *GuildIncomingWebhookResponse) GetToken() string`
@@ -264,16 +244,6 @@ SetToken sets Token field to given value.
 
 HasToken returns a boolean if a field has been set.
 
-### SetTokenNil
-
-`func (o *GuildIncomingWebhookResponse) SetTokenNil(b bool)`
-
- SetTokenNil sets the value for Token to be an explicit nil
-
-### UnsetToken
-`func (o *GuildIncomingWebhookResponse) UnsetToken()`
-
-UnsetToken ensures that no value is present for Token, not even an explicit nil
 ### GetUrl
 
 `func (o *GuildIncomingWebhookResponse) GetUrl() string`
@@ -299,16 +269,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *GuildIncomingWebhookResponse) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *GuildIncomingWebhookResponse) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

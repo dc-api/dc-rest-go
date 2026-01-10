@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,9 +57,9 @@ var _ MappedNullable = &CreateStageInstanceRequest{}
 type CreateStageInstanceRequest struct {
 	Topic string `json:"topic"`
 	ChannelId string `json:"channel_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	PrivacyLevel *int32 `json:"privacy_level,omitempty"`
-	GuildScheduledEventId *string `json:"guild_scheduled_event_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	SendStartNotification NullableBool `json:"send_start_notification,omitempty"`
+	PrivacyLevel *CreateStageInstanceRequestPrivacyLevel `json:"privacy_level,omitempty"`
+	GuildScheduledEventId *GetEntitlementsSkuIdsParameterOneOfInner `json:"guild_scheduled_event_id,omitempty"`
+	SendStartNotification *bool `json:"send_start_notification,omitempty"`
 }
 
 type _CreateStageInstanceRequest CreateStageInstanceRequest
@@ -132,9 +132,9 @@ func (o *CreateStageInstanceRequest) SetChannelId(v string) {
 }
 
 // GetPrivacyLevel returns the PrivacyLevel field value if set, zero value otherwise.
-func (o *CreateStageInstanceRequest) GetPrivacyLevel() int32 {
+func (o *CreateStageInstanceRequest) GetPrivacyLevel() CreateStageInstanceRequestPrivacyLevel {
 	if o == nil || IsNil(o.PrivacyLevel) {
-		var ret int32
+		var ret CreateStageInstanceRequestPrivacyLevel
 		return ret
 	}
 	return *o.PrivacyLevel
@@ -142,7 +142,7 @@ func (o *CreateStageInstanceRequest) GetPrivacyLevel() int32 {
 
 // GetPrivacyLevelOk returns a tuple with the PrivacyLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateStageInstanceRequest) GetPrivacyLevelOk() (*int32, bool) {
+func (o *CreateStageInstanceRequest) GetPrivacyLevelOk() (*CreateStageInstanceRequestPrivacyLevel, bool) {
 	if o == nil || IsNil(o.PrivacyLevel) {
 		return nil, false
 	}
@@ -158,16 +158,16 @@ func (o *CreateStageInstanceRequest) HasPrivacyLevel() bool {
 	return false
 }
 
-// SetPrivacyLevel gets a reference to the given int32 and assigns it to the PrivacyLevel field.
-func (o *CreateStageInstanceRequest) SetPrivacyLevel(v int32) {
+// SetPrivacyLevel gets a reference to the given CreateStageInstanceRequestPrivacyLevel and assigns it to the PrivacyLevel field.
+func (o *CreateStageInstanceRequest) SetPrivacyLevel(v CreateStageInstanceRequestPrivacyLevel) {
 	o.PrivacyLevel = &v
 }
 
 
 // GetGuildScheduledEventId returns the GuildScheduledEventId field value if set, zero value otherwise.
-func (o *CreateStageInstanceRequest) GetGuildScheduledEventId() string {
+func (o *CreateStageInstanceRequest) GetGuildScheduledEventId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.GuildScheduledEventId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.GuildScheduledEventId
@@ -175,7 +175,7 @@ func (o *CreateStageInstanceRequest) GetGuildScheduledEventId() string {
 
 // GetGuildScheduledEventIdOk returns a tuple with the GuildScheduledEventId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateStageInstanceRequest) GetGuildScheduledEventIdOk() (*string, bool) {
+func (o *CreateStageInstanceRequest) GetGuildScheduledEventIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.GuildScheduledEventId) {
 		return nil, false
 	}
@@ -191,54 +191,44 @@ func (o *CreateStageInstanceRequest) HasGuildScheduledEventId() bool {
 	return false
 }
 
-// SetGuildScheduledEventId gets a reference to the given string and assigns it to the GuildScheduledEventId field.
-func (o *CreateStageInstanceRequest) SetGuildScheduledEventId(v string) {
+// SetGuildScheduledEventId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the GuildScheduledEventId field.
+func (o *CreateStageInstanceRequest) SetGuildScheduledEventId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.GuildScheduledEventId = &v
 }
 
 
-// GetSendStartNotification returns the SendStartNotification field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSendStartNotification returns the SendStartNotification field value if set, zero value otherwise.
 func (o *CreateStageInstanceRequest) GetSendStartNotification() bool {
-	if o == nil || IsNil(o.SendStartNotification.Get()) {
+	if o == nil || IsNil(o.SendStartNotification) {
 		var ret bool
 		return ret
 	}
-	return *o.SendStartNotification.Get()
+	return *o.SendStartNotification
 }
 
 // GetSendStartNotificationOk returns a tuple with the SendStartNotification field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateStageInstanceRequest) GetSendStartNotificationOk() (*bool, bool) {
-	if o == nil || IsNil(o.SendStartNotification.Get()) {
+	if o == nil || IsNil(o.SendStartNotification) {
 		return nil, false
 	}
-	return o.SendStartNotification.Get(), o.SendStartNotification.IsSet()
+	return o.SendStartNotification, true
 }
 
 // HasSendStartNotification returns a boolean if a field has been set.
 func (o *CreateStageInstanceRequest) HasSendStartNotification() bool {
-	if o != nil && o.SendStartNotification.IsSet() {
+	if o != nil && !IsNil(o.SendStartNotification) {
 		return true
 	}
 
 	return false
 }
 
-// SetSendStartNotification gets a reference to the given NullableBool and assigns it to the SendStartNotification field.
+// SetSendStartNotification gets a reference to the given bool and assigns it to the SendStartNotification field.
 func (o *CreateStageInstanceRequest) SetSendStartNotification(v bool) {
-	o.SendStartNotification.Set(&v)
+	o.SendStartNotification = &v
 }
 
-// SetSendStartNotificationNil sets the value for SendStartNotification to be an explicit nil
-func (o *CreateStageInstanceRequest) SetSendStartNotificationNil() {
-	o.SendStartNotification.Set(nil)
-}
-
-// UnsetSendStartNotification ensures that no value is present for SendStartNotification, not even an explicit nil
-func (o *CreateStageInstanceRequest) UnsetSendStartNotification() {
-	o.SendStartNotification.Unset()
-}
 
 func (o CreateStageInstanceRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -258,8 +248,8 @@ func (o CreateStageInstanceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.GuildScheduledEventId) {
 		toSerialize["guild_scheduled_event_id"] = o.GuildScheduledEventId
 	}
-	if o.SendStartNotification.IsSet() {
-		toSerialize["send_start_notification"] = o.SendStartNotification.Get()
+	if !IsNil(o.SendStartNotification) {
+		toSerialize["send_start_notification"] = o.SendStartNotification
 	}
 	return toSerialize, nil
 }
@@ -337,5 +327,4 @@ func (v *NullableCreateStageInstanceRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

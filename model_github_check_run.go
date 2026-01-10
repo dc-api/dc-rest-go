@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,12 +55,12 @@ var _ MappedNullable = &GithubCheckRun{}
 
 // GithubCheckRun struct for GithubCheckRun
 type GithubCheckRun struct {
-	Conclusion NullableString `json:"conclusion,omitempty"`
+	Conclusion *string `json:"conclusion,omitempty"`
 	Name string `json:"name"`
 	HtmlUrl string `json:"html_url"`
 	CheckSuite GithubCheckSuite `json:"check_suite"`
-	DetailsUrl NullableString `json:"details_url,omitempty"`
-	Output NullableGithubCheckRunOutput `json:"output,omitempty"`
+	DetailsUrl *string `json:"details_url,omitempty"`
+	Output *GithubCheckRunOutput `json:"output,omitempty"`
 	PullRequests []GithubCheckPullRequest `json:"pull_requests,omitempty"`
 }
 
@@ -86,48 +86,38 @@ func NewGithubCheckRunWithDefaults() *GithubCheckRun {
 	return &this
 }
 
-// GetConclusion returns the Conclusion field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetConclusion returns the Conclusion field value if set, zero value otherwise.
 func (o *GithubCheckRun) GetConclusion() string {
-	if o == nil || IsNil(o.Conclusion.Get()) {
+	if o == nil || IsNil(o.Conclusion) {
 		var ret string
 		return ret
 	}
-	return *o.Conclusion.Get()
+	return *o.Conclusion
 }
 
 // GetConclusionOk returns a tuple with the Conclusion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubCheckRun) GetConclusionOk() (*string, bool) {
-	if o == nil || IsNil(o.Conclusion.Get()) {
+	if o == nil || IsNil(o.Conclusion) {
 		return nil, false
 	}
-	return o.Conclusion.Get(), o.Conclusion.IsSet()
+	return o.Conclusion, true
 }
 
 // HasConclusion returns a boolean if a field has been set.
 func (o *GithubCheckRun) HasConclusion() bool {
-	if o != nil && o.Conclusion.IsSet() {
+	if o != nil && !IsNil(o.Conclusion) {
 		return true
 	}
 
 	return false
 }
 
-// SetConclusion gets a reference to the given NullableString and assigns it to the Conclusion field.
+// SetConclusion gets a reference to the given string and assigns it to the Conclusion field.
 func (o *GithubCheckRun) SetConclusion(v string) {
-	o.Conclusion.Set(&v)
+	o.Conclusion = &v
 }
 
-// SetConclusionNil sets the value for Conclusion to be an explicit nil
-func (o *GithubCheckRun) SetConclusionNil() {
-	o.Conclusion.Set(nil)
-}
-
-// UnsetConclusion ensures that no value is present for Conclusion, not even an explicit nil
-func (o *GithubCheckRun) UnsetConclusion() {
-	o.Conclusion.Unset()
-}
 
 // GetName returns the Name field value
 func (o *GithubCheckRun) GetName() string {
@@ -201,95 +191,75 @@ func (o *GithubCheckRun) SetCheckSuite(v GithubCheckSuite) {
 	o.CheckSuite = v
 }
 
-// GetDetailsUrl returns the DetailsUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDetailsUrl returns the DetailsUrl field value if set, zero value otherwise.
 func (o *GithubCheckRun) GetDetailsUrl() string {
-	if o == nil || IsNil(o.DetailsUrl.Get()) {
+	if o == nil || IsNil(o.DetailsUrl) {
 		var ret string
 		return ret
 	}
-	return *o.DetailsUrl.Get()
+	return *o.DetailsUrl
 }
 
 // GetDetailsUrlOk returns a tuple with the DetailsUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubCheckRun) GetDetailsUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.DetailsUrl.Get()) {
+	if o == nil || IsNil(o.DetailsUrl) {
 		return nil, false
 	}
-	return o.DetailsUrl.Get(), o.DetailsUrl.IsSet()
+	return o.DetailsUrl, true
 }
 
 // HasDetailsUrl returns a boolean if a field has been set.
 func (o *GithubCheckRun) HasDetailsUrl() bool {
-	if o != nil && o.DetailsUrl.IsSet() {
+	if o != nil && !IsNil(o.DetailsUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetDetailsUrl gets a reference to the given NullableString and assigns it to the DetailsUrl field.
+// SetDetailsUrl gets a reference to the given string and assigns it to the DetailsUrl field.
 func (o *GithubCheckRun) SetDetailsUrl(v string) {
-	o.DetailsUrl.Set(&v)
+	o.DetailsUrl = &v
 }
 
-// SetDetailsUrlNil sets the value for DetailsUrl to be an explicit nil
-func (o *GithubCheckRun) SetDetailsUrlNil() {
-	o.DetailsUrl.Set(nil)
-}
 
-// UnsetDetailsUrl ensures that no value is present for DetailsUrl, not even an explicit nil
-func (o *GithubCheckRun) UnsetDetailsUrl() {
-	o.DetailsUrl.Unset()
-}
-
-// GetOutput returns the Output field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOutput returns the Output field value if set, zero value otherwise.
 func (o *GithubCheckRun) GetOutput() GithubCheckRunOutput {
-	if o == nil || IsNil(o.Output.Get()) {
+	if o == nil || IsNil(o.Output) {
 		var ret GithubCheckRunOutput
 		return ret
 	}
-	return *o.Output.Get()
+	return *o.Output
 }
 
 // GetOutputOk returns a tuple with the Output field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubCheckRun) GetOutputOk() (*GithubCheckRunOutput, bool) {
-	if o == nil || IsNil(o.Output.Get()) {
+	if o == nil || IsNil(o.Output) {
 		return nil, false
 	}
-	return o.Output.Get(), o.Output.IsSet()
+	return o.Output, true
 }
 
 // HasOutput returns a boolean if a field has been set.
 func (o *GithubCheckRun) HasOutput() bool {
-	if o != nil && o.Output.IsSet() {
+	if o != nil && !IsNil(o.Output) {
 		return true
 	}
 
 	return false
 }
 
-// SetOutput gets a reference to the given NullableGithubCheckRunOutput and assigns it to the Output field.
+// SetOutput gets a reference to the given GithubCheckRunOutput and assigns it to the Output field.
 func (o *GithubCheckRun) SetOutput(v GithubCheckRunOutput) {
-	o.Output.Set(&v)
+	o.Output = &v
 }
 
-// SetOutputNil sets the value for Output to be an explicit nil
-func (o *GithubCheckRun) SetOutputNil() {
-	o.Output.Set(nil)
-}
 
-// UnsetOutput ensures that no value is present for Output, not even an explicit nil
-func (o *GithubCheckRun) UnsetOutput() {
-	o.Output.Unset()
-}
-
-// GetPullRequests returns the PullRequests field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPullRequests returns the PullRequests field value if set, zero value otherwise.
 func (o *GithubCheckRun) GetPullRequests() []GithubCheckPullRequest {
-	if o == nil {
+	if o == nil || IsNil(o.PullRequests) {
 		var ret []GithubCheckPullRequest
 		return ret
 	}
@@ -298,9 +268,8 @@ func (o *GithubCheckRun) GetPullRequests() []GithubCheckPullRequest {
 
 // GetPullRequestsOk returns a tuple with the PullRequests field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubCheckRun) GetPullRequestsOk() ([]GithubCheckPullRequest, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PullRequests) {
 		return nil, false
 	}
 	return o.PullRequests, true
@@ -331,19 +300,19 @@ func (o GithubCheckRun) MarshalJSON() ([]byte, error) {
 
 func (o GithubCheckRun) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Conclusion.IsSet() {
-		toSerialize["conclusion"] = o.Conclusion.Get()
+	if !IsNil(o.Conclusion) {
+		toSerialize["conclusion"] = o.Conclusion
 	}
 	toSerialize["name"] = o.Name
 	toSerialize["html_url"] = o.HtmlUrl
 	toSerialize["check_suite"] = o.CheckSuite
-	if o.DetailsUrl.IsSet() {
-		toSerialize["details_url"] = o.DetailsUrl.Get()
+	if !IsNil(o.DetailsUrl) {
+		toSerialize["details_url"] = o.DetailsUrl
 	}
-	if o.Output.IsSet() {
-		toSerialize["output"] = o.Output.Get()
+	if !IsNil(o.Output) {
+		toSerialize["output"] = o.Output
 	}
-	if o.PullRequests != nil {
+	if !IsNil(o.PullRequests) {
 		toSerialize["pull_requests"] = o.PullRequests
 	}
 	return toSerialize, nil
@@ -423,5 +392,4 @@ func (v *NullableGithubCheckRun) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

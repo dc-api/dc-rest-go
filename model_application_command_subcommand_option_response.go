@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,14 +55,14 @@ var _ MappedNullable = &ApplicationCommandSubcommandOptionResponse{}
 
 // ApplicationCommandSubcommandOptionResponse struct for ApplicationCommandSubcommandOptionResponse
 type ApplicationCommandSubcommandOptionResponse struct {
-	Type int32 `json:"type"`
+	Type ApplicationCommandOptionType `json:"type"`
 	Name string `json:"name"`
-	NameLocalized NullableString `json:"name_localized,omitempty"`
+	NameLocalized *string `json:"name_localized,omitempty"`
 	NameLocalizations map[string]string `json:"name_localizations,omitempty"`
 	Description string `json:"description"`
-	DescriptionLocalized NullableString `json:"description_localized,omitempty"`
+	DescriptionLocalized *string `json:"description_localized,omitempty"`
 	DescriptionLocalizations map[string]string `json:"description_localizations,omitempty"`
-	Required NullableBool `json:"required,omitempty"`
+	Required *bool `json:"required,omitempty"`
 	Options []ApplicationCommandSubcommandOptionResponseOptionsInner `json:"options,omitempty"`
 }
 
@@ -72,7 +72,7 @@ type _ApplicationCommandSubcommandOptionResponse ApplicationCommandSubcommandOpt
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApplicationCommandSubcommandOptionResponse(type_ int32, name string, description string) *ApplicationCommandSubcommandOptionResponse {
+func NewApplicationCommandSubcommandOptionResponse(type_ ApplicationCommandOptionType, name string, description string) *ApplicationCommandSubcommandOptionResponse {
 	this := ApplicationCommandSubcommandOptionResponse{}
 	this.Type = type_
 	this.Name = name
@@ -89,9 +89,9 @@ func NewApplicationCommandSubcommandOptionResponseWithDefaults() *ApplicationCom
 }
 
 // GetType returns the Type field value
-func (o *ApplicationCommandSubcommandOptionResponse) GetType() int32 {
+func (o *ApplicationCommandSubcommandOptionResponse) GetType() ApplicationCommandOptionType {
 	if o == nil {
-		var ret int32
+		var ret ApplicationCommandOptionType
 		return ret
 	}
 
@@ -100,7 +100,7 @@ func (o *ApplicationCommandSubcommandOptionResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ApplicationCommandSubcommandOptionResponse) GetTypeOk() (*int32, bool) {
+func (o *ApplicationCommandSubcommandOptionResponse) GetTypeOk() (*ApplicationCommandOptionType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -108,7 +108,7 @@ func (o *ApplicationCommandSubcommandOptionResponse) GetTypeOk() (*int32, bool) 
 }
 
 // SetType sets field value
-func (o *ApplicationCommandSubcommandOptionResponse) SetType(v int32) {
+func (o *ApplicationCommandSubcommandOptionResponse) SetType(v ApplicationCommandOptionType) {
 	o.Type = v
 }
 
@@ -136,48 +136,38 @@ func (o *ApplicationCommandSubcommandOptionResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetNameLocalized returns the NameLocalized field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNameLocalized returns the NameLocalized field value if set, zero value otherwise.
 func (o *ApplicationCommandSubcommandOptionResponse) GetNameLocalized() string {
-	if o == nil || IsNil(o.NameLocalized.Get()) {
+	if o == nil || IsNil(o.NameLocalized) {
 		var ret string
 		return ret
 	}
-	return *o.NameLocalized.Get()
+	return *o.NameLocalized
 }
 
 // GetNameLocalizedOk returns a tuple with the NameLocalized field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandSubcommandOptionResponse) GetNameLocalizedOk() (*string, bool) {
-	if o == nil || IsNil(o.NameLocalized.Get()) {
+	if o == nil || IsNil(o.NameLocalized) {
 		return nil, false
 	}
-	return o.NameLocalized.Get(), o.NameLocalized.IsSet()
+	return o.NameLocalized, true
 }
 
 // HasNameLocalized returns a boolean if a field has been set.
 func (o *ApplicationCommandSubcommandOptionResponse) HasNameLocalized() bool {
-	if o != nil && o.NameLocalized.IsSet() {
+	if o != nil && !IsNil(o.NameLocalized) {
 		return true
 	}
 
 	return false
 }
 
-// SetNameLocalized gets a reference to the given NullableString and assigns it to the NameLocalized field.
+// SetNameLocalized gets a reference to the given string and assigns it to the NameLocalized field.
 func (o *ApplicationCommandSubcommandOptionResponse) SetNameLocalized(v string) {
-	o.NameLocalized.Set(&v)
+	o.NameLocalized = &v
 }
 
-// SetNameLocalizedNil sets the value for NameLocalized to be an explicit nil
-func (o *ApplicationCommandSubcommandOptionResponse) SetNameLocalizedNil() {
-	o.NameLocalized.Set(nil)
-}
-
-// UnsetNameLocalized ensures that no value is present for NameLocalized, not even an explicit nil
-func (o *ApplicationCommandSubcommandOptionResponse) UnsetNameLocalized() {
-	o.NameLocalized.Unset()
-}
 
 // GetNameLocalizations returns the NameLocalizations field value if set, zero value otherwise.
 func (o *ApplicationCommandSubcommandOptionResponse) GetNameLocalizations() map[string]string {
@@ -236,48 +226,38 @@ func (o *ApplicationCommandSubcommandOptionResponse) SetDescription(v string) {
 	o.Description = v
 }
 
-// GetDescriptionLocalized returns the DescriptionLocalized field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescriptionLocalized returns the DescriptionLocalized field value if set, zero value otherwise.
 func (o *ApplicationCommandSubcommandOptionResponse) GetDescriptionLocalized() string {
-	if o == nil || IsNil(o.DescriptionLocalized.Get()) {
+	if o == nil || IsNil(o.DescriptionLocalized) {
 		var ret string
 		return ret
 	}
-	return *o.DescriptionLocalized.Get()
+	return *o.DescriptionLocalized
 }
 
 // GetDescriptionLocalizedOk returns a tuple with the DescriptionLocalized field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandSubcommandOptionResponse) GetDescriptionLocalizedOk() (*string, bool) {
-	if o == nil || IsNil(o.DescriptionLocalized.Get()) {
+	if o == nil || IsNil(o.DescriptionLocalized) {
 		return nil, false
 	}
-	return o.DescriptionLocalized.Get(), o.DescriptionLocalized.IsSet()
+	return o.DescriptionLocalized, true
 }
 
 // HasDescriptionLocalized returns a boolean if a field has been set.
 func (o *ApplicationCommandSubcommandOptionResponse) HasDescriptionLocalized() bool {
-	if o != nil && o.DescriptionLocalized.IsSet() {
+	if o != nil && !IsNil(o.DescriptionLocalized) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescriptionLocalized gets a reference to the given NullableString and assigns it to the DescriptionLocalized field.
+// SetDescriptionLocalized gets a reference to the given string and assigns it to the DescriptionLocalized field.
 func (o *ApplicationCommandSubcommandOptionResponse) SetDescriptionLocalized(v string) {
-	o.DescriptionLocalized.Set(&v)
+	o.DescriptionLocalized = &v
 }
 
-// SetDescriptionLocalizedNil sets the value for DescriptionLocalized to be an explicit nil
-func (o *ApplicationCommandSubcommandOptionResponse) SetDescriptionLocalizedNil() {
-	o.DescriptionLocalized.Set(nil)
-}
-
-// UnsetDescriptionLocalized ensures that no value is present for DescriptionLocalized, not even an explicit nil
-func (o *ApplicationCommandSubcommandOptionResponse) UnsetDescriptionLocalized() {
-	o.DescriptionLocalized.Unset()
-}
 
 // GetDescriptionLocalizations returns the DescriptionLocalizations field value if set, zero value otherwise.
 func (o *ApplicationCommandSubcommandOptionResponse) GetDescriptionLocalizations() map[string]string {
@@ -312,52 +292,42 @@ func (o *ApplicationCommandSubcommandOptionResponse) SetDescriptionLocalizations
 }
 
 
-// GetRequired returns the Required field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRequired returns the Required field value if set, zero value otherwise.
 func (o *ApplicationCommandSubcommandOptionResponse) GetRequired() bool {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		var ret bool
 		return ret
 	}
-	return *o.Required.Get()
+	return *o.Required
 }
 
 // GetRequiredOk returns a tuple with the Required field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandSubcommandOptionResponse) GetRequiredOk() (*bool, bool) {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		return nil, false
 	}
-	return o.Required.Get(), o.Required.IsSet()
+	return o.Required, true
 }
 
 // HasRequired returns a boolean if a field has been set.
 func (o *ApplicationCommandSubcommandOptionResponse) HasRequired() bool {
-	if o != nil && o.Required.IsSet() {
+	if o != nil && !IsNil(o.Required) {
 		return true
 	}
 
 	return false
 }
 
-// SetRequired gets a reference to the given NullableBool and assigns it to the Required field.
+// SetRequired gets a reference to the given bool and assigns it to the Required field.
 func (o *ApplicationCommandSubcommandOptionResponse) SetRequired(v bool) {
-	o.Required.Set(&v)
+	o.Required = &v
 }
 
-// SetRequiredNil sets the value for Required to be an explicit nil
-func (o *ApplicationCommandSubcommandOptionResponse) SetRequiredNil() {
-	o.Required.Set(nil)
-}
 
-// UnsetRequired ensures that no value is present for Required, not even an explicit nil
-func (o *ApplicationCommandSubcommandOptionResponse) UnsetRequired() {
-	o.Required.Unset()
-}
-
-// GetOptions returns the Options field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOptions returns the Options field value if set, zero value otherwise.
 func (o *ApplicationCommandSubcommandOptionResponse) GetOptions() []ApplicationCommandSubcommandOptionResponseOptionsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Options) {
 		var ret []ApplicationCommandSubcommandOptionResponseOptionsInner
 		return ret
 	}
@@ -366,9 +336,8 @@ func (o *ApplicationCommandSubcommandOptionResponse) GetOptions() []ApplicationC
 
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandSubcommandOptionResponse) GetOptionsOk() ([]ApplicationCommandSubcommandOptionResponseOptionsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Options) {
 		return nil, false
 	}
 	return o.Options, true
@@ -401,23 +370,23 @@ func (o ApplicationCommandSubcommandOptionResponse) ToMap() (map[string]interfac
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
 	toSerialize["name"] = o.Name
-	if o.NameLocalized.IsSet() {
-		toSerialize["name_localized"] = o.NameLocalized.Get()
+	if !IsNil(o.NameLocalized) {
+		toSerialize["name_localized"] = o.NameLocalized
 	}
 	if !IsNil(o.NameLocalizations) {
 		toSerialize["name_localizations"] = o.NameLocalizations
 	}
 	toSerialize["description"] = o.Description
-	if o.DescriptionLocalized.IsSet() {
-		toSerialize["description_localized"] = o.DescriptionLocalized.Get()
+	if !IsNil(o.DescriptionLocalized) {
+		toSerialize["description_localized"] = o.DescriptionLocalized
 	}
 	if !IsNil(o.DescriptionLocalizations) {
 		toSerialize["description_localizations"] = o.DescriptionLocalizations
 	}
-	if o.Required.IsSet() {
-		toSerialize["required"] = o.Required.Get()
+	if !IsNil(o.Required) {
+		toSerialize["required"] = o.Required
 	}
-	if o.Options != nil {
+	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
 	return toSerialize, nil
@@ -497,5 +466,4 @@ func (v *NullableApplicationCommandSubcommandOptionResponse) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

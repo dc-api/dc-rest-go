@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,7 +55,7 @@ var _ MappedNullable = &RoleSelectDefaultValueResponse{}
 
 // RoleSelectDefaultValueResponse struct for RoleSelectDefaultValueResponse
 type RoleSelectDefaultValueResponse struct {
-	Type NullableString `json:"type"`
+	Type SnowflakeSelectDefaultValueTypes `json:"type"`
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
@@ -65,7 +65,7 @@ type _RoleSelectDefaultValueResponse RoleSelectDefaultValueResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRoleSelectDefaultValueResponse(type_ NullableString, id string) *RoleSelectDefaultValueResponse {
+func NewRoleSelectDefaultValueResponse(type_ SnowflakeSelectDefaultValueTypes, id string) *RoleSelectDefaultValueResponse {
 	this := RoleSelectDefaultValueResponse{}
 	this.Type = type_
 	this.Id = id
@@ -81,29 +81,27 @@ func NewRoleSelectDefaultValueResponseWithDefaults() *RoleSelectDefaultValueResp
 }
 
 // GetType returns the Type field value
-// If the value is explicit nil, the zero value for string will be returned
-func (o *RoleSelectDefaultValueResponse) GetType() string {
-	if o == nil || o.Type.Get() == nil {
-		var ret string
+func (o *RoleSelectDefaultValueResponse) GetType() SnowflakeSelectDefaultValueTypes {
+	if o == nil {
+		var ret SnowflakeSelectDefaultValueTypes
 		return ret
 	}
 
-	return *o.Type.Get()
+	return o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RoleSelectDefaultValueResponse) GetTypeOk() (*string, bool) {
+func (o *RoleSelectDefaultValueResponse) GetTypeOk() (*SnowflakeSelectDefaultValueTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return &o.Type, true
 }
 
 // SetType sets field value
-func (o *RoleSelectDefaultValueResponse) SetType(v string) {
-	o.Type.Set(&v)
+func (o *RoleSelectDefaultValueResponse) SetType(v SnowflakeSelectDefaultValueTypes) {
+	o.Type = v
 }
 
 // GetId returns the Id field value
@@ -140,7 +138,7 @@ func (o RoleSelectDefaultValueResponse) MarshalJSON() ([]byte, error) {
 
 func (o RoleSelectDefaultValueResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["type"] = o.Type.Get()
+	toSerialize["type"] = o.Type
 	toSerialize["id"] = o.Id
 	return toSerialize, nil
 }
@@ -218,5 +216,4 @@ func (v *NullableRoleSelectDefaultValueResponse) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

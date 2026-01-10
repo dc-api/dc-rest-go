@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -54,18 +54,18 @@ var _ MappedNullable = &ApplicationFormPartial{}
 // ApplicationFormPartial struct for ApplicationFormPartial
 type ApplicationFormPartial struct {
 	Description *ApplicationFormPartialDescription `json:"description,omitempty"`
-	Icon NullableString `json:"icon,omitempty"`
-	CoverImage NullableString `json:"cover_image,omitempty"`
-	TeamId *string `json:"team_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Flags NullableInt32 `json:"flags,omitempty"`
-	InteractionsEndpointUrl NullableString `json:"interactions_endpoint_url,omitempty"`
-	ExplicitContentFilter *int32 `json:"explicit_content_filter,omitempty"`
-	MaxParticipants NullableInt32 `json:"max_participants,omitempty"`
-	Type NullableInt32 `json:"type,omitempty"`
+	Icon *string `json:"icon,omitempty"`
+	CoverImage *string `json:"cover_image,omitempty"`
+	TeamId *GetEntitlementsSkuIdsParameterOneOfInner `json:"team_id,omitempty"`
+	Flags *int32 `json:"flags,omitempty"`
+	InteractionsEndpointUrl *string `json:"interactions_endpoint_url,omitempty"`
+	ExplicitContentFilter *ApplicationFormPartialExplicitContentFilter `json:"explicit_content_filter,omitempty"`
+	MaxParticipants *int32 `json:"max_participants,omitempty"`
+	Type *ApplicationFormPartialType `json:"type,omitempty"`
 	Tags []string `json:"tags,omitempty"`
-	CustomInstallUrl NullableString `json:"custom_install_url,omitempty"`
-	InstallParams NullableApplicationOAuth2InstallParams `json:"install_params,omitempty"`
-	RoleConnectionsVerificationUrl NullableString `json:"role_connections_verification_url,omitempty"`
+	CustomInstallUrl *string `json:"custom_install_url,omitempty"`
+	InstallParams *ApplicationFormPartialInstallParams `json:"install_params,omitempty"`
+	RoleConnectionsVerificationUrl *string `json:"role_connections_verification_url,omitempty"`
 	IntegrationTypesConfig *map[string]ApplicationFormPartialIntegrationTypesConfigValue `json:"integration_types_config,omitempty"`
 }
 
@@ -119,96 +119,76 @@ func (o *ApplicationFormPartial) SetDescription(v ApplicationFormPartialDescript
 }
 
 
-// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIcon returns the Icon field value if set, zero value otherwise.
 func (o *ApplicationFormPartial) GetIcon() string {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		var ret string
 		return ret
 	}
-	return *o.Icon.Get()
+	return *o.Icon
 }
 
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationFormPartial) GetIconOk() (*string, bool) {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		return nil, false
 	}
-	return o.Icon.Get(), o.Icon.IsSet()
+	return o.Icon, true
 }
 
 // HasIcon returns a boolean if a field has been set.
 func (o *ApplicationFormPartial) HasIcon() bool {
-	if o != nil && o.Icon.IsSet() {
+	if o != nil && !IsNil(o.Icon) {
 		return true
 	}
 
 	return false
 }
 
-// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+// SetIcon gets a reference to the given string and assigns it to the Icon field.
 func (o *ApplicationFormPartial) SetIcon(v string) {
-	o.Icon.Set(&v)
+	o.Icon = &v
 }
 
-// SetIconNil sets the value for Icon to be an explicit nil
-func (o *ApplicationFormPartial) SetIconNil() {
-	o.Icon.Set(nil)
-}
 
-// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
-func (o *ApplicationFormPartial) UnsetIcon() {
-	o.Icon.Unset()
-}
-
-// GetCoverImage returns the CoverImage field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCoverImage returns the CoverImage field value if set, zero value otherwise.
 func (o *ApplicationFormPartial) GetCoverImage() string {
-	if o == nil || IsNil(o.CoverImage.Get()) {
+	if o == nil || IsNil(o.CoverImage) {
 		var ret string
 		return ret
 	}
-	return *o.CoverImage.Get()
+	return *o.CoverImage
 }
 
 // GetCoverImageOk returns a tuple with the CoverImage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationFormPartial) GetCoverImageOk() (*string, bool) {
-	if o == nil || IsNil(o.CoverImage.Get()) {
+	if o == nil || IsNil(o.CoverImage) {
 		return nil, false
 	}
-	return o.CoverImage.Get(), o.CoverImage.IsSet()
+	return o.CoverImage, true
 }
 
 // HasCoverImage returns a boolean if a field has been set.
 func (o *ApplicationFormPartial) HasCoverImage() bool {
-	if o != nil && o.CoverImage.IsSet() {
+	if o != nil && !IsNil(o.CoverImage) {
 		return true
 	}
 
 	return false
 }
 
-// SetCoverImage gets a reference to the given NullableString and assigns it to the CoverImage field.
+// SetCoverImage gets a reference to the given string and assigns it to the CoverImage field.
 func (o *ApplicationFormPartial) SetCoverImage(v string) {
-	o.CoverImage.Set(&v)
+	o.CoverImage = &v
 }
 
-// SetCoverImageNil sets the value for CoverImage to be an explicit nil
-func (o *ApplicationFormPartial) SetCoverImageNil() {
-	o.CoverImage.Set(nil)
-}
-
-// UnsetCoverImage ensures that no value is present for CoverImage, not even an explicit nil
-func (o *ApplicationFormPartial) UnsetCoverImage() {
-	o.CoverImage.Unset()
-}
 
 // GetTeamId returns the TeamId field value if set, zero value otherwise.
-func (o *ApplicationFormPartial) GetTeamId() string {
+func (o *ApplicationFormPartial) GetTeamId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.TeamId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.TeamId
@@ -216,7 +196,7 @@ func (o *ApplicationFormPartial) GetTeamId() string {
 
 // GetTeamIdOk returns a tuple with the TeamId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplicationFormPartial) GetTeamIdOk() (*string, bool) {
+func (o *ApplicationFormPartial) GetTeamIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.TeamId) {
 		return nil, false
 	}
@@ -232,102 +212,82 @@ func (o *ApplicationFormPartial) HasTeamId() bool {
 	return false
 }
 
-// SetTeamId gets a reference to the given string and assigns it to the TeamId field.
-func (o *ApplicationFormPartial) SetTeamId(v string) {
+// SetTeamId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the TeamId field.
+func (o *ApplicationFormPartial) SetTeamId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.TeamId = &v
 }
 
 
-// GetFlags returns the Flags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFlags returns the Flags field value if set, zero value otherwise.
 func (o *ApplicationFormPartial) GetFlags() int32 {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		var ret int32
 		return ret
 	}
-	return *o.Flags.Get()
+	return *o.Flags
 }
 
 // GetFlagsOk returns a tuple with the Flags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationFormPartial) GetFlagsOk() (*int32, bool) {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		return nil, false
 	}
-	return o.Flags.Get(), o.Flags.IsSet()
+	return o.Flags, true
 }
 
 // HasFlags returns a boolean if a field has been set.
 func (o *ApplicationFormPartial) HasFlags() bool {
-	if o != nil && o.Flags.IsSet() {
+	if o != nil && !IsNil(o.Flags) {
 		return true
 	}
 
 	return false
 }
 
-// SetFlags gets a reference to the given NullableInt32 and assigns it to the Flags field.
+// SetFlags gets a reference to the given int32 and assigns it to the Flags field.
 func (o *ApplicationFormPartial) SetFlags(v int32) {
-	o.Flags.Set(&v)
+	o.Flags = &v
 }
 
-// SetFlagsNil sets the value for Flags to be an explicit nil
-func (o *ApplicationFormPartial) SetFlagsNil() {
-	o.Flags.Set(nil)
-}
 
-// UnsetFlags ensures that no value is present for Flags, not even an explicit nil
-func (o *ApplicationFormPartial) UnsetFlags() {
-	o.Flags.Unset()
-}
-
-// GetInteractionsEndpointUrl returns the InteractionsEndpointUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInteractionsEndpointUrl returns the InteractionsEndpointUrl field value if set, zero value otherwise.
 func (o *ApplicationFormPartial) GetInteractionsEndpointUrl() string {
-	if o == nil || IsNil(o.InteractionsEndpointUrl.Get()) {
+	if o == nil || IsNil(o.InteractionsEndpointUrl) {
 		var ret string
 		return ret
 	}
-	return *o.InteractionsEndpointUrl.Get()
+	return *o.InteractionsEndpointUrl
 }
 
 // GetInteractionsEndpointUrlOk returns a tuple with the InteractionsEndpointUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationFormPartial) GetInteractionsEndpointUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.InteractionsEndpointUrl.Get()) {
+	if o == nil || IsNil(o.InteractionsEndpointUrl) {
 		return nil, false
 	}
-	return o.InteractionsEndpointUrl.Get(), o.InteractionsEndpointUrl.IsSet()
+	return o.InteractionsEndpointUrl, true
 }
 
 // HasInteractionsEndpointUrl returns a boolean if a field has been set.
 func (o *ApplicationFormPartial) HasInteractionsEndpointUrl() bool {
-	if o != nil && o.InteractionsEndpointUrl.IsSet() {
+	if o != nil && !IsNil(o.InteractionsEndpointUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetInteractionsEndpointUrl gets a reference to the given NullableString and assigns it to the InteractionsEndpointUrl field.
+// SetInteractionsEndpointUrl gets a reference to the given string and assigns it to the InteractionsEndpointUrl field.
 func (o *ApplicationFormPartial) SetInteractionsEndpointUrl(v string) {
-	o.InteractionsEndpointUrl.Set(&v)
+	o.InteractionsEndpointUrl = &v
 }
 
-// SetInteractionsEndpointUrlNil sets the value for InteractionsEndpointUrl to be an explicit nil
-func (o *ApplicationFormPartial) SetInteractionsEndpointUrlNil() {
-	o.InteractionsEndpointUrl.Set(nil)
-}
-
-// UnsetInteractionsEndpointUrl ensures that no value is present for InteractionsEndpointUrl, not even an explicit nil
-func (o *ApplicationFormPartial) UnsetInteractionsEndpointUrl() {
-	o.InteractionsEndpointUrl.Unset()
-}
 
 // GetExplicitContentFilter returns the ExplicitContentFilter field value if set, zero value otherwise.
-func (o *ApplicationFormPartial) GetExplicitContentFilter() int32 {
+func (o *ApplicationFormPartial) GetExplicitContentFilter() ApplicationFormPartialExplicitContentFilter {
 	if o == nil || IsNil(o.ExplicitContentFilter) {
-		var ret int32
+		var ret ApplicationFormPartialExplicitContentFilter
 		return ret
 	}
 	return *o.ExplicitContentFilter
@@ -335,7 +295,7 @@ func (o *ApplicationFormPartial) GetExplicitContentFilter() int32 {
 
 // GetExplicitContentFilterOk returns a tuple with the ExplicitContentFilter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApplicationFormPartial) GetExplicitContentFilterOk() (*int32, bool) {
+func (o *ApplicationFormPartial) GetExplicitContentFilterOk() (*ApplicationFormPartialExplicitContentFilter, bool) {
 	if o == nil || IsNil(o.ExplicitContentFilter) {
 		return nil, false
 	}
@@ -351,101 +311,81 @@ func (o *ApplicationFormPartial) HasExplicitContentFilter() bool {
 	return false
 }
 
-// SetExplicitContentFilter gets a reference to the given int32 and assigns it to the ExplicitContentFilter field.
-func (o *ApplicationFormPartial) SetExplicitContentFilter(v int32) {
+// SetExplicitContentFilter gets a reference to the given ApplicationFormPartialExplicitContentFilter and assigns it to the ExplicitContentFilter field.
+func (o *ApplicationFormPartial) SetExplicitContentFilter(v ApplicationFormPartialExplicitContentFilter) {
 	o.ExplicitContentFilter = &v
 }
 
 
-// GetMaxParticipants returns the MaxParticipants field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxParticipants returns the MaxParticipants field value if set, zero value otherwise.
 func (o *ApplicationFormPartial) GetMaxParticipants() int32 {
-	if o == nil || IsNil(o.MaxParticipants.Get()) {
+	if o == nil || IsNil(o.MaxParticipants) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxParticipants.Get()
+	return *o.MaxParticipants
 }
 
 // GetMaxParticipantsOk returns a tuple with the MaxParticipants field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationFormPartial) GetMaxParticipantsOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxParticipants.Get()) {
+	if o == nil || IsNil(o.MaxParticipants) {
 		return nil, false
 	}
-	return o.MaxParticipants.Get(), o.MaxParticipants.IsSet()
+	return o.MaxParticipants, true
 }
 
 // HasMaxParticipants returns a boolean if a field has been set.
 func (o *ApplicationFormPartial) HasMaxParticipants() bool {
-	if o != nil && o.MaxParticipants.IsSet() {
+	if o != nil && !IsNil(o.MaxParticipants) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxParticipants gets a reference to the given NullableInt32 and assigns it to the MaxParticipants field.
+// SetMaxParticipants gets a reference to the given int32 and assigns it to the MaxParticipants field.
 func (o *ApplicationFormPartial) SetMaxParticipants(v int32) {
-	o.MaxParticipants.Set(&v)
+	o.MaxParticipants = &v
 }
 
-// SetMaxParticipantsNil sets the value for MaxParticipants to be an explicit nil
-func (o *ApplicationFormPartial) SetMaxParticipantsNil() {
-	o.MaxParticipants.Set(nil)
-}
 
-// UnsetMaxParticipants ensures that no value is present for MaxParticipants, not even an explicit nil
-func (o *ApplicationFormPartial) UnsetMaxParticipants() {
-	o.MaxParticipants.Unset()
-}
-
-// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ApplicationFormPartial) GetType() int32 {
-	if o == nil || IsNil(o.Type.Get()) {
-		var ret int32
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *ApplicationFormPartial) GetType() ApplicationFormPartialType {
+	if o == nil || IsNil(o.Type) {
+		var ret ApplicationFormPartialType
 		return ret
 	}
-	return *o.Type.Get()
+	return *o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ApplicationFormPartial) GetTypeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Type.Get()) {
+func (o *ApplicationFormPartial) GetTypeOk() (*ApplicationFormPartialType, bool) {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *ApplicationFormPartial) HasType() bool {
-	if o != nil && o.Type.IsSet() {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given NullableInt32 and assigns it to the Type field.
-func (o *ApplicationFormPartial) SetType(v int32) {
-	o.Type.Set(&v)
+// SetType gets a reference to the given ApplicationFormPartialType and assigns it to the Type field.
+func (o *ApplicationFormPartial) SetType(v ApplicationFormPartialType) {
+	o.Type = &v
 }
 
-// SetTypeNil sets the value for Type to be an explicit nil
-func (o *ApplicationFormPartial) SetTypeNil() {
-	o.Type.Set(nil)
-}
 
-// UnsetType ensures that no value is present for Type, not even an explicit nil
-func (o *ApplicationFormPartial) UnsetType() {
-	o.Type.Unset()
-}
-
-// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTags returns the Tags field value if set, zero value otherwise.
 func (o *ApplicationFormPartial) GetTags() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Tags) {
 		var ret []string
 		return ret
 	}
@@ -454,9 +394,8 @@ func (o *ApplicationFormPartial) GetTags() []string {
 
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationFormPartial) GetTagsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Tags) {
 		return nil, false
 	}
 	return o.Tags, true
@@ -477,134 +416,104 @@ func (o *ApplicationFormPartial) SetTags(v []string) {
 }
 
 
-// GetCustomInstallUrl returns the CustomInstallUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCustomInstallUrl returns the CustomInstallUrl field value if set, zero value otherwise.
 func (o *ApplicationFormPartial) GetCustomInstallUrl() string {
-	if o == nil || IsNil(o.CustomInstallUrl.Get()) {
+	if o == nil || IsNil(o.CustomInstallUrl) {
 		var ret string
 		return ret
 	}
-	return *o.CustomInstallUrl.Get()
+	return *o.CustomInstallUrl
 }
 
 // GetCustomInstallUrlOk returns a tuple with the CustomInstallUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationFormPartial) GetCustomInstallUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.CustomInstallUrl.Get()) {
+	if o == nil || IsNil(o.CustomInstallUrl) {
 		return nil, false
 	}
-	return o.CustomInstallUrl.Get(), o.CustomInstallUrl.IsSet()
+	return o.CustomInstallUrl, true
 }
 
 // HasCustomInstallUrl returns a boolean if a field has been set.
 func (o *ApplicationFormPartial) HasCustomInstallUrl() bool {
-	if o != nil && o.CustomInstallUrl.IsSet() {
+	if o != nil && !IsNil(o.CustomInstallUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetCustomInstallUrl gets a reference to the given NullableString and assigns it to the CustomInstallUrl field.
+// SetCustomInstallUrl gets a reference to the given string and assigns it to the CustomInstallUrl field.
 func (o *ApplicationFormPartial) SetCustomInstallUrl(v string) {
-	o.CustomInstallUrl.Set(&v)
+	o.CustomInstallUrl = &v
 }
 
-// SetCustomInstallUrlNil sets the value for CustomInstallUrl to be an explicit nil
-func (o *ApplicationFormPartial) SetCustomInstallUrlNil() {
-	o.CustomInstallUrl.Set(nil)
-}
 
-// UnsetCustomInstallUrl ensures that no value is present for CustomInstallUrl, not even an explicit nil
-func (o *ApplicationFormPartial) UnsetCustomInstallUrl() {
-	o.CustomInstallUrl.Unset()
-}
-
-// GetInstallParams returns the InstallParams field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ApplicationFormPartial) GetInstallParams() ApplicationOAuth2InstallParams {
-	if o == nil || IsNil(o.InstallParams.Get()) {
-		var ret ApplicationOAuth2InstallParams
+// GetInstallParams returns the InstallParams field value if set, zero value otherwise.
+func (o *ApplicationFormPartial) GetInstallParams() ApplicationFormPartialInstallParams {
+	if o == nil || IsNil(o.InstallParams) {
+		var ret ApplicationFormPartialInstallParams
 		return ret
 	}
-	return *o.InstallParams.Get()
+	return *o.InstallParams
 }
 
 // GetInstallParamsOk returns a tuple with the InstallParams field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ApplicationFormPartial) GetInstallParamsOk() (*ApplicationOAuth2InstallParams, bool) {
-	if o == nil || IsNil(o.InstallParams.Get()) {
+func (o *ApplicationFormPartial) GetInstallParamsOk() (*ApplicationFormPartialInstallParams, bool) {
+	if o == nil || IsNil(o.InstallParams) {
 		return nil, false
 	}
-	return o.InstallParams.Get(), o.InstallParams.IsSet()
+	return o.InstallParams, true
 }
 
 // HasInstallParams returns a boolean if a field has been set.
 func (o *ApplicationFormPartial) HasInstallParams() bool {
-	if o != nil && o.InstallParams.IsSet() {
+	if o != nil && !IsNil(o.InstallParams) {
 		return true
 	}
 
 	return false
 }
 
-// SetInstallParams gets a reference to the given NullableApplicationOAuth2InstallParams and assigns it to the InstallParams field.
-func (o *ApplicationFormPartial) SetInstallParams(v ApplicationOAuth2InstallParams) {
-	o.InstallParams.Set(&v)
+// SetInstallParams gets a reference to the given ApplicationFormPartialInstallParams and assigns it to the InstallParams field.
+func (o *ApplicationFormPartial) SetInstallParams(v ApplicationFormPartialInstallParams) {
+	o.InstallParams = &v
 }
 
-// SetInstallParamsNil sets the value for InstallParams to be an explicit nil
-func (o *ApplicationFormPartial) SetInstallParamsNil() {
-	o.InstallParams.Set(nil)
-}
 
-// UnsetInstallParams ensures that no value is present for InstallParams, not even an explicit nil
-func (o *ApplicationFormPartial) UnsetInstallParams() {
-	o.InstallParams.Unset()
-}
-
-// GetRoleConnectionsVerificationUrl returns the RoleConnectionsVerificationUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRoleConnectionsVerificationUrl returns the RoleConnectionsVerificationUrl field value if set, zero value otherwise.
 func (o *ApplicationFormPartial) GetRoleConnectionsVerificationUrl() string {
-	if o == nil || IsNil(o.RoleConnectionsVerificationUrl.Get()) {
+	if o == nil || IsNil(o.RoleConnectionsVerificationUrl) {
 		var ret string
 		return ret
 	}
-	return *o.RoleConnectionsVerificationUrl.Get()
+	return *o.RoleConnectionsVerificationUrl
 }
 
 // GetRoleConnectionsVerificationUrlOk returns a tuple with the RoleConnectionsVerificationUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationFormPartial) GetRoleConnectionsVerificationUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.RoleConnectionsVerificationUrl.Get()) {
+	if o == nil || IsNil(o.RoleConnectionsVerificationUrl) {
 		return nil, false
 	}
-	return o.RoleConnectionsVerificationUrl.Get(), o.RoleConnectionsVerificationUrl.IsSet()
+	return o.RoleConnectionsVerificationUrl, true
 }
 
 // HasRoleConnectionsVerificationUrl returns a boolean if a field has been set.
 func (o *ApplicationFormPartial) HasRoleConnectionsVerificationUrl() bool {
-	if o != nil && o.RoleConnectionsVerificationUrl.IsSet() {
+	if o != nil && !IsNil(o.RoleConnectionsVerificationUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetRoleConnectionsVerificationUrl gets a reference to the given NullableString and assigns it to the RoleConnectionsVerificationUrl field.
+// SetRoleConnectionsVerificationUrl gets a reference to the given string and assigns it to the RoleConnectionsVerificationUrl field.
 func (o *ApplicationFormPartial) SetRoleConnectionsVerificationUrl(v string) {
-	o.RoleConnectionsVerificationUrl.Set(&v)
+	o.RoleConnectionsVerificationUrl = &v
 }
 
-// SetRoleConnectionsVerificationUrlNil sets the value for RoleConnectionsVerificationUrl to be an explicit nil
-func (o *ApplicationFormPartial) SetRoleConnectionsVerificationUrlNil() {
-	o.RoleConnectionsVerificationUrl.Set(nil)
-}
-
-// UnsetRoleConnectionsVerificationUrl ensures that no value is present for RoleConnectionsVerificationUrl, not even an explicit nil
-func (o *ApplicationFormPartial) UnsetRoleConnectionsVerificationUrl() {
-	o.RoleConnectionsVerificationUrl.Unset()
-}
 
 // GetIntegrationTypesConfig returns the IntegrationTypesConfig field value if set, zero value otherwise.
 func (o *ApplicationFormPartial) GetIntegrationTypesConfig() map[string]ApplicationFormPartialIntegrationTypesConfigValue {
@@ -652,41 +561,41 @@ func (o ApplicationFormPartial) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
-	if o.Icon.IsSet() {
-		toSerialize["icon"] = o.Icon.Get()
+	if !IsNil(o.Icon) {
+		toSerialize["icon"] = o.Icon
 	}
-	if o.CoverImage.IsSet() {
-		toSerialize["cover_image"] = o.CoverImage.Get()
+	if !IsNil(o.CoverImage) {
+		toSerialize["cover_image"] = o.CoverImage
 	}
 	if !IsNil(o.TeamId) {
 		toSerialize["team_id"] = o.TeamId
 	}
-	if o.Flags.IsSet() {
-		toSerialize["flags"] = o.Flags.Get()
+	if !IsNil(o.Flags) {
+		toSerialize["flags"] = o.Flags
 	}
-	if o.InteractionsEndpointUrl.IsSet() {
-		toSerialize["interactions_endpoint_url"] = o.InteractionsEndpointUrl.Get()
+	if !IsNil(o.InteractionsEndpointUrl) {
+		toSerialize["interactions_endpoint_url"] = o.InteractionsEndpointUrl
 	}
 	if !IsNil(o.ExplicitContentFilter) {
 		toSerialize["explicit_content_filter"] = o.ExplicitContentFilter
 	}
-	if o.MaxParticipants.IsSet() {
-		toSerialize["max_participants"] = o.MaxParticipants.Get()
+	if !IsNil(o.MaxParticipants) {
+		toSerialize["max_participants"] = o.MaxParticipants
 	}
-	if o.Type.IsSet() {
-		toSerialize["type"] = o.Type.Get()
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
 	}
-	if o.Tags != nil {
+	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags
 	}
-	if o.CustomInstallUrl.IsSet() {
-		toSerialize["custom_install_url"] = o.CustomInstallUrl.Get()
+	if !IsNil(o.CustomInstallUrl) {
+		toSerialize["custom_install_url"] = o.CustomInstallUrl
 	}
-	if o.InstallParams.IsSet() {
-		toSerialize["install_params"] = o.InstallParams.Get()
+	if !IsNil(o.InstallParams) {
+		toSerialize["install_params"] = o.InstallParams
 	}
-	if o.RoleConnectionsVerificationUrl.IsSet() {
-		toSerialize["role_connections_verification_url"] = o.RoleConnectionsVerificationUrl.Get()
+	if !IsNil(o.RoleConnectionsVerificationUrl) {
+		toSerialize["role_connections_verification_url"] = o.RoleConnectionsVerificationUrl
 	}
 	if !IsNil(o.IntegrationTypesConfig) {
 		toSerialize["integration_types_config"] = o.IntegrationTypesConfig
@@ -729,5 +638,4 @@ func (v *NullableApplicationFormPartial) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,9 +58,9 @@ type UnfurledMediaResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Url string `json:"url"`
 	ProxyUrl string `json:"proxy_url"`
-	Width NullableInt32 `json:"width,omitempty"`
-	Height NullableInt32 `json:"height,omitempty"`
-	ContentType NullableString `json:"content_type,omitempty"`
+	Width *int32 `json:"width,omitempty"`
+	Height *int32 `json:"height,omitempty"`
+	ContentType *string `json:"content_type,omitempty"`
 	AttachmentId *string `json:"attachment_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
@@ -158,134 +158,104 @@ func (o *UnfurledMediaResponse) SetProxyUrl(v string) {
 	o.ProxyUrl = v
 }
 
-// GetWidth returns the Width field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetWidth returns the Width field value if set, zero value otherwise.
 func (o *UnfurledMediaResponse) GetWidth() int32 {
-	if o == nil || IsNil(o.Width.Get()) {
+	if o == nil || IsNil(o.Width) {
 		var ret int32
 		return ret
 	}
-	return *o.Width.Get()
+	return *o.Width
 }
 
 // GetWidthOk returns a tuple with the Width field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UnfurledMediaResponse) GetWidthOk() (*int32, bool) {
-	if o == nil || IsNil(o.Width.Get()) {
+	if o == nil || IsNil(o.Width) {
 		return nil, false
 	}
-	return o.Width.Get(), o.Width.IsSet()
+	return o.Width, true
 }
 
 // HasWidth returns a boolean if a field has been set.
 func (o *UnfurledMediaResponse) HasWidth() bool {
-	if o != nil && o.Width.IsSet() {
+	if o != nil && !IsNil(o.Width) {
 		return true
 	}
 
 	return false
 }
 
-// SetWidth gets a reference to the given NullableInt32 and assigns it to the Width field.
+// SetWidth gets a reference to the given int32 and assigns it to the Width field.
 func (o *UnfurledMediaResponse) SetWidth(v int32) {
-	o.Width.Set(&v)
+	o.Width = &v
 }
 
-// SetWidthNil sets the value for Width to be an explicit nil
-func (o *UnfurledMediaResponse) SetWidthNil() {
-	o.Width.Set(nil)
-}
 
-// UnsetWidth ensures that no value is present for Width, not even an explicit nil
-func (o *UnfurledMediaResponse) UnsetWidth() {
-	o.Width.Unset()
-}
-
-// GetHeight returns the Height field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHeight returns the Height field value if set, zero value otherwise.
 func (o *UnfurledMediaResponse) GetHeight() int32 {
-	if o == nil || IsNil(o.Height.Get()) {
+	if o == nil || IsNil(o.Height) {
 		var ret int32
 		return ret
 	}
-	return *o.Height.Get()
+	return *o.Height
 }
 
 // GetHeightOk returns a tuple with the Height field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UnfurledMediaResponse) GetHeightOk() (*int32, bool) {
-	if o == nil || IsNil(o.Height.Get()) {
+	if o == nil || IsNil(o.Height) {
 		return nil, false
 	}
-	return o.Height.Get(), o.Height.IsSet()
+	return o.Height, true
 }
 
 // HasHeight returns a boolean if a field has been set.
 func (o *UnfurledMediaResponse) HasHeight() bool {
-	if o != nil && o.Height.IsSet() {
+	if o != nil && !IsNil(o.Height) {
 		return true
 	}
 
 	return false
 }
 
-// SetHeight gets a reference to the given NullableInt32 and assigns it to the Height field.
+// SetHeight gets a reference to the given int32 and assigns it to the Height field.
 func (o *UnfurledMediaResponse) SetHeight(v int32) {
-	o.Height.Set(&v)
+	o.Height = &v
 }
 
-// SetHeightNil sets the value for Height to be an explicit nil
-func (o *UnfurledMediaResponse) SetHeightNil() {
-	o.Height.Set(nil)
-}
 
-// UnsetHeight ensures that no value is present for Height, not even an explicit nil
-func (o *UnfurledMediaResponse) UnsetHeight() {
-	o.Height.Unset()
-}
-
-// GetContentType returns the ContentType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetContentType returns the ContentType field value if set, zero value otherwise.
 func (o *UnfurledMediaResponse) GetContentType() string {
-	if o == nil || IsNil(o.ContentType.Get()) {
+	if o == nil || IsNil(o.ContentType) {
 		var ret string
 		return ret
 	}
-	return *o.ContentType.Get()
+	return *o.ContentType
 }
 
 // GetContentTypeOk returns a tuple with the ContentType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UnfurledMediaResponse) GetContentTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.ContentType.Get()) {
+	if o == nil || IsNil(o.ContentType) {
 		return nil, false
 	}
-	return o.ContentType.Get(), o.ContentType.IsSet()
+	return o.ContentType, true
 }
 
 // HasContentType returns a boolean if a field has been set.
 func (o *UnfurledMediaResponse) HasContentType() bool {
-	if o != nil && o.ContentType.IsSet() {
+	if o != nil && !IsNil(o.ContentType) {
 		return true
 	}
 
 	return false
 }
 
-// SetContentType gets a reference to the given NullableString and assigns it to the ContentType field.
+// SetContentType gets a reference to the given string and assigns it to the ContentType field.
 func (o *UnfurledMediaResponse) SetContentType(v string) {
-	o.ContentType.Set(&v)
+	o.ContentType = &v
 }
 
-// SetContentTypeNil sets the value for ContentType to be an explicit nil
-func (o *UnfurledMediaResponse) SetContentTypeNil() {
-	o.ContentType.Set(nil)
-}
-
-// UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
-func (o *UnfurledMediaResponse) UnsetContentType() {
-	o.ContentType.Unset()
-}
 
 // GetAttachmentId returns the AttachmentId field value if set, zero value otherwise.
 func (o *UnfurledMediaResponse) GetAttachmentId() string {
@@ -333,14 +303,14 @@ func (o UnfurledMediaResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["url"] = o.Url
 	toSerialize["proxy_url"] = o.ProxyUrl
-	if o.Width.IsSet() {
-		toSerialize["width"] = o.Width.Get()
+	if !IsNil(o.Width) {
+		toSerialize["width"] = o.Width
 	}
-	if o.Height.IsSet() {
-		toSerialize["height"] = o.Height.Get()
+	if !IsNil(o.Height) {
+		toSerialize["height"] = o.Height
 	}
-	if o.ContentType.IsSet() {
-		toSerialize["content_type"] = o.ContentType.Get()
+	if !IsNil(o.ContentType) {
+		toSerialize["content_type"] = o.ContentType
 	}
 	if !IsNil(o.AttachmentId) {
 		toSerialize["attachment_id"] = o.AttachmentId
@@ -422,5 +392,4 @@ func (v *NullableUnfurledMediaResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Content** | Pointer to **NullableString** |  | [optional] 
+**Content** | Pointer to **string** |  | [optional] 
 **Embeds** | Pointer to [**[]RichEmbed**](RichEmbed.md) |  | [optional] 
-**AllowedMentions** | Pointer to [**NullableMessageAllowedMentionsRequest**](MessageAllowedMentionsRequest.md) |  | [optional] 
+**AllowedMentions** | Pointer to [**BaseCreateMessageCreateRequestAllowedMentions**](BaseCreateMessageCreateRequestAllowedMentions.md) |  | [optional] 
 **Components** | Pointer to [**[]BaseCreateMessageCreateRequestComponentsInner**](BaseCreateMessageCreateRequestComponentsInner.md) |  | [optional] 
 **Attachments** | Pointer to [**[]MessageAttachmentRequest**](MessageAttachmentRequest.md) |  | [optional] 
-**Poll** | Pointer to [**NullablePollCreateRequest**](PollCreateRequest.md) |  | [optional] 
-**Flags** | Pointer to **NullableInt32** |  | [optional] 
+**Poll** | Pointer to [**BaseCreateMessageCreateRequestPoll**](BaseCreateMessageCreateRequestPoll.md) |  | [optional] 
+**Flags** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -56,16 +56,6 @@ SetContent sets Content field to given value.
 
 HasContent returns a boolean if a field has been set.
 
-### SetContentNil
-
-`func (o *IncomingWebhookUpdateRequestPartial) SetContentNil(b bool)`
-
- SetContentNil sets the value for Content to be an explicit nil
-
-### UnsetContent
-`func (o *IncomingWebhookUpdateRequestPartial) UnsetContent()`
-
-UnsetContent ensures that no value is present for Content, not even an explicit nil
 ### GetEmbeds
 
 `func (o *IncomingWebhookUpdateRequestPartial) GetEmbeds() []RichEmbed`
@@ -91,32 +81,22 @@ SetEmbeds sets Embeds field to given value.
 
 HasEmbeds returns a boolean if a field has been set.
 
-### SetEmbedsNil
-
-`func (o *IncomingWebhookUpdateRequestPartial) SetEmbedsNil(b bool)`
-
- SetEmbedsNil sets the value for Embeds to be an explicit nil
-
-### UnsetEmbeds
-`func (o *IncomingWebhookUpdateRequestPartial) UnsetEmbeds()`
-
-UnsetEmbeds ensures that no value is present for Embeds, not even an explicit nil
 ### GetAllowedMentions
 
-`func (o *IncomingWebhookUpdateRequestPartial) GetAllowedMentions() MessageAllowedMentionsRequest`
+`func (o *IncomingWebhookUpdateRequestPartial) GetAllowedMentions() BaseCreateMessageCreateRequestAllowedMentions`
 
 GetAllowedMentions returns the AllowedMentions field if non-nil, zero value otherwise.
 
 ### GetAllowedMentionsOk
 
-`func (o *IncomingWebhookUpdateRequestPartial) GetAllowedMentionsOk() (*MessageAllowedMentionsRequest, bool)`
+`func (o *IncomingWebhookUpdateRequestPartial) GetAllowedMentionsOk() (*BaseCreateMessageCreateRequestAllowedMentions, bool)`
 
 GetAllowedMentionsOk returns a tuple with the AllowedMentions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllowedMentions
 
-`func (o *IncomingWebhookUpdateRequestPartial) SetAllowedMentions(v MessageAllowedMentionsRequest)`
+`func (o *IncomingWebhookUpdateRequestPartial) SetAllowedMentions(v BaseCreateMessageCreateRequestAllowedMentions)`
 
 SetAllowedMentions sets AllowedMentions field to given value.
 
@@ -126,16 +106,6 @@ SetAllowedMentions sets AllowedMentions field to given value.
 
 HasAllowedMentions returns a boolean if a field has been set.
 
-### SetAllowedMentionsNil
-
-`func (o *IncomingWebhookUpdateRequestPartial) SetAllowedMentionsNil(b bool)`
-
- SetAllowedMentionsNil sets the value for AllowedMentions to be an explicit nil
-
-### UnsetAllowedMentions
-`func (o *IncomingWebhookUpdateRequestPartial) UnsetAllowedMentions()`
-
-UnsetAllowedMentions ensures that no value is present for AllowedMentions, not even an explicit nil
 ### GetComponents
 
 `func (o *IncomingWebhookUpdateRequestPartial) GetComponents() []BaseCreateMessageCreateRequestComponentsInner`
@@ -161,16 +131,6 @@ SetComponents sets Components field to given value.
 
 HasComponents returns a boolean if a field has been set.
 
-### SetComponentsNil
-
-`func (o *IncomingWebhookUpdateRequestPartial) SetComponentsNil(b bool)`
-
- SetComponentsNil sets the value for Components to be an explicit nil
-
-### UnsetComponents
-`func (o *IncomingWebhookUpdateRequestPartial) UnsetComponents()`
-
-UnsetComponents ensures that no value is present for Components, not even an explicit nil
 ### GetAttachments
 
 `func (o *IncomingWebhookUpdateRequestPartial) GetAttachments() []MessageAttachmentRequest`
@@ -196,32 +156,22 @@ SetAttachments sets Attachments field to given value.
 
 HasAttachments returns a boolean if a field has been set.
 
-### SetAttachmentsNil
-
-`func (o *IncomingWebhookUpdateRequestPartial) SetAttachmentsNil(b bool)`
-
- SetAttachmentsNil sets the value for Attachments to be an explicit nil
-
-### UnsetAttachments
-`func (o *IncomingWebhookUpdateRequestPartial) UnsetAttachments()`
-
-UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
 ### GetPoll
 
-`func (o *IncomingWebhookUpdateRequestPartial) GetPoll() PollCreateRequest`
+`func (o *IncomingWebhookUpdateRequestPartial) GetPoll() BaseCreateMessageCreateRequestPoll`
 
 GetPoll returns the Poll field if non-nil, zero value otherwise.
 
 ### GetPollOk
 
-`func (o *IncomingWebhookUpdateRequestPartial) GetPollOk() (*PollCreateRequest, bool)`
+`func (o *IncomingWebhookUpdateRequestPartial) GetPollOk() (*BaseCreateMessageCreateRequestPoll, bool)`
 
 GetPollOk returns a tuple with the Poll field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPoll
 
-`func (o *IncomingWebhookUpdateRequestPartial) SetPoll(v PollCreateRequest)`
+`func (o *IncomingWebhookUpdateRequestPartial) SetPoll(v BaseCreateMessageCreateRequestPoll)`
 
 SetPoll sets Poll field to given value.
 
@@ -231,16 +181,6 @@ SetPoll sets Poll field to given value.
 
 HasPoll returns a boolean if a field has been set.
 
-### SetPollNil
-
-`func (o *IncomingWebhookUpdateRequestPartial) SetPollNil(b bool)`
-
- SetPollNil sets the value for Poll to be an explicit nil
-
-### UnsetPoll
-`func (o *IncomingWebhookUpdateRequestPartial) UnsetPoll()`
-
-UnsetPoll ensures that no value is present for Poll, not even an explicit nil
 ### GetFlags
 
 `func (o *IncomingWebhookUpdateRequestPartial) GetFlags() int32`
@@ -266,16 +206,6 @@ SetFlags sets Flags field to given value.
 
 HasFlags returns a boolean if a field has been set.
 
-### SetFlagsNil
-
-`func (o *IncomingWebhookUpdateRequestPartial) SetFlagsNil(b bool)`
-
- SetFlagsNil sets the value for Flags to be an explicit nil
-
-### UnsetFlags
-`func (o *IncomingWebhookUpdateRequestPartial) UnsetFlags()`
-
-UnsetFlags ensures that no value is present for Flags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

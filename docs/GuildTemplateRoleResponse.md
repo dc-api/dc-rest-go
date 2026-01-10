@@ -8,10 +8,11 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Permissions** | **string** |  | 
 **Color** | **int32** |  | 
+**Colors** | Pointer to [**GuildTemplateRoleResponseColors**](GuildTemplateRoleResponseColors.md) |  | [optional] 
 **Hoist** | **bool** |  | 
 **Mentionable** | **bool** |  | 
-**Icon** | Pointer to **NullableString** |  | [optional] 
-**UnicodeEmoji** | Pointer to **NullableString** |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
+**UnicodeEmoji** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -112,6 +113,31 @@ and a boolean to check if the value has been set.
 SetColor sets Color field to given value.
 
 
+### GetColors
+
+`func (o *GuildTemplateRoleResponse) GetColors() GuildTemplateRoleResponseColors`
+
+GetColors returns the Colors field if non-nil, zero value otherwise.
+
+### GetColorsOk
+
+`func (o *GuildTemplateRoleResponse) GetColorsOk() (*GuildTemplateRoleResponseColors, bool)`
+
+GetColorsOk returns a tuple with the Colors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetColors
+
+`func (o *GuildTemplateRoleResponse) SetColors(v GuildTemplateRoleResponseColors)`
+
+SetColors sets Colors field to given value.
+
+### HasColors
+
+`func (o *GuildTemplateRoleResponse) HasColors() bool`
+
+HasColors returns a boolean if a field has been set.
+
 ### GetHoist
 
 `func (o *GuildTemplateRoleResponse) GetHoist() bool`
@@ -177,16 +203,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *GuildTemplateRoleResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *GuildTemplateRoleResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetUnicodeEmoji
 
 `func (o *GuildTemplateRoleResponse) GetUnicodeEmoji() string`
@@ -212,16 +228,6 @@ SetUnicodeEmoji sets UnicodeEmoji field to given value.
 
 HasUnicodeEmoji returns a boolean if a field has been set.
 
-### SetUnicodeEmojiNil
-
-`func (o *GuildTemplateRoleResponse) SetUnicodeEmojiNil(b bool)`
-
- SetUnicodeEmojiNil sets the value for UnicodeEmoji to be an explicit nil
-
-### UnsetUnicodeEmoji
-`func (o *GuildTemplateRoleResponse) UnsetUnicodeEmoji()`
-
-UnsetUnicodeEmoji ensures that no value is present for UnicodeEmoji, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

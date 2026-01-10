@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **NullableInt32** |  | [optional] 
+**Type** | [**InviteTypes**](InviteTypes.md) |  | 
 **Code** | **string** |  | 
 **Inviter** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 **MaxAge** | Pointer to **int32** |  | [optional] 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **ExpiresAt** | Pointer to **time.Time** |  | [optional] 
 **FriendsCount** | Pointer to **int32** |  | [optional] 
-**Channel** | Pointer to [**InviteChannelResponse**](InviteChannelResponse.md) |  | [optional] 
+**Channel** | [**InviteChannelResponse**](InviteChannelResponse.md) |  | 
 **IsContact** | Pointer to **bool** |  | [optional] 
 **Uses** | Pointer to **int32** |  | [optional] 
 **MaxUses** | Pointer to **int32** |  | [optional] 
 **Flags** | Pointer to **int32** |  | [optional] 
 **ApproximateMemberCount** | Pointer to **int32** |  | [optional] 
-**Guild** | Pointer to [**InviteGuildResponse**](InviteGuildResponse.md) |  | [optional] 
-**GuildId** | Pointer to **string** |  | [optional] 
-**TargetType** | Pointer to **int32** |  | [optional] 
+**Guild** | [**InviteGuildResponse**](InviteGuildResponse.md) |  | 
+**GuildId** | **string** |  | 
+**TargetType** | Pointer to [**InviteTargetTypes**](InviteTargetTypes.md) |  | [optional] 
 **TargetUser** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 **TargetApplication** | Pointer to [**InviteApplicationResponse**](InviteApplicationResponse.md) |  | [optional] 
 **GuildScheduledEvent** | Pointer to [**ScheduledEventResponse**](ScheduledEventResponse.md) |  | [optional] 
@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 ### NewListChannelInvites200ResponseInner
 
-`func NewListChannelInvites200ResponseInner(code string, ) *ListChannelInvites200ResponseInner`
+`func NewListChannelInvites200ResponseInner(type_ InviteTypes, code string, channel InviteChannelResponse, guild InviteGuildResponse, guildId string, ) *ListChannelInvites200ResponseInner`
 
 NewListChannelInvites200ResponseInner instantiates a new ListChannelInvites200ResponseInner object
 This constructor will assign default values to properties that have it defined,
@@ -48,39 +48,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ListChannelInvites200ResponseInner) GetType() int32`
+`func (o *ListChannelInvites200ResponseInner) GetType() InviteTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ListChannelInvites200ResponseInner) GetTypeOk() (*int32, bool)`
+`func (o *ListChannelInvites200ResponseInner) GetTypeOk() (*InviteTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ListChannelInvites200ResponseInner) SetType(v int32)`
+`func (o *ListChannelInvites200ResponseInner) SetType(v InviteTypes)`
 
 SetType sets Type field to given value.
 
-### HasType
 
-`func (o *ListChannelInvites200ResponseInner) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### SetTypeNil
-
-`func (o *ListChannelInvites200ResponseInner) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *ListChannelInvites200ResponseInner) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetCode
 
 `func (o *ListChannelInvites200ResponseInner) GetCode() string`
@@ -245,11 +230,6 @@ and a boolean to check if the value has been set.
 
 SetChannel sets Channel field to given value.
 
-### HasChannel
-
-`func (o *ListChannelInvites200ResponseInner) HasChannel() bool`
-
-HasChannel returns a boolean if a field has been set.
 
 ### GetIsContact
 
@@ -395,11 +375,6 @@ and a boolean to check if the value has been set.
 
 SetGuild sets Guild field to given value.
 
-### HasGuild
-
-`func (o *ListChannelInvites200ResponseInner) HasGuild() bool`
-
-HasGuild returns a boolean if a field has been set.
 
 ### GetGuildId
 
@@ -420,28 +395,23 @@ and a boolean to check if the value has been set.
 
 SetGuildId sets GuildId field to given value.
 
-### HasGuildId
-
-`func (o *ListChannelInvites200ResponseInner) HasGuildId() bool`
-
-HasGuildId returns a boolean if a field has been set.
 
 ### GetTargetType
 
-`func (o *ListChannelInvites200ResponseInner) GetTargetType() int32`
+`func (o *ListChannelInvites200ResponseInner) GetTargetType() InviteTargetTypes`
 
 GetTargetType returns the TargetType field if non-nil, zero value otherwise.
 
 ### GetTargetTypeOk
 
-`func (o *ListChannelInvites200ResponseInner) GetTargetTypeOk() (*int32, bool)`
+`func (o *ListChannelInvites200ResponseInner) GetTargetTypeOk() (*InviteTargetTypes, bool)`
 
 GetTargetTypeOk returns a tuple with the TargetType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTargetType
 
-`func (o *ListChannelInvites200ResponseInner) SetTargetType(v int32)`
+`func (o *ListChannelInvites200ResponseInner) SetTargetType(v InviteTargetTypes)`
 
 SetTargetType sets TargetType field to given value.
 

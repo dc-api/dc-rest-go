@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Asset** | **string** |  | 
-**SkuId** | Pointer to **string** |  | [optional] 
+**SkuId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 
 ## Methods
 
@@ -48,20 +48,20 @@ SetAsset sets Asset field to given value.
 
 ### GetSkuId
 
-`func (o *UserAvatarDecorationResponse) GetSkuId() string`
+`func (o *UserAvatarDecorationResponse) GetSkuId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetSkuId returns the SkuId field if non-nil, zero value otherwise.
 
 ### GetSkuIdOk
 
-`func (o *UserAvatarDecorationResponse) GetSkuIdOk() (*string, bool)`
+`func (o *UserAvatarDecorationResponse) GetSkuIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetSkuIdOk returns a tuple with the SkuId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSkuId
 
-`func (o *UserAvatarDecorationResponse) SetSkuId(v string)`
+`func (o *UserAvatarDecorationResponse) SetSkuId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetSkuId sets SkuId field to given value.
 

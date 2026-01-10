@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,8 +56,8 @@ var _ MappedNullable = &ModalSubmitInteractionMetadataResponse{}
 // ModalSubmitInteractionMetadataResponse struct for ModalSubmitInteractionMetadataResponse
 type ModalSubmitInteractionMetadataResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Type int32 `json:"type"`
-	User NullableUserResponse `json:"user,omitempty"`
+	Type InteractionTypes `json:"type"`
+	User *UserResponse `json:"user,omitempty"`
 	AuthorizingIntegrationOwners map[string]string `json:"authorizing_integration_owners"`
 	OriginalResponseMessageId *string `json:"original_response_message_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	TriggeringInteractionMetadata ModalSubmitInteractionMetadataResponseTriggeringInteractionMetadata `json:"triggering_interaction_metadata"`
@@ -69,7 +69,7 @@ type _ModalSubmitInteractionMetadataResponse ModalSubmitInteractionMetadataRespo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModalSubmitInteractionMetadataResponse(id string, type_ int32, authorizingIntegrationOwners map[string]string, triggeringInteractionMetadata ModalSubmitInteractionMetadataResponseTriggeringInteractionMetadata) *ModalSubmitInteractionMetadataResponse {
+func NewModalSubmitInteractionMetadataResponse(id string, type_ InteractionTypes, authorizingIntegrationOwners map[string]string, triggeringInteractionMetadata ModalSubmitInteractionMetadataResponseTriggeringInteractionMetadata) *ModalSubmitInteractionMetadataResponse {
 	this := ModalSubmitInteractionMetadataResponse{}
 	this.Id = id
 	this.Type = type_
@@ -111,9 +111,9 @@ func (o *ModalSubmitInteractionMetadataResponse) SetId(v string) {
 }
 
 // GetType returns the Type field value
-func (o *ModalSubmitInteractionMetadataResponse) GetType() int32 {
+func (o *ModalSubmitInteractionMetadataResponse) GetType() InteractionTypes {
 	if o == nil {
-		var ret int32
+		var ret InteractionTypes
 		return ret
 	}
 
@@ -122,7 +122,7 @@ func (o *ModalSubmitInteractionMetadataResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ModalSubmitInteractionMetadataResponse) GetTypeOk() (*int32, bool) {
+func (o *ModalSubmitInteractionMetadataResponse) GetTypeOk() (*InteractionTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -130,52 +130,42 @@ func (o *ModalSubmitInteractionMetadataResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *ModalSubmitInteractionMetadataResponse) SetType(v int32) {
+func (o *ModalSubmitInteractionMetadataResponse) SetType(v InteractionTypes) {
 	o.Type = v
 }
 
-// GetUser returns the User field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUser returns the User field value if set, zero value otherwise.
 func (o *ModalSubmitInteractionMetadataResponse) GetUser() UserResponse {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.User.Get()
+	return *o.User
 }
 
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModalSubmitInteractionMetadataResponse) GetUserOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		return nil, false
 	}
-	return o.User.Get(), o.User.IsSet()
+	return o.User, true
 }
 
 // HasUser returns a boolean if a field has been set.
 func (o *ModalSubmitInteractionMetadataResponse) HasUser() bool {
-	if o != nil && o.User.IsSet() {
+	if o != nil && !IsNil(o.User) {
 		return true
 	}
 
 	return false
 }
 
-// SetUser gets a reference to the given NullableUserResponse and assigns it to the User field.
+// SetUser gets a reference to the given UserResponse and assigns it to the User field.
 func (o *ModalSubmitInteractionMetadataResponse) SetUser(v UserResponse) {
-	o.User.Set(&v)
+	o.User = &v
 }
 
-// SetUserNil sets the value for User to be an explicit nil
-func (o *ModalSubmitInteractionMetadataResponse) SetUserNil() {
-	o.User.Set(nil)
-}
-
-// UnsetUser ensures that no value is present for User, not even an explicit nil
-func (o *ModalSubmitInteractionMetadataResponse) UnsetUser() {
-	o.User.Unset()
-}
 
 // GetAuthorizingIntegrationOwners returns the AuthorizingIntegrationOwners field value
 func (o *ModalSubmitInteractionMetadataResponse) GetAuthorizingIntegrationOwners() map[string]string {
@@ -270,8 +260,8 @@ func (o ModalSubmitInteractionMetadataResponse) ToMap() (map[string]interface{},
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["type"] = o.Type
-	if o.User.IsSet() {
-		toSerialize["user"] = o.User.Get()
+	if !IsNil(o.User) {
+		toSerialize["user"] = o.User
 	}
 	toSerialize["authorizing_integration_owners"] = o.AuthorizingIntegrationOwners
 	if !IsNil(o.OriginalResponseMessageId) {
@@ -356,5 +346,4 @@ func (v *NullableModalSubmitInteractionMetadataResponse) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

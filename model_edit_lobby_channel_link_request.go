@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,7 +53,7 @@ var _ MappedNullable = &EditLobbyChannelLinkRequest{}
 
 // EditLobbyChannelLinkRequest struct for EditLobbyChannelLinkRequest
 type EditLobbyChannelLinkRequest struct {
-	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	ChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"channel_id,omitempty"`
 }
 
 // NewEditLobbyChannelLinkRequest instantiates a new EditLobbyChannelLinkRequest object
@@ -74,9 +74,9 @@ func NewEditLobbyChannelLinkRequestWithDefaults() *EditLobbyChannelLinkRequest {
 }
 
 // GetChannelId returns the ChannelId field value if set, zero value otherwise.
-func (o *EditLobbyChannelLinkRequest) GetChannelId() string {
+func (o *EditLobbyChannelLinkRequest) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.ChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.ChannelId
@@ -84,7 +84,7 @@ func (o *EditLobbyChannelLinkRequest) GetChannelId() string {
 
 // GetChannelIdOk returns a tuple with the ChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EditLobbyChannelLinkRequest) GetChannelIdOk() (*string, bool) {
+func (o *EditLobbyChannelLinkRequest) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.ChannelId) {
 		return nil, false
 	}
@@ -100,8 +100,8 @@ func (o *EditLobbyChannelLinkRequest) HasChannelId() bool {
 	return false
 }
 
-// SetChannelId gets a reference to the given string and assigns it to the ChannelId field.
-func (o *EditLobbyChannelLinkRequest) SetChannelId(v string) {
+// SetChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the ChannelId field.
+func (o *EditLobbyChannelLinkRequest) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.ChannelId = &v
 }
 
@@ -157,5 +157,4 @@ func (v *NullableEditLobbyChannelLinkRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,10 +55,11 @@ var _ MappedNullable = &CreateOrJoinLobbyRequest{}
 
 // CreateOrJoinLobbyRequest struct for CreateOrJoinLobbyRequest
 type CreateOrJoinLobbyRequest struct {
-	IdleTimeoutSeconds NullableInt32 `json:"idle_timeout_seconds,omitempty"`
+	IdleTimeoutSeconds *int32 `json:"idle_timeout_seconds,omitempty"`
 	LobbyMetadata map[string]string `json:"lobby_metadata,omitempty"`
 	MemberMetadata map[string]string `json:"member_metadata,omitempty"`
 	Secret string `json:"secret"`
+	Flags *CreateOrJoinLobbyRequestFlags `json:"flags,omitempty"`
 }
 
 type _CreateOrJoinLobbyRequest CreateOrJoinLobbyRequest
@@ -81,48 +82,38 @@ func NewCreateOrJoinLobbyRequestWithDefaults() *CreateOrJoinLobbyRequest {
 	return &this
 }
 
-// GetIdleTimeoutSeconds returns the IdleTimeoutSeconds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIdleTimeoutSeconds returns the IdleTimeoutSeconds field value if set, zero value otherwise.
 func (o *CreateOrJoinLobbyRequest) GetIdleTimeoutSeconds() int32 {
-	if o == nil || IsNil(o.IdleTimeoutSeconds.Get()) {
+	if o == nil || IsNil(o.IdleTimeoutSeconds) {
 		var ret int32
 		return ret
 	}
-	return *o.IdleTimeoutSeconds.Get()
+	return *o.IdleTimeoutSeconds
 }
 
 // GetIdleTimeoutSecondsOk returns a tuple with the IdleTimeoutSeconds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrJoinLobbyRequest) GetIdleTimeoutSecondsOk() (*int32, bool) {
-	if o == nil || IsNil(o.IdleTimeoutSeconds.Get()) {
+	if o == nil || IsNil(o.IdleTimeoutSeconds) {
 		return nil, false
 	}
-	return o.IdleTimeoutSeconds.Get(), o.IdleTimeoutSeconds.IsSet()
+	return o.IdleTimeoutSeconds, true
 }
 
 // HasIdleTimeoutSeconds returns a boolean if a field has been set.
 func (o *CreateOrJoinLobbyRequest) HasIdleTimeoutSeconds() bool {
-	if o != nil && o.IdleTimeoutSeconds.IsSet() {
+	if o != nil && !IsNil(o.IdleTimeoutSeconds) {
 		return true
 	}
 
 	return false
 }
 
-// SetIdleTimeoutSeconds gets a reference to the given NullableInt32 and assigns it to the IdleTimeoutSeconds field.
+// SetIdleTimeoutSeconds gets a reference to the given int32 and assigns it to the IdleTimeoutSeconds field.
 func (o *CreateOrJoinLobbyRequest) SetIdleTimeoutSeconds(v int32) {
-	o.IdleTimeoutSeconds.Set(&v)
+	o.IdleTimeoutSeconds = &v
 }
 
-// SetIdleTimeoutSecondsNil sets the value for IdleTimeoutSeconds to be an explicit nil
-func (o *CreateOrJoinLobbyRequest) SetIdleTimeoutSecondsNil() {
-	o.IdleTimeoutSeconds.Set(nil)
-}
-
-// UnsetIdleTimeoutSeconds ensures that no value is present for IdleTimeoutSeconds, not even an explicit nil
-func (o *CreateOrJoinLobbyRequest) UnsetIdleTimeoutSeconds() {
-	o.IdleTimeoutSeconds.Unset()
-}
 
 // GetLobbyMetadata returns the LobbyMetadata field value if set, zero value otherwise.
 func (o *CreateOrJoinLobbyRequest) GetLobbyMetadata() map[string]string {
@@ -214,6 +205,39 @@ func (o *CreateOrJoinLobbyRequest) SetSecret(v string) {
 	o.Secret = v
 }
 
+// GetFlags returns the Flags field value if set, zero value otherwise.
+func (o *CreateOrJoinLobbyRequest) GetFlags() CreateOrJoinLobbyRequestFlags {
+	if o == nil || IsNil(o.Flags) {
+		var ret CreateOrJoinLobbyRequestFlags
+		return ret
+	}
+	return *o.Flags
+}
+
+// GetFlagsOk returns a tuple with the Flags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrJoinLobbyRequest) GetFlagsOk() (*CreateOrJoinLobbyRequestFlags, bool) {
+	if o == nil || IsNil(o.Flags) {
+		return nil, false
+	}
+	return o.Flags, true
+}
+
+// HasFlags returns a boolean if a field has been set.
+func (o *CreateOrJoinLobbyRequest) HasFlags() bool {
+	if o != nil && !IsNil(o.Flags) {
+		return true
+	}
+
+	return false
+}
+
+// SetFlags gets a reference to the given CreateOrJoinLobbyRequestFlags and assigns it to the Flags field.
+func (o *CreateOrJoinLobbyRequest) SetFlags(v CreateOrJoinLobbyRequestFlags) {
+	o.Flags = &v
+}
+
+
 func (o CreateOrJoinLobbyRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -224,8 +248,8 @@ func (o CreateOrJoinLobbyRequest) MarshalJSON() ([]byte, error) {
 
 func (o CreateOrJoinLobbyRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.IdleTimeoutSeconds.IsSet() {
-		toSerialize["idle_timeout_seconds"] = o.IdleTimeoutSeconds.Get()
+	if !IsNil(o.IdleTimeoutSeconds) {
+		toSerialize["idle_timeout_seconds"] = o.IdleTimeoutSeconds
 	}
 	if !IsNil(o.LobbyMetadata) {
 		toSerialize["lobby_metadata"] = o.LobbyMetadata
@@ -234,6 +258,9 @@ func (o CreateOrJoinLobbyRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["member_metadata"] = o.MemberMetadata
 	}
 	toSerialize["secret"] = o.Secret
+	if !IsNil(o.Flags) {
+		toSerialize["flags"] = o.Flags
+	}
 	return toSerialize, nil
 }
 
@@ -309,5 +336,4 @@ func (v *NullableCreateOrJoinLobbyRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

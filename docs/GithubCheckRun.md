@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Conclusion** | Pointer to **NullableString** |  | [optional] 
+**Conclusion** | Pointer to **string** |  | [optional] 
 **Name** | **string** |  | 
 **HtmlUrl** | **string** |  | 
 **CheckSuite** | [**GithubCheckSuite**](GithubCheckSuite.md) |  | 
-**DetailsUrl** | Pointer to **NullableString** |  | [optional] 
-**Output** | Pointer to [**NullableGithubCheckRunOutput**](GithubCheckRunOutput.md) |  | [optional] 
+**DetailsUrl** | Pointer to **string** |  | [optional] 
+**Output** | Pointer to [**GithubCheckRunOutput**](GithubCheckRunOutput.md) |  | [optional] 
 **PullRequests** | Pointer to [**[]GithubCheckPullRequest**](GithubCheckPullRequest.md) |  | [optional] 
 
 ## Methods
@@ -56,16 +56,6 @@ SetConclusion sets Conclusion field to given value.
 
 HasConclusion returns a boolean if a field has been set.
 
-### SetConclusionNil
-
-`func (o *GithubCheckRun) SetConclusionNil(b bool)`
-
- SetConclusionNil sets the value for Conclusion to be an explicit nil
-
-### UnsetConclusion
-`func (o *GithubCheckRun) UnsetConclusion()`
-
-UnsetConclusion ensures that no value is present for Conclusion, not even an explicit nil
 ### GetName
 
 `func (o *GithubCheckRun) GetName() string`
@@ -151,16 +141,6 @@ SetDetailsUrl sets DetailsUrl field to given value.
 
 HasDetailsUrl returns a boolean if a field has been set.
 
-### SetDetailsUrlNil
-
-`func (o *GithubCheckRun) SetDetailsUrlNil(b bool)`
-
- SetDetailsUrlNil sets the value for DetailsUrl to be an explicit nil
-
-### UnsetDetailsUrl
-`func (o *GithubCheckRun) UnsetDetailsUrl()`
-
-UnsetDetailsUrl ensures that no value is present for DetailsUrl, not even an explicit nil
 ### GetOutput
 
 `func (o *GithubCheckRun) GetOutput() GithubCheckRunOutput`
@@ -186,16 +166,6 @@ SetOutput sets Output field to given value.
 
 HasOutput returns a boolean if a field has been set.
 
-### SetOutputNil
-
-`func (o *GithubCheckRun) SetOutputNil(b bool)`
-
- SetOutputNil sets the value for Output to be an explicit nil
-
-### UnsetOutput
-`func (o *GithubCheckRun) UnsetOutput()`
-
-UnsetOutput ensures that no value is present for Output, not even an explicit nil
 ### GetPullRequests
 
 `func (o *GithubCheckRun) GetPullRequests() []GithubCheckPullRequest`
@@ -221,16 +191,6 @@ SetPullRequests sets PullRequests field to given value.
 
 HasPullRequests returns a boolean if a field has been set.
 
-### SetPullRequestsNil
-
-`func (o *GithubCheckRun) SetPullRequestsNil(b bool)`
-
- SetPullRequestsNil sets the value for PullRequests to be an explicit nil
-
-### UnsetPullRequests
-`func (o *GithubCheckRun) UnsetPullRequests()`
-
-UnsetPullRequests ensures that no value is present for PullRequests, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,7 +57,7 @@ var _ MappedNullable = &ComponentEmojiResponse{}
 type ComponentEmojiResponse struct {
 	Id *string `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
-	Animated NullableBool `json:"animated,omitempty"`
+	Animated *bool `json:"animated,omitempty"`
 }
 
 type _ComponentEmojiResponse ComponentEmojiResponse
@@ -137,48 +137,38 @@ func (o *ComponentEmojiResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetAnimated returns the Animated field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAnimated returns the Animated field value if set, zero value otherwise.
 func (o *ComponentEmojiResponse) GetAnimated() bool {
-	if o == nil || IsNil(o.Animated.Get()) {
+	if o == nil || IsNil(o.Animated) {
 		var ret bool
 		return ret
 	}
-	return *o.Animated.Get()
+	return *o.Animated
 }
 
 // GetAnimatedOk returns a tuple with the Animated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComponentEmojiResponse) GetAnimatedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Animated.Get()) {
+	if o == nil || IsNil(o.Animated) {
 		return nil, false
 	}
-	return o.Animated.Get(), o.Animated.IsSet()
+	return o.Animated, true
 }
 
 // HasAnimated returns a boolean if a field has been set.
 func (o *ComponentEmojiResponse) HasAnimated() bool {
-	if o != nil && o.Animated.IsSet() {
+	if o != nil && !IsNil(o.Animated) {
 		return true
 	}
 
 	return false
 }
 
-// SetAnimated gets a reference to the given NullableBool and assigns it to the Animated field.
+// SetAnimated gets a reference to the given bool and assigns it to the Animated field.
 func (o *ComponentEmojiResponse) SetAnimated(v bool) {
-	o.Animated.Set(&v)
+	o.Animated = &v
 }
 
-// SetAnimatedNil sets the value for Animated to be an explicit nil
-func (o *ComponentEmojiResponse) SetAnimatedNil() {
-	o.Animated.Set(nil)
-}
-
-// UnsetAnimated ensures that no value is present for Animated, not even an explicit nil
-func (o *ComponentEmojiResponse) UnsetAnimated() {
-	o.Animated.Unset()
-}
 
 func (o ComponentEmojiResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -194,8 +184,8 @@ func (o ComponentEmojiResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["id"] = o.Id
 	}
 	toSerialize["name"] = o.Name
-	if o.Animated.IsSet() {
-		toSerialize["animated"] = o.Animated.Get()
+	if !IsNil(o.Animated) {
+		toSerialize["animated"] = o.Animated
 	}
 	return toSerialize, nil
 }
@@ -272,5 +262,4 @@ func (v *NullableComponentEmojiResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,7 +58,7 @@ type GithubComment struct {
 	Id int32 `json:"id"`
 	HtmlUrl string `json:"html_url"`
 	User GithubUser `json:"user"`
-	CommitId NullableString `json:"commit_id,omitempty"`
+	CommitId *string `json:"commit_id,omitempty"`
 	Body string `json:"body"`
 }
 
@@ -157,48 +157,38 @@ func (o *GithubComment) SetUser(v GithubUser) {
 	o.User = v
 }
 
-// GetCommitId returns the CommitId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCommitId returns the CommitId field value if set, zero value otherwise.
 func (o *GithubComment) GetCommitId() string {
-	if o == nil || IsNil(o.CommitId.Get()) {
+	if o == nil || IsNil(o.CommitId) {
 		var ret string
 		return ret
 	}
-	return *o.CommitId.Get()
+	return *o.CommitId
 }
 
 // GetCommitIdOk returns a tuple with the CommitId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubComment) GetCommitIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CommitId.Get()) {
+	if o == nil || IsNil(o.CommitId) {
 		return nil, false
 	}
-	return o.CommitId.Get(), o.CommitId.IsSet()
+	return o.CommitId, true
 }
 
 // HasCommitId returns a boolean if a field has been set.
 func (o *GithubComment) HasCommitId() bool {
-	if o != nil && o.CommitId.IsSet() {
+	if o != nil && !IsNil(o.CommitId) {
 		return true
 	}
 
 	return false
 }
 
-// SetCommitId gets a reference to the given NullableString and assigns it to the CommitId field.
+// SetCommitId gets a reference to the given string and assigns it to the CommitId field.
 func (o *GithubComment) SetCommitId(v string) {
-	o.CommitId.Set(&v)
+	o.CommitId = &v
 }
 
-// SetCommitIdNil sets the value for CommitId to be an explicit nil
-func (o *GithubComment) SetCommitIdNil() {
-	o.CommitId.Set(nil)
-}
-
-// UnsetCommitId ensures that no value is present for CommitId, not even an explicit nil
-func (o *GithubComment) UnsetCommitId() {
-	o.CommitId.Unset()
-}
 
 // GetBody returns the Body field value
 func (o *GithubComment) GetBody() string {
@@ -237,8 +227,8 @@ func (o GithubComment) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["html_url"] = o.HtmlUrl
 	toSerialize["user"] = o.User
-	if o.CommitId.IsSet() {
-		toSerialize["commit_id"] = o.CommitId.Get()
+	if !IsNil(o.CommitId) {
+		toSerialize["commit_id"] = o.CommitId
 	}
 	toSerialize["body"] = o.Body
 	return toSerialize, nil
@@ -319,5 +309,4 @@ func (v *NullableGithubComment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

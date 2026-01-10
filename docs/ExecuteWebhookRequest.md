@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Content** | Pointer to **string** |  | [optional] 
 **Embeds** | Pointer to [**[]RichEmbed**](RichEmbed.md) |  | [optional] 
-**AllowedMentions** | Pointer to [**MessageAllowedMentionsRequest**](MessageAllowedMentionsRequest.md) |  | [optional] 
+**AllowedMentions** | Pointer to [**BaseCreateMessageCreateRequestAllowedMentions**](BaseCreateMessageCreateRequestAllowedMentions.md) |  | [optional] 
 **Components** | Pointer to [**[]BaseCreateMessageCreateRequestComponentsInner**](BaseCreateMessageCreateRequestComponentsInner.md) |  | [optional] 
 **Attachments** | Pointer to [**[]MessageAttachmentRequest**](MessageAttachmentRequest.md) |  | [optional] 
-**Poll** | Pointer to [**PollCreateRequest**](PollCreateRequest.md) |  | [optional] 
+**Poll** | Pointer to [**BaseCreateMessageCreateRequestPoll**](BaseCreateMessageCreateRequestPoll.md) |  | [optional] 
 **Tts** | Pointer to **bool** |  | [optional] 
 **Flags** | Pointer to **int32** |  | [optional] 
 **Username** | Pointer to **string** |  | [optional] 
@@ -88,20 +88,20 @@ HasEmbeds returns a boolean if a field has been set.
 
 ### GetAllowedMentions
 
-`func (o *ExecuteWebhookRequest) GetAllowedMentions() MessageAllowedMentionsRequest`
+`func (o *ExecuteWebhookRequest) GetAllowedMentions() BaseCreateMessageCreateRequestAllowedMentions`
 
 GetAllowedMentions returns the AllowedMentions field if non-nil, zero value otherwise.
 
 ### GetAllowedMentionsOk
 
-`func (o *ExecuteWebhookRequest) GetAllowedMentionsOk() (*MessageAllowedMentionsRequest, bool)`
+`func (o *ExecuteWebhookRequest) GetAllowedMentionsOk() (*BaseCreateMessageCreateRequestAllowedMentions, bool)`
 
 GetAllowedMentionsOk returns a tuple with the AllowedMentions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllowedMentions
 
-`func (o *ExecuteWebhookRequest) SetAllowedMentions(v MessageAllowedMentionsRequest)`
+`func (o *ExecuteWebhookRequest) SetAllowedMentions(v BaseCreateMessageCreateRequestAllowedMentions)`
 
 SetAllowedMentions sets AllowedMentions field to given value.
 
@@ -163,20 +163,20 @@ HasAttachments returns a boolean if a field has been set.
 
 ### GetPoll
 
-`func (o *ExecuteWebhookRequest) GetPoll() PollCreateRequest`
+`func (o *ExecuteWebhookRequest) GetPoll() BaseCreateMessageCreateRequestPoll`
 
 GetPoll returns the Poll field if non-nil, zero value otherwise.
 
 ### GetPollOk
 
-`func (o *ExecuteWebhookRequest) GetPollOk() (*PollCreateRequest, bool)`
+`func (o *ExecuteWebhookRequest) GetPollOk() (*BaseCreateMessageCreateRequestPoll, bool)`
 
 GetPollOk returns a tuple with the Poll field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPoll
 
-`func (o *ExecuteWebhookRequest) SetPoll(v PollCreateRequest)`
+`func (o *ExecuteWebhookRequest) SetPoll(v BaseCreateMessageCreateRequestPoll)`
 
 SetPoll sets Poll field to given value.
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,8 +53,8 @@ var _ MappedNullable = &PollMediaResponse{}
 
 // PollMediaResponse struct for PollMediaResponse
 type PollMediaResponse struct {
-	Text NullableString `json:"text,omitempty"`
-	Emoji NullableMessageReactionEmojiResponse `json:"emoji,omitempty"`
+	Text *string `json:"text,omitempty"`
+	Emoji *MessageReactionEmojiResponse `json:"emoji,omitempty"`
 }
 
 // NewPollMediaResponse instantiates a new PollMediaResponse object
@@ -74,91 +74,71 @@ func NewPollMediaResponseWithDefaults() *PollMediaResponse {
 	return &this
 }
 
-// GetText returns the Text field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetText returns the Text field value if set, zero value otherwise.
 func (o *PollMediaResponse) GetText() string {
-	if o == nil || IsNil(o.Text.Get()) {
+	if o == nil || IsNil(o.Text) {
 		var ret string
 		return ret
 	}
-	return *o.Text.Get()
+	return *o.Text
 }
 
 // GetTextOk returns a tuple with the Text field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PollMediaResponse) GetTextOk() (*string, bool) {
-	if o == nil || IsNil(o.Text.Get()) {
+	if o == nil || IsNil(o.Text) {
 		return nil, false
 	}
-	return o.Text.Get(), o.Text.IsSet()
+	return o.Text, true
 }
 
 // HasText returns a boolean if a field has been set.
 func (o *PollMediaResponse) HasText() bool {
-	if o != nil && o.Text.IsSet() {
+	if o != nil && !IsNil(o.Text) {
 		return true
 	}
 
 	return false
 }
 
-// SetText gets a reference to the given NullableString and assigns it to the Text field.
+// SetText gets a reference to the given string and assigns it to the Text field.
 func (o *PollMediaResponse) SetText(v string) {
-	o.Text.Set(&v)
+	o.Text = &v
 }
 
-// SetTextNil sets the value for Text to be an explicit nil
-func (o *PollMediaResponse) SetTextNil() {
-	o.Text.Set(nil)
-}
 
-// UnsetText ensures that no value is present for Text, not even an explicit nil
-func (o *PollMediaResponse) UnsetText() {
-	o.Text.Unset()
-}
-
-// GetEmoji returns the Emoji field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmoji returns the Emoji field value if set, zero value otherwise.
 func (o *PollMediaResponse) GetEmoji() MessageReactionEmojiResponse {
-	if o == nil || IsNil(o.Emoji.Get()) {
+	if o == nil || IsNil(o.Emoji) {
 		var ret MessageReactionEmojiResponse
 		return ret
 	}
-	return *o.Emoji.Get()
+	return *o.Emoji
 }
 
 // GetEmojiOk returns a tuple with the Emoji field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PollMediaResponse) GetEmojiOk() (*MessageReactionEmojiResponse, bool) {
-	if o == nil || IsNil(o.Emoji.Get()) {
+	if o == nil || IsNil(o.Emoji) {
 		return nil, false
 	}
-	return o.Emoji.Get(), o.Emoji.IsSet()
+	return o.Emoji, true
 }
 
 // HasEmoji returns a boolean if a field has been set.
 func (o *PollMediaResponse) HasEmoji() bool {
-	if o != nil && o.Emoji.IsSet() {
+	if o != nil && !IsNil(o.Emoji) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmoji gets a reference to the given NullableMessageReactionEmojiResponse and assigns it to the Emoji field.
+// SetEmoji gets a reference to the given MessageReactionEmojiResponse and assigns it to the Emoji field.
 func (o *PollMediaResponse) SetEmoji(v MessageReactionEmojiResponse) {
-	o.Emoji.Set(&v)
+	o.Emoji = &v
 }
 
-// SetEmojiNil sets the value for Emoji to be an explicit nil
-func (o *PollMediaResponse) SetEmojiNil() {
-	o.Emoji.Set(nil)
-}
-
-// UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
-func (o *PollMediaResponse) UnsetEmoji() {
-	o.Emoji.Unset()
-}
 
 func (o PollMediaResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -170,11 +150,11 @@ func (o PollMediaResponse) MarshalJSON() ([]byte, error) {
 
 func (o PollMediaResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Text.IsSet() {
-		toSerialize["text"] = o.Text.Get()
+	if !IsNil(o.Text) {
+		toSerialize["text"] = o.Text
 	}
-	if o.Emoji.IsSet() {
-		toSerialize["emoji"] = o.Emoji.Get()
+	if !IsNil(o.Emoji) {
+		toSerialize["emoji"] = o.Emoji
 	}
 	return toSerialize, nil
 }
@@ -214,5 +194,4 @@ func (v *NullablePollMediaResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Topic** | Pointer to **string** |  | [optional] 
-**PrivacyLevel** | Pointer to **int32** |  | [optional] 
+**PrivacyLevel** | Pointer to [**StageInstancesPrivacyLevels**](StageInstancesPrivacyLevels.md) |  | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasTopic returns a boolean if a field has been set.
 
 ### GetPrivacyLevel
 
-`func (o *UpdateStageInstanceRequest) GetPrivacyLevel() int32`
+`func (o *UpdateStageInstanceRequest) GetPrivacyLevel() StageInstancesPrivacyLevels`
 
 GetPrivacyLevel returns the PrivacyLevel field if non-nil, zero value otherwise.
 
 ### GetPrivacyLevelOk
 
-`func (o *UpdateStageInstanceRequest) GetPrivacyLevelOk() (*int32, bool)`
+`func (o *UpdateStageInstanceRequest) GetPrivacyLevelOk() (*StageInstancesPrivacyLevels, bool)`
 
 GetPrivacyLevelOk returns a tuple with the PrivacyLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrivacyLevel
 
-`func (o *UpdateStageInstanceRequest) SetPrivacyLevel(v int32)`
+`func (o *UpdateStageInstanceRequest) SetPrivacyLevel(v StageInstancesPrivacyLevels)`
 
 SetPrivacyLevel sets PrivacyLevel field to given value.
 

@@ -4,21 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 **CustomId** | **string** |  | 
-**Style** | **int32** |  | 
-**Label** | **string** |  | 
-**Value** | Pointer to **NullableString** |  | [optional] 
-**Placeholder** | Pointer to **NullableString** |  | [optional] 
-**Required** | Pointer to **NullableBool** |  | [optional] 
-**MinLength** | Pointer to **NullableInt32** |  | [optional] 
-**MaxLength** | Pointer to **NullableInt32** |  | [optional] 
+**Style** | [**TextInputStyleTypes**](TextInputStyleTypes.md) |  | 
+**Label** | Pointer to **string** |  | [optional] 
+**Value** | Pointer to **string** |  | [optional] 
+**Placeholder** | Pointer to **string** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
+**MinLength** | Pointer to **int32** |  | [optional] 
+**MaxLength** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewTextInputComponentForModalRequest
 
-`func NewTextInputComponentForModalRequest(type_ int32, customId string, style int32, label string, ) *TextInputComponentForModalRequest`
+`func NewTextInputComponentForModalRequest(type_ MessageComponentTypes, customId string, style TextInputStyleTypes, ) *TextInputComponentForModalRequest`
 
 NewTextInputComponentForModalRequest instantiates a new TextInputComponentForModalRequest object
 This constructor will assign default values to properties that have it defined,
@@ -35,23 +36,48 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *TextInputComponentForModalRequest) GetType() int32`
+`func (o *TextInputComponentForModalRequest) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *TextInputComponentForModalRequest) GetTypeOk() (*int32, bool)`
+`func (o *TextInputComponentForModalRequest) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *TextInputComponentForModalRequest) SetType(v int32)`
+`func (o *TextInputComponentForModalRequest) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *TextInputComponentForModalRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *TextInputComponentForModalRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *TextInputComponentForModalRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *TextInputComponentForModalRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetCustomId
 
@@ -75,20 +101,20 @@ SetCustomId sets CustomId field to given value.
 
 ### GetStyle
 
-`func (o *TextInputComponentForModalRequest) GetStyle() int32`
+`func (o *TextInputComponentForModalRequest) GetStyle() TextInputStyleTypes`
 
 GetStyle returns the Style field if non-nil, zero value otherwise.
 
 ### GetStyleOk
 
-`func (o *TextInputComponentForModalRequest) GetStyleOk() (*int32, bool)`
+`func (o *TextInputComponentForModalRequest) GetStyleOk() (*TextInputStyleTypes, bool)`
 
 GetStyleOk returns a tuple with the Style field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStyle
 
-`func (o *TextInputComponentForModalRequest) SetStyle(v int32)`
+`func (o *TextInputComponentForModalRequest) SetStyle(v TextInputStyleTypes)`
 
 SetStyle sets Style field to given value.
 
@@ -112,6 +138,11 @@ and a boolean to check if the value has been set.
 
 SetLabel sets Label field to given value.
 
+### HasLabel
+
+`func (o *TextInputComponentForModalRequest) HasLabel() bool`
+
+HasLabel returns a boolean if a field has been set.
 
 ### GetValue
 
@@ -138,16 +169,6 @@ SetValue sets Value field to given value.
 
 HasValue returns a boolean if a field has been set.
 
-### SetValueNil
-
-`func (o *TextInputComponentForModalRequest) SetValueNil(b bool)`
-
- SetValueNil sets the value for Value to be an explicit nil
-
-### UnsetValue
-`func (o *TextInputComponentForModalRequest) UnsetValue()`
-
-UnsetValue ensures that no value is present for Value, not even an explicit nil
 ### GetPlaceholder
 
 `func (o *TextInputComponentForModalRequest) GetPlaceholder() string`
@@ -173,16 +194,6 @@ SetPlaceholder sets Placeholder field to given value.
 
 HasPlaceholder returns a boolean if a field has been set.
 
-### SetPlaceholderNil
-
-`func (o *TextInputComponentForModalRequest) SetPlaceholderNil(b bool)`
-
- SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-
-### UnsetPlaceholder
-`func (o *TextInputComponentForModalRequest) UnsetPlaceholder()`
-
-UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
 ### GetRequired
 
 `func (o *TextInputComponentForModalRequest) GetRequired() bool`
@@ -208,16 +219,6 @@ SetRequired sets Required field to given value.
 
 HasRequired returns a boolean if a field has been set.
 
-### SetRequiredNil
-
-`func (o *TextInputComponentForModalRequest) SetRequiredNil(b bool)`
-
- SetRequiredNil sets the value for Required to be an explicit nil
-
-### UnsetRequired
-`func (o *TextInputComponentForModalRequest) UnsetRequired()`
-
-UnsetRequired ensures that no value is present for Required, not even an explicit nil
 ### GetMinLength
 
 `func (o *TextInputComponentForModalRequest) GetMinLength() int32`
@@ -243,16 +244,6 @@ SetMinLength sets MinLength field to given value.
 
 HasMinLength returns a boolean if a field has been set.
 
-### SetMinLengthNil
-
-`func (o *TextInputComponentForModalRequest) SetMinLengthNil(b bool)`
-
- SetMinLengthNil sets the value for MinLength to be an explicit nil
-
-### UnsetMinLength
-`func (o *TextInputComponentForModalRequest) UnsetMinLength()`
-
-UnsetMinLength ensures that no value is present for MinLength, not even an explicit nil
 ### GetMaxLength
 
 `func (o *TextInputComponentForModalRequest) GetMaxLength() int32`
@@ -278,16 +269,6 @@ SetMaxLength sets MaxLength field to given value.
 
 HasMaxLength returns a boolean if a field has been set.
 
-### SetMaxLengthNil
-
-`func (o *TextInputComponentForModalRequest) SetMaxLengthNil(b bool)`
-
- SetMaxLengthNil sets the value for MaxLength to be an explicit nil
-
-### UnsetMaxLength
-`func (o *TextInputComponentForModalRequest) UnsetMaxLength()`
-
-UnsetMaxLength ensures that no value is present for MaxLength, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

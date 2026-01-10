@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 **Items** | [**[]MediaGalleryItemRequest**](MediaGalleryItemRequest.md) |  | 
 
 ## Methods
 
 ### NewMediaGalleryComponentForMessageRequest
 
-`func NewMediaGalleryComponentForMessageRequest(type_ int32, items []MediaGalleryItemRequest, ) *MediaGalleryComponentForMessageRequest`
+`func NewMediaGalleryComponentForMessageRequest(type_ MessageComponentTypes, items []MediaGalleryItemRequest, ) *MediaGalleryComponentForMessageRequest`
 
 NewMediaGalleryComponentForMessageRequest instantiates a new MediaGalleryComponentForMessageRequest object
 This constructor will assign default values to properties that have it defined,
@@ -28,23 +29,48 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *MediaGalleryComponentForMessageRequest) GetType() int32`
+`func (o *MediaGalleryComponentForMessageRequest) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *MediaGalleryComponentForMessageRequest) GetTypeOk() (*int32, bool)`
+`func (o *MediaGalleryComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *MediaGalleryComponentForMessageRequest) SetType(v int32)`
+`func (o *MediaGalleryComponentForMessageRequest) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *MediaGalleryComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *MediaGalleryComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *MediaGalleryComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *MediaGalleryComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetItems
 

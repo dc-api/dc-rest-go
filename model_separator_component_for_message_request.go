@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,9 +55,10 @@ var _ MappedNullable = &SeparatorComponentForMessageRequest{}
 
 // SeparatorComponentForMessageRequest struct for SeparatorComponentForMessageRequest
 type SeparatorComponentForMessageRequest struct {
-	Type int32 `json:"type"`
-	Spacing *int32 `json:"spacing,omitempty"`
-	Divider NullableBool `json:"divider,omitempty"`
+	Type MessageComponentTypes `json:"type"`
+	Id *int32 `json:"id,omitempty"`
+	Spacing *SeparatorComponentForMessageRequestSpacing `json:"spacing,omitempty"`
+	Divider *bool `json:"divider,omitempty"`
 }
 
 type _SeparatorComponentForMessageRequest SeparatorComponentForMessageRequest
@@ -66,7 +67,7 @@ type _SeparatorComponentForMessageRequest SeparatorComponentForMessageRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSeparatorComponentForMessageRequest(type_ int32) *SeparatorComponentForMessageRequest {
+func NewSeparatorComponentForMessageRequest(type_ MessageComponentTypes) *SeparatorComponentForMessageRequest {
 	this := SeparatorComponentForMessageRequest{}
 	this.Type = type_
 	return &this
@@ -81,9 +82,9 @@ func NewSeparatorComponentForMessageRequestWithDefaults() *SeparatorComponentFor
 }
 
 // GetType returns the Type field value
-func (o *SeparatorComponentForMessageRequest) GetType() int32 {
+func (o *SeparatorComponentForMessageRequest) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -92,7 +93,7 @@ func (o *SeparatorComponentForMessageRequest) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *SeparatorComponentForMessageRequest) GetTypeOk() (*int32, bool) {
+func (o *SeparatorComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -100,14 +101,47 @@ func (o *SeparatorComponentForMessageRequest) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *SeparatorComponentForMessageRequest) SetType(v int32) {
+func (o *SeparatorComponentForMessageRequest) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
 
-// GetSpacing returns the Spacing field value if set, zero value otherwise.
-func (o *SeparatorComponentForMessageRequest) GetSpacing() int32 {
-	if o == nil || IsNil(o.Spacing) {
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *SeparatorComponentForMessageRequest) GetId() int32 {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SeparatorComponentForMessageRequest) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *SeparatorComponentForMessageRequest) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *SeparatorComponentForMessageRequest) SetId(v int32) {
+	o.Id = &v
+}
+
+
+// GetSpacing returns the Spacing field value if set, zero value otherwise.
+func (o *SeparatorComponentForMessageRequest) GetSpacing() SeparatorComponentForMessageRequestSpacing {
+	if o == nil || IsNil(o.Spacing) {
+		var ret SeparatorComponentForMessageRequestSpacing
 		return ret
 	}
 	return *o.Spacing
@@ -115,7 +149,7 @@ func (o *SeparatorComponentForMessageRequest) GetSpacing() int32 {
 
 // GetSpacingOk returns a tuple with the Spacing field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SeparatorComponentForMessageRequest) GetSpacingOk() (*int32, bool) {
+func (o *SeparatorComponentForMessageRequest) GetSpacingOk() (*SeparatorComponentForMessageRequestSpacing, bool) {
 	if o == nil || IsNil(o.Spacing) {
 		return nil, false
 	}
@@ -131,54 +165,44 @@ func (o *SeparatorComponentForMessageRequest) HasSpacing() bool {
 	return false
 }
 
-// SetSpacing gets a reference to the given int32 and assigns it to the Spacing field.
-func (o *SeparatorComponentForMessageRequest) SetSpacing(v int32) {
+// SetSpacing gets a reference to the given SeparatorComponentForMessageRequestSpacing and assigns it to the Spacing field.
+func (o *SeparatorComponentForMessageRequest) SetSpacing(v SeparatorComponentForMessageRequestSpacing) {
 	o.Spacing = &v
 }
 
 
-// GetDivider returns the Divider field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDivider returns the Divider field value if set, zero value otherwise.
 func (o *SeparatorComponentForMessageRequest) GetDivider() bool {
-	if o == nil || IsNil(o.Divider.Get()) {
+	if o == nil || IsNil(o.Divider) {
 		var ret bool
 		return ret
 	}
-	return *o.Divider.Get()
+	return *o.Divider
 }
 
 // GetDividerOk returns a tuple with the Divider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SeparatorComponentForMessageRequest) GetDividerOk() (*bool, bool) {
-	if o == nil || IsNil(o.Divider.Get()) {
+	if o == nil || IsNil(o.Divider) {
 		return nil, false
 	}
-	return o.Divider.Get(), o.Divider.IsSet()
+	return o.Divider, true
 }
 
 // HasDivider returns a boolean if a field has been set.
 func (o *SeparatorComponentForMessageRequest) HasDivider() bool {
-	if o != nil && o.Divider.IsSet() {
+	if o != nil && !IsNil(o.Divider) {
 		return true
 	}
 
 	return false
 }
 
-// SetDivider gets a reference to the given NullableBool and assigns it to the Divider field.
+// SetDivider gets a reference to the given bool and assigns it to the Divider field.
 func (o *SeparatorComponentForMessageRequest) SetDivider(v bool) {
-	o.Divider.Set(&v)
+	o.Divider = &v
 }
 
-// SetDividerNil sets the value for Divider to be an explicit nil
-func (o *SeparatorComponentForMessageRequest) SetDividerNil() {
-	o.Divider.Set(nil)
-}
-
-// UnsetDivider ensures that no value is present for Divider, not even an explicit nil
-func (o *SeparatorComponentForMessageRequest) UnsetDivider() {
-	o.Divider.Unset()
-}
 
 func (o SeparatorComponentForMessageRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -191,11 +215,14 @@ func (o SeparatorComponentForMessageRequest) MarshalJSON() ([]byte, error) {
 func (o SeparatorComponentForMessageRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	if !IsNil(o.Spacing) {
 		toSerialize["spacing"] = o.Spacing
 	}
-	if o.Divider.IsSet() {
-		toSerialize["divider"] = o.Divider.Get()
+	if !IsNil(o.Divider) {
+		toSerialize["divider"] = o.Divider
 	}
 	return toSerialize, nil
 }
@@ -272,5 +299,4 @@ func (v *NullableSeparatorComponentForMessageRequest) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -4,17 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageType**](MessageType.md) |  | 
 **Content** | **string** |  | 
 **Mentions** | [**[]UserResponse**](UserResponse.md) |  | 
 **MentionRoles** | **[]string** |  | 
 **Attachments** | [**[]MessageAttachmentResponse**](MessageAttachmentResponse.md) |  | 
 **Embeds** | [**[]MessageEmbedResponse**](MessageEmbedResponse.md) |  | 
 **Timestamp** | **time.Time** |  | 
-**EditedTimestamp** | Pointer to **NullableTime** |  | [optional] 
+**EditedTimestamp** | Pointer to **time.Time** |  | [optional] 
 **Flags** | **int32** |  | 
 **Components** | [**[]BasicMessageResponseComponentsInner**](BasicMessageResponseComponentsInner.md) |  | 
-**Resolved** | Pointer to [**NullableResolvedObjectsResponse**](ResolvedObjectsResponse.md) |  | [optional] 
 **Stickers** | Pointer to [**[]GetSticker200Response**](GetSticker200Response.md) |  | [optional] 
 **StickerItems** | Pointer to [**[]MessageStickerItemResponse**](MessageStickerItemResponse.md) |  | [optional] 
 **Id** | **string** |  | 
@@ -23,28 +22,30 @@ Name | Type | Description | Notes
 **Pinned** | **bool** |  | 
 **MentionEveryone** | **bool** |  | 
 **Tts** | **bool** |  | 
-**Call** | Pointer to [**NullableMessageCallResponse**](MessageCallResponse.md) |  | [optional] 
+**Call** | Pointer to [**MessageCallResponse**](MessageCallResponse.md) |  | [optional] 
 **Activity** | Pointer to **map[string]interface{}** |  | [optional] 
-**Application** | Pointer to [**NullableBasicApplicationResponse**](BasicApplicationResponse.md) |  | [optional] 
+**Application** | Pointer to [**BasicApplicationResponse**](BasicApplicationResponse.md) |  | [optional] 
 **ApplicationId** | Pointer to **string** |  | [optional] 
-**Interaction** | Pointer to [**NullableMessageInteractionResponse**](MessageInteractionResponse.md) |  | [optional] 
-**Nonce** | Pointer to [**NullableBasicMessageResponseNonce**](BasicMessageResponseNonce.md) |  | [optional] 
+**Interaction** | Pointer to [**MessageInteractionResponse**](MessageInteractionResponse.md) |  | [optional] 
+**Nonce** | Pointer to [**BasicMessageResponseNonce**](BasicMessageResponseNonce.md) |  | [optional] 
 **WebhookId** | Pointer to **string** |  | [optional] 
-**MessageReference** | Pointer to [**NullableMessageReferenceResponse**](MessageReferenceResponse.md) |  | [optional] 
-**Thread** | Pointer to [**NullableThreadResponse**](ThreadResponse.md) |  | [optional] 
-**MentionChannels** | Pointer to [**[]MessageMentionChannelResponse**](MessageMentionChannelResponse.md) |  | [optional] 
-**RoleSubscriptionData** | Pointer to [**NullableMessageRoleSubscriptionDataResponse**](MessageRoleSubscriptionDataResponse.md) |  | [optional] 
-**PurchaseNotification** | Pointer to [**NullablePurchaseNotificationResponse**](PurchaseNotificationResponse.md) |  | [optional] 
-**Position** | Pointer to **NullableInt32** |  | [optional] 
-**Poll** | Pointer to [**NullablePollResponse**](PollResponse.md) |  | [optional] 
-**InteractionMetadata** | Pointer to [**NullableBasicMessageResponseInteractionMetadata**](BasicMessageResponseInteractionMetadata.md) |  | [optional] 
+**MessageReference** | Pointer to [**MessageReferenceResponse**](MessageReferenceResponse.md) |  | [optional] 
+**Thread** | Pointer to [**ThreadResponse**](ThreadResponse.md) |  | [optional] 
+**MentionChannels** | Pointer to [**[]BasicMessageResponseMentionChannelsInner**](BasicMessageResponseMentionChannelsInner.md) |  | [optional] 
+**RoleSubscriptionData** | Pointer to [**MessageRoleSubscriptionDataResponse**](MessageRoleSubscriptionDataResponse.md) |  | [optional] 
+**PurchaseNotification** | Pointer to [**PurchaseNotificationResponse**](PurchaseNotificationResponse.md) |  | [optional] 
+**Position** | Pointer to **int32** |  | [optional] 
+**Resolved** | Pointer to [**ResolvedObjectsResponse**](ResolvedObjectsResponse.md) |  | [optional] 
+**Poll** | Pointer to [**PollResponse**](PollResponse.md) |  | [optional] 
+**SharedClientTheme** | Pointer to [**BasicMessageResponseSharedClientTheme**](BasicMessageResponseSharedClientTheme.md) |  | [optional] 
+**InteractionMetadata** | Pointer to [**BasicMessageResponseInteractionMetadata**](BasicMessageResponseInteractionMetadata.md) |  | [optional] 
 **MessageSnapshots** | Pointer to [**[]MessageSnapshotResponse**](MessageSnapshotResponse.md) |  | [optional] 
 
 ## Methods
 
 ### NewBasicMessageResponse
 
-`func NewBasicMessageResponse(type_ int32, content string, mentions []UserResponse, mentionRoles []string, attachments []MessageAttachmentResponse, embeds []MessageEmbedResponse, timestamp time.Time, flags int32, components []BasicMessageResponseComponentsInner, id string, channelId string, author UserResponse, pinned bool, mentionEveryone bool, tts bool, ) *BasicMessageResponse`
+`func NewBasicMessageResponse(type_ MessageType, content string, mentions []UserResponse, mentionRoles []string, attachments []MessageAttachmentResponse, embeds []MessageEmbedResponse, timestamp time.Time, flags int32, components []BasicMessageResponseComponentsInner, id string, channelId string, author UserResponse, pinned bool, mentionEveryone bool, tts bool, ) *BasicMessageResponse`
 
 NewBasicMessageResponse instantiates a new BasicMessageResponse object
 This constructor will assign default values to properties that have it defined,
@@ -61,20 +62,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *BasicMessageResponse) GetType() int32`
+`func (o *BasicMessageResponse) GetType() MessageType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *BasicMessageResponse) GetTypeOk() (*int32, bool)`
+`func (o *BasicMessageResponse) GetTypeOk() (*MessageType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *BasicMessageResponse) SetType(v int32)`
+`func (o *BasicMessageResponse) SetType(v MessageType)`
 
 SetType sets Type field to given value.
 
@@ -224,16 +225,6 @@ SetEditedTimestamp sets EditedTimestamp field to given value.
 
 HasEditedTimestamp returns a boolean if a field has been set.
 
-### SetEditedTimestampNil
-
-`func (o *BasicMessageResponse) SetEditedTimestampNil(b bool)`
-
- SetEditedTimestampNil sets the value for EditedTimestamp to be an explicit nil
-
-### UnsetEditedTimestamp
-`func (o *BasicMessageResponse) UnsetEditedTimestamp()`
-
-UnsetEditedTimestamp ensures that no value is present for EditedTimestamp, not even an explicit nil
 ### GetFlags
 
 `func (o *BasicMessageResponse) GetFlags() int32`
@@ -274,41 +265,6 @@ and a boolean to check if the value has been set.
 SetComponents sets Components field to given value.
 
 
-### GetResolved
-
-`func (o *BasicMessageResponse) GetResolved() ResolvedObjectsResponse`
-
-GetResolved returns the Resolved field if non-nil, zero value otherwise.
-
-### GetResolvedOk
-
-`func (o *BasicMessageResponse) GetResolvedOk() (*ResolvedObjectsResponse, bool)`
-
-GetResolvedOk returns a tuple with the Resolved field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetResolved
-
-`func (o *BasicMessageResponse) SetResolved(v ResolvedObjectsResponse)`
-
-SetResolved sets Resolved field to given value.
-
-### HasResolved
-
-`func (o *BasicMessageResponse) HasResolved() bool`
-
-HasResolved returns a boolean if a field has been set.
-
-### SetResolvedNil
-
-`func (o *BasicMessageResponse) SetResolvedNil(b bool)`
-
- SetResolvedNil sets the value for Resolved to be an explicit nil
-
-### UnsetResolved
-`func (o *BasicMessageResponse) UnsetResolved()`
-
-UnsetResolved ensures that no value is present for Resolved, not even an explicit nil
 ### GetStickers
 
 `func (o *BasicMessageResponse) GetStickers() []GetSticker200Response`
@@ -334,16 +290,6 @@ SetStickers sets Stickers field to given value.
 
 HasStickers returns a boolean if a field has been set.
 
-### SetStickersNil
-
-`func (o *BasicMessageResponse) SetStickersNil(b bool)`
-
- SetStickersNil sets the value for Stickers to be an explicit nil
-
-### UnsetStickers
-`func (o *BasicMessageResponse) UnsetStickers()`
-
-UnsetStickers ensures that no value is present for Stickers, not even an explicit nil
 ### GetStickerItems
 
 `func (o *BasicMessageResponse) GetStickerItems() []MessageStickerItemResponse`
@@ -369,16 +315,6 @@ SetStickerItems sets StickerItems field to given value.
 
 HasStickerItems returns a boolean if a field has been set.
 
-### SetStickerItemsNil
-
-`func (o *BasicMessageResponse) SetStickerItemsNil(b bool)`
-
- SetStickerItemsNil sets the value for StickerItems to be an explicit nil
-
-### UnsetStickerItems
-`func (o *BasicMessageResponse) UnsetStickerItems()`
-
-UnsetStickerItems ensures that no value is present for StickerItems, not even an explicit nil
 ### GetId
 
 `func (o *BasicMessageResponse) GetId() string`
@@ -524,16 +460,6 @@ SetCall sets Call field to given value.
 
 HasCall returns a boolean if a field has been set.
 
-### SetCallNil
-
-`func (o *BasicMessageResponse) SetCallNil(b bool)`
-
- SetCallNil sets the value for Call to be an explicit nil
-
-### UnsetCall
-`func (o *BasicMessageResponse) UnsetCall()`
-
-UnsetCall ensures that no value is present for Call, not even an explicit nil
 ### GetActivity
 
 `func (o *BasicMessageResponse) GetActivity() map[string]interface{}`
@@ -584,16 +510,6 @@ SetApplication sets Application field to given value.
 
 HasApplication returns a boolean if a field has been set.
 
-### SetApplicationNil
-
-`func (o *BasicMessageResponse) SetApplicationNil(b bool)`
-
- SetApplicationNil sets the value for Application to be an explicit nil
-
-### UnsetApplication
-`func (o *BasicMessageResponse) UnsetApplication()`
-
-UnsetApplication ensures that no value is present for Application, not even an explicit nil
 ### GetApplicationId
 
 `func (o *BasicMessageResponse) GetApplicationId() string`
@@ -644,16 +560,6 @@ SetInteraction sets Interaction field to given value.
 
 HasInteraction returns a boolean if a field has been set.
 
-### SetInteractionNil
-
-`func (o *BasicMessageResponse) SetInteractionNil(b bool)`
-
- SetInteractionNil sets the value for Interaction to be an explicit nil
-
-### UnsetInteraction
-`func (o *BasicMessageResponse) UnsetInteraction()`
-
-UnsetInteraction ensures that no value is present for Interaction, not even an explicit nil
 ### GetNonce
 
 `func (o *BasicMessageResponse) GetNonce() BasicMessageResponseNonce`
@@ -679,16 +585,6 @@ SetNonce sets Nonce field to given value.
 
 HasNonce returns a boolean if a field has been set.
 
-### SetNonceNil
-
-`func (o *BasicMessageResponse) SetNonceNil(b bool)`
-
- SetNonceNil sets the value for Nonce to be an explicit nil
-
-### UnsetNonce
-`func (o *BasicMessageResponse) UnsetNonce()`
-
-UnsetNonce ensures that no value is present for Nonce, not even an explicit nil
 ### GetWebhookId
 
 `func (o *BasicMessageResponse) GetWebhookId() string`
@@ -739,16 +635,6 @@ SetMessageReference sets MessageReference field to given value.
 
 HasMessageReference returns a boolean if a field has been set.
 
-### SetMessageReferenceNil
-
-`func (o *BasicMessageResponse) SetMessageReferenceNil(b bool)`
-
- SetMessageReferenceNil sets the value for MessageReference to be an explicit nil
-
-### UnsetMessageReference
-`func (o *BasicMessageResponse) UnsetMessageReference()`
-
-UnsetMessageReference ensures that no value is present for MessageReference, not even an explicit nil
 ### GetThread
 
 `func (o *BasicMessageResponse) GetThread() ThreadResponse`
@@ -774,32 +660,22 @@ SetThread sets Thread field to given value.
 
 HasThread returns a boolean if a field has been set.
 
-### SetThreadNil
-
-`func (o *BasicMessageResponse) SetThreadNil(b bool)`
-
- SetThreadNil sets the value for Thread to be an explicit nil
-
-### UnsetThread
-`func (o *BasicMessageResponse) UnsetThread()`
-
-UnsetThread ensures that no value is present for Thread, not even an explicit nil
 ### GetMentionChannels
 
-`func (o *BasicMessageResponse) GetMentionChannels() []*MessageMentionChannelResponse`
+`func (o *BasicMessageResponse) GetMentionChannels() []BasicMessageResponseMentionChannelsInner`
 
 GetMentionChannels returns the MentionChannels field if non-nil, zero value otherwise.
 
 ### GetMentionChannelsOk
 
-`func (o *BasicMessageResponse) GetMentionChannelsOk() (*[]*MessageMentionChannelResponse, bool)`
+`func (o *BasicMessageResponse) GetMentionChannelsOk() (*[]BasicMessageResponseMentionChannelsInner, bool)`
 
 GetMentionChannelsOk returns a tuple with the MentionChannels field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMentionChannels
 
-`func (o *BasicMessageResponse) SetMentionChannels(v []*MessageMentionChannelResponse)`
+`func (o *BasicMessageResponse) SetMentionChannels(v []BasicMessageResponseMentionChannelsInner)`
 
 SetMentionChannels sets MentionChannels field to given value.
 
@@ -809,16 +685,6 @@ SetMentionChannels sets MentionChannels field to given value.
 
 HasMentionChannels returns a boolean if a field has been set.
 
-### SetMentionChannelsNil
-
-`func (o *BasicMessageResponse) SetMentionChannelsNil(b bool)`
-
- SetMentionChannelsNil sets the value for MentionChannels to be an explicit nil
-
-### UnsetMentionChannels
-`func (o *BasicMessageResponse) UnsetMentionChannels()`
-
-UnsetMentionChannels ensures that no value is present for MentionChannels, not even an explicit nil
 ### GetRoleSubscriptionData
 
 `func (o *BasicMessageResponse) GetRoleSubscriptionData() MessageRoleSubscriptionDataResponse`
@@ -844,16 +710,6 @@ SetRoleSubscriptionData sets RoleSubscriptionData field to given value.
 
 HasRoleSubscriptionData returns a boolean if a field has been set.
 
-### SetRoleSubscriptionDataNil
-
-`func (o *BasicMessageResponse) SetRoleSubscriptionDataNil(b bool)`
-
- SetRoleSubscriptionDataNil sets the value for RoleSubscriptionData to be an explicit nil
-
-### UnsetRoleSubscriptionData
-`func (o *BasicMessageResponse) UnsetRoleSubscriptionData()`
-
-UnsetRoleSubscriptionData ensures that no value is present for RoleSubscriptionData, not even an explicit nil
 ### GetPurchaseNotification
 
 `func (o *BasicMessageResponse) GetPurchaseNotification() PurchaseNotificationResponse`
@@ -879,16 +735,6 @@ SetPurchaseNotification sets PurchaseNotification field to given value.
 
 HasPurchaseNotification returns a boolean if a field has been set.
 
-### SetPurchaseNotificationNil
-
-`func (o *BasicMessageResponse) SetPurchaseNotificationNil(b bool)`
-
- SetPurchaseNotificationNil sets the value for PurchaseNotification to be an explicit nil
-
-### UnsetPurchaseNotification
-`func (o *BasicMessageResponse) UnsetPurchaseNotification()`
-
-UnsetPurchaseNotification ensures that no value is present for PurchaseNotification, not even an explicit nil
 ### GetPosition
 
 `func (o *BasicMessageResponse) GetPosition() int32`
@@ -914,16 +760,31 @@ SetPosition sets Position field to given value.
 
 HasPosition returns a boolean if a field has been set.
 
-### SetPositionNil
+### GetResolved
 
-`func (o *BasicMessageResponse) SetPositionNil(b bool)`
+`func (o *BasicMessageResponse) GetResolved() ResolvedObjectsResponse`
 
- SetPositionNil sets the value for Position to be an explicit nil
+GetResolved returns the Resolved field if non-nil, zero value otherwise.
 
-### UnsetPosition
-`func (o *BasicMessageResponse) UnsetPosition()`
+### GetResolvedOk
 
-UnsetPosition ensures that no value is present for Position, not even an explicit nil
+`func (o *BasicMessageResponse) GetResolvedOk() (*ResolvedObjectsResponse, bool)`
+
+GetResolvedOk returns a tuple with the Resolved field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResolved
+
+`func (o *BasicMessageResponse) SetResolved(v ResolvedObjectsResponse)`
+
+SetResolved sets Resolved field to given value.
+
+### HasResolved
+
+`func (o *BasicMessageResponse) HasResolved() bool`
+
+HasResolved returns a boolean if a field has been set.
+
 ### GetPoll
 
 `func (o *BasicMessageResponse) GetPoll() PollResponse`
@@ -949,16 +810,31 @@ SetPoll sets Poll field to given value.
 
 HasPoll returns a boolean if a field has been set.
 
-### SetPollNil
+### GetSharedClientTheme
 
-`func (o *BasicMessageResponse) SetPollNil(b bool)`
+`func (o *BasicMessageResponse) GetSharedClientTheme() BasicMessageResponseSharedClientTheme`
 
- SetPollNil sets the value for Poll to be an explicit nil
+GetSharedClientTheme returns the SharedClientTheme field if non-nil, zero value otherwise.
 
-### UnsetPoll
-`func (o *BasicMessageResponse) UnsetPoll()`
+### GetSharedClientThemeOk
 
-UnsetPoll ensures that no value is present for Poll, not even an explicit nil
+`func (o *BasicMessageResponse) GetSharedClientThemeOk() (*BasicMessageResponseSharedClientTheme, bool)`
+
+GetSharedClientThemeOk returns a tuple with the SharedClientTheme field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSharedClientTheme
+
+`func (o *BasicMessageResponse) SetSharedClientTheme(v BasicMessageResponseSharedClientTheme)`
+
+SetSharedClientTheme sets SharedClientTheme field to given value.
+
+### HasSharedClientTheme
+
+`func (o *BasicMessageResponse) HasSharedClientTheme() bool`
+
+HasSharedClientTheme returns a boolean if a field has been set.
+
 ### GetInteractionMetadata
 
 `func (o *BasicMessageResponse) GetInteractionMetadata() BasicMessageResponseInteractionMetadata`
@@ -984,16 +860,6 @@ SetInteractionMetadata sets InteractionMetadata field to given value.
 
 HasInteractionMetadata returns a boolean if a field has been set.
 
-### SetInteractionMetadataNil
-
-`func (o *BasicMessageResponse) SetInteractionMetadataNil(b bool)`
-
- SetInteractionMetadataNil sets the value for InteractionMetadata to be an explicit nil
-
-### UnsetInteractionMetadata
-`func (o *BasicMessageResponse) UnsetInteractionMetadata()`
-
-UnsetInteractionMetadata ensures that no value is present for InteractionMetadata, not even an explicit nil
 ### GetMessageSnapshots
 
 `func (o *BasicMessageResponse) GetMessageSnapshots() []MessageSnapshotResponse`
@@ -1019,16 +885,6 @@ SetMessageSnapshots sets MessageSnapshots field to given value.
 
 HasMessageSnapshots returns a boolean if a field has been set.
 
-### SetMessageSnapshotsNil
-
-`func (o *BasicMessageResponse) SetMessageSnapshotsNil(b bool)`
-
- SetMessageSnapshotsNil sets the value for MessageSnapshots to be an explicit nil
-
-### UnsetMessageSnapshots
-`func (o *BasicMessageResponse) UnsetMessageSnapshots()`
-
-UnsetMessageSnapshots ensures that no value is present for MessageSnapshots, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

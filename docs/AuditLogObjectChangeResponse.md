@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | Pointer to **NullableString** |  | [optional] 
+**Key** | Pointer to **string** |  | [optional] 
 **NewValue** | Pointer to **interface{}** |  | [optional] 
 **OldValue** | Pointer to **interface{}** |  | [optional] 
 
@@ -52,16 +52,6 @@ SetKey sets Key field to given value.
 
 HasKey returns a boolean if a field has been set.
 
-### SetKeyNil
-
-`func (o *AuditLogObjectChangeResponse) SetKeyNil(b bool)`
-
- SetKeyNil sets the value for Key to be an explicit nil
-
-### UnsetKey
-`func (o *AuditLogObjectChangeResponse) UnsetKey()`
-
-UnsetKey ensures that no value is present for Key, not even an explicit nil
 ### GetNewValue
 
 `func (o *AuditLogObjectChangeResponse) GetNewValue() interface{}`

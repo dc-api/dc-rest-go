@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Icon** | Pointer to **NullableString** |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
 **Description** | **string** |  | 
-**Type** | Pointer to **NullableInt32** |  | [optional] 
-**CoverImage** | Pointer to **NullableString** |  | [optional] 
+**Type** | Pointer to [**ApplicationFormPartialType**](ApplicationFormPartialType.md) |  | [optional] 
+**CoverImage** | Pointer to **string** |  | [optional] 
 **PrimarySkuId** | Pointer to **string** |  | [optional] 
-**Bot** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**Bot** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -97,16 +97,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *IntegrationApplicationResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *IntegrationApplicationResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetDescription
 
 `func (o *IntegrationApplicationResponse) GetDescription() string`
@@ -129,20 +119,20 @@ SetDescription sets Description field to given value.
 
 ### GetType
 
-`func (o *IntegrationApplicationResponse) GetType() int32`
+`func (o *IntegrationApplicationResponse) GetType() ApplicationFormPartialType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *IntegrationApplicationResponse) GetTypeOk() (*int32, bool)`
+`func (o *IntegrationApplicationResponse) GetTypeOk() (*ApplicationFormPartialType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *IntegrationApplicationResponse) SetType(v int32)`
+`func (o *IntegrationApplicationResponse) SetType(v ApplicationFormPartialType)`
 
 SetType sets Type field to given value.
 
@@ -152,16 +142,6 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
-### SetTypeNil
-
-`func (o *IntegrationApplicationResponse) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *IntegrationApplicationResponse) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetCoverImage
 
 `func (o *IntegrationApplicationResponse) GetCoverImage() string`
@@ -187,16 +167,6 @@ SetCoverImage sets CoverImage field to given value.
 
 HasCoverImage returns a boolean if a field has been set.
 
-### SetCoverImageNil
-
-`func (o *IntegrationApplicationResponse) SetCoverImageNil(b bool)`
-
- SetCoverImageNil sets the value for CoverImage to be an explicit nil
-
-### UnsetCoverImage
-`func (o *IntegrationApplicationResponse) UnsetCoverImage()`
-
-UnsetCoverImage ensures that no value is present for CoverImage, not even an explicit nil
 ### GetPrimarySkuId
 
 `func (o *IntegrationApplicationResponse) GetPrimarySkuId() string`
@@ -247,16 +217,6 @@ SetBot sets Bot field to given value.
 
 HasBot returns a boolean if a field has been set.
 
-### SetBotNil
-
-`func (o *IntegrationApplicationResponse) SetBotNil(b bool)`
-
- SetBotNil sets the value for Bot to be an explicit nil
-
-### UnsetBot
-`func (o *IntegrationApplicationResponse) UnsetBot()`
-
-UnsetBot ensures that no value is present for Bot, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ChannelId** | Pointer to **string** |  | [optional] 
+**ChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Deaf** | **bool** |  | 
-**GuildId** | Pointer to **string** |  | [optional] 
-**Member** | Pointer to [**NullableGuildMemberResponse**](GuildMemberResponse.md) |  | [optional] 
+**GuildId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**Member** | Pointer to [**GuildMemberResponse**](GuildMemberResponse.md) |  | [optional] 
 **Mute** | **bool** |  | 
-**RequestToSpeakTimestamp** | Pointer to **NullableTime** |  | [optional] 
+**RequestToSpeakTimestamp** | Pointer to **time.Time** |  | [optional] 
 **Suppress** | **bool** |  | 
-**SelfStream** | Pointer to **NullableBool** |  | [optional] 
+**SelfStream** | Pointer to **bool** |  | [optional] 
 **SelfDeaf** | **bool** |  | 
 **SelfMute** | **bool** |  | 
 **SelfVideo** | **bool** |  | 
@@ -39,20 +39,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetChannelId
 
-`func (o *VoiceStateResponse) GetChannelId() string`
+`func (o *VoiceStateResponse) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
 
 ### GetChannelIdOk
 
-`func (o *VoiceStateResponse) GetChannelIdOk() (*string, bool)`
+`func (o *VoiceStateResponse) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelId
 
-`func (o *VoiceStateResponse) SetChannelId(v string)`
+`func (o *VoiceStateResponse) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetChannelId sets ChannelId field to given value.
 
@@ -84,20 +84,20 @@ SetDeaf sets Deaf field to given value.
 
 ### GetGuildId
 
-`func (o *VoiceStateResponse) GetGuildId() string`
+`func (o *VoiceStateResponse) GetGuildId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetGuildId returns the GuildId field if non-nil, zero value otherwise.
 
 ### GetGuildIdOk
 
-`func (o *VoiceStateResponse) GetGuildIdOk() (*string, bool)`
+`func (o *VoiceStateResponse) GetGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetGuildIdOk returns a tuple with the GuildId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGuildId
 
-`func (o *VoiceStateResponse) SetGuildId(v string)`
+`func (o *VoiceStateResponse) SetGuildId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetGuildId sets GuildId field to given value.
 
@@ -132,16 +132,6 @@ SetMember sets Member field to given value.
 
 HasMember returns a boolean if a field has been set.
 
-### SetMemberNil
-
-`func (o *VoiceStateResponse) SetMemberNil(b bool)`
-
- SetMemberNil sets the value for Member to be an explicit nil
-
-### UnsetMember
-`func (o *VoiceStateResponse) UnsetMember()`
-
-UnsetMember ensures that no value is present for Member, not even an explicit nil
 ### GetMute
 
 `func (o *VoiceStateResponse) GetMute() bool`
@@ -187,16 +177,6 @@ SetRequestToSpeakTimestamp sets RequestToSpeakTimestamp field to given value.
 
 HasRequestToSpeakTimestamp returns a boolean if a field has been set.
 
-### SetRequestToSpeakTimestampNil
-
-`func (o *VoiceStateResponse) SetRequestToSpeakTimestampNil(b bool)`
-
- SetRequestToSpeakTimestampNil sets the value for RequestToSpeakTimestamp to be an explicit nil
-
-### UnsetRequestToSpeakTimestamp
-`func (o *VoiceStateResponse) UnsetRequestToSpeakTimestamp()`
-
-UnsetRequestToSpeakTimestamp ensures that no value is present for RequestToSpeakTimestamp, not even an explicit nil
 ### GetSuppress
 
 `func (o *VoiceStateResponse) GetSuppress() bool`
@@ -242,16 +222,6 @@ SetSelfStream sets SelfStream field to given value.
 
 HasSelfStream returns a boolean if a field has been set.
 
-### SetSelfStreamNil
-
-`func (o *VoiceStateResponse) SetSelfStreamNil(b bool)`
-
- SetSelfStreamNil sets the value for SelfStream to be an explicit nil
-
-### UnsetSelfStream
-`func (o *VoiceStateResponse) UnsetSelfStream()`
-
-UnsetSelfStream ensures that no value is present for SelfStream, not even an explicit nil
 ### GetSelfDeaf
 
 `func (o *VoiceStateResponse) GetSelfDeaf() bool`

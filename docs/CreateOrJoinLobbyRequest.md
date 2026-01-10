@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdleTimeoutSeconds** | Pointer to **NullableInt32** |  | [optional] 
+**IdleTimeoutSeconds** | Pointer to **int32** |  | [optional] 
 **LobbyMetadata** | Pointer to **map[string]string** |  | [optional] 
 **MemberMetadata** | Pointer to **map[string]string** |  | [optional] 
 **Secret** | **string** |  | 
+**Flags** | Pointer to [**CreateOrJoinLobbyRequestFlags**](CreateOrJoinLobbyRequestFlags.md) |  | [optional] 
 
 ## Methods
 
@@ -53,16 +54,6 @@ SetIdleTimeoutSeconds sets IdleTimeoutSeconds field to given value.
 
 HasIdleTimeoutSeconds returns a boolean if a field has been set.
 
-### SetIdleTimeoutSecondsNil
-
-`func (o *CreateOrJoinLobbyRequest) SetIdleTimeoutSecondsNil(b bool)`
-
- SetIdleTimeoutSecondsNil sets the value for IdleTimeoutSeconds to be an explicit nil
-
-### UnsetIdleTimeoutSeconds
-`func (o *CreateOrJoinLobbyRequest) UnsetIdleTimeoutSeconds()`
-
-UnsetIdleTimeoutSeconds ensures that no value is present for IdleTimeoutSeconds, not even an explicit nil
 ### GetLobbyMetadata
 
 `func (o *CreateOrJoinLobbyRequest) GetLobbyMetadata() map[string]string`
@@ -132,6 +123,31 @@ and a boolean to check if the value has been set.
 
 SetSecret sets Secret field to given value.
 
+
+### GetFlags
+
+`func (o *CreateOrJoinLobbyRequest) GetFlags() CreateOrJoinLobbyRequestFlags`
+
+GetFlags returns the Flags field if non-nil, zero value otherwise.
+
+### GetFlagsOk
+
+`func (o *CreateOrJoinLobbyRequest) GetFlagsOk() (*CreateOrJoinLobbyRequestFlags, bool)`
+
+GetFlagsOk returns a tuple with the Flags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFlags
+
+`func (o *CreateOrJoinLobbyRequest) SetFlags(v CreateOrJoinLobbyRequestFlags)`
+
+SetFlags sets Flags field to given value.
+
+### HasFlags
+
+`func (o *CreateOrJoinLobbyRequest) HasFlags() bool`
+
+HasFlags returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

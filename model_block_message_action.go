@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,8 +55,8 @@ var _ MappedNullable = &BlockMessageAction{}
 
 // BlockMessageAction struct for BlockMessageAction
 type BlockMessageAction struct {
-	Type int32 `json:"type"`
-	Metadata NullableBlockMessageActionMetadata `json:"metadata,omitempty"`
+	Type AutomodActionType `json:"type"`
+	Metadata *BlockMessageActionMetadata `json:"metadata,omitempty"`
 }
 
 type _BlockMessageAction BlockMessageAction
@@ -65,7 +65,7 @@ type _BlockMessageAction BlockMessageAction
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBlockMessageAction(type_ int32) *BlockMessageAction {
+func NewBlockMessageAction(type_ AutomodActionType) *BlockMessageAction {
 	this := BlockMessageAction{}
 	this.Type = type_
 	return &this
@@ -80,9 +80,9 @@ func NewBlockMessageActionWithDefaults() *BlockMessageAction {
 }
 
 // GetType returns the Type field value
-func (o *BlockMessageAction) GetType() int32 {
+func (o *BlockMessageAction) GetType() AutomodActionType {
 	if o == nil {
-		var ret int32
+		var ret AutomodActionType
 		return ret
 	}
 
@@ -91,7 +91,7 @@ func (o *BlockMessageAction) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *BlockMessageAction) GetTypeOk() (*int32, bool) {
+func (o *BlockMessageAction) GetTypeOk() (*AutomodActionType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -99,52 +99,42 @@ func (o *BlockMessageAction) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *BlockMessageAction) SetType(v int32) {
+func (o *BlockMessageAction) SetType(v AutomodActionType) {
 	o.Type = v
 }
 
-// GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMetadata returns the Metadata field value if set, zero value otherwise.
 func (o *BlockMessageAction) GetMetadata() BlockMessageActionMetadata {
-	if o == nil || IsNil(o.Metadata.Get()) {
+	if o == nil || IsNil(o.Metadata) {
 		var ret BlockMessageActionMetadata
 		return ret
 	}
-	return *o.Metadata.Get()
+	return *o.Metadata
 }
 
 // GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BlockMessageAction) GetMetadataOk() (*BlockMessageActionMetadata, bool) {
-	if o == nil || IsNil(o.Metadata.Get()) {
+	if o == nil || IsNil(o.Metadata) {
 		return nil, false
 	}
-	return o.Metadata.Get(), o.Metadata.IsSet()
+	return o.Metadata, true
 }
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *BlockMessageAction) HasMetadata() bool {
-	if o != nil && o.Metadata.IsSet() {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
 	return false
 }
 
-// SetMetadata gets a reference to the given NullableBlockMessageActionMetadata and assigns it to the Metadata field.
+// SetMetadata gets a reference to the given BlockMessageActionMetadata and assigns it to the Metadata field.
 func (o *BlockMessageAction) SetMetadata(v BlockMessageActionMetadata) {
-	o.Metadata.Set(&v)
+	o.Metadata = &v
 }
 
-// SetMetadataNil sets the value for Metadata to be an explicit nil
-func (o *BlockMessageAction) SetMetadataNil() {
-	o.Metadata.Set(nil)
-}
-
-// UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
-func (o *BlockMessageAction) UnsetMetadata() {
-	o.Metadata.Unset()
-}
 
 func (o BlockMessageAction) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -157,8 +147,8 @@ func (o BlockMessageAction) MarshalJSON() ([]byte, error) {
 func (o BlockMessageAction) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
-	if o.Metadata.IsSet() {
-		toSerialize["metadata"] = o.Metadata.Get()
+	if !IsNil(o.Metadata) {
+		toSerialize["metadata"] = o.Metadata
 	}
 	return toSerialize, nil
 }
@@ -235,5 +225,4 @@ func (v *NullableBlockMessageAction) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

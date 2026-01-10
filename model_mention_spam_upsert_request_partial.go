@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -54,13 +54,13 @@ var _ MappedNullable = &MentionSpamUpsertRequestPartial{}
 // MentionSpamUpsertRequestPartial struct for MentionSpamUpsertRequestPartial
 type MentionSpamUpsertRequestPartial struct {
 	Name *string `json:"name,omitempty"`
-	EventType *int32 `json:"event_type,omitempty"`
+	EventType *AutomodEventType `json:"event_type,omitempty"`
 	Actions []DefaultKeywordListUpsertRequestActionsInner `json:"actions,omitempty"`
-	Enabled NullableBool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
 	ExemptRoles []string `json:"exempt_roles,omitempty"`
 	ExemptChannels []string `json:"exempt_channels,omitempty"`
-	TriggerType *int32 `json:"trigger_type,omitempty"`
-	TriggerMetadata NullableMentionSpamTriggerMetadata `json:"trigger_metadata,omitempty"`
+	TriggerType *AutomodTriggerType `json:"trigger_type,omitempty"`
+	TriggerMetadata *MentionSpamUpsertRequestTriggerMetadata `json:"trigger_metadata,omitempty"`
 }
 
 // NewMentionSpamUpsertRequestPartial instantiates a new MentionSpamUpsertRequestPartial object
@@ -114,9 +114,9 @@ func (o *MentionSpamUpsertRequestPartial) SetName(v string) {
 
 
 // GetEventType returns the EventType field value if set, zero value otherwise.
-func (o *MentionSpamUpsertRequestPartial) GetEventType() int32 {
+func (o *MentionSpamUpsertRequestPartial) GetEventType() AutomodEventType {
 	if o == nil || IsNil(o.EventType) {
-		var ret int32
+		var ret AutomodEventType
 		return ret
 	}
 	return *o.EventType
@@ -124,7 +124,7 @@ func (o *MentionSpamUpsertRequestPartial) GetEventType() int32 {
 
 // GetEventTypeOk returns a tuple with the EventType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MentionSpamUpsertRequestPartial) GetEventTypeOk() (*int32, bool) {
+func (o *MentionSpamUpsertRequestPartial) GetEventTypeOk() (*AutomodEventType, bool) {
 	if o == nil || IsNil(o.EventType) {
 		return nil, false
 	}
@@ -140,15 +140,15 @@ func (o *MentionSpamUpsertRequestPartial) HasEventType() bool {
 	return false
 }
 
-// SetEventType gets a reference to the given int32 and assigns it to the EventType field.
-func (o *MentionSpamUpsertRequestPartial) SetEventType(v int32) {
+// SetEventType gets a reference to the given AutomodEventType and assigns it to the EventType field.
+func (o *MentionSpamUpsertRequestPartial) SetEventType(v AutomodEventType) {
 	o.EventType = &v
 }
 
 
-// GetActions returns the Actions field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetActions returns the Actions field value if set, zero value otherwise.
 func (o *MentionSpamUpsertRequestPartial) GetActions() []DefaultKeywordListUpsertRequestActionsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Actions) {
 		var ret []DefaultKeywordListUpsertRequestActionsInner
 		return ret
 	}
@@ -157,9 +157,8 @@ func (o *MentionSpamUpsertRequestPartial) GetActions() []DefaultKeywordListUpser
 
 // GetActionsOk returns a tuple with the Actions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MentionSpamUpsertRequestPartial) GetActionsOk() ([]DefaultKeywordListUpsertRequestActionsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Actions) {
 		return nil, false
 	}
 	return o.Actions, true
@@ -180,52 +179,42 @@ func (o *MentionSpamUpsertRequestPartial) SetActions(v []DefaultKeywordListUpser
 }
 
 
-// GetEnabled returns the Enabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *MentionSpamUpsertRequestPartial) GetEnabled() bool {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil || IsNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
-	return *o.Enabled.Get()
+	return *o.Enabled
 }
 
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MentionSpamUpsertRequestPartial) GetEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil || IsNil(o.Enabled) {
 		return nil, false
 	}
-	return o.Enabled.Get(), o.Enabled.IsSet()
+	return o.Enabled, true
 }
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *MentionSpamUpsertRequestPartial) HasEnabled() bool {
-	if o != nil && o.Enabled.IsSet() {
+	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
 
 	return false
 }
 
-// SetEnabled gets a reference to the given NullableBool and assigns it to the Enabled field.
+// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
 func (o *MentionSpamUpsertRequestPartial) SetEnabled(v bool) {
-	o.Enabled.Set(&v)
+	o.Enabled = &v
 }
 
-// SetEnabledNil sets the value for Enabled to be an explicit nil
-func (o *MentionSpamUpsertRequestPartial) SetEnabledNil() {
-	o.Enabled.Set(nil)
-}
 
-// UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
-func (o *MentionSpamUpsertRequestPartial) UnsetEnabled() {
-	o.Enabled.Unset()
-}
-
-// GetExemptRoles returns the ExemptRoles field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExemptRoles returns the ExemptRoles field value if set, zero value otherwise.
 func (o *MentionSpamUpsertRequestPartial) GetExemptRoles() []string {
-	if o == nil {
+	if o == nil || IsNil(o.ExemptRoles) {
 		var ret []string
 		return ret
 	}
@@ -234,9 +223,8 @@ func (o *MentionSpamUpsertRequestPartial) GetExemptRoles() []string {
 
 // GetExemptRolesOk returns a tuple with the ExemptRoles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MentionSpamUpsertRequestPartial) GetExemptRolesOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ExemptRoles) {
 		return nil, false
 	}
 	return o.ExemptRoles, true
@@ -257,9 +245,9 @@ func (o *MentionSpamUpsertRequestPartial) SetExemptRoles(v []string) {
 }
 
 
-// GetExemptChannels returns the ExemptChannels field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExemptChannels returns the ExemptChannels field value if set, zero value otherwise.
 func (o *MentionSpamUpsertRequestPartial) GetExemptChannels() []string {
-	if o == nil {
+	if o == nil || IsNil(o.ExemptChannels) {
 		var ret []string
 		return ret
 	}
@@ -268,9 +256,8 @@ func (o *MentionSpamUpsertRequestPartial) GetExemptChannels() []string {
 
 // GetExemptChannelsOk returns a tuple with the ExemptChannels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MentionSpamUpsertRequestPartial) GetExemptChannelsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ExemptChannels) {
 		return nil, false
 	}
 	return o.ExemptChannels, true
@@ -292,9 +279,9 @@ func (o *MentionSpamUpsertRequestPartial) SetExemptChannels(v []string) {
 
 
 // GetTriggerType returns the TriggerType field value if set, zero value otherwise.
-func (o *MentionSpamUpsertRequestPartial) GetTriggerType() int32 {
+func (o *MentionSpamUpsertRequestPartial) GetTriggerType() AutomodTriggerType {
 	if o == nil || IsNil(o.TriggerType) {
-		var ret int32
+		var ret AutomodTriggerType
 		return ret
 	}
 	return *o.TriggerType
@@ -302,7 +289,7 @@ func (o *MentionSpamUpsertRequestPartial) GetTriggerType() int32 {
 
 // GetTriggerTypeOk returns a tuple with the TriggerType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MentionSpamUpsertRequestPartial) GetTriggerTypeOk() (*int32, bool) {
+func (o *MentionSpamUpsertRequestPartial) GetTriggerTypeOk() (*AutomodTriggerType, bool) {
 	if o == nil || IsNil(o.TriggerType) {
 		return nil, false
 	}
@@ -318,54 +305,44 @@ func (o *MentionSpamUpsertRequestPartial) HasTriggerType() bool {
 	return false
 }
 
-// SetTriggerType gets a reference to the given int32 and assigns it to the TriggerType field.
-func (o *MentionSpamUpsertRequestPartial) SetTriggerType(v int32) {
+// SetTriggerType gets a reference to the given AutomodTriggerType and assigns it to the TriggerType field.
+func (o *MentionSpamUpsertRequestPartial) SetTriggerType(v AutomodTriggerType) {
 	o.TriggerType = &v
 }
 
 
-// GetTriggerMetadata returns the TriggerMetadata field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MentionSpamUpsertRequestPartial) GetTriggerMetadata() MentionSpamTriggerMetadata {
-	if o == nil || IsNil(o.TriggerMetadata.Get()) {
-		var ret MentionSpamTriggerMetadata
+// GetTriggerMetadata returns the TriggerMetadata field value if set, zero value otherwise.
+func (o *MentionSpamUpsertRequestPartial) GetTriggerMetadata() MentionSpamUpsertRequestTriggerMetadata {
+	if o == nil || IsNil(o.TriggerMetadata) {
+		var ret MentionSpamUpsertRequestTriggerMetadata
 		return ret
 	}
-	return *o.TriggerMetadata.Get()
+	return *o.TriggerMetadata
 }
 
 // GetTriggerMetadataOk returns a tuple with the TriggerMetadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MentionSpamUpsertRequestPartial) GetTriggerMetadataOk() (*MentionSpamTriggerMetadata, bool) {
-	if o == nil || IsNil(o.TriggerMetadata.Get()) {
+func (o *MentionSpamUpsertRequestPartial) GetTriggerMetadataOk() (*MentionSpamUpsertRequestTriggerMetadata, bool) {
+	if o == nil || IsNil(o.TriggerMetadata) {
 		return nil, false
 	}
-	return o.TriggerMetadata.Get(), o.TriggerMetadata.IsSet()
+	return o.TriggerMetadata, true
 }
 
 // HasTriggerMetadata returns a boolean if a field has been set.
 func (o *MentionSpamUpsertRequestPartial) HasTriggerMetadata() bool {
-	if o != nil && o.TriggerMetadata.IsSet() {
+	if o != nil && !IsNil(o.TriggerMetadata) {
 		return true
 	}
 
 	return false
 }
 
-// SetTriggerMetadata gets a reference to the given NullableMentionSpamTriggerMetadata and assigns it to the TriggerMetadata field.
-func (o *MentionSpamUpsertRequestPartial) SetTriggerMetadata(v MentionSpamTriggerMetadata) {
-	o.TriggerMetadata.Set(&v)
+// SetTriggerMetadata gets a reference to the given MentionSpamUpsertRequestTriggerMetadata and assigns it to the TriggerMetadata field.
+func (o *MentionSpamUpsertRequestPartial) SetTriggerMetadata(v MentionSpamUpsertRequestTriggerMetadata) {
+	o.TriggerMetadata = &v
 }
 
-// SetTriggerMetadataNil sets the value for TriggerMetadata to be an explicit nil
-func (o *MentionSpamUpsertRequestPartial) SetTriggerMetadataNil() {
-	o.TriggerMetadata.Set(nil)
-}
-
-// UnsetTriggerMetadata ensures that no value is present for TriggerMetadata, not even an explicit nil
-func (o *MentionSpamUpsertRequestPartial) UnsetTriggerMetadata() {
-	o.TriggerMetadata.Unset()
-}
 
 func (o MentionSpamUpsertRequestPartial) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -383,23 +360,23 @@ func (o MentionSpamUpsertRequestPartial) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.EventType) {
 		toSerialize["event_type"] = o.EventType
 	}
-	if o.Actions != nil {
+	if !IsNil(o.Actions) {
 		toSerialize["actions"] = o.Actions
 	}
-	if o.Enabled.IsSet() {
-		toSerialize["enabled"] = o.Enabled.Get()
+	if !IsNil(o.Enabled) {
+		toSerialize["enabled"] = o.Enabled
 	}
-	if o.ExemptRoles != nil {
+	if !IsNil(o.ExemptRoles) {
 		toSerialize["exempt_roles"] = o.ExemptRoles
 	}
-	if o.ExemptChannels != nil {
+	if !IsNil(o.ExemptChannels) {
 		toSerialize["exempt_channels"] = o.ExemptChannels
 	}
 	if !IsNil(o.TriggerType) {
 		toSerialize["trigger_type"] = o.TriggerType
 	}
-	if o.TriggerMetadata.IsSet() {
-		toSerialize["trigger_metadata"] = o.TriggerMetadata.Get()
+	if !IsNil(o.TriggerMetadata) {
+		toSerialize["trigger_metadata"] = o.TriggerMetadata
 	}
 	return toSerialize, nil
 }
@@ -439,5 +416,4 @@ func (v *NullableMentionSpamUpsertRequestPartial) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

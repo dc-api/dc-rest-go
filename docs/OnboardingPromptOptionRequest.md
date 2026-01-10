@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Title** | **string** |  | 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**EmojiId** | Pointer to **string** |  | [optional] 
-**EmojiName** | Pointer to **NullableString** |  | [optional] 
-**EmojiAnimated** | Pointer to **NullableBool** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**EmojiId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**EmojiName** | Pointer to **string** |  | [optional] 
+**EmojiAnimated** | Pointer to **bool** |  | [optional] 
 **RoleIds** | Pointer to **[]string** |  | [optional] 
 **ChannelIds** | Pointer to **[]string** |  | [optional] 
 
@@ -34,20 +34,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *OnboardingPromptOptionRequest) GetId() string`
+`func (o *OnboardingPromptOptionRequest) GetId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *OnboardingPromptOptionRequest) GetIdOk() (*string, bool)`
+`func (o *OnboardingPromptOptionRequest) GetIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *OnboardingPromptOptionRequest) SetId(v string)`
+`func (o *OnboardingPromptOptionRequest) SetId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetId sets Id field to given value.
 
@@ -102,32 +102,22 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *OnboardingPromptOptionRequest) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *OnboardingPromptOptionRequest) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetEmojiId
 
-`func (o *OnboardingPromptOptionRequest) GetEmojiId() string`
+`func (o *OnboardingPromptOptionRequest) GetEmojiId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetEmojiId returns the EmojiId field if non-nil, zero value otherwise.
 
 ### GetEmojiIdOk
 
-`func (o *OnboardingPromptOptionRequest) GetEmojiIdOk() (*string, bool)`
+`func (o *OnboardingPromptOptionRequest) GetEmojiIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetEmojiIdOk returns a tuple with the EmojiId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmojiId
 
-`func (o *OnboardingPromptOptionRequest) SetEmojiId(v string)`
+`func (o *OnboardingPromptOptionRequest) SetEmojiId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetEmojiId sets EmojiId field to given value.
 
@@ -162,16 +152,6 @@ SetEmojiName sets EmojiName field to given value.
 
 HasEmojiName returns a boolean if a field has been set.
 
-### SetEmojiNameNil
-
-`func (o *OnboardingPromptOptionRequest) SetEmojiNameNil(b bool)`
-
- SetEmojiNameNil sets the value for EmojiName to be an explicit nil
-
-### UnsetEmojiName
-`func (o *OnboardingPromptOptionRequest) UnsetEmojiName()`
-
-UnsetEmojiName ensures that no value is present for EmojiName, not even an explicit nil
 ### GetEmojiAnimated
 
 `func (o *OnboardingPromptOptionRequest) GetEmojiAnimated() bool`
@@ -197,16 +177,6 @@ SetEmojiAnimated sets EmojiAnimated field to given value.
 
 HasEmojiAnimated returns a boolean if a field has been set.
 
-### SetEmojiAnimatedNil
-
-`func (o *OnboardingPromptOptionRequest) SetEmojiAnimatedNil(b bool)`
-
- SetEmojiAnimatedNil sets the value for EmojiAnimated to be an explicit nil
-
-### UnsetEmojiAnimated
-`func (o *OnboardingPromptOptionRequest) UnsetEmojiAnimated()`
-
-UnsetEmojiAnimated ensures that no value is present for EmojiAnimated, not even an explicit nil
 ### GetRoleIds
 
 `func (o *OnboardingPromptOptionRequest) GetRoleIds() []string`
@@ -232,16 +202,6 @@ SetRoleIds sets RoleIds field to given value.
 
 HasRoleIds returns a boolean if a field has been set.
 
-### SetRoleIdsNil
-
-`func (o *OnboardingPromptOptionRequest) SetRoleIdsNil(b bool)`
-
- SetRoleIdsNil sets the value for RoleIds to be an explicit nil
-
-### UnsetRoleIds
-`func (o *OnboardingPromptOptionRequest) UnsetRoleIds()`
-
-UnsetRoleIds ensures that no value is present for RoleIds, not even an explicit nil
 ### GetChannelIds
 
 `func (o *OnboardingPromptOptionRequest) GetChannelIds() []string`
@@ -267,16 +227,6 @@ SetChannelIds sets ChannelIds field to given value.
 
 HasChannelIds returns a boolean if a field has been set.
 
-### SetChannelIdsNil
-
-`func (o *OnboardingPromptOptionRequest) SetChannelIdsNil(b bool)`
-
- SetChannelIdsNil sets the value for ChannelIds to be an explicit nil
-
-### UnsetChannelIds
-`func (o *OnboardingPromptOptionRequest) UnsetChannelIds()`
-
-UnsetChannelIds ensures that no value is present for ChannelIds, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,11 +55,11 @@ var _ MappedNullable = &MessageReferenceRequest{}
 
 // MessageReferenceRequest struct for MessageReferenceRequest
 type MessageReferenceRequest struct {
-	GuildId *string `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	GuildId *GetEntitlementsSkuIdsParameterOneOfInner `json:"guild_id,omitempty"`
+	ChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"channel_id,omitempty"`
 	MessageId string `json:"message_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	FailIfNotExists NullableBool `json:"fail_if_not_exists,omitempty"`
-	Type interface{} `json:"type,omitempty"`
+	FailIfNotExists *bool `json:"fail_if_not_exists,omitempty"`
+	Type *MessageReferenceRequestType `json:"type,omitempty"`
 }
 
 type _MessageReferenceRequest MessageReferenceRequest
@@ -83,9 +83,9 @@ func NewMessageReferenceRequestWithDefaults() *MessageReferenceRequest {
 }
 
 // GetGuildId returns the GuildId field value if set, zero value otherwise.
-func (o *MessageReferenceRequest) GetGuildId() string {
+func (o *MessageReferenceRequest) GetGuildId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.GuildId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.GuildId
@@ -93,7 +93,7 @@ func (o *MessageReferenceRequest) GetGuildId() string {
 
 // GetGuildIdOk returns a tuple with the GuildId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageReferenceRequest) GetGuildIdOk() (*string, bool) {
+func (o *MessageReferenceRequest) GetGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.GuildId) {
 		return nil, false
 	}
@@ -109,16 +109,16 @@ func (o *MessageReferenceRequest) HasGuildId() bool {
 	return false
 }
 
-// SetGuildId gets a reference to the given string and assigns it to the GuildId field.
-func (o *MessageReferenceRequest) SetGuildId(v string) {
+// SetGuildId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the GuildId field.
+func (o *MessageReferenceRequest) SetGuildId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.GuildId = &v
 }
 
 
 // GetChannelId returns the ChannelId field value if set, zero value otherwise.
-func (o *MessageReferenceRequest) GetChannelId() string {
+func (o *MessageReferenceRequest) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.ChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.ChannelId
@@ -126,7 +126,7 @@ func (o *MessageReferenceRequest) GetChannelId() string {
 
 // GetChannelIdOk returns a tuple with the ChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageReferenceRequest) GetChannelIdOk() (*string, bool) {
+func (o *MessageReferenceRequest) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.ChannelId) {
 		return nil, false
 	}
@@ -142,8 +142,8 @@ func (o *MessageReferenceRequest) HasChannelId() bool {
 	return false
 }
 
-// SetChannelId gets a reference to the given string and assigns it to the ChannelId field.
-func (o *MessageReferenceRequest) SetChannelId(v string) {
+// SetChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the ChannelId field.
+func (o *MessageReferenceRequest) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.ChannelId = &v
 }
 
@@ -172,66 +172,55 @@ func (o *MessageReferenceRequest) SetMessageId(v string) {
 	o.MessageId = v
 }
 
-// GetFailIfNotExists returns the FailIfNotExists field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFailIfNotExists returns the FailIfNotExists field value if set, zero value otherwise.
 func (o *MessageReferenceRequest) GetFailIfNotExists() bool {
-	if o == nil || IsNil(o.FailIfNotExists.Get()) {
+	if o == nil || IsNil(o.FailIfNotExists) {
 		var ret bool
 		return ret
 	}
-	return *o.FailIfNotExists.Get()
+	return *o.FailIfNotExists
 }
 
 // GetFailIfNotExistsOk returns a tuple with the FailIfNotExists field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageReferenceRequest) GetFailIfNotExistsOk() (*bool, bool) {
-	if o == nil || IsNil(o.FailIfNotExists.Get()) {
+	if o == nil || IsNil(o.FailIfNotExists) {
 		return nil, false
 	}
-	return o.FailIfNotExists.Get(), o.FailIfNotExists.IsSet()
+	return o.FailIfNotExists, true
 }
 
 // HasFailIfNotExists returns a boolean if a field has been set.
 func (o *MessageReferenceRequest) HasFailIfNotExists() bool {
-	if o != nil && o.FailIfNotExists.IsSet() {
+	if o != nil && !IsNil(o.FailIfNotExists) {
 		return true
 	}
 
 	return false
 }
 
-// SetFailIfNotExists gets a reference to the given NullableBool and assigns it to the FailIfNotExists field.
+// SetFailIfNotExists gets a reference to the given bool and assigns it to the FailIfNotExists field.
 func (o *MessageReferenceRequest) SetFailIfNotExists(v bool) {
-	o.FailIfNotExists.Set(&v)
+	o.FailIfNotExists = &v
 }
 
-// SetFailIfNotExistsNil sets the value for FailIfNotExists to be an explicit nil
-func (o *MessageReferenceRequest) SetFailIfNotExistsNil() {
-	o.FailIfNotExists.Set(nil)
-}
 
-// UnsetFailIfNotExists ensures that no value is present for FailIfNotExists, not even an explicit nil
-func (o *MessageReferenceRequest) UnsetFailIfNotExists() {
-	o.FailIfNotExists.Unset()
-}
-
-// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MessageReferenceRequest) GetType() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *MessageReferenceRequest) GetType() MessageReferenceRequestType {
+	if o == nil || IsNil(o.Type) {
+		var ret MessageReferenceRequestType
 		return ret
 	}
-	return o.Type
+	return *o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MessageReferenceRequest) GetTypeOk() (*interface{}, bool) {
-	if o == nil {
+func (o *MessageReferenceRequest) GetTypeOk() (*MessageReferenceRequestType, bool) {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
-	return &o.Type, true
+	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
@@ -243,9 +232,9 @@ func (o *MessageReferenceRequest) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given interface{} and assigns it to the Type field.
-func (o *MessageReferenceRequest) SetType(v interface{}) {
-	o.Type = v
+// SetType gets a reference to the given MessageReferenceRequestType and assigns it to the Type field.
+func (o *MessageReferenceRequest) SetType(v MessageReferenceRequestType) {
+	o.Type = &v
 }
 
 
@@ -266,10 +255,10 @@ func (o MessageReferenceRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["channel_id"] = o.ChannelId
 	}
 	toSerialize["message_id"] = o.MessageId
-	if o.FailIfNotExists.IsSet() {
-		toSerialize["fail_if_not_exists"] = o.FailIfNotExists.Get()
+	if !IsNil(o.FailIfNotExists) {
+		toSerialize["fail_if_not_exists"] = o.FailIfNotExists
 	}
-	if o.Type != nil {
+	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
 	return toSerialize, nil
@@ -347,5 +336,4 @@ func (v *NullableMessageReferenceRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

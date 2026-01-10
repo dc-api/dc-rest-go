@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Filename** | Pointer to **NullableString** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**DurationSecs** | Pointer to **NullableFloat64** |  | [optional] 
-**Waveform** | Pointer to **NullableString** |  | [optional] 
-**Title** | Pointer to **NullableString** |  | [optional] 
-**IsRemix** | Pointer to **NullableBool** |  | [optional] 
+**Filename** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**DurationSecs** | Pointer to **float64** |  | [optional] 
+**Waveform** | Pointer to **string** |  | [optional] 
+**Title** | Pointer to **string** |  | [optional] 
+**IsRemix** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -76,16 +76,6 @@ SetFilename sets Filename field to given value.
 
 HasFilename returns a boolean if a field has been set.
 
-### SetFilenameNil
-
-`func (o *MessageAttachmentRequest) SetFilenameNil(b bool)`
-
- SetFilenameNil sets the value for Filename to be an explicit nil
-
-### UnsetFilename
-`func (o *MessageAttachmentRequest) UnsetFilename()`
-
-UnsetFilename ensures that no value is present for Filename, not even an explicit nil
 ### GetDescription
 
 `func (o *MessageAttachmentRequest) GetDescription() string`
@@ -111,16 +101,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *MessageAttachmentRequest) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *MessageAttachmentRequest) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetDurationSecs
 
 `func (o *MessageAttachmentRequest) GetDurationSecs() float64`
@@ -146,16 +126,6 @@ SetDurationSecs sets DurationSecs field to given value.
 
 HasDurationSecs returns a boolean if a field has been set.
 
-### SetDurationSecsNil
-
-`func (o *MessageAttachmentRequest) SetDurationSecsNil(b bool)`
-
- SetDurationSecsNil sets the value for DurationSecs to be an explicit nil
-
-### UnsetDurationSecs
-`func (o *MessageAttachmentRequest) UnsetDurationSecs()`
-
-UnsetDurationSecs ensures that no value is present for DurationSecs, not even an explicit nil
 ### GetWaveform
 
 `func (o *MessageAttachmentRequest) GetWaveform() string`
@@ -181,16 +151,6 @@ SetWaveform sets Waveform field to given value.
 
 HasWaveform returns a boolean if a field has been set.
 
-### SetWaveformNil
-
-`func (o *MessageAttachmentRequest) SetWaveformNil(b bool)`
-
- SetWaveformNil sets the value for Waveform to be an explicit nil
-
-### UnsetWaveform
-`func (o *MessageAttachmentRequest) UnsetWaveform()`
-
-UnsetWaveform ensures that no value is present for Waveform, not even an explicit nil
 ### GetTitle
 
 `func (o *MessageAttachmentRequest) GetTitle() string`
@@ -216,16 +176,6 @@ SetTitle sets Title field to given value.
 
 HasTitle returns a boolean if a field has been set.
 
-### SetTitleNil
-
-`func (o *MessageAttachmentRequest) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *MessageAttachmentRequest) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetIsRemix
 
 `func (o *MessageAttachmentRequest) GetIsRemix() bool`
@@ -251,16 +201,6 @@ SetIsRemix sets IsRemix field to given value.
 
 HasIsRemix returns a boolean if a field has been set.
 
-### SetIsRemixNil
-
-`func (o *MessageAttachmentRequest) SetIsRemixNil(b bool)`
-
- SetIsRemixNil sets the value for IsRemix to be an explicit nil
-
-### UnsetIsRemix
-`func (o *MessageAttachmentRequest) UnsetIsRemix()`
-
-UnsetIsRemix ensures that no value is present for IsRemix, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

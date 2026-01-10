@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**AutomodActionType**](AutomodActionType.md) |  | 
 **Metadata** | [**UserCommunicationDisabledActionMetadataResponse**](UserCommunicationDisabledActionMetadataResponse.md) |  | 
 
 ## Methods
 
 ### NewUserCommunicationDisabledActionResponse
 
-`func NewUserCommunicationDisabledActionResponse(type_ int32, metadata UserCommunicationDisabledActionMetadataResponse, ) *UserCommunicationDisabledActionResponse`
+`func NewUserCommunicationDisabledActionResponse(type_ AutomodActionType, metadata UserCommunicationDisabledActionMetadataResponse, ) *UserCommunicationDisabledActionResponse`
 
 NewUserCommunicationDisabledActionResponse instantiates a new UserCommunicationDisabledActionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *UserCommunicationDisabledActionResponse) GetType() int32`
+`func (o *UserCommunicationDisabledActionResponse) GetType() AutomodActionType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *UserCommunicationDisabledActionResponse) GetTypeOk() (*int32, bool)`
+`func (o *UserCommunicationDisabledActionResponse) GetTypeOk() (*AutomodActionType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *UserCommunicationDisabledActionResponse) SetType(v int32)`
+`func (o *UserCommunicationDisabledActionResponse) SetType(v AutomodActionType)`
 
 SetType sets Type field to given value.
 

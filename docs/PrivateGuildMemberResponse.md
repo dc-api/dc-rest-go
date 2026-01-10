@@ -4,19 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Avatar** | Pointer to **NullableString** |  | [optional] 
-**AvatarDecorationData** | Pointer to [**NullableUserAvatarDecorationResponse**](UserAvatarDecorationResponse.md) |  | [optional] 
-**Banner** | Pointer to **NullableString** |  | [optional] 
-**CommunicationDisabledUntil** | Pointer to **NullableTime** |  | [optional] 
+**Avatar** | Pointer to **string** |  | [optional] 
+**AvatarDecorationData** | Pointer to [**BasicGuildMemberResponseAvatarDecorationData**](BasicGuildMemberResponseAvatarDecorationData.md) |  | [optional] 
+**Banner** | Pointer to **string** |  | [optional] 
+**CommunicationDisabledUntil** | Pointer to **time.Time** |  | [optional] 
 **Flags** | **int32** |  | 
 **JoinedAt** | **time.Time** |  | 
-**Nick** | Pointer to **NullableString** |  | [optional] 
+**Nick** | Pointer to **string** |  | [optional] 
 **Pending** | **bool** |  | 
-**PremiumSince** | Pointer to **NullableTime** |  | [optional] 
+**PremiumSince** | Pointer to **time.Time** |  | [optional] 
 **Roles** | **[]string** |  | 
+**Collectibles** | Pointer to [**BasicGuildMemberResponseCollectibles**](BasicGuildMemberResponseCollectibles.md) |  | [optional] 
 **User** | [**UserResponse**](UserResponse.md) |  | 
 **Mute** | **bool** |  | 
 **Deaf** | **bool** |  | 
+**Permissions** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -62,32 +64,22 @@ SetAvatar sets Avatar field to given value.
 
 HasAvatar returns a boolean if a field has been set.
 
-### SetAvatarNil
-
-`func (o *PrivateGuildMemberResponse) SetAvatarNil(b bool)`
-
- SetAvatarNil sets the value for Avatar to be an explicit nil
-
-### UnsetAvatar
-`func (o *PrivateGuildMemberResponse) UnsetAvatar()`
-
-UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
 ### GetAvatarDecorationData
 
-`func (o *PrivateGuildMemberResponse) GetAvatarDecorationData() UserAvatarDecorationResponse`
+`func (o *PrivateGuildMemberResponse) GetAvatarDecorationData() BasicGuildMemberResponseAvatarDecorationData`
 
 GetAvatarDecorationData returns the AvatarDecorationData field if non-nil, zero value otherwise.
 
 ### GetAvatarDecorationDataOk
 
-`func (o *PrivateGuildMemberResponse) GetAvatarDecorationDataOk() (*UserAvatarDecorationResponse, bool)`
+`func (o *PrivateGuildMemberResponse) GetAvatarDecorationDataOk() (*BasicGuildMemberResponseAvatarDecorationData, bool)`
 
 GetAvatarDecorationDataOk returns a tuple with the AvatarDecorationData field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAvatarDecorationData
 
-`func (o *PrivateGuildMemberResponse) SetAvatarDecorationData(v UserAvatarDecorationResponse)`
+`func (o *PrivateGuildMemberResponse) SetAvatarDecorationData(v BasicGuildMemberResponseAvatarDecorationData)`
 
 SetAvatarDecorationData sets AvatarDecorationData field to given value.
 
@@ -97,16 +89,6 @@ SetAvatarDecorationData sets AvatarDecorationData field to given value.
 
 HasAvatarDecorationData returns a boolean if a field has been set.
 
-### SetAvatarDecorationDataNil
-
-`func (o *PrivateGuildMemberResponse) SetAvatarDecorationDataNil(b bool)`
-
- SetAvatarDecorationDataNil sets the value for AvatarDecorationData to be an explicit nil
-
-### UnsetAvatarDecorationData
-`func (o *PrivateGuildMemberResponse) UnsetAvatarDecorationData()`
-
-UnsetAvatarDecorationData ensures that no value is present for AvatarDecorationData, not even an explicit nil
 ### GetBanner
 
 `func (o *PrivateGuildMemberResponse) GetBanner() string`
@@ -132,16 +114,6 @@ SetBanner sets Banner field to given value.
 
 HasBanner returns a boolean if a field has been set.
 
-### SetBannerNil
-
-`func (o *PrivateGuildMemberResponse) SetBannerNil(b bool)`
-
- SetBannerNil sets the value for Banner to be an explicit nil
-
-### UnsetBanner
-`func (o *PrivateGuildMemberResponse) UnsetBanner()`
-
-UnsetBanner ensures that no value is present for Banner, not even an explicit nil
 ### GetCommunicationDisabledUntil
 
 `func (o *PrivateGuildMemberResponse) GetCommunicationDisabledUntil() time.Time`
@@ -167,16 +139,6 @@ SetCommunicationDisabledUntil sets CommunicationDisabledUntil field to given val
 
 HasCommunicationDisabledUntil returns a boolean if a field has been set.
 
-### SetCommunicationDisabledUntilNil
-
-`func (o *PrivateGuildMemberResponse) SetCommunicationDisabledUntilNil(b bool)`
-
- SetCommunicationDisabledUntilNil sets the value for CommunicationDisabledUntil to be an explicit nil
-
-### UnsetCommunicationDisabledUntil
-`func (o *PrivateGuildMemberResponse) UnsetCommunicationDisabledUntil()`
-
-UnsetCommunicationDisabledUntil ensures that no value is present for CommunicationDisabledUntil, not even an explicit nil
 ### GetFlags
 
 `func (o *PrivateGuildMemberResponse) GetFlags() int32`
@@ -242,16 +204,6 @@ SetNick sets Nick field to given value.
 
 HasNick returns a boolean if a field has been set.
 
-### SetNickNil
-
-`func (o *PrivateGuildMemberResponse) SetNickNil(b bool)`
-
- SetNickNil sets the value for Nick to be an explicit nil
-
-### UnsetNick
-`func (o *PrivateGuildMemberResponse) UnsetNick()`
-
-UnsetNick ensures that no value is present for Nick, not even an explicit nil
 ### GetPending
 
 `func (o *PrivateGuildMemberResponse) GetPending() bool`
@@ -297,16 +249,6 @@ SetPremiumSince sets PremiumSince field to given value.
 
 HasPremiumSince returns a boolean if a field has been set.
 
-### SetPremiumSinceNil
-
-`func (o *PrivateGuildMemberResponse) SetPremiumSinceNil(b bool)`
-
- SetPremiumSinceNil sets the value for PremiumSince to be an explicit nil
-
-### UnsetPremiumSince
-`func (o *PrivateGuildMemberResponse) UnsetPremiumSince()`
-
-UnsetPremiumSince ensures that no value is present for PremiumSince, not even an explicit nil
 ### GetRoles
 
 `func (o *PrivateGuildMemberResponse) GetRoles() []string`
@@ -326,6 +268,31 @@ and a boolean to check if the value has been set.
 
 SetRoles sets Roles field to given value.
 
+
+### GetCollectibles
+
+`func (o *PrivateGuildMemberResponse) GetCollectibles() BasicGuildMemberResponseCollectibles`
+
+GetCollectibles returns the Collectibles field if non-nil, zero value otherwise.
+
+### GetCollectiblesOk
+
+`func (o *PrivateGuildMemberResponse) GetCollectiblesOk() (*BasicGuildMemberResponseCollectibles, bool)`
+
+GetCollectiblesOk returns a tuple with the Collectibles field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCollectibles
+
+`func (o *PrivateGuildMemberResponse) SetCollectibles(v BasicGuildMemberResponseCollectibles)`
+
+SetCollectibles sets Collectibles field to given value.
+
+### HasCollectibles
+
+`func (o *PrivateGuildMemberResponse) HasCollectibles() bool`
+
+HasCollectibles returns a boolean if a field has been set.
 
 ### GetUser
 
@@ -386,6 +353,31 @@ and a boolean to check if the value has been set.
 
 SetDeaf sets Deaf field to given value.
 
+
+### GetPermissions
+
+`func (o *PrivateGuildMemberResponse) GetPermissions() string`
+
+GetPermissions returns the Permissions field if non-nil, zero value otherwise.
+
+### GetPermissionsOk
+
+`func (o *PrivateGuildMemberResponse) GetPermissionsOk() (*string, bool)`
+
+GetPermissionsOk returns a tuple with the Permissions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPermissions
+
+`func (o *PrivateGuildMemberResponse) SetPermissions(v string)`
+
+SetPermissions sets Permissions field to given value.
+
+### HasPermissions
+
+`func (o *PrivateGuildMemberResponse) HasPermissions() bool`
+
+HasPermissions returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

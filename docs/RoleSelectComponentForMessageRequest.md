@@ -4,19 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 **CustomId** | **string** |  | 
-**Placeholder** | Pointer to **NullableString** |  | [optional] 
-**MinValues** | Pointer to **NullableInt32** |  | [optional] 
-**MaxValues** | Pointer to **NullableInt32** |  | [optional] 
-**Disabled** | Pointer to **NullableBool** |  | [optional] 
+**Placeholder** | Pointer to **string** |  | [optional] 
+**MinValues** | Pointer to **int32** |  | [optional] 
+**MaxValues** | Pointer to **int32** |  | [optional] 
+**Disabled** | Pointer to **bool** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
 **DefaultValues** | Pointer to [**[]RoleSelectDefaultValue**](RoleSelectDefaultValue.md) |  | [optional] 
 
 ## Methods
 
 ### NewRoleSelectComponentForMessageRequest
 
-`func NewRoleSelectComponentForMessageRequest(type_ int32, customId string, ) *RoleSelectComponentForMessageRequest`
+`func NewRoleSelectComponentForMessageRequest(type_ MessageComponentTypes, customId string, ) *RoleSelectComponentForMessageRequest`
 
 NewRoleSelectComponentForMessageRequest instantiates a new RoleSelectComponentForMessageRequest object
 This constructor will assign default values to properties that have it defined,
@@ -33,23 +35,48 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *RoleSelectComponentForMessageRequest) GetType() int32`
+`func (o *RoleSelectComponentForMessageRequest) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *RoleSelectComponentForMessageRequest) GetTypeOk() (*int32, bool)`
+`func (o *RoleSelectComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *RoleSelectComponentForMessageRequest) SetType(v int32)`
+`func (o *RoleSelectComponentForMessageRequest) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *RoleSelectComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *RoleSelectComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *RoleSelectComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *RoleSelectComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetCustomId
 
@@ -96,16 +123,6 @@ SetPlaceholder sets Placeholder field to given value.
 
 HasPlaceholder returns a boolean if a field has been set.
 
-### SetPlaceholderNil
-
-`func (o *RoleSelectComponentForMessageRequest) SetPlaceholderNil(b bool)`
-
- SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-
-### UnsetPlaceholder
-`func (o *RoleSelectComponentForMessageRequest) UnsetPlaceholder()`
-
-UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
 ### GetMinValues
 
 `func (o *RoleSelectComponentForMessageRequest) GetMinValues() int32`
@@ -131,16 +148,6 @@ SetMinValues sets MinValues field to given value.
 
 HasMinValues returns a boolean if a field has been set.
 
-### SetMinValuesNil
-
-`func (o *RoleSelectComponentForMessageRequest) SetMinValuesNil(b bool)`
-
- SetMinValuesNil sets the value for MinValues to be an explicit nil
-
-### UnsetMinValues
-`func (o *RoleSelectComponentForMessageRequest) UnsetMinValues()`
-
-UnsetMinValues ensures that no value is present for MinValues, not even an explicit nil
 ### GetMaxValues
 
 `func (o *RoleSelectComponentForMessageRequest) GetMaxValues() int32`
@@ -166,16 +173,6 @@ SetMaxValues sets MaxValues field to given value.
 
 HasMaxValues returns a boolean if a field has been set.
 
-### SetMaxValuesNil
-
-`func (o *RoleSelectComponentForMessageRequest) SetMaxValuesNil(b bool)`
-
- SetMaxValuesNil sets the value for MaxValues to be an explicit nil
-
-### UnsetMaxValues
-`func (o *RoleSelectComponentForMessageRequest) UnsetMaxValues()`
-
-UnsetMaxValues ensures that no value is present for MaxValues, not even an explicit nil
 ### GetDisabled
 
 `func (o *RoleSelectComponentForMessageRequest) GetDisabled() bool`
@@ -201,16 +198,31 @@ SetDisabled sets Disabled field to given value.
 
 HasDisabled returns a boolean if a field has been set.
 
-### SetDisabledNil
+### GetRequired
 
-`func (o *RoleSelectComponentForMessageRequest) SetDisabledNil(b bool)`
+`func (o *RoleSelectComponentForMessageRequest) GetRequired() bool`
 
- SetDisabledNil sets the value for Disabled to be an explicit nil
+GetRequired returns the Required field if non-nil, zero value otherwise.
 
-### UnsetDisabled
-`func (o *RoleSelectComponentForMessageRequest) UnsetDisabled()`
+### GetRequiredOk
 
-UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
+`func (o *RoleSelectComponentForMessageRequest) GetRequiredOk() (*bool, bool)`
+
+GetRequiredOk returns a tuple with the Required field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequired
+
+`func (o *RoleSelectComponentForMessageRequest) SetRequired(v bool)`
+
+SetRequired sets Required field to given value.
+
+### HasRequired
+
+`func (o *RoleSelectComponentForMessageRequest) HasRequired() bool`
+
+HasRequired returns a boolean if a field has been set.
+
 ### GetDefaultValues
 
 `func (o *RoleSelectComponentForMessageRequest) GetDefaultValues() []RoleSelectDefaultValue`
@@ -236,16 +248,6 @@ SetDefaultValues sets DefaultValues field to given value.
 
 HasDefaultValues returns a boolean if a field has been set.
 
-### SetDefaultValuesNil
-
-`func (o *RoleSelectComponentForMessageRequest) SetDefaultValuesNil(b bool)`
-
- SetDefaultValuesNil sets the value for DefaultValues to be an explicit nil
-
-### UnsetDefaultValues
-`func (o *RoleSelectComponentForMessageRequest) UnsetDefaultValues()`
-
-UnsetDefaultValues ensures that no value is present for DefaultValues, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

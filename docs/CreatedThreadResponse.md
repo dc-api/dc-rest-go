@@ -5,32 +5,32 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **int32** |  | 
-**LastMessageId** | Pointer to **string** |  | [optional] 
+**Type** | [**ChannelTypes**](ChannelTypes.md) |  | 
+**LastMessageId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Flags** | **int32** |  | 
-**LastPinTimestamp** | Pointer to **NullableTime** |  | [optional] 
+**LastPinTimestamp** | Pointer to **time.Time** |  | [optional] 
 **GuildId** | **string** |  | 
 **Name** | **string** |  | 
-**ParentId** | Pointer to **string** |  | [optional] 
-**RateLimitPerUser** | Pointer to **NullableInt32** |  | [optional] 
-**Bitrate** | Pointer to **NullableInt32** |  | [optional] 
-**UserLimit** | Pointer to **NullableInt32** |  | [optional] 
-**RtcRegion** | Pointer to **NullableString** |  | [optional] 
-**VideoQualityMode** | Pointer to **int32** |  | [optional] 
-**Permissions** | Pointer to **NullableString** |  | [optional] 
+**ParentId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**RateLimitPerUser** | Pointer to **int32** |  | [optional] 
+**Bitrate** | Pointer to **int32** |  | [optional] 
+**UserLimit** | Pointer to **int32** |  | [optional] 
+**RtcRegion** | Pointer to **string** |  | [optional] 
+**VideoQualityMode** | Pointer to [**VideoQualityModes**](VideoQualityModes.md) |  | [optional] 
+**Permissions** | Pointer to **string** |  | [optional] 
 **OwnerId** | **string** |  | 
-**ThreadMetadata** | Pointer to [**NullableThreadMetadataResponse**](ThreadMetadataResponse.md) |  | [optional] 
+**ThreadMetadata** | [**ThreadMetadataResponse**](ThreadMetadataResponse.md) |  | 
 **MessageCount** | **int32** |  | 
 **MemberCount** | **int32** |  | 
 **TotalMessageSent** | **int32** |  | 
 **AppliedTags** | Pointer to **[]string** |  | [optional] 
-**Member** | Pointer to [**NullableThreadMemberResponse**](ThreadMemberResponse.md) |  | [optional] 
+**Member** | Pointer to [**ThreadMemberResponse**](ThreadMemberResponse.md) |  | [optional] 
 
 ## Methods
 
 ### NewCreatedThreadResponse
 
-`func NewCreatedThreadResponse(id string, type_ int32, flags int32, guildId string, name string, ownerId string, messageCount int32, memberCount int32, totalMessageSent int32, ) *CreatedThreadResponse`
+`func NewCreatedThreadResponse(id string, type_ ChannelTypes, flags int32, guildId string, name string, ownerId string, threadMetadata ThreadMetadataResponse, messageCount int32, memberCount int32, totalMessageSent int32, ) *CreatedThreadResponse`
 
 NewCreatedThreadResponse instantiates a new CreatedThreadResponse object
 This constructor will assign default values to properties that have it defined,
@@ -67,40 +67,40 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *CreatedThreadResponse) GetType() int32`
+`func (o *CreatedThreadResponse) GetType() ChannelTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *CreatedThreadResponse) GetTypeOk() (*int32, bool)`
+`func (o *CreatedThreadResponse) GetTypeOk() (*ChannelTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *CreatedThreadResponse) SetType(v int32)`
+`func (o *CreatedThreadResponse) SetType(v ChannelTypes)`
 
 SetType sets Type field to given value.
 
 
 ### GetLastMessageId
 
-`func (o *CreatedThreadResponse) GetLastMessageId() string`
+`func (o *CreatedThreadResponse) GetLastMessageId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetLastMessageId returns the LastMessageId field if non-nil, zero value otherwise.
 
 ### GetLastMessageIdOk
 
-`func (o *CreatedThreadResponse) GetLastMessageIdOk() (*string, bool)`
+`func (o *CreatedThreadResponse) GetLastMessageIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetLastMessageIdOk returns a tuple with the LastMessageId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastMessageId
 
-`func (o *CreatedThreadResponse) SetLastMessageId(v string)`
+`func (o *CreatedThreadResponse) SetLastMessageId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetLastMessageId sets LastMessageId field to given value.
 
@@ -155,16 +155,6 @@ SetLastPinTimestamp sets LastPinTimestamp field to given value.
 
 HasLastPinTimestamp returns a boolean if a field has been set.
 
-### SetLastPinTimestampNil
-
-`func (o *CreatedThreadResponse) SetLastPinTimestampNil(b bool)`
-
- SetLastPinTimestampNil sets the value for LastPinTimestamp to be an explicit nil
-
-### UnsetLastPinTimestamp
-`func (o *CreatedThreadResponse) UnsetLastPinTimestamp()`
-
-UnsetLastPinTimestamp ensures that no value is present for LastPinTimestamp, not even an explicit nil
 ### GetGuildId
 
 `func (o *CreatedThreadResponse) GetGuildId() string`
@@ -207,20 +197,20 @@ SetName sets Name field to given value.
 
 ### GetParentId
 
-`func (o *CreatedThreadResponse) GetParentId() string`
+`func (o *CreatedThreadResponse) GetParentId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetParentId returns the ParentId field if non-nil, zero value otherwise.
 
 ### GetParentIdOk
 
-`func (o *CreatedThreadResponse) GetParentIdOk() (*string, bool)`
+`func (o *CreatedThreadResponse) GetParentIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetParentIdOk returns a tuple with the ParentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetParentId
 
-`func (o *CreatedThreadResponse) SetParentId(v string)`
+`func (o *CreatedThreadResponse) SetParentId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetParentId sets ParentId field to given value.
 
@@ -255,16 +245,6 @@ SetRateLimitPerUser sets RateLimitPerUser field to given value.
 
 HasRateLimitPerUser returns a boolean if a field has been set.
 
-### SetRateLimitPerUserNil
-
-`func (o *CreatedThreadResponse) SetRateLimitPerUserNil(b bool)`
-
- SetRateLimitPerUserNil sets the value for RateLimitPerUser to be an explicit nil
-
-### UnsetRateLimitPerUser
-`func (o *CreatedThreadResponse) UnsetRateLimitPerUser()`
-
-UnsetRateLimitPerUser ensures that no value is present for RateLimitPerUser, not even an explicit nil
 ### GetBitrate
 
 `func (o *CreatedThreadResponse) GetBitrate() int32`
@@ -290,16 +270,6 @@ SetBitrate sets Bitrate field to given value.
 
 HasBitrate returns a boolean if a field has been set.
 
-### SetBitrateNil
-
-`func (o *CreatedThreadResponse) SetBitrateNil(b bool)`
-
- SetBitrateNil sets the value for Bitrate to be an explicit nil
-
-### UnsetBitrate
-`func (o *CreatedThreadResponse) UnsetBitrate()`
-
-UnsetBitrate ensures that no value is present for Bitrate, not even an explicit nil
 ### GetUserLimit
 
 `func (o *CreatedThreadResponse) GetUserLimit() int32`
@@ -325,16 +295,6 @@ SetUserLimit sets UserLimit field to given value.
 
 HasUserLimit returns a boolean if a field has been set.
 
-### SetUserLimitNil
-
-`func (o *CreatedThreadResponse) SetUserLimitNil(b bool)`
-
- SetUserLimitNil sets the value for UserLimit to be an explicit nil
-
-### UnsetUserLimit
-`func (o *CreatedThreadResponse) UnsetUserLimit()`
-
-UnsetUserLimit ensures that no value is present for UserLimit, not even an explicit nil
 ### GetRtcRegion
 
 `func (o *CreatedThreadResponse) GetRtcRegion() string`
@@ -360,32 +320,22 @@ SetRtcRegion sets RtcRegion field to given value.
 
 HasRtcRegion returns a boolean if a field has been set.
 
-### SetRtcRegionNil
-
-`func (o *CreatedThreadResponse) SetRtcRegionNil(b bool)`
-
- SetRtcRegionNil sets the value for RtcRegion to be an explicit nil
-
-### UnsetRtcRegion
-`func (o *CreatedThreadResponse) UnsetRtcRegion()`
-
-UnsetRtcRegion ensures that no value is present for RtcRegion, not even an explicit nil
 ### GetVideoQualityMode
 
-`func (o *CreatedThreadResponse) GetVideoQualityMode() int32`
+`func (o *CreatedThreadResponse) GetVideoQualityMode() VideoQualityModes`
 
 GetVideoQualityMode returns the VideoQualityMode field if non-nil, zero value otherwise.
 
 ### GetVideoQualityModeOk
 
-`func (o *CreatedThreadResponse) GetVideoQualityModeOk() (*int32, bool)`
+`func (o *CreatedThreadResponse) GetVideoQualityModeOk() (*VideoQualityModes, bool)`
 
 GetVideoQualityModeOk returns a tuple with the VideoQualityMode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVideoQualityMode
 
-`func (o *CreatedThreadResponse) SetVideoQualityMode(v int32)`
+`func (o *CreatedThreadResponse) SetVideoQualityMode(v VideoQualityModes)`
 
 SetVideoQualityMode sets VideoQualityMode field to given value.
 
@@ -420,16 +370,6 @@ SetPermissions sets Permissions field to given value.
 
 HasPermissions returns a boolean if a field has been set.
 
-### SetPermissionsNil
-
-`func (o *CreatedThreadResponse) SetPermissionsNil(b bool)`
-
- SetPermissionsNil sets the value for Permissions to be an explicit nil
-
-### UnsetPermissions
-`func (o *CreatedThreadResponse) UnsetPermissions()`
-
-UnsetPermissions ensures that no value is present for Permissions, not even an explicit nil
 ### GetOwnerId
 
 `func (o *CreatedThreadResponse) GetOwnerId() string`
@@ -469,22 +409,7 @@ and a boolean to check if the value has been set.
 
 SetThreadMetadata sets ThreadMetadata field to given value.
 
-### HasThreadMetadata
 
-`func (o *CreatedThreadResponse) HasThreadMetadata() bool`
-
-HasThreadMetadata returns a boolean if a field has been set.
-
-### SetThreadMetadataNil
-
-`func (o *CreatedThreadResponse) SetThreadMetadataNil(b bool)`
-
- SetThreadMetadataNil sets the value for ThreadMetadata to be an explicit nil
-
-### UnsetThreadMetadata
-`func (o *CreatedThreadResponse) UnsetThreadMetadata()`
-
-UnsetThreadMetadata ensures that no value is present for ThreadMetadata, not even an explicit nil
 ### GetMessageCount
 
 `func (o *CreatedThreadResponse) GetMessageCount() int32`
@@ -570,16 +495,6 @@ SetAppliedTags sets AppliedTags field to given value.
 
 HasAppliedTags returns a boolean if a field has been set.
 
-### SetAppliedTagsNil
-
-`func (o *CreatedThreadResponse) SetAppliedTagsNil(b bool)`
-
- SetAppliedTagsNil sets the value for AppliedTags to be an explicit nil
-
-### UnsetAppliedTags
-`func (o *CreatedThreadResponse) UnsetAppliedTags()`
-
-UnsetAppliedTags ensures that no value is present for AppliedTags, not even an explicit nil
 ### GetMember
 
 `func (o *CreatedThreadResponse) GetMember() ThreadMemberResponse`
@@ -605,16 +520,6 @@ SetMember sets Member field to given value.
 
 HasMember returns a boolean if a field has been set.
 
-### SetMemberNil
-
-`func (o *CreatedThreadResponse) SetMemberNil(b bool)`
-
- SetMemberNil sets the value for Member to be an explicit nil
-
-### UnsetMember
-`func (o *CreatedThreadResponse) UnsetMember()`
-
-UnsetMember ensures that no value is present for Member, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

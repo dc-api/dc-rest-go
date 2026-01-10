@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,7 +57,7 @@ var _ MappedNullable = &TeamMemberResponse{}
 type TeamMemberResponse struct {
 	User UserResponse `json:"user"`
 	TeamId string `json:"team_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	MembershipState int32 `json:"membership_state"`
+	MembershipState TeamMembershipStates `json:"membership_state"`
 }
 
 type _TeamMemberResponse TeamMemberResponse
@@ -66,7 +66,7 @@ type _TeamMemberResponse TeamMemberResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTeamMemberResponse(user UserResponse, teamId string, membershipState int32) *TeamMemberResponse {
+func NewTeamMemberResponse(user UserResponse, teamId string, membershipState TeamMembershipStates) *TeamMemberResponse {
 	this := TeamMemberResponse{}
 	this.User = user
 	this.TeamId = teamId
@@ -131,9 +131,9 @@ func (o *TeamMemberResponse) SetTeamId(v string) {
 }
 
 // GetMembershipState returns the MembershipState field value
-func (o *TeamMemberResponse) GetMembershipState() int32 {
+func (o *TeamMemberResponse) GetMembershipState() TeamMembershipStates {
 	if o == nil {
-		var ret int32
+		var ret TeamMembershipStates
 		return ret
 	}
 
@@ -142,7 +142,7 @@ func (o *TeamMemberResponse) GetMembershipState() int32 {
 
 // GetMembershipStateOk returns a tuple with the MembershipState field value
 // and a boolean to check if the value has been set.
-func (o *TeamMemberResponse) GetMembershipStateOk() (*int32, bool) {
+func (o *TeamMemberResponse) GetMembershipStateOk() (*TeamMembershipStates, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -150,7 +150,7 @@ func (o *TeamMemberResponse) GetMembershipStateOk() (*int32, bool) {
 }
 
 // SetMembershipState sets field value
-func (o *TeamMemberResponse) SetMembershipState(v int32) {
+func (o *TeamMemberResponse) SetMembershipState(v TeamMembershipStates) {
 	o.MembershipState = v
 }
 
@@ -244,5 +244,4 @@ func (v *NullableTeamMemberResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

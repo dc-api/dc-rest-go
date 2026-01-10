@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -59,20 +59,20 @@ type VoiceScheduledEventResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	GuildId string `json:"guild_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
-	Description NullableString `json:"description,omitempty"`
-	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	CreatorId *string `json:"creator_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Creator NullableUserResponse `json:"creator,omitempty"`
-	Image NullableString `json:"image,omitempty"`
+	Description *string `json:"description,omitempty"`
+	ChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"channel_id,omitempty"`
+	CreatorId *GetEntitlementsSkuIdsParameterOneOfInner `json:"creator_id,omitempty"`
+	Creator *UserResponse `json:"creator,omitempty"`
+	Image *string `json:"image,omitempty"`
 	ScheduledStartTime time.Time `json:"scheduled_start_time"`
-	ScheduledEndTime NullableTime `json:"scheduled_end_time,omitempty"`
-	Status NullableInt32 `json:"status"`
-	EntityType NullableInt32 `json:"entity_type"`
-	EntityId *string `json:"entity_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	UserCount NullableInt32 `json:"user_count,omitempty"`
-	PrivacyLevel interface{} `json:"privacy_level"`
-	UserRsvp NullableScheduledEventUserResponse `json:"user_rsvp,omitempty"`
-	EntityMetadata map[string]interface{} `json:"entity_metadata,omitempty"`
+	ScheduledEndTime *time.Time `json:"scheduled_end_time,omitempty"`
+	Status GuildScheduledEventStatuses `json:"status"`
+	EntityType GuildScheduledEventEntityTypes `json:"entity_type"`
+	EntityId *GetEntitlementsSkuIdsParameterOneOfInner `json:"entity_id,omitempty"`
+	UserCount *int32 `json:"user_count,omitempty"`
+	PrivacyLevel GuildScheduledEventPrivacyLevels `json:"privacy_level"`
+	UserRsvp *ExternalScheduledEventResponseUserRsvp `json:"user_rsvp,omitempty"`
+	EntityMetadata *VoiceScheduledEventResponseEntityMetadata `json:"entity_metadata,omitempty"`
 }
 
 type _VoiceScheduledEventResponse VoiceScheduledEventResponse
@@ -81,7 +81,7 @@ type _VoiceScheduledEventResponse VoiceScheduledEventResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVoiceScheduledEventResponse(id string, guildId string, name string, scheduledStartTime time.Time, status NullableInt32, entityType NullableInt32, privacyLevel interface{}) *VoiceScheduledEventResponse {
+func NewVoiceScheduledEventResponse(id string, guildId string, name string, scheduledStartTime time.Time, status GuildScheduledEventStatuses, entityType GuildScheduledEventEntityTypes, privacyLevel GuildScheduledEventPrivacyLevels) *VoiceScheduledEventResponse {
 	this := VoiceScheduledEventResponse{}
 	this.Id = id
 	this.GuildId = guildId
@@ -173,53 +173,43 @@ func (o *VoiceScheduledEventResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *VoiceScheduledEventResponse) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VoiceScheduledEventResponse) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *VoiceScheduledEventResponse) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *VoiceScheduledEventResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *VoiceScheduledEventResponse) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *VoiceScheduledEventResponse) UnsetDescription() {
-	o.Description.Unset()
-}
 
 // GetChannelId returns the ChannelId field value if set, zero value otherwise.
-func (o *VoiceScheduledEventResponse) GetChannelId() string {
+func (o *VoiceScheduledEventResponse) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.ChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.ChannelId
@@ -227,7 +217,7 @@ func (o *VoiceScheduledEventResponse) GetChannelId() string {
 
 // GetChannelIdOk returns a tuple with the ChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VoiceScheduledEventResponse) GetChannelIdOk() (*string, bool) {
+func (o *VoiceScheduledEventResponse) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.ChannelId) {
 		return nil, false
 	}
@@ -243,16 +233,16 @@ func (o *VoiceScheduledEventResponse) HasChannelId() bool {
 	return false
 }
 
-// SetChannelId gets a reference to the given string and assigns it to the ChannelId field.
-func (o *VoiceScheduledEventResponse) SetChannelId(v string) {
+// SetChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the ChannelId field.
+func (o *VoiceScheduledEventResponse) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.ChannelId = &v
 }
 
 
 // GetCreatorId returns the CreatorId field value if set, zero value otherwise.
-func (o *VoiceScheduledEventResponse) GetCreatorId() string {
+func (o *VoiceScheduledEventResponse) GetCreatorId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.CreatorId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.CreatorId
@@ -260,7 +250,7 @@ func (o *VoiceScheduledEventResponse) GetCreatorId() string {
 
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VoiceScheduledEventResponse) GetCreatorIdOk() (*string, bool) {
+func (o *VoiceScheduledEventResponse) GetCreatorIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.CreatorId) {
 		return nil, false
 	}
@@ -276,97 +266,77 @@ func (o *VoiceScheduledEventResponse) HasCreatorId() bool {
 	return false
 }
 
-// SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
-func (o *VoiceScheduledEventResponse) SetCreatorId(v string) {
+// SetCreatorId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the CreatorId field.
+func (o *VoiceScheduledEventResponse) SetCreatorId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.CreatorId = &v
 }
 
 
-// GetCreator returns the Creator field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreator returns the Creator field value if set, zero value otherwise.
 func (o *VoiceScheduledEventResponse) GetCreator() UserResponse {
-	if o == nil || IsNil(o.Creator.Get()) {
+	if o == nil || IsNil(o.Creator) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.Creator.Get()
+	return *o.Creator
 }
 
 // GetCreatorOk returns a tuple with the Creator field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VoiceScheduledEventResponse) GetCreatorOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.Creator.Get()) {
+	if o == nil || IsNil(o.Creator) {
 		return nil, false
 	}
-	return o.Creator.Get(), o.Creator.IsSet()
+	return o.Creator, true
 }
 
 // HasCreator returns a boolean if a field has been set.
 func (o *VoiceScheduledEventResponse) HasCreator() bool {
-	if o != nil && o.Creator.IsSet() {
+	if o != nil && !IsNil(o.Creator) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreator gets a reference to the given NullableUserResponse and assigns it to the Creator field.
+// SetCreator gets a reference to the given UserResponse and assigns it to the Creator field.
 func (o *VoiceScheduledEventResponse) SetCreator(v UserResponse) {
-	o.Creator.Set(&v)
+	o.Creator = &v
 }
 
-// SetCreatorNil sets the value for Creator to be an explicit nil
-func (o *VoiceScheduledEventResponse) SetCreatorNil() {
-	o.Creator.Set(nil)
-}
 
-// UnsetCreator ensures that no value is present for Creator, not even an explicit nil
-func (o *VoiceScheduledEventResponse) UnsetCreator() {
-	o.Creator.Unset()
-}
-
-// GetImage returns the Image field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetImage returns the Image field value if set, zero value otherwise.
 func (o *VoiceScheduledEventResponse) GetImage() string {
-	if o == nil || IsNil(o.Image.Get()) {
+	if o == nil || IsNil(o.Image) {
 		var ret string
 		return ret
 	}
-	return *o.Image.Get()
+	return *o.Image
 }
 
 // GetImageOk returns a tuple with the Image field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VoiceScheduledEventResponse) GetImageOk() (*string, bool) {
-	if o == nil || IsNil(o.Image.Get()) {
+	if o == nil || IsNil(o.Image) {
 		return nil, false
 	}
-	return o.Image.Get(), o.Image.IsSet()
+	return o.Image, true
 }
 
 // HasImage returns a boolean if a field has been set.
 func (o *VoiceScheduledEventResponse) HasImage() bool {
-	if o != nil && o.Image.IsSet() {
+	if o != nil && !IsNil(o.Image) {
 		return true
 	}
 
 	return false
 }
 
-// SetImage gets a reference to the given NullableString and assigns it to the Image field.
+// SetImage gets a reference to the given string and assigns it to the Image field.
 func (o *VoiceScheduledEventResponse) SetImage(v string) {
-	o.Image.Set(&v)
+	o.Image = &v
 }
 
-// SetImageNil sets the value for Image to be an explicit nil
-func (o *VoiceScheduledEventResponse) SetImageNil() {
-	o.Image.Set(nil)
-}
-
-// UnsetImage ensures that no value is present for Image, not even an explicit nil
-func (o *VoiceScheduledEventResponse) UnsetImage() {
-	o.Image.Unset()
-}
 
 // GetScheduledStartTime returns the ScheduledStartTime field value
 func (o *VoiceScheduledEventResponse) GetScheduledStartTime() time.Time {
@@ -392,105 +362,91 @@ func (o *VoiceScheduledEventResponse) SetScheduledStartTime(v time.Time) {
 	o.ScheduledStartTime = v
 }
 
-// GetScheduledEndTime returns the ScheduledEndTime field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetScheduledEndTime returns the ScheduledEndTime field value if set, zero value otherwise.
 func (o *VoiceScheduledEventResponse) GetScheduledEndTime() time.Time {
-	if o == nil || IsNil(o.ScheduledEndTime.Get()) {
+	if o == nil || IsNil(o.ScheduledEndTime) {
 		var ret time.Time
 		return ret
 	}
-	return *o.ScheduledEndTime.Get()
+	return *o.ScheduledEndTime
 }
 
 // GetScheduledEndTimeOk returns a tuple with the ScheduledEndTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VoiceScheduledEventResponse) GetScheduledEndTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.ScheduledEndTime.Get()) {
+	if o == nil || IsNil(o.ScheduledEndTime) {
 		return nil, false
 	}
-	return o.ScheduledEndTime.Get(), o.ScheduledEndTime.IsSet()
+	return o.ScheduledEndTime, true
 }
 
 // HasScheduledEndTime returns a boolean if a field has been set.
 func (o *VoiceScheduledEventResponse) HasScheduledEndTime() bool {
-	if o != nil && o.ScheduledEndTime.IsSet() {
+	if o != nil && !IsNil(o.ScheduledEndTime) {
 		return true
 	}
 
 	return false
 }
 
-// SetScheduledEndTime gets a reference to the given NullableTime and assigns it to the ScheduledEndTime field.
+// SetScheduledEndTime gets a reference to the given time.Time and assigns it to the ScheduledEndTime field.
 func (o *VoiceScheduledEventResponse) SetScheduledEndTime(v time.Time) {
-	o.ScheduledEndTime.Set(&v)
+	o.ScheduledEndTime = &v
 }
 
-// SetScheduledEndTimeNil sets the value for ScheduledEndTime to be an explicit nil
-func (o *VoiceScheduledEventResponse) SetScheduledEndTimeNil() {
-	o.ScheduledEndTime.Set(nil)
-}
-
-// UnsetScheduledEndTime ensures that no value is present for ScheduledEndTime, not even an explicit nil
-func (o *VoiceScheduledEventResponse) UnsetScheduledEndTime() {
-	o.ScheduledEndTime.Unset()
-}
 
 // GetStatus returns the Status field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *VoiceScheduledEventResponse) GetStatus() int32 {
-	if o == nil || o.Status.Get() == nil {
-		var ret int32
+func (o *VoiceScheduledEventResponse) GetStatus() GuildScheduledEventStatuses {
+	if o == nil {
+		var ret GuildScheduledEventStatuses
 		return ret
 	}
 
-	return *o.Status.Get()
+	return o.Status
 }
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *VoiceScheduledEventResponse) GetStatusOk() (*int32, bool) {
+func (o *VoiceScheduledEventResponse) GetStatusOk() (*GuildScheduledEventStatuses, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Status.Get(), o.Status.IsSet()
+	return &o.Status, true
 }
 
 // SetStatus sets field value
-func (o *VoiceScheduledEventResponse) SetStatus(v int32) {
-	o.Status.Set(&v)
+func (o *VoiceScheduledEventResponse) SetStatus(v GuildScheduledEventStatuses) {
+	o.Status = v
 }
 
 // GetEntityType returns the EntityType field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *VoiceScheduledEventResponse) GetEntityType() int32 {
-	if o == nil || o.EntityType.Get() == nil {
-		var ret int32
+func (o *VoiceScheduledEventResponse) GetEntityType() GuildScheduledEventEntityTypes {
+	if o == nil {
+		var ret GuildScheduledEventEntityTypes
 		return ret
 	}
 
-	return *o.EntityType.Get()
+	return o.EntityType
 }
 
 // GetEntityTypeOk returns a tuple with the EntityType field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *VoiceScheduledEventResponse) GetEntityTypeOk() (*int32, bool) {
+func (o *VoiceScheduledEventResponse) GetEntityTypeOk() (*GuildScheduledEventEntityTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.EntityType.Get(), o.EntityType.IsSet()
+	return &o.EntityType, true
 }
 
 // SetEntityType sets field value
-func (o *VoiceScheduledEventResponse) SetEntityType(v int32) {
-	o.EntityType.Set(&v)
+func (o *VoiceScheduledEventResponse) SetEntityType(v GuildScheduledEventEntityTypes) {
+	o.EntityType = v
 }
 
 // GetEntityId returns the EntityId field value if set, zero value otherwise.
-func (o *VoiceScheduledEventResponse) GetEntityId() string {
+func (o *VoiceScheduledEventResponse) GetEntityId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.EntityId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.EntityId
@@ -498,7 +454,7 @@ func (o *VoiceScheduledEventResponse) GetEntityId() string {
 
 // GetEntityIdOk returns a tuple with the EntityId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VoiceScheduledEventResponse) GetEntityIdOk() (*string, bool) {
+func (o *VoiceScheduledEventResponse) GetEntityIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.EntityId) {
 		return nil, false
 	}
@@ -514,60 +470,49 @@ func (o *VoiceScheduledEventResponse) HasEntityId() bool {
 	return false
 }
 
-// SetEntityId gets a reference to the given string and assigns it to the EntityId field.
-func (o *VoiceScheduledEventResponse) SetEntityId(v string) {
+// SetEntityId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the EntityId field.
+func (o *VoiceScheduledEventResponse) SetEntityId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.EntityId = &v
 }
 
 
-// GetUserCount returns the UserCount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUserCount returns the UserCount field value if set, zero value otherwise.
 func (o *VoiceScheduledEventResponse) GetUserCount() int32 {
-	if o == nil || IsNil(o.UserCount.Get()) {
+	if o == nil || IsNil(o.UserCount) {
 		var ret int32
 		return ret
 	}
-	return *o.UserCount.Get()
+	return *o.UserCount
 }
 
 // GetUserCountOk returns a tuple with the UserCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VoiceScheduledEventResponse) GetUserCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.UserCount.Get()) {
+	if o == nil || IsNil(o.UserCount) {
 		return nil, false
 	}
-	return o.UserCount.Get(), o.UserCount.IsSet()
+	return o.UserCount, true
 }
 
 // HasUserCount returns a boolean if a field has been set.
 func (o *VoiceScheduledEventResponse) HasUserCount() bool {
-	if o != nil && o.UserCount.IsSet() {
+	if o != nil && !IsNil(o.UserCount) {
 		return true
 	}
 
 	return false
 }
 
-// SetUserCount gets a reference to the given NullableInt32 and assigns it to the UserCount field.
+// SetUserCount gets a reference to the given int32 and assigns it to the UserCount field.
 func (o *VoiceScheduledEventResponse) SetUserCount(v int32) {
-	o.UserCount.Set(&v)
+	o.UserCount = &v
 }
 
-// SetUserCountNil sets the value for UserCount to be an explicit nil
-func (o *VoiceScheduledEventResponse) SetUserCountNil() {
-	o.UserCount.Set(nil)
-}
-
-// UnsetUserCount ensures that no value is present for UserCount, not even an explicit nil
-func (o *VoiceScheduledEventResponse) UnsetUserCount() {
-	o.UserCount.Unset()
-}
 
 // GetPrivacyLevel returns the PrivacyLevel field value
-// If the value is explicit nil, the zero value for interface{} will be returned
-func (o *VoiceScheduledEventResponse) GetPrivacyLevel() interface{} {
+func (o *VoiceScheduledEventResponse) GetPrivacyLevel() GuildScheduledEventPrivacyLevels {
 	if o == nil {
-		var ret interface{}
+		var ret GuildScheduledEventPrivacyLevels
 		return ret
 	}
 
@@ -576,76 +521,65 @@ func (o *VoiceScheduledEventResponse) GetPrivacyLevel() interface{} {
 
 // GetPrivacyLevelOk returns a tuple with the PrivacyLevel field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *VoiceScheduledEventResponse) GetPrivacyLevelOk() (*interface{}, bool) {
-	if o == nil || IsNil(o.PrivacyLevel) {
+func (o *VoiceScheduledEventResponse) GetPrivacyLevelOk() (*GuildScheduledEventPrivacyLevels, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PrivacyLevel, true
 }
 
 // SetPrivacyLevel sets field value
-func (o *VoiceScheduledEventResponse) SetPrivacyLevel(v interface{}) {
+func (o *VoiceScheduledEventResponse) SetPrivacyLevel(v GuildScheduledEventPrivacyLevels) {
 	o.PrivacyLevel = v
 }
 
-// GetUserRsvp returns the UserRsvp field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *VoiceScheduledEventResponse) GetUserRsvp() ScheduledEventUserResponse {
-	if o == nil || IsNil(o.UserRsvp.Get()) {
-		var ret ScheduledEventUserResponse
+// GetUserRsvp returns the UserRsvp field value if set, zero value otherwise.
+func (o *VoiceScheduledEventResponse) GetUserRsvp() ExternalScheduledEventResponseUserRsvp {
+	if o == nil || IsNil(o.UserRsvp) {
+		var ret ExternalScheduledEventResponseUserRsvp
 		return ret
 	}
-	return *o.UserRsvp.Get()
+	return *o.UserRsvp
 }
 
 // GetUserRsvpOk returns a tuple with the UserRsvp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *VoiceScheduledEventResponse) GetUserRsvpOk() (*ScheduledEventUserResponse, bool) {
-	if o == nil || IsNil(o.UserRsvp.Get()) {
+func (o *VoiceScheduledEventResponse) GetUserRsvpOk() (*ExternalScheduledEventResponseUserRsvp, bool) {
+	if o == nil || IsNil(o.UserRsvp) {
 		return nil, false
 	}
-	return o.UserRsvp.Get(), o.UserRsvp.IsSet()
+	return o.UserRsvp, true
 }
 
 // HasUserRsvp returns a boolean if a field has been set.
 func (o *VoiceScheduledEventResponse) HasUserRsvp() bool {
-	if o != nil && o.UserRsvp.IsSet() {
+	if o != nil && !IsNil(o.UserRsvp) {
 		return true
 	}
 
 	return false
 }
 
-// SetUserRsvp gets a reference to the given NullableScheduledEventUserResponse and assigns it to the UserRsvp field.
-func (o *VoiceScheduledEventResponse) SetUserRsvp(v ScheduledEventUserResponse) {
-	o.UserRsvp.Set(&v)
+// SetUserRsvp gets a reference to the given ExternalScheduledEventResponseUserRsvp and assigns it to the UserRsvp field.
+func (o *VoiceScheduledEventResponse) SetUserRsvp(v ExternalScheduledEventResponseUserRsvp) {
+	o.UserRsvp = &v
 }
 
-// SetUserRsvpNil sets the value for UserRsvp to be an explicit nil
-func (o *VoiceScheduledEventResponse) SetUserRsvpNil() {
-	o.UserRsvp.Set(nil)
-}
-
-// UnsetUserRsvp ensures that no value is present for UserRsvp, not even an explicit nil
-func (o *VoiceScheduledEventResponse) UnsetUserRsvp() {
-	o.UserRsvp.Unset()
-}
 
 // GetEntityMetadata returns the EntityMetadata field value if set, zero value otherwise.
-func (o *VoiceScheduledEventResponse) GetEntityMetadata() map[string]interface{} {
+func (o *VoiceScheduledEventResponse) GetEntityMetadata() VoiceScheduledEventResponseEntityMetadata {
 	if o == nil || IsNil(o.EntityMetadata) {
-		var ret map[string]interface{}
+		var ret VoiceScheduledEventResponseEntityMetadata
 		return ret
 	}
-	return o.EntityMetadata
+	return *o.EntityMetadata
 }
 
 // GetEntityMetadataOk returns a tuple with the EntityMetadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VoiceScheduledEventResponse) GetEntityMetadataOk() (map[string]interface{}, bool) {
+func (o *VoiceScheduledEventResponse) GetEntityMetadataOk() (*VoiceScheduledEventResponseEntityMetadata, bool) {
 	if o == nil || IsNil(o.EntityMetadata) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.EntityMetadata, true
 }
@@ -659,9 +593,9 @@ func (o *VoiceScheduledEventResponse) HasEntityMetadata() bool {
 	return false
 }
 
-// SetEntityMetadata gets a reference to the given map[string]interface{} and assigns it to the EntityMetadata field.
-func (o *VoiceScheduledEventResponse) SetEntityMetadata(v map[string]interface{}) {
-	o.EntityMetadata = v
+// SetEntityMetadata gets a reference to the given VoiceScheduledEventResponseEntityMetadata and assigns it to the EntityMetadata field.
+func (o *VoiceScheduledEventResponse) SetEntityMetadata(v VoiceScheduledEventResponseEntityMetadata) {
+	o.EntityMetadata = &v
 }
 
 
@@ -678,8 +612,8 @@ func (o VoiceScheduledEventResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["guild_id"] = o.GuildId
 	toSerialize["name"] = o.Name
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
 	if !IsNil(o.ChannelId) {
 		toSerialize["channel_id"] = o.ChannelId
@@ -687,29 +621,27 @@ func (o VoiceScheduledEventResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreatorId) {
 		toSerialize["creator_id"] = o.CreatorId
 	}
-	if o.Creator.IsSet() {
-		toSerialize["creator"] = o.Creator.Get()
+	if !IsNil(o.Creator) {
+		toSerialize["creator"] = o.Creator
 	}
-	if o.Image.IsSet() {
-		toSerialize["image"] = o.Image.Get()
+	if !IsNil(o.Image) {
+		toSerialize["image"] = o.Image
 	}
 	toSerialize["scheduled_start_time"] = o.ScheduledStartTime
-	if o.ScheduledEndTime.IsSet() {
-		toSerialize["scheduled_end_time"] = o.ScheduledEndTime.Get()
+	if !IsNil(o.ScheduledEndTime) {
+		toSerialize["scheduled_end_time"] = o.ScheduledEndTime
 	}
-	toSerialize["status"] = o.Status.Get()
-	toSerialize["entity_type"] = o.EntityType.Get()
+	toSerialize["status"] = o.Status
+	toSerialize["entity_type"] = o.EntityType
 	if !IsNil(o.EntityId) {
 		toSerialize["entity_id"] = o.EntityId
 	}
-	if o.UserCount.IsSet() {
-		toSerialize["user_count"] = o.UserCount.Get()
+	if !IsNil(o.UserCount) {
+		toSerialize["user_count"] = o.UserCount
 	}
-	if o.PrivacyLevel != nil {
-		toSerialize["privacy_level"] = o.PrivacyLevel
-	}
-	if o.UserRsvp.IsSet() {
-		toSerialize["user_rsvp"] = o.UserRsvp.Get()
+	toSerialize["privacy_level"] = o.PrivacyLevel
+	if !IsNil(o.UserRsvp) {
+		toSerialize["user_rsvp"] = o.UserRsvp
 	}
 	if !IsNil(o.EntityMetadata) {
 		toSerialize["entity_metadata"] = o.EntityMetadata
@@ -795,5 +727,4 @@ func (v *NullableVoiceScheduledEventResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 
