@@ -5,18 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**ActionType** | **NullableInt32** |  | 
-**UserId** | Pointer to **string** |  | [optional] 
-**TargetId** | Pointer to **string** |  | [optional] 
+**ActionType** | [**AuditLogActionTypes**](AuditLogActionTypes.md) |  | 
+**UserId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**TargetId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Changes** | Pointer to [**[]AuditLogObjectChangeResponse**](AuditLogObjectChangeResponse.md) |  | [optional] 
 **Options** | Pointer to **map[string]string** |  | [optional] 
-**Reason** | Pointer to **NullableString** |  | [optional] 
+**Reason** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewAuditLogEntryResponse
 
-`func NewAuditLogEntryResponse(id string, actionType NullableInt32, ) *AuditLogEntryResponse`
+`func NewAuditLogEntryResponse(id string, actionType AuditLogActionTypes, ) *AuditLogEntryResponse`
 
 NewAuditLogEntryResponse instantiates a new AuditLogEntryResponse object
 This constructor will assign default values to properties that have it defined,
@@ -53,50 +53,40 @@ SetId sets Id field to given value.
 
 ### GetActionType
 
-`func (o *AuditLogEntryResponse) GetActionType() int32`
+`func (o *AuditLogEntryResponse) GetActionType() AuditLogActionTypes`
 
 GetActionType returns the ActionType field if non-nil, zero value otherwise.
 
 ### GetActionTypeOk
 
-`func (o *AuditLogEntryResponse) GetActionTypeOk() (*int32, bool)`
+`func (o *AuditLogEntryResponse) GetActionTypeOk() (*AuditLogActionTypes, bool)`
 
 GetActionTypeOk returns a tuple with the ActionType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetActionType
 
-`func (o *AuditLogEntryResponse) SetActionType(v int32)`
+`func (o *AuditLogEntryResponse) SetActionType(v AuditLogActionTypes)`
 
 SetActionType sets ActionType field to given value.
 
 
-### SetActionTypeNil
-
-`func (o *AuditLogEntryResponse) SetActionTypeNil(b bool)`
-
- SetActionTypeNil sets the value for ActionType to be an explicit nil
-
-### UnsetActionType
-`func (o *AuditLogEntryResponse) UnsetActionType()`
-
-UnsetActionType ensures that no value is present for ActionType, not even an explicit nil
 ### GetUserId
 
-`func (o *AuditLogEntryResponse) GetUserId() string`
+`func (o *AuditLogEntryResponse) GetUserId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetUserId returns the UserId field if non-nil, zero value otherwise.
 
 ### GetUserIdOk
 
-`func (o *AuditLogEntryResponse) GetUserIdOk() (*string, bool)`
+`func (o *AuditLogEntryResponse) GetUserIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUserId
 
-`func (o *AuditLogEntryResponse) SetUserId(v string)`
+`func (o *AuditLogEntryResponse) SetUserId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetUserId sets UserId field to given value.
 
@@ -108,20 +98,20 @@ HasUserId returns a boolean if a field has been set.
 
 ### GetTargetId
 
-`func (o *AuditLogEntryResponse) GetTargetId() string`
+`func (o *AuditLogEntryResponse) GetTargetId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetTargetId returns the TargetId field if non-nil, zero value otherwise.
 
 ### GetTargetIdOk
 
-`func (o *AuditLogEntryResponse) GetTargetIdOk() (*string, bool)`
+`func (o *AuditLogEntryResponse) GetTargetIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetTargetIdOk returns a tuple with the TargetId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTargetId
 
-`func (o *AuditLogEntryResponse) SetTargetId(v string)`
+`func (o *AuditLogEntryResponse) SetTargetId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetTargetId sets TargetId field to given value.
 
@@ -156,16 +146,6 @@ SetChanges sets Changes field to given value.
 
 HasChanges returns a boolean if a field has been set.
 
-### SetChangesNil
-
-`func (o *AuditLogEntryResponse) SetChangesNil(b bool)`
-
- SetChangesNil sets the value for Changes to be an explicit nil
-
-### UnsetChanges
-`func (o *AuditLogEntryResponse) UnsetChanges()`
-
-UnsetChanges ensures that no value is present for Changes, not even an explicit nil
 ### GetOptions
 
 `func (o *AuditLogEntryResponse) GetOptions() map[string]string`
@@ -216,16 +196,6 @@ SetReason sets Reason field to given value.
 
 HasReason returns a boolean if a field has been set.
 
-### SetReasonNil
-
-`func (o *AuditLogEntryResponse) SetReasonNil(b bool)`
-
- SetReasonNil sets the value for Reason to be an explicit nil
-
-### UnsetReason
-`func (o *AuditLogEntryResponse) UnsetReason()`
-
-UnsetReason ensures that no value is present for Reason, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

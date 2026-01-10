@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,8 +56,8 @@ var _ MappedNullable = &CreateForumThreadRequest{}
 // CreateForumThreadRequest struct for CreateForumThreadRequest
 type CreateForumThreadRequest struct {
 	Name string `json:"name"`
-	AutoArchiveDuration *int32 `json:"auto_archive_duration,omitempty"`
-	RateLimitPerUser NullableInt32 `json:"rate_limit_per_user,omitempty"`
+	AutoArchiveDuration *CreateForumThreadRequestAutoArchiveDuration `json:"auto_archive_duration,omitempty"`
+	RateLimitPerUser *int32 `json:"rate_limit_per_user,omitempty"`
 	AppliedTags []string `json:"applied_tags,omitempty"`
 	Message BaseCreateMessageCreateRequest `json:"message"`
 }
@@ -108,9 +108,9 @@ func (o *CreateForumThreadRequest) SetName(v string) {
 }
 
 // GetAutoArchiveDuration returns the AutoArchiveDuration field value if set, zero value otherwise.
-func (o *CreateForumThreadRequest) GetAutoArchiveDuration() int32 {
+func (o *CreateForumThreadRequest) GetAutoArchiveDuration() CreateForumThreadRequestAutoArchiveDuration {
 	if o == nil || IsNil(o.AutoArchiveDuration) {
-		var ret int32
+		var ret CreateForumThreadRequestAutoArchiveDuration
 		return ret
 	}
 	return *o.AutoArchiveDuration
@@ -118,7 +118,7 @@ func (o *CreateForumThreadRequest) GetAutoArchiveDuration() int32 {
 
 // GetAutoArchiveDurationOk returns a tuple with the AutoArchiveDuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateForumThreadRequest) GetAutoArchiveDurationOk() (*int32, bool) {
+func (o *CreateForumThreadRequest) GetAutoArchiveDurationOk() (*CreateForumThreadRequestAutoArchiveDuration, bool) {
 	if o == nil || IsNil(o.AutoArchiveDuration) {
 		return nil, false
 	}
@@ -134,58 +134,48 @@ func (o *CreateForumThreadRequest) HasAutoArchiveDuration() bool {
 	return false
 }
 
-// SetAutoArchiveDuration gets a reference to the given int32 and assigns it to the AutoArchiveDuration field.
-func (o *CreateForumThreadRequest) SetAutoArchiveDuration(v int32) {
+// SetAutoArchiveDuration gets a reference to the given CreateForumThreadRequestAutoArchiveDuration and assigns it to the AutoArchiveDuration field.
+func (o *CreateForumThreadRequest) SetAutoArchiveDuration(v CreateForumThreadRequestAutoArchiveDuration) {
 	o.AutoArchiveDuration = &v
 }
 
 
-// GetRateLimitPerUser returns the RateLimitPerUser field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRateLimitPerUser returns the RateLimitPerUser field value if set, zero value otherwise.
 func (o *CreateForumThreadRequest) GetRateLimitPerUser() int32 {
-	if o == nil || IsNil(o.RateLimitPerUser.Get()) {
+	if o == nil || IsNil(o.RateLimitPerUser) {
 		var ret int32
 		return ret
 	}
-	return *o.RateLimitPerUser.Get()
+	return *o.RateLimitPerUser
 }
 
 // GetRateLimitPerUserOk returns a tuple with the RateLimitPerUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateForumThreadRequest) GetRateLimitPerUserOk() (*int32, bool) {
-	if o == nil || IsNil(o.RateLimitPerUser.Get()) {
+	if o == nil || IsNil(o.RateLimitPerUser) {
 		return nil, false
 	}
-	return o.RateLimitPerUser.Get(), o.RateLimitPerUser.IsSet()
+	return o.RateLimitPerUser, true
 }
 
 // HasRateLimitPerUser returns a boolean if a field has been set.
 func (o *CreateForumThreadRequest) HasRateLimitPerUser() bool {
-	if o != nil && o.RateLimitPerUser.IsSet() {
+	if o != nil && !IsNil(o.RateLimitPerUser) {
 		return true
 	}
 
 	return false
 }
 
-// SetRateLimitPerUser gets a reference to the given NullableInt32 and assigns it to the RateLimitPerUser field.
+// SetRateLimitPerUser gets a reference to the given int32 and assigns it to the RateLimitPerUser field.
 func (o *CreateForumThreadRequest) SetRateLimitPerUser(v int32) {
-	o.RateLimitPerUser.Set(&v)
+	o.RateLimitPerUser = &v
 }
 
-// SetRateLimitPerUserNil sets the value for RateLimitPerUser to be an explicit nil
-func (o *CreateForumThreadRequest) SetRateLimitPerUserNil() {
-	o.RateLimitPerUser.Set(nil)
-}
 
-// UnsetRateLimitPerUser ensures that no value is present for RateLimitPerUser, not even an explicit nil
-func (o *CreateForumThreadRequest) UnsetRateLimitPerUser() {
-	o.RateLimitPerUser.Unset()
-}
-
-// GetAppliedTags returns the AppliedTags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAppliedTags returns the AppliedTags field value if set, zero value otherwise.
 func (o *CreateForumThreadRequest) GetAppliedTags() []string {
-	if o == nil {
+	if o == nil || IsNil(o.AppliedTags) {
 		var ret []string
 		return ret
 	}
@@ -194,9 +184,8 @@ func (o *CreateForumThreadRequest) GetAppliedTags() []string {
 
 // GetAppliedTagsOk returns a tuple with the AppliedTags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateForumThreadRequest) GetAppliedTagsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AppliedTags) {
 		return nil, false
 	}
 	return o.AppliedTags, true
@@ -255,10 +244,10 @@ func (o CreateForumThreadRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AutoArchiveDuration) {
 		toSerialize["auto_archive_duration"] = o.AutoArchiveDuration
 	}
-	if o.RateLimitPerUser.IsSet() {
-		toSerialize["rate_limit_per_user"] = o.RateLimitPerUser.Get()
+	if !IsNil(o.RateLimitPerUser) {
+		toSerialize["rate_limit_per_user"] = o.RateLimitPerUser
 	}
-	if o.AppliedTags != nil {
+	if !IsNil(o.AppliedTags) {
 		toSerialize["applied_tags"] = o.AppliedTags
 	}
 	toSerialize["message"] = o.Message
@@ -338,5 +327,4 @@ func (v *NullableCreateForumThreadRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

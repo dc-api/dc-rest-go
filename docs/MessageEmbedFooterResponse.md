@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Text** | **string** |  | 
-**IconUrl** | Pointer to **NullableString** |  | [optional] 
-**ProxyIconUrl** | Pointer to **NullableString** |  | [optional] 
+**IconUrl** | Pointer to **string** |  | [optional] 
+**ProxyIconUrl** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -72,16 +72,6 @@ SetIconUrl sets IconUrl field to given value.
 
 HasIconUrl returns a boolean if a field has been set.
 
-### SetIconUrlNil
-
-`func (o *MessageEmbedFooterResponse) SetIconUrlNil(b bool)`
-
- SetIconUrlNil sets the value for IconUrl to be an explicit nil
-
-### UnsetIconUrl
-`func (o *MessageEmbedFooterResponse) UnsetIconUrl()`
-
-UnsetIconUrl ensures that no value is present for IconUrl, not even an explicit nil
 ### GetProxyIconUrl
 
 `func (o *MessageEmbedFooterResponse) GetProxyIconUrl() string`
@@ -107,16 +97,6 @@ SetProxyIconUrl sets ProxyIconUrl field to given value.
 
 HasProxyIconUrl returns a boolean if a field has been set.
 
-### SetProxyIconUrlNil
-
-`func (o *MessageEmbedFooterResponse) SetProxyIconUrlNil(b bool)`
-
- SetProxyIconUrlNil sets the value for ProxyIconUrl to be an explicit nil
-
-### UnsetProxyIconUrl
-`func (o *MessageEmbedFooterResponse) UnsetProxyIconUrl()`
-
-UnsetProxyIconUrl ensures that no value is present for ProxyIconUrl, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

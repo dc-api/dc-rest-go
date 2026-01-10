@@ -4,33 +4,33 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **NullableInt32** |  | [optional] 
-**Type** | **int32** |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Position** | Pointer to **NullableInt32** |  | [optional] 
-**Topic** | Pointer to **NullableString** |  | [optional] 
+**Id** | Pointer to **int32** |  | [optional] 
+**Type** | [**ChannelTypes**](ChannelTypes.md) |  | 
+**Name** | Pointer to **string** |  | [optional] 
+**Position** | Pointer to **int32** |  | [optional] 
+**Topic** | Pointer to **string** |  | [optional] 
 **Bitrate** | **int32** |  | 
 **UserLimit** | **int32** |  | 
 **Nsfw** | **bool** |  | 
 **RateLimitPerUser** | **int32** |  | 
-**ParentId** | Pointer to **string** |  | [optional] 
-**DefaultAutoArchiveDuration** | Pointer to **int32** |  | [optional] 
-**PermissionOverwrites** | [**[]ChannelPermissionOverwriteResponse**](ChannelPermissionOverwriteResponse.md) |  | 
+**ParentId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**DefaultAutoArchiveDuration** | Pointer to [**CreateForumThreadRequestAutoArchiveDuration**](CreateForumThreadRequestAutoArchiveDuration.md) |  | [optional] 
+**PermissionOverwrites** | [**[]GuildTemplateChannelResponsePermissionOverwritesInner**](GuildTemplateChannelResponsePermissionOverwritesInner.md) |  | 
 **AvailableTags** | Pointer to [**[]GuildTemplateChannelTags**](GuildTemplateChannelTags.md) |  | [optional] 
 **Template** | **string** |  | 
-**DefaultReactionEmoji** | Pointer to [**NullableDefaultReactionEmojiResponse**](DefaultReactionEmojiResponse.md) |  | [optional] 
-**DefaultThreadRateLimitPerUser** | Pointer to **NullableInt32** |  | [optional] 
-**DefaultSortOrder** | Pointer to **int32** |  | [optional] 
-**DefaultForumLayout** | Pointer to **int32** |  | [optional] 
-**DefaultTagSetting** | Pointer to **string** |  | [optional] 
-**IconEmoji** | Pointer to **map[string]interface{}** |  | [optional] 
-**ThemeColor** | Pointer to **NullableInt32** |  | [optional] 
+**DefaultReactionEmoji** | Pointer to [**GuildChannelResponseDefaultReactionEmoji**](GuildChannelResponseDefaultReactionEmoji.md) |  | [optional] 
+**DefaultThreadRateLimitPerUser** | Pointer to **int32** |  | [optional] 
+**DefaultSortOrder** | Pointer to [**CreateGuildChannelRequestDefaultSortOrder**](CreateGuildChannelRequestDefaultSortOrder.md) |  | [optional] 
+**DefaultForumLayout** | Pointer to [**CreateGuildChannelRequestDefaultForumLayout**](CreateGuildChannelRequestDefaultForumLayout.md) |  | [optional] 
+**DefaultTagSetting** | Pointer to [**CreateGuildChannelRequestDefaultTagSetting**](CreateGuildChannelRequestDefaultTagSetting.md) |  | [optional] 
+**IconEmoji** | Pointer to [**GuildTemplateChannelResponseIconEmoji**](GuildTemplateChannelResponseIconEmoji.md) |  | [optional] 
+**ThemeColor** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewGuildTemplateChannelResponse
 
-`func NewGuildTemplateChannelResponse(type_ int32, bitrate int32, userLimit int32, nsfw bool, rateLimitPerUser int32, permissionOverwrites []*ChannelPermissionOverwriteResponse, template string, ) *GuildTemplateChannelResponse`
+`func NewGuildTemplateChannelResponse(type_ ChannelTypes, bitrate int32, userLimit int32, nsfw bool, rateLimitPerUser int32, permissionOverwrites []GuildTemplateChannelResponsePermissionOverwritesInner, template string, ) *GuildTemplateChannelResponse`
 
 NewGuildTemplateChannelResponse instantiates a new GuildTemplateChannelResponse object
 This constructor will assign default values to properties that have it defined,
@@ -70,32 +70,22 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-### SetIdNil
-
-`func (o *GuildTemplateChannelResponse) SetIdNil(b bool)`
-
- SetIdNil sets the value for Id to be an explicit nil
-
-### UnsetId
-`func (o *GuildTemplateChannelResponse) UnsetId()`
-
-UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetType
 
-`func (o *GuildTemplateChannelResponse) GetType() int32`
+`func (o *GuildTemplateChannelResponse) GetType() ChannelTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *GuildTemplateChannelResponse) GetTypeOk() (*int32, bool)`
+`func (o *GuildTemplateChannelResponse) GetTypeOk() (*ChannelTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *GuildTemplateChannelResponse) SetType(v int32)`
+`func (o *GuildTemplateChannelResponse) SetType(v ChannelTypes)`
 
 SetType sets Type field to given value.
 
@@ -125,16 +115,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *GuildTemplateChannelResponse) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *GuildTemplateChannelResponse) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPosition
 
 `func (o *GuildTemplateChannelResponse) GetPosition() int32`
@@ -160,16 +140,6 @@ SetPosition sets Position field to given value.
 
 HasPosition returns a boolean if a field has been set.
 
-### SetPositionNil
-
-`func (o *GuildTemplateChannelResponse) SetPositionNil(b bool)`
-
- SetPositionNil sets the value for Position to be an explicit nil
-
-### UnsetPosition
-`func (o *GuildTemplateChannelResponse) UnsetPosition()`
-
-UnsetPosition ensures that no value is present for Position, not even an explicit nil
 ### GetTopic
 
 `func (o *GuildTemplateChannelResponse) GetTopic() string`
@@ -195,16 +165,6 @@ SetTopic sets Topic field to given value.
 
 HasTopic returns a boolean if a field has been set.
 
-### SetTopicNil
-
-`func (o *GuildTemplateChannelResponse) SetTopicNil(b bool)`
-
- SetTopicNil sets the value for Topic to be an explicit nil
-
-### UnsetTopic
-`func (o *GuildTemplateChannelResponse) UnsetTopic()`
-
-UnsetTopic ensures that no value is present for Topic, not even an explicit nil
 ### GetBitrate
 
 `func (o *GuildTemplateChannelResponse) GetBitrate() int32`
@@ -287,20 +247,20 @@ SetRateLimitPerUser sets RateLimitPerUser field to given value.
 
 ### GetParentId
 
-`func (o *GuildTemplateChannelResponse) GetParentId() string`
+`func (o *GuildTemplateChannelResponse) GetParentId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetParentId returns the ParentId field if non-nil, zero value otherwise.
 
 ### GetParentIdOk
 
-`func (o *GuildTemplateChannelResponse) GetParentIdOk() (*string, bool)`
+`func (o *GuildTemplateChannelResponse) GetParentIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetParentIdOk returns a tuple with the ParentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetParentId
 
-`func (o *GuildTemplateChannelResponse) SetParentId(v string)`
+`func (o *GuildTemplateChannelResponse) SetParentId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetParentId sets ParentId field to given value.
 
@@ -312,20 +272,20 @@ HasParentId returns a boolean if a field has been set.
 
 ### GetDefaultAutoArchiveDuration
 
-`func (o *GuildTemplateChannelResponse) GetDefaultAutoArchiveDuration() int32`
+`func (o *GuildTemplateChannelResponse) GetDefaultAutoArchiveDuration() CreateForumThreadRequestAutoArchiveDuration`
 
 GetDefaultAutoArchiveDuration returns the DefaultAutoArchiveDuration field if non-nil, zero value otherwise.
 
 ### GetDefaultAutoArchiveDurationOk
 
-`func (o *GuildTemplateChannelResponse) GetDefaultAutoArchiveDurationOk() (*int32, bool)`
+`func (o *GuildTemplateChannelResponse) GetDefaultAutoArchiveDurationOk() (*CreateForumThreadRequestAutoArchiveDuration, bool)`
 
 GetDefaultAutoArchiveDurationOk returns a tuple with the DefaultAutoArchiveDuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultAutoArchiveDuration
 
-`func (o *GuildTemplateChannelResponse) SetDefaultAutoArchiveDuration(v int32)`
+`func (o *GuildTemplateChannelResponse) SetDefaultAutoArchiveDuration(v CreateForumThreadRequestAutoArchiveDuration)`
 
 SetDefaultAutoArchiveDuration sets DefaultAutoArchiveDuration field to given value.
 
@@ -337,20 +297,20 @@ HasDefaultAutoArchiveDuration returns a boolean if a field has been set.
 
 ### GetPermissionOverwrites
 
-`func (o *GuildTemplateChannelResponse) GetPermissionOverwrites() []*ChannelPermissionOverwriteResponse`
+`func (o *GuildTemplateChannelResponse) GetPermissionOverwrites() []GuildTemplateChannelResponsePermissionOverwritesInner`
 
 GetPermissionOverwrites returns the PermissionOverwrites field if non-nil, zero value otherwise.
 
 ### GetPermissionOverwritesOk
 
-`func (o *GuildTemplateChannelResponse) GetPermissionOverwritesOk() (*[]*ChannelPermissionOverwriteResponse, bool)`
+`func (o *GuildTemplateChannelResponse) GetPermissionOverwritesOk() (*[]GuildTemplateChannelResponsePermissionOverwritesInner, bool)`
 
 GetPermissionOverwritesOk returns a tuple with the PermissionOverwrites field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPermissionOverwrites
 
-`func (o *GuildTemplateChannelResponse) SetPermissionOverwrites(v []*ChannelPermissionOverwriteResponse)`
+`func (o *GuildTemplateChannelResponse) SetPermissionOverwrites(v []GuildTemplateChannelResponsePermissionOverwritesInner)`
 
 SetPermissionOverwrites sets PermissionOverwrites field to given value.
 
@@ -380,16 +340,6 @@ SetAvailableTags sets AvailableTags field to given value.
 
 HasAvailableTags returns a boolean if a field has been set.
 
-### SetAvailableTagsNil
-
-`func (o *GuildTemplateChannelResponse) SetAvailableTagsNil(b bool)`
-
- SetAvailableTagsNil sets the value for AvailableTags to be an explicit nil
-
-### UnsetAvailableTags
-`func (o *GuildTemplateChannelResponse) UnsetAvailableTags()`
-
-UnsetAvailableTags ensures that no value is present for AvailableTags, not even an explicit nil
 ### GetTemplate
 
 `func (o *GuildTemplateChannelResponse) GetTemplate() string`
@@ -412,20 +362,20 @@ SetTemplate sets Template field to given value.
 
 ### GetDefaultReactionEmoji
 
-`func (o *GuildTemplateChannelResponse) GetDefaultReactionEmoji() DefaultReactionEmojiResponse`
+`func (o *GuildTemplateChannelResponse) GetDefaultReactionEmoji() GuildChannelResponseDefaultReactionEmoji`
 
 GetDefaultReactionEmoji returns the DefaultReactionEmoji field if non-nil, zero value otherwise.
 
 ### GetDefaultReactionEmojiOk
 
-`func (o *GuildTemplateChannelResponse) GetDefaultReactionEmojiOk() (*DefaultReactionEmojiResponse, bool)`
+`func (o *GuildTemplateChannelResponse) GetDefaultReactionEmojiOk() (*GuildChannelResponseDefaultReactionEmoji, bool)`
 
 GetDefaultReactionEmojiOk returns a tuple with the DefaultReactionEmoji field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultReactionEmoji
 
-`func (o *GuildTemplateChannelResponse) SetDefaultReactionEmoji(v DefaultReactionEmojiResponse)`
+`func (o *GuildTemplateChannelResponse) SetDefaultReactionEmoji(v GuildChannelResponseDefaultReactionEmoji)`
 
 SetDefaultReactionEmoji sets DefaultReactionEmoji field to given value.
 
@@ -435,16 +385,6 @@ SetDefaultReactionEmoji sets DefaultReactionEmoji field to given value.
 
 HasDefaultReactionEmoji returns a boolean if a field has been set.
 
-### SetDefaultReactionEmojiNil
-
-`func (o *GuildTemplateChannelResponse) SetDefaultReactionEmojiNil(b bool)`
-
- SetDefaultReactionEmojiNil sets the value for DefaultReactionEmoji to be an explicit nil
-
-### UnsetDefaultReactionEmoji
-`func (o *GuildTemplateChannelResponse) UnsetDefaultReactionEmoji()`
-
-UnsetDefaultReactionEmoji ensures that no value is present for DefaultReactionEmoji, not even an explicit nil
 ### GetDefaultThreadRateLimitPerUser
 
 `func (o *GuildTemplateChannelResponse) GetDefaultThreadRateLimitPerUser() int32`
@@ -470,32 +410,22 @@ SetDefaultThreadRateLimitPerUser sets DefaultThreadRateLimitPerUser field to giv
 
 HasDefaultThreadRateLimitPerUser returns a boolean if a field has been set.
 
-### SetDefaultThreadRateLimitPerUserNil
-
-`func (o *GuildTemplateChannelResponse) SetDefaultThreadRateLimitPerUserNil(b bool)`
-
- SetDefaultThreadRateLimitPerUserNil sets the value for DefaultThreadRateLimitPerUser to be an explicit nil
-
-### UnsetDefaultThreadRateLimitPerUser
-`func (o *GuildTemplateChannelResponse) UnsetDefaultThreadRateLimitPerUser()`
-
-UnsetDefaultThreadRateLimitPerUser ensures that no value is present for DefaultThreadRateLimitPerUser, not even an explicit nil
 ### GetDefaultSortOrder
 
-`func (o *GuildTemplateChannelResponse) GetDefaultSortOrder() int32`
+`func (o *GuildTemplateChannelResponse) GetDefaultSortOrder() CreateGuildChannelRequestDefaultSortOrder`
 
 GetDefaultSortOrder returns the DefaultSortOrder field if non-nil, zero value otherwise.
 
 ### GetDefaultSortOrderOk
 
-`func (o *GuildTemplateChannelResponse) GetDefaultSortOrderOk() (*int32, bool)`
+`func (o *GuildTemplateChannelResponse) GetDefaultSortOrderOk() (*CreateGuildChannelRequestDefaultSortOrder, bool)`
 
 GetDefaultSortOrderOk returns a tuple with the DefaultSortOrder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultSortOrder
 
-`func (o *GuildTemplateChannelResponse) SetDefaultSortOrder(v int32)`
+`func (o *GuildTemplateChannelResponse) SetDefaultSortOrder(v CreateGuildChannelRequestDefaultSortOrder)`
 
 SetDefaultSortOrder sets DefaultSortOrder field to given value.
 
@@ -507,20 +437,20 @@ HasDefaultSortOrder returns a boolean if a field has been set.
 
 ### GetDefaultForumLayout
 
-`func (o *GuildTemplateChannelResponse) GetDefaultForumLayout() int32`
+`func (o *GuildTemplateChannelResponse) GetDefaultForumLayout() CreateGuildChannelRequestDefaultForumLayout`
 
 GetDefaultForumLayout returns the DefaultForumLayout field if non-nil, zero value otherwise.
 
 ### GetDefaultForumLayoutOk
 
-`func (o *GuildTemplateChannelResponse) GetDefaultForumLayoutOk() (*int32, bool)`
+`func (o *GuildTemplateChannelResponse) GetDefaultForumLayoutOk() (*CreateGuildChannelRequestDefaultForumLayout, bool)`
 
 GetDefaultForumLayoutOk returns a tuple with the DefaultForumLayout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultForumLayout
 
-`func (o *GuildTemplateChannelResponse) SetDefaultForumLayout(v int32)`
+`func (o *GuildTemplateChannelResponse) SetDefaultForumLayout(v CreateGuildChannelRequestDefaultForumLayout)`
 
 SetDefaultForumLayout sets DefaultForumLayout field to given value.
 
@@ -532,20 +462,20 @@ HasDefaultForumLayout returns a boolean if a field has been set.
 
 ### GetDefaultTagSetting
 
-`func (o *GuildTemplateChannelResponse) GetDefaultTagSetting() string`
+`func (o *GuildTemplateChannelResponse) GetDefaultTagSetting() CreateGuildChannelRequestDefaultTagSetting`
 
 GetDefaultTagSetting returns the DefaultTagSetting field if non-nil, zero value otherwise.
 
 ### GetDefaultTagSettingOk
 
-`func (o *GuildTemplateChannelResponse) GetDefaultTagSettingOk() (*string, bool)`
+`func (o *GuildTemplateChannelResponse) GetDefaultTagSettingOk() (*CreateGuildChannelRequestDefaultTagSetting, bool)`
 
 GetDefaultTagSettingOk returns a tuple with the DefaultTagSetting field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultTagSetting
 
-`func (o *GuildTemplateChannelResponse) SetDefaultTagSetting(v string)`
+`func (o *GuildTemplateChannelResponse) SetDefaultTagSetting(v CreateGuildChannelRequestDefaultTagSetting)`
 
 SetDefaultTagSetting sets DefaultTagSetting field to given value.
 
@@ -557,20 +487,20 @@ HasDefaultTagSetting returns a boolean if a field has been set.
 
 ### GetIconEmoji
 
-`func (o *GuildTemplateChannelResponse) GetIconEmoji() map[string]interface{}`
+`func (o *GuildTemplateChannelResponse) GetIconEmoji() GuildTemplateChannelResponseIconEmoji`
 
 GetIconEmoji returns the IconEmoji field if non-nil, zero value otherwise.
 
 ### GetIconEmojiOk
 
-`func (o *GuildTemplateChannelResponse) GetIconEmojiOk() (*map[string]interface{}, bool)`
+`func (o *GuildTemplateChannelResponse) GetIconEmojiOk() (*GuildTemplateChannelResponseIconEmoji, bool)`
 
 GetIconEmojiOk returns a tuple with the IconEmoji field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIconEmoji
 
-`func (o *GuildTemplateChannelResponse) SetIconEmoji(v map[string]interface{})`
+`func (o *GuildTemplateChannelResponse) SetIconEmoji(v GuildTemplateChannelResponseIconEmoji)`
 
 SetIconEmoji sets IconEmoji field to given value.
 
@@ -605,16 +535,6 @@ SetThemeColor sets ThemeColor field to given value.
 
 HasThemeColor returns a boolean if a field has been set.
 
-### SetThemeColorNil
-
-`func (o *GuildTemplateChannelResponse) SetThemeColorNil(b bool)`
-
- SetThemeColorNil sets the value for ThemeColor to be an explicit nil
-
-### UnsetThemeColor
-`func (o *GuildTemplateChannelResponse) UnsetThemeColor()`
-
-UnsetThemeColor ensures that no value is present for ThemeColor, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

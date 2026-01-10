@@ -5,17 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **int32** |  | 
-**LastMessageId** | Pointer to **string** |  | [optional] 
+**Type** | [**ChannelTypes**](ChannelTypes.md) |  | 
+**LastMessageId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Flags** | **int32** |  | 
-**LastPinTimestamp** | Pointer to **NullableTime** |  | [optional] 
+**LastPinTimestamp** | Pointer to **time.Time** |  | [optional] 
 **Recipients** | [**[]UserResponse**](UserResponse.md) |  | 
 
 ## Methods
 
 ### NewPrivateChannelResponse
 
-`func NewPrivateChannelResponse(id string, type_ int32, flags int32, recipients []UserResponse, ) *PrivateChannelResponse`
+`func NewPrivateChannelResponse(id string, type_ ChannelTypes, flags int32, recipients []UserResponse, ) *PrivateChannelResponse`
 
 NewPrivateChannelResponse instantiates a new PrivateChannelResponse object
 This constructor will assign default values to properties that have it defined,
@@ -52,40 +52,40 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *PrivateChannelResponse) GetType() int32`
+`func (o *PrivateChannelResponse) GetType() ChannelTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *PrivateChannelResponse) GetTypeOk() (*int32, bool)`
+`func (o *PrivateChannelResponse) GetTypeOk() (*ChannelTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *PrivateChannelResponse) SetType(v int32)`
+`func (o *PrivateChannelResponse) SetType(v ChannelTypes)`
 
 SetType sets Type field to given value.
 
 
 ### GetLastMessageId
 
-`func (o *PrivateChannelResponse) GetLastMessageId() string`
+`func (o *PrivateChannelResponse) GetLastMessageId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetLastMessageId returns the LastMessageId field if non-nil, zero value otherwise.
 
 ### GetLastMessageIdOk
 
-`func (o *PrivateChannelResponse) GetLastMessageIdOk() (*string, bool)`
+`func (o *PrivateChannelResponse) GetLastMessageIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetLastMessageIdOk returns a tuple with the LastMessageId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastMessageId
 
-`func (o *PrivateChannelResponse) SetLastMessageId(v string)`
+`func (o *PrivateChannelResponse) SetLastMessageId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetLastMessageId sets LastMessageId field to given value.
 
@@ -140,16 +140,6 @@ SetLastPinTimestamp sets LastPinTimestamp field to given value.
 
 HasLastPinTimestamp returns a boolean if a field has been set.
 
-### SetLastPinTimestampNil
-
-`func (o *PrivateChannelResponse) SetLastPinTimestampNil(b bool)`
-
- SetLastPinTimestampNil sets the value for LastPinTimestamp to be an explicit nil
-
-### UnsetLastPinTimestamp
-`func (o *PrivateChannelResponse) UnsetLastPinTimestamp()`
-
-UnsetLastPinTimestamp ensures that no value is present for LastPinTimestamp, not even an explicit nil
 ### GetRecipients
 
 `func (o *PrivateChannelResponse) GetRecipients() []UserResponse`

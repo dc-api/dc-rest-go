@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | 
 **HtmlUrl** | **string** |  | 
 **User** | [**GithubUser**](GithubUser.md) |  | 
-**CommitId** | Pointer to **NullableString** |  | [optional] 
+**CommitId** | Pointer to **string** |  | [optional] 
 **Body** | **string** |  | 
 
 ## Methods
@@ -114,16 +114,6 @@ SetCommitId sets CommitId field to given value.
 
 HasCommitId returns a boolean if a field has been set.
 
-### SetCommitIdNil
-
-`func (o *GithubComment) SetCommitIdNil(b bool)`
-
- SetCommitIdNil sets the value for CommitId to be an explicit nil
-
-### UnsetCommitId
-`func (o *GithubComment) UnsetCommitId()`
-
-UnsetCommitId ensures that no value is present for CommitId, not even an explicit nil
 ### GetBody
 
 `func (o *GithubComment) GetBody() string`

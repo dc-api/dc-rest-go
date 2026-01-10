@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **ExpiresIn** | **int32** |  | 
 **Scope** | **string** |  | 
 **IdToken** | **string** |  | 
-**RefreshToken** | Pointer to **NullableString** |  | [optional] 
+**RefreshToken** | Pointer to **string** |  | [optional] 
 **Scopes** | Pointer to **[]string** |  | [optional] 
-**ExpiresAtS** | Pointer to **NullableInt32** |  | [optional] 
+**ExpiresAtS** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -157,16 +157,6 @@ SetRefreshToken sets RefreshToken field to given value.
 
 HasRefreshToken returns a boolean if a field has been set.
 
-### SetRefreshTokenNil
-
-`func (o *ProvisionalTokenResponse) SetRefreshTokenNil(b bool)`
-
- SetRefreshTokenNil sets the value for RefreshToken to be an explicit nil
-
-### UnsetRefreshToken
-`func (o *ProvisionalTokenResponse) UnsetRefreshToken()`
-
-UnsetRefreshToken ensures that no value is present for RefreshToken, not even an explicit nil
 ### GetScopes
 
 `func (o *ProvisionalTokenResponse) GetScopes() []string`
@@ -192,16 +182,6 @@ SetScopes sets Scopes field to given value.
 
 HasScopes returns a boolean if a field has been set.
 
-### SetScopesNil
-
-`func (o *ProvisionalTokenResponse) SetScopesNil(b bool)`
-
- SetScopesNil sets the value for Scopes to be an explicit nil
-
-### UnsetScopes
-`func (o *ProvisionalTokenResponse) UnsetScopes()`
-
-UnsetScopes ensures that no value is present for Scopes, not even an explicit nil
 ### GetExpiresAtS
 
 `func (o *ProvisionalTokenResponse) GetExpiresAtS() int32`
@@ -227,16 +207,6 @@ SetExpiresAtS sets ExpiresAtS field to given value.
 
 HasExpiresAtS returns a boolean if a field has been set.
 
-### SetExpiresAtSNil
-
-`func (o *ProvisionalTokenResponse) SetExpiresAtSNil(b bool)`
-
- SetExpiresAtSNil sets the value for ExpiresAtS to be an explicit nil
-
-### UnsetExpiresAtS
-`func (o *ProvisionalTokenResponse) UnsetExpiresAtS()`
-
-UnsetExpiresAtS ensures that no value is present for ExpiresAtS, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

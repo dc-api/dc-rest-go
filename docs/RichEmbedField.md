@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Value** | **string** |  | 
-**Inline** | Pointer to **NullableBool** |  | [optional] 
+**Inline** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -92,16 +92,6 @@ SetInline sets Inline field to given value.
 
 HasInline returns a boolean if a field has been set.
 
-### SetInlineNil
-
-`func (o *RichEmbedField) SetInlineNil(b bool)`
-
- SetInlineNil sets the value for Inline to be an explicit nil
-
-### UnsetInline
-`func (o *RichEmbedField) UnsetInline()`
-
-UnsetInline ensures that no value is present for Inline, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

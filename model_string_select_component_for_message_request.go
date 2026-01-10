@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,13 +55,15 @@ var _ MappedNullable = &StringSelectComponentForMessageRequest{}
 
 // StringSelectComponentForMessageRequest struct for StringSelectComponentForMessageRequest
 type StringSelectComponentForMessageRequest struct {
-	Type int32 `json:"type"`
+	Type MessageComponentTypes `json:"type"`
+	Id *int32 `json:"id,omitempty"`
 	CustomId string `json:"custom_id"`
-	Placeholder NullableString `json:"placeholder,omitempty"`
-	MinValues NullableInt32 `json:"min_values,omitempty"`
-	MaxValues NullableInt32 `json:"max_values,omitempty"`
-	Disabled NullableBool `json:"disabled,omitempty"`
-	Options []StringSelectOptionForMessageRequest `json:"options"`
+	Placeholder *string `json:"placeholder,omitempty"`
+	MinValues *int32 `json:"min_values,omitempty"`
+	MaxValues *int32 `json:"max_values,omitempty"`
+	Disabled *bool `json:"disabled,omitempty"`
+	Required *bool `json:"required,omitempty"`
+	Options []StringSelectOptionForRequest `json:"options"`
 }
 
 type _StringSelectComponentForMessageRequest StringSelectComponentForMessageRequest
@@ -70,7 +72,7 @@ type _StringSelectComponentForMessageRequest StringSelectComponentForMessageRequ
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStringSelectComponentForMessageRequest(type_ int32, customId string, options []StringSelectOptionForMessageRequest) *StringSelectComponentForMessageRequest {
+func NewStringSelectComponentForMessageRequest(type_ MessageComponentTypes, customId string, options []StringSelectOptionForRequest) *StringSelectComponentForMessageRequest {
 	this := StringSelectComponentForMessageRequest{}
 	this.Type = type_
 	this.CustomId = customId
@@ -87,9 +89,9 @@ func NewStringSelectComponentForMessageRequestWithDefaults() *StringSelectCompon
 }
 
 // GetType returns the Type field value
-func (o *StringSelectComponentForMessageRequest) GetType() int32 {
+func (o *StringSelectComponentForMessageRequest) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -98,7 +100,7 @@ func (o *StringSelectComponentForMessageRequest) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *StringSelectComponentForMessageRequest) GetTypeOk() (*int32, bool) {
+func (o *StringSelectComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -106,9 +108,42 @@ func (o *StringSelectComponentForMessageRequest) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *StringSelectComponentForMessageRequest) SetType(v int32) {
+func (o *StringSelectComponentForMessageRequest) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *StringSelectComponentForMessageRequest) GetId() int32 {
+	if o == nil || IsNil(o.Id) {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StringSelectComponentForMessageRequest) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *StringSelectComponentForMessageRequest) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *StringSelectComponentForMessageRequest) SetId(v int32) {
+	o.Id = &v
+}
+
 
 // GetCustomId returns the CustomId field value
 func (o *StringSelectComponentForMessageRequest) GetCustomId() string {
@@ -134,182 +169,175 @@ func (o *StringSelectComponentForMessageRequest) SetCustomId(v string) {
 	o.CustomId = v
 }
 
-// GetPlaceholder returns the Placeholder field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPlaceholder returns the Placeholder field value if set, zero value otherwise.
 func (o *StringSelectComponentForMessageRequest) GetPlaceholder() string {
-	if o == nil || IsNil(o.Placeholder.Get()) {
+	if o == nil || IsNil(o.Placeholder) {
 		var ret string
 		return ret
 	}
-	return *o.Placeholder.Get()
+	return *o.Placeholder
 }
 
 // GetPlaceholderOk returns a tuple with the Placeholder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StringSelectComponentForMessageRequest) GetPlaceholderOk() (*string, bool) {
-	if o == nil || IsNil(o.Placeholder.Get()) {
+	if o == nil || IsNil(o.Placeholder) {
 		return nil, false
 	}
-	return o.Placeholder.Get(), o.Placeholder.IsSet()
+	return o.Placeholder, true
 }
 
 // HasPlaceholder returns a boolean if a field has been set.
 func (o *StringSelectComponentForMessageRequest) HasPlaceholder() bool {
-	if o != nil && o.Placeholder.IsSet() {
+	if o != nil && !IsNil(o.Placeholder) {
 		return true
 	}
 
 	return false
 }
 
-// SetPlaceholder gets a reference to the given NullableString and assigns it to the Placeholder field.
+// SetPlaceholder gets a reference to the given string and assigns it to the Placeholder field.
 func (o *StringSelectComponentForMessageRequest) SetPlaceholder(v string) {
-	o.Placeholder.Set(&v)
+	o.Placeholder = &v
 }
 
-// SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-func (o *StringSelectComponentForMessageRequest) SetPlaceholderNil() {
-	o.Placeholder.Set(nil)
-}
 
-// UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
-func (o *StringSelectComponentForMessageRequest) UnsetPlaceholder() {
-	o.Placeholder.Unset()
-}
-
-// GetMinValues returns the MinValues field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMinValues returns the MinValues field value if set, zero value otherwise.
 func (o *StringSelectComponentForMessageRequest) GetMinValues() int32 {
-	if o == nil || IsNil(o.MinValues.Get()) {
+	if o == nil || IsNil(o.MinValues) {
 		var ret int32
 		return ret
 	}
-	return *o.MinValues.Get()
+	return *o.MinValues
 }
 
 // GetMinValuesOk returns a tuple with the MinValues field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StringSelectComponentForMessageRequest) GetMinValuesOk() (*int32, bool) {
-	if o == nil || IsNil(o.MinValues.Get()) {
+	if o == nil || IsNil(o.MinValues) {
 		return nil, false
 	}
-	return o.MinValues.Get(), o.MinValues.IsSet()
+	return o.MinValues, true
 }
 
 // HasMinValues returns a boolean if a field has been set.
 func (o *StringSelectComponentForMessageRequest) HasMinValues() bool {
-	if o != nil && o.MinValues.IsSet() {
+	if o != nil && !IsNil(o.MinValues) {
 		return true
 	}
 
 	return false
 }
 
-// SetMinValues gets a reference to the given NullableInt32 and assigns it to the MinValues field.
+// SetMinValues gets a reference to the given int32 and assigns it to the MinValues field.
 func (o *StringSelectComponentForMessageRequest) SetMinValues(v int32) {
-	o.MinValues.Set(&v)
+	o.MinValues = &v
 }
 
-// SetMinValuesNil sets the value for MinValues to be an explicit nil
-func (o *StringSelectComponentForMessageRequest) SetMinValuesNil() {
-	o.MinValues.Set(nil)
-}
 
-// UnsetMinValues ensures that no value is present for MinValues, not even an explicit nil
-func (o *StringSelectComponentForMessageRequest) UnsetMinValues() {
-	o.MinValues.Unset()
-}
-
-// GetMaxValues returns the MaxValues field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxValues returns the MaxValues field value if set, zero value otherwise.
 func (o *StringSelectComponentForMessageRequest) GetMaxValues() int32 {
-	if o == nil || IsNil(o.MaxValues.Get()) {
+	if o == nil || IsNil(o.MaxValues) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxValues.Get()
+	return *o.MaxValues
 }
 
 // GetMaxValuesOk returns a tuple with the MaxValues field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StringSelectComponentForMessageRequest) GetMaxValuesOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxValues.Get()) {
+	if o == nil || IsNil(o.MaxValues) {
 		return nil, false
 	}
-	return o.MaxValues.Get(), o.MaxValues.IsSet()
+	return o.MaxValues, true
 }
 
 // HasMaxValues returns a boolean if a field has been set.
 func (o *StringSelectComponentForMessageRequest) HasMaxValues() bool {
-	if o != nil && o.MaxValues.IsSet() {
+	if o != nil && !IsNil(o.MaxValues) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxValues gets a reference to the given NullableInt32 and assigns it to the MaxValues field.
+// SetMaxValues gets a reference to the given int32 and assigns it to the MaxValues field.
 func (o *StringSelectComponentForMessageRequest) SetMaxValues(v int32) {
-	o.MaxValues.Set(&v)
+	o.MaxValues = &v
 }
 
-// SetMaxValuesNil sets the value for MaxValues to be an explicit nil
-func (o *StringSelectComponentForMessageRequest) SetMaxValuesNil() {
-	o.MaxValues.Set(nil)
-}
 
-// UnsetMaxValues ensures that no value is present for MaxValues, not even an explicit nil
-func (o *StringSelectComponentForMessageRequest) UnsetMaxValues() {
-	o.MaxValues.Unset()
-}
-
-// GetDisabled returns the Disabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDisabled returns the Disabled field value if set, zero value otherwise.
 func (o *StringSelectComponentForMessageRequest) GetDisabled() bool {
-	if o == nil || IsNil(o.Disabled.Get()) {
+	if o == nil || IsNil(o.Disabled) {
 		var ret bool
 		return ret
 	}
-	return *o.Disabled.Get()
+	return *o.Disabled
 }
 
 // GetDisabledOk returns a tuple with the Disabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StringSelectComponentForMessageRequest) GetDisabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Disabled.Get()) {
+	if o == nil || IsNil(o.Disabled) {
 		return nil, false
 	}
-	return o.Disabled.Get(), o.Disabled.IsSet()
+	return o.Disabled, true
 }
 
 // HasDisabled returns a boolean if a field has been set.
 func (o *StringSelectComponentForMessageRequest) HasDisabled() bool {
-	if o != nil && o.Disabled.IsSet() {
+	if o != nil && !IsNil(o.Disabled) {
 		return true
 	}
 
 	return false
 }
 
-// SetDisabled gets a reference to the given NullableBool and assigns it to the Disabled field.
+// SetDisabled gets a reference to the given bool and assigns it to the Disabled field.
 func (o *StringSelectComponentForMessageRequest) SetDisabled(v bool) {
-	o.Disabled.Set(&v)
+	o.Disabled = &v
 }
 
-// SetDisabledNil sets the value for Disabled to be an explicit nil
-func (o *StringSelectComponentForMessageRequest) SetDisabledNil() {
-	o.Disabled.Set(nil)
+
+// GetRequired returns the Required field value if set, zero value otherwise.
+func (o *StringSelectComponentForMessageRequest) GetRequired() bool {
+	if o == nil || IsNil(o.Required) {
+		var ret bool
+		return ret
+	}
+	return *o.Required
 }
 
-// UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
-func (o *StringSelectComponentForMessageRequest) UnsetDisabled() {
-	o.Disabled.Unset()
+// GetRequiredOk returns a tuple with the Required field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StringSelectComponentForMessageRequest) GetRequiredOk() (*bool, bool) {
+	if o == nil || IsNil(o.Required) {
+		return nil, false
+	}
+	return o.Required, true
 }
+
+// HasRequired returns a boolean if a field has been set.
+func (o *StringSelectComponentForMessageRequest) HasRequired() bool {
+	if o != nil && !IsNil(o.Required) {
+		return true
+	}
+
+	return false
+}
+
+// SetRequired gets a reference to the given bool and assigns it to the Required field.
+func (o *StringSelectComponentForMessageRequest) SetRequired(v bool) {
+	o.Required = &v
+}
+
 
 // GetOptions returns the Options field value
-func (o *StringSelectComponentForMessageRequest) GetOptions() []StringSelectOptionForMessageRequest {
+func (o *StringSelectComponentForMessageRequest) GetOptions() []StringSelectOptionForRequest {
 	if o == nil {
-		var ret []StringSelectOptionForMessageRequest
+		var ret []StringSelectOptionForRequest
 		return ret
 	}
 
@@ -318,7 +346,7 @@ func (o *StringSelectComponentForMessageRequest) GetOptions() []StringSelectOpti
 
 // GetOptionsOk returns a tuple with the Options field value
 // and a boolean to check if the value has been set.
-func (o *StringSelectComponentForMessageRequest) GetOptionsOk() ([]StringSelectOptionForMessageRequest, bool) {
+func (o *StringSelectComponentForMessageRequest) GetOptionsOk() ([]StringSelectOptionForRequest, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -326,7 +354,7 @@ func (o *StringSelectComponentForMessageRequest) GetOptionsOk() ([]StringSelectO
 }
 
 // SetOptions sets field value
-func (o *StringSelectComponentForMessageRequest) SetOptions(v []StringSelectOptionForMessageRequest) {
+func (o *StringSelectComponentForMessageRequest) SetOptions(v []StringSelectOptionForRequest) {
 	o.Options = v
 }
 
@@ -341,18 +369,24 @@ func (o StringSelectComponentForMessageRequest) MarshalJSON() ([]byte, error) {
 func (o StringSelectComponentForMessageRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	toSerialize["custom_id"] = o.CustomId
-	if o.Placeholder.IsSet() {
-		toSerialize["placeholder"] = o.Placeholder.Get()
+	if !IsNil(o.Placeholder) {
+		toSerialize["placeholder"] = o.Placeholder
 	}
-	if o.MinValues.IsSet() {
-		toSerialize["min_values"] = o.MinValues.Get()
+	if !IsNil(o.MinValues) {
+		toSerialize["min_values"] = o.MinValues
 	}
-	if o.MaxValues.IsSet() {
-		toSerialize["max_values"] = o.MaxValues.Get()
+	if !IsNil(o.MaxValues) {
+		toSerialize["max_values"] = o.MaxValues
 	}
-	if o.Disabled.IsSet() {
-		toSerialize["disabled"] = o.Disabled.Get()
+	if !IsNil(o.Disabled) {
+		toSerialize["disabled"] = o.Disabled
+	}
+	if !IsNil(o.Required) {
+		toSerialize["required"] = o.Required
 	}
 	toSerialize["options"] = o.Options
 	return toSerialize, nil
@@ -432,5 +466,4 @@ func (v *NullableStringSelectComponentForMessageRequest) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

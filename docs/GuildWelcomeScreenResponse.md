@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **WelcomeChannels** | [**[]GuildWelcomeScreenChannelResponse**](GuildWelcomeScreenChannelResponse.md) |  | 
 
 ## Methods
@@ -51,16 +51,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *GuildWelcomeScreenResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *GuildWelcomeScreenResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetWelcomeChannels
 
 `func (o *GuildWelcomeScreenResponse) GetWelcomeChannels() []GuildWelcomeScreenChannelResponse`

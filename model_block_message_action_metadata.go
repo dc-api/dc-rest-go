@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -46,90 +46,91 @@ package dc_rest
 
 import (
 	"encoding/json"
+	"fmt"
+	"gopkg.in/validator.v2"
 )
 
-// checks if the BlockMessageActionMetadata type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &BlockMessageActionMetadata{}
-
-// BlockMessageActionMetadata struct for BlockMessageActionMetadata
+// BlockMessageActionMetadata - struct for BlockMessageActionMetadata
 type BlockMessageActionMetadata struct {
-	CustomMessage NullableString `json:"custom_message,omitempty"`
+	BlockMessageActionMetadata *BlockMessageActionMetadata
 }
 
-// NewBlockMessageActionMetadata instantiates a new BlockMessageActionMetadata object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewBlockMessageActionMetadata() *BlockMessageActionMetadata {
-	this := BlockMessageActionMetadata{}
-	return &this
-}
-
-// NewBlockMessageActionMetadataWithDefaults instantiates a new BlockMessageActionMetadata object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewBlockMessageActionMetadataWithDefaults() *BlockMessageActionMetadata {
-	this := BlockMessageActionMetadata{}
-	return &this
-}
-
-// GetCustomMessage returns the CustomMessage field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BlockMessageActionMetadata) GetCustomMessage() string {
-	if o == nil || IsNil(o.CustomMessage.Get()) {
-		var ret string
-		return ret
+// BlockMessageActionMetadataAsBlockMessageActionMetadata is a convenience function that returns BlockMessageActionMetadata wrapped in BlockMessageActionMetadata
+func BlockMessageActionMetadataAsBlockMessageActionMetadata(v *BlockMessageActionMetadata) BlockMessageActionMetadata {
+	return BlockMessageActionMetadata{
+		BlockMessageActionMetadata: v,
 	}
-	return *o.CustomMessage.Get()
 }
 
-// GetCustomMessageOk returns a tuple with the CustomMessage field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BlockMessageActionMetadata) GetCustomMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.CustomMessage.Get()) {
-		return nil, false
-	}
-	return o.CustomMessage.Get(), o.CustomMessage.IsSet()
-}
 
-// HasCustomMessage returns a boolean if a field has been set.
-func (o *BlockMessageActionMetadata) HasCustomMessage() bool {
-	if o != nil && o.CustomMessage.IsSet() {
-		return true
+// Unmarshal JSON data into one of the pointers in the struct
+func (dst *BlockMessageActionMetadata) UnmarshalJSON(data []byte) error {
+	var err error
+	// this object is nullable so check if the payload is null or empty string
+	if string(data) == "" || string(data) == "{}" {
+		return nil
 	}
 
-	return false
-}
-
-// SetCustomMessage gets a reference to the given NullableString and assigns it to the CustomMessage field.
-func (o *BlockMessageActionMetadata) SetCustomMessage(v string) {
-	o.CustomMessage.Set(&v)
-}
-
-// SetCustomMessageNil sets the value for CustomMessage to be an explicit nil
-func (o *BlockMessageActionMetadata) SetCustomMessageNil() {
-	o.CustomMessage.Set(nil)
-}
-
-// UnsetCustomMessage ensures that no value is present for CustomMessage, not even an explicit nil
-func (o *BlockMessageActionMetadata) UnsetCustomMessage() {
-	o.CustomMessage.Unset()
-}
-
-func (o BlockMessageActionMetadata) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
-	if err != nil {
-		return []byte{}, err
+	match := 0
+	// try to unmarshal data into BlockMessageActionMetadata
+	err = newStrictDecoder(data).Decode(&dst.BlockMessageActionMetadata)
+	if err == nil {
+		jsonBlockMessageActionMetadata, _ := json.Marshal(dst.BlockMessageActionMetadata)
+		if string(jsonBlockMessageActionMetadata) == "{}" { // empty struct
+			dst.BlockMessageActionMetadata = nil
+		} else {
+			if err = validator.Validate(dst.BlockMessageActionMetadata); err != nil {
+				dst.BlockMessageActionMetadata = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.BlockMessageActionMetadata = nil
 	}
-	return json.Marshal(toSerialize)
+
+	if match > 1 { // more than 1 match
+		// reset to nil
+		dst.BlockMessageActionMetadata = nil
+
+		return fmt.Errorf("data matches more than one schema in oneOf(BlockMessageActionMetadata)")
+	} else if match == 1 {
+		return nil // exactly one match
+	} else { // no match
+		return fmt.Errorf("data failed to match schemas in oneOf(BlockMessageActionMetadata)")
+	}
 }
 
-func (o BlockMessageActionMetadata) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
-	if o.CustomMessage.IsSet() {
-		toSerialize["custom_message"] = o.CustomMessage.Get()
+// Marshal data from the first non-nil pointers in the struct to JSON
+func (src BlockMessageActionMetadata) MarshalJSON() ([]byte, error) {
+	if src.BlockMessageActionMetadata != nil {
+		return json.Marshal(&src.BlockMessageActionMetadata)
 	}
-	return toSerialize, nil
+
+	return nil, nil // no data in oneOf schemas
+}
+
+// Get the actual instance
+func (obj *BlockMessageActionMetadata) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
+	if obj.BlockMessageActionMetadata != nil {
+		return obj.BlockMessageActionMetadata
+	}
+
+	// all schemas are nil
+	return nil
+}
+
+// Get the actual instance value
+func (obj BlockMessageActionMetadata) GetActualInstanceValue() (interface{}) {
+	if obj.BlockMessageActionMetadata != nil {
+		return *obj.BlockMessageActionMetadata
+	}
+
+	// all schemas are nil
+	return nil
 }
 
 type NullableBlockMessageActionMetadata struct {
@@ -167,5 +168,4 @@ func (v *NullableBlockMessageActionMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

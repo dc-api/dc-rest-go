@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Text** | Pointer to **NullableString** |  | [optional] 
-**Emoji** | Pointer to [**NullableMessageReactionEmojiResponse**](MessageReactionEmojiResponse.md) |  | [optional] 
+**Text** | Pointer to **string** |  | [optional] 
+**Emoji** | Pointer to [**MessageReactionEmojiResponse**](MessageReactionEmojiResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -51,16 +51,6 @@ SetText sets Text field to given value.
 
 HasText returns a boolean if a field has been set.
 
-### SetTextNil
-
-`func (o *PollMediaResponse) SetTextNil(b bool)`
-
- SetTextNil sets the value for Text to be an explicit nil
-
-### UnsetText
-`func (o *PollMediaResponse) UnsetText()`
-
-UnsetText ensures that no value is present for Text, not even an explicit nil
 ### GetEmoji
 
 `func (o *PollMediaResponse) GetEmoji() MessageReactionEmojiResponse`
@@ -86,16 +76,6 @@ SetEmoji sets Emoji field to given value.
 
 HasEmoji returns a boolean if a field has been set.
 
-### SetEmojiNil
-
-`func (o *PollMediaResponse) SetEmojiNil(b bool)`
-
- SetEmojiNil sets the value for Emoji to be an explicit nil
-
-### UnsetEmoji
-`func (o *PollMediaResponse) UnsetEmoji()`
-
-UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

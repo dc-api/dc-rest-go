@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,8 +55,8 @@ var _ MappedNullable = &QuarantineUserAction{}
 
 // QuarantineUserAction struct for QuarantineUserAction
 type QuarantineUserAction struct {
-	Type int32 `json:"type"`
-	Metadata map[string]interface{} `json:"metadata,omitempty"`
+	Type AutomodActionType `json:"type"`
+	Metadata *QuarantineUserActionMetadata `json:"metadata,omitempty"`
 }
 
 type _QuarantineUserAction QuarantineUserAction
@@ -65,7 +65,7 @@ type _QuarantineUserAction QuarantineUserAction
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewQuarantineUserAction(type_ int32) *QuarantineUserAction {
+func NewQuarantineUserAction(type_ AutomodActionType) *QuarantineUserAction {
 	this := QuarantineUserAction{}
 	this.Type = type_
 	return &this
@@ -80,9 +80,9 @@ func NewQuarantineUserActionWithDefaults() *QuarantineUserAction {
 }
 
 // GetType returns the Type field value
-func (o *QuarantineUserAction) GetType() int32 {
+func (o *QuarantineUserAction) GetType() AutomodActionType {
 	if o == nil {
-		var ret int32
+		var ret AutomodActionType
 		return ret
 	}
 
@@ -91,7 +91,7 @@ func (o *QuarantineUserAction) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *QuarantineUserAction) GetTypeOk() (*int32, bool) {
+func (o *QuarantineUserAction) GetTypeOk() (*AutomodActionType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -99,24 +99,24 @@ func (o *QuarantineUserAction) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *QuarantineUserAction) SetType(v int32) {
+func (o *QuarantineUserAction) SetType(v AutomodActionType) {
 	o.Type = v
 }
 
 // GetMetadata returns the Metadata field value if set, zero value otherwise.
-func (o *QuarantineUserAction) GetMetadata() map[string]interface{} {
+func (o *QuarantineUserAction) GetMetadata() QuarantineUserActionMetadata {
 	if o == nil || IsNil(o.Metadata) {
-		var ret map[string]interface{}
+		var ret QuarantineUserActionMetadata
 		return ret
 	}
-	return o.Metadata
+	return *o.Metadata
 }
 
 // GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *QuarantineUserAction) GetMetadataOk() (map[string]interface{}, bool) {
+func (o *QuarantineUserAction) GetMetadataOk() (*QuarantineUserActionMetadata, bool) {
 	if o == nil || IsNil(o.Metadata) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.Metadata, true
 }
@@ -130,9 +130,9 @@ func (o *QuarantineUserAction) HasMetadata() bool {
 	return false
 }
 
-// SetMetadata gets a reference to the given map[string]interface{} and assigns it to the Metadata field.
-func (o *QuarantineUserAction) SetMetadata(v map[string]interface{}) {
-	o.Metadata = v
+// SetMetadata gets a reference to the given QuarantineUserActionMetadata and assigns it to the Metadata field.
+func (o *QuarantineUserAction) SetMetadata(v QuarantineUserActionMetadata) {
+	o.Metadata = &v
 }
 
 
@@ -225,5 +225,4 @@ func (v *NullableQuarantineUserAction) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

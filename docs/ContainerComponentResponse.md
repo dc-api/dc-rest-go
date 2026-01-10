@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
 **Id** | **int32** |  | 
-**AccentColor** | Pointer to **NullableInt32** |  | [optional] 
+**AccentColor** | Pointer to **int32** |  | [optional] 
 **Components** | [**[]ContainerComponentResponseComponentsInner**](ContainerComponentResponseComponentsInner.md) |  | 
 **Spoiler** | **bool** |  | 
 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewContainerComponentResponse
 
-`func NewContainerComponentResponse(type_ int32, id int32, components []ContainerComponentResponseComponentsInner, spoiler bool, ) *ContainerComponentResponse`
+`func NewContainerComponentResponse(type_ MessageComponentTypes, id int32, components []ContainerComponentResponseComponentsInner, spoiler bool, ) *ContainerComponentResponse`
 
 NewContainerComponentResponse instantiates a new ContainerComponentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ContainerComponentResponse) GetType() int32`
+`func (o *ContainerComponentResponse) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ContainerComponentResponse) GetTypeOk() (*int32, bool)`
+`func (o *ContainerComponentResponse) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ContainerComponentResponse) SetType(v int32)`
+`func (o *ContainerComponentResponse) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
@@ -94,16 +94,6 @@ SetAccentColor sets AccentColor field to given value.
 
 HasAccentColor returns a boolean if a field has been set.
 
-### SetAccentColorNil
-
-`func (o *ContainerComponentResponse) SetAccentColorNil(b bool)`
-
- SetAccentColorNil sets the value for AccentColor to be an explicit nil
-
-### UnsetAccentColor
-`func (o *ContainerComponentResponse) UnsetAccentColor()`
-
-UnsetAccentColor ensures that no value is present for AccentColor, not even an explicit nil
 ### GetComponents
 
 `func (o *ContainerComponentResponse) GetComponents() []ContainerComponentResponseComponentsInner`

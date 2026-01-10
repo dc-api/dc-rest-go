@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
-**Metadata** | Pointer to [**NullableBlockMessageActionMetadata**](BlockMessageActionMetadata.md) |  | [optional] 
+**Type** | [**AutomodActionType**](AutomodActionType.md) |  | 
+**Metadata** | Pointer to [**BlockMessageActionMetadata**](BlockMessageActionMetadata.md) |  | [optional] 
 
 ## Methods
 
 ### NewBlockMessageAction
 
-`func NewBlockMessageAction(type_ int32, ) *BlockMessageAction`
+`func NewBlockMessageAction(type_ AutomodActionType, ) *BlockMessageAction`
 
 NewBlockMessageAction instantiates a new BlockMessageAction object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *BlockMessageAction) GetType() int32`
+`func (o *BlockMessageAction) GetType() AutomodActionType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *BlockMessageAction) GetTypeOk() (*int32, bool)`
+`func (o *BlockMessageAction) GetTypeOk() (*AutomodActionType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *BlockMessageAction) SetType(v int32)`
+`func (o *BlockMessageAction) SetType(v AutomodActionType)`
 
 SetType sets Type field to given value.
 
@@ -71,16 +71,6 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
-### SetMetadataNil
-
-`func (o *BlockMessageAction) SetMetadataNil(b bool)`
-
- SetMetadataNil sets the value for Metadata to be an explicit nil
-
-### UnsetMetadata
-`func (o *BlockMessageAction) UnsetMetadata()`
-
-UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

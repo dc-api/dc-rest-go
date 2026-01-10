@@ -5,19 +5,19 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**EventType** | **int32** |  | 
+**EventType** | [**AutomodEventType**](AutomodEventType.md) |  | 
 **Actions** | Pointer to [**[]DefaultKeywordListUpsertRequestActionsInner**](DefaultKeywordListUpsertRequestActionsInner.md) |  | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
 **ExemptRoles** | Pointer to **[]string** |  | [optional] 
 **ExemptChannels** | Pointer to **[]string** |  | [optional] 
-**TriggerType** | **int32** |  | 
-**TriggerMetadata** | [**MentionSpamTriggerMetadata**](MentionSpamTriggerMetadata.md) |  | 
+**TriggerType** | [**AutomodTriggerType**](AutomodTriggerType.md) |  | 
+**TriggerMetadata** | [**MentionSpamUpsertRequestTriggerMetadata**](MentionSpamUpsertRequestTriggerMetadata.md) |  | 
 
 ## Methods
 
 ### NewCreateAutoModerationRuleRequest
 
-`func NewCreateAutoModerationRuleRequest(name string, eventType int32, triggerType int32, triggerMetadata MentionSpamTriggerMetadata, ) *CreateAutoModerationRuleRequest`
+`func NewCreateAutoModerationRuleRequest(name string, eventType AutomodEventType, triggerType AutomodTriggerType, triggerMetadata MentionSpamUpsertRequestTriggerMetadata, ) *CreateAutoModerationRuleRequest`
 
 NewCreateAutoModerationRuleRequest instantiates a new CreateAutoModerationRuleRequest object
 This constructor will assign default values to properties that have it defined,
@@ -54,20 +54,20 @@ SetName sets Name field to given value.
 
 ### GetEventType
 
-`func (o *CreateAutoModerationRuleRequest) GetEventType() int32`
+`func (o *CreateAutoModerationRuleRequest) GetEventType() AutomodEventType`
 
 GetEventType returns the EventType field if non-nil, zero value otherwise.
 
 ### GetEventTypeOk
 
-`func (o *CreateAutoModerationRuleRequest) GetEventTypeOk() (*int32, bool)`
+`func (o *CreateAutoModerationRuleRequest) GetEventTypeOk() (*AutomodEventType, bool)`
 
 GetEventTypeOk returns a tuple with the EventType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEventType
 
-`func (o *CreateAutoModerationRuleRequest) SetEventType(v int32)`
+`func (o *CreateAutoModerationRuleRequest) SetEventType(v AutomodEventType)`
 
 SetEventType sets EventType field to given value.
 
@@ -174,40 +174,40 @@ HasExemptChannels returns a boolean if a field has been set.
 
 ### GetTriggerType
 
-`func (o *CreateAutoModerationRuleRequest) GetTriggerType() int32`
+`func (o *CreateAutoModerationRuleRequest) GetTriggerType() AutomodTriggerType`
 
 GetTriggerType returns the TriggerType field if non-nil, zero value otherwise.
 
 ### GetTriggerTypeOk
 
-`func (o *CreateAutoModerationRuleRequest) GetTriggerTypeOk() (*int32, bool)`
+`func (o *CreateAutoModerationRuleRequest) GetTriggerTypeOk() (*AutomodTriggerType, bool)`
 
 GetTriggerTypeOk returns a tuple with the TriggerType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTriggerType
 
-`func (o *CreateAutoModerationRuleRequest) SetTriggerType(v int32)`
+`func (o *CreateAutoModerationRuleRequest) SetTriggerType(v AutomodTriggerType)`
 
 SetTriggerType sets TriggerType field to given value.
 
 
 ### GetTriggerMetadata
 
-`func (o *CreateAutoModerationRuleRequest) GetTriggerMetadata() MentionSpamTriggerMetadata`
+`func (o *CreateAutoModerationRuleRequest) GetTriggerMetadata() MentionSpamUpsertRequestTriggerMetadata`
 
 GetTriggerMetadata returns the TriggerMetadata field if non-nil, zero value otherwise.
 
 ### GetTriggerMetadataOk
 
-`func (o *CreateAutoModerationRuleRequest) GetTriggerMetadataOk() (*MentionSpamTriggerMetadata, bool)`
+`func (o *CreateAutoModerationRuleRequest) GetTriggerMetadataOk() (*MentionSpamUpsertRequestTriggerMetadata, bool)`
 
 GetTriggerMetadataOk returns a tuple with the TriggerMetadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTriggerMetadata
 
-`func (o *CreateAutoModerationRuleRequest) SetTriggerMetadata(v MentionSpamTriggerMetadata)`
+`func (o *CreateAutoModerationRuleRequest) SetTriggerMetadata(v MentionSpamUpsertRequestTriggerMetadata)`
 
 SetTriggerMetadata sets TriggerMetadata field to given value.
 

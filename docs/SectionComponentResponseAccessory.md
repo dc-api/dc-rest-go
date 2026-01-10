@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
 **Id** | **int32** |  | 
 **CustomId** | Pointer to **string** |  | [optional] 
-**Style** | **int32** |  | 
+**Style** | [**ButtonStyleTypes**](ButtonStyleTypes.md) |  | 
 **Label** | Pointer to **string** |  | [optional] 
 **Disabled** | Pointer to **bool** |  | [optional] 
 **Emoji** | Pointer to [**ComponentEmojiResponse**](ComponentEmojiResponse.md) |  | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewSectionComponentResponseAccessory
 
-`func NewSectionComponentResponseAccessory(type_ int32, id int32, style int32, media UnfurledMediaResponse, spoiler bool, ) *SectionComponentResponseAccessory`
+`func NewSectionComponentResponseAccessory(type_ MessageComponentTypes, id int32, style ButtonStyleTypes, media UnfurledMediaResponse, spoiler bool, ) *SectionComponentResponseAccessory`
 
 NewSectionComponentResponseAccessory instantiates a new SectionComponentResponseAccessory object
 This constructor will assign default values to properties that have it defined,
@@ -38,20 +38,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *SectionComponentResponseAccessory) GetType() int32`
+`func (o *SectionComponentResponseAccessory) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *SectionComponentResponseAccessory) GetTypeOk() (*int32, bool)`
+`func (o *SectionComponentResponseAccessory) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *SectionComponentResponseAccessory) SetType(v int32)`
+`func (o *SectionComponentResponseAccessory) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
@@ -103,20 +103,20 @@ HasCustomId returns a boolean if a field has been set.
 
 ### GetStyle
 
-`func (o *SectionComponentResponseAccessory) GetStyle() int32`
+`func (o *SectionComponentResponseAccessory) GetStyle() ButtonStyleTypes`
 
 GetStyle returns the Style field if non-nil, zero value otherwise.
 
 ### GetStyleOk
 
-`func (o *SectionComponentResponseAccessory) GetStyleOk() (*int32, bool)`
+`func (o *SectionComponentResponseAccessory) GetStyleOk() (*ButtonStyleTypes, bool)`
 
 GetStyleOk returns a tuple with the Style field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStyle
 
-`func (o *SectionComponentResponseAccessory) SetStyle(v int32)`
+`func (o *SectionComponentResponseAccessory) SetStyle(v ButtonStyleTypes)`
 
 SetStyle sets Style field to given value.
 

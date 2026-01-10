@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **NullableInt32** |  | [optional] 
-**Allow** | Pointer to **NullableInt32** |  | [optional] 
-**Deny** | Pointer to **NullableInt32** |  | [optional] 
+**Type** | Pointer to [**SetChannelPermissionOverwriteRequestType**](SetChannelPermissionOverwriteRequestType.md) |  | [optional] 
+**Allow** | Pointer to **int32** |  | [optional] 
+**Deny** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *SetChannelPermissionOverwriteRequest) GetType() int32`
+`func (o *SetChannelPermissionOverwriteRequest) GetType() SetChannelPermissionOverwriteRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *SetChannelPermissionOverwriteRequest) GetTypeOk() (*int32, bool)`
+`func (o *SetChannelPermissionOverwriteRequest) GetTypeOk() (*SetChannelPermissionOverwriteRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *SetChannelPermissionOverwriteRequest) SetType(v int32)`
+`func (o *SetChannelPermissionOverwriteRequest) SetType(v SetChannelPermissionOverwriteRequestType)`
 
 SetType sets Type field to given value.
 
@@ -52,16 +52,6 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
-### SetTypeNil
-
-`func (o *SetChannelPermissionOverwriteRequest) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *SetChannelPermissionOverwriteRequest) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetAllow
 
 `func (o *SetChannelPermissionOverwriteRequest) GetAllow() int32`
@@ -87,16 +77,6 @@ SetAllow sets Allow field to given value.
 
 HasAllow returns a boolean if a field has been set.
 
-### SetAllowNil
-
-`func (o *SetChannelPermissionOverwriteRequest) SetAllowNil(b bool)`
-
- SetAllowNil sets the value for Allow to be an explicit nil
-
-### UnsetAllow
-`func (o *SetChannelPermissionOverwriteRequest) UnsetAllow()`
-
-UnsetAllow ensures that no value is present for Allow, not even an explicit nil
 ### GetDeny
 
 `func (o *SetChannelPermissionOverwriteRequest) GetDeny() int32`
@@ -122,16 +102,6 @@ SetDeny sets Deny field to given value.
 
 HasDeny returns a boolean if a field has been set.
 
-### SetDenyNil
-
-`func (o *SetChannelPermissionOverwriteRequest) SetDenyNil(b bool)`
-
- SetDenyNil sets the value for Deny to be an explicit nil
-
-### UnsetDeny
-`func (o *SetChannelPermissionOverwriteRequest) UnsetDeny()`
-
-UnsetDeny ensures that no value is present for Deny, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

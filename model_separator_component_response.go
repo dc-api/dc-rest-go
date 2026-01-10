@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,9 +55,9 @@ var _ MappedNullable = &SeparatorComponentResponse{}
 
 // SeparatorComponentResponse struct for SeparatorComponentResponse
 type SeparatorComponentResponse struct {
-	Type int32 `json:"type"`
+	Type MessageComponentTypes `json:"type"`
 	Id int32 `json:"id"`
-	Spacing int32 `json:"spacing"`
+	Spacing MessageComponentSeparatorSpacingSize `json:"spacing"`
 	Divider bool `json:"divider"`
 }
 
@@ -67,7 +67,7 @@ type _SeparatorComponentResponse SeparatorComponentResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSeparatorComponentResponse(type_ int32, id int32, spacing int32, divider bool) *SeparatorComponentResponse {
+func NewSeparatorComponentResponse(type_ MessageComponentTypes, id int32, spacing MessageComponentSeparatorSpacingSize, divider bool) *SeparatorComponentResponse {
 	this := SeparatorComponentResponse{}
 	this.Type = type_
 	this.Id = id
@@ -85,9 +85,9 @@ func NewSeparatorComponentResponseWithDefaults() *SeparatorComponentResponse {
 }
 
 // GetType returns the Type field value
-func (o *SeparatorComponentResponse) GetType() int32 {
+func (o *SeparatorComponentResponse) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -96,7 +96,7 @@ func (o *SeparatorComponentResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *SeparatorComponentResponse) GetTypeOk() (*int32, bool) {
+func (o *SeparatorComponentResponse) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -104,7 +104,7 @@ func (o *SeparatorComponentResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *SeparatorComponentResponse) SetType(v int32) {
+func (o *SeparatorComponentResponse) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
 
@@ -133,9 +133,9 @@ func (o *SeparatorComponentResponse) SetId(v int32) {
 }
 
 // GetSpacing returns the Spacing field value
-func (o *SeparatorComponentResponse) GetSpacing() int32 {
+func (o *SeparatorComponentResponse) GetSpacing() MessageComponentSeparatorSpacingSize {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentSeparatorSpacingSize
 		return ret
 	}
 
@@ -144,7 +144,7 @@ func (o *SeparatorComponentResponse) GetSpacing() int32 {
 
 // GetSpacingOk returns a tuple with the Spacing field value
 // and a boolean to check if the value has been set.
-func (o *SeparatorComponentResponse) GetSpacingOk() (*int32, bool) {
+func (o *SeparatorComponentResponse) GetSpacingOk() (*MessageComponentSeparatorSpacingSize, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -152,7 +152,7 @@ func (o *SeparatorComponentResponse) GetSpacingOk() (*int32, bool) {
 }
 
 // SetSpacing sets field value
-func (o *SeparatorComponentResponse) SetSpacing(v int32) {
+func (o *SeparatorComponentResponse) SetSpacing(v MessageComponentSeparatorSpacingSize) {
 	o.Spacing = v
 }
 
@@ -272,5 +272,4 @@ func (v *NullableSeparatorComponentResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

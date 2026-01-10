@@ -50,16 +50,6 @@ SetPermissions sets Permissions field to given value.
 
 HasPermissions returns a boolean if a field has been set.
 
-### SetPermissionsNil
-
-`func (o *SetGuildApplicationCommandPermissionsRequest) SetPermissionsNil(b bool)`
-
- SetPermissionsNil sets the value for Permissions to be an explicit nil
-
-### UnsetPermissions
-`func (o *SetGuildApplicationCommandPermissionsRequest) UnsetPermissions()`
-
-UnsetPermissions ensures that no value is present for Permissions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

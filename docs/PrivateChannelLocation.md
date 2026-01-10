@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Kind** | **string** |  | 
+**Kind** | [**EmbeddedActivityLocationKind**](EmbeddedActivityLocationKind.md) |  | 
 **ChannelId** | **string** |  | 
 
 ## Methods
 
 ### NewPrivateChannelLocation
 
-`func NewPrivateChannelLocation(id string, kind string, channelId string, ) *PrivateChannelLocation`
+`func NewPrivateChannelLocation(id string, kind EmbeddedActivityLocationKind, channelId string, ) *PrivateChannelLocation`
 
 NewPrivateChannelLocation instantiates a new PrivateChannelLocation object
 This constructor will assign default values to properties that have it defined,
@@ -49,20 +49,20 @@ SetId sets Id field to given value.
 
 ### GetKind
 
-`func (o *PrivateChannelLocation) GetKind() string`
+`func (o *PrivateChannelLocation) GetKind() EmbeddedActivityLocationKind`
 
 GetKind returns the Kind field if non-nil, zero value otherwise.
 
 ### GetKindOk
 
-`func (o *PrivateChannelLocation) GetKindOk() (*string, bool)`
+`func (o *PrivateChannelLocation) GetKindOk() (*EmbeddedActivityLocationKind, bool)`
 
 GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKind
 
-`func (o *PrivateChannelLocation) SetKind(v string)`
+`func (o *PrivateChannelLocation) SetKind(v EmbeddedActivityLocationKind)`
 
 SetKind sets Kind field to given value.
 

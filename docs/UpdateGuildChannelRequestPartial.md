@@ -4,25 +4,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **NullableInt32** |  | [optional] 
+**Type** | Pointer to [**CreateGuildChannelRequestType**](CreateGuildChannelRequestType.md) |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Position** | Pointer to **NullableInt32** |  | [optional] 
-**Topic** | Pointer to **NullableString** |  | [optional] 
-**Bitrate** | Pointer to **NullableInt32** |  | [optional] 
-**UserLimit** | Pointer to **NullableInt32** |  | [optional] 
-**Nsfw** | Pointer to **NullableBool** |  | [optional] 
-**RateLimitPerUser** | Pointer to **NullableInt32** |  | [optional] 
-**ParentId** | Pointer to **string** |  | [optional] 
+**Position** | Pointer to **int32** |  | [optional] 
+**Topic** | Pointer to **string** |  | [optional] 
+**Bitrate** | Pointer to **int32** |  | [optional] 
+**UserLimit** | Pointer to **int32** |  | [optional] 
+**Nsfw** | Pointer to **bool** |  | [optional] 
+**RateLimitPerUser** | Pointer to **int32** |  | [optional] 
+**ParentId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **PermissionOverwrites** | Pointer to [**[]ChannelPermissionOverwriteRequest**](ChannelPermissionOverwriteRequest.md) |  | [optional] 
-**RtcRegion** | Pointer to **NullableString** |  | [optional] 
-**VideoQualityMode** | Pointer to **int32** |  | [optional] 
-**DefaultAutoArchiveDuration** | Pointer to **int32** |  | [optional] 
-**DefaultReactionEmoji** | Pointer to [**NullableUpdateDefaultReactionEmojiRequest**](UpdateDefaultReactionEmojiRequest.md) |  | [optional] 
-**DefaultThreadRateLimitPerUser** | Pointer to **NullableInt32** |  | [optional] 
-**DefaultSortOrder** | Pointer to **int32** |  | [optional] 
-**DefaultForumLayout** | Pointer to **int32** |  | [optional] 
-**DefaultTagSetting** | Pointer to **string** |  | [optional] 
-**Flags** | Pointer to **NullableInt32** |  | [optional] 
+**RtcRegion** | Pointer to **string** |  | [optional] 
+**VideoQualityMode** | Pointer to [**CreateGuildChannelRequestVideoQualityMode**](CreateGuildChannelRequestVideoQualityMode.md) |  | [optional] 
+**DefaultAutoArchiveDuration** | Pointer to [**CreateForumThreadRequestAutoArchiveDuration**](CreateForumThreadRequestAutoArchiveDuration.md) |  | [optional] 
+**DefaultReactionEmoji** | Pointer to [**CreateGuildChannelRequestDefaultReactionEmoji**](CreateGuildChannelRequestDefaultReactionEmoji.md) |  | [optional] 
+**DefaultThreadRateLimitPerUser** | Pointer to **int32** |  | [optional] 
+**DefaultSortOrder** | Pointer to [**CreateGuildChannelRequestDefaultSortOrder**](CreateGuildChannelRequestDefaultSortOrder.md) |  | [optional] 
+**DefaultForumLayout** | Pointer to [**CreateGuildChannelRequestDefaultForumLayout**](CreateGuildChannelRequestDefaultForumLayout.md) |  | [optional] 
+**DefaultTagSetting** | Pointer to [**CreateGuildChannelRequestDefaultTagSetting**](CreateGuildChannelRequestDefaultTagSetting.md) |  | [optional] 
+**Flags** | Pointer to **int32** |  | [optional] 
 **AvailableTags** | Pointer to [**[]UpdateThreadTagRequest**](UpdateThreadTagRequest.md) |  | [optional] 
 
 ## Methods
@@ -46,20 +46,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *UpdateGuildChannelRequestPartial) GetType() int32`
+`func (o *UpdateGuildChannelRequestPartial) GetType() CreateGuildChannelRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *UpdateGuildChannelRequestPartial) GetTypeOk() (*int32, bool)`
+`func (o *UpdateGuildChannelRequestPartial) GetTypeOk() (*CreateGuildChannelRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *UpdateGuildChannelRequestPartial) SetType(v int32)`
+`func (o *UpdateGuildChannelRequestPartial) SetType(v CreateGuildChannelRequestType)`
 
 SetType sets Type field to given value.
 
@@ -69,16 +69,6 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
-### SetTypeNil
-
-`func (o *UpdateGuildChannelRequestPartial) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *UpdateGuildChannelRequestPartial) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetName
 
 `func (o *UpdateGuildChannelRequestPartial) GetName() string`
@@ -129,16 +119,6 @@ SetPosition sets Position field to given value.
 
 HasPosition returns a boolean if a field has been set.
 
-### SetPositionNil
-
-`func (o *UpdateGuildChannelRequestPartial) SetPositionNil(b bool)`
-
- SetPositionNil sets the value for Position to be an explicit nil
-
-### UnsetPosition
-`func (o *UpdateGuildChannelRequestPartial) UnsetPosition()`
-
-UnsetPosition ensures that no value is present for Position, not even an explicit nil
 ### GetTopic
 
 `func (o *UpdateGuildChannelRequestPartial) GetTopic() string`
@@ -164,16 +144,6 @@ SetTopic sets Topic field to given value.
 
 HasTopic returns a boolean if a field has been set.
 
-### SetTopicNil
-
-`func (o *UpdateGuildChannelRequestPartial) SetTopicNil(b bool)`
-
- SetTopicNil sets the value for Topic to be an explicit nil
-
-### UnsetTopic
-`func (o *UpdateGuildChannelRequestPartial) UnsetTopic()`
-
-UnsetTopic ensures that no value is present for Topic, not even an explicit nil
 ### GetBitrate
 
 `func (o *UpdateGuildChannelRequestPartial) GetBitrate() int32`
@@ -199,16 +169,6 @@ SetBitrate sets Bitrate field to given value.
 
 HasBitrate returns a boolean if a field has been set.
 
-### SetBitrateNil
-
-`func (o *UpdateGuildChannelRequestPartial) SetBitrateNil(b bool)`
-
- SetBitrateNil sets the value for Bitrate to be an explicit nil
-
-### UnsetBitrate
-`func (o *UpdateGuildChannelRequestPartial) UnsetBitrate()`
-
-UnsetBitrate ensures that no value is present for Bitrate, not even an explicit nil
 ### GetUserLimit
 
 `func (o *UpdateGuildChannelRequestPartial) GetUserLimit() int32`
@@ -234,16 +194,6 @@ SetUserLimit sets UserLimit field to given value.
 
 HasUserLimit returns a boolean if a field has been set.
 
-### SetUserLimitNil
-
-`func (o *UpdateGuildChannelRequestPartial) SetUserLimitNil(b bool)`
-
- SetUserLimitNil sets the value for UserLimit to be an explicit nil
-
-### UnsetUserLimit
-`func (o *UpdateGuildChannelRequestPartial) UnsetUserLimit()`
-
-UnsetUserLimit ensures that no value is present for UserLimit, not even an explicit nil
 ### GetNsfw
 
 `func (o *UpdateGuildChannelRequestPartial) GetNsfw() bool`
@@ -269,16 +219,6 @@ SetNsfw sets Nsfw field to given value.
 
 HasNsfw returns a boolean if a field has been set.
 
-### SetNsfwNil
-
-`func (o *UpdateGuildChannelRequestPartial) SetNsfwNil(b bool)`
-
- SetNsfwNil sets the value for Nsfw to be an explicit nil
-
-### UnsetNsfw
-`func (o *UpdateGuildChannelRequestPartial) UnsetNsfw()`
-
-UnsetNsfw ensures that no value is present for Nsfw, not even an explicit nil
 ### GetRateLimitPerUser
 
 `func (o *UpdateGuildChannelRequestPartial) GetRateLimitPerUser() int32`
@@ -304,32 +244,22 @@ SetRateLimitPerUser sets RateLimitPerUser field to given value.
 
 HasRateLimitPerUser returns a boolean if a field has been set.
 
-### SetRateLimitPerUserNil
-
-`func (o *UpdateGuildChannelRequestPartial) SetRateLimitPerUserNil(b bool)`
-
- SetRateLimitPerUserNil sets the value for RateLimitPerUser to be an explicit nil
-
-### UnsetRateLimitPerUser
-`func (o *UpdateGuildChannelRequestPartial) UnsetRateLimitPerUser()`
-
-UnsetRateLimitPerUser ensures that no value is present for RateLimitPerUser, not even an explicit nil
 ### GetParentId
 
-`func (o *UpdateGuildChannelRequestPartial) GetParentId() string`
+`func (o *UpdateGuildChannelRequestPartial) GetParentId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetParentId returns the ParentId field if non-nil, zero value otherwise.
 
 ### GetParentIdOk
 
-`func (o *UpdateGuildChannelRequestPartial) GetParentIdOk() (*string, bool)`
+`func (o *UpdateGuildChannelRequestPartial) GetParentIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetParentIdOk returns a tuple with the ParentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetParentId
 
-`func (o *UpdateGuildChannelRequestPartial) SetParentId(v string)`
+`func (o *UpdateGuildChannelRequestPartial) SetParentId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetParentId sets ParentId field to given value.
 
@@ -364,16 +294,6 @@ SetPermissionOverwrites sets PermissionOverwrites field to given value.
 
 HasPermissionOverwrites returns a boolean if a field has been set.
 
-### SetPermissionOverwritesNil
-
-`func (o *UpdateGuildChannelRequestPartial) SetPermissionOverwritesNil(b bool)`
-
- SetPermissionOverwritesNil sets the value for PermissionOverwrites to be an explicit nil
-
-### UnsetPermissionOverwrites
-`func (o *UpdateGuildChannelRequestPartial) UnsetPermissionOverwrites()`
-
-UnsetPermissionOverwrites ensures that no value is present for PermissionOverwrites, not even an explicit nil
 ### GetRtcRegion
 
 `func (o *UpdateGuildChannelRequestPartial) GetRtcRegion() string`
@@ -399,32 +319,22 @@ SetRtcRegion sets RtcRegion field to given value.
 
 HasRtcRegion returns a boolean if a field has been set.
 
-### SetRtcRegionNil
-
-`func (o *UpdateGuildChannelRequestPartial) SetRtcRegionNil(b bool)`
-
- SetRtcRegionNil sets the value for RtcRegion to be an explicit nil
-
-### UnsetRtcRegion
-`func (o *UpdateGuildChannelRequestPartial) UnsetRtcRegion()`
-
-UnsetRtcRegion ensures that no value is present for RtcRegion, not even an explicit nil
 ### GetVideoQualityMode
 
-`func (o *UpdateGuildChannelRequestPartial) GetVideoQualityMode() int32`
+`func (o *UpdateGuildChannelRequestPartial) GetVideoQualityMode() CreateGuildChannelRequestVideoQualityMode`
 
 GetVideoQualityMode returns the VideoQualityMode field if non-nil, zero value otherwise.
 
 ### GetVideoQualityModeOk
 
-`func (o *UpdateGuildChannelRequestPartial) GetVideoQualityModeOk() (*int32, bool)`
+`func (o *UpdateGuildChannelRequestPartial) GetVideoQualityModeOk() (*CreateGuildChannelRequestVideoQualityMode, bool)`
 
 GetVideoQualityModeOk returns a tuple with the VideoQualityMode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVideoQualityMode
 
-`func (o *UpdateGuildChannelRequestPartial) SetVideoQualityMode(v int32)`
+`func (o *UpdateGuildChannelRequestPartial) SetVideoQualityMode(v CreateGuildChannelRequestVideoQualityMode)`
 
 SetVideoQualityMode sets VideoQualityMode field to given value.
 
@@ -436,20 +346,20 @@ HasVideoQualityMode returns a boolean if a field has been set.
 
 ### GetDefaultAutoArchiveDuration
 
-`func (o *UpdateGuildChannelRequestPartial) GetDefaultAutoArchiveDuration() int32`
+`func (o *UpdateGuildChannelRequestPartial) GetDefaultAutoArchiveDuration() CreateForumThreadRequestAutoArchiveDuration`
 
 GetDefaultAutoArchiveDuration returns the DefaultAutoArchiveDuration field if non-nil, zero value otherwise.
 
 ### GetDefaultAutoArchiveDurationOk
 
-`func (o *UpdateGuildChannelRequestPartial) GetDefaultAutoArchiveDurationOk() (*int32, bool)`
+`func (o *UpdateGuildChannelRequestPartial) GetDefaultAutoArchiveDurationOk() (*CreateForumThreadRequestAutoArchiveDuration, bool)`
 
 GetDefaultAutoArchiveDurationOk returns a tuple with the DefaultAutoArchiveDuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultAutoArchiveDuration
 
-`func (o *UpdateGuildChannelRequestPartial) SetDefaultAutoArchiveDuration(v int32)`
+`func (o *UpdateGuildChannelRequestPartial) SetDefaultAutoArchiveDuration(v CreateForumThreadRequestAutoArchiveDuration)`
 
 SetDefaultAutoArchiveDuration sets DefaultAutoArchiveDuration field to given value.
 
@@ -461,20 +371,20 @@ HasDefaultAutoArchiveDuration returns a boolean if a field has been set.
 
 ### GetDefaultReactionEmoji
 
-`func (o *UpdateGuildChannelRequestPartial) GetDefaultReactionEmoji() UpdateDefaultReactionEmojiRequest`
+`func (o *UpdateGuildChannelRequestPartial) GetDefaultReactionEmoji() CreateGuildChannelRequestDefaultReactionEmoji`
 
 GetDefaultReactionEmoji returns the DefaultReactionEmoji field if non-nil, zero value otherwise.
 
 ### GetDefaultReactionEmojiOk
 
-`func (o *UpdateGuildChannelRequestPartial) GetDefaultReactionEmojiOk() (*UpdateDefaultReactionEmojiRequest, bool)`
+`func (o *UpdateGuildChannelRequestPartial) GetDefaultReactionEmojiOk() (*CreateGuildChannelRequestDefaultReactionEmoji, bool)`
 
 GetDefaultReactionEmojiOk returns a tuple with the DefaultReactionEmoji field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultReactionEmoji
 
-`func (o *UpdateGuildChannelRequestPartial) SetDefaultReactionEmoji(v UpdateDefaultReactionEmojiRequest)`
+`func (o *UpdateGuildChannelRequestPartial) SetDefaultReactionEmoji(v CreateGuildChannelRequestDefaultReactionEmoji)`
 
 SetDefaultReactionEmoji sets DefaultReactionEmoji field to given value.
 
@@ -484,16 +394,6 @@ SetDefaultReactionEmoji sets DefaultReactionEmoji field to given value.
 
 HasDefaultReactionEmoji returns a boolean if a field has been set.
 
-### SetDefaultReactionEmojiNil
-
-`func (o *UpdateGuildChannelRequestPartial) SetDefaultReactionEmojiNil(b bool)`
-
- SetDefaultReactionEmojiNil sets the value for DefaultReactionEmoji to be an explicit nil
-
-### UnsetDefaultReactionEmoji
-`func (o *UpdateGuildChannelRequestPartial) UnsetDefaultReactionEmoji()`
-
-UnsetDefaultReactionEmoji ensures that no value is present for DefaultReactionEmoji, not even an explicit nil
 ### GetDefaultThreadRateLimitPerUser
 
 `func (o *UpdateGuildChannelRequestPartial) GetDefaultThreadRateLimitPerUser() int32`
@@ -519,32 +419,22 @@ SetDefaultThreadRateLimitPerUser sets DefaultThreadRateLimitPerUser field to giv
 
 HasDefaultThreadRateLimitPerUser returns a boolean if a field has been set.
 
-### SetDefaultThreadRateLimitPerUserNil
-
-`func (o *UpdateGuildChannelRequestPartial) SetDefaultThreadRateLimitPerUserNil(b bool)`
-
- SetDefaultThreadRateLimitPerUserNil sets the value for DefaultThreadRateLimitPerUser to be an explicit nil
-
-### UnsetDefaultThreadRateLimitPerUser
-`func (o *UpdateGuildChannelRequestPartial) UnsetDefaultThreadRateLimitPerUser()`
-
-UnsetDefaultThreadRateLimitPerUser ensures that no value is present for DefaultThreadRateLimitPerUser, not even an explicit nil
 ### GetDefaultSortOrder
 
-`func (o *UpdateGuildChannelRequestPartial) GetDefaultSortOrder() int32`
+`func (o *UpdateGuildChannelRequestPartial) GetDefaultSortOrder() CreateGuildChannelRequestDefaultSortOrder`
 
 GetDefaultSortOrder returns the DefaultSortOrder field if non-nil, zero value otherwise.
 
 ### GetDefaultSortOrderOk
 
-`func (o *UpdateGuildChannelRequestPartial) GetDefaultSortOrderOk() (*int32, bool)`
+`func (o *UpdateGuildChannelRequestPartial) GetDefaultSortOrderOk() (*CreateGuildChannelRequestDefaultSortOrder, bool)`
 
 GetDefaultSortOrderOk returns a tuple with the DefaultSortOrder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultSortOrder
 
-`func (o *UpdateGuildChannelRequestPartial) SetDefaultSortOrder(v int32)`
+`func (o *UpdateGuildChannelRequestPartial) SetDefaultSortOrder(v CreateGuildChannelRequestDefaultSortOrder)`
 
 SetDefaultSortOrder sets DefaultSortOrder field to given value.
 
@@ -556,20 +446,20 @@ HasDefaultSortOrder returns a boolean if a field has been set.
 
 ### GetDefaultForumLayout
 
-`func (o *UpdateGuildChannelRequestPartial) GetDefaultForumLayout() int32`
+`func (o *UpdateGuildChannelRequestPartial) GetDefaultForumLayout() CreateGuildChannelRequestDefaultForumLayout`
 
 GetDefaultForumLayout returns the DefaultForumLayout field if non-nil, zero value otherwise.
 
 ### GetDefaultForumLayoutOk
 
-`func (o *UpdateGuildChannelRequestPartial) GetDefaultForumLayoutOk() (*int32, bool)`
+`func (o *UpdateGuildChannelRequestPartial) GetDefaultForumLayoutOk() (*CreateGuildChannelRequestDefaultForumLayout, bool)`
 
 GetDefaultForumLayoutOk returns a tuple with the DefaultForumLayout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultForumLayout
 
-`func (o *UpdateGuildChannelRequestPartial) SetDefaultForumLayout(v int32)`
+`func (o *UpdateGuildChannelRequestPartial) SetDefaultForumLayout(v CreateGuildChannelRequestDefaultForumLayout)`
 
 SetDefaultForumLayout sets DefaultForumLayout field to given value.
 
@@ -581,20 +471,20 @@ HasDefaultForumLayout returns a boolean if a field has been set.
 
 ### GetDefaultTagSetting
 
-`func (o *UpdateGuildChannelRequestPartial) GetDefaultTagSetting() string`
+`func (o *UpdateGuildChannelRequestPartial) GetDefaultTagSetting() CreateGuildChannelRequestDefaultTagSetting`
 
 GetDefaultTagSetting returns the DefaultTagSetting field if non-nil, zero value otherwise.
 
 ### GetDefaultTagSettingOk
 
-`func (o *UpdateGuildChannelRequestPartial) GetDefaultTagSettingOk() (*string, bool)`
+`func (o *UpdateGuildChannelRequestPartial) GetDefaultTagSettingOk() (*CreateGuildChannelRequestDefaultTagSetting, bool)`
 
 GetDefaultTagSettingOk returns a tuple with the DefaultTagSetting field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultTagSetting
 
-`func (o *UpdateGuildChannelRequestPartial) SetDefaultTagSetting(v string)`
+`func (o *UpdateGuildChannelRequestPartial) SetDefaultTagSetting(v CreateGuildChannelRequestDefaultTagSetting)`
 
 SetDefaultTagSetting sets DefaultTagSetting field to given value.
 
@@ -629,16 +519,6 @@ SetFlags sets Flags field to given value.
 
 HasFlags returns a boolean if a field has been set.
 
-### SetFlagsNil
-
-`func (o *UpdateGuildChannelRequestPartial) SetFlagsNil(b bool)`
-
- SetFlagsNil sets the value for Flags to be an explicit nil
-
-### UnsetFlags
-`func (o *UpdateGuildChannelRequestPartial) UnsetFlags()`
-
-UnsetFlags ensures that no value is present for Flags, not even an explicit nil
 ### GetAvailableTags
 
 `func (o *UpdateGuildChannelRequestPartial) GetAvailableTags() []UpdateThreadTagRequest`
@@ -664,16 +544,6 @@ SetAvailableTags sets AvailableTags field to given value.
 
 HasAvailableTags returns a boolean if a field has been set.
 
-### SetAvailableTagsNil
-
-`func (o *UpdateGuildChannelRequestPartial) SetAvailableTagsNil(b bool)`
-
- SetAvailableTagsNil sets the value for AvailableTags to be an explicit nil
-
-### UnsetAvailableTags
-`func (o *UpdateGuildChannelRequestPartial) UnsetAvailableTags()`
-
-UnsetAvailableTags ensures that no value is present for AvailableTags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

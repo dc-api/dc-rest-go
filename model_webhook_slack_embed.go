@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,19 +53,19 @@ var _ MappedNullable = &WebhookSlackEmbed{}
 
 // WebhookSlackEmbed struct for WebhookSlackEmbed
 type WebhookSlackEmbed struct {
-	Title NullableString `json:"title,omitempty"`
-	TitleLink NullableString `json:"title_link,omitempty"`
-	Text NullableString `json:"text,omitempty"`
-	Color NullableString `json:"color,omitempty" validate:"regexp=^#(([0-9a-fA-F]{2}){3}|([0-9a-fA-F]){3})$"`
-	Ts NullableInt32 `json:"ts,omitempty"`
-	Pretext NullableString `json:"pretext,omitempty"`
-	Footer NullableString `json:"footer,omitempty"`
-	FooterIcon NullableString `json:"footer_icon,omitempty"`
-	AuthorName NullableString `json:"author_name,omitempty"`
-	AuthorLink NullableString `json:"author_link,omitempty"`
-	AuthorIcon NullableString `json:"author_icon,omitempty"`
-	ImageUrl NullableString `json:"image_url,omitempty"`
-	ThumbUrl NullableString `json:"thumb_url,omitempty"`
+	Title *string `json:"title,omitempty"`
+	TitleLink *string `json:"title_link,omitempty"`
+	Text *string `json:"text,omitempty"`
+	Color *string `json:"color,omitempty" validate:"regexp=^#(([0-9a-fA-F]{2}){3}|([0-9a-fA-F]){3})$"`
+	Ts *int32 `json:"ts,omitempty"`
+	Pretext *string `json:"pretext,omitempty"`
+	Footer *string `json:"footer,omitempty"`
+	FooterIcon *string `json:"footer_icon,omitempty"`
+	AuthorName *string `json:"author_name,omitempty"`
+	AuthorLink *string `json:"author_link,omitempty"`
+	AuthorIcon *string `json:"author_icon,omitempty"`
+	ImageUrl *string `json:"image_url,omitempty"`
+	ThumbUrl *string `json:"thumb_url,omitempty"`
 	Fields []WebhookSlackEmbedField `json:"fields,omitempty"`
 }
 
@@ -86,568 +86,438 @@ func NewWebhookSlackEmbedWithDefaults() *WebhookSlackEmbed {
 	return &this
 }
 
-// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *WebhookSlackEmbed) GetTitle() string {
-	if o == nil || IsNil(o.Title.Get()) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-	return *o.Title.Get()
+	return *o.Title
 }
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbed) GetTitleOk() (*string, bool) {
-	if o == nil || IsNil(o.Title.Get()) {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return o.Title.Get(), o.Title.IsSet()
+	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *WebhookSlackEmbed) HasTitle() bool {
-	if o != nil && o.Title.IsSet() {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
 	return false
 }
 
-// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *WebhookSlackEmbed) SetTitle(v string) {
-	o.Title.Set(&v)
+	o.Title = &v
 }
 
-// SetTitleNil sets the value for Title to be an explicit nil
-func (o *WebhookSlackEmbed) SetTitleNil() {
-	o.Title.Set(nil)
-}
 
-// UnsetTitle ensures that no value is present for Title, not even an explicit nil
-func (o *WebhookSlackEmbed) UnsetTitle() {
-	o.Title.Unset()
-}
-
-// GetTitleLink returns the TitleLink field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTitleLink returns the TitleLink field value if set, zero value otherwise.
 func (o *WebhookSlackEmbed) GetTitleLink() string {
-	if o == nil || IsNil(o.TitleLink.Get()) {
+	if o == nil || IsNil(o.TitleLink) {
 		var ret string
 		return ret
 	}
-	return *o.TitleLink.Get()
+	return *o.TitleLink
 }
 
 // GetTitleLinkOk returns a tuple with the TitleLink field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbed) GetTitleLinkOk() (*string, bool) {
-	if o == nil || IsNil(o.TitleLink.Get()) {
+	if o == nil || IsNil(o.TitleLink) {
 		return nil, false
 	}
-	return o.TitleLink.Get(), o.TitleLink.IsSet()
+	return o.TitleLink, true
 }
 
 // HasTitleLink returns a boolean if a field has been set.
 func (o *WebhookSlackEmbed) HasTitleLink() bool {
-	if o != nil && o.TitleLink.IsSet() {
+	if o != nil && !IsNil(o.TitleLink) {
 		return true
 	}
 
 	return false
 }
 
-// SetTitleLink gets a reference to the given NullableString and assigns it to the TitleLink field.
+// SetTitleLink gets a reference to the given string and assigns it to the TitleLink field.
 func (o *WebhookSlackEmbed) SetTitleLink(v string) {
-	o.TitleLink.Set(&v)
+	o.TitleLink = &v
 }
 
-// SetTitleLinkNil sets the value for TitleLink to be an explicit nil
-func (o *WebhookSlackEmbed) SetTitleLinkNil() {
-	o.TitleLink.Set(nil)
-}
 
-// UnsetTitleLink ensures that no value is present for TitleLink, not even an explicit nil
-func (o *WebhookSlackEmbed) UnsetTitleLink() {
-	o.TitleLink.Unset()
-}
-
-// GetText returns the Text field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetText returns the Text field value if set, zero value otherwise.
 func (o *WebhookSlackEmbed) GetText() string {
-	if o == nil || IsNil(o.Text.Get()) {
+	if o == nil || IsNil(o.Text) {
 		var ret string
 		return ret
 	}
-	return *o.Text.Get()
+	return *o.Text
 }
 
 // GetTextOk returns a tuple with the Text field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbed) GetTextOk() (*string, bool) {
-	if o == nil || IsNil(o.Text.Get()) {
+	if o == nil || IsNil(o.Text) {
 		return nil, false
 	}
-	return o.Text.Get(), o.Text.IsSet()
+	return o.Text, true
 }
 
 // HasText returns a boolean if a field has been set.
 func (o *WebhookSlackEmbed) HasText() bool {
-	if o != nil && o.Text.IsSet() {
+	if o != nil && !IsNil(o.Text) {
 		return true
 	}
 
 	return false
 }
 
-// SetText gets a reference to the given NullableString and assigns it to the Text field.
+// SetText gets a reference to the given string and assigns it to the Text field.
 func (o *WebhookSlackEmbed) SetText(v string) {
-	o.Text.Set(&v)
+	o.Text = &v
 }
 
-// SetTextNil sets the value for Text to be an explicit nil
-func (o *WebhookSlackEmbed) SetTextNil() {
-	o.Text.Set(nil)
-}
 
-// UnsetText ensures that no value is present for Text, not even an explicit nil
-func (o *WebhookSlackEmbed) UnsetText() {
-	o.Text.Unset()
-}
-
-// GetColor returns the Color field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetColor returns the Color field value if set, zero value otherwise.
 func (o *WebhookSlackEmbed) GetColor() string {
-	if o == nil || IsNil(o.Color.Get()) {
+	if o == nil || IsNil(o.Color) {
 		var ret string
 		return ret
 	}
-	return *o.Color.Get()
+	return *o.Color
 }
 
 // GetColorOk returns a tuple with the Color field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbed) GetColorOk() (*string, bool) {
-	if o == nil || IsNil(o.Color.Get()) {
+	if o == nil || IsNil(o.Color) {
 		return nil, false
 	}
-	return o.Color.Get(), o.Color.IsSet()
+	return o.Color, true
 }
 
 // HasColor returns a boolean if a field has been set.
 func (o *WebhookSlackEmbed) HasColor() bool {
-	if o != nil && o.Color.IsSet() {
+	if o != nil && !IsNil(o.Color) {
 		return true
 	}
 
 	return false
 }
 
-// SetColor gets a reference to the given NullableString and assigns it to the Color field.
+// SetColor gets a reference to the given string and assigns it to the Color field.
 func (o *WebhookSlackEmbed) SetColor(v string) {
-	o.Color.Set(&v)
+	o.Color = &v
 }
 
-// SetColorNil sets the value for Color to be an explicit nil
-func (o *WebhookSlackEmbed) SetColorNil() {
-	o.Color.Set(nil)
-}
 
-// UnsetColor ensures that no value is present for Color, not even an explicit nil
-func (o *WebhookSlackEmbed) UnsetColor() {
-	o.Color.Unset()
-}
-
-// GetTs returns the Ts field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTs returns the Ts field value if set, zero value otherwise.
 func (o *WebhookSlackEmbed) GetTs() int32 {
-	if o == nil || IsNil(o.Ts.Get()) {
+	if o == nil || IsNil(o.Ts) {
 		var ret int32
 		return ret
 	}
-	return *o.Ts.Get()
+	return *o.Ts
 }
 
 // GetTsOk returns a tuple with the Ts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbed) GetTsOk() (*int32, bool) {
-	if o == nil || IsNil(o.Ts.Get()) {
+	if o == nil || IsNil(o.Ts) {
 		return nil, false
 	}
-	return o.Ts.Get(), o.Ts.IsSet()
+	return o.Ts, true
 }
 
 // HasTs returns a boolean if a field has been set.
 func (o *WebhookSlackEmbed) HasTs() bool {
-	if o != nil && o.Ts.IsSet() {
+	if o != nil && !IsNil(o.Ts) {
 		return true
 	}
 
 	return false
 }
 
-// SetTs gets a reference to the given NullableInt32 and assigns it to the Ts field.
+// SetTs gets a reference to the given int32 and assigns it to the Ts field.
 func (o *WebhookSlackEmbed) SetTs(v int32) {
-	o.Ts.Set(&v)
+	o.Ts = &v
 }
 
-// SetTsNil sets the value for Ts to be an explicit nil
-func (o *WebhookSlackEmbed) SetTsNil() {
-	o.Ts.Set(nil)
-}
 
-// UnsetTs ensures that no value is present for Ts, not even an explicit nil
-func (o *WebhookSlackEmbed) UnsetTs() {
-	o.Ts.Unset()
-}
-
-// GetPretext returns the Pretext field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPretext returns the Pretext field value if set, zero value otherwise.
 func (o *WebhookSlackEmbed) GetPretext() string {
-	if o == nil || IsNil(o.Pretext.Get()) {
+	if o == nil || IsNil(o.Pretext) {
 		var ret string
 		return ret
 	}
-	return *o.Pretext.Get()
+	return *o.Pretext
 }
 
 // GetPretextOk returns a tuple with the Pretext field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbed) GetPretextOk() (*string, bool) {
-	if o == nil || IsNil(o.Pretext.Get()) {
+	if o == nil || IsNil(o.Pretext) {
 		return nil, false
 	}
-	return o.Pretext.Get(), o.Pretext.IsSet()
+	return o.Pretext, true
 }
 
 // HasPretext returns a boolean if a field has been set.
 func (o *WebhookSlackEmbed) HasPretext() bool {
-	if o != nil && o.Pretext.IsSet() {
+	if o != nil && !IsNil(o.Pretext) {
 		return true
 	}
 
 	return false
 }
 
-// SetPretext gets a reference to the given NullableString and assigns it to the Pretext field.
+// SetPretext gets a reference to the given string and assigns it to the Pretext field.
 func (o *WebhookSlackEmbed) SetPretext(v string) {
-	o.Pretext.Set(&v)
+	o.Pretext = &v
 }
 
-// SetPretextNil sets the value for Pretext to be an explicit nil
-func (o *WebhookSlackEmbed) SetPretextNil() {
-	o.Pretext.Set(nil)
-}
 
-// UnsetPretext ensures that no value is present for Pretext, not even an explicit nil
-func (o *WebhookSlackEmbed) UnsetPretext() {
-	o.Pretext.Unset()
-}
-
-// GetFooter returns the Footer field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFooter returns the Footer field value if set, zero value otherwise.
 func (o *WebhookSlackEmbed) GetFooter() string {
-	if o == nil || IsNil(o.Footer.Get()) {
+	if o == nil || IsNil(o.Footer) {
 		var ret string
 		return ret
 	}
-	return *o.Footer.Get()
+	return *o.Footer
 }
 
 // GetFooterOk returns a tuple with the Footer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbed) GetFooterOk() (*string, bool) {
-	if o == nil || IsNil(o.Footer.Get()) {
+	if o == nil || IsNil(o.Footer) {
 		return nil, false
 	}
-	return o.Footer.Get(), o.Footer.IsSet()
+	return o.Footer, true
 }
 
 // HasFooter returns a boolean if a field has been set.
 func (o *WebhookSlackEmbed) HasFooter() bool {
-	if o != nil && o.Footer.IsSet() {
+	if o != nil && !IsNil(o.Footer) {
 		return true
 	}
 
 	return false
 }
 
-// SetFooter gets a reference to the given NullableString and assigns it to the Footer field.
+// SetFooter gets a reference to the given string and assigns it to the Footer field.
 func (o *WebhookSlackEmbed) SetFooter(v string) {
-	o.Footer.Set(&v)
+	o.Footer = &v
 }
 
-// SetFooterNil sets the value for Footer to be an explicit nil
-func (o *WebhookSlackEmbed) SetFooterNil() {
-	o.Footer.Set(nil)
-}
 
-// UnsetFooter ensures that no value is present for Footer, not even an explicit nil
-func (o *WebhookSlackEmbed) UnsetFooter() {
-	o.Footer.Unset()
-}
-
-// GetFooterIcon returns the FooterIcon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFooterIcon returns the FooterIcon field value if set, zero value otherwise.
 func (o *WebhookSlackEmbed) GetFooterIcon() string {
-	if o == nil || IsNil(o.FooterIcon.Get()) {
+	if o == nil || IsNil(o.FooterIcon) {
 		var ret string
 		return ret
 	}
-	return *o.FooterIcon.Get()
+	return *o.FooterIcon
 }
 
 // GetFooterIconOk returns a tuple with the FooterIcon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbed) GetFooterIconOk() (*string, bool) {
-	if o == nil || IsNil(o.FooterIcon.Get()) {
+	if o == nil || IsNil(o.FooterIcon) {
 		return nil, false
 	}
-	return o.FooterIcon.Get(), o.FooterIcon.IsSet()
+	return o.FooterIcon, true
 }
 
 // HasFooterIcon returns a boolean if a field has been set.
 func (o *WebhookSlackEmbed) HasFooterIcon() bool {
-	if o != nil && o.FooterIcon.IsSet() {
+	if o != nil && !IsNil(o.FooterIcon) {
 		return true
 	}
 
 	return false
 }
 
-// SetFooterIcon gets a reference to the given NullableString and assigns it to the FooterIcon field.
+// SetFooterIcon gets a reference to the given string and assigns it to the FooterIcon field.
 func (o *WebhookSlackEmbed) SetFooterIcon(v string) {
-	o.FooterIcon.Set(&v)
+	o.FooterIcon = &v
 }
 
-// SetFooterIconNil sets the value for FooterIcon to be an explicit nil
-func (o *WebhookSlackEmbed) SetFooterIconNil() {
-	o.FooterIcon.Set(nil)
-}
 
-// UnsetFooterIcon ensures that no value is present for FooterIcon, not even an explicit nil
-func (o *WebhookSlackEmbed) UnsetFooterIcon() {
-	o.FooterIcon.Unset()
-}
-
-// GetAuthorName returns the AuthorName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAuthorName returns the AuthorName field value if set, zero value otherwise.
 func (o *WebhookSlackEmbed) GetAuthorName() string {
-	if o == nil || IsNil(o.AuthorName.Get()) {
+	if o == nil || IsNil(o.AuthorName) {
 		var ret string
 		return ret
 	}
-	return *o.AuthorName.Get()
+	return *o.AuthorName
 }
 
 // GetAuthorNameOk returns a tuple with the AuthorName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbed) GetAuthorNameOk() (*string, bool) {
-	if o == nil || IsNil(o.AuthorName.Get()) {
+	if o == nil || IsNil(o.AuthorName) {
 		return nil, false
 	}
-	return o.AuthorName.Get(), o.AuthorName.IsSet()
+	return o.AuthorName, true
 }
 
 // HasAuthorName returns a boolean if a field has been set.
 func (o *WebhookSlackEmbed) HasAuthorName() bool {
-	if o != nil && o.AuthorName.IsSet() {
+	if o != nil && !IsNil(o.AuthorName) {
 		return true
 	}
 
 	return false
 }
 
-// SetAuthorName gets a reference to the given NullableString and assigns it to the AuthorName field.
+// SetAuthorName gets a reference to the given string and assigns it to the AuthorName field.
 func (o *WebhookSlackEmbed) SetAuthorName(v string) {
-	o.AuthorName.Set(&v)
+	o.AuthorName = &v
 }
 
-// SetAuthorNameNil sets the value for AuthorName to be an explicit nil
-func (o *WebhookSlackEmbed) SetAuthorNameNil() {
-	o.AuthorName.Set(nil)
-}
 
-// UnsetAuthorName ensures that no value is present for AuthorName, not even an explicit nil
-func (o *WebhookSlackEmbed) UnsetAuthorName() {
-	o.AuthorName.Unset()
-}
-
-// GetAuthorLink returns the AuthorLink field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAuthorLink returns the AuthorLink field value if set, zero value otherwise.
 func (o *WebhookSlackEmbed) GetAuthorLink() string {
-	if o == nil || IsNil(o.AuthorLink.Get()) {
+	if o == nil || IsNil(o.AuthorLink) {
 		var ret string
 		return ret
 	}
-	return *o.AuthorLink.Get()
+	return *o.AuthorLink
 }
 
 // GetAuthorLinkOk returns a tuple with the AuthorLink field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbed) GetAuthorLinkOk() (*string, bool) {
-	if o == nil || IsNil(o.AuthorLink.Get()) {
+	if o == nil || IsNil(o.AuthorLink) {
 		return nil, false
 	}
-	return o.AuthorLink.Get(), o.AuthorLink.IsSet()
+	return o.AuthorLink, true
 }
 
 // HasAuthorLink returns a boolean if a field has been set.
 func (o *WebhookSlackEmbed) HasAuthorLink() bool {
-	if o != nil && o.AuthorLink.IsSet() {
+	if o != nil && !IsNil(o.AuthorLink) {
 		return true
 	}
 
 	return false
 }
 
-// SetAuthorLink gets a reference to the given NullableString and assigns it to the AuthorLink field.
+// SetAuthorLink gets a reference to the given string and assigns it to the AuthorLink field.
 func (o *WebhookSlackEmbed) SetAuthorLink(v string) {
-	o.AuthorLink.Set(&v)
+	o.AuthorLink = &v
 }
 
-// SetAuthorLinkNil sets the value for AuthorLink to be an explicit nil
-func (o *WebhookSlackEmbed) SetAuthorLinkNil() {
-	o.AuthorLink.Set(nil)
-}
 
-// UnsetAuthorLink ensures that no value is present for AuthorLink, not even an explicit nil
-func (o *WebhookSlackEmbed) UnsetAuthorLink() {
-	o.AuthorLink.Unset()
-}
-
-// GetAuthorIcon returns the AuthorIcon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAuthorIcon returns the AuthorIcon field value if set, zero value otherwise.
 func (o *WebhookSlackEmbed) GetAuthorIcon() string {
-	if o == nil || IsNil(o.AuthorIcon.Get()) {
+	if o == nil || IsNil(o.AuthorIcon) {
 		var ret string
 		return ret
 	}
-	return *o.AuthorIcon.Get()
+	return *o.AuthorIcon
 }
 
 // GetAuthorIconOk returns a tuple with the AuthorIcon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbed) GetAuthorIconOk() (*string, bool) {
-	if o == nil || IsNil(o.AuthorIcon.Get()) {
+	if o == nil || IsNil(o.AuthorIcon) {
 		return nil, false
 	}
-	return o.AuthorIcon.Get(), o.AuthorIcon.IsSet()
+	return o.AuthorIcon, true
 }
 
 // HasAuthorIcon returns a boolean if a field has been set.
 func (o *WebhookSlackEmbed) HasAuthorIcon() bool {
-	if o != nil && o.AuthorIcon.IsSet() {
+	if o != nil && !IsNil(o.AuthorIcon) {
 		return true
 	}
 
 	return false
 }
 
-// SetAuthorIcon gets a reference to the given NullableString and assigns it to the AuthorIcon field.
+// SetAuthorIcon gets a reference to the given string and assigns it to the AuthorIcon field.
 func (o *WebhookSlackEmbed) SetAuthorIcon(v string) {
-	o.AuthorIcon.Set(&v)
+	o.AuthorIcon = &v
 }
 
-// SetAuthorIconNil sets the value for AuthorIcon to be an explicit nil
-func (o *WebhookSlackEmbed) SetAuthorIconNil() {
-	o.AuthorIcon.Set(nil)
-}
 
-// UnsetAuthorIcon ensures that no value is present for AuthorIcon, not even an explicit nil
-func (o *WebhookSlackEmbed) UnsetAuthorIcon() {
-	o.AuthorIcon.Unset()
-}
-
-// GetImageUrl returns the ImageUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetImageUrl returns the ImageUrl field value if set, zero value otherwise.
 func (o *WebhookSlackEmbed) GetImageUrl() string {
-	if o == nil || IsNil(o.ImageUrl.Get()) {
+	if o == nil || IsNil(o.ImageUrl) {
 		var ret string
 		return ret
 	}
-	return *o.ImageUrl.Get()
+	return *o.ImageUrl
 }
 
 // GetImageUrlOk returns a tuple with the ImageUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbed) GetImageUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.ImageUrl.Get()) {
+	if o == nil || IsNil(o.ImageUrl) {
 		return nil, false
 	}
-	return o.ImageUrl.Get(), o.ImageUrl.IsSet()
+	return o.ImageUrl, true
 }
 
 // HasImageUrl returns a boolean if a field has been set.
 func (o *WebhookSlackEmbed) HasImageUrl() bool {
-	if o != nil && o.ImageUrl.IsSet() {
+	if o != nil && !IsNil(o.ImageUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetImageUrl gets a reference to the given NullableString and assigns it to the ImageUrl field.
+// SetImageUrl gets a reference to the given string and assigns it to the ImageUrl field.
 func (o *WebhookSlackEmbed) SetImageUrl(v string) {
-	o.ImageUrl.Set(&v)
+	o.ImageUrl = &v
 }
 
-// SetImageUrlNil sets the value for ImageUrl to be an explicit nil
-func (o *WebhookSlackEmbed) SetImageUrlNil() {
-	o.ImageUrl.Set(nil)
-}
 
-// UnsetImageUrl ensures that no value is present for ImageUrl, not even an explicit nil
-func (o *WebhookSlackEmbed) UnsetImageUrl() {
-	o.ImageUrl.Unset()
-}
-
-// GetThumbUrl returns the ThumbUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetThumbUrl returns the ThumbUrl field value if set, zero value otherwise.
 func (o *WebhookSlackEmbed) GetThumbUrl() string {
-	if o == nil || IsNil(o.ThumbUrl.Get()) {
+	if o == nil || IsNil(o.ThumbUrl) {
 		var ret string
 		return ret
 	}
-	return *o.ThumbUrl.Get()
+	return *o.ThumbUrl
 }
 
 // GetThumbUrlOk returns a tuple with the ThumbUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbed) GetThumbUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.ThumbUrl.Get()) {
+	if o == nil || IsNil(o.ThumbUrl) {
 		return nil, false
 	}
-	return o.ThumbUrl.Get(), o.ThumbUrl.IsSet()
+	return o.ThumbUrl, true
 }
 
 // HasThumbUrl returns a boolean if a field has been set.
 func (o *WebhookSlackEmbed) HasThumbUrl() bool {
-	if o != nil && o.ThumbUrl.IsSet() {
+	if o != nil && !IsNil(o.ThumbUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetThumbUrl gets a reference to the given NullableString and assigns it to the ThumbUrl field.
+// SetThumbUrl gets a reference to the given string and assigns it to the ThumbUrl field.
 func (o *WebhookSlackEmbed) SetThumbUrl(v string) {
-	o.ThumbUrl.Set(&v)
+	o.ThumbUrl = &v
 }
 
-// SetThumbUrlNil sets the value for ThumbUrl to be an explicit nil
-func (o *WebhookSlackEmbed) SetThumbUrlNil() {
-	o.ThumbUrl.Set(nil)
-}
 
-// UnsetThumbUrl ensures that no value is present for ThumbUrl, not even an explicit nil
-func (o *WebhookSlackEmbed) UnsetThumbUrl() {
-	o.ThumbUrl.Unset()
-}
-
-// GetFields returns the Fields field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFields returns the Fields field value if set, zero value otherwise.
 func (o *WebhookSlackEmbed) GetFields() []WebhookSlackEmbedField {
-	if o == nil {
+	if o == nil || IsNil(o.Fields) {
 		var ret []WebhookSlackEmbedField
 		return ret
 	}
@@ -656,9 +526,8 @@ func (o *WebhookSlackEmbed) GetFields() []WebhookSlackEmbedField {
 
 // GetFieldsOk returns a tuple with the Fields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbed) GetFieldsOk() ([]WebhookSlackEmbedField, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Fields) {
 		return nil, false
 	}
 	return o.Fields, true
@@ -689,46 +558,46 @@ func (o WebhookSlackEmbed) MarshalJSON() ([]byte, error) {
 
 func (o WebhookSlackEmbed) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Title.IsSet() {
-		toSerialize["title"] = o.Title.Get()
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
 	}
-	if o.TitleLink.IsSet() {
-		toSerialize["title_link"] = o.TitleLink.Get()
+	if !IsNil(o.TitleLink) {
+		toSerialize["title_link"] = o.TitleLink
 	}
-	if o.Text.IsSet() {
-		toSerialize["text"] = o.Text.Get()
+	if !IsNil(o.Text) {
+		toSerialize["text"] = o.Text
 	}
-	if o.Color.IsSet() {
-		toSerialize["color"] = o.Color.Get()
+	if !IsNil(o.Color) {
+		toSerialize["color"] = o.Color
 	}
-	if o.Ts.IsSet() {
-		toSerialize["ts"] = o.Ts.Get()
+	if !IsNil(o.Ts) {
+		toSerialize["ts"] = o.Ts
 	}
-	if o.Pretext.IsSet() {
-		toSerialize["pretext"] = o.Pretext.Get()
+	if !IsNil(o.Pretext) {
+		toSerialize["pretext"] = o.Pretext
 	}
-	if o.Footer.IsSet() {
-		toSerialize["footer"] = o.Footer.Get()
+	if !IsNil(o.Footer) {
+		toSerialize["footer"] = o.Footer
 	}
-	if o.FooterIcon.IsSet() {
-		toSerialize["footer_icon"] = o.FooterIcon.Get()
+	if !IsNil(o.FooterIcon) {
+		toSerialize["footer_icon"] = o.FooterIcon
 	}
-	if o.AuthorName.IsSet() {
-		toSerialize["author_name"] = o.AuthorName.Get()
+	if !IsNil(o.AuthorName) {
+		toSerialize["author_name"] = o.AuthorName
 	}
-	if o.AuthorLink.IsSet() {
-		toSerialize["author_link"] = o.AuthorLink.Get()
+	if !IsNil(o.AuthorLink) {
+		toSerialize["author_link"] = o.AuthorLink
 	}
-	if o.AuthorIcon.IsSet() {
-		toSerialize["author_icon"] = o.AuthorIcon.Get()
+	if !IsNil(o.AuthorIcon) {
+		toSerialize["author_icon"] = o.AuthorIcon
 	}
-	if o.ImageUrl.IsSet() {
-		toSerialize["image_url"] = o.ImageUrl.Get()
+	if !IsNil(o.ImageUrl) {
+		toSerialize["image_url"] = o.ImageUrl
 	}
-	if o.ThumbUrl.IsSet() {
-		toSerialize["thumb_url"] = o.ThumbUrl.Get()
+	if !IsNil(o.ThumbUrl) {
+		toSerialize["thumb_url"] = o.ThumbUrl
 	}
-	if o.Fields != nil {
+	if !IsNil(o.Fields) {
 		toSerialize["fields"] = o.Fields
 	}
 	return toSerialize, nil
@@ -769,5 +638,4 @@ func (v *NullableWebhookSlackEmbed) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

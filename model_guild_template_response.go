@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,15 +58,15 @@ var _ MappedNullable = &GuildTemplateResponse{}
 type GuildTemplateResponse struct {
 	Code string `json:"code"`
 	Name string `json:"name"`
-	Description NullableString `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 	UsageCount int32 `json:"usage_count"`
 	CreatorId string `json:"creator_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Creator NullableUserResponse `json:"creator,omitempty"`
+	Creator *GuildTemplateResponseCreator `json:"creator,omitempty"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 	SourceGuildId string `json:"source_guild_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	SerializedSourceGuild GuildTemplateSnapshotResponse `json:"serialized_source_guild"`
-	IsDirty NullableBool `json:"is_dirty,omitempty"`
+	IsDirty *bool `json:"is_dirty,omitempty"`
 }
 
 type _GuildTemplateResponse GuildTemplateResponse
@@ -144,48 +144,38 @@ func (o *GuildTemplateResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *GuildTemplateResponse) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateResponse) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *GuildTemplateResponse) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *GuildTemplateResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *GuildTemplateResponse) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *GuildTemplateResponse) UnsetDescription() {
-	o.Description.Unset()
-}
 
 // GetUsageCount returns the UsageCount field value
 func (o *GuildTemplateResponse) GetUsageCount() int32 {
@@ -235,48 +225,38 @@ func (o *GuildTemplateResponse) SetCreatorId(v string) {
 	o.CreatorId = v
 }
 
-// GetCreator returns the Creator field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GuildTemplateResponse) GetCreator() UserResponse {
-	if o == nil || IsNil(o.Creator.Get()) {
-		var ret UserResponse
+// GetCreator returns the Creator field value if set, zero value otherwise.
+func (o *GuildTemplateResponse) GetCreator() GuildTemplateResponseCreator {
+	if o == nil || IsNil(o.Creator) {
+		var ret GuildTemplateResponseCreator
 		return ret
 	}
-	return *o.Creator.Get()
+	return *o.Creator
 }
 
 // GetCreatorOk returns a tuple with the Creator field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GuildTemplateResponse) GetCreatorOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.Creator.Get()) {
+func (o *GuildTemplateResponse) GetCreatorOk() (*GuildTemplateResponseCreator, bool) {
+	if o == nil || IsNil(o.Creator) {
 		return nil, false
 	}
-	return o.Creator.Get(), o.Creator.IsSet()
+	return o.Creator, true
 }
 
 // HasCreator returns a boolean if a field has been set.
 func (o *GuildTemplateResponse) HasCreator() bool {
-	if o != nil && o.Creator.IsSet() {
+	if o != nil && !IsNil(o.Creator) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreator gets a reference to the given NullableUserResponse and assigns it to the Creator field.
-func (o *GuildTemplateResponse) SetCreator(v UserResponse) {
-	o.Creator.Set(&v)
+// SetCreator gets a reference to the given GuildTemplateResponseCreator and assigns it to the Creator field.
+func (o *GuildTemplateResponse) SetCreator(v GuildTemplateResponseCreator) {
+	o.Creator = &v
 }
 
-// SetCreatorNil sets the value for Creator to be an explicit nil
-func (o *GuildTemplateResponse) SetCreatorNil() {
-	o.Creator.Set(nil)
-}
-
-// UnsetCreator ensures that no value is present for Creator, not even an explicit nil
-func (o *GuildTemplateResponse) UnsetCreator() {
-	o.Creator.Unset()
-}
 
 // GetCreatedAt returns the CreatedAt field value
 func (o *GuildTemplateResponse) GetCreatedAt() time.Time {
@@ -374,48 +354,38 @@ func (o *GuildTemplateResponse) SetSerializedSourceGuild(v GuildTemplateSnapshot
 	o.SerializedSourceGuild = v
 }
 
-// GetIsDirty returns the IsDirty field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIsDirty returns the IsDirty field value if set, zero value otherwise.
 func (o *GuildTemplateResponse) GetIsDirty() bool {
-	if o == nil || IsNil(o.IsDirty.Get()) {
+	if o == nil || IsNil(o.IsDirty) {
 		var ret bool
 		return ret
 	}
-	return *o.IsDirty.Get()
+	return *o.IsDirty
 }
 
 // GetIsDirtyOk returns a tuple with the IsDirty field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateResponse) GetIsDirtyOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDirty.Get()) {
+	if o == nil || IsNil(o.IsDirty) {
 		return nil, false
 	}
-	return o.IsDirty.Get(), o.IsDirty.IsSet()
+	return o.IsDirty, true
 }
 
 // HasIsDirty returns a boolean if a field has been set.
 func (o *GuildTemplateResponse) HasIsDirty() bool {
-	if o != nil && o.IsDirty.IsSet() {
+	if o != nil && !IsNil(o.IsDirty) {
 		return true
 	}
 
 	return false
 }
 
-// SetIsDirty gets a reference to the given NullableBool and assigns it to the IsDirty field.
+// SetIsDirty gets a reference to the given bool and assigns it to the IsDirty field.
 func (o *GuildTemplateResponse) SetIsDirty(v bool) {
-	o.IsDirty.Set(&v)
+	o.IsDirty = &v
 }
 
-// SetIsDirtyNil sets the value for IsDirty to be an explicit nil
-func (o *GuildTemplateResponse) SetIsDirtyNil() {
-	o.IsDirty.Set(nil)
-}
-
-// UnsetIsDirty ensures that no value is present for IsDirty, not even an explicit nil
-func (o *GuildTemplateResponse) UnsetIsDirty() {
-	o.IsDirty.Unset()
-}
 
 func (o GuildTemplateResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -429,20 +399,20 @@ func (o GuildTemplateResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["code"] = o.Code
 	toSerialize["name"] = o.Name
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
 	toSerialize["usage_count"] = o.UsageCount
 	toSerialize["creator_id"] = o.CreatorId
-	if o.Creator.IsSet() {
-		toSerialize["creator"] = o.Creator.Get()
+	if !IsNil(o.Creator) {
+		toSerialize["creator"] = o.Creator
 	}
 	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["updated_at"] = o.UpdatedAt
 	toSerialize["source_guild_id"] = o.SourceGuildId
 	toSerialize["serialized_source_guild"] = o.SerializedSourceGuild
-	if o.IsDirty.IsSet() {
-		toSerialize["is_dirty"] = o.IsDirty.Get()
+	if !IsNil(o.IsDirty) {
+		toSerialize["is_dirty"] = o.IsDirty
 	}
 	return toSerialize, nil
 }
@@ -526,5 +496,4 @@ func (v *NullableGuildTemplateResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

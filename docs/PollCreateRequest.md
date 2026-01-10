@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Question** | [**PollMedia**](PollMedia.md) |  | 
 **Answers** | [**[]PollAnswerCreateRequest**](PollAnswerCreateRequest.md) |  | 
-**AllowMultiselect** | Pointer to **NullableBool** |  | [optional] 
-**LayoutType** | Pointer to **int32** |  | [optional] 
-**Duration** | Pointer to **NullableInt32** |  | [optional] 
+**AllowMultiselect** | Pointer to **bool** |  | [optional] 
+**LayoutType** | Pointer to [**PollCreateRequestLayoutType**](PollCreateRequestLayoutType.md) |  | [optional] 
+**Duration** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -94,32 +94,22 @@ SetAllowMultiselect sets AllowMultiselect field to given value.
 
 HasAllowMultiselect returns a boolean if a field has been set.
 
-### SetAllowMultiselectNil
-
-`func (o *PollCreateRequest) SetAllowMultiselectNil(b bool)`
-
- SetAllowMultiselectNil sets the value for AllowMultiselect to be an explicit nil
-
-### UnsetAllowMultiselect
-`func (o *PollCreateRequest) UnsetAllowMultiselect()`
-
-UnsetAllowMultiselect ensures that no value is present for AllowMultiselect, not even an explicit nil
 ### GetLayoutType
 
-`func (o *PollCreateRequest) GetLayoutType() int32`
+`func (o *PollCreateRequest) GetLayoutType() PollCreateRequestLayoutType`
 
 GetLayoutType returns the LayoutType field if non-nil, zero value otherwise.
 
 ### GetLayoutTypeOk
 
-`func (o *PollCreateRequest) GetLayoutTypeOk() (*int32, bool)`
+`func (o *PollCreateRequest) GetLayoutTypeOk() (*PollCreateRequestLayoutType, bool)`
 
 GetLayoutTypeOk returns a tuple with the LayoutType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLayoutType
 
-`func (o *PollCreateRequest) SetLayoutType(v int32)`
+`func (o *PollCreateRequest) SetLayoutType(v PollCreateRequestLayoutType)`
 
 SetLayoutType sets LayoutType field to given value.
 
@@ -154,16 +144,6 @@ SetDuration sets Duration field to given value.
 
 HasDuration returns a boolean if a field has been set.
 
-### SetDurationNil
-
-`func (o *PollCreateRequest) SetDurationNil(b bool)`
-
- SetDurationNil sets the value for Duration to be an explicit nil
-
-### UnsetDuration
-`func (o *PollCreateRequest) UnsetDuration()`
-
-UnsetDuration ensures that no value is present for Duration, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

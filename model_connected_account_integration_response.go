@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ var _ MappedNullable = &ConnectedAccountIntegrationResponse{}
 // ConnectedAccountIntegrationResponse struct for ConnectedAccountIntegrationResponse
 type ConnectedAccountIntegrationResponse struct {
 	Id string `json:"id"`
-	Type NullableString `json:"type"`
+	Type IntegrationTypes `json:"type"`
 	Account AccountResponse `json:"account"`
 	Guild ConnectedAccountGuildResponse `json:"guild"`
 }
@@ -67,7 +67,7 @@ type _ConnectedAccountIntegrationResponse ConnectedAccountIntegrationResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConnectedAccountIntegrationResponse(id string, type_ NullableString, account AccountResponse, guild ConnectedAccountGuildResponse) *ConnectedAccountIntegrationResponse {
+func NewConnectedAccountIntegrationResponse(id string, type_ IntegrationTypes, account AccountResponse, guild ConnectedAccountGuildResponse) *ConnectedAccountIntegrationResponse {
 	this := ConnectedAccountIntegrationResponse{}
 	this.Id = id
 	this.Type = type_
@@ -109,29 +109,27 @@ func (o *ConnectedAccountIntegrationResponse) SetId(v string) {
 }
 
 // GetType returns the Type field value
-// If the value is explicit nil, the zero value for string will be returned
-func (o *ConnectedAccountIntegrationResponse) GetType() string {
-	if o == nil || o.Type.Get() == nil {
-		var ret string
+func (o *ConnectedAccountIntegrationResponse) GetType() IntegrationTypes {
+	if o == nil {
+		var ret IntegrationTypes
 		return ret
 	}
 
-	return *o.Type.Get()
+	return o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ConnectedAccountIntegrationResponse) GetTypeOk() (*string, bool) {
+func (o *ConnectedAccountIntegrationResponse) GetTypeOk() (*IntegrationTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return &o.Type, true
 }
 
 // SetType sets field value
-func (o *ConnectedAccountIntegrationResponse) SetType(v string) {
-	o.Type.Set(&v)
+func (o *ConnectedAccountIntegrationResponse) SetType(v IntegrationTypes) {
+	o.Type = v
 }
 
 // GetAccount returns the Account field value
@@ -193,7 +191,7 @@ func (o ConnectedAccountIntegrationResponse) MarshalJSON() ([]byte, error) {
 func (o ConnectedAccountIntegrationResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	toSerialize["type"] = o.Type.Get()
+	toSerialize["type"] = o.Type
 	toSerialize["account"] = o.Account
 	toSerialize["guild"] = o.Guild
 	return toSerialize, nil
@@ -274,5 +272,4 @@ func (v *NullableConnectedAccountIntegrationResponse) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

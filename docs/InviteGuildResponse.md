@@ -6,22 +6,22 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Splash** | Pointer to **NullableString** |  | [optional] 
-**Banner** | Pointer to **NullableString** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Icon** | Pointer to **NullableString** |  | [optional] 
-**Features** | **[]string** |  | 
-**VerificationLevel** | Pointer to **int32** |  | [optional] 
-**VanityUrlCode** | Pointer to **NullableString** |  | [optional] 
-**NsfwLevel** | Pointer to **NullableInt32** |  | [optional] 
-**Nsfw** | Pointer to **NullableBool** |  | [optional] 
-**PremiumSubscriptionCount** | Pointer to **NullableInt32** |  | [optional] 
+**Splash** | Pointer to **string** |  | [optional] 
+**Banner** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
+**Features** | [**[]GuildFeatures**](GuildFeatures.md) |  | 
+**VerificationLevel** | Pointer to [**GuildPatchRequestPartialVerificationLevel**](GuildPatchRequestPartialVerificationLevel.md) |  | [optional] 
+**VanityUrlCode** | Pointer to **string** |  | [optional] 
+**NsfwLevel** | Pointer to [**InviteGuildResponseNsfwLevel**](InviteGuildResponseNsfwLevel.md) |  | [optional] 
+**Nsfw** | Pointer to **bool** |  | [optional] 
+**PremiumSubscriptionCount** | **int32** |  | 
 
 ## Methods
 
 ### NewInviteGuildResponse
 
-`func NewInviteGuildResponse(id string, name string, features []string, ) *InviteGuildResponse`
+`func NewInviteGuildResponse(id string, name string, features []GuildFeatures, premiumSubscriptionCount int32, ) *InviteGuildResponse`
 
 NewInviteGuildResponse instantiates a new InviteGuildResponse object
 This constructor will assign default values to properties that have it defined,
@@ -101,16 +101,6 @@ SetSplash sets Splash field to given value.
 
 HasSplash returns a boolean if a field has been set.
 
-### SetSplashNil
-
-`func (o *InviteGuildResponse) SetSplashNil(b bool)`
-
- SetSplashNil sets the value for Splash to be an explicit nil
-
-### UnsetSplash
-`func (o *InviteGuildResponse) UnsetSplash()`
-
-UnsetSplash ensures that no value is present for Splash, not even an explicit nil
 ### GetBanner
 
 `func (o *InviteGuildResponse) GetBanner() string`
@@ -136,16 +126,6 @@ SetBanner sets Banner field to given value.
 
 HasBanner returns a boolean if a field has been set.
 
-### SetBannerNil
-
-`func (o *InviteGuildResponse) SetBannerNil(b bool)`
-
- SetBannerNil sets the value for Banner to be an explicit nil
-
-### UnsetBanner
-`func (o *InviteGuildResponse) UnsetBanner()`
-
-UnsetBanner ensures that no value is present for Banner, not even an explicit nil
 ### GetDescription
 
 `func (o *InviteGuildResponse) GetDescription() string`
@@ -171,16 +151,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *InviteGuildResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *InviteGuildResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetIcon
 
 `func (o *InviteGuildResponse) GetIcon() string`
@@ -206,52 +176,42 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *InviteGuildResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *InviteGuildResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetFeatures
 
-`func (o *InviteGuildResponse) GetFeatures() []string`
+`func (o *InviteGuildResponse) GetFeatures() []GuildFeatures`
 
 GetFeatures returns the Features field if non-nil, zero value otherwise.
 
 ### GetFeaturesOk
 
-`func (o *InviteGuildResponse) GetFeaturesOk() (*[]string, bool)`
+`func (o *InviteGuildResponse) GetFeaturesOk() (*[]GuildFeatures, bool)`
 
 GetFeaturesOk returns a tuple with the Features field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFeatures
 
-`func (o *InviteGuildResponse) SetFeatures(v []string)`
+`func (o *InviteGuildResponse) SetFeatures(v []GuildFeatures)`
 
 SetFeatures sets Features field to given value.
 
 
 ### GetVerificationLevel
 
-`func (o *InviteGuildResponse) GetVerificationLevel() int32`
+`func (o *InviteGuildResponse) GetVerificationLevel() GuildPatchRequestPartialVerificationLevel`
 
 GetVerificationLevel returns the VerificationLevel field if non-nil, zero value otherwise.
 
 ### GetVerificationLevelOk
 
-`func (o *InviteGuildResponse) GetVerificationLevelOk() (*int32, bool)`
+`func (o *InviteGuildResponse) GetVerificationLevelOk() (*GuildPatchRequestPartialVerificationLevel, bool)`
 
 GetVerificationLevelOk returns a tuple with the VerificationLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVerificationLevel
 
-`func (o *InviteGuildResponse) SetVerificationLevel(v int32)`
+`func (o *InviteGuildResponse) SetVerificationLevel(v GuildPatchRequestPartialVerificationLevel)`
 
 SetVerificationLevel sets VerificationLevel field to given value.
 
@@ -286,32 +246,22 @@ SetVanityUrlCode sets VanityUrlCode field to given value.
 
 HasVanityUrlCode returns a boolean if a field has been set.
 
-### SetVanityUrlCodeNil
-
-`func (o *InviteGuildResponse) SetVanityUrlCodeNil(b bool)`
-
- SetVanityUrlCodeNil sets the value for VanityUrlCode to be an explicit nil
-
-### UnsetVanityUrlCode
-`func (o *InviteGuildResponse) UnsetVanityUrlCode()`
-
-UnsetVanityUrlCode ensures that no value is present for VanityUrlCode, not even an explicit nil
 ### GetNsfwLevel
 
-`func (o *InviteGuildResponse) GetNsfwLevel() int32`
+`func (o *InviteGuildResponse) GetNsfwLevel() InviteGuildResponseNsfwLevel`
 
 GetNsfwLevel returns the NsfwLevel field if non-nil, zero value otherwise.
 
 ### GetNsfwLevelOk
 
-`func (o *InviteGuildResponse) GetNsfwLevelOk() (*int32, bool)`
+`func (o *InviteGuildResponse) GetNsfwLevelOk() (*InviteGuildResponseNsfwLevel, bool)`
 
 GetNsfwLevelOk returns a tuple with the NsfwLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNsfwLevel
 
-`func (o *InviteGuildResponse) SetNsfwLevel(v int32)`
+`func (o *InviteGuildResponse) SetNsfwLevel(v InviteGuildResponseNsfwLevel)`
 
 SetNsfwLevel sets NsfwLevel field to given value.
 
@@ -321,16 +271,6 @@ SetNsfwLevel sets NsfwLevel field to given value.
 
 HasNsfwLevel returns a boolean if a field has been set.
 
-### SetNsfwLevelNil
-
-`func (o *InviteGuildResponse) SetNsfwLevelNil(b bool)`
-
- SetNsfwLevelNil sets the value for NsfwLevel to be an explicit nil
-
-### UnsetNsfwLevel
-`func (o *InviteGuildResponse) UnsetNsfwLevel()`
-
-UnsetNsfwLevel ensures that no value is present for NsfwLevel, not even an explicit nil
 ### GetNsfw
 
 `func (o *InviteGuildResponse) GetNsfw() bool`
@@ -356,16 +296,6 @@ SetNsfw sets Nsfw field to given value.
 
 HasNsfw returns a boolean if a field has been set.
 
-### SetNsfwNil
-
-`func (o *InviteGuildResponse) SetNsfwNil(b bool)`
-
- SetNsfwNil sets the value for Nsfw to be an explicit nil
-
-### UnsetNsfw
-`func (o *InviteGuildResponse) UnsetNsfw()`
-
-UnsetNsfw ensures that no value is present for Nsfw, not even an explicit nil
 ### GetPremiumSubscriptionCount
 
 `func (o *InviteGuildResponse) GetPremiumSubscriptionCount() int32`
@@ -385,22 +315,7 @@ and a boolean to check if the value has been set.
 
 SetPremiumSubscriptionCount sets PremiumSubscriptionCount field to given value.
 
-### HasPremiumSubscriptionCount
 
-`func (o *InviteGuildResponse) HasPremiumSubscriptionCount() bool`
-
-HasPremiumSubscriptionCount returns a boolean if a field has been set.
-
-### SetPremiumSubscriptionCountNil
-
-`func (o *InviteGuildResponse) SetPremiumSubscriptionCountNil(b bool)`
-
- SetPremiumSubscriptionCountNil sets the value for PremiumSubscriptionCount to be an explicit nil
-
-### UnsetPremiumSubscriptionCount
-`func (o *InviteGuildResponse) UnsetPremiumSubscriptionCount()`
-
-UnsetPremiumSubscriptionCount ensures that no value is present for PremiumSubscriptionCount, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Application** | [**ApplicationResponse**](ApplicationResponse.md) |  | 
 **Expires** | **time.Time** |  | 
-**Scopes** | **[]string** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**Scopes** | [**[]OAuth2Scopes**](OAuth2Scopes.md) |  | 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 
 ## Methods
 
 ### NewOAuth2GetAuthorizationResponse
 
-`func NewOAuth2GetAuthorizationResponse(application ApplicationResponse, expires time.Time, scopes []string, ) *OAuth2GetAuthorizationResponse`
+`func NewOAuth2GetAuthorizationResponse(application ApplicationResponse, expires time.Time, scopes []OAuth2Scopes, ) *OAuth2GetAuthorizationResponse`
 
 NewOAuth2GetAuthorizationResponse instantiates a new OAuth2GetAuthorizationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -70,20 +70,20 @@ SetExpires sets Expires field to given value.
 
 ### GetScopes
 
-`func (o *OAuth2GetAuthorizationResponse) GetScopes() []string`
+`func (o *OAuth2GetAuthorizationResponse) GetScopes() []OAuth2Scopes`
 
 GetScopes returns the Scopes field if non-nil, zero value otherwise.
 
 ### GetScopesOk
 
-`func (o *OAuth2GetAuthorizationResponse) GetScopesOk() (*[]string, bool)`
+`func (o *OAuth2GetAuthorizationResponse) GetScopesOk() (*[]OAuth2Scopes, bool)`
 
 GetScopesOk returns a tuple with the Scopes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScopes
 
-`func (o *OAuth2GetAuthorizationResponse) SetScopes(v []string)`
+`func (o *OAuth2GetAuthorizationResponse) SetScopes(v []OAuth2Scopes)`
 
 SetScopes sets Scopes field to given value.
 
@@ -113,16 +113,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *OAuth2GetAuthorizationResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *OAuth2GetAuthorizationResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

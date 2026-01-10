@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Title** | Pointer to **NullableString** |  | [optional] 
-**TitleLink** | Pointer to **NullableString** |  | [optional] 
-**Text** | Pointer to **NullableString** |  | [optional] 
-**Color** | Pointer to **NullableString** |  | [optional] 
-**Ts** | Pointer to **NullableInt32** |  | [optional] 
-**Pretext** | Pointer to **NullableString** |  | [optional] 
-**Footer** | Pointer to **NullableString** |  | [optional] 
-**FooterIcon** | Pointer to **NullableString** |  | [optional] 
-**AuthorName** | Pointer to **NullableString** |  | [optional] 
-**AuthorLink** | Pointer to **NullableString** |  | [optional] 
-**AuthorIcon** | Pointer to **NullableString** |  | [optional] 
-**ImageUrl** | Pointer to **NullableString** |  | [optional] 
-**ThumbUrl** | Pointer to **NullableString** |  | [optional] 
+**Title** | Pointer to **string** |  | [optional] 
+**TitleLink** | Pointer to **string** |  | [optional] 
+**Text** | Pointer to **string** |  | [optional] 
+**Color** | Pointer to **string** |  | [optional] 
+**Ts** | Pointer to **int32** |  | [optional] 
+**Pretext** | Pointer to **string** |  | [optional] 
+**Footer** | Pointer to **string** |  | [optional] 
+**FooterIcon** | Pointer to **string** |  | [optional] 
+**AuthorName** | Pointer to **string** |  | [optional] 
+**AuthorLink** | Pointer to **string** |  | [optional] 
+**AuthorIcon** | Pointer to **string** |  | [optional] 
+**ImageUrl** | Pointer to **string** |  | [optional] 
+**ThumbUrl** | Pointer to **string** |  | [optional] 
 **Fields** | Pointer to [**[]WebhookSlackEmbedField**](WebhookSlackEmbedField.md) |  | [optional] 
 
 ## Methods
@@ -63,16 +63,6 @@ SetTitle sets Title field to given value.
 
 HasTitle returns a boolean if a field has been set.
 
-### SetTitleNil
-
-`func (o *WebhookSlackEmbed) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *WebhookSlackEmbed) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetTitleLink
 
 `func (o *WebhookSlackEmbed) GetTitleLink() string`
@@ -98,16 +88,6 @@ SetTitleLink sets TitleLink field to given value.
 
 HasTitleLink returns a boolean if a field has been set.
 
-### SetTitleLinkNil
-
-`func (o *WebhookSlackEmbed) SetTitleLinkNil(b bool)`
-
- SetTitleLinkNil sets the value for TitleLink to be an explicit nil
-
-### UnsetTitleLink
-`func (o *WebhookSlackEmbed) UnsetTitleLink()`
-
-UnsetTitleLink ensures that no value is present for TitleLink, not even an explicit nil
 ### GetText
 
 `func (o *WebhookSlackEmbed) GetText() string`
@@ -133,16 +113,6 @@ SetText sets Text field to given value.
 
 HasText returns a boolean if a field has been set.
 
-### SetTextNil
-
-`func (o *WebhookSlackEmbed) SetTextNil(b bool)`
-
- SetTextNil sets the value for Text to be an explicit nil
-
-### UnsetText
-`func (o *WebhookSlackEmbed) UnsetText()`
-
-UnsetText ensures that no value is present for Text, not even an explicit nil
 ### GetColor
 
 `func (o *WebhookSlackEmbed) GetColor() string`
@@ -168,16 +138,6 @@ SetColor sets Color field to given value.
 
 HasColor returns a boolean if a field has been set.
 
-### SetColorNil
-
-`func (o *WebhookSlackEmbed) SetColorNil(b bool)`
-
- SetColorNil sets the value for Color to be an explicit nil
-
-### UnsetColor
-`func (o *WebhookSlackEmbed) UnsetColor()`
-
-UnsetColor ensures that no value is present for Color, not even an explicit nil
 ### GetTs
 
 `func (o *WebhookSlackEmbed) GetTs() int32`
@@ -203,16 +163,6 @@ SetTs sets Ts field to given value.
 
 HasTs returns a boolean if a field has been set.
 
-### SetTsNil
-
-`func (o *WebhookSlackEmbed) SetTsNil(b bool)`
-
- SetTsNil sets the value for Ts to be an explicit nil
-
-### UnsetTs
-`func (o *WebhookSlackEmbed) UnsetTs()`
-
-UnsetTs ensures that no value is present for Ts, not even an explicit nil
 ### GetPretext
 
 `func (o *WebhookSlackEmbed) GetPretext() string`
@@ -238,16 +188,6 @@ SetPretext sets Pretext field to given value.
 
 HasPretext returns a boolean if a field has been set.
 
-### SetPretextNil
-
-`func (o *WebhookSlackEmbed) SetPretextNil(b bool)`
-
- SetPretextNil sets the value for Pretext to be an explicit nil
-
-### UnsetPretext
-`func (o *WebhookSlackEmbed) UnsetPretext()`
-
-UnsetPretext ensures that no value is present for Pretext, not even an explicit nil
 ### GetFooter
 
 `func (o *WebhookSlackEmbed) GetFooter() string`
@@ -273,16 +213,6 @@ SetFooter sets Footer field to given value.
 
 HasFooter returns a boolean if a field has been set.
 
-### SetFooterNil
-
-`func (o *WebhookSlackEmbed) SetFooterNil(b bool)`
-
- SetFooterNil sets the value for Footer to be an explicit nil
-
-### UnsetFooter
-`func (o *WebhookSlackEmbed) UnsetFooter()`
-
-UnsetFooter ensures that no value is present for Footer, not even an explicit nil
 ### GetFooterIcon
 
 `func (o *WebhookSlackEmbed) GetFooterIcon() string`
@@ -308,16 +238,6 @@ SetFooterIcon sets FooterIcon field to given value.
 
 HasFooterIcon returns a boolean if a field has been set.
 
-### SetFooterIconNil
-
-`func (o *WebhookSlackEmbed) SetFooterIconNil(b bool)`
-
- SetFooterIconNil sets the value for FooterIcon to be an explicit nil
-
-### UnsetFooterIcon
-`func (o *WebhookSlackEmbed) UnsetFooterIcon()`
-
-UnsetFooterIcon ensures that no value is present for FooterIcon, not even an explicit nil
 ### GetAuthorName
 
 `func (o *WebhookSlackEmbed) GetAuthorName() string`
@@ -343,16 +263,6 @@ SetAuthorName sets AuthorName field to given value.
 
 HasAuthorName returns a boolean if a field has been set.
 
-### SetAuthorNameNil
-
-`func (o *WebhookSlackEmbed) SetAuthorNameNil(b bool)`
-
- SetAuthorNameNil sets the value for AuthorName to be an explicit nil
-
-### UnsetAuthorName
-`func (o *WebhookSlackEmbed) UnsetAuthorName()`
-
-UnsetAuthorName ensures that no value is present for AuthorName, not even an explicit nil
 ### GetAuthorLink
 
 `func (o *WebhookSlackEmbed) GetAuthorLink() string`
@@ -378,16 +288,6 @@ SetAuthorLink sets AuthorLink field to given value.
 
 HasAuthorLink returns a boolean if a field has been set.
 
-### SetAuthorLinkNil
-
-`func (o *WebhookSlackEmbed) SetAuthorLinkNil(b bool)`
-
- SetAuthorLinkNil sets the value for AuthorLink to be an explicit nil
-
-### UnsetAuthorLink
-`func (o *WebhookSlackEmbed) UnsetAuthorLink()`
-
-UnsetAuthorLink ensures that no value is present for AuthorLink, not even an explicit nil
 ### GetAuthorIcon
 
 `func (o *WebhookSlackEmbed) GetAuthorIcon() string`
@@ -413,16 +313,6 @@ SetAuthorIcon sets AuthorIcon field to given value.
 
 HasAuthorIcon returns a boolean if a field has been set.
 
-### SetAuthorIconNil
-
-`func (o *WebhookSlackEmbed) SetAuthorIconNil(b bool)`
-
- SetAuthorIconNil sets the value for AuthorIcon to be an explicit nil
-
-### UnsetAuthorIcon
-`func (o *WebhookSlackEmbed) UnsetAuthorIcon()`
-
-UnsetAuthorIcon ensures that no value is present for AuthorIcon, not even an explicit nil
 ### GetImageUrl
 
 `func (o *WebhookSlackEmbed) GetImageUrl() string`
@@ -448,16 +338,6 @@ SetImageUrl sets ImageUrl field to given value.
 
 HasImageUrl returns a boolean if a field has been set.
 
-### SetImageUrlNil
-
-`func (o *WebhookSlackEmbed) SetImageUrlNil(b bool)`
-
- SetImageUrlNil sets the value for ImageUrl to be an explicit nil
-
-### UnsetImageUrl
-`func (o *WebhookSlackEmbed) UnsetImageUrl()`
-
-UnsetImageUrl ensures that no value is present for ImageUrl, not even an explicit nil
 ### GetThumbUrl
 
 `func (o *WebhookSlackEmbed) GetThumbUrl() string`
@@ -483,16 +363,6 @@ SetThumbUrl sets ThumbUrl field to given value.
 
 HasThumbUrl returns a boolean if a field has been set.
 
-### SetThumbUrlNil
-
-`func (o *WebhookSlackEmbed) SetThumbUrlNil(b bool)`
-
- SetThumbUrlNil sets the value for ThumbUrl to be an explicit nil
-
-### UnsetThumbUrl
-`func (o *WebhookSlackEmbed) UnsetThumbUrl()`
-
-UnsetThumbUrl ensures that no value is present for ThumbUrl, not even an explicit nil
 ### GetFields
 
 `func (o *WebhookSlackEmbed) GetFields() []WebhookSlackEmbedField`
@@ -518,16 +388,6 @@ SetFields sets Fields field to given value.
 
 HasFields returns a boolean if a field has been set.
 
-### SetFieldsNil
-
-`func (o *WebhookSlackEmbed) SetFieldsNil(b bool)`
-
- SetFieldsNil sets the value for Fields to be an explicit nil
-
-### UnsetFields
-`func (o *WebhookSlackEmbed) UnsetFields()`
-
-UnsetFields ensures that no value is present for Fields, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **WelcomeChannels** | Pointer to [**[]GuildWelcomeChannel**](GuildWelcomeChannel.md) |  | [optional] 
-**Enabled** | Pointer to **NullableBool** |  | [optional] 
+**Enabled** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -52,16 +52,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *WelcomeScreenPatchRequestPartial) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *WelcomeScreenPatchRequestPartial) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetWelcomeChannels
 
 `func (o *WelcomeScreenPatchRequestPartial) GetWelcomeChannels() []GuildWelcomeChannel`
@@ -87,16 +77,6 @@ SetWelcomeChannels sets WelcomeChannels field to given value.
 
 HasWelcomeChannels returns a boolean if a field has been set.
 
-### SetWelcomeChannelsNil
-
-`func (o *WelcomeScreenPatchRequestPartial) SetWelcomeChannelsNil(b bool)`
-
- SetWelcomeChannelsNil sets the value for WelcomeChannels to be an explicit nil
-
-### UnsetWelcomeChannels
-`func (o *WelcomeScreenPatchRequestPartial) UnsetWelcomeChannels()`
-
-UnsetWelcomeChannels ensures that no value is present for WelcomeChannels, not even an explicit nil
 ### GetEnabled
 
 `func (o *WelcomeScreenPatchRequestPartial) GetEnabled() bool`
@@ -122,16 +102,6 @@ SetEnabled sets Enabled field to given value.
 
 HasEnabled returns a boolean if a field has been set.
 
-### SetEnabledNil
-
-`func (o *WelcomeScreenPatchRequestPartial) SetEnabledNil(b bool)`
-
- SetEnabledNil sets the value for Enabled to be an explicit nil
-
-### UnsetEnabled
-`func (o *WelcomeScreenPatchRequestPartial) UnsetEnabled()`
-
-UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

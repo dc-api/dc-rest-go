@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **SoundId** | **string** |  | 
 **Volume** | **float64** |  | 
-**EmojiId** | Pointer to **string** |  | [optional] 
-**EmojiName** | Pointer to **NullableString** |  | [optional] 
+**EmojiId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**EmojiName** | Pointer to **string** |  | [optional] 
 **GuildId** | Pointer to **string** |  | [optional] 
 **Available** | **bool** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -94,20 +94,20 @@ SetVolume sets Volume field to given value.
 
 ### GetEmojiId
 
-`func (o *SoundboardSoundResponse) GetEmojiId() string`
+`func (o *SoundboardSoundResponse) GetEmojiId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetEmojiId returns the EmojiId field if non-nil, zero value otherwise.
 
 ### GetEmojiIdOk
 
-`func (o *SoundboardSoundResponse) GetEmojiIdOk() (*string, bool)`
+`func (o *SoundboardSoundResponse) GetEmojiIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetEmojiIdOk returns a tuple with the EmojiId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmojiId
 
-`func (o *SoundboardSoundResponse) SetEmojiId(v string)`
+`func (o *SoundboardSoundResponse) SetEmojiId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetEmojiId sets EmojiId field to given value.
 
@@ -142,16 +142,6 @@ SetEmojiName sets EmojiName field to given value.
 
 HasEmojiName returns a boolean if a field has been set.
 
-### SetEmojiNameNil
-
-`func (o *SoundboardSoundResponse) SetEmojiNameNil(b bool)`
-
- SetEmojiNameNil sets the value for EmojiName to be an explicit nil
-
-### UnsetEmojiName
-`func (o *SoundboardSoundResponse) UnsetEmojiName()`
-
-UnsetEmojiName ensures that no value is present for EmojiName, not even an explicit nil
 ### GetGuildId
 
 `func (o *SoundboardSoundResponse) GetGuildId() string`
@@ -222,16 +212,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *SoundboardSoundResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *SoundboardSoundResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

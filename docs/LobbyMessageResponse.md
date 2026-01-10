@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **int32** |  | 
+**Type** | [**MessageType**](MessageType.md) |  | 
 **Content** | **string** |  | 
 **LobbyId** | **string** |  | 
 **ChannelId** | **string** |  | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewLobbyMessageResponse
 
-`func NewLobbyMessageResponse(id string, type_ int32, content string, lobbyId string, channelId string, author UserResponse, flags int32, ) *LobbyMessageResponse`
+`func NewLobbyMessageResponse(id string, type_ MessageType, content string, lobbyId string, channelId string, author UserResponse, flags int32, ) *LobbyMessageResponse`
 
 NewLobbyMessageResponse instantiates a new LobbyMessageResponse object
 This constructor will assign default values to properties that have it defined,
@@ -55,20 +55,20 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *LobbyMessageResponse) GetType() int32`
+`func (o *LobbyMessageResponse) GetType() MessageType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *LobbyMessageResponse) GetTypeOk() (*int32, bool)`
+`func (o *LobbyMessageResponse) GetTypeOk() (*MessageType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *LobbyMessageResponse) SetType(v int32)`
+`func (o *LobbyMessageResponse) SetType(v MessageType)`
 
 SetType sets Type field to given value.
 

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MaxAge** | Pointer to **NullableInt32** |  | [optional] 
-**Temporary** | Pointer to **NullableBool** |  | [optional] 
-**MaxUses** | Pointer to **NullableInt32** |  | [optional] 
-**Unique** | Pointer to **NullableBool** |  | [optional] 
-**TargetUserId** | Pointer to **string** |  | [optional] 
-**TargetApplicationId** | Pointer to **string** |  | [optional] 
-**TargetType** | Pointer to **NullableInt32** |  | [optional] 
+**MaxAge** | Pointer to **int32** |  | [optional] 
+**Temporary** | Pointer to **bool** |  | [optional] 
+**MaxUses** | Pointer to **int32** |  | [optional] 
+**Unique** | Pointer to **bool** |  | [optional] 
+**TargetUserId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**TargetApplicationId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**TargetType** | Pointer to [**CreateGuildInviteRequestTargetType**](CreateGuildInviteRequestTargetType.md) |  | [optional] 
 
 ## Methods
 
@@ -56,16 +56,6 @@ SetMaxAge sets MaxAge field to given value.
 
 HasMaxAge returns a boolean if a field has been set.
 
-### SetMaxAgeNil
-
-`func (o *CreateGuildInviteRequest) SetMaxAgeNil(b bool)`
-
- SetMaxAgeNil sets the value for MaxAge to be an explicit nil
-
-### UnsetMaxAge
-`func (o *CreateGuildInviteRequest) UnsetMaxAge()`
-
-UnsetMaxAge ensures that no value is present for MaxAge, not even an explicit nil
 ### GetTemporary
 
 `func (o *CreateGuildInviteRequest) GetTemporary() bool`
@@ -91,16 +81,6 @@ SetTemporary sets Temporary field to given value.
 
 HasTemporary returns a boolean if a field has been set.
 
-### SetTemporaryNil
-
-`func (o *CreateGuildInviteRequest) SetTemporaryNil(b bool)`
-
- SetTemporaryNil sets the value for Temporary to be an explicit nil
-
-### UnsetTemporary
-`func (o *CreateGuildInviteRequest) UnsetTemporary()`
-
-UnsetTemporary ensures that no value is present for Temporary, not even an explicit nil
 ### GetMaxUses
 
 `func (o *CreateGuildInviteRequest) GetMaxUses() int32`
@@ -126,16 +106,6 @@ SetMaxUses sets MaxUses field to given value.
 
 HasMaxUses returns a boolean if a field has been set.
 
-### SetMaxUsesNil
-
-`func (o *CreateGuildInviteRequest) SetMaxUsesNil(b bool)`
-
- SetMaxUsesNil sets the value for MaxUses to be an explicit nil
-
-### UnsetMaxUses
-`func (o *CreateGuildInviteRequest) UnsetMaxUses()`
-
-UnsetMaxUses ensures that no value is present for MaxUses, not even an explicit nil
 ### GetUnique
 
 `func (o *CreateGuildInviteRequest) GetUnique() bool`
@@ -161,32 +131,22 @@ SetUnique sets Unique field to given value.
 
 HasUnique returns a boolean if a field has been set.
 
-### SetUniqueNil
-
-`func (o *CreateGuildInviteRequest) SetUniqueNil(b bool)`
-
- SetUniqueNil sets the value for Unique to be an explicit nil
-
-### UnsetUnique
-`func (o *CreateGuildInviteRequest) UnsetUnique()`
-
-UnsetUnique ensures that no value is present for Unique, not even an explicit nil
 ### GetTargetUserId
 
-`func (o *CreateGuildInviteRequest) GetTargetUserId() string`
+`func (o *CreateGuildInviteRequest) GetTargetUserId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetTargetUserId returns the TargetUserId field if non-nil, zero value otherwise.
 
 ### GetTargetUserIdOk
 
-`func (o *CreateGuildInviteRequest) GetTargetUserIdOk() (*string, bool)`
+`func (o *CreateGuildInviteRequest) GetTargetUserIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetTargetUserIdOk returns a tuple with the TargetUserId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTargetUserId
 
-`func (o *CreateGuildInviteRequest) SetTargetUserId(v string)`
+`func (o *CreateGuildInviteRequest) SetTargetUserId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetTargetUserId sets TargetUserId field to given value.
 
@@ -198,20 +158,20 @@ HasTargetUserId returns a boolean if a field has been set.
 
 ### GetTargetApplicationId
 
-`func (o *CreateGuildInviteRequest) GetTargetApplicationId() string`
+`func (o *CreateGuildInviteRequest) GetTargetApplicationId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetTargetApplicationId returns the TargetApplicationId field if non-nil, zero value otherwise.
 
 ### GetTargetApplicationIdOk
 
-`func (o *CreateGuildInviteRequest) GetTargetApplicationIdOk() (*string, bool)`
+`func (o *CreateGuildInviteRequest) GetTargetApplicationIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetTargetApplicationIdOk returns a tuple with the TargetApplicationId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTargetApplicationId
 
-`func (o *CreateGuildInviteRequest) SetTargetApplicationId(v string)`
+`func (o *CreateGuildInviteRequest) SetTargetApplicationId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetTargetApplicationId sets TargetApplicationId field to given value.
 
@@ -223,20 +183,20 @@ HasTargetApplicationId returns a boolean if a field has been set.
 
 ### GetTargetType
 
-`func (o *CreateGuildInviteRequest) GetTargetType() int32`
+`func (o *CreateGuildInviteRequest) GetTargetType() CreateGuildInviteRequestTargetType`
 
 GetTargetType returns the TargetType field if non-nil, zero value otherwise.
 
 ### GetTargetTypeOk
 
-`func (o *CreateGuildInviteRequest) GetTargetTypeOk() (*int32, bool)`
+`func (o *CreateGuildInviteRequest) GetTargetTypeOk() (*CreateGuildInviteRequestTargetType, bool)`
 
 GetTargetTypeOk returns a tuple with the TargetType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTargetType
 
-`func (o *CreateGuildInviteRequest) SetTargetType(v int32)`
+`func (o *CreateGuildInviteRequest) SetTargetType(v CreateGuildInviteRequestTargetType)`
 
 SetTargetType sets TargetType field to given value.
 
@@ -246,16 +206,6 @@ SetTargetType sets TargetType field to given value.
 
 HasTargetType returns a boolean if a field has been set.
 
-### SetTargetTypeNil
-
-`func (o *CreateGuildInviteRequest) SetTargetTypeNil(b bool)`
-
- SetTargetTypeNil sets the value for TargetType to be an explicit nil
-
-### UnsetTargetType
-`func (o *CreateGuildInviteRequest) UnsetTargetType()`
-
-UnsetTargetType ensures that no value is present for TargetType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

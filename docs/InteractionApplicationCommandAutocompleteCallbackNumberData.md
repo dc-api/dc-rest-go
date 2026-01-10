@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Choices** | Pointer to [**[]ApplicationCommandOptionNumberChoice**](ApplicationCommandOptionNumberChoice.md) |  | [optional] 
+**Choices** | Pointer to [**[]InteractionApplicationCommandAutocompleteCallbackNumberDataChoicesInner**](InteractionApplicationCommandAutocompleteCallbackNumberDataChoicesInner.md) |  | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetChoices
 
-`func (o *InteractionApplicationCommandAutocompleteCallbackNumberData) GetChoices() []*ApplicationCommandOptionNumberChoice`
+`func (o *InteractionApplicationCommandAutocompleteCallbackNumberData) GetChoices() []InteractionApplicationCommandAutocompleteCallbackNumberDataChoicesInner`
 
 GetChoices returns the Choices field if non-nil, zero value otherwise.
 
 ### GetChoicesOk
 
-`func (o *InteractionApplicationCommandAutocompleteCallbackNumberData) GetChoicesOk() (*[]*ApplicationCommandOptionNumberChoice, bool)`
+`func (o *InteractionApplicationCommandAutocompleteCallbackNumberData) GetChoicesOk() (*[]InteractionApplicationCommandAutocompleteCallbackNumberDataChoicesInner, bool)`
 
 GetChoicesOk returns a tuple with the Choices field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChoices
 
-`func (o *InteractionApplicationCommandAutocompleteCallbackNumberData) SetChoices(v []*ApplicationCommandOptionNumberChoice)`
+`func (o *InteractionApplicationCommandAutocompleteCallbackNumberData) SetChoices(v []InteractionApplicationCommandAutocompleteCallbackNumberDataChoicesInner)`
 
 SetChoices sets Choices field to given value.
 
@@ -50,16 +50,6 @@ SetChoices sets Choices field to given value.
 
 HasChoices returns a boolean if a field has been set.
 
-### SetChoicesNil
-
-`func (o *InteractionApplicationCommandAutocompleteCallbackNumberData) SetChoicesNil(b bool)`
-
- SetChoicesNil sets the value for Choices to be an explicit nil
-
-### UnsetChoices
-`func (o *InteractionApplicationCommandAutocompleteCallbackNumberData) UnsetChoices()`
-
-UnsetChoices ensures that no value is present for Choices, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

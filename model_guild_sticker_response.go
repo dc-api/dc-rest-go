@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,12 +58,12 @@ type GuildStickerResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
 	Tags string `json:"tags"`
-	Type int32 `json:"type"`
-	FormatType NullableInt32 `json:"format_type,omitempty"`
-	Description NullableString `json:"description,omitempty"`
+	Type StickerTypes `json:"type"`
+	FormatType *GuildStickerResponseFormatType `json:"format_type,omitempty"`
+	Description *string `json:"description,omitempty"`
 	Available bool `json:"available"`
 	GuildId string `json:"guild_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	User NullableUserResponse `json:"user,omitempty"`
+	User *UserResponse `json:"user,omitempty"`
 }
 
 type _GuildStickerResponse GuildStickerResponse
@@ -72,7 +72,7 @@ type _GuildStickerResponse GuildStickerResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGuildStickerResponse(id string, name string, tags string, type_ int32, available bool, guildId string) *GuildStickerResponse {
+func NewGuildStickerResponse(id string, name string, tags string, type_ StickerTypes, available bool, guildId string) *GuildStickerResponse {
 	this := GuildStickerResponse{}
 	this.Id = id
 	this.Name = name
@@ -164,9 +164,9 @@ func (o *GuildStickerResponse) SetTags(v string) {
 }
 
 // GetType returns the Type field value
-func (o *GuildStickerResponse) GetType() int32 {
+func (o *GuildStickerResponse) GetType() StickerTypes {
 	if o == nil {
-		var ret int32
+		var ret StickerTypes
 		return ret
 	}
 
@@ -175,7 +175,7 @@ func (o *GuildStickerResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *GuildStickerResponse) GetTypeOk() (*int32, bool) {
+func (o *GuildStickerResponse) GetTypeOk() (*StickerTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -183,95 +183,75 @@ func (o *GuildStickerResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *GuildStickerResponse) SetType(v int32) {
+func (o *GuildStickerResponse) SetType(v StickerTypes) {
 	o.Type = v
 }
 
-// GetFormatType returns the FormatType field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GuildStickerResponse) GetFormatType() int32 {
-	if o == nil || IsNil(o.FormatType.Get()) {
-		var ret int32
+// GetFormatType returns the FormatType field value if set, zero value otherwise.
+func (o *GuildStickerResponse) GetFormatType() GuildStickerResponseFormatType {
+	if o == nil || IsNil(o.FormatType) {
+		var ret GuildStickerResponseFormatType
 		return ret
 	}
-	return *o.FormatType.Get()
+	return *o.FormatType
 }
 
 // GetFormatTypeOk returns a tuple with the FormatType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GuildStickerResponse) GetFormatTypeOk() (*int32, bool) {
-	if o == nil || IsNil(o.FormatType.Get()) {
+func (o *GuildStickerResponse) GetFormatTypeOk() (*GuildStickerResponseFormatType, bool) {
+	if o == nil || IsNil(o.FormatType) {
 		return nil, false
 	}
-	return o.FormatType.Get(), o.FormatType.IsSet()
+	return o.FormatType, true
 }
 
 // HasFormatType returns a boolean if a field has been set.
 func (o *GuildStickerResponse) HasFormatType() bool {
-	if o != nil && o.FormatType.IsSet() {
+	if o != nil && !IsNil(o.FormatType) {
 		return true
 	}
 
 	return false
 }
 
-// SetFormatType gets a reference to the given NullableInt32 and assigns it to the FormatType field.
-func (o *GuildStickerResponse) SetFormatType(v int32) {
-	o.FormatType.Set(&v)
+// SetFormatType gets a reference to the given GuildStickerResponseFormatType and assigns it to the FormatType field.
+func (o *GuildStickerResponse) SetFormatType(v GuildStickerResponseFormatType) {
+	o.FormatType = &v
 }
 
-// SetFormatTypeNil sets the value for FormatType to be an explicit nil
-func (o *GuildStickerResponse) SetFormatTypeNil() {
-	o.FormatType.Set(nil)
-}
 
-// UnsetFormatType ensures that no value is present for FormatType, not even an explicit nil
-func (o *GuildStickerResponse) UnsetFormatType() {
-	o.FormatType.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *GuildStickerResponse) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildStickerResponse) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *GuildStickerResponse) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *GuildStickerResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *GuildStickerResponse) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *GuildStickerResponse) UnsetDescription() {
-	o.Description.Unset()
-}
 
 // GetAvailable returns the Available field value
 func (o *GuildStickerResponse) GetAvailable() bool {
@@ -321,48 +301,38 @@ func (o *GuildStickerResponse) SetGuildId(v string) {
 	o.GuildId = v
 }
 
-// GetUser returns the User field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUser returns the User field value if set, zero value otherwise.
 func (o *GuildStickerResponse) GetUser() UserResponse {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.User.Get()
+	return *o.User
 }
 
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildStickerResponse) GetUserOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		return nil, false
 	}
-	return o.User.Get(), o.User.IsSet()
+	return o.User, true
 }
 
 // HasUser returns a boolean if a field has been set.
 func (o *GuildStickerResponse) HasUser() bool {
-	if o != nil && o.User.IsSet() {
+	if o != nil && !IsNil(o.User) {
 		return true
 	}
 
 	return false
 }
 
-// SetUser gets a reference to the given NullableUserResponse and assigns it to the User field.
+// SetUser gets a reference to the given UserResponse and assigns it to the User field.
 func (o *GuildStickerResponse) SetUser(v UserResponse) {
-	o.User.Set(&v)
+	o.User = &v
 }
 
-// SetUserNil sets the value for User to be an explicit nil
-func (o *GuildStickerResponse) SetUserNil() {
-	o.User.Set(nil)
-}
-
-// UnsetUser ensures that no value is present for User, not even an explicit nil
-func (o *GuildStickerResponse) UnsetUser() {
-	o.User.Unset()
-}
 
 func (o GuildStickerResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -378,16 +348,16 @@ func (o GuildStickerResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["tags"] = o.Tags
 	toSerialize["type"] = o.Type
-	if o.FormatType.IsSet() {
-		toSerialize["format_type"] = o.FormatType.Get()
+	if !IsNil(o.FormatType) {
+		toSerialize["format_type"] = o.FormatType
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
 	toSerialize["available"] = o.Available
 	toSerialize["guild_id"] = o.GuildId
-	if o.User.IsSet() {
-		toSerialize["user"] = o.User.Get()
+	if !IsNil(o.User) {
+		toSerialize["user"] = o.User
 	}
 	return toSerialize, nil
 }
@@ -469,5 +439,4 @@ func (v *NullableGuildStickerResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

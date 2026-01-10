@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
 **Id** | **int32** |  | 
 **Components** | [**[]TextDisplayComponentResponse**](TextDisplayComponentResponse.md) |  | 
 **File** | [**UnfurledMediaResponse**](UnfurledMediaResponse.md) |  | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Spoiler** | **bool** |  | 
 **Items** | [**[]MediaGalleryItemResponse**](MediaGalleryItemResponse.md) |  | 
 **Accessory** | [**SectionComponentResponseAccessory**](SectionComponentResponseAccessory.md) |  | 
-**Spacing** | **int32** |  | 
+**Spacing** | [**MessageComponentSeparatorSpacingSize**](MessageComponentSeparatorSpacingSize.md) |  | 
 **Divider** | **bool** |  | 
 **Content** | **string** |  | 
 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewContainerComponentResponseComponentsInner
 
-`func NewContainerComponentResponseComponentsInner(type_ int32, id int32, components []TextDisplayComponentResponse, file UnfurledMediaResponse, spoiler bool, items []MediaGalleryItemResponse, accessory SectionComponentResponseAccessory, spacing int32, divider bool, content string, ) *ContainerComponentResponseComponentsInner`
+`func NewContainerComponentResponseComponentsInner(type_ MessageComponentTypes, id int32, components []TextDisplayComponentResponse, file UnfurledMediaResponse, spoiler bool, items []MediaGalleryItemResponse, accessory SectionComponentResponseAccessory, spacing MessageComponentSeparatorSpacingSize, divider bool, content string, ) *ContainerComponentResponseComponentsInner`
 
 NewContainerComponentResponseComponentsInner instantiates a new ContainerComponentResponseComponentsInner object
 This constructor will assign default values to properties that have it defined,
@@ -38,20 +38,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ContainerComponentResponseComponentsInner) GetType() int32`
+`func (o *ContainerComponentResponseComponentsInner) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ContainerComponentResponseComponentsInner) GetTypeOk() (*int32, bool)`
+`func (o *ContainerComponentResponseComponentsInner) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ContainerComponentResponseComponentsInner) SetType(v int32)`
+`func (o *ContainerComponentResponseComponentsInner) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
@@ -228,20 +228,20 @@ SetAccessory sets Accessory field to given value.
 
 ### GetSpacing
 
-`func (o *ContainerComponentResponseComponentsInner) GetSpacing() int32`
+`func (o *ContainerComponentResponseComponentsInner) GetSpacing() MessageComponentSeparatorSpacingSize`
 
 GetSpacing returns the Spacing field if non-nil, zero value otherwise.
 
 ### GetSpacingOk
 
-`func (o *ContainerComponentResponseComponentsInner) GetSpacingOk() (*int32, bool)`
+`func (o *ContainerComponentResponseComponentsInner) GetSpacingOk() (*MessageComponentSeparatorSpacingSize, bool)`
 
 GetSpacingOk returns a tuple with the Spacing field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSpacing
 
-`func (o *ContainerComponentResponseComponentsInner) SetSpacing(v int32)`
+`func (o *ContainerComponentResponseComponentsInner) SetSpacing(v MessageComponentSeparatorSpacingSize)`
 
 SetSpacing sets Spacing field to given value.
 

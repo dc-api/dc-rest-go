@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Text** | Pointer to **NullableString** |  | [optional] 
-**IconUrl** | Pointer to **NullableString** |  | [optional] 
+**Text** | Pointer to **string** |  | [optional] 
+**IconUrl** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -51,16 +51,6 @@ SetText sets Text field to given value.
 
 HasText returns a boolean if a field has been set.
 
-### SetTextNil
-
-`func (o *RichEmbedFooter) SetTextNil(b bool)`
-
- SetTextNil sets the value for Text to be an explicit nil
-
-### UnsetText
-`func (o *RichEmbedFooter) UnsetText()`
-
-UnsetText ensures that no value is present for Text, not even an explicit nil
 ### GetIconUrl
 
 `func (o *RichEmbedFooter) GetIconUrl() string`
@@ -86,16 +76,6 @@ SetIconUrl sets IconUrl field to given value.
 
 HasIconUrl returns a boolean if a field has been set.
 
-### SetIconUrlNil
-
-`func (o *RichEmbedFooter) SetIconUrlNil(b bool)`
-
- SetIconUrlNil sets the value for IconUrl to be an explicit nil
-
-### UnsetIconUrl
-`func (o *RichEmbedFooter) UnsetIconUrl()`
-
-UnsetIconUrl ensures that no value is present for IconUrl, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,8 +53,8 @@ var _ MappedNullable = &DefaultReactionEmojiResponse{}
 
 // DefaultReactionEmojiResponse struct for DefaultReactionEmojiResponse
 type DefaultReactionEmojiResponse struct {
-	EmojiId *string `json:"emoji_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	EmojiName NullableString `json:"emoji_name,omitempty"`
+	EmojiId *GetEntitlementsSkuIdsParameterOneOfInner `json:"emoji_id,omitempty"`
+	EmojiName *string `json:"emoji_name,omitempty"`
 }
 
 // NewDefaultReactionEmojiResponse instantiates a new DefaultReactionEmojiResponse object
@@ -75,9 +75,9 @@ func NewDefaultReactionEmojiResponseWithDefaults() *DefaultReactionEmojiResponse
 }
 
 // GetEmojiId returns the EmojiId field value if set, zero value otherwise.
-func (o *DefaultReactionEmojiResponse) GetEmojiId() string {
+func (o *DefaultReactionEmojiResponse) GetEmojiId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.EmojiId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.EmojiId
@@ -85,7 +85,7 @@ func (o *DefaultReactionEmojiResponse) GetEmojiId() string {
 
 // GetEmojiIdOk returns a tuple with the EmojiId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DefaultReactionEmojiResponse) GetEmojiIdOk() (*string, bool) {
+func (o *DefaultReactionEmojiResponse) GetEmojiIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.EmojiId) {
 		return nil, false
 	}
@@ -101,54 +101,44 @@ func (o *DefaultReactionEmojiResponse) HasEmojiId() bool {
 	return false
 }
 
-// SetEmojiId gets a reference to the given string and assigns it to the EmojiId field.
-func (o *DefaultReactionEmojiResponse) SetEmojiId(v string) {
+// SetEmojiId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the EmojiId field.
+func (o *DefaultReactionEmojiResponse) SetEmojiId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.EmojiId = &v
 }
 
 
-// GetEmojiName returns the EmojiName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmojiName returns the EmojiName field value if set, zero value otherwise.
 func (o *DefaultReactionEmojiResponse) GetEmojiName() string {
-	if o == nil || IsNil(o.EmojiName.Get()) {
+	if o == nil || IsNil(o.EmojiName) {
 		var ret string
 		return ret
 	}
-	return *o.EmojiName.Get()
+	return *o.EmojiName
 }
 
 // GetEmojiNameOk returns a tuple with the EmojiName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DefaultReactionEmojiResponse) GetEmojiNameOk() (*string, bool) {
-	if o == nil || IsNil(o.EmojiName.Get()) {
+	if o == nil || IsNil(o.EmojiName) {
 		return nil, false
 	}
-	return o.EmojiName.Get(), o.EmojiName.IsSet()
+	return o.EmojiName, true
 }
 
 // HasEmojiName returns a boolean if a field has been set.
 func (o *DefaultReactionEmojiResponse) HasEmojiName() bool {
-	if o != nil && o.EmojiName.IsSet() {
+	if o != nil && !IsNil(o.EmojiName) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmojiName gets a reference to the given NullableString and assigns it to the EmojiName field.
+// SetEmojiName gets a reference to the given string and assigns it to the EmojiName field.
 func (o *DefaultReactionEmojiResponse) SetEmojiName(v string) {
-	o.EmojiName.Set(&v)
+	o.EmojiName = &v
 }
 
-// SetEmojiNameNil sets the value for EmojiName to be an explicit nil
-func (o *DefaultReactionEmojiResponse) SetEmojiNameNil() {
-	o.EmojiName.Set(nil)
-}
-
-// UnsetEmojiName ensures that no value is present for EmojiName, not even an explicit nil
-func (o *DefaultReactionEmojiResponse) UnsetEmojiName() {
-	o.EmojiName.Unset()
-}
 
 func (o DefaultReactionEmojiResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -163,8 +153,8 @@ func (o DefaultReactionEmojiResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EmojiId) {
 		toSerialize["emoji_id"] = o.EmojiId
 	}
-	if o.EmojiName.IsSet() {
-		toSerialize["emoji_name"] = o.EmojiName.Get()
+	if !IsNil(o.EmojiName) {
+		toSerialize["emoji_name"] = o.EmojiName
 	}
 	return toSerialize, nil
 }
@@ -204,5 +194,4 @@ func (v *NullableDefaultReactionEmojiResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

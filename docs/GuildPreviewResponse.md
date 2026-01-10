@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Icon** | Pointer to **NullableString** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**HomeHeader** | Pointer to **NullableString** |  | [optional] 
-**Splash** | Pointer to **NullableString** |  | [optional] 
-**DiscoverySplash** | Pointer to **NullableString** |  | [optional] 
-**Features** | **[]string** |  | 
+**Icon** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**HomeHeader** | Pointer to **string** |  | [optional] 
+**Splash** | Pointer to **string** |  | [optional] 
+**DiscoverySplash** | Pointer to **string** |  | [optional] 
+**Features** | [**[]GuildFeatures**](GuildFeatures.md) |  | 
 **ApproximateMemberCount** | **int32** |  | 
 **ApproximatePresenceCount** | **int32** |  | 
 **Emojis** | [**[]EmojiResponse**](EmojiResponse.md) |  | 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewGuildPreviewResponse
 
-`func NewGuildPreviewResponse(id string, name string, features []string, approximateMemberCount int32, approximatePresenceCount int32, emojis []EmojiResponse, stickers []GuildStickerResponse, ) *GuildPreviewResponse`
+`func NewGuildPreviewResponse(id string, name string, features []GuildFeatures, approximateMemberCount int32, approximatePresenceCount int32, emojis []EmojiResponse, stickers []GuildStickerResponse, ) *GuildPreviewResponse`
 
 NewGuildPreviewResponse instantiates a new GuildPreviewResponse object
 This constructor will assign default values to properties that have it defined,
@@ -101,16 +101,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *GuildPreviewResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *GuildPreviewResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetDescription
 
 `func (o *GuildPreviewResponse) GetDescription() string`
@@ -136,16 +126,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *GuildPreviewResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *GuildPreviewResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetHomeHeader
 
 `func (o *GuildPreviewResponse) GetHomeHeader() string`
@@ -171,16 +151,6 @@ SetHomeHeader sets HomeHeader field to given value.
 
 HasHomeHeader returns a boolean if a field has been set.
 
-### SetHomeHeaderNil
-
-`func (o *GuildPreviewResponse) SetHomeHeaderNil(b bool)`
-
- SetHomeHeaderNil sets the value for HomeHeader to be an explicit nil
-
-### UnsetHomeHeader
-`func (o *GuildPreviewResponse) UnsetHomeHeader()`
-
-UnsetHomeHeader ensures that no value is present for HomeHeader, not even an explicit nil
 ### GetSplash
 
 `func (o *GuildPreviewResponse) GetSplash() string`
@@ -206,16 +176,6 @@ SetSplash sets Splash field to given value.
 
 HasSplash returns a boolean if a field has been set.
 
-### SetSplashNil
-
-`func (o *GuildPreviewResponse) SetSplashNil(b bool)`
-
- SetSplashNil sets the value for Splash to be an explicit nil
-
-### UnsetSplash
-`func (o *GuildPreviewResponse) UnsetSplash()`
-
-UnsetSplash ensures that no value is present for Splash, not even an explicit nil
 ### GetDiscoverySplash
 
 `func (o *GuildPreviewResponse) GetDiscoverySplash() string`
@@ -241,32 +201,22 @@ SetDiscoverySplash sets DiscoverySplash field to given value.
 
 HasDiscoverySplash returns a boolean if a field has been set.
 
-### SetDiscoverySplashNil
-
-`func (o *GuildPreviewResponse) SetDiscoverySplashNil(b bool)`
-
- SetDiscoverySplashNil sets the value for DiscoverySplash to be an explicit nil
-
-### UnsetDiscoverySplash
-`func (o *GuildPreviewResponse) UnsetDiscoverySplash()`
-
-UnsetDiscoverySplash ensures that no value is present for DiscoverySplash, not even an explicit nil
 ### GetFeatures
 
-`func (o *GuildPreviewResponse) GetFeatures() []string`
+`func (o *GuildPreviewResponse) GetFeatures() []GuildFeatures`
 
 GetFeatures returns the Features field if non-nil, zero value otherwise.
 
 ### GetFeaturesOk
 
-`func (o *GuildPreviewResponse) GetFeaturesOk() (*[]string, bool)`
+`func (o *GuildPreviewResponse) GetFeaturesOk() (*[]GuildFeatures, bool)`
 
 GetFeaturesOk returns a tuple with the Features field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFeatures
 
-`func (o *GuildPreviewResponse) SetFeatures(v []string)`
+`func (o *GuildPreviewResponse) SetFeatures(v []GuildFeatures)`
 
 SetFeatures sets Features field to given value.
 

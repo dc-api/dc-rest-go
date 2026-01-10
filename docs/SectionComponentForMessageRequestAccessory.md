@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 **CustomId** | Pointer to **string** |  | [optional] 
-**Style** | **int32** |  | 
+**Style** | [**ButtonStyleTypes**](ButtonStyleTypes.md) |  | 
 **Label** | Pointer to **string** |  | [optional] 
 **Disabled** | Pointer to **bool** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
-**SkuId** | Pointer to **string** |  | [optional] 
-**Emoji** | Pointer to [**ComponentEmojiForMessageRequest**](ComponentEmojiForMessageRequest.md) |  | [optional] 
+**SkuId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**Emoji** | Pointer to [**ButtonComponentForMessageRequestEmoji**](ButtonComponentForMessageRequestEmoji.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Spoiler** | Pointer to **bool** |  | [optional] 
 **Media** | [**UnfurledMediaRequest**](UnfurledMediaRequest.md) |  | 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewSectionComponentForMessageRequestAccessory
 
-`func NewSectionComponentForMessageRequestAccessory(type_ int32, style int32, media UnfurledMediaRequest, ) *SectionComponentForMessageRequestAccessory`
+`func NewSectionComponentForMessageRequestAccessory(type_ MessageComponentTypes, style ButtonStyleTypes, media UnfurledMediaRequest, ) *SectionComponentForMessageRequestAccessory`
 
 NewSectionComponentForMessageRequestAccessory instantiates a new SectionComponentForMessageRequestAccessory object
 This constructor will assign default values to properties that have it defined,
@@ -37,23 +38,48 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *SectionComponentForMessageRequestAccessory) GetType() int32`
+`func (o *SectionComponentForMessageRequestAccessory) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *SectionComponentForMessageRequestAccessory) GetTypeOk() (*int32, bool)`
+`func (o *SectionComponentForMessageRequestAccessory) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *SectionComponentForMessageRequestAccessory) SetType(v int32)`
+`func (o *SectionComponentForMessageRequestAccessory) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *SectionComponentForMessageRequestAccessory) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *SectionComponentForMessageRequestAccessory) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *SectionComponentForMessageRequestAccessory) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *SectionComponentForMessageRequestAccessory) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetCustomId
 
@@ -82,20 +108,20 @@ HasCustomId returns a boolean if a field has been set.
 
 ### GetStyle
 
-`func (o *SectionComponentForMessageRequestAccessory) GetStyle() int32`
+`func (o *SectionComponentForMessageRequestAccessory) GetStyle() ButtonStyleTypes`
 
 GetStyle returns the Style field if non-nil, zero value otherwise.
 
 ### GetStyleOk
 
-`func (o *SectionComponentForMessageRequestAccessory) GetStyleOk() (*int32, bool)`
+`func (o *SectionComponentForMessageRequestAccessory) GetStyleOk() (*ButtonStyleTypes, bool)`
 
 GetStyleOk returns a tuple with the Style field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStyle
 
-`func (o *SectionComponentForMessageRequestAccessory) SetStyle(v int32)`
+`func (o *SectionComponentForMessageRequestAccessory) SetStyle(v ButtonStyleTypes)`
 
 SetStyle sets Style field to given value.
 
@@ -177,20 +203,20 @@ HasUrl returns a boolean if a field has been set.
 
 ### GetSkuId
 
-`func (o *SectionComponentForMessageRequestAccessory) GetSkuId() string`
+`func (o *SectionComponentForMessageRequestAccessory) GetSkuId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetSkuId returns the SkuId field if non-nil, zero value otherwise.
 
 ### GetSkuIdOk
 
-`func (o *SectionComponentForMessageRequestAccessory) GetSkuIdOk() (*string, bool)`
+`func (o *SectionComponentForMessageRequestAccessory) GetSkuIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetSkuIdOk returns a tuple with the SkuId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSkuId
 
-`func (o *SectionComponentForMessageRequestAccessory) SetSkuId(v string)`
+`func (o *SectionComponentForMessageRequestAccessory) SetSkuId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetSkuId sets SkuId field to given value.
 
@@ -202,20 +228,20 @@ HasSkuId returns a boolean if a field has been set.
 
 ### GetEmoji
 
-`func (o *SectionComponentForMessageRequestAccessory) GetEmoji() ComponentEmojiForMessageRequest`
+`func (o *SectionComponentForMessageRequestAccessory) GetEmoji() ButtonComponentForMessageRequestEmoji`
 
 GetEmoji returns the Emoji field if non-nil, zero value otherwise.
 
 ### GetEmojiOk
 
-`func (o *SectionComponentForMessageRequestAccessory) GetEmojiOk() (*ComponentEmojiForMessageRequest, bool)`
+`func (o *SectionComponentForMessageRequestAccessory) GetEmojiOk() (*ButtonComponentForMessageRequestEmoji, bool)`
 
 GetEmojiOk returns a tuple with the Emoji field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmoji
 
-`func (o *SectionComponentForMessageRequestAccessory) SetEmoji(v ComponentEmojiForMessageRequest)`
+`func (o *SectionComponentForMessageRequestAccessory) SetEmoji(v ButtonComponentForMessageRequestEmoji)`
 
 SetEmoji sets Emoji field to given value.
 

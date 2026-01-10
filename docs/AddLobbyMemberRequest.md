@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Metadata** | Pointer to **map[string]string** |  | [optional] 
-**Flags** | Pointer to **NullableInt32** |  | [optional] 
+**Flags** | Pointer to [**CreateOrJoinLobbyRequestFlags**](CreateOrJoinLobbyRequestFlags.md) |  | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasMetadata returns a boolean if a field has been set.
 
 ### GetFlags
 
-`func (o *AddLobbyMemberRequest) GetFlags() int32`
+`func (o *AddLobbyMemberRequest) GetFlags() CreateOrJoinLobbyRequestFlags`
 
 GetFlags returns the Flags field if non-nil, zero value otherwise.
 
 ### GetFlagsOk
 
-`func (o *AddLobbyMemberRequest) GetFlagsOk() (*int32, bool)`
+`func (o *AddLobbyMemberRequest) GetFlagsOk() (*CreateOrJoinLobbyRequestFlags, bool)`
 
 GetFlagsOk returns a tuple with the Flags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFlags
 
-`func (o *AddLobbyMemberRequest) SetFlags(v int32)`
+`func (o *AddLobbyMemberRequest) SetFlags(v CreateOrJoinLobbyRequestFlags)`
 
 SetFlags sets Flags field to given value.
 
@@ -76,16 +76,6 @@ SetFlags sets Flags field to given value.
 
 HasFlags returns a boolean if a field has been set.
 
-### SetFlagsNil
-
-`func (o *AddLobbyMemberRequest) SetFlagsNil(b bool)`
-
- SetFlagsNil sets the value for Flags to be an explicit nil
-
-### UnsetFlags
-`func (o *AddLobbyMemberRequest) UnsetFlags()`
-
-UnsetFlags ensures that no value is present for Flags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

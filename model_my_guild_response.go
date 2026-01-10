@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,13 +57,13 @@ var _ MappedNullable = &MyGuildResponse{}
 type MyGuildResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
-	Icon NullableString `json:"icon,omitempty"`
-	Banner NullableString `json:"banner,omitempty"`
+	Icon *string `json:"icon,omitempty"`
+	Banner *string `json:"banner,omitempty"`
 	Owner bool `json:"owner"`
 	Permissions string `json:"permissions"`
-	Features []string `json:"features"`
-	ApproximateMemberCount NullableInt32 `json:"approximate_member_count,omitempty"`
-	ApproximatePresenceCount NullableInt32 `json:"approximate_presence_count,omitempty"`
+	Features []GuildFeatures `json:"features"`
+	ApproximateMemberCount *int32 `json:"approximate_member_count,omitempty"`
+	ApproximatePresenceCount *int32 `json:"approximate_presence_count,omitempty"`
 }
 
 type _MyGuildResponse MyGuildResponse
@@ -72,7 +72,7 @@ type _MyGuildResponse MyGuildResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMyGuildResponse(id string, name string, owner bool, permissions string, features []string) *MyGuildResponse {
+func NewMyGuildResponse(id string, name string, owner bool, permissions string, features []GuildFeatures) *MyGuildResponse {
 	this := MyGuildResponse{}
 	this.Id = id
 	this.Name = name
@@ -138,91 +138,71 @@ func (o *MyGuildResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIcon returns the Icon field value if set, zero value otherwise.
 func (o *MyGuildResponse) GetIcon() string {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		var ret string
 		return ret
 	}
-	return *o.Icon.Get()
+	return *o.Icon
 }
 
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MyGuildResponse) GetIconOk() (*string, bool) {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		return nil, false
 	}
-	return o.Icon.Get(), o.Icon.IsSet()
+	return o.Icon, true
 }
 
 // HasIcon returns a boolean if a field has been set.
 func (o *MyGuildResponse) HasIcon() bool {
-	if o != nil && o.Icon.IsSet() {
+	if o != nil && !IsNil(o.Icon) {
 		return true
 	}
 
 	return false
 }
 
-// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+// SetIcon gets a reference to the given string and assigns it to the Icon field.
 func (o *MyGuildResponse) SetIcon(v string) {
-	o.Icon.Set(&v)
+	o.Icon = &v
 }
 
-// SetIconNil sets the value for Icon to be an explicit nil
-func (o *MyGuildResponse) SetIconNil() {
-	o.Icon.Set(nil)
-}
 
-// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
-func (o *MyGuildResponse) UnsetIcon() {
-	o.Icon.Unset()
-}
-
-// GetBanner returns the Banner field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBanner returns the Banner field value if set, zero value otherwise.
 func (o *MyGuildResponse) GetBanner() string {
-	if o == nil || IsNil(o.Banner.Get()) {
+	if o == nil || IsNil(o.Banner) {
 		var ret string
 		return ret
 	}
-	return *o.Banner.Get()
+	return *o.Banner
 }
 
 // GetBannerOk returns a tuple with the Banner field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MyGuildResponse) GetBannerOk() (*string, bool) {
-	if o == nil || IsNil(o.Banner.Get()) {
+	if o == nil || IsNil(o.Banner) {
 		return nil, false
 	}
-	return o.Banner.Get(), o.Banner.IsSet()
+	return o.Banner, true
 }
 
 // HasBanner returns a boolean if a field has been set.
 func (o *MyGuildResponse) HasBanner() bool {
-	if o != nil && o.Banner.IsSet() {
+	if o != nil && !IsNil(o.Banner) {
 		return true
 	}
 
 	return false
 }
 
-// SetBanner gets a reference to the given NullableString and assigns it to the Banner field.
+// SetBanner gets a reference to the given string and assigns it to the Banner field.
 func (o *MyGuildResponse) SetBanner(v string) {
-	o.Banner.Set(&v)
+	o.Banner = &v
 }
 
-// SetBannerNil sets the value for Banner to be an explicit nil
-func (o *MyGuildResponse) SetBannerNil() {
-	o.Banner.Set(nil)
-}
-
-// UnsetBanner ensures that no value is present for Banner, not even an explicit nil
-func (o *MyGuildResponse) UnsetBanner() {
-	o.Banner.Unset()
-}
 
 // GetOwner returns the Owner field value
 func (o *MyGuildResponse) GetOwner() bool {
@@ -273,9 +253,9 @@ func (o *MyGuildResponse) SetPermissions(v string) {
 }
 
 // GetFeatures returns the Features field value
-func (o *MyGuildResponse) GetFeatures() []string {
+func (o *MyGuildResponse) GetFeatures() []GuildFeatures {
 	if o == nil {
-		var ret []string
+		var ret []GuildFeatures
 		return ret
 	}
 
@@ -284,7 +264,7 @@ func (o *MyGuildResponse) GetFeatures() []string {
 
 // GetFeaturesOk returns a tuple with the Features field value
 // and a boolean to check if the value has been set.
-func (o *MyGuildResponse) GetFeaturesOk() ([]string, bool) {
+func (o *MyGuildResponse) GetFeaturesOk() ([]GuildFeatures, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -292,95 +272,75 @@ func (o *MyGuildResponse) GetFeaturesOk() ([]string, bool) {
 }
 
 // SetFeatures sets field value
-func (o *MyGuildResponse) SetFeatures(v []string) {
+func (o *MyGuildResponse) SetFeatures(v []GuildFeatures) {
 	o.Features = v
 }
 
-// GetApproximateMemberCount returns the ApproximateMemberCount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetApproximateMemberCount returns the ApproximateMemberCount field value if set, zero value otherwise.
 func (o *MyGuildResponse) GetApproximateMemberCount() int32 {
-	if o == nil || IsNil(o.ApproximateMemberCount.Get()) {
+	if o == nil || IsNil(o.ApproximateMemberCount) {
 		var ret int32
 		return ret
 	}
-	return *o.ApproximateMemberCount.Get()
+	return *o.ApproximateMemberCount
 }
 
 // GetApproximateMemberCountOk returns a tuple with the ApproximateMemberCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MyGuildResponse) GetApproximateMemberCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.ApproximateMemberCount.Get()) {
+	if o == nil || IsNil(o.ApproximateMemberCount) {
 		return nil, false
 	}
-	return o.ApproximateMemberCount.Get(), o.ApproximateMemberCount.IsSet()
+	return o.ApproximateMemberCount, true
 }
 
 // HasApproximateMemberCount returns a boolean if a field has been set.
 func (o *MyGuildResponse) HasApproximateMemberCount() bool {
-	if o != nil && o.ApproximateMemberCount.IsSet() {
+	if o != nil && !IsNil(o.ApproximateMemberCount) {
 		return true
 	}
 
 	return false
 }
 
-// SetApproximateMemberCount gets a reference to the given NullableInt32 and assigns it to the ApproximateMemberCount field.
+// SetApproximateMemberCount gets a reference to the given int32 and assigns it to the ApproximateMemberCount field.
 func (o *MyGuildResponse) SetApproximateMemberCount(v int32) {
-	o.ApproximateMemberCount.Set(&v)
+	o.ApproximateMemberCount = &v
 }
 
-// SetApproximateMemberCountNil sets the value for ApproximateMemberCount to be an explicit nil
-func (o *MyGuildResponse) SetApproximateMemberCountNil() {
-	o.ApproximateMemberCount.Set(nil)
-}
 
-// UnsetApproximateMemberCount ensures that no value is present for ApproximateMemberCount, not even an explicit nil
-func (o *MyGuildResponse) UnsetApproximateMemberCount() {
-	o.ApproximateMemberCount.Unset()
-}
-
-// GetApproximatePresenceCount returns the ApproximatePresenceCount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetApproximatePresenceCount returns the ApproximatePresenceCount field value if set, zero value otherwise.
 func (o *MyGuildResponse) GetApproximatePresenceCount() int32 {
-	if o == nil || IsNil(o.ApproximatePresenceCount.Get()) {
+	if o == nil || IsNil(o.ApproximatePresenceCount) {
 		var ret int32
 		return ret
 	}
-	return *o.ApproximatePresenceCount.Get()
+	return *o.ApproximatePresenceCount
 }
 
 // GetApproximatePresenceCountOk returns a tuple with the ApproximatePresenceCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MyGuildResponse) GetApproximatePresenceCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.ApproximatePresenceCount.Get()) {
+	if o == nil || IsNil(o.ApproximatePresenceCount) {
 		return nil, false
 	}
-	return o.ApproximatePresenceCount.Get(), o.ApproximatePresenceCount.IsSet()
+	return o.ApproximatePresenceCount, true
 }
 
 // HasApproximatePresenceCount returns a boolean if a field has been set.
 func (o *MyGuildResponse) HasApproximatePresenceCount() bool {
-	if o != nil && o.ApproximatePresenceCount.IsSet() {
+	if o != nil && !IsNil(o.ApproximatePresenceCount) {
 		return true
 	}
 
 	return false
 }
 
-// SetApproximatePresenceCount gets a reference to the given NullableInt32 and assigns it to the ApproximatePresenceCount field.
+// SetApproximatePresenceCount gets a reference to the given int32 and assigns it to the ApproximatePresenceCount field.
 func (o *MyGuildResponse) SetApproximatePresenceCount(v int32) {
-	o.ApproximatePresenceCount.Set(&v)
+	o.ApproximatePresenceCount = &v
 }
 
-// SetApproximatePresenceCountNil sets the value for ApproximatePresenceCount to be an explicit nil
-func (o *MyGuildResponse) SetApproximatePresenceCountNil() {
-	o.ApproximatePresenceCount.Set(nil)
-}
-
-// UnsetApproximatePresenceCount ensures that no value is present for ApproximatePresenceCount, not even an explicit nil
-func (o *MyGuildResponse) UnsetApproximatePresenceCount() {
-	o.ApproximatePresenceCount.Unset()
-}
 
 func (o MyGuildResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -394,20 +354,20 @@ func (o MyGuildResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
-	if o.Icon.IsSet() {
-		toSerialize["icon"] = o.Icon.Get()
+	if !IsNil(o.Icon) {
+		toSerialize["icon"] = o.Icon
 	}
-	if o.Banner.IsSet() {
-		toSerialize["banner"] = o.Banner.Get()
+	if !IsNil(o.Banner) {
+		toSerialize["banner"] = o.Banner
 	}
 	toSerialize["owner"] = o.Owner
 	toSerialize["permissions"] = o.Permissions
 	toSerialize["features"] = o.Features
-	if o.ApproximateMemberCount.IsSet() {
-		toSerialize["approximate_member_count"] = o.ApproximateMemberCount.Get()
+	if !IsNil(o.ApproximateMemberCount) {
+		toSerialize["approximate_member_count"] = o.ApproximateMemberCount
 	}
-	if o.ApproximatePresenceCount.IsSet() {
-		toSerialize["approximate_presence_count"] = o.ApproximatePresenceCount.Get()
+	if !IsNil(o.ApproximatePresenceCount) {
+		toSerialize["approximate_presence_count"] = o.ApproximatePresenceCount
 	}
 	return toSerialize, nil
 }
@@ -488,5 +448,4 @@ func (v *NullableMyGuildResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

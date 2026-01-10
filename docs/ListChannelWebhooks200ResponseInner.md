@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | Pointer to **string** |  | [optional] 
+**ApplicationId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Avatar** | Pointer to **string** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
-**GuildId** | Pointer to **string** |  | [optional] 
+**ChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**GuildId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Type** | **int32** |  | 
+**Type** | [**WebhookTypes**](WebhookTypes.md) |  | 
 **User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 **SourceGuild** | Pointer to [**WebhookSourceGuildResponse**](WebhookSourceGuildResponse.md) |  | [optional] 
 **SourceChannel** | Pointer to [**WebhookSourceChannelResponse**](WebhookSourceChannelResponse.md) |  | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewListChannelWebhooks200ResponseInner
 
-`func NewListChannelWebhooks200ResponseInner(id string, name string, type_ int32, ) *ListChannelWebhooks200ResponseInner`
+`func NewListChannelWebhooks200ResponseInner(id string, name string, type_ WebhookTypes, ) *ListChannelWebhooks200ResponseInner`
 
 NewListChannelWebhooks200ResponseInner instantiates a new ListChannelWebhooks200ResponseInner object
 This constructor will assign default values to properties that have it defined,
@@ -38,20 +38,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetApplicationId
 
-`func (o *ListChannelWebhooks200ResponseInner) GetApplicationId() string`
+`func (o *ListChannelWebhooks200ResponseInner) GetApplicationId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetApplicationId returns the ApplicationId field if non-nil, zero value otherwise.
 
 ### GetApplicationIdOk
 
-`func (o *ListChannelWebhooks200ResponseInner) GetApplicationIdOk() (*string, bool)`
+`func (o *ListChannelWebhooks200ResponseInner) GetApplicationIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetApplicationIdOk returns a tuple with the ApplicationId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApplicationId
 
-`func (o *ListChannelWebhooks200ResponseInner) SetApplicationId(v string)`
+`func (o *ListChannelWebhooks200ResponseInner) SetApplicationId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetApplicationId sets ApplicationId field to given value.
 
@@ -88,20 +88,20 @@ HasAvatar returns a boolean if a field has been set.
 
 ### GetChannelId
 
-`func (o *ListChannelWebhooks200ResponseInner) GetChannelId() string`
+`func (o *ListChannelWebhooks200ResponseInner) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
 
 ### GetChannelIdOk
 
-`func (o *ListChannelWebhooks200ResponseInner) GetChannelIdOk() (*string, bool)`
+`func (o *ListChannelWebhooks200ResponseInner) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelId
 
-`func (o *ListChannelWebhooks200ResponseInner) SetChannelId(v string)`
+`func (o *ListChannelWebhooks200ResponseInner) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetChannelId sets ChannelId field to given value.
 
@@ -113,20 +113,20 @@ HasChannelId returns a boolean if a field has been set.
 
 ### GetGuildId
 
-`func (o *ListChannelWebhooks200ResponseInner) GetGuildId() string`
+`func (o *ListChannelWebhooks200ResponseInner) GetGuildId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetGuildId returns the GuildId field if non-nil, zero value otherwise.
 
 ### GetGuildIdOk
 
-`func (o *ListChannelWebhooks200ResponseInner) GetGuildIdOk() (*string, bool)`
+`func (o *ListChannelWebhooks200ResponseInner) GetGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetGuildIdOk returns a tuple with the GuildId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGuildId
 
-`func (o *ListChannelWebhooks200ResponseInner) SetGuildId(v string)`
+`func (o *ListChannelWebhooks200ResponseInner) SetGuildId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetGuildId sets GuildId field to given value.
 
@@ -178,20 +178,20 @@ SetName sets Name field to given value.
 
 ### GetType
 
-`func (o *ListChannelWebhooks200ResponseInner) GetType() int32`
+`func (o *ListChannelWebhooks200ResponseInner) GetType() WebhookTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ListChannelWebhooks200ResponseInner) GetTypeOk() (*int32, bool)`
+`func (o *ListChannelWebhooks200ResponseInner) GetTypeOk() (*WebhookTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ListChannelWebhooks200ResponseInner) SetType(v int32)`
+`func (o *ListChannelWebhooks200ResponseInner) SetType(v WebhookTypes)`
 
 SetType sets Type field to given value.
 

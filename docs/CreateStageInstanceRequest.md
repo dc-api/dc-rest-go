@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Topic** | **string** |  | 
 **ChannelId** | **string** |  | 
-**PrivacyLevel** | Pointer to **int32** |  | [optional] 
-**GuildScheduledEventId** | Pointer to **string** |  | [optional] 
-**SendStartNotification** | Pointer to **NullableBool** |  | [optional] 
+**PrivacyLevel** | Pointer to [**CreateStageInstanceRequestPrivacyLevel**](CreateStageInstanceRequestPrivacyLevel.md) |  | [optional] 
+**GuildScheduledEventId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**SendStartNotification** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -71,20 +71,20 @@ SetChannelId sets ChannelId field to given value.
 
 ### GetPrivacyLevel
 
-`func (o *CreateStageInstanceRequest) GetPrivacyLevel() int32`
+`func (o *CreateStageInstanceRequest) GetPrivacyLevel() CreateStageInstanceRequestPrivacyLevel`
 
 GetPrivacyLevel returns the PrivacyLevel field if non-nil, zero value otherwise.
 
 ### GetPrivacyLevelOk
 
-`func (o *CreateStageInstanceRequest) GetPrivacyLevelOk() (*int32, bool)`
+`func (o *CreateStageInstanceRequest) GetPrivacyLevelOk() (*CreateStageInstanceRequestPrivacyLevel, bool)`
 
 GetPrivacyLevelOk returns a tuple with the PrivacyLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrivacyLevel
 
-`func (o *CreateStageInstanceRequest) SetPrivacyLevel(v int32)`
+`func (o *CreateStageInstanceRequest) SetPrivacyLevel(v CreateStageInstanceRequestPrivacyLevel)`
 
 SetPrivacyLevel sets PrivacyLevel field to given value.
 
@@ -96,20 +96,20 @@ HasPrivacyLevel returns a boolean if a field has been set.
 
 ### GetGuildScheduledEventId
 
-`func (o *CreateStageInstanceRequest) GetGuildScheduledEventId() string`
+`func (o *CreateStageInstanceRequest) GetGuildScheduledEventId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetGuildScheduledEventId returns the GuildScheduledEventId field if non-nil, zero value otherwise.
 
 ### GetGuildScheduledEventIdOk
 
-`func (o *CreateStageInstanceRequest) GetGuildScheduledEventIdOk() (*string, bool)`
+`func (o *CreateStageInstanceRequest) GetGuildScheduledEventIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetGuildScheduledEventIdOk returns a tuple with the GuildScheduledEventId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGuildScheduledEventId
 
-`func (o *CreateStageInstanceRequest) SetGuildScheduledEventId(v string)`
+`func (o *CreateStageInstanceRequest) SetGuildScheduledEventId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetGuildScheduledEventId sets GuildScheduledEventId field to given value.
 
@@ -144,16 +144,6 @@ SetSendStartNotification sets SendStartNotification field to given value.
 
 HasSendStartNotification returns a boolean if a field has been set.
 
-### SetSendStartNotificationNil
-
-`func (o *CreateStageInstanceRequest) SetSendStartNotificationNil(b bool)`
-
- SetSendStartNotificationNil sets the value for SendStartNotification to be an explicit nil
-
-### UnsetSendStartNotification
-`func (o *CreateStageInstanceRequest) UnsetSendStartNotification()`
-
-UnsetSendStartNotification ensures that no value is present for SendStartNotification, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

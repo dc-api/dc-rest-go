@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Metadata** | Pointer to **map[string]string** |  | [optional] 
-**Flags** | Pointer to **NullableInt32** |  | [optional] 
-**RemoveMember** | Pointer to **NullableBool** |  | [optional] 
+**Flags** | Pointer to [**CreateOrJoinLobbyRequestFlags**](CreateOrJoinLobbyRequestFlags.md) |  | [optional] 
+**RemoveMember** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -75,20 +75,20 @@ HasMetadata returns a boolean if a field has been set.
 
 ### GetFlags
 
-`func (o *BulkLobbyMemberRequest) GetFlags() int32`
+`func (o *BulkLobbyMemberRequest) GetFlags() CreateOrJoinLobbyRequestFlags`
 
 GetFlags returns the Flags field if non-nil, zero value otherwise.
 
 ### GetFlagsOk
 
-`func (o *BulkLobbyMemberRequest) GetFlagsOk() (*int32, bool)`
+`func (o *BulkLobbyMemberRequest) GetFlagsOk() (*CreateOrJoinLobbyRequestFlags, bool)`
 
 GetFlagsOk returns a tuple with the Flags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFlags
 
-`func (o *BulkLobbyMemberRequest) SetFlags(v int32)`
+`func (o *BulkLobbyMemberRequest) SetFlags(v CreateOrJoinLobbyRequestFlags)`
 
 SetFlags sets Flags field to given value.
 
@@ -98,16 +98,6 @@ SetFlags sets Flags field to given value.
 
 HasFlags returns a boolean if a field has been set.
 
-### SetFlagsNil
-
-`func (o *BulkLobbyMemberRequest) SetFlagsNil(b bool)`
-
- SetFlagsNil sets the value for Flags to be an explicit nil
-
-### UnsetFlags
-`func (o *BulkLobbyMemberRequest) UnsetFlags()`
-
-UnsetFlags ensures that no value is present for Flags, not even an explicit nil
 ### GetRemoveMember
 
 `func (o *BulkLobbyMemberRequest) GetRemoveMember() bool`
@@ -133,16 +123,6 @@ SetRemoveMember sets RemoveMember field to given value.
 
 HasRemoveMember returns a boolean if a field has been set.
 
-### SetRemoveMemberNil
-
-`func (o *BulkLobbyMemberRequest) SetRemoveMemberNil(b bool)`
-
- SetRemoveMemberNil sets the value for RemoveMember to be an explicit nil
-
-### UnsetRemoveMember
-`func (o *BulkLobbyMemberRequest) UnsetRemoveMember()`
-
-UnsetRemoveMember ensures that no value is present for RemoveMember, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

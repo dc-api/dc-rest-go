@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,10 +55,11 @@ var _ MappedNullable = &ContainerComponentForMessageRequest{}
 
 // ContainerComponentForMessageRequest struct for ContainerComponentForMessageRequest
 type ContainerComponentForMessageRequest struct {
-	Type int32 `json:"type"`
-	AccentColor NullableInt32 `json:"accent_color,omitempty"`
+	Type MessageComponentTypes `json:"type"`
+	Id *int32 `json:"id,omitempty"`
+	AccentColor *int32 `json:"accent_color,omitempty"`
 	Components []ContainerComponentForMessageRequestComponentsInner `json:"components"`
-	Spoiler NullableBool `json:"spoiler,omitempty"`
+	Spoiler *bool `json:"spoiler,omitempty"`
 }
 
 type _ContainerComponentForMessageRequest ContainerComponentForMessageRequest
@@ -67,7 +68,7 @@ type _ContainerComponentForMessageRequest ContainerComponentForMessageRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContainerComponentForMessageRequest(type_ int32, components []ContainerComponentForMessageRequestComponentsInner) *ContainerComponentForMessageRequest {
+func NewContainerComponentForMessageRequest(type_ MessageComponentTypes, components []ContainerComponentForMessageRequestComponentsInner) *ContainerComponentForMessageRequest {
 	this := ContainerComponentForMessageRequest{}
 	this.Type = type_
 	this.Components = components
@@ -83,9 +84,9 @@ func NewContainerComponentForMessageRequestWithDefaults() *ContainerComponentFor
 }
 
 // GetType returns the Type field value
-func (o *ContainerComponentForMessageRequest) GetType() int32 {
+func (o *ContainerComponentForMessageRequest) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -94,7 +95,7 @@ func (o *ContainerComponentForMessageRequest) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ContainerComponentForMessageRequest) GetTypeOk() (*int32, bool) {
+func (o *ContainerComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -102,52 +103,75 @@ func (o *ContainerComponentForMessageRequest) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *ContainerComponentForMessageRequest) SetType(v int32) {
+func (o *ContainerComponentForMessageRequest) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
 
-// GetAccentColor returns the AccentColor field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ContainerComponentForMessageRequest) GetAccentColor() int32 {
-	if o == nil || IsNil(o.AccentColor.Get()) {
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *ContainerComponentForMessageRequest) GetId() int32 {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-	return *o.AccentColor.Get()
+	return *o.Id
 }
 
-// GetAccentColorOk returns a tuple with the AccentColor field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ContainerComponentForMessageRequest) GetAccentColorOk() (*int32, bool) {
-	if o == nil || IsNil(o.AccentColor.Get()) {
+func (o *ContainerComponentForMessageRequest) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return o.AccentColor.Get(), o.AccentColor.IsSet()
+	return o.Id, true
 }
 
-// HasAccentColor returns a boolean if a field has been set.
-func (o *ContainerComponentForMessageRequest) HasAccentColor() bool {
-	if o != nil && o.AccentColor.IsSet() {
+// HasId returns a boolean if a field has been set.
+func (o *ContainerComponentForMessageRequest) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
 	return false
 }
 
-// SetAccentColor gets a reference to the given NullableInt32 and assigns it to the AccentColor field.
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *ContainerComponentForMessageRequest) SetId(v int32) {
+	o.Id = &v
+}
+
+
+// GetAccentColor returns the AccentColor field value if set, zero value otherwise.
+func (o *ContainerComponentForMessageRequest) GetAccentColor() int32 {
+	if o == nil || IsNil(o.AccentColor) {
+		var ret int32
+		return ret
+	}
+	return *o.AccentColor
+}
+
+// GetAccentColorOk returns a tuple with the AccentColor field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ContainerComponentForMessageRequest) GetAccentColorOk() (*int32, bool) {
+	if o == nil || IsNil(o.AccentColor) {
+		return nil, false
+	}
+	return o.AccentColor, true
+}
+
+// HasAccentColor returns a boolean if a field has been set.
+func (o *ContainerComponentForMessageRequest) HasAccentColor() bool {
+	if o != nil && !IsNil(o.AccentColor) {
+		return true
+	}
+
+	return false
+}
+
+// SetAccentColor gets a reference to the given int32 and assigns it to the AccentColor field.
 func (o *ContainerComponentForMessageRequest) SetAccentColor(v int32) {
-	o.AccentColor.Set(&v)
+	o.AccentColor = &v
 }
 
-// SetAccentColorNil sets the value for AccentColor to be an explicit nil
-func (o *ContainerComponentForMessageRequest) SetAccentColorNil() {
-	o.AccentColor.Set(nil)
-}
-
-// UnsetAccentColor ensures that no value is present for AccentColor, not even an explicit nil
-func (o *ContainerComponentForMessageRequest) UnsetAccentColor() {
-	o.AccentColor.Unset()
-}
 
 // GetComponents returns the Components field value
 func (o *ContainerComponentForMessageRequest) GetComponents() []ContainerComponentForMessageRequestComponentsInner {
@@ -173,48 +197,38 @@ func (o *ContainerComponentForMessageRequest) SetComponents(v []ContainerCompone
 	o.Components = v
 }
 
-// GetSpoiler returns the Spoiler field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSpoiler returns the Spoiler field value if set, zero value otherwise.
 func (o *ContainerComponentForMessageRequest) GetSpoiler() bool {
-	if o == nil || IsNil(o.Spoiler.Get()) {
+	if o == nil || IsNil(o.Spoiler) {
 		var ret bool
 		return ret
 	}
-	return *o.Spoiler.Get()
+	return *o.Spoiler
 }
 
 // GetSpoilerOk returns a tuple with the Spoiler field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ContainerComponentForMessageRequest) GetSpoilerOk() (*bool, bool) {
-	if o == nil || IsNil(o.Spoiler.Get()) {
+	if o == nil || IsNil(o.Spoiler) {
 		return nil, false
 	}
-	return o.Spoiler.Get(), o.Spoiler.IsSet()
+	return o.Spoiler, true
 }
 
 // HasSpoiler returns a boolean if a field has been set.
 func (o *ContainerComponentForMessageRequest) HasSpoiler() bool {
-	if o != nil && o.Spoiler.IsSet() {
+	if o != nil && !IsNil(o.Spoiler) {
 		return true
 	}
 
 	return false
 }
 
-// SetSpoiler gets a reference to the given NullableBool and assigns it to the Spoiler field.
+// SetSpoiler gets a reference to the given bool and assigns it to the Spoiler field.
 func (o *ContainerComponentForMessageRequest) SetSpoiler(v bool) {
-	o.Spoiler.Set(&v)
+	o.Spoiler = &v
 }
 
-// SetSpoilerNil sets the value for Spoiler to be an explicit nil
-func (o *ContainerComponentForMessageRequest) SetSpoilerNil() {
-	o.Spoiler.Set(nil)
-}
-
-// UnsetSpoiler ensures that no value is present for Spoiler, not even an explicit nil
-func (o *ContainerComponentForMessageRequest) UnsetSpoiler() {
-	o.Spoiler.Unset()
-}
 
 func (o ContainerComponentForMessageRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -227,12 +241,15 @@ func (o ContainerComponentForMessageRequest) MarshalJSON() ([]byte, error) {
 func (o ContainerComponentForMessageRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
-	if o.AccentColor.IsSet() {
-		toSerialize["accent_color"] = o.AccentColor.Get()
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.AccentColor) {
+		toSerialize["accent_color"] = o.AccentColor
 	}
 	toSerialize["components"] = o.Components
-	if o.Spoiler.IsSet() {
-		toSerialize["spoiler"] = o.Spoiler.Get()
+	if !IsNil(o.Spoiler) {
+		toSerialize["spoiler"] = o.Spoiler
 	}
 	return toSerialize, nil
 }
@@ -310,5 +327,4 @@ func (v *NullableContainerComponentForMessageRequest) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

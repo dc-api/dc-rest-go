@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
-**EventType** | Pointer to **int32** |  | [optional] 
+**EventType** | Pointer to [**AutomodEventType**](AutomodEventType.md) |  | [optional] 
 **Actions** | Pointer to [**[]DefaultKeywordListUpsertRequestActionsInner**](DefaultKeywordListUpsertRequestActionsInner.md) |  | [optional] 
-**Enabled** | Pointer to **NullableBool** |  | [optional] 
+**Enabled** | Pointer to **bool** |  | [optional] 
 **ExemptRoles** | Pointer to **[]string** |  | [optional] 
 **ExemptChannels** | Pointer to **[]string** |  | [optional] 
-**TriggerType** | Pointer to **int32** |  | [optional] 
-**TriggerMetadata** | Pointer to [**NullableMentionSpamTriggerMetadata**](MentionSpamTriggerMetadata.md) |  | [optional] 
+**TriggerType** | Pointer to [**AutomodTriggerType**](AutomodTriggerType.md) |  | [optional] 
+**TriggerMetadata** | Pointer to [**MentionSpamUpsertRequestTriggerMetadata**](MentionSpamUpsertRequestTriggerMetadata.md) |  | [optional] 
 
 ## Methods
 
@@ -59,20 +59,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetEventType
 
-`func (o *MentionSpamUpsertRequestPartial) GetEventType() int32`
+`func (o *MentionSpamUpsertRequestPartial) GetEventType() AutomodEventType`
 
 GetEventType returns the EventType field if non-nil, zero value otherwise.
 
 ### GetEventTypeOk
 
-`func (o *MentionSpamUpsertRequestPartial) GetEventTypeOk() (*int32, bool)`
+`func (o *MentionSpamUpsertRequestPartial) GetEventTypeOk() (*AutomodEventType, bool)`
 
 GetEventTypeOk returns a tuple with the EventType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEventType
 
-`func (o *MentionSpamUpsertRequestPartial) SetEventType(v int32)`
+`func (o *MentionSpamUpsertRequestPartial) SetEventType(v AutomodEventType)`
 
 SetEventType sets EventType field to given value.
 
@@ -107,16 +107,6 @@ SetActions sets Actions field to given value.
 
 HasActions returns a boolean if a field has been set.
 
-### SetActionsNil
-
-`func (o *MentionSpamUpsertRequestPartial) SetActionsNil(b bool)`
-
- SetActionsNil sets the value for Actions to be an explicit nil
-
-### UnsetActions
-`func (o *MentionSpamUpsertRequestPartial) UnsetActions()`
-
-UnsetActions ensures that no value is present for Actions, not even an explicit nil
 ### GetEnabled
 
 `func (o *MentionSpamUpsertRequestPartial) GetEnabled() bool`
@@ -142,16 +132,6 @@ SetEnabled sets Enabled field to given value.
 
 HasEnabled returns a boolean if a field has been set.
 
-### SetEnabledNil
-
-`func (o *MentionSpamUpsertRequestPartial) SetEnabledNil(b bool)`
-
- SetEnabledNil sets the value for Enabled to be an explicit nil
-
-### UnsetEnabled
-`func (o *MentionSpamUpsertRequestPartial) UnsetEnabled()`
-
-UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 ### GetExemptRoles
 
 `func (o *MentionSpamUpsertRequestPartial) GetExemptRoles() []string`
@@ -177,16 +157,6 @@ SetExemptRoles sets ExemptRoles field to given value.
 
 HasExemptRoles returns a boolean if a field has been set.
 
-### SetExemptRolesNil
-
-`func (o *MentionSpamUpsertRequestPartial) SetExemptRolesNil(b bool)`
-
- SetExemptRolesNil sets the value for ExemptRoles to be an explicit nil
-
-### UnsetExemptRoles
-`func (o *MentionSpamUpsertRequestPartial) UnsetExemptRoles()`
-
-UnsetExemptRoles ensures that no value is present for ExemptRoles, not even an explicit nil
 ### GetExemptChannels
 
 `func (o *MentionSpamUpsertRequestPartial) GetExemptChannels() []string`
@@ -212,32 +182,22 @@ SetExemptChannels sets ExemptChannels field to given value.
 
 HasExemptChannels returns a boolean if a field has been set.
 
-### SetExemptChannelsNil
-
-`func (o *MentionSpamUpsertRequestPartial) SetExemptChannelsNil(b bool)`
-
- SetExemptChannelsNil sets the value for ExemptChannels to be an explicit nil
-
-### UnsetExemptChannels
-`func (o *MentionSpamUpsertRequestPartial) UnsetExemptChannels()`
-
-UnsetExemptChannels ensures that no value is present for ExemptChannels, not even an explicit nil
 ### GetTriggerType
 
-`func (o *MentionSpamUpsertRequestPartial) GetTriggerType() int32`
+`func (o *MentionSpamUpsertRequestPartial) GetTriggerType() AutomodTriggerType`
 
 GetTriggerType returns the TriggerType field if non-nil, zero value otherwise.
 
 ### GetTriggerTypeOk
 
-`func (o *MentionSpamUpsertRequestPartial) GetTriggerTypeOk() (*int32, bool)`
+`func (o *MentionSpamUpsertRequestPartial) GetTriggerTypeOk() (*AutomodTriggerType, bool)`
 
 GetTriggerTypeOk returns a tuple with the TriggerType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTriggerType
 
-`func (o *MentionSpamUpsertRequestPartial) SetTriggerType(v int32)`
+`func (o *MentionSpamUpsertRequestPartial) SetTriggerType(v AutomodTriggerType)`
 
 SetTriggerType sets TriggerType field to given value.
 
@@ -249,20 +209,20 @@ HasTriggerType returns a boolean if a field has been set.
 
 ### GetTriggerMetadata
 
-`func (o *MentionSpamUpsertRequestPartial) GetTriggerMetadata() MentionSpamTriggerMetadata`
+`func (o *MentionSpamUpsertRequestPartial) GetTriggerMetadata() MentionSpamUpsertRequestTriggerMetadata`
 
 GetTriggerMetadata returns the TriggerMetadata field if non-nil, zero value otherwise.
 
 ### GetTriggerMetadataOk
 
-`func (o *MentionSpamUpsertRequestPartial) GetTriggerMetadataOk() (*MentionSpamTriggerMetadata, bool)`
+`func (o *MentionSpamUpsertRequestPartial) GetTriggerMetadataOk() (*MentionSpamUpsertRequestTriggerMetadata, bool)`
 
 GetTriggerMetadataOk returns a tuple with the TriggerMetadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTriggerMetadata
 
-`func (o *MentionSpamUpsertRequestPartial) SetTriggerMetadata(v MentionSpamTriggerMetadata)`
+`func (o *MentionSpamUpsertRequestPartial) SetTriggerMetadata(v MentionSpamUpsertRequestTriggerMetadata)`
 
 SetTriggerMetadata sets TriggerMetadata field to given value.
 
@@ -272,16 +232,6 @@ SetTriggerMetadata sets TriggerMetadata field to given value.
 
 HasTriggerMetadata returns a boolean if a field has been set.
 
-### SetTriggerMetadataNil
-
-`func (o *MentionSpamUpsertRequestPartial) SetTriggerMetadataNil(b bool)`
-
- SetTriggerMetadataNil sets the value for TriggerMetadata to be an explicit nil
-
-### UnsetTriggerMetadata
-`func (o *MentionSpamUpsertRequestPartial) UnsetTriggerMetadata()`
-
-UnsetTriggerMetadata ensures that no value is present for TriggerMetadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

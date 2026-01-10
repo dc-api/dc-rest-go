@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,7 +55,8 @@ var _ MappedNullable = &ActionRowComponentForMessageRequest{}
 
 // ActionRowComponentForMessageRequest struct for ActionRowComponentForMessageRequest
 type ActionRowComponentForMessageRequest struct {
-	Type int32 `json:"type"`
+	Type MessageComponentTypes `json:"type"`
+	Id *int32 `json:"id,omitempty"`
 	Components []ActionRowComponentForMessageRequestComponentsInner `json:"components"`
 }
 
@@ -65,7 +66,7 @@ type _ActionRowComponentForMessageRequest ActionRowComponentForMessageRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActionRowComponentForMessageRequest(type_ int32, components []ActionRowComponentForMessageRequestComponentsInner) *ActionRowComponentForMessageRequest {
+func NewActionRowComponentForMessageRequest(type_ MessageComponentTypes, components []ActionRowComponentForMessageRequestComponentsInner) *ActionRowComponentForMessageRequest {
 	this := ActionRowComponentForMessageRequest{}
 	this.Type = type_
 	this.Components = components
@@ -81,9 +82,9 @@ func NewActionRowComponentForMessageRequestWithDefaults() *ActionRowComponentFor
 }
 
 // GetType returns the Type field value
-func (o *ActionRowComponentForMessageRequest) GetType() int32 {
+func (o *ActionRowComponentForMessageRequest) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -92,7 +93,7 @@ func (o *ActionRowComponentForMessageRequest) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ActionRowComponentForMessageRequest) GetTypeOk() (*int32, bool) {
+func (o *ActionRowComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -100,9 +101,42 @@ func (o *ActionRowComponentForMessageRequest) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *ActionRowComponentForMessageRequest) SetType(v int32) {
+func (o *ActionRowComponentForMessageRequest) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *ActionRowComponentForMessageRequest) GetId() int32 {
+	if o == nil || IsNil(o.Id) {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActionRowComponentForMessageRequest) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *ActionRowComponentForMessageRequest) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *ActionRowComponentForMessageRequest) SetId(v int32) {
+	o.Id = &v
+}
+
 
 // GetComponents returns the Components field value
 func (o *ActionRowComponentForMessageRequest) GetComponents() []ActionRowComponentForMessageRequestComponentsInner {
@@ -139,6 +173,9 @@ func (o ActionRowComponentForMessageRequest) MarshalJSON() ([]byte, error) {
 func (o ActionRowComponentForMessageRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	toSerialize["components"] = o.Components
 	return toSerialize, nil
 }
@@ -216,5 +253,4 @@ func (v *NullableActionRowComponentForMessageRequest) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

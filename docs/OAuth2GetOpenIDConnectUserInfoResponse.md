@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Sub** | **string** |  | 
-**Email** | Pointer to **NullableString** |  | [optional] 
-**EmailVerified** | Pointer to **NullableBool** |  | [optional] 
-**PreferredUsername** | Pointer to **NullableString** |  | [optional] 
-**Nickname** | Pointer to **NullableString** |  | [optional] 
-**Picture** | Pointer to **NullableString** |  | [optional] 
-**Locale** | Pointer to **NullableString** |  | [optional] 
+**Email** | Pointer to **string** |  | [optional] 
+**EmailVerified** | Pointer to **bool** |  | [optional] 
+**PreferredUsername** | Pointer to **string** |  | [optional] 
+**Nickname** | Pointer to **string** |  | [optional] 
+**Picture** | Pointer to **string** |  | [optional] 
+**Locale** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -76,16 +76,6 @@ SetEmail sets Email field to given value.
 
 HasEmail returns a boolean if a field has been set.
 
-### SetEmailNil
-
-`func (o *OAuth2GetOpenIDConnectUserInfoResponse) SetEmailNil(b bool)`
-
- SetEmailNil sets the value for Email to be an explicit nil
-
-### UnsetEmail
-`func (o *OAuth2GetOpenIDConnectUserInfoResponse) UnsetEmail()`
-
-UnsetEmail ensures that no value is present for Email, not even an explicit nil
 ### GetEmailVerified
 
 `func (o *OAuth2GetOpenIDConnectUserInfoResponse) GetEmailVerified() bool`
@@ -111,16 +101,6 @@ SetEmailVerified sets EmailVerified field to given value.
 
 HasEmailVerified returns a boolean if a field has been set.
 
-### SetEmailVerifiedNil
-
-`func (o *OAuth2GetOpenIDConnectUserInfoResponse) SetEmailVerifiedNil(b bool)`
-
- SetEmailVerifiedNil sets the value for EmailVerified to be an explicit nil
-
-### UnsetEmailVerified
-`func (o *OAuth2GetOpenIDConnectUserInfoResponse) UnsetEmailVerified()`
-
-UnsetEmailVerified ensures that no value is present for EmailVerified, not even an explicit nil
 ### GetPreferredUsername
 
 `func (o *OAuth2GetOpenIDConnectUserInfoResponse) GetPreferredUsername() string`
@@ -146,16 +126,6 @@ SetPreferredUsername sets PreferredUsername field to given value.
 
 HasPreferredUsername returns a boolean if a field has been set.
 
-### SetPreferredUsernameNil
-
-`func (o *OAuth2GetOpenIDConnectUserInfoResponse) SetPreferredUsernameNil(b bool)`
-
- SetPreferredUsernameNil sets the value for PreferredUsername to be an explicit nil
-
-### UnsetPreferredUsername
-`func (o *OAuth2GetOpenIDConnectUserInfoResponse) UnsetPreferredUsername()`
-
-UnsetPreferredUsername ensures that no value is present for PreferredUsername, not even an explicit nil
 ### GetNickname
 
 `func (o *OAuth2GetOpenIDConnectUserInfoResponse) GetNickname() string`
@@ -181,16 +151,6 @@ SetNickname sets Nickname field to given value.
 
 HasNickname returns a boolean if a field has been set.
 
-### SetNicknameNil
-
-`func (o *OAuth2GetOpenIDConnectUserInfoResponse) SetNicknameNil(b bool)`
-
- SetNicknameNil sets the value for Nickname to be an explicit nil
-
-### UnsetNickname
-`func (o *OAuth2GetOpenIDConnectUserInfoResponse) UnsetNickname()`
-
-UnsetNickname ensures that no value is present for Nickname, not even an explicit nil
 ### GetPicture
 
 `func (o *OAuth2GetOpenIDConnectUserInfoResponse) GetPicture() string`
@@ -216,16 +176,6 @@ SetPicture sets Picture field to given value.
 
 HasPicture returns a boolean if a field has been set.
 
-### SetPictureNil
-
-`func (o *OAuth2GetOpenIDConnectUserInfoResponse) SetPictureNil(b bool)`
-
- SetPictureNil sets the value for Picture to be an explicit nil
-
-### UnsetPicture
-`func (o *OAuth2GetOpenIDConnectUserInfoResponse) UnsetPicture()`
-
-UnsetPicture ensures that no value is present for Picture, not even an explicit nil
 ### GetLocale
 
 `func (o *OAuth2GetOpenIDConnectUserInfoResponse) GetLocale() string`
@@ -251,16 +201,6 @@ SetLocale sets Locale field to given value.
 
 HasLocale returns a boolean if a field has been set.
 
-### SetLocaleNil
-
-`func (o *OAuth2GetOpenIDConnectUserInfoResponse) SetLocaleNil(b bool)`
-
- SetLocaleNil sets the value for Locale to be an explicit nil
-
-### UnsetLocale
-`func (o *OAuth2GetOpenIDConnectUserInfoResponse) UnsetLocale()`
-
-UnsetLocale ensures that no value is present for Locale, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

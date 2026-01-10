@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Text** | Pointer to **NullableString** |  | [optional] 
-**Emoji** | Pointer to [**NullablePollEmoji**](PollEmoji.md) |  | [optional] 
+**Text** | Pointer to **string** |  | [optional] 
+**Emoji** | Pointer to [**PollMediaEmoji**](PollMediaEmoji.md) |  | [optional] 
 
 ## Methods
 
@@ -51,32 +51,22 @@ SetText sets Text field to given value.
 
 HasText returns a boolean if a field has been set.
 
-### SetTextNil
-
-`func (o *PollMedia) SetTextNil(b bool)`
-
- SetTextNil sets the value for Text to be an explicit nil
-
-### UnsetText
-`func (o *PollMedia) UnsetText()`
-
-UnsetText ensures that no value is present for Text, not even an explicit nil
 ### GetEmoji
 
-`func (o *PollMedia) GetEmoji() PollEmoji`
+`func (o *PollMedia) GetEmoji() PollMediaEmoji`
 
 GetEmoji returns the Emoji field if non-nil, zero value otherwise.
 
 ### GetEmojiOk
 
-`func (o *PollMedia) GetEmojiOk() (*PollEmoji, bool)`
+`func (o *PollMedia) GetEmojiOk() (*PollMediaEmoji, bool)`
 
 GetEmojiOk returns a tuple with the Emoji field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmoji
 
-`func (o *PollMedia) SetEmoji(v PollEmoji)`
+`func (o *PollMedia) SetEmoji(v PollMediaEmoji)`
 
 SetEmoji sets Emoji field to given value.
 
@@ -86,16 +76,6 @@ SetEmoji sets Emoji field to given value.
 
 HasEmoji returns a boolean if a field has been set.
 
-### SetEmojiNil
-
-`func (o *PollMedia) SetEmojiNil(b bool)`
-
- SetEmojiNil sets the value for Emoji to be an explicit nil
-
-### UnsetEmoji
-`func (o *PollMedia) UnsetEmoji()`
-
-UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

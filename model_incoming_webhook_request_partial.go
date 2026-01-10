@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,17 +53,17 @@ var _ MappedNullable = &IncomingWebhookRequestPartial{}
 
 // IncomingWebhookRequestPartial struct for IncomingWebhookRequestPartial
 type IncomingWebhookRequestPartial struct {
-	Content NullableString `json:"content,omitempty"`
+	Content *string `json:"content,omitempty"`
 	Embeds []RichEmbed `json:"embeds,omitempty"`
-	AllowedMentions NullableMessageAllowedMentionsRequest `json:"allowed_mentions,omitempty"`
+	AllowedMentions *BaseCreateMessageCreateRequestAllowedMentions `json:"allowed_mentions,omitempty"`
 	Components []BaseCreateMessageCreateRequestComponentsInner `json:"components,omitempty"`
 	Attachments []MessageAttachmentRequest `json:"attachments,omitempty"`
-	Poll NullablePollCreateRequest `json:"poll,omitempty"`
-	Tts NullableBool `json:"tts,omitempty"`
-	Flags NullableInt32 `json:"flags,omitempty"`
-	Username NullableString `json:"username,omitempty"`
-	AvatarUrl NullableString `json:"avatar_url,omitempty"`
-	ThreadName NullableString `json:"thread_name,omitempty"`
+	Poll *BaseCreateMessageCreateRequestPoll `json:"poll,omitempty"`
+	Tts *bool `json:"tts,omitempty"`
+	Flags *int32 `json:"flags,omitempty"`
+	Username *string `json:"username,omitempty"`
+	AvatarUrl *string `json:"avatar_url,omitempty"`
+	ThreadName *string `json:"thread_name,omitempty"`
 	AppliedTags []string `json:"applied_tags,omitempty"`
 }
 
@@ -84,52 +84,42 @@ func NewIncomingWebhookRequestPartialWithDefaults() *IncomingWebhookRequestParti
 	return &this
 }
 
-// GetContent returns the Content field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetContent returns the Content field value if set, zero value otherwise.
 func (o *IncomingWebhookRequestPartial) GetContent() string {
-	if o == nil || IsNil(o.Content.Get()) {
+	if o == nil || IsNil(o.Content) {
 		var ret string
 		return ret
 	}
-	return *o.Content.Get()
+	return *o.Content
 }
 
 // GetContentOk returns a tuple with the Content field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IncomingWebhookRequestPartial) GetContentOk() (*string, bool) {
-	if o == nil || IsNil(o.Content.Get()) {
+	if o == nil || IsNil(o.Content) {
 		return nil, false
 	}
-	return o.Content.Get(), o.Content.IsSet()
+	return o.Content, true
 }
 
 // HasContent returns a boolean if a field has been set.
 func (o *IncomingWebhookRequestPartial) HasContent() bool {
-	if o != nil && o.Content.IsSet() {
+	if o != nil && !IsNil(o.Content) {
 		return true
 	}
 
 	return false
 }
 
-// SetContent gets a reference to the given NullableString and assigns it to the Content field.
+// SetContent gets a reference to the given string and assigns it to the Content field.
 func (o *IncomingWebhookRequestPartial) SetContent(v string) {
-	o.Content.Set(&v)
+	o.Content = &v
 }
 
-// SetContentNil sets the value for Content to be an explicit nil
-func (o *IncomingWebhookRequestPartial) SetContentNil() {
-	o.Content.Set(nil)
-}
 
-// UnsetContent ensures that no value is present for Content, not even an explicit nil
-func (o *IncomingWebhookRequestPartial) UnsetContent() {
-	o.Content.Unset()
-}
-
-// GetEmbeds returns the Embeds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmbeds returns the Embeds field value if set, zero value otherwise.
 func (o *IncomingWebhookRequestPartial) GetEmbeds() []RichEmbed {
-	if o == nil {
+	if o == nil || IsNil(o.Embeds) {
 		var ret []RichEmbed
 		return ret
 	}
@@ -138,9 +128,8 @@ func (o *IncomingWebhookRequestPartial) GetEmbeds() []RichEmbed {
 
 // GetEmbedsOk returns a tuple with the Embeds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IncomingWebhookRequestPartial) GetEmbedsOk() ([]RichEmbed, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Embeds) {
 		return nil, false
 	}
 	return o.Embeds, true
@@ -161,52 +150,42 @@ func (o *IncomingWebhookRequestPartial) SetEmbeds(v []RichEmbed) {
 }
 
 
-// GetAllowedMentions returns the AllowedMentions field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IncomingWebhookRequestPartial) GetAllowedMentions() MessageAllowedMentionsRequest {
-	if o == nil || IsNil(o.AllowedMentions.Get()) {
-		var ret MessageAllowedMentionsRequest
+// GetAllowedMentions returns the AllowedMentions field value if set, zero value otherwise.
+func (o *IncomingWebhookRequestPartial) GetAllowedMentions() BaseCreateMessageCreateRequestAllowedMentions {
+	if o == nil || IsNil(o.AllowedMentions) {
+		var ret BaseCreateMessageCreateRequestAllowedMentions
 		return ret
 	}
-	return *o.AllowedMentions.Get()
+	return *o.AllowedMentions
 }
 
 // GetAllowedMentionsOk returns a tuple with the AllowedMentions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IncomingWebhookRequestPartial) GetAllowedMentionsOk() (*MessageAllowedMentionsRequest, bool) {
-	if o == nil || IsNil(o.AllowedMentions.Get()) {
+func (o *IncomingWebhookRequestPartial) GetAllowedMentionsOk() (*BaseCreateMessageCreateRequestAllowedMentions, bool) {
+	if o == nil || IsNil(o.AllowedMentions) {
 		return nil, false
 	}
-	return o.AllowedMentions.Get(), o.AllowedMentions.IsSet()
+	return o.AllowedMentions, true
 }
 
 // HasAllowedMentions returns a boolean if a field has been set.
 func (o *IncomingWebhookRequestPartial) HasAllowedMentions() bool {
-	if o != nil && o.AllowedMentions.IsSet() {
+	if o != nil && !IsNil(o.AllowedMentions) {
 		return true
 	}
 
 	return false
 }
 
-// SetAllowedMentions gets a reference to the given NullableMessageAllowedMentionsRequest and assigns it to the AllowedMentions field.
-func (o *IncomingWebhookRequestPartial) SetAllowedMentions(v MessageAllowedMentionsRequest) {
-	o.AllowedMentions.Set(&v)
+// SetAllowedMentions gets a reference to the given BaseCreateMessageCreateRequestAllowedMentions and assigns it to the AllowedMentions field.
+func (o *IncomingWebhookRequestPartial) SetAllowedMentions(v BaseCreateMessageCreateRequestAllowedMentions) {
+	o.AllowedMentions = &v
 }
 
-// SetAllowedMentionsNil sets the value for AllowedMentions to be an explicit nil
-func (o *IncomingWebhookRequestPartial) SetAllowedMentionsNil() {
-	o.AllowedMentions.Set(nil)
-}
 
-// UnsetAllowedMentions ensures that no value is present for AllowedMentions, not even an explicit nil
-func (o *IncomingWebhookRequestPartial) UnsetAllowedMentions() {
-	o.AllowedMentions.Unset()
-}
-
-// GetComponents returns the Components field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetComponents returns the Components field value if set, zero value otherwise.
 func (o *IncomingWebhookRequestPartial) GetComponents() []BaseCreateMessageCreateRequestComponentsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Components) {
 		var ret []BaseCreateMessageCreateRequestComponentsInner
 		return ret
 	}
@@ -215,9 +194,8 @@ func (o *IncomingWebhookRequestPartial) GetComponents() []BaseCreateMessageCreat
 
 // GetComponentsOk returns a tuple with the Components field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IncomingWebhookRequestPartial) GetComponentsOk() ([]BaseCreateMessageCreateRequestComponentsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Components) {
 		return nil, false
 	}
 	return o.Components, true
@@ -238,9 +216,9 @@ func (o *IncomingWebhookRequestPartial) SetComponents(v []BaseCreateMessageCreat
 }
 
 
-// GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttachments returns the Attachments field value if set, zero value otherwise.
 func (o *IncomingWebhookRequestPartial) GetAttachments() []MessageAttachmentRequest {
-	if o == nil {
+	if o == nil || IsNil(o.Attachments) {
 		var ret []MessageAttachmentRequest
 		return ret
 	}
@@ -249,9 +227,8 @@ func (o *IncomingWebhookRequestPartial) GetAttachments() []MessageAttachmentRequ
 
 // GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IncomingWebhookRequestPartial) GetAttachmentsOk() ([]MessageAttachmentRequest, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Attachments) {
 		return nil, false
 	}
 	return o.Attachments, true
@@ -272,267 +249,207 @@ func (o *IncomingWebhookRequestPartial) SetAttachments(v []MessageAttachmentRequ
 }
 
 
-// GetPoll returns the Poll field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IncomingWebhookRequestPartial) GetPoll() PollCreateRequest {
-	if o == nil || IsNil(o.Poll.Get()) {
-		var ret PollCreateRequest
+// GetPoll returns the Poll field value if set, zero value otherwise.
+func (o *IncomingWebhookRequestPartial) GetPoll() BaseCreateMessageCreateRequestPoll {
+	if o == nil || IsNil(o.Poll) {
+		var ret BaseCreateMessageCreateRequestPoll
 		return ret
 	}
-	return *o.Poll.Get()
+	return *o.Poll
 }
 
 // GetPollOk returns a tuple with the Poll field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IncomingWebhookRequestPartial) GetPollOk() (*PollCreateRequest, bool) {
-	if o == nil || IsNil(o.Poll.Get()) {
+func (o *IncomingWebhookRequestPartial) GetPollOk() (*BaseCreateMessageCreateRequestPoll, bool) {
+	if o == nil || IsNil(o.Poll) {
 		return nil, false
 	}
-	return o.Poll.Get(), o.Poll.IsSet()
+	return o.Poll, true
 }
 
 // HasPoll returns a boolean if a field has been set.
 func (o *IncomingWebhookRequestPartial) HasPoll() bool {
-	if o != nil && o.Poll.IsSet() {
+	if o != nil && !IsNil(o.Poll) {
 		return true
 	}
 
 	return false
 }
 
-// SetPoll gets a reference to the given NullablePollCreateRequest and assigns it to the Poll field.
-func (o *IncomingWebhookRequestPartial) SetPoll(v PollCreateRequest) {
-	o.Poll.Set(&v)
+// SetPoll gets a reference to the given BaseCreateMessageCreateRequestPoll and assigns it to the Poll field.
+func (o *IncomingWebhookRequestPartial) SetPoll(v BaseCreateMessageCreateRequestPoll) {
+	o.Poll = &v
 }
 
-// SetPollNil sets the value for Poll to be an explicit nil
-func (o *IncomingWebhookRequestPartial) SetPollNil() {
-	o.Poll.Set(nil)
-}
 
-// UnsetPoll ensures that no value is present for Poll, not even an explicit nil
-func (o *IncomingWebhookRequestPartial) UnsetPoll() {
-	o.Poll.Unset()
-}
-
-// GetTts returns the Tts field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTts returns the Tts field value if set, zero value otherwise.
 func (o *IncomingWebhookRequestPartial) GetTts() bool {
-	if o == nil || IsNil(o.Tts.Get()) {
+	if o == nil || IsNil(o.Tts) {
 		var ret bool
 		return ret
 	}
-	return *o.Tts.Get()
+	return *o.Tts
 }
 
 // GetTtsOk returns a tuple with the Tts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IncomingWebhookRequestPartial) GetTtsOk() (*bool, bool) {
-	if o == nil || IsNil(o.Tts.Get()) {
+	if o == nil || IsNil(o.Tts) {
 		return nil, false
 	}
-	return o.Tts.Get(), o.Tts.IsSet()
+	return o.Tts, true
 }
 
 // HasTts returns a boolean if a field has been set.
 func (o *IncomingWebhookRequestPartial) HasTts() bool {
-	if o != nil && o.Tts.IsSet() {
+	if o != nil && !IsNil(o.Tts) {
 		return true
 	}
 
 	return false
 }
 
-// SetTts gets a reference to the given NullableBool and assigns it to the Tts field.
+// SetTts gets a reference to the given bool and assigns it to the Tts field.
 func (o *IncomingWebhookRequestPartial) SetTts(v bool) {
-	o.Tts.Set(&v)
+	o.Tts = &v
 }
 
-// SetTtsNil sets the value for Tts to be an explicit nil
-func (o *IncomingWebhookRequestPartial) SetTtsNil() {
-	o.Tts.Set(nil)
-}
 
-// UnsetTts ensures that no value is present for Tts, not even an explicit nil
-func (o *IncomingWebhookRequestPartial) UnsetTts() {
-	o.Tts.Unset()
-}
-
-// GetFlags returns the Flags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFlags returns the Flags field value if set, zero value otherwise.
 func (o *IncomingWebhookRequestPartial) GetFlags() int32 {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		var ret int32
 		return ret
 	}
-	return *o.Flags.Get()
+	return *o.Flags
 }
 
 // GetFlagsOk returns a tuple with the Flags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IncomingWebhookRequestPartial) GetFlagsOk() (*int32, bool) {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		return nil, false
 	}
-	return o.Flags.Get(), o.Flags.IsSet()
+	return o.Flags, true
 }
 
 // HasFlags returns a boolean if a field has been set.
 func (o *IncomingWebhookRequestPartial) HasFlags() bool {
-	if o != nil && o.Flags.IsSet() {
+	if o != nil && !IsNil(o.Flags) {
 		return true
 	}
 
 	return false
 }
 
-// SetFlags gets a reference to the given NullableInt32 and assigns it to the Flags field.
+// SetFlags gets a reference to the given int32 and assigns it to the Flags field.
 func (o *IncomingWebhookRequestPartial) SetFlags(v int32) {
-	o.Flags.Set(&v)
+	o.Flags = &v
 }
 
-// SetFlagsNil sets the value for Flags to be an explicit nil
-func (o *IncomingWebhookRequestPartial) SetFlagsNil() {
-	o.Flags.Set(nil)
-}
 
-// UnsetFlags ensures that no value is present for Flags, not even an explicit nil
-func (o *IncomingWebhookRequestPartial) UnsetFlags() {
-	o.Flags.Unset()
-}
-
-// GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUsername returns the Username field value if set, zero value otherwise.
 func (o *IncomingWebhookRequestPartial) GetUsername() string {
-	if o == nil || IsNil(o.Username.Get()) {
+	if o == nil || IsNil(o.Username) {
 		var ret string
 		return ret
 	}
-	return *o.Username.Get()
+	return *o.Username
 }
 
 // GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IncomingWebhookRequestPartial) GetUsernameOk() (*string, bool) {
-	if o == nil || IsNil(o.Username.Get()) {
+	if o == nil || IsNil(o.Username) {
 		return nil, false
 	}
-	return o.Username.Get(), o.Username.IsSet()
+	return o.Username, true
 }
 
 // HasUsername returns a boolean if a field has been set.
 func (o *IncomingWebhookRequestPartial) HasUsername() bool {
-	if o != nil && o.Username.IsSet() {
+	if o != nil && !IsNil(o.Username) {
 		return true
 	}
 
 	return false
 }
 
-// SetUsername gets a reference to the given NullableString and assigns it to the Username field.
+// SetUsername gets a reference to the given string and assigns it to the Username field.
 func (o *IncomingWebhookRequestPartial) SetUsername(v string) {
-	o.Username.Set(&v)
+	o.Username = &v
 }
 
-// SetUsernameNil sets the value for Username to be an explicit nil
-func (o *IncomingWebhookRequestPartial) SetUsernameNil() {
-	o.Username.Set(nil)
-}
 
-// UnsetUsername ensures that no value is present for Username, not even an explicit nil
-func (o *IncomingWebhookRequestPartial) UnsetUsername() {
-	o.Username.Unset()
-}
-
-// GetAvatarUrl returns the AvatarUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAvatarUrl returns the AvatarUrl field value if set, zero value otherwise.
 func (o *IncomingWebhookRequestPartial) GetAvatarUrl() string {
-	if o == nil || IsNil(o.AvatarUrl.Get()) {
+	if o == nil || IsNil(o.AvatarUrl) {
 		var ret string
 		return ret
 	}
-	return *o.AvatarUrl.Get()
+	return *o.AvatarUrl
 }
 
 // GetAvatarUrlOk returns a tuple with the AvatarUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IncomingWebhookRequestPartial) GetAvatarUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.AvatarUrl.Get()) {
+	if o == nil || IsNil(o.AvatarUrl) {
 		return nil, false
 	}
-	return o.AvatarUrl.Get(), o.AvatarUrl.IsSet()
+	return o.AvatarUrl, true
 }
 
 // HasAvatarUrl returns a boolean if a field has been set.
 func (o *IncomingWebhookRequestPartial) HasAvatarUrl() bool {
-	if o != nil && o.AvatarUrl.IsSet() {
+	if o != nil && !IsNil(o.AvatarUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetAvatarUrl gets a reference to the given NullableString and assigns it to the AvatarUrl field.
+// SetAvatarUrl gets a reference to the given string and assigns it to the AvatarUrl field.
 func (o *IncomingWebhookRequestPartial) SetAvatarUrl(v string) {
-	o.AvatarUrl.Set(&v)
+	o.AvatarUrl = &v
 }
 
-// SetAvatarUrlNil sets the value for AvatarUrl to be an explicit nil
-func (o *IncomingWebhookRequestPartial) SetAvatarUrlNil() {
-	o.AvatarUrl.Set(nil)
-}
 
-// UnsetAvatarUrl ensures that no value is present for AvatarUrl, not even an explicit nil
-func (o *IncomingWebhookRequestPartial) UnsetAvatarUrl() {
-	o.AvatarUrl.Unset()
-}
-
-// GetThreadName returns the ThreadName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetThreadName returns the ThreadName field value if set, zero value otherwise.
 func (o *IncomingWebhookRequestPartial) GetThreadName() string {
-	if o == nil || IsNil(o.ThreadName.Get()) {
+	if o == nil || IsNil(o.ThreadName) {
 		var ret string
 		return ret
 	}
-	return *o.ThreadName.Get()
+	return *o.ThreadName
 }
 
 // GetThreadNameOk returns a tuple with the ThreadName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IncomingWebhookRequestPartial) GetThreadNameOk() (*string, bool) {
-	if o == nil || IsNil(o.ThreadName.Get()) {
+	if o == nil || IsNil(o.ThreadName) {
 		return nil, false
 	}
-	return o.ThreadName.Get(), o.ThreadName.IsSet()
+	return o.ThreadName, true
 }
 
 // HasThreadName returns a boolean if a field has been set.
 func (o *IncomingWebhookRequestPartial) HasThreadName() bool {
-	if o != nil && o.ThreadName.IsSet() {
+	if o != nil && !IsNil(o.ThreadName) {
 		return true
 	}
 
 	return false
 }
 
-// SetThreadName gets a reference to the given NullableString and assigns it to the ThreadName field.
+// SetThreadName gets a reference to the given string and assigns it to the ThreadName field.
 func (o *IncomingWebhookRequestPartial) SetThreadName(v string) {
-	o.ThreadName.Set(&v)
+	o.ThreadName = &v
 }
 
-// SetThreadNameNil sets the value for ThreadName to be an explicit nil
-func (o *IncomingWebhookRequestPartial) SetThreadNameNil() {
-	o.ThreadName.Set(nil)
-}
 
-// UnsetThreadName ensures that no value is present for ThreadName, not even an explicit nil
-func (o *IncomingWebhookRequestPartial) UnsetThreadName() {
-	o.ThreadName.Unset()
-}
-
-// GetAppliedTags returns the AppliedTags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAppliedTags returns the AppliedTags field value if set, zero value otherwise.
 func (o *IncomingWebhookRequestPartial) GetAppliedTags() []string {
-	if o == nil {
+	if o == nil || IsNil(o.AppliedTags) {
 		var ret []string
 		return ret
 	}
@@ -541,9 +458,8 @@ func (o *IncomingWebhookRequestPartial) GetAppliedTags() []string {
 
 // GetAppliedTagsOk returns a tuple with the AppliedTags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IncomingWebhookRequestPartial) GetAppliedTagsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AppliedTags) {
 		return nil, false
 	}
 	return o.AppliedTags, true
@@ -574,40 +490,40 @@ func (o IncomingWebhookRequestPartial) MarshalJSON() ([]byte, error) {
 
 func (o IncomingWebhookRequestPartial) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Content.IsSet() {
-		toSerialize["content"] = o.Content.Get()
+	if !IsNil(o.Content) {
+		toSerialize["content"] = o.Content
 	}
-	if o.Embeds != nil {
+	if !IsNil(o.Embeds) {
 		toSerialize["embeds"] = o.Embeds
 	}
-	if o.AllowedMentions.IsSet() {
-		toSerialize["allowed_mentions"] = o.AllowedMentions.Get()
+	if !IsNil(o.AllowedMentions) {
+		toSerialize["allowed_mentions"] = o.AllowedMentions
 	}
-	if o.Components != nil {
+	if !IsNil(o.Components) {
 		toSerialize["components"] = o.Components
 	}
-	if o.Attachments != nil {
+	if !IsNil(o.Attachments) {
 		toSerialize["attachments"] = o.Attachments
 	}
-	if o.Poll.IsSet() {
-		toSerialize["poll"] = o.Poll.Get()
+	if !IsNil(o.Poll) {
+		toSerialize["poll"] = o.Poll
 	}
-	if o.Tts.IsSet() {
-		toSerialize["tts"] = o.Tts.Get()
+	if !IsNil(o.Tts) {
+		toSerialize["tts"] = o.Tts
 	}
-	if o.Flags.IsSet() {
-		toSerialize["flags"] = o.Flags.Get()
+	if !IsNil(o.Flags) {
+		toSerialize["flags"] = o.Flags
 	}
-	if o.Username.IsSet() {
-		toSerialize["username"] = o.Username.Get()
+	if !IsNil(o.Username) {
+		toSerialize["username"] = o.Username
 	}
-	if o.AvatarUrl.IsSet() {
-		toSerialize["avatar_url"] = o.AvatarUrl.Get()
+	if !IsNil(o.AvatarUrl) {
+		toSerialize["avatar_url"] = o.AvatarUrl
 	}
-	if o.ThreadName.IsSet() {
-		toSerialize["thread_name"] = o.ThreadName.Get()
+	if !IsNil(o.ThreadName) {
+		toSerialize["thread_name"] = o.ThreadName
 	}
-	if o.AppliedTags != nil {
+	if !IsNil(o.AppliedTags) {
 		toSerialize["applied_tags"] = o.AppliedTags
 	}
 	return toSerialize, nil
@@ -648,5 +564,4 @@ func (v *NullableIncomingWebhookRequestPartial) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

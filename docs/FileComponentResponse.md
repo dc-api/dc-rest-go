@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
 **Id** | **int32** |  | 
 **File** | [**UnfurledMediaResponse**](UnfurledMediaResponse.md) |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Size** | Pointer to **NullableInt32** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Size** | Pointer to **int32** |  | [optional] 
 **Spoiler** | **bool** |  | 
 
 ## Methods
 
 ### NewFileComponentResponse
 
-`func NewFileComponentResponse(type_ int32, id int32, file UnfurledMediaResponse, spoiler bool, ) *FileComponentResponse`
+`func NewFileComponentResponse(type_ MessageComponentTypes, id int32, file UnfurledMediaResponse, spoiler bool, ) *FileComponentResponse`
 
 NewFileComponentResponse instantiates a new FileComponentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -32,20 +32,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *FileComponentResponse) GetType() int32`
+`func (o *FileComponentResponse) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *FileComponentResponse) GetTypeOk() (*int32, bool)`
+`func (o *FileComponentResponse) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *FileComponentResponse) SetType(v int32)`
+`func (o *FileComponentResponse) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
@@ -115,16 +115,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *FileComponentResponse) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *FileComponentResponse) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetSize
 
 `func (o *FileComponentResponse) GetSize() int32`
@@ -150,16 +140,6 @@ SetSize sets Size field to given value.
 
 HasSize returns a boolean if a field has been set.
 
-### SetSizeNil
-
-`func (o *FileComponentResponse) SetSizeNil(b bool)`
-
- SetSizeNil sets the value for Size to be an explicit nil
-
-### UnsetSize
-`func (o *FileComponentResponse) UnsetSize()`
-
-UnsetSize ensures that no value is present for Size, not even an explicit nil
 ### GetSpoiler
 
 `func (o *FileComponentResponse) GetSpoiler() bool`

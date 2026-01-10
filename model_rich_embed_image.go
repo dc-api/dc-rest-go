@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -46,372 +46,91 @@ package dc_rest
 
 import (
 	"encoding/json"
+	"fmt"
+	"gopkg.in/validator.v2"
 )
 
-// checks if the RichEmbedImage type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &RichEmbedImage{}
-
-// RichEmbedImage struct for RichEmbedImage
+// RichEmbedImage - struct for RichEmbedImage
 type RichEmbedImage struct {
-	Url NullableString `json:"url,omitempty"`
-	Width NullableInt32 `json:"width,omitempty"`
-	Height NullableInt32 `json:"height,omitempty"`
-	Placeholder NullableString `json:"placeholder,omitempty"`
-	PlaceholderVersion NullableInt32 `json:"placeholder_version,omitempty"`
-	IsAnimated NullableBool `json:"is_animated,omitempty"`
-	Description NullableString `json:"description,omitempty"`
+	RichEmbedImage *RichEmbedImage
 }
 
-// NewRichEmbedImage instantiates a new RichEmbedImage object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewRichEmbedImage() *RichEmbedImage {
-	this := RichEmbedImage{}
-	return &this
-}
-
-// NewRichEmbedImageWithDefaults instantiates a new RichEmbedImage object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewRichEmbedImageWithDefaults() *RichEmbedImage {
-	this := RichEmbedImage{}
-	return &this
-}
-
-// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RichEmbedImage) GetUrl() string {
-	if o == nil || IsNil(o.Url.Get()) {
-		var ret string
-		return ret
+// RichEmbedImageAsRichEmbedImage is a convenience function that returns RichEmbedImage wrapped in RichEmbedImage
+func RichEmbedImageAsRichEmbedImage(v *RichEmbedImage) RichEmbedImage {
+	return RichEmbedImage{
+		RichEmbedImage: v,
 	}
-	return *o.Url.Get()
 }
 
-// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RichEmbedImage) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url.Get()) {
-		return nil, false
-	}
-	return o.Url.Get(), o.Url.IsSet()
-}
 
-// HasUrl returns a boolean if a field has been set.
-func (o *RichEmbedImage) HasUrl() bool {
-	if o != nil && o.Url.IsSet() {
-		return true
+// Unmarshal JSON data into one of the pointers in the struct
+func (dst *RichEmbedImage) UnmarshalJSON(data []byte) error {
+	var err error
+	// this object is nullable so check if the payload is null or empty string
+	if string(data) == "" || string(data) == "{}" {
+		return nil
 	}
 
-	return false
-}
-
-// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
-func (o *RichEmbedImage) SetUrl(v string) {
-	o.Url.Set(&v)
-}
-
-// SetUrlNil sets the value for Url to be an explicit nil
-func (o *RichEmbedImage) SetUrlNil() {
-	o.Url.Set(nil)
-}
-
-// UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *RichEmbedImage) UnsetUrl() {
-	o.Url.Unset()
-}
-
-// GetWidth returns the Width field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RichEmbedImage) GetWidth() int32 {
-	if o == nil || IsNil(o.Width.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.Width.Get()
-}
-
-// GetWidthOk returns a tuple with the Width field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RichEmbedImage) GetWidthOk() (*int32, bool) {
-	if o == nil || IsNil(o.Width.Get()) {
-		return nil, false
-	}
-	return o.Width.Get(), o.Width.IsSet()
-}
-
-// HasWidth returns a boolean if a field has been set.
-func (o *RichEmbedImage) HasWidth() bool {
-	if o != nil && o.Width.IsSet() {
-		return true
+	match := 0
+	// try to unmarshal data into RichEmbedImage
+	err = newStrictDecoder(data).Decode(&dst.RichEmbedImage)
+	if err == nil {
+		jsonRichEmbedImage, _ := json.Marshal(dst.RichEmbedImage)
+		if string(jsonRichEmbedImage) == "{}" { // empty struct
+			dst.RichEmbedImage = nil
+		} else {
+			if err = validator.Validate(dst.RichEmbedImage); err != nil {
+				dst.RichEmbedImage = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.RichEmbedImage = nil
 	}
 
-	return false
-}
+	if match > 1 { // more than 1 match
+		// reset to nil
+		dst.RichEmbedImage = nil
 
-// SetWidth gets a reference to the given NullableInt32 and assigns it to the Width field.
-func (o *RichEmbedImage) SetWidth(v int32) {
-	o.Width.Set(&v)
-}
-
-// SetWidthNil sets the value for Width to be an explicit nil
-func (o *RichEmbedImage) SetWidthNil() {
-	o.Width.Set(nil)
-}
-
-// UnsetWidth ensures that no value is present for Width, not even an explicit nil
-func (o *RichEmbedImage) UnsetWidth() {
-	o.Width.Unset()
-}
-
-// GetHeight returns the Height field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RichEmbedImage) GetHeight() int32 {
-	if o == nil || IsNil(o.Height.Get()) {
-		var ret int32
-		return ret
+		return fmt.Errorf("data matches more than one schema in oneOf(RichEmbedImage)")
+	} else if match == 1 {
+		return nil // exactly one match
+	} else { // no match
+		return fmt.Errorf("data failed to match schemas in oneOf(RichEmbedImage)")
 	}
-	return *o.Height.Get()
 }
 
-// GetHeightOk returns a tuple with the Height field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RichEmbedImage) GetHeightOk() (*int32, bool) {
-	if o == nil || IsNil(o.Height.Get()) {
-		return nil, false
-	}
-	return o.Height.Get(), o.Height.IsSet()
-}
-
-// HasHeight returns a boolean if a field has been set.
-func (o *RichEmbedImage) HasHeight() bool {
-	if o != nil && o.Height.IsSet() {
-		return true
+// Marshal data from the first non-nil pointers in the struct to JSON
+func (src RichEmbedImage) MarshalJSON() ([]byte, error) {
+	if src.RichEmbedImage != nil {
+		return json.Marshal(&src.RichEmbedImage)
 	}
 
-	return false
+	return nil, nil // no data in oneOf schemas
 }
 
-// SetHeight gets a reference to the given NullableInt32 and assigns it to the Height field.
-func (o *RichEmbedImage) SetHeight(v int32) {
-	o.Height.Set(&v)
-}
-
-// SetHeightNil sets the value for Height to be an explicit nil
-func (o *RichEmbedImage) SetHeightNil() {
-	o.Height.Set(nil)
-}
-
-// UnsetHeight ensures that no value is present for Height, not even an explicit nil
-func (o *RichEmbedImage) UnsetHeight() {
-	o.Height.Unset()
-}
-
-// GetPlaceholder returns the Placeholder field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RichEmbedImage) GetPlaceholder() string {
-	if o == nil || IsNil(o.Placeholder.Get()) {
-		var ret string
-		return ret
+// Get the actual instance
+func (obj *RichEmbedImage) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
 	}
-	return *o.Placeholder.Get()
-}
-
-// GetPlaceholderOk returns a tuple with the Placeholder field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RichEmbedImage) GetPlaceholderOk() (*string, bool) {
-	if o == nil || IsNil(o.Placeholder.Get()) {
-		return nil, false
-	}
-	return o.Placeholder.Get(), o.Placeholder.IsSet()
-}
-
-// HasPlaceholder returns a boolean if a field has been set.
-func (o *RichEmbedImage) HasPlaceholder() bool {
-	if o != nil && o.Placeholder.IsSet() {
-		return true
+	if obj.RichEmbedImage != nil {
+		return obj.RichEmbedImage
 	}
 
-	return false
+	// all schemas are nil
+	return nil
 }
 
-// SetPlaceholder gets a reference to the given NullableString and assigns it to the Placeholder field.
-func (o *RichEmbedImage) SetPlaceholder(v string) {
-	o.Placeholder.Set(&v)
-}
-
-// SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-func (o *RichEmbedImage) SetPlaceholderNil() {
-	o.Placeholder.Set(nil)
-}
-
-// UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
-func (o *RichEmbedImage) UnsetPlaceholder() {
-	o.Placeholder.Unset()
-}
-
-// GetPlaceholderVersion returns the PlaceholderVersion field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RichEmbedImage) GetPlaceholderVersion() int32 {
-	if o == nil || IsNil(o.PlaceholderVersion.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.PlaceholderVersion.Get()
-}
-
-// GetPlaceholderVersionOk returns a tuple with the PlaceholderVersion field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RichEmbedImage) GetPlaceholderVersionOk() (*int32, bool) {
-	if o == nil || IsNil(o.PlaceholderVersion.Get()) {
-		return nil, false
-	}
-	return o.PlaceholderVersion.Get(), o.PlaceholderVersion.IsSet()
-}
-
-// HasPlaceholderVersion returns a boolean if a field has been set.
-func (o *RichEmbedImage) HasPlaceholderVersion() bool {
-	if o != nil && o.PlaceholderVersion.IsSet() {
-		return true
+// Get the actual instance value
+func (obj RichEmbedImage) GetActualInstanceValue() (interface{}) {
+	if obj.RichEmbedImage != nil {
+		return *obj.RichEmbedImage
 	}
 
-	return false
-}
-
-// SetPlaceholderVersion gets a reference to the given NullableInt32 and assigns it to the PlaceholderVersion field.
-func (o *RichEmbedImage) SetPlaceholderVersion(v int32) {
-	o.PlaceholderVersion.Set(&v)
-}
-
-// SetPlaceholderVersionNil sets the value for PlaceholderVersion to be an explicit nil
-func (o *RichEmbedImage) SetPlaceholderVersionNil() {
-	o.PlaceholderVersion.Set(nil)
-}
-
-// UnsetPlaceholderVersion ensures that no value is present for PlaceholderVersion, not even an explicit nil
-func (o *RichEmbedImage) UnsetPlaceholderVersion() {
-	o.PlaceholderVersion.Unset()
-}
-
-// GetIsAnimated returns the IsAnimated field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RichEmbedImage) GetIsAnimated() bool {
-	if o == nil || IsNil(o.IsAnimated.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.IsAnimated.Get()
-}
-
-// GetIsAnimatedOk returns a tuple with the IsAnimated field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RichEmbedImage) GetIsAnimatedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsAnimated.Get()) {
-		return nil, false
-	}
-	return o.IsAnimated.Get(), o.IsAnimated.IsSet()
-}
-
-// HasIsAnimated returns a boolean if a field has been set.
-func (o *RichEmbedImage) HasIsAnimated() bool {
-	if o != nil && o.IsAnimated.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIsAnimated gets a reference to the given NullableBool and assigns it to the IsAnimated field.
-func (o *RichEmbedImage) SetIsAnimated(v bool) {
-	o.IsAnimated.Set(&v)
-}
-
-// SetIsAnimatedNil sets the value for IsAnimated to be an explicit nil
-func (o *RichEmbedImage) SetIsAnimatedNil() {
-	o.IsAnimated.Set(nil)
-}
-
-// UnsetIsAnimated ensures that no value is present for IsAnimated, not even an explicit nil
-func (o *RichEmbedImage) UnsetIsAnimated() {
-	o.IsAnimated.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RichEmbedImage) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Description.Get()
-}
-
-// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RichEmbedImage) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
-		return nil, false
-	}
-	return o.Description.Get(), o.Description.IsSet()
-}
-
-// HasDescription returns a boolean if a field has been set.
-func (o *RichEmbedImage) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
-func (o *RichEmbedImage) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *RichEmbedImage) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *RichEmbedImage) UnsetDescription() {
-	o.Description.Unset()
-}
-
-func (o RichEmbedImage) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
-	if err != nil {
-		return []byte{}, err
-	}
-	return json.Marshal(toSerialize)
-}
-
-func (o RichEmbedImage) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
-	if o.Url.IsSet() {
-		toSerialize["url"] = o.Url.Get()
-	}
-	if o.Width.IsSet() {
-		toSerialize["width"] = o.Width.Get()
-	}
-	if o.Height.IsSet() {
-		toSerialize["height"] = o.Height.Get()
-	}
-	if o.Placeholder.IsSet() {
-		toSerialize["placeholder"] = o.Placeholder.Get()
-	}
-	if o.PlaceholderVersion.IsSet() {
-		toSerialize["placeholder_version"] = o.PlaceholderVersion.Get()
-	}
-	if o.IsAnimated.IsSet() {
-		toSerialize["is_animated"] = o.IsAnimated.Get()
-	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
-	}
-	return toSerialize, nil
+	// all schemas are nil
+	return nil
 }
 
 type NullableRichEmbedImage struct {
@@ -449,5 +168,4 @@ func (v *NullableRichEmbedImage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

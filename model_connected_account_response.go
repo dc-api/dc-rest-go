@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,15 +56,15 @@ var _ MappedNullable = &ConnectedAccountResponse{}
 // ConnectedAccountResponse struct for ConnectedAccountResponse
 type ConnectedAccountResponse struct {
 	Id string `json:"id"`
-	Name NullableString `json:"name,omitempty"`
-	Type NullableString `json:"type"`
+	Name *string `json:"name,omitempty"`
+	Type ConnectedAccountProviders `json:"type"`
 	FriendSync bool `json:"friend_sync"`
 	Integrations []ConnectedAccountIntegrationResponse `json:"integrations,omitempty"`
 	ShowActivity bool `json:"show_activity"`
 	TwoWayLink bool `json:"two_way_link"`
 	Verified bool `json:"verified"`
-	Visibility NullableInt32 `json:"visibility"`
-	Revoked NullableBool `json:"revoked,omitempty"`
+	Visibility ConnectedAccountVisibility `json:"visibility"`
+	Revoked *bool `json:"revoked,omitempty"`
 }
 
 type _ConnectedAccountResponse ConnectedAccountResponse
@@ -73,7 +73,7 @@ type _ConnectedAccountResponse ConnectedAccountResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConnectedAccountResponse(id string, type_ NullableString, friendSync bool, showActivity bool, twoWayLink bool, verified bool, visibility NullableInt32) *ConnectedAccountResponse {
+func NewConnectedAccountResponse(id string, type_ ConnectedAccountProviders, friendSync bool, showActivity bool, twoWayLink bool, verified bool, visibility ConnectedAccountVisibility) *ConnectedAccountResponse {
 	this := ConnectedAccountResponse{}
 	this.Id = id
 	this.Type = type_
@@ -117,73 +117,61 @@ func (o *ConnectedAccountResponse) SetId(v string) {
 	o.Id = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *ConnectedAccountResponse) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectedAccountResponse) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *ConnectedAccountResponse) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *ConnectedAccountResponse) SetName(v string) {
-	o.Name.Set(&v)
+	o.Name = &v
 }
 
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *ConnectedAccountResponse) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *ConnectedAccountResponse) UnsetName() {
-	o.Name.Unset()
-}
 
 // GetType returns the Type field value
-// If the value is explicit nil, the zero value for string will be returned
-func (o *ConnectedAccountResponse) GetType() string {
-	if o == nil || o.Type.Get() == nil {
-		var ret string
+func (o *ConnectedAccountResponse) GetType() ConnectedAccountProviders {
+	if o == nil {
+		var ret ConnectedAccountProviders
 		return ret
 	}
 
-	return *o.Type.Get()
+	return o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ConnectedAccountResponse) GetTypeOk() (*string, bool) {
+func (o *ConnectedAccountResponse) GetTypeOk() (*ConnectedAccountProviders, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return &o.Type, true
 }
 
 // SetType sets field value
-func (o *ConnectedAccountResponse) SetType(v string) {
-	o.Type.Set(&v)
+func (o *ConnectedAccountResponse) SetType(v ConnectedAccountProviders) {
+	o.Type = v
 }
 
 // GetFriendSync returns the FriendSync field value
@@ -210,9 +198,9 @@ func (o *ConnectedAccountResponse) SetFriendSync(v bool) {
 	o.FriendSync = v
 }
 
-// GetIntegrations returns the Integrations field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIntegrations returns the Integrations field value if set, zero value otherwise.
 func (o *ConnectedAccountResponse) GetIntegrations() []ConnectedAccountIntegrationResponse {
-	if o == nil {
+	if o == nil || IsNil(o.Integrations) {
 		var ret []ConnectedAccountIntegrationResponse
 		return ret
 	}
@@ -221,9 +209,8 @@ func (o *ConnectedAccountResponse) GetIntegrations() []ConnectedAccountIntegrati
 
 // GetIntegrationsOk returns a tuple with the Integrations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectedAccountResponse) GetIntegrationsOk() ([]ConnectedAccountIntegrationResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Integrations) {
 		return nil, false
 	}
 	return o.Integrations, true
@@ -317,73 +304,61 @@ func (o *ConnectedAccountResponse) SetVerified(v bool) {
 }
 
 // GetVisibility returns the Visibility field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *ConnectedAccountResponse) GetVisibility() int32 {
-	if o == nil || o.Visibility.Get() == nil {
-		var ret int32
+func (o *ConnectedAccountResponse) GetVisibility() ConnectedAccountVisibility {
+	if o == nil {
+		var ret ConnectedAccountVisibility
 		return ret
 	}
 
-	return *o.Visibility.Get()
+	return o.Visibility
 }
 
 // GetVisibilityOk returns a tuple with the Visibility field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ConnectedAccountResponse) GetVisibilityOk() (*int32, bool) {
+func (o *ConnectedAccountResponse) GetVisibilityOk() (*ConnectedAccountVisibility, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Visibility.Get(), o.Visibility.IsSet()
+	return &o.Visibility, true
 }
 
 // SetVisibility sets field value
-func (o *ConnectedAccountResponse) SetVisibility(v int32) {
-	o.Visibility.Set(&v)
+func (o *ConnectedAccountResponse) SetVisibility(v ConnectedAccountVisibility) {
+	o.Visibility = v
 }
 
-// GetRevoked returns the Revoked field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRevoked returns the Revoked field value if set, zero value otherwise.
 func (o *ConnectedAccountResponse) GetRevoked() bool {
-	if o == nil || IsNil(o.Revoked.Get()) {
+	if o == nil || IsNil(o.Revoked) {
 		var ret bool
 		return ret
 	}
-	return *o.Revoked.Get()
+	return *o.Revoked
 }
 
 // GetRevokedOk returns a tuple with the Revoked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectedAccountResponse) GetRevokedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Revoked.Get()) {
+	if o == nil || IsNil(o.Revoked) {
 		return nil, false
 	}
-	return o.Revoked.Get(), o.Revoked.IsSet()
+	return o.Revoked, true
 }
 
 // HasRevoked returns a boolean if a field has been set.
 func (o *ConnectedAccountResponse) HasRevoked() bool {
-	if o != nil && o.Revoked.IsSet() {
+	if o != nil && !IsNil(o.Revoked) {
 		return true
 	}
 
 	return false
 }
 
-// SetRevoked gets a reference to the given NullableBool and assigns it to the Revoked field.
+// SetRevoked gets a reference to the given bool and assigns it to the Revoked field.
 func (o *ConnectedAccountResponse) SetRevoked(v bool) {
-	o.Revoked.Set(&v)
+	o.Revoked = &v
 }
 
-// SetRevokedNil sets the value for Revoked to be an explicit nil
-func (o *ConnectedAccountResponse) SetRevokedNil() {
-	o.Revoked.Set(nil)
-}
-
-// UnsetRevoked ensures that no value is present for Revoked, not even an explicit nil
-func (o *ConnectedAccountResponse) UnsetRevoked() {
-	o.Revoked.Unset()
-}
 
 func (o ConnectedAccountResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -396,20 +371,20 @@ func (o ConnectedAccountResponse) MarshalJSON() ([]byte, error) {
 func (o ConnectedAccountResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	toSerialize["type"] = o.Type.Get()
+	toSerialize["type"] = o.Type
 	toSerialize["friend_sync"] = o.FriendSync
-	if o.Integrations != nil {
+	if !IsNil(o.Integrations) {
 		toSerialize["integrations"] = o.Integrations
 	}
 	toSerialize["show_activity"] = o.ShowActivity
 	toSerialize["two_way_link"] = o.TwoWayLink
 	toSerialize["verified"] = o.Verified
-	toSerialize["visibility"] = o.Visibility.Get()
-	if o.Revoked.IsSet() {
-		toSerialize["revoked"] = o.Revoked.Get()
+	toSerialize["visibility"] = o.Visibility
+	if !IsNil(o.Revoked) {
+		toSerialize["revoked"] = o.Revoked
 	}
 	return toSerialize, nil
 }
@@ -492,5 +467,4 @@ func (v *NullableConnectedAccountResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

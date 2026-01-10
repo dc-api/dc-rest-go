@@ -8,25 +8,25 @@ Name | Type | Description | Notes
 **GuildId** | **string** |  | 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
-**CreatorId** | Pointer to **string** |  | [optional] 
+**ChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**CreatorId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Creator** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 **Image** | Pointer to **string** |  | [optional] 
 **ScheduledStartTime** | **time.Time** |  | 
 **ScheduledEndTime** | Pointer to **time.Time** |  | [optional] 
-**Status** | **int32** |  | 
-**EntityType** | **NullableInt32** |  | 
-**EntityId** | Pointer to **string** |  | [optional] 
+**Status** | [**GuildScheduledEventStatuses**](GuildScheduledEventStatuses.md) |  | 
+**EntityType** | [**GuildScheduledEventEntityTypes**](GuildScheduledEventEntityTypes.md) |  | 
+**EntityId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **UserCount** | Pointer to **int32** |  | [optional] 
-**PrivacyLevel** | **interface{}** |  | 
-**UserRsvp** | Pointer to [**ScheduledEventUserResponse**](ScheduledEventUserResponse.md) |  | [optional] 
-**EntityMetadata** | **map[string]interface{}** |  | 
+**PrivacyLevel** | [**GuildScheduledEventPrivacyLevels**](GuildScheduledEventPrivacyLevels.md) |  | 
+**UserRsvp** | Pointer to [**ExternalScheduledEventResponseUserRsvp**](ExternalScheduledEventResponseUserRsvp.md) |  | [optional] 
+**EntityMetadata** | [**VoiceScheduledEventResponseEntityMetadata**](VoiceScheduledEventResponseEntityMetadata.md) |  | 
 
 ## Methods
 
 ### NewListGuildScheduledEvents200ResponseInner
 
-`func NewListGuildScheduledEvents200ResponseInner(id string, guildId string, name string, scheduledStartTime time.Time, status int32, entityType NullableInt32, privacyLevel interface{}, entityMetadata map[string]interface{}, ) *ListGuildScheduledEvents200ResponseInner`
+`func NewListGuildScheduledEvents200ResponseInner(id string, guildId string, name string, scheduledStartTime time.Time, status GuildScheduledEventStatuses, entityType GuildScheduledEventEntityTypes, privacyLevel GuildScheduledEventPrivacyLevels, entityMetadata VoiceScheduledEventResponseEntityMetadata, ) *ListGuildScheduledEvents200ResponseInner`
 
 NewListGuildScheduledEvents200ResponseInner instantiates a new ListGuildScheduledEvents200ResponseInner object
 This constructor will assign default values to properties that have it defined,
@@ -128,20 +128,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetChannelId
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetChannelId() string`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
 
 ### GetChannelIdOk
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetChannelIdOk() (*string, bool)`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelId
 
-`func (o *ListGuildScheduledEvents200ResponseInner) SetChannelId(v string)`
+`func (o *ListGuildScheduledEvents200ResponseInner) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetChannelId sets ChannelId field to given value.
 
@@ -153,20 +153,20 @@ HasChannelId returns a boolean if a field has been set.
 
 ### GetCreatorId
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetCreatorId() string`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetCreatorId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetCreatorId returns the CreatorId field if non-nil, zero value otherwise.
 
 ### GetCreatorIdOk
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetCreatorIdOk() (*string, bool)`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetCreatorIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetCreatorIdOk returns a tuple with the CreatorId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatorId
 
-`func (o *ListGuildScheduledEvents200ResponseInner) SetCreatorId(v string)`
+`func (o *ListGuildScheduledEvents200ResponseInner) SetCreatorId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetCreatorId sets CreatorId field to given value.
 
@@ -273,70 +273,60 @@ HasScheduledEndTime returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetStatus() int32`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetStatus() GuildScheduledEventStatuses`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetStatusOk() (*int32, bool)`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetStatusOk() (*GuildScheduledEventStatuses, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *ListGuildScheduledEvents200ResponseInner) SetStatus(v int32)`
+`func (o *ListGuildScheduledEvents200ResponseInner) SetStatus(v GuildScheduledEventStatuses)`
 
 SetStatus sets Status field to given value.
 
 
 ### GetEntityType
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetEntityType() int32`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetEntityType() GuildScheduledEventEntityTypes`
 
 GetEntityType returns the EntityType field if non-nil, zero value otherwise.
 
 ### GetEntityTypeOk
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetEntityTypeOk() (*int32, bool)`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetEntityTypeOk() (*GuildScheduledEventEntityTypes, bool)`
 
 GetEntityTypeOk returns a tuple with the EntityType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityType
 
-`func (o *ListGuildScheduledEvents200ResponseInner) SetEntityType(v int32)`
+`func (o *ListGuildScheduledEvents200ResponseInner) SetEntityType(v GuildScheduledEventEntityTypes)`
 
 SetEntityType sets EntityType field to given value.
 
 
-### SetEntityTypeNil
-
-`func (o *ListGuildScheduledEvents200ResponseInner) SetEntityTypeNil(b bool)`
-
- SetEntityTypeNil sets the value for EntityType to be an explicit nil
-
-### UnsetEntityType
-`func (o *ListGuildScheduledEvents200ResponseInner) UnsetEntityType()`
-
-UnsetEntityType ensures that no value is present for EntityType, not even an explicit nil
 ### GetEntityId
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetEntityId() string`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetEntityId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetEntityId returns the EntityId field if non-nil, zero value otherwise.
 
 ### GetEntityIdOk
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetEntityIdOk() (*string, bool)`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetEntityIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetEntityIdOk returns a tuple with the EntityId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityId
 
-`func (o *ListGuildScheduledEvents200ResponseInner) SetEntityId(v string)`
+`func (o *ListGuildScheduledEvents200ResponseInner) SetEntityId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetEntityId sets EntityId field to given value.
 
@@ -373,50 +363,40 @@ HasUserCount returns a boolean if a field has been set.
 
 ### GetPrivacyLevel
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetPrivacyLevel() interface{}`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetPrivacyLevel() GuildScheduledEventPrivacyLevels`
 
 GetPrivacyLevel returns the PrivacyLevel field if non-nil, zero value otherwise.
 
 ### GetPrivacyLevelOk
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetPrivacyLevelOk() (*interface{}, bool)`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetPrivacyLevelOk() (*GuildScheduledEventPrivacyLevels, bool)`
 
 GetPrivacyLevelOk returns a tuple with the PrivacyLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrivacyLevel
 
-`func (o *ListGuildScheduledEvents200ResponseInner) SetPrivacyLevel(v interface{})`
+`func (o *ListGuildScheduledEvents200ResponseInner) SetPrivacyLevel(v GuildScheduledEventPrivacyLevels)`
 
 SetPrivacyLevel sets PrivacyLevel field to given value.
 
 
-### SetPrivacyLevelNil
-
-`func (o *ListGuildScheduledEvents200ResponseInner) SetPrivacyLevelNil(b bool)`
-
- SetPrivacyLevelNil sets the value for PrivacyLevel to be an explicit nil
-
-### UnsetPrivacyLevel
-`func (o *ListGuildScheduledEvents200ResponseInner) UnsetPrivacyLevel()`
-
-UnsetPrivacyLevel ensures that no value is present for PrivacyLevel, not even an explicit nil
 ### GetUserRsvp
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetUserRsvp() ScheduledEventUserResponse`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetUserRsvp() ExternalScheduledEventResponseUserRsvp`
 
 GetUserRsvp returns the UserRsvp field if non-nil, zero value otherwise.
 
 ### GetUserRsvpOk
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetUserRsvpOk() (*ScheduledEventUserResponse, bool)`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetUserRsvpOk() (*ExternalScheduledEventResponseUserRsvp, bool)`
 
 GetUserRsvpOk returns a tuple with the UserRsvp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUserRsvp
 
-`func (o *ListGuildScheduledEvents200ResponseInner) SetUserRsvp(v ScheduledEventUserResponse)`
+`func (o *ListGuildScheduledEvents200ResponseInner) SetUserRsvp(v ExternalScheduledEventResponseUserRsvp)`
 
 SetUserRsvp sets UserRsvp field to given value.
 
@@ -428,20 +408,20 @@ HasUserRsvp returns a boolean if a field has been set.
 
 ### GetEntityMetadata
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetEntityMetadata() map[string]interface{}`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetEntityMetadata() VoiceScheduledEventResponseEntityMetadata`
 
 GetEntityMetadata returns the EntityMetadata field if non-nil, zero value otherwise.
 
 ### GetEntityMetadataOk
 
-`func (o *ListGuildScheduledEvents200ResponseInner) GetEntityMetadataOk() (*map[string]interface{}, bool)`
+`func (o *ListGuildScheduledEvents200ResponseInner) GetEntityMetadataOk() (*VoiceScheduledEventResponseEntityMetadata, bool)`
 
 GetEntityMetadataOk returns a tuple with the EntityMetadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityMetadata
 
-`func (o *ListGuildScheduledEvents200ResponseInner) SetEntityMetadata(v map[string]interface{})`
+`func (o *ListGuildScheduledEvents200ResponseInner) SetEntityMetadata(v VoiceScheduledEventResponseEntityMetadata)`
 
 SetEntityMetadata sets EntityMetadata field to given value.
 

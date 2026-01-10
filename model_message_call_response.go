@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-10T02:53:50.800755799Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ var _ MappedNullable = &MessageCallResponse{}
 
 // MessageCallResponse struct for MessageCallResponse
 type MessageCallResponse struct {
-	EndedTimestamp NullableTime `json:"ended_timestamp,omitempty"`
+	EndedTimestamp *time.Time `json:"ended_timestamp,omitempty"`
 	Participants []string `json:"participants"`
 }
 
@@ -80,48 +80,38 @@ func NewMessageCallResponseWithDefaults() *MessageCallResponse {
 	return &this
 }
 
-// GetEndedTimestamp returns the EndedTimestamp field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEndedTimestamp returns the EndedTimestamp field value if set, zero value otherwise.
 func (o *MessageCallResponse) GetEndedTimestamp() time.Time {
-	if o == nil || IsNil(o.EndedTimestamp.Get()) {
+	if o == nil || IsNil(o.EndedTimestamp) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndedTimestamp.Get()
+	return *o.EndedTimestamp
 }
 
 // GetEndedTimestampOk returns a tuple with the EndedTimestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageCallResponse) GetEndedTimestampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.EndedTimestamp.Get()) {
+	if o == nil || IsNil(o.EndedTimestamp) {
 		return nil, false
 	}
-	return o.EndedTimestamp.Get(), o.EndedTimestamp.IsSet()
+	return o.EndedTimestamp, true
 }
 
 // HasEndedTimestamp returns a boolean if a field has been set.
 func (o *MessageCallResponse) HasEndedTimestamp() bool {
-	if o != nil && o.EndedTimestamp.IsSet() {
+	if o != nil && !IsNil(o.EndedTimestamp) {
 		return true
 	}
 
 	return false
 }
 
-// SetEndedTimestamp gets a reference to the given NullableTime and assigns it to the EndedTimestamp field.
+// SetEndedTimestamp gets a reference to the given time.Time and assigns it to the EndedTimestamp field.
 func (o *MessageCallResponse) SetEndedTimestamp(v time.Time) {
-	o.EndedTimestamp.Set(&v)
+	o.EndedTimestamp = &v
 }
 
-// SetEndedTimestampNil sets the value for EndedTimestamp to be an explicit nil
-func (o *MessageCallResponse) SetEndedTimestampNil() {
-	o.EndedTimestamp.Set(nil)
-}
-
-// UnsetEndedTimestamp ensures that no value is present for EndedTimestamp, not even an explicit nil
-func (o *MessageCallResponse) UnsetEndedTimestamp() {
-	o.EndedTimestamp.Unset()
-}
 
 // GetParticipants returns the Participants field value
 func (o *MessageCallResponse) GetParticipants() []string {
@@ -157,8 +147,8 @@ func (o MessageCallResponse) MarshalJSON() ([]byte, error) {
 
 func (o MessageCallResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.EndedTimestamp.IsSet() {
-		toSerialize["ended_timestamp"] = o.EndedTimestamp.Get()
+	if !IsNil(o.EndedTimestamp) {
+		toSerialize["ended_timestamp"] = o.EndedTimestamp
 	}
 	toSerialize["participants"] = o.Participants
 	return toSerialize, nil
@@ -236,5 +226,4 @@ func (v *NullableMessageCallResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

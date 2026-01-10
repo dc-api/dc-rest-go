@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
 **Id** | **int32** |  | 
-**CustomId** | Pointer to **NullableString** |  | [optional] 
-**Style** | **NullableInt32** |  | 
-**Label** | Pointer to **NullableString** |  | [optional] 
-**Disabled** | Pointer to **NullableBool** |  | [optional] 
-**Emoji** | Pointer to [**NullableComponentEmojiResponse**](ComponentEmojiResponse.md) |  | [optional] 
-**Url** | Pointer to **NullableString** |  | [optional] 
+**CustomId** | Pointer to **string** |  | [optional] 
+**Style** | [**ButtonStyleTypes**](ButtonStyleTypes.md) |  | 
+**Label** | Pointer to **string** |  | [optional] 
+**Disabled** | Pointer to **bool** |  | [optional] 
+**Emoji** | Pointer to [**ComponentEmojiResponse**](ComponentEmojiResponse.md) |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
 **SkuId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewButtonComponentResponse
 
-`func NewButtonComponentResponse(type_ int32, id int32, style NullableInt32, ) *ButtonComponentResponse`
+`func NewButtonComponentResponse(type_ MessageComponentTypes, id int32, style ButtonStyleTypes, ) *ButtonComponentResponse`
 
 NewButtonComponentResponse instantiates a new ButtonComponentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -35,20 +35,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ButtonComponentResponse) GetType() int32`
+`func (o *ButtonComponentResponse) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ButtonComponentResponse) GetTypeOk() (*int32, bool)`
+`func (o *ButtonComponentResponse) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ButtonComponentResponse) SetType(v int32)`
+`func (o *ButtonComponentResponse) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
@@ -98,46 +98,26 @@ SetCustomId sets CustomId field to given value.
 
 HasCustomId returns a boolean if a field has been set.
 
-### SetCustomIdNil
-
-`func (o *ButtonComponentResponse) SetCustomIdNil(b bool)`
-
- SetCustomIdNil sets the value for CustomId to be an explicit nil
-
-### UnsetCustomId
-`func (o *ButtonComponentResponse) UnsetCustomId()`
-
-UnsetCustomId ensures that no value is present for CustomId, not even an explicit nil
 ### GetStyle
 
-`func (o *ButtonComponentResponse) GetStyle() int32`
+`func (o *ButtonComponentResponse) GetStyle() ButtonStyleTypes`
 
 GetStyle returns the Style field if non-nil, zero value otherwise.
 
 ### GetStyleOk
 
-`func (o *ButtonComponentResponse) GetStyleOk() (*int32, bool)`
+`func (o *ButtonComponentResponse) GetStyleOk() (*ButtonStyleTypes, bool)`
 
 GetStyleOk returns a tuple with the Style field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStyle
 
-`func (o *ButtonComponentResponse) SetStyle(v int32)`
+`func (o *ButtonComponentResponse) SetStyle(v ButtonStyleTypes)`
 
 SetStyle sets Style field to given value.
 
 
-### SetStyleNil
-
-`func (o *ButtonComponentResponse) SetStyleNil(b bool)`
-
- SetStyleNil sets the value for Style to be an explicit nil
-
-### UnsetStyle
-`func (o *ButtonComponentResponse) UnsetStyle()`
-
-UnsetStyle ensures that no value is present for Style, not even an explicit nil
 ### GetLabel
 
 `func (o *ButtonComponentResponse) GetLabel() string`
@@ -163,16 +143,6 @@ SetLabel sets Label field to given value.
 
 HasLabel returns a boolean if a field has been set.
 
-### SetLabelNil
-
-`func (o *ButtonComponentResponse) SetLabelNil(b bool)`
-
- SetLabelNil sets the value for Label to be an explicit nil
-
-### UnsetLabel
-`func (o *ButtonComponentResponse) UnsetLabel()`
-
-UnsetLabel ensures that no value is present for Label, not even an explicit nil
 ### GetDisabled
 
 `func (o *ButtonComponentResponse) GetDisabled() bool`
@@ -198,16 +168,6 @@ SetDisabled sets Disabled field to given value.
 
 HasDisabled returns a boolean if a field has been set.
 
-### SetDisabledNil
-
-`func (o *ButtonComponentResponse) SetDisabledNil(b bool)`
-
- SetDisabledNil sets the value for Disabled to be an explicit nil
-
-### UnsetDisabled
-`func (o *ButtonComponentResponse) UnsetDisabled()`
-
-UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
 ### GetEmoji
 
 `func (o *ButtonComponentResponse) GetEmoji() ComponentEmojiResponse`
@@ -233,16 +193,6 @@ SetEmoji sets Emoji field to given value.
 
 HasEmoji returns a boolean if a field has been set.
 
-### SetEmojiNil
-
-`func (o *ButtonComponentResponse) SetEmojiNil(b bool)`
-
- SetEmojiNil sets the value for Emoji to be an explicit nil
-
-### UnsetEmoji
-`func (o *ButtonComponentResponse) UnsetEmoji()`
-
-UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
 ### GetUrl
 
 `func (o *ButtonComponentResponse) GetUrl() string`
@@ -268,16 +218,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *ButtonComponentResponse) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *ButtonComponentResponse) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetSkuId
 
 `func (o *ButtonComponentResponse) GetSkuId() string`
