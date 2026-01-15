@@ -7,18 +7,18 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **Tags** | **string** |  | 
-**Type** | **int32** |  | 
-**FormatType** | Pointer to **NullableInt32** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
+**Type** | [**StickerTypes**](StickerTypes.md) |  | 
+**FormatType** | Pointer to [**GuildStickerResponseFormatType**](GuildStickerResponseFormatType.md) |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **Available** | **bool** |  | 
 **GuildId** | **string** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 
 ## Methods
 
 ### NewGuildStickerResponse
 
-`func NewGuildStickerResponse(id string, name string, tags string, type_ int32, available bool, guildId string, ) *GuildStickerResponse`
+`func NewGuildStickerResponse(id string, name string, tags string, type_ StickerTypes, available bool, guildId string, ) *GuildStickerResponse`
 
 NewGuildStickerResponse instantiates a new GuildStickerResponse object
 This constructor will assign default values to properties that have it defined,
@@ -95,40 +95,40 @@ SetTags sets Tags field to given value.
 
 ### GetType
 
-`func (o *GuildStickerResponse) GetType() int32`
+`func (o *GuildStickerResponse) GetType() StickerTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *GuildStickerResponse) GetTypeOk() (*int32, bool)`
+`func (o *GuildStickerResponse) GetTypeOk() (*StickerTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *GuildStickerResponse) SetType(v int32)`
+`func (o *GuildStickerResponse) SetType(v StickerTypes)`
 
 SetType sets Type field to given value.
 
 
 ### GetFormatType
 
-`func (o *GuildStickerResponse) GetFormatType() int32`
+`func (o *GuildStickerResponse) GetFormatType() GuildStickerResponseFormatType`
 
 GetFormatType returns the FormatType field if non-nil, zero value otherwise.
 
 ### GetFormatTypeOk
 
-`func (o *GuildStickerResponse) GetFormatTypeOk() (*int32, bool)`
+`func (o *GuildStickerResponse) GetFormatTypeOk() (*GuildStickerResponseFormatType, bool)`
 
 GetFormatTypeOk returns a tuple with the FormatType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFormatType
 
-`func (o *GuildStickerResponse) SetFormatType(v int32)`
+`func (o *GuildStickerResponse) SetFormatType(v GuildStickerResponseFormatType)`
 
 SetFormatType sets FormatType field to given value.
 
@@ -138,16 +138,6 @@ SetFormatType sets FormatType field to given value.
 
 HasFormatType returns a boolean if a field has been set.
 
-### SetFormatTypeNil
-
-`func (o *GuildStickerResponse) SetFormatTypeNil(b bool)`
-
- SetFormatTypeNil sets the value for FormatType to be an explicit nil
-
-### UnsetFormatType
-`func (o *GuildStickerResponse) UnsetFormatType()`
-
-UnsetFormatType ensures that no value is present for FormatType, not even an explicit nil
 ### GetDescription
 
 `func (o *GuildStickerResponse) GetDescription() string`
@@ -173,16 +163,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *GuildStickerResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *GuildStickerResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetAvailable
 
 `func (o *GuildStickerResponse) GetAvailable() bool`
@@ -248,16 +228,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *GuildStickerResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *GuildStickerResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

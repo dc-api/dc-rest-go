@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,7 +55,7 @@ var _ MappedNullable = &ApplicationOAuth2InstallParamsResponse{}
 
 // ApplicationOAuth2InstallParamsResponse struct for ApplicationOAuth2InstallParamsResponse
 type ApplicationOAuth2InstallParamsResponse struct {
-	Scopes []string `json:"scopes"`
+	Scopes []OAuth2Scopes `json:"scopes"`
 	Permissions string `json:"permissions"`
 }
 
@@ -65,7 +65,7 @@ type _ApplicationOAuth2InstallParamsResponse ApplicationOAuth2InstallParamsRespo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApplicationOAuth2InstallParamsResponse(scopes []string, permissions string) *ApplicationOAuth2InstallParamsResponse {
+func NewApplicationOAuth2InstallParamsResponse(scopes []OAuth2Scopes, permissions string) *ApplicationOAuth2InstallParamsResponse {
 	this := ApplicationOAuth2InstallParamsResponse{}
 	this.Scopes = scopes
 	this.Permissions = permissions
@@ -81,9 +81,9 @@ func NewApplicationOAuth2InstallParamsResponseWithDefaults() *ApplicationOAuth2I
 }
 
 // GetScopes returns the Scopes field value
-func (o *ApplicationOAuth2InstallParamsResponse) GetScopes() []string {
+func (o *ApplicationOAuth2InstallParamsResponse) GetScopes() []OAuth2Scopes {
 	if o == nil {
-		var ret []string
+		var ret []OAuth2Scopes
 		return ret
 	}
 
@@ -92,7 +92,7 @@ func (o *ApplicationOAuth2InstallParamsResponse) GetScopes() []string {
 
 // GetScopesOk returns a tuple with the Scopes field value
 // and a boolean to check if the value has been set.
-func (o *ApplicationOAuth2InstallParamsResponse) GetScopesOk() ([]string, bool) {
+func (o *ApplicationOAuth2InstallParamsResponse) GetScopesOk() ([]OAuth2Scopes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -100,7 +100,7 @@ func (o *ApplicationOAuth2InstallParamsResponse) GetScopesOk() ([]string, bool) 
 }
 
 // SetScopes sets field value
-func (o *ApplicationOAuth2InstallParamsResponse) SetScopes(v []string) {
+func (o *ApplicationOAuth2InstallParamsResponse) SetScopes(v []OAuth2Scopes) {
 	o.Scopes = v
 }
 
@@ -216,5 +216,4 @@ func (v *NullableApplicationOAuth2InstallParamsResponse) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

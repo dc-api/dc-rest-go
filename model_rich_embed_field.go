@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,7 +57,7 @@ var _ MappedNullable = &RichEmbedField{}
 type RichEmbedField struct {
 	Name string `json:"name"`
 	Value string `json:"value"`
-	Inline NullableBool `json:"inline,omitempty"`
+	Inline *bool `json:"inline,omitempty"`
 }
 
 type _RichEmbedField RichEmbedField
@@ -129,48 +129,38 @@ func (o *RichEmbedField) SetValue(v string) {
 	o.Value = v
 }
 
-// GetInline returns the Inline field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInline returns the Inline field value if set, zero value otherwise.
 func (o *RichEmbedField) GetInline() bool {
-	if o == nil || IsNil(o.Inline.Get()) {
+	if o == nil || IsNil(o.Inline) {
 		var ret bool
 		return ret
 	}
-	return *o.Inline.Get()
+	return *o.Inline
 }
 
 // GetInlineOk returns a tuple with the Inline field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RichEmbedField) GetInlineOk() (*bool, bool) {
-	if o == nil || IsNil(o.Inline.Get()) {
+	if o == nil || IsNil(o.Inline) {
 		return nil, false
 	}
-	return o.Inline.Get(), o.Inline.IsSet()
+	return o.Inline, true
 }
 
 // HasInline returns a boolean if a field has been set.
 func (o *RichEmbedField) HasInline() bool {
-	if o != nil && o.Inline.IsSet() {
+	if o != nil && !IsNil(o.Inline) {
 		return true
 	}
 
 	return false
 }
 
-// SetInline gets a reference to the given NullableBool and assigns it to the Inline field.
+// SetInline gets a reference to the given bool and assigns it to the Inline field.
 func (o *RichEmbedField) SetInline(v bool) {
-	o.Inline.Set(&v)
+	o.Inline = &v
 }
 
-// SetInlineNil sets the value for Inline to be an explicit nil
-func (o *RichEmbedField) SetInlineNil() {
-	o.Inline.Set(nil)
-}
-
-// UnsetInline ensures that no value is present for Inline, not even an explicit nil
-func (o *RichEmbedField) UnsetInline() {
-	o.Inline.Unset()
-}
 
 func (o RichEmbedField) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -184,8 +174,8 @@ func (o RichEmbedField) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
 	toSerialize["value"] = o.Value
-	if o.Inline.IsSet() {
-		toSerialize["inline"] = o.Inline.Get()
+	if !IsNil(o.Inline) {
+		toSerialize["inline"] = o.Inline
 	}
 	return toSerialize, nil
 }
@@ -263,5 +253,4 @@ func (v *NullableRichEmbedField) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

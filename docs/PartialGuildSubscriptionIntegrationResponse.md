@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **NullableString** |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Account** | Pointer to [**NullableAccountResponse**](AccountResponse.md) |  | [optional] 
+**Type** | [**IntegrationTypes**](IntegrationTypes.md) |  | 
+**Name** | Pointer to **string** |  | [optional] 
+**Account** | [**AccountResponse**](AccountResponse.md) |  | 
 
 ## Methods
 
 ### NewPartialGuildSubscriptionIntegrationResponse
 
-`func NewPartialGuildSubscriptionIntegrationResponse(id string, type_ NullableString, ) *PartialGuildSubscriptionIntegrationResponse`
+`func NewPartialGuildSubscriptionIntegrationResponse(id string, type_ IntegrationTypes, account AccountResponse, ) *PartialGuildSubscriptionIntegrationResponse`
 
 NewPartialGuildSubscriptionIntegrationResponse instantiates a new PartialGuildSubscriptionIntegrationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -50,34 +50,24 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *PartialGuildSubscriptionIntegrationResponse) GetType() string`
+`func (o *PartialGuildSubscriptionIntegrationResponse) GetType() IntegrationTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *PartialGuildSubscriptionIntegrationResponse) GetTypeOk() (*string, bool)`
+`func (o *PartialGuildSubscriptionIntegrationResponse) GetTypeOk() (*IntegrationTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *PartialGuildSubscriptionIntegrationResponse) SetType(v string)`
+`func (o *PartialGuildSubscriptionIntegrationResponse) SetType(v IntegrationTypes)`
 
 SetType sets Type field to given value.
 
 
-### SetTypeNil
-
-`func (o *PartialGuildSubscriptionIntegrationResponse) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *PartialGuildSubscriptionIntegrationResponse) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetName
 
 `func (o *PartialGuildSubscriptionIntegrationResponse) GetName() string`
@@ -103,16 +93,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *PartialGuildSubscriptionIntegrationResponse) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *PartialGuildSubscriptionIntegrationResponse) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetAccount
 
 `func (o *PartialGuildSubscriptionIntegrationResponse) GetAccount() AccountResponse`
@@ -132,22 +112,7 @@ and a boolean to check if the value has been set.
 
 SetAccount sets Account field to given value.
 
-### HasAccount
 
-`func (o *PartialGuildSubscriptionIntegrationResponse) HasAccount() bool`
-
-HasAccount returns a boolean if a field has been set.
-
-### SetAccountNil
-
-`func (o *PartialGuildSubscriptionIntegrationResponse) SetAccountNil(b bool)`
-
- SetAccountNil sets the value for Account to be an explicit nil
-
-### UnsetAccount
-`func (o *PartialGuildSubscriptionIntegrationResponse) UnsetAccount()`
-
-UnsetAccount ensures that no value is present for Account, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

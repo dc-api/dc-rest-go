@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,7 +53,7 @@ var _ MappedNullable = &UserCollectiblesResponse{}
 
 // UserCollectiblesResponse struct for UserCollectiblesResponse
 type UserCollectiblesResponse struct {
-	Nameplate NullableUserNameplateResponse `json:"nameplate,omitempty"`
+	Nameplate *UserCollectiblesResponseNameplate `json:"nameplate,omitempty"`
 }
 
 // NewUserCollectiblesResponse instantiates a new UserCollectiblesResponse object
@@ -73,48 +73,38 @@ func NewUserCollectiblesResponseWithDefaults() *UserCollectiblesResponse {
 	return &this
 }
 
-// GetNameplate returns the Nameplate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UserCollectiblesResponse) GetNameplate() UserNameplateResponse {
-	if o == nil || IsNil(o.Nameplate.Get()) {
-		var ret UserNameplateResponse
+// GetNameplate returns the Nameplate field value if set, zero value otherwise.
+func (o *UserCollectiblesResponse) GetNameplate() UserCollectiblesResponseNameplate {
+	if o == nil || IsNil(o.Nameplate) {
+		var ret UserCollectiblesResponseNameplate
 		return ret
 	}
-	return *o.Nameplate.Get()
+	return *o.Nameplate
 }
 
 // GetNameplateOk returns a tuple with the Nameplate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UserCollectiblesResponse) GetNameplateOk() (*UserNameplateResponse, bool) {
-	if o == nil || IsNil(o.Nameplate.Get()) {
+func (o *UserCollectiblesResponse) GetNameplateOk() (*UserCollectiblesResponseNameplate, bool) {
+	if o == nil || IsNil(o.Nameplate) {
 		return nil, false
 	}
-	return o.Nameplate.Get(), o.Nameplate.IsSet()
+	return o.Nameplate, true
 }
 
 // HasNameplate returns a boolean if a field has been set.
 func (o *UserCollectiblesResponse) HasNameplate() bool {
-	if o != nil && o.Nameplate.IsSet() {
+	if o != nil && !IsNil(o.Nameplate) {
 		return true
 	}
 
 	return false
 }
 
-// SetNameplate gets a reference to the given NullableUserNameplateResponse and assigns it to the Nameplate field.
-func (o *UserCollectiblesResponse) SetNameplate(v UserNameplateResponse) {
-	o.Nameplate.Set(&v)
+// SetNameplate gets a reference to the given UserCollectiblesResponseNameplate and assigns it to the Nameplate field.
+func (o *UserCollectiblesResponse) SetNameplate(v UserCollectiblesResponseNameplate) {
+	o.Nameplate = &v
 }
 
-// SetNameplateNil sets the value for Nameplate to be an explicit nil
-func (o *UserCollectiblesResponse) SetNameplateNil() {
-	o.Nameplate.Set(nil)
-}
-
-// UnsetNameplate ensures that no value is present for Nameplate, not even an explicit nil
-func (o *UserCollectiblesResponse) UnsetNameplate() {
-	o.Nameplate.Unset()
-}
 
 func (o UserCollectiblesResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -126,8 +116,8 @@ func (o UserCollectiblesResponse) MarshalJSON() ([]byte, error) {
 
 func (o UserCollectiblesResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Nameplate.IsSet() {
-		toSerialize["nameplate"] = o.Nameplate.Get()
+	if !IsNil(o.Nameplate) {
+		toSerialize["nameplate"] = o.Nameplate
 	}
 	return toSerialize, nil
 }
@@ -167,5 +157,4 @@ func (v *NullableUserCollectiblesResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **NullableInt32** |  | 
-**Data** | [**IncomingWebhookUpdateForInteractionCallbackRequestPartial**](IncomingWebhookUpdateForInteractionCallbackRequestPartial.md) |  | 
+**Type** | [**InteractionCallbackTypes**](InteractionCallbackTypes.md) |  | 
+**Data** | [**UpdateMessageInteractionCallbackRequestData**](UpdateMessageInteractionCallbackRequestData.md) |  | 
 
 ## Methods
 
 ### NewCreateInteractionResponseRequest
 
-`func NewCreateInteractionResponseRequest(type_ NullableInt32, data IncomingWebhookUpdateForInteractionCallbackRequestPartial, ) *CreateInteractionResponseRequest`
+`func NewCreateInteractionResponseRequest(type_ InteractionCallbackTypes, data UpdateMessageInteractionCallbackRequestData, ) *CreateInteractionResponseRequest`
 
 NewCreateInteractionResponseRequest instantiates a new CreateInteractionResponseRequest object
 This constructor will assign default values to properties that have it defined,
@@ -28,50 +28,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *CreateInteractionResponseRequest) GetType() int32`
+`func (o *CreateInteractionResponseRequest) GetType() InteractionCallbackTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *CreateInteractionResponseRequest) GetTypeOk() (*int32, bool)`
+`func (o *CreateInteractionResponseRequest) GetTypeOk() (*InteractionCallbackTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *CreateInteractionResponseRequest) SetType(v int32)`
+`func (o *CreateInteractionResponseRequest) SetType(v InteractionCallbackTypes)`
 
 SetType sets Type field to given value.
 
 
-### SetTypeNil
-
-`func (o *CreateInteractionResponseRequest) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *CreateInteractionResponseRequest) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetData
 
-`func (o *CreateInteractionResponseRequest) GetData() IncomingWebhookUpdateForInteractionCallbackRequestPartial`
+`func (o *CreateInteractionResponseRequest) GetData() UpdateMessageInteractionCallbackRequestData`
 
 GetData returns the Data field if non-nil, zero value otherwise.
 
 ### GetDataOk
 
-`func (o *CreateInteractionResponseRequest) GetDataOk() (*IncomingWebhookUpdateForInteractionCallbackRequestPartial, bool)`
+`func (o *CreateInteractionResponseRequest) GetDataOk() (*UpdateMessageInteractionCallbackRequestData, bool)`
 
 GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetData
 
-`func (o *CreateInteractionResponseRequest) SetData(v IncomingWebhookUpdateForInteractionCallbackRequestPartial)`
+`func (o *CreateInteractionResponseRequest) SetData(v UpdateMessageInteractionCallbackRequestData)`
 
 SetData sets Data field to given value.
 

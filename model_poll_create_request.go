@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,9 +57,9 @@ var _ MappedNullable = &PollCreateRequest{}
 type PollCreateRequest struct {
 	Question PollMedia `json:"question"`
 	Answers []PollAnswerCreateRequest `json:"answers"`
-	AllowMultiselect NullableBool `json:"allow_multiselect,omitempty"`
-	LayoutType *int32 `json:"layout_type,omitempty"`
-	Duration NullableInt32 `json:"duration,omitempty"`
+	AllowMultiselect *bool `json:"allow_multiselect,omitempty"`
+	LayoutType *PollCreateRequestLayoutType `json:"layout_type,omitempty"`
+	Duration *int32 `json:"duration,omitempty"`
 }
 
 type _PollCreateRequest PollCreateRequest
@@ -131,53 +131,43 @@ func (o *PollCreateRequest) SetAnswers(v []PollAnswerCreateRequest) {
 	o.Answers = v
 }
 
-// GetAllowMultiselect returns the AllowMultiselect field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAllowMultiselect returns the AllowMultiselect field value if set, zero value otherwise.
 func (o *PollCreateRequest) GetAllowMultiselect() bool {
-	if o == nil || IsNil(o.AllowMultiselect.Get()) {
+	if o == nil || IsNil(o.AllowMultiselect) {
 		var ret bool
 		return ret
 	}
-	return *o.AllowMultiselect.Get()
+	return *o.AllowMultiselect
 }
 
 // GetAllowMultiselectOk returns a tuple with the AllowMultiselect field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PollCreateRequest) GetAllowMultiselectOk() (*bool, bool) {
-	if o == nil || IsNil(o.AllowMultiselect.Get()) {
+	if o == nil || IsNil(o.AllowMultiselect) {
 		return nil, false
 	}
-	return o.AllowMultiselect.Get(), o.AllowMultiselect.IsSet()
+	return o.AllowMultiselect, true
 }
 
 // HasAllowMultiselect returns a boolean if a field has been set.
 func (o *PollCreateRequest) HasAllowMultiselect() bool {
-	if o != nil && o.AllowMultiselect.IsSet() {
+	if o != nil && !IsNil(o.AllowMultiselect) {
 		return true
 	}
 
 	return false
 }
 
-// SetAllowMultiselect gets a reference to the given NullableBool and assigns it to the AllowMultiselect field.
+// SetAllowMultiselect gets a reference to the given bool and assigns it to the AllowMultiselect field.
 func (o *PollCreateRequest) SetAllowMultiselect(v bool) {
-	o.AllowMultiselect.Set(&v)
+	o.AllowMultiselect = &v
 }
 
-// SetAllowMultiselectNil sets the value for AllowMultiselect to be an explicit nil
-func (o *PollCreateRequest) SetAllowMultiselectNil() {
-	o.AllowMultiselect.Set(nil)
-}
-
-// UnsetAllowMultiselect ensures that no value is present for AllowMultiselect, not even an explicit nil
-func (o *PollCreateRequest) UnsetAllowMultiselect() {
-	o.AllowMultiselect.Unset()
-}
 
 // GetLayoutType returns the LayoutType field value if set, zero value otherwise.
-func (o *PollCreateRequest) GetLayoutType() int32 {
+func (o *PollCreateRequest) GetLayoutType() PollCreateRequestLayoutType {
 	if o == nil || IsNil(o.LayoutType) {
-		var ret int32
+		var ret PollCreateRequestLayoutType
 		return ret
 	}
 	return *o.LayoutType
@@ -185,7 +175,7 @@ func (o *PollCreateRequest) GetLayoutType() int32 {
 
 // GetLayoutTypeOk returns a tuple with the LayoutType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PollCreateRequest) GetLayoutTypeOk() (*int32, bool) {
+func (o *PollCreateRequest) GetLayoutTypeOk() (*PollCreateRequestLayoutType, bool) {
 	if o == nil || IsNil(o.LayoutType) {
 		return nil, false
 	}
@@ -201,54 +191,44 @@ func (o *PollCreateRequest) HasLayoutType() bool {
 	return false
 }
 
-// SetLayoutType gets a reference to the given int32 and assigns it to the LayoutType field.
-func (o *PollCreateRequest) SetLayoutType(v int32) {
+// SetLayoutType gets a reference to the given PollCreateRequestLayoutType and assigns it to the LayoutType field.
+func (o *PollCreateRequest) SetLayoutType(v PollCreateRequestLayoutType) {
 	o.LayoutType = &v
 }
 
 
-// GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDuration returns the Duration field value if set, zero value otherwise.
 func (o *PollCreateRequest) GetDuration() int32 {
-	if o == nil || IsNil(o.Duration.Get()) {
+	if o == nil || IsNil(o.Duration) {
 		var ret int32
 		return ret
 	}
-	return *o.Duration.Get()
+	return *o.Duration
 }
 
 // GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PollCreateRequest) GetDurationOk() (*int32, bool) {
-	if o == nil || IsNil(o.Duration.Get()) {
+	if o == nil || IsNil(o.Duration) {
 		return nil, false
 	}
-	return o.Duration.Get(), o.Duration.IsSet()
+	return o.Duration, true
 }
 
 // HasDuration returns a boolean if a field has been set.
 func (o *PollCreateRequest) HasDuration() bool {
-	if o != nil && o.Duration.IsSet() {
+	if o != nil && !IsNil(o.Duration) {
 		return true
 	}
 
 	return false
 }
 
-// SetDuration gets a reference to the given NullableInt32 and assigns it to the Duration field.
+// SetDuration gets a reference to the given int32 and assigns it to the Duration field.
 func (o *PollCreateRequest) SetDuration(v int32) {
-	o.Duration.Set(&v)
+	o.Duration = &v
 }
 
-// SetDurationNil sets the value for Duration to be an explicit nil
-func (o *PollCreateRequest) SetDurationNil() {
-	o.Duration.Set(nil)
-}
-
-// UnsetDuration ensures that no value is present for Duration, not even an explicit nil
-func (o *PollCreateRequest) UnsetDuration() {
-	o.Duration.Unset()
-}
 
 func (o PollCreateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -262,14 +242,14 @@ func (o PollCreateRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["question"] = o.Question
 	toSerialize["answers"] = o.Answers
-	if o.AllowMultiselect.IsSet() {
-		toSerialize["allow_multiselect"] = o.AllowMultiselect.Get()
+	if !IsNil(o.AllowMultiselect) {
+		toSerialize["allow_multiselect"] = o.AllowMultiselect
 	}
 	if !IsNil(o.LayoutType) {
 		toSerialize["layout_type"] = o.LayoutType
 	}
-	if o.Duration.IsSet() {
-		toSerialize["duration"] = o.Duration.Get()
+	if !IsNil(o.Duration) {
+		toSerialize["duration"] = o.Duration
 	}
 	return toSerialize, nil
 }
@@ -347,5 +327,4 @@ func (v *NullablePollCreateRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

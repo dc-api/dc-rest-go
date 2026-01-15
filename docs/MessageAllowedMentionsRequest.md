@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Parse** | Pointer to **[]string** |  | [optional] 
-**Users** | Pointer to **[]string** |  | [optional] 
-**Roles** | Pointer to **[]string** |  | [optional] 
-**RepliedUser** | Pointer to **NullableBool** |  | [optional] 
+**Parse** | Pointer to [**[]MessageAllowedMentionsRequestParseInner**](MessageAllowedMentionsRequestParseInner.md) |  | [optional] 
+**Users** | Pointer to [**[]GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**Roles** | Pointer to [**[]GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**RepliedUser** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetParse
 
-`func (o *MessageAllowedMentionsRequest) GetParse() []string`
+`func (o *MessageAllowedMentionsRequest) GetParse() []MessageAllowedMentionsRequestParseInner`
 
 GetParse returns the Parse field if non-nil, zero value otherwise.
 
 ### GetParseOk
 
-`func (o *MessageAllowedMentionsRequest) GetParseOk() (*[]string, bool)`
+`func (o *MessageAllowedMentionsRequest) GetParseOk() (*[]MessageAllowedMentionsRequestParseInner, bool)`
 
 GetParseOk returns a tuple with the Parse field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetParse
 
-`func (o *MessageAllowedMentionsRequest) SetParse(v []string)`
+`func (o *MessageAllowedMentionsRequest) SetParse(v []MessageAllowedMentionsRequestParseInner)`
 
 SetParse sets Parse field to given value.
 
@@ -53,32 +53,22 @@ SetParse sets Parse field to given value.
 
 HasParse returns a boolean if a field has been set.
 
-### SetParseNil
-
-`func (o *MessageAllowedMentionsRequest) SetParseNil(b bool)`
-
- SetParseNil sets the value for Parse to be an explicit nil
-
-### UnsetParse
-`func (o *MessageAllowedMentionsRequest) UnsetParse()`
-
-UnsetParse ensures that no value is present for Parse, not even an explicit nil
 ### GetUsers
 
-`func (o *MessageAllowedMentionsRequest) GetUsers() []string`
+`func (o *MessageAllowedMentionsRequest) GetUsers() []GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetUsers returns the Users field if non-nil, zero value otherwise.
 
 ### GetUsersOk
 
-`func (o *MessageAllowedMentionsRequest) GetUsersOk() (*[]string, bool)`
+`func (o *MessageAllowedMentionsRequest) GetUsersOk() (*[]GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetUsersOk returns a tuple with the Users field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUsers
 
-`func (o *MessageAllowedMentionsRequest) SetUsers(v []string)`
+`func (o *MessageAllowedMentionsRequest) SetUsers(v []GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetUsers sets Users field to given value.
 
@@ -88,32 +78,22 @@ SetUsers sets Users field to given value.
 
 HasUsers returns a boolean if a field has been set.
 
-### SetUsersNil
-
-`func (o *MessageAllowedMentionsRequest) SetUsersNil(b bool)`
-
- SetUsersNil sets the value for Users to be an explicit nil
-
-### UnsetUsers
-`func (o *MessageAllowedMentionsRequest) UnsetUsers()`
-
-UnsetUsers ensures that no value is present for Users, not even an explicit nil
 ### GetRoles
 
-`func (o *MessageAllowedMentionsRequest) GetRoles() []string`
+`func (o *MessageAllowedMentionsRequest) GetRoles() []GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetRoles returns the Roles field if non-nil, zero value otherwise.
 
 ### GetRolesOk
 
-`func (o *MessageAllowedMentionsRequest) GetRolesOk() (*[]string, bool)`
+`func (o *MessageAllowedMentionsRequest) GetRolesOk() (*[]GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetRolesOk returns a tuple with the Roles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRoles
 
-`func (o *MessageAllowedMentionsRequest) SetRoles(v []string)`
+`func (o *MessageAllowedMentionsRequest) SetRoles(v []GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetRoles sets Roles field to given value.
 
@@ -123,16 +103,6 @@ SetRoles sets Roles field to given value.
 
 HasRoles returns a boolean if a field has been set.
 
-### SetRolesNil
-
-`func (o *MessageAllowedMentionsRequest) SetRolesNil(b bool)`
-
- SetRolesNil sets the value for Roles to be an explicit nil
-
-### UnsetRoles
-`func (o *MessageAllowedMentionsRequest) UnsetRoles()`
-
-UnsetRoles ensures that no value is present for Roles, not even an explicit nil
 ### GetRepliedUser
 
 `func (o *MessageAllowedMentionsRequest) GetRepliedUser() bool`
@@ -158,16 +128,6 @@ SetRepliedUser sets RepliedUser field to given value.
 
 HasRepliedUser returns a boolean if a field has been set.
 
-### SetRepliedUserNil
-
-`func (o *MessageAllowedMentionsRequest) SetRepliedUserNil(b bool)`
-
- SetRepliedUserNil sets the value for RepliedUser to be an explicit nil
-
-### UnsetRepliedUser
-`func (o *MessageAllowedMentionsRequest) UnsetRepliedUser()`
-
-UnsetRepliedUser ensures that no value is present for RepliedUser, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

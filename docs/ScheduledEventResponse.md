@@ -7,25 +7,25 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **GuildId** | **string** |  | 
 **Name** | **string** |  | 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
-**CreatorId** | Pointer to **string** |  | [optional] 
-**Creator** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**Image** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**ChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**CreatorId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**Creator** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**Image** | Pointer to **string** |  | [optional] 
 **ScheduledStartTime** | **time.Time** |  | 
-**ScheduledEndTime** | Pointer to **NullableTime** |  | [optional] 
-**Status** | **NullableInt32** |  | 
-**EntityType** | **NullableInt32** |  | 
-**EntityId** | Pointer to **string** |  | [optional] 
-**UserCount** | Pointer to **NullableInt32** |  | [optional] 
-**PrivacyLevel** | **interface{}** |  | 
-**UserRsvp** | Pointer to [**NullableScheduledEventUserResponse**](ScheduledEventUserResponse.md) |  | [optional] 
+**ScheduledEndTime** | Pointer to **time.Time** |  | [optional] 
+**Status** | [**GuildScheduledEventStatuses**](GuildScheduledEventStatuses.md) |  | 
+**EntityType** | [**GuildScheduledEventEntityTypes**](GuildScheduledEventEntityTypes.md) |  | 
+**EntityId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**UserCount** | Pointer to **int32** |  | [optional] 
+**PrivacyLevel** | [**GuildScheduledEventPrivacyLevels**](GuildScheduledEventPrivacyLevels.md) |  | 
+**UserRsvp** | Pointer to [**ExternalScheduledEventResponseUserRsvp**](ExternalScheduledEventResponseUserRsvp.md) |  | [optional] 
 
 ## Methods
 
 ### NewScheduledEventResponse
 
-`func NewScheduledEventResponse(id string, guildId string, name string, scheduledStartTime time.Time, status NullableInt32, entityType NullableInt32, privacyLevel interface{}, ) *ScheduledEventResponse`
+`func NewScheduledEventResponse(id string, guildId string, name string, scheduledStartTime time.Time, status GuildScheduledEventStatuses, entityType GuildScheduledEventEntityTypes, privacyLevel GuildScheduledEventPrivacyLevels, ) *ScheduledEventResponse`
 
 NewScheduledEventResponse instantiates a new ScheduledEventResponse object
 This constructor will assign default values to properties that have it defined,
@@ -125,32 +125,22 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *ScheduledEventResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *ScheduledEventResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetChannelId
 
-`func (o *ScheduledEventResponse) GetChannelId() string`
+`func (o *ScheduledEventResponse) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
 
 ### GetChannelIdOk
 
-`func (o *ScheduledEventResponse) GetChannelIdOk() (*string, bool)`
+`func (o *ScheduledEventResponse) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelId
 
-`func (o *ScheduledEventResponse) SetChannelId(v string)`
+`func (o *ScheduledEventResponse) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetChannelId sets ChannelId field to given value.
 
@@ -162,20 +152,20 @@ HasChannelId returns a boolean if a field has been set.
 
 ### GetCreatorId
 
-`func (o *ScheduledEventResponse) GetCreatorId() string`
+`func (o *ScheduledEventResponse) GetCreatorId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetCreatorId returns the CreatorId field if non-nil, zero value otherwise.
 
 ### GetCreatorIdOk
 
-`func (o *ScheduledEventResponse) GetCreatorIdOk() (*string, bool)`
+`func (o *ScheduledEventResponse) GetCreatorIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetCreatorIdOk returns a tuple with the CreatorId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatorId
 
-`func (o *ScheduledEventResponse) SetCreatorId(v string)`
+`func (o *ScheduledEventResponse) SetCreatorId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetCreatorId sets CreatorId field to given value.
 
@@ -210,16 +200,6 @@ SetCreator sets Creator field to given value.
 
 HasCreator returns a boolean if a field has been set.
 
-### SetCreatorNil
-
-`func (o *ScheduledEventResponse) SetCreatorNil(b bool)`
-
- SetCreatorNil sets the value for Creator to be an explicit nil
-
-### UnsetCreator
-`func (o *ScheduledEventResponse) UnsetCreator()`
-
-UnsetCreator ensures that no value is present for Creator, not even an explicit nil
 ### GetImage
 
 `func (o *ScheduledEventResponse) GetImage() string`
@@ -245,16 +225,6 @@ SetImage sets Image field to given value.
 
 HasImage returns a boolean if a field has been set.
 
-### SetImageNil
-
-`func (o *ScheduledEventResponse) SetImageNil(b bool)`
-
- SetImageNil sets the value for Image to be an explicit nil
-
-### UnsetImage
-`func (o *ScheduledEventResponse) UnsetImage()`
-
-UnsetImage ensures that no value is present for Image, not even an explicit nil
 ### GetScheduledStartTime
 
 `func (o *ScheduledEventResponse) GetScheduledStartTime() time.Time`
@@ -300,92 +270,62 @@ SetScheduledEndTime sets ScheduledEndTime field to given value.
 
 HasScheduledEndTime returns a boolean if a field has been set.
 
-### SetScheduledEndTimeNil
-
-`func (o *ScheduledEventResponse) SetScheduledEndTimeNil(b bool)`
-
- SetScheduledEndTimeNil sets the value for ScheduledEndTime to be an explicit nil
-
-### UnsetScheduledEndTime
-`func (o *ScheduledEventResponse) UnsetScheduledEndTime()`
-
-UnsetScheduledEndTime ensures that no value is present for ScheduledEndTime, not even an explicit nil
 ### GetStatus
 
-`func (o *ScheduledEventResponse) GetStatus() int32`
+`func (o *ScheduledEventResponse) GetStatus() GuildScheduledEventStatuses`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *ScheduledEventResponse) GetStatusOk() (*int32, bool)`
+`func (o *ScheduledEventResponse) GetStatusOk() (*GuildScheduledEventStatuses, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *ScheduledEventResponse) SetStatus(v int32)`
+`func (o *ScheduledEventResponse) SetStatus(v GuildScheduledEventStatuses)`
 
 SetStatus sets Status field to given value.
 
 
-### SetStatusNil
-
-`func (o *ScheduledEventResponse) SetStatusNil(b bool)`
-
- SetStatusNil sets the value for Status to be an explicit nil
-
-### UnsetStatus
-`func (o *ScheduledEventResponse) UnsetStatus()`
-
-UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetEntityType
 
-`func (o *ScheduledEventResponse) GetEntityType() int32`
+`func (o *ScheduledEventResponse) GetEntityType() GuildScheduledEventEntityTypes`
 
 GetEntityType returns the EntityType field if non-nil, zero value otherwise.
 
 ### GetEntityTypeOk
 
-`func (o *ScheduledEventResponse) GetEntityTypeOk() (*int32, bool)`
+`func (o *ScheduledEventResponse) GetEntityTypeOk() (*GuildScheduledEventEntityTypes, bool)`
 
 GetEntityTypeOk returns a tuple with the EntityType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityType
 
-`func (o *ScheduledEventResponse) SetEntityType(v int32)`
+`func (o *ScheduledEventResponse) SetEntityType(v GuildScheduledEventEntityTypes)`
 
 SetEntityType sets EntityType field to given value.
 
 
-### SetEntityTypeNil
-
-`func (o *ScheduledEventResponse) SetEntityTypeNil(b bool)`
-
- SetEntityTypeNil sets the value for EntityType to be an explicit nil
-
-### UnsetEntityType
-`func (o *ScheduledEventResponse) UnsetEntityType()`
-
-UnsetEntityType ensures that no value is present for EntityType, not even an explicit nil
 ### GetEntityId
 
-`func (o *ScheduledEventResponse) GetEntityId() string`
+`func (o *ScheduledEventResponse) GetEntityId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetEntityId returns the EntityId field if non-nil, zero value otherwise.
 
 ### GetEntityIdOk
 
-`func (o *ScheduledEventResponse) GetEntityIdOk() (*string, bool)`
+`func (o *ScheduledEventResponse) GetEntityIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetEntityIdOk returns a tuple with the EntityId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityId
 
-`func (o *ScheduledEventResponse) SetEntityId(v string)`
+`func (o *ScheduledEventResponse) SetEntityId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetEntityId sets EntityId field to given value.
 
@@ -420,62 +360,42 @@ SetUserCount sets UserCount field to given value.
 
 HasUserCount returns a boolean if a field has been set.
 
-### SetUserCountNil
-
-`func (o *ScheduledEventResponse) SetUserCountNil(b bool)`
-
- SetUserCountNil sets the value for UserCount to be an explicit nil
-
-### UnsetUserCount
-`func (o *ScheduledEventResponse) UnsetUserCount()`
-
-UnsetUserCount ensures that no value is present for UserCount, not even an explicit nil
 ### GetPrivacyLevel
 
-`func (o *ScheduledEventResponse) GetPrivacyLevel() interface{}`
+`func (o *ScheduledEventResponse) GetPrivacyLevel() GuildScheduledEventPrivacyLevels`
 
 GetPrivacyLevel returns the PrivacyLevel field if non-nil, zero value otherwise.
 
 ### GetPrivacyLevelOk
 
-`func (o *ScheduledEventResponse) GetPrivacyLevelOk() (*interface{}, bool)`
+`func (o *ScheduledEventResponse) GetPrivacyLevelOk() (*GuildScheduledEventPrivacyLevels, bool)`
 
 GetPrivacyLevelOk returns a tuple with the PrivacyLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrivacyLevel
 
-`func (o *ScheduledEventResponse) SetPrivacyLevel(v interface{})`
+`func (o *ScheduledEventResponse) SetPrivacyLevel(v GuildScheduledEventPrivacyLevels)`
 
 SetPrivacyLevel sets PrivacyLevel field to given value.
 
 
-### SetPrivacyLevelNil
-
-`func (o *ScheduledEventResponse) SetPrivacyLevelNil(b bool)`
-
- SetPrivacyLevelNil sets the value for PrivacyLevel to be an explicit nil
-
-### UnsetPrivacyLevel
-`func (o *ScheduledEventResponse) UnsetPrivacyLevel()`
-
-UnsetPrivacyLevel ensures that no value is present for PrivacyLevel, not even an explicit nil
 ### GetUserRsvp
 
-`func (o *ScheduledEventResponse) GetUserRsvp() ScheduledEventUserResponse`
+`func (o *ScheduledEventResponse) GetUserRsvp() ExternalScheduledEventResponseUserRsvp`
 
 GetUserRsvp returns the UserRsvp field if non-nil, zero value otherwise.
 
 ### GetUserRsvpOk
 
-`func (o *ScheduledEventResponse) GetUserRsvpOk() (*ScheduledEventUserResponse, bool)`
+`func (o *ScheduledEventResponse) GetUserRsvpOk() (*ExternalScheduledEventResponseUserRsvp, bool)`
 
 GetUserRsvpOk returns a tuple with the UserRsvp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUserRsvp
 
-`func (o *ScheduledEventResponse) SetUserRsvp(v ScheduledEventUserResponse)`
+`func (o *ScheduledEventResponse) SetUserRsvp(v ExternalScheduledEventResponseUserRsvp)`
 
 SetUserRsvp sets UserRsvp field to given value.
 
@@ -485,16 +405,6 @@ SetUserRsvp sets UserRsvp field to given value.
 
 HasUserRsvp returns a boolean if a field has been set.
 
-### SetUserRsvpNil
-
-`func (o *ScheduledEventResponse) SetUserRsvpNil(b bool)`
-
- SetUserRsvpNil sets the value for UserRsvp to be an explicit nil
-
-### UnsetUserRsvp
-`func (o *ScheduledEventResponse) UnsetUserRsvp()`
-
-UnsetUserRsvp ensures that no value is present for UserRsvp, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

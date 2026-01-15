@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Nick** | Pointer to **NullableString** |  | [optional] 
-**Roles** | Pointer to **[]string** |  | [optional] 
-**Mute** | Pointer to **NullableBool** |  | [optional] 
-**Deaf** | Pointer to **NullableBool** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
-**CommunicationDisabledUntil** | Pointer to **NullableTime** |  | [optional] 
-**Flags** | Pointer to **NullableInt32** |  | [optional] 
+**Nick** | Pointer to **string** |  | [optional] 
+**Roles** | Pointer to [**[]GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**Mute** | Pointer to **bool** |  | [optional] 
+**Deaf** | Pointer to **bool** |  | [optional] 
+**ChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**CommunicationDisabledUntil** | Pointer to **time.Time** |  | [optional] 
+**Flags** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -56,32 +56,22 @@ SetNick sets Nick field to given value.
 
 HasNick returns a boolean if a field has been set.
 
-### SetNickNil
-
-`func (o *UpdateGuildMemberRequest) SetNickNil(b bool)`
-
- SetNickNil sets the value for Nick to be an explicit nil
-
-### UnsetNick
-`func (o *UpdateGuildMemberRequest) UnsetNick()`
-
-UnsetNick ensures that no value is present for Nick, not even an explicit nil
 ### GetRoles
 
-`func (o *UpdateGuildMemberRequest) GetRoles() []string`
+`func (o *UpdateGuildMemberRequest) GetRoles() []GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetRoles returns the Roles field if non-nil, zero value otherwise.
 
 ### GetRolesOk
 
-`func (o *UpdateGuildMemberRequest) GetRolesOk() (*[]string, bool)`
+`func (o *UpdateGuildMemberRequest) GetRolesOk() (*[]GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetRolesOk returns a tuple with the Roles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRoles
 
-`func (o *UpdateGuildMemberRequest) SetRoles(v []string)`
+`func (o *UpdateGuildMemberRequest) SetRoles(v []GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetRoles sets Roles field to given value.
 
@@ -91,16 +81,6 @@ SetRoles sets Roles field to given value.
 
 HasRoles returns a boolean if a field has been set.
 
-### SetRolesNil
-
-`func (o *UpdateGuildMemberRequest) SetRolesNil(b bool)`
-
- SetRolesNil sets the value for Roles to be an explicit nil
-
-### UnsetRoles
-`func (o *UpdateGuildMemberRequest) UnsetRoles()`
-
-UnsetRoles ensures that no value is present for Roles, not even an explicit nil
 ### GetMute
 
 `func (o *UpdateGuildMemberRequest) GetMute() bool`
@@ -126,16 +106,6 @@ SetMute sets Mute field to given value.
 
 HasMute returns a boolean if a field has been set.
 
-### SetMuteNil
-
-`func (o *UpdateGuildMemberRequest) SetMuteNil(b bool)`
-
- SetMuteNil sets the value for Mute to be an explicit nil
-
-### UnsetMute
-`func (o *UpdateGuildMemberRequest) UnsetMute()`
-
-UnsetMute ensures that no value is present for Mute, not even an explicit nil
 ### GetDeaf
 
 `func (o *UpdateGuildMemberRequest) GetDeaf() bool`
@@ -161,32 +131,22 @@ SetDeaf sets Deaf field to given value.
 
 HasDeaf returns a boolean if a field has been set.
 
-### SetDeafNil
-
-`func (o *UpdateGuildMemberRequest) SetDeafNil(b bool)`
-
- SetDeafNil sets the value for Deaf to be an explicit nil
-
-### UnsetDeaf
-`func (o *UpdateGuildMemberRequest) UnsetDeaf()`
-
-UnsetDeaf ensures that no value is present for Deaf, not even an explicit nil
 ### GetChannelId
 
-`func (o *UpdateGuildMemberRequest) GetChannelId() string`
+`func (o *UpdateGuildMemberRequest) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
 
 ### GetChannelIdOk
 
-`func (o *UpdateGuildMemberRequest) GetChannelIdOk() (*string, bool)`
+`func (o *UpdateGuildMemberRequest) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelId
 
-`func (o *UpdateGuildMemberRequest) SetChannelId(v string)`
+`func (o *UpdateGuildMemberRequest) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetChannelId sets ChannelId field to given value.
 
@@ -221,16 +181,6 @@ SetCommunicationDisabledUntil sets CommunicationDisabledUntil field to given val
 
 HasCommunicationDisabledUntil returns a boolean if a field has been set.
 
-### SetCommunicationDisabledUntilNil
-
-`func (o *UpdateGuildMemberRequest) SetCommunicationDisabledUntilNil(b bool)`
-
- SetCommunicationDisabledUntilNil sets the value for CommunicationDisabledUntil to be an explicit nil
-
-### UnsetCommunicationDisabledUntil
-`func (o *UpdateGuildMemberRequest) UnsetCommunicationDisabledUntil()`
-
-UnsetCommunicationDisabledUntil ensures that no value is present for CommunicationDisabledUntil, not even an explicit nil
 ### GetFlags
 
 `func (o *UpdateGuildMemberRequest) GetFlags() int32`
@@ -256,16 +206,6 @@ SetFlags sets Flags field to given value.
 
 HasFlags returns a boolean if a field has been set.
 
-### SetFlagsNil
-
-`func (o *UpdateGuildMemberRequest) SetFlagsNil(b bool)`
-
- SetFlagsNil sets the value for Flags to be an explicit nil
-
-### UnsetFlags
-`func (o *UpdateGuildMemberRequest) UnsetFlags()`
-
-UnsetFlags ensures that no value is present for Flags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

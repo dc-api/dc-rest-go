@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,8 +55,9 @@ var _ MappedNullable = &FileComponentForMessageRequest{}
 
 // FileComponentForMessageRequest struct for FileComponentForMessageRequest
 type FileComponentForMessageRequest struct {
-	Type int32 `json:"type"`
-	Spoiler NullableBool `json:"spoiler,omitempty"`
+	Type MessageComponentTypes `json:"type"`
+	Id *int32 `json:"id,omitempty"`
+	Spoiler *bool `json:"spoiler,omitempty"`
 	File UnfurledMediaRequestWithAttachmentReferenceRequired `json:"file"`
 }
 
@@ -66,7 +67,7 @@ type _FileComponentForMessageRequest FileComponentForMessageRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFileComponentForMessageRequest(type_ int32, file UnfurledMediaRequestWithAttachmentReferenceRequired) *FileComponentForMessageRequest {
+func NewFileComponentForMessageRequest(type_ MessageComponentTypes, file UnfurledMediaRequestWithAttachmentReferenceRequired) *FileComponentForMessageRequest {
 	this := FileComponentForMessageRequest{}
 	this.Type = type_
 	this.File = file
@@ -82,9 +83,9 @@ func NewFileComponentForMessageRequestWithDefaults() *FileComponentForMessageReq
 }
 
 // GetType returns the Type field value
-func (o *FileComponentForMessageRequest) GetType() int32 {
+func (o *FileComponentForMessageRequest) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -93,7 +94,7 @@ func (o *FileComponentForMessageRequest) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *FileComponentForMessageRequest) GetTypeOk() (*int32, bool) {
+func (o *FileComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -101,52 +102,75 @@ func (o *FileComponentForMessageRequest) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *FileComponentForMessageRequest) SetType(v int32) {
+func (o *FileComponentForMessageRequest) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
 
-// GetSpoiler returns the Spoiler field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FileComponentForMessageRequest) GetSpoiler() bool {
-	if o == nil || IsNil(o.Spoiler.Get()) {
-		var ret bool
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *FileComponentForMessageRequest) GetId() int32 {
+	if o == nil || IsNil(o.Id) {
+		var ret int32
 		return ret
 	}
-	return *o.Spoiler.Get()
+	return *o.Id
 }
 
-// GetSpoilerOk returns a tuple with the Spoiler field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FileComponentForMessageRequest) GetSpoilerOk() (*bool, bool) {
-	if o == nil || IsNil(o.Spoiler.Get()) {
+func (o *FileComponentForMessageRequest) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return o.Spoiler.Get(), o.Spoiler.IsSet()
+	return o.Id, true
 }
 
-// HasSpoiler returns a boolean if a field has been set.
-func (o *FileComponentForMessageRequest) HasSpoiler() bool {
-	if o != nil && o.Spoiler.IsSet() {
+// HasId returns a boolean if a field has been set.
+func (o *FileComponentForMessageRequest) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
 	return false
 }
 
-// SetSpoiler gets a reference to the given NullableBool and assigns it to the Spoiler field.
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *FileComponentForMessageRequest) SetId(v int32) {
+	o.Id = &v
+}
+
+
+// GetSpoiler returns the Spoiler field value if set, zero value otherwise.
+func (o *FileComponentForMessageRequest) GetSpoiler() bool {
+	if o == nil || IsNil(o.Spoiler) {
+		var ret bool
+		return ret
+	}
+	return *o.Spoiler
+}
+
+// GetSpoilerOk returns a tuple with the Spoiler field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FileComponentForMessageRequest) GetSpoilerOk() (*bool, bool) {
+	if o == nil || IsNil(o.Spoiler) {
+		return nil, false
+	}
+	return o.Spoiler, true
+}
+
+// HasSpoiler returns a boolean if a field has been set.
+func (o *FileComponentForMessageRequest) HasSpoiler() bool {
+	if o != nil && !IsNil(o.Spoiler) {
+		return true
+	}
+
+	return false
+}
+
+// SetSpoiler gets a reference to the given bool and assigns it to the Spoiler field.
 func (o *FileComponentForMessageRequest) SetSpoiler(v bool) {
-	o.Spoiler.Set(&v)
+	o.Spoiler = &v
 }
 
-// SetSpoilerNil sets the value for Spoiler to be an explicit nil
-func (o *FileComponentForMessageRequest) SetSpoilerNil() {
-	o.Spoiler.Set(nil)
-}
-
-// UnsetSpoiler ensures that no value is present for Spoiler, not even an explicit nil
-func (o *FileComponentForMessageRequest) UnsetSpoiler() {
-	o.Spoiler.Unset()
-}
 
 // GetFile returns the File field value
 func (o *FileComponentForMessageRequest) GetFile() UnfurledMediaRequestWithAttachmentReferenceRequired {
@@ -183,8 +207,11 @@ func (o FileComponentForMessageRequest) MarshalJSON() ([]byte, error) {
 func (o FileComponentForMessageRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
-	if o.Spoiler.IsSet() {
-		toSerialize["spoiler"] = o.Spoiler.Get()
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Spoiler) {
+		toSerialize["spoiler"] = o.Spoiler
 	}
 	toSerialize["file"] = o.File
 	return toSerialize, nil
@@ -263,5 +290,4 @@ func (v *NullableFileComponentForMessageRequest) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

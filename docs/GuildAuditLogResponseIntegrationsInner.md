@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **NullableString** |  | 
+**Type** | [**IntegrationTypes**](IntegrationTypes.md) |  | 
 **Name** | Pointer to **string** |  | [optional] 
-**Account** | Pointer to [**AccountResponse**](AccountResponse.md) |  | [optional] 
+**Account** | [**AccountResponse**](AccountResponse.md) |  | 
 **ApplicationId** | **string** |  | 
 
 ## Methods
 
 ### NewGuildAuditLogResponseIntegrationsInner
 
-`func NewGuildAuditLogResponseIntegrationsInner(id string, type_ NullableString, applicationId string, ) *GuildAuditLogResponseIntegrationsInner`
+`func NewGuildAuditLogResponseIntegrationsInner(id string, type_ IntegrationTypes, account AccountResponse, applicationId string, ) *GuildAuditLogResponseIntegrationsInner`
 
 NewGuildAuditLogResponseIntegrationsInner instantiates a new GuildAuditLogResponseIntegrationsInner object
 This constructor will assign default values to properties that have it defined,
@@ -51,34 +51,24 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *GuildAuditLogResponseIntegrationsInner) GetType() string`
+`func (o *GuildAuditLogResponseIntegrationsInner) GetType() IntegrationTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *GuildAuditLogResponseIntegrationsInner) GetTypeOk() (*string, bool)`
+`func (o *GuildAuditLogResponseIntegrationsInner) GetTypeOk() (*IntegrationTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *GuildAuditLogResponseIntegrationsInner) SetType(v string)`
+`func (o *GuildAuditLogResponseIntegrationsInner) SetType(v IntegrationTypes)`
 
 SetType sets Type field to given value.
 
 
-### SetTypeNil
-
-`func (o *GuildAuditLogResponseIntegrationsInner) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *GuildAuditLogResponseIntegrationsInner) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetName
 
 `func (o *GuildAuditLogResponseIntegrationsInner) GetName() string`
@@ -123,11 +113,6 @@ and a boolean to check if the value has been set.
 
 SetAccount sets Account field to given value.
 
-### HasAccount
-
-`func (o *GuildAuditLogResponseIntegrationsInner) HasAccount() bool`
-
-HasAccount returns a boolean if a field has been set.
 
 ### GetApplicationId
 

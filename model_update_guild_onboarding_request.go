@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -54,9 +54,9 @@ var _ MappedNullable = &UpdateGuildOnboardingRequest{}
 // UpdateGuildOnboardingRequest struct for UpdateGuildOnboardingRequest
 type UpdateGuildOnboardingRequest struct {
 	Prompts []UpdateOnboardingPromptRequest `json:"prompts,omitempty"`
-	Enabled NullableBool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
 	DefaultChannelIds []string `json:"default_channel_ids,omitempty"`
-	Mode *int32 `json:"mode,omitempty"`
+	Mode *UpdateGuildOnboardingRequestMode `json:"mode,omitempty"`
 }
 
 // NewUpdateGuildOnboardingRequest instantiates a new UpdateGuildOnboardingRequest object
@@ -76,9 +76,9 @@ func NewUpdateGuildOnboardingRequestWithDefaults() *UpdateGuildOnboardingRequest
 	return &this
 }
 
-// GetPrompts returns the Prompts field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPrompts returns the Prompts field value if set, zero value otherwise.
 func (o *UpdateGuildOnboardingRequest) GetPrompts() []UpdateOnboardingPromptRequest {
-	if o == nil {
+	if o == nil || IsNil(o.Prompts) {
 		var ret []UpdateOnboardingPromptRequest
 		return ret
 	}
@@ -87,9 +87,8 @@ func (o *UpdateGuildOnboardingRequest) GetPrompts() []UpdateOnboardingPromptRequ
 
 // GetPromptsOk returns a tuple with the Prompts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateGuildOnboardingRequest) GetPromptsOk() ([]UpdateOnboardingPromptRequest, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Prompts) {
 		return nil, false
 	}
 	return o.Prompts, true
@@ -110,52 +109,42 @@ func (o *UpdateGuildOnboardingRequest) SetPrompts(v []UpdateOnboardingPromptRequ
 }
 
 
-// GetEnabled returns the Enabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *UpdateGuildOnboardingRequest) GetEnabled() bool {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil || IsNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
-	return *o.Enabled.Get()
+	return *o.Enabled
 }
 
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateGuildOnboardingRequest) GetEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil || IsNil(o.Enabled) {
 		return nil, false
 	}
-	return o.Enabled.Get(), o.Enabled.IsSet()
+	return o.Enabled, true
 }
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *UpdateGuildOnboardingRequest) HasEnabled() bool {
-	if o != nil && o.Enabled.IsSet() {
+	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
 
 	return false
 }
 
-// SetEnabled gets a reference to the given NullableBool and assigns it to the Enabled field.
+// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
 func (o *UpdateGuildOnboardingRequest) SetEnabled(v bool) {
-	o.Enabled.Set(&v)
+	o.Enabled = &v
 }
 
-// SetEnabledNil sets the value for Enabled to be an explicit nil
-func (o *UpdateGuildOnboardingRequest) SetEnabledNil() {
-	o.Enabled.Set(nil)
-}
 
-// UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
-func (o *UpdateGuildOnboardingRequest) UnsetEnabled() {
-	o.Enabled.Unset()
-}
-
-// GetDefaultChannelIds returns the DefaultChannelIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDefaultChannelIds returns the DefaultChannelIds field value if set, zero value otherwise.
 func (o *UpdateGuildOnboardingRequest) GetDefaultChannelIds() []string {
-	if o == nil {
+	if o == nil || IsNil(o.DefaultChannelIds) {
 		var ret []string
 		return ret
 	}
@@ -164,9 +153,8 @@ func (o *UpdateGuildOnboardingRequest) GetDefaultChannelIds() []string {
 
 // GetDefaultChannelIdsOk returns a tuple with the DefaultChannelIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateGuildOnboardingRequest) GetDefaultChannelIdsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DefaultChannelIds) {
 		return nil, false
 	}
 	return o.DefaultChannelIds, true
@@ -188,9 +176,9 @@ func (o *UpdateGuildOnboardingRequest) SetDefaultChannelIds(v []string) {
 
 
 // GetMode returns the Mode field value if set, zero value otherwise.
-func (o *UpdateGuildOnboardingRequest) GetMode() int32 {
+func (o *UpdateGuildOnboardingRequest) GetMode() UpdateGuildOnboardingRequestMode {
 	if o == nil || IsNil(o.Mode) {
-		var ret int32
+		var ret UpdateGuildOnboardingRequestMode
 		return ret
 	}
 	return *o.Mode
@@ -198,7 +186,7 @@ func (o *UpdateGuildOnboardingRequest) GetMode() int32 {
 
 // GetModeOk returns a tuple with the Mode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateGuildOnboardingRequest) GetModeOk() (*int32, bool) {
+func (o *UpdateGuildOnboardingRequest) GetModeOk() (*UpdateGuildOnboardingRequestMode, bool) {
 	if o == nil || IsNil(o.Mode) {
 		return nil, false
 	}
@@ -214,8 +202,8 @@ func (o *UpdateGuildOnboardingRequest) HasMode() bool {
 	return false
 }
 
-// SetMode gets a reference to the given int32 and assigns it to the Mode field.
-func (o *UpdateGuildOnboardingRequest) SetMode(v int32) {
+// SetMode gets a reference to the given UpdateGuildOnboardingRequestMode and assigns it to the Mode field.
+func (o *UpdateGuildOnboardingRequest) SetMode(v UpdateGuildOnboardingRequestMode) {
 	o.Mode = &v
 }
 
@@ -230,13 +218,13 @@ func (o UpdateGuildOnboardingRequest) MarshalJSON() ([]byte, error) {
 
 func (o UpdateGuildOnboardingRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Prompts != nil {
+	if !IsNil(o.Prompts) {
 		toSerialize["prompts"] = o.Prompts
 	}
-	if o.Enabled.IsSet() {
-		toSerialize["enabled"] = o.Enabled.Get()
+	if !IsNil(o.Enabled) {
+		toSerialize["enabled"] = o.Enabled
 	}
-	if o.DefaultChannelIds != nil {
+	if !IsNil(o.DefaultChannelIds) {
 		toSerialize["default_channel_ids"] = o.DefaultChannelIds
 	}
 	if !IsNil(o.Mode) {
@@ -280,5 +268,4 @@ func (v *NullableUpdateGuildOnboardingRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

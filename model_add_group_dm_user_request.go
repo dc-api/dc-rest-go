@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,8 +53,8 @@ var _ MappedNullable = &AddGroupDmUserRequest{}
 
 // AddGroupDmUserRequest struct for AddGroupDmUserRequest
 type AddGroupDmUserRequest struct {
-	AccessToken NullableString `json:"access_token,omitempty"`
-	Nick NullableString `json:"nick,omitempty"`
+	AccessToken *string `json:"access_token,omitempty"`
+	Nick *string `json:"nick,omitempty"`
 }
 
 // NewAddGroupDmUserRequest instantiates a new AddGroupDmUserRequest object
@@ -74,91 +74,71 @@ func NewAddGroupDmUserRequestWithDefaults() *AddGroupDmUserRequest {
 	return &this
 }
 
-// GetAccessToken returns the AccessToken field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAccessToken returns the AccessToken field value if set, zero value otherwise.
 func (o *AddGroupDmUserRequest) GetAccessToken() string {
-	if o == nil || IsNil(o.AccessToken.Get()) {
+	if o == nil || IsNil(o.AccessToken) {
 		var ret string
 		return ret
 	}
-	return *o.AccessToken.Get()
+	return *o.AccessToken
 }
 
 // GetAccessTokenOk returns a tuple with the AccessToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddGroupDmUserRequest) GetAccessTokenOk() (*string, bool) {
-	if o == nil || IsNil(o.AccessToken.Get()) {
+	if o == nil || IsNil(o.AccessToken) {
 		return nil, false
 	}
-	return o.AccessToken.Get(), o.AccessToken.IsSet()
+	return o.AccessToken, true
 }
 
 // HasAccessToken returns a boolean if a field has been set.
 func (o *AddGroupDmUserRequest) HasAccessToken() bool {
-	if o != nil && o.AccessToken.IsSet() {
+	if o != nil && !IsNil(o.AccessToken) {
 		return true
 	}
 
 	return false
 }
 
-// SetAccessToken gets a reference to the given NullableString and assigns it to the AccessToken field.
+// SetAccessToken gets a reference to the given string and assigns it to the AccessToken field.
 func (o *AddGroupDmUserRequest) SetAccessToken(v string) {
-	o.AccessToken.Set(&v)
+	o.AccessToken = &v
 }
 
-// SetAccessTokenNil sets the value for AccessToken to be an explicit nil
-func (o *AddGroupDmUserRequest) SetAccessTokenNil() {
-	o.AccessToken.Set(nil)
-}
 
-// UnsetAccessToken ensures that no value is present for AccessToken, not even an explicit nil
-func (o *AddGroupDmUserRequest) UnsetAccessToken() {
-	o.AccessToken.Unset()
-}
-
-// GetNick returns the Nick field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNick returns the Nick field value if set, zero value otherwise.
 func (o *AddGroupDmUserRequest) GetNick() string {
-	if o == nil || IsNil(o.Nick.Get()) {
+	if o == nil || IsNil(o.Nick) {
 		var ret string
 		return ret
 	}
-	return *o.Nick.Get()
+	return *o.Nick
 }
 
 // GetNickOk returns a tuple with the Nick field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddGroupDmUserRequest) GetNickOk() (*string, bool) {
-	if o == nil || IsNil(o.Nick.Get()) {
+	if o == nil || IsNil(o.Nick) {
 		return nil, false
 	}
-	return o.Nick.Get(), o.Nick.IsSet()
+	return o.Nick, true
 }
 
 // HasNick returns a boolean if a field has been set.
 func (o *AddGroupDmUserRequest) HasNick() bool {
-	if o != nil && o.Nick.IsSet() {
+	if o != nil && !IsNil(o.Nick) {
 		return true
 	}
 
 	return false
 }
 
-// SetNick gets a reference to the given NullableString and assigns it to the Nick field.
+// SetNick gets a reference to the given string and assigns it to the Nick field.
 func (o *AddGroupDmUserRequest) SetNick(v string) {
-	o.Nick.Set(&v)
+	o.Nick = &v
 }
 
-// SetNickNil sets the value for Nick to be an explicit nil
-func (o *AddGroupDmUserRequest) SetNickNil() {
-	o.Nick.Set(nil)
-}
-
-// UnsetNick ensures that no value is present for Nick, not even an explicit nil
-func (o *AddGroupDmUserRequest) UnsetNick() {
-	o.Nick.Unset()
-}
 
 func (o AddGroupDmUserRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -170,11 +150,11 @@ func (o AddGroupDmUserRequest) MarshalJSON() ([]byte, error) {
 
 func (o AddGroupDmUserRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.AccessToken.IsSet() {
-		toSerialize["access_token"] = o.AccessToken.Get()
+	if !IsNil(o.AccessToken) {
+		toSerialize["access_token"] = o.AccessToken
 	}
-	if o.Nick.IsSet() {
-		toSerialize["nick"] = o.Nick.Get()
+	if !IsNil(o.Nick) {
+		toSerialize["nick"] = o.Nick
 	}
 	return toSerialize, nil
 }
@@ -214,5 +194,4 @@ func (v *NullableAddGroupDmUserRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

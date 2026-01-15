@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | Pointer to **int32** |  | [optional] 
 **Name** | **string** |  | 
-**EmojiId** | Pointer to **string** |  | [optional] 
-**EmojiName** | Pointer to **NullableString** |  | [optional] 
-**Moderated** | Pointer to **NullableBool** |  | [optional] 
+**EmojiId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**EmojiName** | Pointer to **string** |  | [optional] 
+**Moderated** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -27,6 +28,31 @@ will change when the set of required properties is changed
 NewGuildTemplateChannelTagsWithDefaults instantiates a new GuildTemplateChannelTags object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *GuildTemplateChannelTags) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *GuildTemplateChannelTags) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *GuildTemplateChannelTags) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *GuildTemplateChannelTags) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -50,20 +76,20 @@ SetName sets Name field to given value.
 
 ### GetEmojiId
 
-`func (o *GuildTemplateChannelTags) GetEmojiId() string`
+`func (o *GuildTemplateChannelTags) GetEmojiId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetEmojiId returns the EmojiId field if non-nil, zero value otherwise.
 
 ### GetEmojiIdOk
 
-`func (o *GuildTemplateChannelTags) GetEmojiIdOk() (*string, bool)`
+`func (o *GuildTemplateChannelTags) GetEmojiIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetEmojiIdOk returns a tuple with the EmojiId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmojiId
 
-`func (o *GuildTemplateChannelTags) SetEmojiId(v string)`
+`func (o *GuildTemplateChannelTags) SetEmojiId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetEmojiId sets EmojiId field to given value.
 
@@ -98,16 +124,6 @@ SetEmojiName sets EmojiName field to given value.
 
 HasEmojiName returns a boolean if a field has been set.
 
-### SetEmojiNameNil
-
-`func (o *GuildTemplateChannelTags) SetEmojiNameNil(b bool)`
-
- SetEmojiNameNil sets the value for EmojiName to be an explicit nil
-
-### UnsetEmojiName
-`func (o *GuildTemplateChannelTags) UnsetEmojiName()`
-
-UnsetEmojiName ensures that no value is present for EmojiName, not even an explicit nil
 ### GetModerated
 
 `func (o *GuildTemplateChannelTags) GetModerated() bool`
@@ -133,16 +149,6 @@ SetModerated sets Moderated field to given value.
 
 HasModerated returns a boolean if a field has been set.
 
-### SetModeratedNil
-
-`func (o *GuildTemplateChannelTags) SetModeratedNil(b bool)`
-
- SetModeratedNil sets the value for Moderated to be an explicit nil
-
-### UnsetModerated
-`func (o *GuildTemplateChannelTags) UnsetModerated()`
-
-UnsetModerated ensures that no value is present for Moderated, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

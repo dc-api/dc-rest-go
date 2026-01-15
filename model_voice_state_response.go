@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,14 +56,14 @@ var _ MappedNullable = &VoiceStateResponse{}
 
 // VoiceStateResponse struct for VoiceStateResponse
 type VoiceStateResponse struct {
-	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	ChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"channel_id,omitempty"`
 	Deaf bool `json:"deaf"`
-	GuildId *string `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Member NullableGuildMemberResponse `json:"member,omitempty"`
+	GuildId *GetEntitlementsSkuIdsParameterOneOfInner `json:"guild_id,omitempty"`
+	Member *GuildMemberResponse `json:"member,omitempty"`
 	Mute bool `json:"mute"`
-	RequestToSpeakTimestamp NullableTime `json:"request_to_speak_timestamp,omitempty"`
+	RequestToSpeakTimestamp *time.Time `json:"request_to_speak_timestamp,omitempty"`
 	Suppress bool `json:"suppress"`
-	SelfStream NullableBool `json:"self_stream,omitempty"`
+	SelfStream *bool `json:"self_stream,omitempty"`
 	SelfDeaf bool `json:"self_deaf"`
 	SelfMute bool `json:"self_mute"`
 	SelfVideo bool `json:"self_video"`
@@ -99,9 +99,9 @@ func NewVoiceStateResponseWithDefaults() *VoiceStateResponse {
 }
 
 // GetChannelId returns the ChannelId field value if set, zero value otherwise.
-func (o *VoiceStateResponse) GetChannelId() string {
+func (o *VoiceStateResponse) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.ChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.ChannelId
@@ -109,7 +109,7 @@ func (o *VoiceStateResponse) GetChannelId() string {
 
 // GetChannelIdOk returns a tuple with the ChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VoiceStateResponse) GetChannelIdOk() (*string, bool) {
+func (o *VoiceStateResponse) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.ChannelId) {
 		return nil, false
 	}
@@ -125,8 +125,8 @@ func (o *VoiceStateResponse) HasChannelId() bool {
 	return false
 }
 
-// SetChannelId gets a reference to the given string and assigns it to the ChannelId field.
-func (o *VoiceStateResponse) SetChannelId(v string) {
+// SetChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the ChannelId field.
+func (o *VoiceStateResponse) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.ChannelId = &v
 }
 
@@ -156,9 +156,9 @@ func (o *VoiceStateResponse) SetDeaf(v bool) {
 }
 
 // GetGuildId returns the GuildId field value if set, zero value otherwise.
-func (o *VoiceStateResponse) GetGuildId() string {
+func (o *VoiceStateResponse) GetGuildId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.GuildId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.GuildId
@@ -166,7 +166,7 @@ func (o *VoiceStateResponse) GetGuildId() string {
 
 // GetGuildIdOk returns a tuple with the GuildId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VoiceStateResponse) GetGuildIdOk() (*string, bool) {
+func (o *VoiceStateResponse) GetGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.GuildId) {
 		return nil, false
 	}
@@ -182,54 +182,44 @@ func (o *VoiceStateResponse) HasGuildId() bool {
 	return false
 }
 
-// SetGuildId gets a reference to the given string and assigns it to the GuildId field.
-func (o *VoiceStateResponse) SetGuildId(v string) {
+// SetGuildId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the GuildId field.
+func (o *VoiceStateResponse) SetGuildId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.GuildId = &v
 }
 
 
-// GetMember returns the Member field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMember returns the Member field value if set, zero value otherwise.
 func (o *VoiceStateResponse) GetMember() GuildMemberResponse {
-	if o == nil || IsNil(o.Member.Get()) {
+	if o == nil || IsNil(o.Member) {
 		var ret GuildMemberResponse
 		return ret
 	}
-	return *o.Member.Get()
+	return *o.Member
 }
 
 // GetMemberOk returns a tuple with the Member field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VoiceStateResponse) GetMemberOk() (*GuildMemberResponse, bool) {
-	if o == nil || IsNil(o.Member.Get()) {
+	if o == nil || IsNil(o.Member) {
 		return nil, false
 	}
-	return o.Member.Get(), o.Member.IsSet()
+	return o.Member, true
 }
 
 // HasMember returns a boolean if a field has been set.
 func (o *VoiceStateResponse) HasMember() bool {
-	if o != nil && o.Member.IsSet() {
+	if o != nil && !IsNil(o.Member) {
 		return true
 	}
 
 	return false
 }
 
-// SetMember gets a reference to the given NullableGuildMemberResponse and assigns it to the Member field.
+// SetMember gets a reference to the given GuildMemberResponse and assigns it to the Member field.
 func (o *VoiceStateResponse) SetMember(v GuildMemberResponse) {
-	o.Member.Set(&v)
+	o.Member = &v
 }
 
-// SetMemberNil sets the value for Member to be an explicit nil
-func (o *VoiceStateResponse) SetMemberNil() {
-	o.Member.Set(nil)
-}
-
-// UnsetMember ensures that no value is present for Member, not even an explicit nil
-func (o *VoiceStateResponse) UnsetMember() {
-	o.Member.Unset()
-}
 
 // GetMute returns the Mute field value
 func (o *VoiceStateResponse) GetMute() bool {
@@ -255,48 +245,38 @@ func (o *VoiceStateResponse) SetMute(v bool) {
 	o.Mute = v
 }
 
-// GetRequestToSpeakTimestamp returns the RequestToSpeakTimestamp field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRequestToSpeakTimestamp returns the RequestToSpeakTimestamp field value if set, zero value otherwise.
 func (o *VoiceStateResponse) GetRequestToSpeakTimestamp() time.Time {
-	if o == nil || IsNil(o.RequestToSpeakTimestamp.Get()) {
+	if o == nil || IsNil(o.RequestToSpeakTimestamp) {
 		var ret time.Time
 		return ret
 	}
-	return *o.RequestToSpeakTimestamp.Get()
+	return *o.RequestToSpeakTimestamp
 }
 
 // GetRequestToSpeakTimestampOk returns a tuple with the RequestToSpeakTimestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VoiceStateResponse) GetRequestToSpeakTimestampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.RequestToSpeakTimestamp.Get()) {
+	if o == nil || IsNil(o.RequestToSpeakTimestamp) {
 		return nil, false
 	}
-	return o.RequestToSpeakTimestamp.Get(), o.RequestToSpeakTimestamp.IsSet()
+	return o.RequestToSpeakTimestamp, true
 }
 
 // HasRequestToSpeakTimestamp returns a boolean if a field has been set.
 func (o *VoiceStateResponse) HasRequestToSpeakTimestamp() bool {
-	if o != nil && o.RequestToSpeakTimestamp.IsSet() {
+	if o != nil && !IsNil(o.RequestToSpeakTimestamp) {
 		return true
 	}
 
 	return false
 }
 
-// SetRequestToSpeakTimestamp gets a reference to the given NullableTime and assigns it to the RequestToSpeakTimestamp field.
+// SetRequestToSpeakTimestamp gets a reference to the given time.Time and assigns it to the RequestToSpeakTimestamp field.
 func (o *VoiceStateResponse) SetRequestToSpeakTimestamp(v time.Time) {
-	o.RequestToSpeakTimestamp.Set(&v)
+	o.RequestToSpeakTimestamp = &v
 }
 
-// SetRequestToSpeakTimestampNil sets the value for RequestToSpeakTimestamp to be an explicit nil
-func (o *VoiceStateResponse) SetRequestToSpeakTimestampNil() {
-	o.RequestToSpeakTimestamp.Set(nil)
-}
-
-// UnsetRequestToSpeakTimestamp ensures that no value is present for RequestToSpeakTimestamp, not even an explicit nil
-func (o *VoiceStateResponse) UnsetRequestToSpeakTimestamp() {
-	o.RequestToSpeakTimestamp.Unset()
-}
 
 // GetSuppress returns the Suppress field value
 func (o *VoiceStateResponse) GetSuppress() bool {
@@ -322,48 +302,38 @@ func (o *VoiceStateResponse) SetSuppress(v bool) {
 	o.Suppress = v
 }
 
-// GetSelfStream returns the SelfStream field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSelfStream returns the SelfStream field value if set, zero value otherwise.
 func (o *VoiceStateResponse) GetSelfStream() bool {
-	if o == nil || IsNil(o.SelfStream.Get()) {
+	if o == nil || IsNil(o.SelfStream) {
 		var ret bool
 		return ret
 	}
-	return *o.SelfStream.Get()
+	return *o.SelfStream
 }
 
 // GetSelfStreamOk returns a tuple with the SelfStream field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VoiceStateResponse) GetSelfStreamOk() (*bool, bool) {
-	if o == nil || IsNil(o.SelfStream.Get()) {
+	if o == nil || IsNil(o.SelfStream) {
 		return nil, false
 	}
-	return o.SelfStream.Get(), o.SelfStream.IsSet()
+	return o.SelfStream, true
 }
 
 // HasSelfStream returns a boolean if a field has been set.
 func (o *VoiceStateResponse) HasSelfStream() bool {
-	if o != nil && o.SelfStream.IsSet() {
+	if o != nil && !IsNil(o.SelfStream) {
 		return true
 	}
 
 	return false
 }
 
-// SetSelfStream gets a reference to the given NullableBool and assigns it to the SelfStream field.
+// SetSelfStream gets a reference to the given bool and assigns it to the SelfStream field.
 func (o *VoiceStateResponse) SetSelfStream(v bool) {
-	o.SelfStream.Set(&v)
+	o.SelfStream = &v
 }
 
-// SetSelfStreamNil sets the value for SelfStream to be an explicit nil
-func (o *VoiceStateResponse) SetSelfStreamNil() {
-	o.SelfStream.Set(nil)
-}
-
-// UnsetSelfStream ensures that no value is present for SelfStream, not even an explicit nil
-func (o *VoiceStateResponse) UnsetSelfStream() {
-	o.SelfStream.Unset()
-}
 
 // GetSelfDeaf returns the SelfDeaf field value
 func (o *VoiceStateResponse) GetSelfDeaf() bool {
@@ -502,16 +472,16 @@ func (o VoiceStateResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.GuildId) {
 		toSerialize["guild_id"] = o.GuildId
 	}
-	if o.Member.IsSet() {
-		toSerialize["member"] = o.Member.Get()
+	if !IsNil(o.Member) {
+		toSerialize["member"] = o.Member
 	}
 	toSerialize["mute"] = o.Mute
-	if o.RequestToSpeakTimestamp.IsSet() {
-		toSerialize["request_to_speak_timestamp"] = o.RequestToSpeakTimestamp.Get()
+	if !IsNil(o.RequestToSpeakTimestamp) {
+		toSerialize["request_to_speak_timestamp"] = o.RequestToSpeakTimestamp
 	}
 	toSerialize["suppress"] = o.Suppress
-	if o.SelfStream.IsSet() {
-		toSerialize["self_stream"] = o.SelfStream.Get()
+	if !IsNil(o.SelfStream) {
+		toSerialize["self_stream"] = o.SelfStream
 	}
 	toSerialize["self_deaf"] = o.SelfDeaf
 	toSerialize["self_mute"] = o.SelfMute
@@ -600,5 +570,4 @@ func (v *NullableVoiceStateResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,7 +55,7 @@ var _ MappedNullable = &ApplicationRoleConnectionsMetadataItemRequest{}
 
 // ApplicationRoleConnectionsMetadataItemRequest struct for ApplicationRoleConnectionsMetadataItemRequest
 type ApplicationRoleConnectionsMetadataItemRequest struct {
-	Type int32 `json:"type"`
+	Type MetadataItemTypes `json:"type"`
 	Key string `json:"key"`
 	Name string `json:"name"`
 	NameLocalizations map[string]string `json:"name_localizations,omitempty"`
@@ -69,7 +69,7 @@ type _ApplicationRoleConnectionsMetadataItemRequest ApplicationRoleConnectionsMe
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApplicationRoleConnectionsMetadataItemRequest(type_ int32, key string, name string, description string) *ApplicationRoleConnectionsMetadataItemRequest {
+func NewApplicationRoleConnectionsMetadataItemRequest(type_ MetadataItemTypes, key string, name string, description string) *ApplicationRoleConnectionsMetadataItemRequest {
 	this := ApplicationRoleConnectionsMetadataItemRequest{}
 	this.Type = type_
 	this.Key = key
@@ -87,9 +87,9 @@ func NewApplicationRoleConnectionsMetadataItemRequestWithDefaults() *Application
 }
 
 // GetType returns the Type field value
-func (o *ApplicationRoleConnectionsMetadataItemRequest) GetType() int32 {
+func (o *ApplicationRoleConnectionsMetadataItemRequest) GetType() MetadataItemTypes {
 	if o == nil {
-		var ret int32
+		var ret MetadataItemTypes
 		return ret
 	}
 
@@ -98,7 +98,7 @@ func (o *ApplicationRoleConnectionsMetadataItemRequest) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ApplicationRoleConnectionsMetadataItemRequest) GetTypeOk() (*int32, bool) {
+func (o *ApplicationRoleConnectionsMetadataItemRequest) GetTypeOk() (*MetadataItemTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -106,7 +106,7 @@ func (o *ApplicationRoleConnectionsMetadataItemRequest) GetTypeOk() (*int32, boo
 }
 
 // SetType sets field value
-func (o *ApplicationRoleConnectionsMetadataItemRequest) SetType(v int32) {
+func (o *ApplicationRoleConnectionsMetadataItemRequest) SetType(v MetadataItemTypes) {
 	o.Type = v
 }
 
@@ -346,5 +346,4 @@ func (v *NullableApplicationRoleConnectionsMetadataItemRequest) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

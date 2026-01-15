@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
 **Id** | **int32** |  | 
 **Components** | [**[]TextDisplayComponentResponse**](TextDisplayComponentResponse.md) |  | 
 **Accessory** | [**SectionComponentResponseAccessory**](SectionComponentResponseAccessory.md) |  | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewSectionComponentResponse
 
-`func NewSectionComponentResponse(type_ int32, id int32, components []TextDisplayComponentResponse, accessory SectionComponentResponseAccessory, ) *SectionComponentResponse`
+`func NewSectionComponentResponse(type_ MessageComponentTypes, id int32, components []TextDisplayComponentResponse, accessory SectionComponentResponseAccessory, ) *SectionComponentResponse`
 
 NewSectionComponentResponse instantiates a new SectionComponentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *SectionComponentResponse) GetType() int32`
+`func (o *SectionComponentResponse) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *SectionComponentResponse) GetTypeOk() (*int32, bool)`
+`func (o *SectionComponentResponse) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *SectionComponentResponse) SetType(v int32)`
+`func (o *SectionComponentResponse) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 

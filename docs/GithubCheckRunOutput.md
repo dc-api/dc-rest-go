@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Title** | Pointer to **NullableString** |  | [optional] 
-**Summary** | Pointer to **NullableString** |  | [optional] 
+**Title** | Pointer to **string** |  | [optional] 
+**Summary** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -51,16 +51,6 @@ SetTitle sets Title field to given value.
 
 HasTitle returns a boolean if a field has been set.
 
-### SetTitleNil
-
-`func (o *GithubCheckRunOutput) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *GithubCheckRunOutput) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetSummary
 
 `func (o *GithubCheckRunOutput) GetSummary() string`
@@ -86,16 +76,6 @@ SetSummary sets Summary field to given value.
 
 HasSummary returns a boolean if a field has been set.
 
-### SetSummaryNil
-
-`func (o *GithubCheckRunOutput) SetSummaryNil(b bool)`
-
- SetSummaryNil sets the value for Summary to be an explicit nil
-
-### UnsetSummary
-`func (o *GithubCheckRunOutput) UnsetSummary()`
-
-UnsetSummary ensures that no value is present for Summary, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

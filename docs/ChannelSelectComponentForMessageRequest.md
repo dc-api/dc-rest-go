@@ -4,20 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 **CustomId** | **string** |  | 
-**Placeholder** | Pointer to **NullableString** |  | [optional] 
-**MinValues** | Pointer to **NullableInt32** |  | [optional] 
-**MaxValues** | Pointer to **NullableInt32** |  | [optional] 
-**Disabled** | Pointer to **NullableBool** |  | [optional] 
+**Placeholder** | Pointer to **string** |  | [optional] 
+**MinValues** | Pointer to **int32** |  | [optional] 
+**MaxValues** | Pointer to **int32** |  | [optional] 
+**Disabled** | Pointer to **bool** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
 **DefaultValues** | Pointer to [**[]ChannelSelectDefaultValue**](ChannelSelectDefaultValue.md) |  | [optional] 
-**ChannelTypes** | Pointer to **[]int32** |  | [optional] 
+**ChannelTypes** | Pointer to [**[]ChannelTypes**](ChannelTypes.md) |  | [optional] 
 
 ## Methods
 
 ### NewChannelSelectComponentForMessageRequest
 
-`func NewChannelSelectComponentForMessageRequest(type_ int32, customId string, ) *ChannelSelectComponentForMessageRequest`
+`func NewChannelSelectComponentForMessageRequest(type_ MessageComponentTypes, customId string, ) *ChannelSelectComponentForMessageRequest`
 
 NewChannelSelectComponentForMessageRequest instantiates a new ChannelSelectComponentForMessageRequest object
 This constructor will assign default values to properties that have it defined,
@@ -34,23 +36,48 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ChannelSelectComponentForMessageRequest) GetType() int32`
+`func (o *ChannelSelectComponentForMessageRequest) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ChannelSelectComponentForMessageRequest) GetTypeOk() (*int32, bool)`
+`func (o *ChannelSelectComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ChannelSelectComponentForMessageRequest) SetType(v int32)`
+`func (o *ChannelSelectComponentForMessageRequest) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *ChannelSelectComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ChannelSelectComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ChannelSelectComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *ChannelSelectComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetCustomId
 
@@ -97,16 +124,6 @@ SetPlaceholder sets Placeholder field to given value.
 
 HasPlaceholder returns a boolean if a field has been set.
 
-### SetPlaceholderNil
-
-`func (o *ChannelSelectComponentForMessageRequest) SetPlaceholderNil(b bool)`
-
- SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-
-### UnsetPlaceholder
-`func (o *ChannelSelectComponentForMessageRequest) UnsetPlaceholder()`
-
-UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
 ### GetMinValues
 
 `func (o *ChannelSelectComponentForMessageRequest) GetMinValues() int32`
@@ -132,16 +149,6 @@ SetMinValues sets MinValues field to given value.
 
 HasMinValues returns a boolean if a field has been set.
 
-### SetMinValuesNil
-
-`func (o *ChannelSelectComponentForMessageRequest) SetMinValuesNil(b bool)`
-
- SetMinValuesNil sets the value for MinValues to be an explicit nil
-
-### UnsetMinValues
-`func (o *ChannelSelectComponentForMessageRequest) UnsetMinValues()`
-
-UnsetMinValues ensures that no value is present for MinValues, not even an explicit nil
 ### GetMaxValues
 
 `func (o *ChannelSelectComponentForMessageRequest) GetMaxValues() int32`
@@ -167,16 +174,6 @@ SetMaxValues sets MaxValues field to given value.
 
 HasMaxValues returns a boolean if a field has been set.
 
-### SetMaxValuesNil
-
-`func (o *ChannelSelectComponentForMessageRequest) SetMaxValuesNil(b bool)`
-
- SetMaxValuesNil sets the value for MaxValues to be an explicit nil
-
-### UnsetMaxValues
-`func (o *ChannelSelectComponentForMessageRequest) UnsetMaxValues()`
-
-UnsetMaxValues ensures that no value is present for MaxValues, not even an explicit nil
 ### GetDisabled
 
 `func (o *ChannelSelectComponentForMessageRequest) GetDisabled() bool`
@@ -202,16 +199,31 @@ SetDisabled sets Disabled field to given value.
 
 HasDisabled returns a boolean if a field has been set.
 
-### SetDisabledNil
+### GetRequired
 
-`func (o *ChannelSelectComponentForMessageRequest) SetDisabledNil(b bool)`
+`func (o *ChannelSelectComponentForMessageRequest) GetRequired() bool`
 
- SetDisabledNil sets the value for Disabled to be an explicit nil
+GetRequired returns the Required field if non-nil, zero value otherwise.
 
-### UnsetDisabled
-`func (o *ChannelSelectComponentForMessageRequest) UnsetDisabled()`
+### GetRequiredOk
 
-UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
+`func (o *ChannelSelectComponentForMessageRequest) GetRequiredOk() (*bool, bool)`
+
+GetRequiredOk returns a tuple with the Required field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequired
+
+`func (o *ChannelSelectComponentForMessageRequest) SetRequired(v bool)`
+
+SetRequired sets Required field to given value.
+
+### HasRequired
+
+`func (o *ChannelSelectComponentForMessageRequest) HasRequired() bool`
+
+HasRequired returns a boolean if a field has been set.
+
 ### GetDefaultValues
 
 `func (o *ChannelSelectComponentForMessageRequest) GetDefaultValues() []ChannelSelectDefaultValue`
@@ -237,32 +249,22 @@ SetDefaultValues sets DefaultValues field to given value.
 
 HasDefaultValues returns a boolean if a field has been set.
 
-### SetDefaultValuesNil
-
-`func (o *ChannelSelectComponentForMessageRequest) SetDefaultValuesNil(b bool)`
-
- SetDefaultValuesNil sets the value for DefaultValues to be an explicit nil
-
-### UnsetDefaultValues
-`func (o *ChannelSelectComponentForMessageRequest) UnsetDefaultValues()`
-
-UnsetDefaultValues ensures that no value is present for DefaultValues, not even an explicit nil
 ### GetChannelTypes
 
-`func (o *ChannelSelectComponentForMessageRequest) GetChannelTypes() []int32`
+`func (o *ChannelSelectComponentForMessageRequest) GetChannelTypes() []ChannelTypes`
 
 GetChannelTypes returns the ChannelTypes field if non-nil, zero value otherwise.
 
 ### GetChannelTypesOk
 
-`func (o *ChannelSelectComponentForMessageRequest) GetChannelTypesOk() (*[]int32, bool)`
+`func (o *ChannelSelectComponentForMessageRequest) GetChannelTypesOk() (*[]ChannelTypes, bool)`
 
 GetChannelTypesOk returns a tuple with the ChannelTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelTypes
 
-`func (o *ChannelSelectComponentForMessageRequest) SetChannelTypes(v []int32)`
+`func (o *ChannelSelectComponentForMessageRequest) SetChannelTypes(v []ChannelTypes)`
 
 SetChannelTypes sets ChannelTypes field to given value.
 
@@ -272,16 +274,6 @@ SetChannelTypes sets ChannelTypes field to given value.
 
 HasChannelTypes returns a boolean if a field has been set.
 
-### SetChannelTypesNil
-
-`func (o *ChannelSelectComponentForMessageRequest) SetChannelTypesNil(b bool)`
-
- SetChannelTypesNil sets the value for ChannelTypes to be an explicit nil
-
-### UnsetChannelTypes
-`func (o *ChannelSelectComponentForMessageRequest) UnsetChannelTypes()`
-
-UnsetChannelTypes ensures that no value is present for ChannelTypes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

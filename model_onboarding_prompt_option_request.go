@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,12 +55,12 @@ var _ MappedNullable = &OnboardingPromptOptionRequest{}
 
 // OnboardingPromptOptionRequest struct for OnboardingPromptOptionRequest
 type OnboardingPromptOptionRequest struct {
-	Id *string `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	Id *GetEntitlementsSkuIdsParameterOneOfInner `json:"id,omitempty"`
 	Title string `json:"title"`
-	Description NullableString `json:"description,omitempty"`
-	EmojiId *string `json:"emoji_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	EmojiName NullableString `json:"emoji_name,omitempty"`
-	EmojiAnimated NullableBool `json:"emoji_animated,omitempty"`
+	Description *string `json:"description,omitempty"`
+	EmojiId *GetEntitlementsSkuIdsParameterOneOfInner `json:"emoji_id,omitempty"`
+	EmojiName *string `json:"emoji_name,omitempty"`
+	EmojiAnimated *bool `json:"emoji_animated,omitempty"`
 	RoleIds []string `json:"role_ids,omitempty"`
 	ChannelIds []string `json:"channel_ids,omitempty"`
 }
@@ -86,9 +86,9 @@ func NewOnboardingPromptOptionRequestWithDefaults() *OnboardingPromptOptionReque
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *OnboardingPromptOptionRequest) GetId() string {
+func (o *OnboardingPromptOptionRequest) GetId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.Id) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.Id
@@ -96,7 +96,7 @@ func (o *OnboardingPromptOptionRequest) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OnboardingPromptOptionRequest) GetIdOk() (*string, bool) {
+func (o *OnboardingPromptOptionRequest) GetIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -112,8 +112,8 @@ func (o *OnboardingPromptOptionRequest) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *OnboardingPromptOptionRequest) SetId(v string) {
+// SetId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the Id field.
+func (o *OnboardingPromptOptionRequest) SetId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.Id = &v
 }
 
@@ -142,53 +142,43 @@ func (o *OnboardingPromptOptionRequest) SetTitle(v string) {
 	o.Title = v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *OnboardingPromptOptionRequest) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OnboardingPromptOptionRequest) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *OnboardingPromptOptionRequest) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *OnboardingPromptOptionRequest) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *OnboardingPromptOptionRequest) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *OnboardingPromptOptionRequest) UnsetDescription() {
-	o.Description.Unset()
-}
 
 // GetEmojiId returns the EmojiId field value if set, zero value otherwise.
-func (o *OnboardingPromptOptionRequest) GetEmojiId() string {
+func (o *OnboardingPromptOptionRequest) GetEmojiId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.EmojiId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.EmojiId
@@ -196,7 +186,7 @@ func (o *OnboardingPromptOptionRequest) GetEmojiId() string {
 
 // GetEmojiIdOk returns a tuple with the EmojiId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OnboardingPromptOptionRequest) GetEmojiIdOk() (*string, bool) {
+func (o *OnboardingPromptOptionRequest) GetEmojiIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.EmojiId) {
 		return nil, false
 	}
@@ -212,101 +202,81 @@ func (o *OnboardingPromptOptionRequest) HasEmojiId() bool {
 	return false
 }
 
-// SetEmojiId gets a reference to the given string and assigns it to the EmojiId field.
-func (o *OnboardingPromptOptionRequest) SetEmojiId(v string) {
+// SetEmojiId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the EmojiId field.
+func (o *OnboardingPromptOptionRequest) SetEmojiId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.EmojiId = &v
 }
 
 
-// GetEmojiName returns the EmojiName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmojiName returns the EmojiName field value if set, zero value otherwise.
 func (o *OnboardingPromptOptionRequest) GetEmojiName() string {
-	if o == nil || IsNil(o.EmojiName.Get()) {
+	if o == nil || IsNil(o.EmojiName) {
 		var ret string
 		return ret
 	}
-	return *o.EmojiName.Get()
+	return *o.EmojiName
 }
 
 // GetEmojiNameOk returns a tuple with the EmojiName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OnboardingPromptOptionRequest) GetEmojiNameOk() (*string, bool) {
-	if o == nil || IsNil(o.EmojiName.Get()) {
+	if o == nil || IsNil(o.EmojiName) {
 		return nil, false
 	}
-	return o.EmojiName.Get(), o.EmojiName.IsSet()
+	return o.EmojiName, true
 }
 
 // HasEmojiName returns a boolean if a field has been set.
 func (o *OnboardingPromptOptionRequest) HasEmojiName() bool {
-	if o != nil && o.EmojiName.IsSet() {
+	if o != nil && !IsNil(o.EmojiName) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmojiName gets a reference to the given NullableString and assigns it to the EmojiName field.
+// SetEmojiName gets a reference to the given string and assigns it to the EmojiName field.
 func (o *OnboardingPromptOptionRequest) SetEmojiName(v string) {
-	o.EmojiName.Set(&v)
+	o.EmojiName = &v
 }
 
-// SetEmojiNameNil sets the value for EmojiName to be an explicit nil
-func (o *OnboardingPromptOptionRequest) SetEmojiNameNil() {
-	o.EmojiName.Set(nil)
-}
 
-// UnsetEmojiName ensures that no value is present for EmojiName, not even an explicit nil
-func (o *OnboardingPromptOptionRequest) UnsetEmojiName() {
-	o.EmojiName.Unset()
-}
-
-// GetEmojiAnimated returns the EmojiAnimated field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmojiAnimated returns the EmojiAnimated field value if set, zero value otherwise.
 func (o *OnboardingPromptOptionRequest) GetEmojiAnimated() bool {
-	if o == nil || IsNil(o.EmojiAnimated.Get()) {
+	if o == nil || IsNil(o.EmojiAnimated) {
 		var ret bool
 		return ret
 	}
-	return *o.EmojiAnimated.Get()
+	return *o.EmojiAnimated
 }
 
 // GetEmojiAnimatedOk returns a tuple with the EmojiAnimated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OnboardingPromptOptionRequest) GetEmojiAnimatedOk() (*bool, bool) {
-	if o == nil || IsNil(o.EmojiAnimated.Get()) {
+	if o == nil || IsNil(o.EmojiAnimated) {
 		return nil, false
 	}
-	return o.EmojiAnimated.Get(), o.EmojiAnimated.IsSet()
+	return o.EmojiAnimated, true
 }
 
 // HasEmojiAnimated returns a boolean if a field has been set.
 func (o *OnboardingPromptOptionRequest) HasEmojiAnimated() bool {
-	if o != nil && o.EmojiAnimated.IsSet() {
+	if o != nil && !IsNil(o.EmojiAnimated) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmojiAnimated gets a reference to the given NullableBool and assigns it to the EmojiAnimated field.
+// SetEmojiAnimated gets a reference to the given bool and assigns it to the EmojiAnimated field.
 func (o *OnboardingPromptOptionRequest) SetEmojiAnimated(v bool) {
-	o.EmojiAnimated.Set(&v)
+	o.EmojiAnimated = &v
 }
 
-// SetEmojiAnimatedNil sets the value for EmojiAnimated to be an explicit nil
-func (o *OnboardingPromptOptionRequest) SetEmojiAnimatedNil() {
-	o.EmojiAnimated.Set(nil)
-}
 
-// UnsetEmojiAnimated ensures that no value is present for EmojiAnimated, not even an explicit nil
-func (o *OnboardingPromptOptionRequest) UnsetEmojiAnimated() {
-	o.EmojiAnimated.Unset()
-}
-
-// GetRoleIds returns the RoleIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRoleIds returns the RoleIds field value if set, zero value otherwise.
 func (o *OnboardingPromptOptionRequest) GetRoleIds() []string {
-	if o == nil {
+	if o == nil || IsNil(o.RoleIds) {
 		var ret []string
 		return ret
 	}
@@ -315,9 +285,8 @@ func (o *OnboardingPromptOptionRequest) GetRoleIds() []string {
 
 // GetRoleIdsOk returns a tuple with the RoleIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OnboardingPromptOptionRequest) GetRoleIdsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RoleIds) {
 		return nil, false
 	}
 	return o.RoleIds, true
@@ -338,9 +307,9 @@ func (o *OnboardingPromptOptionRequest) SetRoleIds(v []string) {
 }
 
 
-// GetChannelIds returns the ChannelIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetChannelIds returns the ChannelIds field value if set, zero value otherwise.
 func (o *OnboardingPromptOptionRequest) GetChannelIds() []string {
-	if o == nil {
+	if o == nil || IsNil(o.ChannelIds) {
 		var ret []string
 		return ret
 	}
@@ -349,9 +318,8 @@ func (o *OnboardingPromptOptionRequest) GetChannelIds() []string {
 
 // GetChannelIdsOk returns a tuple with the ChannelIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OnboardingPromptOptionRequest) GetChannelIdsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ChannelIds) {
 		return nil, false
 	}
 	return o.ChannelIds, true
@@ -386,22 +354,22 @@ func (o OnboardingPromptOptionRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["id"] = o.Id
 	}
 	toSerialize["title"] = o.Title
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
 	if !IsNil(o.EmojiId) {
 		toSerialize["emoji_id"] = o.EmojiId
 	}
-	if o.EmojiName.IsSet() {
-		toSerialize["emoji_name"] = o.EmojiName.Get()
+	if !IsNil(o.EmojiName) {
+		toSerialize["emoji_name"] = o.EmojiName
 	}
-	if o.EmojiAnimated.IsSet() {
-		toSerialize["emoji_animated"] = o.EmojiAnimated.Get()
+	if !IsNil(o.EmojiAnimated) {
+		toSerialize["emoji_animated"] = o.EmojiAnimated
 	}
-	if o.RoleIds != nil {
+	if !IsNil(o.RoleIds) {
 		toSerialize["role_ids"] = o.RoleIds
 	}
-	if o.ChannelIds != nil {
+	if !IsNil(o.ChannelIds) {
 		toSerialize["channel_ids"] = o.ChannelIds
 	}
 	return toSerialize, nil
@@ -479,5 +447,4 @@ func (v *NullableOnboardingPromptOptionRequest) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

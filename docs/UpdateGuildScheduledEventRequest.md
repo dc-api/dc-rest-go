@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to **int32** |  | [optional] 
+**Status** | Pointer to [**ExternalScheduledEventPatchRequestPartialStatus**](ExternalScheduledEventPatchRequestPartialStatus.md) |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Image** | Pointer to **string** |  | [optional] 
 **ScheduledStartTime** | Pointer to **time.Time** |  | [optional] 
 **ScheduledEndTime** | Pointer to **time.Time** |  | [optional] 
-**EntityType** | Pointer to **NullableInt32** |  | [optional] 
-**PrivacyLevel** | Pointer to **interface{}** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
-**EntityMetadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**EntityType** | Pointer to [**VoiceScheduledEventPatchRequestPartialEntityType**](VoiceScheduledEventPatchRequestPartialEntityType.md) |  | [optional] 
+**PrivacyLevel** | Pointer to [**GuildScheduledEventPrivacyLevels**](GuildScheduledEventPrivacyLevels.md) |  | [optional] 
+**ChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**EntityMetadata** | Pointer to [**VoiceScheduledEventCreateRequestEntityMetadata**](VoiceScheduledEventCreateRequestEntityMetadata.md) |  | [optional] 
 
 ## Methods
 
@@ -36,20 +36,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *UpdateGuildScheduledEventRequest) GetStatus() int32`
+`func (o *UpdateGuildScheduledEventRequest) GetStatus() ExternalScheduledEventPatchRequestPartialStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *UpdateGuildScheduledEventRequest) GetStatusOk() (*int32, bool)`
+`func (o *UpdateGuildScheduledEventRequest) GetStatusOk() (*ExternalScheduledEventPatchRequestPartialStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *UpdateGuildScheduledEventRequest) SetStatus(v int32)`
+`func (o *UpdateGuildScheduledEventRequest) SetStatus(v ExternalScheduledEventPatchRequestPartialStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -186,20 +186,20 @@ HasScheduledEndTime returns a boolean if a field has been set.
 
 ### GetEntityType
 
-`func (o *UpdateGuildScheduledEventRequest) GetEntityType() int32`
+`func (o *UpdateGuildScheduledEventRequest) GetEntityType() VoiceScheduledEventPatchRequestPartialEntityType`
 
 GetEntityType returns the EntityType field if non-nil, zero value otherwise.
 
 ### GetEntityTypeOk
 
-`func (o *UpdateGuildScheduledEventRequest) GetEntityTypeOk() (*int32, bool)`
+`func (o *UpdateGuildScheduledEventRequest) GetEntityTypeOk() (*VoiceScheduledEventPatchRequestPartialEntityType, bool)`
 
 GetEntityTypeOk returns a tuple with the EntityType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityType
 
-`func (o *UpdateGuildScheduledEventRequest) SetEntityType(v int32)`
+`func (o *UpdateGuildScheduledEventRequest) SetEntityType(v VoiceScheduledEventPatchRequestPartialEntityType)`
 
 SetEntityType sets EntityType field to given value.
 
@@ -209,32 +209,22 @@ SetEntityType sets EntityType field to given value.
 
 HasEntityType returns a boolean if a field has been set.
 
-### SetEntityTypeNil
-
-`func (o *UpdateGuildScheduledEventRequest) SetEntityTypeNil(b bool)`
-
- SetEntityTypeNil sets the value for EntityType to be an explicit nil
-
-### UnsetEntityType
-`func (o *UpdateGuildScheduledEventRequest) UnsetEntityType()`
-
-UnsetEntityType ensures that no value is present for EntityType, not even an explicit nil
 ### GetPrivacyLevel
 
-`func (o *UpdateGuildScheduledEventRequest) GetPrivacyLevel() interface{}`
+`func (o *UpdateGuildScheduledEventRequest) GetPrivacyLevel() GuildScheduledEventPrivacyLevels`
 
 GetPrivacyLevel returns the PrivacyLevel field if non-nil, zero value otherwise.
 
 ### GetPrivacyLevelOk
 
-`func (o *UpdateGuildScheduledEventRequest) GetPrivacyLevelOk() (*interface{}, bool)`
+`func (o *UpdateGuildScheduledEventRequest) GetPrivacyLevelOk() (*GuildScheduledEventPrivacyLevels, bool)`
 
 GetPrivacyLevelOk returns a tuple with the PrivacyLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrivacyLevel
 
-`func (o *UpdateGuildScheduledEventRequest) SetPrivacyLevel(v interface{})`
+`func (o *UpdateGuildScheduledEventRequest) SetPrivacyLevel(v GuildScheduledEventPrivacyLevels)`
 
 SetPrivacyLevel sets PrivacyLevel field to given value.
 
@@ -244,32 +234,22 @@ SetPrivacyLevel sets PrivacyLevel field to given value.
 
 HasPrivacyLevel returns a boolean if a field has been set.
 
-### SetPrivacyLevelNil
-
-`func (o *UpdateGuildScheduledEventRequest) SetPrivacyLevelNil(b bool)`
-
- SetPrivacyLevelNil sets the value for PrivacyLevel to be an explicit nil
-
-### UnsetPrivacyLevel
-`func (o *UpdateGuildScheduledEventRequest) UnsetPrivacyLevel()`
-
-UnsetPrivacyLevel ensures that no value is present for PrivacyLevel, not even an explicit nil
 ### GetChannelId
 
-`func (o *UpdateGuildScheduledEventRequest) GetChannelId() string`
+`func (o *UpdateGuildScheduledEventRequest) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
 
 ### GetChannelIdOk
 
-`func (o *UpdateGuildScheduledEventRequest) GetChannelIdOk() (*string, bool)`
+`func (o *UpdateGuildScheduledEventRequest) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelId
 
-`func (o *UpdateGuildScheduledEventRequest) SetChannelId(v string)`
+`func (o *UpdateGuildScheduledEventRequest) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetChannelId sets ChannelId field to given value.
 
@@ -281,20 +261,20 @@ HasChannelId returns a boolean if a field has been set.
 
 ### GetEntityMetadata
 
-`func (o *UpdateGuildScheduledEventRequest) GetEntityMetadata() map[string]interface{}`
+`func (o *UpdateGuildScheduledEventRequest) GetEntityMetadata() VoiceScheduledEventCreateRequestEntityMetadata`
 
 GetEntityMetadata returns the EntityMetadata field if non-nil, zero value otherwise.
 
 ### GetEntityMetadataOk
 
-`func (o *UpdateGuildScheduledEventRequest) GetEntityMetadataOk() (*map[string]interface{}, bool)`
+`func (o *UpdateGuildScheduledEventRequest) GetEntityMetadataOk() (*VoiceScheduledEventCreateRequestEntityMetadata, bool)`
 
 GetEntityMetadataOk returns a tuple with the EntityMetadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityMetadata
 
-`func (o *UpdateGuildScheduledEventRequest) SetEntityMetadata(v map[string]interface{})`
+`func (o *UpdateGuildScheduledEventRequest) SetEntityMetadata(v VoiceScheduledEventCreateRequestEntityMetadata)`
 
 SetEntityMetadata sets EntityMetadata field to given value.
 

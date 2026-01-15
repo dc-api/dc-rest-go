@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **NullableString** |  | [optional] 
-**Url** | Pointer to **NullableString** |  | [optional] 
-**Title** | Pointer to **NullableString** |  | [optional] 
-**Color** | Pointer to **NullableInt32** |  | [optional] 
-**Timestamp** | Pointer to **NullableTime** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Author** | Pointer to [**NullableRichEmbedAuthor**](RichEmbedAuthor.md) |  | [optional] 
-**Image** | Pointer to [**NullableRichEmbedImage**](RichEmbedImage.md) |  | [optional] 
-**Thumbnail** | Pointer to [**NullableRichEmbedThumbnail**](RichEmbedThumbnail.md) |  | [optional] 
-**Footer** | Pointer to [**NullableRichEmbedFooter**](RichEmbedFooter.md) |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
+**Title** | Pointer to **string** |  | [optional] 
+**Color** | Pointer to **int32** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Author** | Pointer to [**RichEmbedAuthor**](RichEmbedAuthor.md) |  | [optional] 
+**Image** | Pointer to [**RichEmbedImage**](RichEmbedImage.md) |  | [optional] 
+**Thumbnail** | Pointer to [**RichEmbedThumbnail**](RichEmbedThumbnail.md) |  | [optional] 
+**Footer** | Pointer to [**RichEmbedFooter**](RichEmbedFooter.md) |  | [optional] 
 **Fields** | Pointer to [**[]RichEmbedField**](RichEmbedField.md) |  | [optional] 
-**Provider** | Pointer to [**NullableRichEmbedProvider**](RichEmbedProvider.md) |  | [optional] 
-**Video** | Pointer to [**NullableRichEmbedVideo**](RichEmbedVideo.md) |  | [optional] 
+**Provider** | Pointer to [**RichEmbedProvider**](RichEmbedProvider.md) |  | [optional] 
+**Video** | Pointer to [**RichEmbedVideo**](RichEmbedVideo.md) |  | [optional] 
 
 ## Methods
 
@@ -62,16 +62,6 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
-### SetTypeNil
-
-`func (o *RichEmbed) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *RichEmbed) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetUrl
 
 `func (o *RichEmbed) GetUrl() string`
@@ -97,16 +87,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *RichEmbed) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *RichEmbed) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetTitle
 
 `func (o *RichEmbed) GetTitle() string`
@@ -132,16 +112,6 @@ SetTitle sets Title field to given value.
 
 HasTitle returns a boolean if a field has been set.
 
-### SetTitleNil
-
-`func (o *RichEmbed) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *RichEmbed) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetColor
 
 `func (o *RichEmbed) GetColor() int32`
@@ -167,16 +137,6 @@ SetColor sets Color field to given value.
 
 HasColor returns a boolean if a field has been set.
 
-### SetColorNil
-
-`func (o *RichEmbed) SetColorNil(b bool)`
-
- SetColorNil sets the value for Color to be an explicit nil
-
-### UnsetColor
-`func (o *RichEmbed) UnsetColor()`
-
-UnsetColor ensures that no value is present for Color, not even an explicit nil
 ### GetTimestamp
 
 `func (o *RichEmbed) GetTimestamp() time.Time`
@@ -202,16 +162,6 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### SetTimestampNil
-
-`func (o *RichEmbed) SetTimestampNil(b bool)`
-
- SetTimestampNil sets the value for Timestamp to be an explicit nil
-
-### UnsetTimestamp
-`func (o *RichEmbed) UnsetTimestamp()`
-
-UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
 ### GetDescription
 
 `func (o *RichEmbed) GetDescription() string`
@@ -237,16 +187,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *RichEmbed) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *RichEmbed) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetAuthor
 
 `func (o *RichEmbed) GetAuthor() RichEmbedAuthor`
@@ -272,16 +212,6 @@ SetAuthor sets Author field to given value.
 
 HasAuthor returns a boolean if a field has been set.
 
-### SetAuthorNil
-
-`func (o *RichEmbed) SetAuthorNil(b bool)`
-
- SetAuthorNil sets the value for Author to be an explicit nil
-
-### UnsetAuthor
-`func (o *RichEmbed) UnsetAuthor()`
-
-UnsetAuthor ensures that no value is present for Author, not even an explicit nil
 ### GetImage
 
 `func (o *RichEmbed) GetImage() RichEmbedImage`
@@ -307,16 +237,6 @@ SetImage sets Image field to given value.
 
 HasImage returns a boolean if a field has been set.
 
-### SetImageNil
-
-`func (o *RichEmbed) SetImageNil(b bool)`
-
- SetImageNil sets the value for Image to be an explicit nil
-
-### UnsetImage
-`func (o *RichEmbed) UnsetImage()`
-
-UnsetImage ensures that no value is present for Image, not even an explicit nil
 ### GetThumbnail
 
 `func (o *RichEmbed) GetThumbnail() RichEmbedThumbnail`
@@ -342,16 +262,6 @@ SetThumbnail sets Thumbnail field to given value.
 
 HasThumbnail returns a boolean if a field has been set.
 
-### SetThumbnailNil
-
-`func (o *RichEmbed) SetThumbnailNil(b bool)`
-
- SetThumbnailNil sets the value for Thumbnail to be an explicit nil
-
-### UnsetThumbnail
-`func (o *RichEmbed) UnsetThumbnail()`
-
-UnsetThumbnail ensures that no value is present for Thumbnail, not even an explicit nil
 ### GetFooter
 
 `func (o *RichEmbed) GetFooter() RichEmbedFooter`
@@ -377,16 +287,6 @@ SetFooter sets Footer field to given value.
 
 HasFooter returns a boolean if a field has been set.
 
-### SetFooterNil
-
-`func (o *RichEmbed) SetFooterNil(b bool)`
-
- SetFooterNil sets the value for Footer to be an explicit nil
-
-### UnsetFooter
-`func (o *RichEmbed) UnsetFooter()`
-
-UnsetFooter ensures that no value is present for Footer, not even an explicit nil
 ### GetFields
 
 `func (o *RichEmbed) GetFields() []RichEmbedField`
@@ -412,16 +312,6 @@ SetFields sets Fields field to given value.
 
 HasFields returns a boolean if a field has been set.
 
-### SetFieldsNil
-
-`func (o *RichEmbed) SetFieldsNil(b bool)`
-
- SetFieldsNil sets the value for Fields to be an explicit nil
-
-### UnsetFields
-`func (o *RichEmbed) UnsetFields()`
-
-UnsetFields ensures that no value is present for Fields, not even an explicit nil
 ### GetProvider
 
 `func (o *RichEmbed) GetProvider() RichEmbedProvider`
@@ -447,16 +337,6 @@ SetProvider sets Provider field to given value.
 
 HasProvider returns a boolean if a field has been set.
 
-### SetProviderNil
-
-`func (o *RichEmbed) SetProviderNil(b bool)`
-
- SetProviderNil sets the value for Provider to be an explicit nil
-
-### UnsetProvider
-`func (o *RichEmbed) UnsetProvider()`
-
-UnsetProvider ensures that no value is present for Provider, not even an explicit nil
 ### GetVideo
 
 `func (o *RichEmbed) GetVideo() RichEmbedVideo`
@@ -482,16 +362,6 @@ SetVideo sets Video field to given value.
 
 HasVideo returns a boolean if a field has been set.
 
-### SetVideoNil
-
-`func (o *RichEmbed) SetVideoNil(b bool)`
-
- SetVideoNil sets the value for Video to be an explicit nil
-
-### UnsetVideo
-`func (o *RichEmbed) UnsetVideo()`
-
-UnsetVideo ensures that no value is present for Video, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

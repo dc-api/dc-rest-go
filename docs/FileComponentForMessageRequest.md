@@ -4,15 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
-**Spoiler** | Pointer to **NullableBool** |  | [optional] 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Spoiler** | Pointer to **bool** |  | [optional] 
 **File** | [**UnfurledMediaRequestWithAttachmentReferenceRequired**](UnfurledMediaRequestWithAttachmentReferenceRequired.md) |  | 
 
 ## Methods
 
 ### NewFileComponentForMessageRequest
 
-`func NewFileComponentForMessageRequest(type_ int32, file UnfurledMediaRequestWithAttachmentReferenceRequired, ) *FileComponentForMessageRequest`
+`func NewFileComponentForMessageRequest(type_ MessageComponentTypes, file UnfurledMediaRequestWithAttachmentReferenceRequired, ) *FileComponentForMessageRequest`
 
 NewFileComponentForMessageRequest instantiates a new FileComponentForMessageRequest object
 This constructor will assign default values to properties that have it defined,
@@ -29,23 +30,48 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *FileComponentForMessageRequest) GetType() int32`
+`func (o *FileComponentForMessageRequest) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *FileComponentForMessageRequest) GetTypeOk() (*int32, bool)`
+`func (o *FileComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *FileComponentForMessageRequest) SetType(v int32)`
+`func (o *FileComponentForMessageRequest) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *FileComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *FileComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *FileComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *FileComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetSpoiler
 
@@ -72,16 +98,6 @@ SetSpoiler sets Spoiler field to given value.
 
 HasSpoiler returns a boolean if a field has been set.
 
-### SetSpoilerNil
-
-`func (o *FileComponentForMessageRequest) SetSpoilerNil(b bool)`
-
- SetSpoilerNil sets the value for Spoiler to be an explicit nil
-
-### UnsetSpoiler
-`func (o *FileComponentForMessageRequest) UnsetSpoiler()`
-
-UnsetSpoiler ensures that no value is present for Spoiler, not even an explicit nil
 ### GetFile
 
 `func (o *FileComponentForMessageRequest) GetFile() UnfurledMediaRequestWithAttachmentReferenceRequired`

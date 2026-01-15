@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Scopes** | **[]string** |  | 
+**Scopes** | [**[]OAuth2Scopes**](OAuth2Scopes.md) |  | 
 **Permissions** | **string** |  | 
 
 ## Methods
 
 ### NewApplicationOAuth2InstallParamsResponse
 
-`func NewApplicationOAuth2InstallParamsResponse(scopes []string, permissions string, ) *ApplicationOAuth2InstallParamsResponse`
+`func NewApplicationOAuth2InstallParamsResponse(scopes []OAuth2Scopes, permissions string, ) *ApplicationOAuth2InstallParamsResponse`
 
 NewApplicationOAuth2InstallParamsResponse instantiates a new ApplicationOAuth2InstallParamsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetScopes
 
-`func (o *ApplicationOAuth2InstallParamsResponse) GetScopes() []string`
+`func (o *ApplicationOAuth2InstallParamsResponse) GetScopes() []OAuth2Scopes`
 
 GetScopes returns the Scopes field if non-nil, zero value otherwise.
 
 ### GetScopesOk
 
-`func (o *ApplicationOAuth2InstallParamsResponse) GetScopesOk() (*[]string, bool)`
+`func (o *ApplicationOAuth2InstallParamsResponse) GetScopesOk() (*[]OAuth2Scopes, bool)`
 
 GetScopesOk returns a tuple with the Scopes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScopes
 
-`func (o *ApplicationOAuth2InstallParamsResponse) SetScopes(v []string)`
+`func (o *ApplicationOAuth2InstallParamsResponse) SetScopes(v []OAuth2Scopes)`
 
 SetScopes sets Scopes field to given value.
 

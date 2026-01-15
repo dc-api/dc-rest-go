@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Text** | Pointer to **NullableString** |  | [optional] 
-**Emoji** | Pointer to [**NullablePollEmojiCreateRequest**](PollEmojiCreateRequest.md) |  | [optional] 
+**Text** | Pointer to **string** |  | [optional] 
+**Emoji** | Pointer to [**PollMediaCreateRequestEmoji**](PollMediaCreateRequestEmoji.md) |  | [optional] 
 
 ## Methods
 
@@ -51,32 +51,22 @@ SetText sets Text field to given value.
 
 HasText returns a boolean if a field has been set.
 
-### SetTextNil
-
-`func (o *PollMediaCreateRequest) SetTextNil(b bool)`
-
- SetTextNil sets the value for Text to be an explicit nil
-
-### UnsetText
-`func (o *PollMediaCreateRequest) UnsetText()`
-
-UnsetText ensures that no value is present for Text, not even an explicit nil
 ### GetEmoji
 
-`func (o *PollMediaCreateRequest) GetEmoji() PollEmojiCreateRequest`
+`func (o *PollMediaCreateRequest) GetEmoji() PollMediaCreateRequestEmoji`
 
 GetEmoji returns the Emoji field if non-nil, zero value otherwise.
 
 ### GetEmojiOk
 
-`func (o *PollMediaCreateRequest) GetEmojiOk() (*PollEmojiCreateRequest, bool)`
+`func (o *PollMediaCreateRequest) GetEmojiOk() (*PollMediaCreateRequestEmoji, bool)`
 
 GetEmojiOk returns a tuple with the Emoji field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmoji
 
-`func (o *PollMediaCreateRequest) SetEmoji(v PollEmojiCreateRequest)`
+`func (o *PollMediaCreateRequest) SetEmoji(v PollMediaCreateRequestEmoji)`
 
 SetEmoji sets Emoji field to given value.
 
@@ -86,16 +76,6 @@ SetEmoji sets Emoji field to given value.
 
 HasEmoji returns a boolean if a field has been set.
 
-### SetEmojiNil
-
-`func (o *PollMediaCreateRequest) SetEmojiNil(b bool)`
-
- SetEmojiNil sets the value for Emoji to be an explicit nil
-
-### UnsetEmoji
-`func (o *PollMediaCreateRequest) UnsetEmoji()`
-
-UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

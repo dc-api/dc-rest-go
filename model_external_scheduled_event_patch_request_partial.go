@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -54,15 +54,15 @@ var _ MappedNullable = &ExternalScheduledEventPatchRequestPartial{}
 
 // ExternalScheduledEventPatchRequestPartial struct for ExternalScheduledEventPatchRequestPartial
 type ExternalScheduledEventPatchRequestPartial struct {
-	Status NullableInt32 `json:"status,omitempty"`
+	Status *ExternalScheduledEventPatchRequestPartialStatus `json:"status,omitempty"`
 	Name *string `json:"name,omitempty"`
-	Description NullableString `json:"description,omitempty"`
-	Image NullableString `json:"image,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Image *string `json:"image,omitempty"`
 	ScheduledStartTime *time.Time `json:"scheduled_start_time,omitempty"`
-	ScheduledEndTime NullableTime `json:"scheduled_end_time,omitempty"`
-	EntityType NullableInt32 `json:"entity_type,omitempty"`
-	PrivacyLevel interface{} `json:"privacy_level,omitempty"`
-	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	ScheduledEndTime *time.Time `json:"scheduled_end_time,omitempty"`
+	EntityType *ExternalScheduledEventPatchRequestPartialEntityType `json:"entity_type,omitempty"`
+	PrivacyLevel *GuildScheduledEventPrivacyLevels `json:"privacy_level,omitempty"`
+	ChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"channel_id,omitempty"`
 	EntityMetadata *EntityMetadataExternal `json:"entity_metadata,omitempty"`
 }
 
@@ -83,48 +83,38 @@ func NewExternalScheduledEventPatchRequestPartialWithDefaults() *ExternalSchedul
 	return &this
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ExternalScheduledEventPatchRequestPartial) GetStatus() int32 {
-	if o == nil || IsNil(o.Status.Get()) {
-		var ret int32
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *ExternalScheduledEventPatchRequestPartial) GetStatus() ExternalScheduledEventPatchRequestPartialStatus {
+	if o == nil || IsNil(o.Status) {
+		var ret ExternalScheduledEventPatchRequestPartialStatus
 		return ret
 	}
-	return *o.Status.Get()
+	return *o.Status
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ExternalScheduledEventPatchRequestPartial) GetStatusOk() (*int32, bool) {
-	if o == nil || IsNil(o.Status.Get()) {
+func (o *ExternalScheduledEventPatchRequestPartial) GetStatusOk() (*ExternalScheduledEventPatchRequestPartialStatus, bool) {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return o.Status.Get(), o.Status.IsSet()
+	return o.Status, true
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *ExternalScheduledEventPatchRequestPartial) HasStatus() bool {
-	if o != nil && o.Status.IsSet() {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
 	return false
 }
 
-// SetStatus gets a reference to the given NullableInt32 and assigns it to the Status field.
-func (o *ExternalScheduledEventPatchRequestPartial) SetStatus(v int32) {
-	o.Status.Set(&v)
+// SetStatus gets a reference to the given ExternalScheduledEventPatchRequestPartialStatus and assigns it to the Status field.
+func (o *ExternalScheduledEventPatchRequestPartial) SetStatus(v ExternalScheduledEventPatchRequestPartialStatus) {
+	o.Status = &v
 }
 
-// SetStatusNil sets the value for Status to be an explicit nil
-func (o *ExternalScheduledEventPatchRequestPartial) SetStatusNil() {
-	o.Status.Set(nil)
-}
-
-// UnsetStatus ensures that no value is present for Status, not even an explicit nil
-func (o *ExternalScheduledEventPatchRequestPartial) UnsetStatus() {
-	o.Status.Unset()
-}
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ExternalScheduledEventPatchRequestPartial) GetName() string {
@@ -159,91 +149,71 @@ func (o *ExternalScheduledEventPatchRequestPartial) SetName(v string) {
 }
 
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ExternalScheduledEventPatchRequestPartial) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalScheduledEventPatchRequestPartial) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *ExternalScheduledEventPatchRequestPartial) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *ExternalScheduledEventPatchRequestPartial) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *ExternalScheduledEventPatchRequestPartial) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *ExternalScheduledEventPatchRequestPartial) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetImage returns the Image field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetImage returns the Image field value if set, zero value otherwise.
 func (o *ExternalScheduledEventPatchRequestPartial) GetImage() string {
-	if o == nil || IsNil(o.Image.Get()) {
+	if o == nil || IsNil(o.Image) {
 		var ret string
 		return ret
 	}
-	return *o.Image.Get()
+	return *o.Image
 }
 
 // GetImageOk returns a tuple with the Image field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalScheduledEventPatchRequestPartial) GetImageOk() (*string, bool) {
-	if o == nil || IsNil(o.Image.Get()) {
+	if o == nil || IsNil(o.Image) {
 		return nil, false
 	}
-	return o.Image.Get(), o.Image.IsSet()
+	return o.Image, true
 }
 
 // HasImage returns a boolean if a field has been set.
 func (o *ExternalScheduledEventPatchRequestPartial) HasImage() bool {
-	if o != nil && o.Image.IsSet() {
+	if o != nil && !IsNil(o.Image) {
 		return true
 	}
 
 	return false
 }
 
-// SetImage gets a reference to the given NullableString and assigns it to the Image field.
+// SetImage gets a reference to the given string and assigns it to the Image field.
 func (o *ExternalScheduledEventPatchRequestPartial) SetImage(v string) {
-	o.Image.Set(&v)
+	o.Image = &v
 }
 
-// SetImageNil sets the value for Image to be an explicit nil
-func (o *ExternalScheduledEventPatchRequestPartial) SetImageNil() {
-	o.Image.Set(nil)
-}
-
-// UnsetImage ensures that no value is present for Image, not even an explicit nil
-func (o *ExternalScheduledEventPatchRequestPartial) UnsetImage() {
-	o.Image.Unset()
-}
 
 // GetScheduledStartTime returns the ScheduledStartTime field value if set, zero value otherwise.
 func (o *ExternalScheduledEventPatchRequestPartial) GetScheduledStartTime() time.Time {
@@ -278,109 +248,88 @@ func (o *ExternalScheduledEventPatchRequestPartial) SetScheduledStartTime(v time
 }
 
 
-// GetScheduledEndTime returns the ScheduledEndTime field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetScheduledEndTime returns the ScheduledEndTime field value if set, zero value otherwise.
 func (o *ExternalScheduledEventPatchRequestPartial) GetScheduledEndTime() time.Time {
-	if o == nil || IsNil(o.ScheduledEndTime.Get()) {
+	if o == nil || IsNil(o.ScheduledEndTime) {
 		var ret time.Time
 		return ret
 	}
-	return *o.ScheduledEndTime.Get()
+	return *o.ScheduledEndTime
 }
 
 // GetScheduledEndTimeOk returns a tuple with the ScheduledEndTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalScheduledEventPatchRequestPartial) GetScheduledEndTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.ScheduledEndTime.Get()) {
+	if o == nil || IsNil(o.ScheduledEndTime) {
 		return nil, false
 	}
-	return o.ScheduledEndTime.Get(), o.ScheduledEndTime.IsSet()
+	return o.ScheduledEndTime, true
 }
 
 // HasScheduledEndTime returns a boolean if a field has been set.
 func (o *ExternalScheduledEventPatchRequestPartial) HasScheduledEndTime() bool {
-	if o != nil && o.ScheduledEndTime.IsSet() {
+	if o != nil && !IsNil(o.ScheduledEndTime) {
 		return true
 	}
 
 	return false
 }
 
-// SetScheduledEndTime gets a reference to the given NullableTime and assigns it to the ScheduledEndTime field.
+// SetScheduledEndTime gets a reference to the given time.Time and assigns it to the ScheduledEndTime field.
 func (o *ExternalScheduledEventPatchRequestPartial) SetScheduledEndTime(v time.Time) {
-	o.ScheduledEndTime.Set(&v)
+	o.ScheduledEndTime = &v
 }
 
-// SetScheduledEndTimeNil sets the value for ScheduledEndTime to be an explicit nil
-func (o *ExternalScheduledEventPatchRequestPartial) SetScheduledEndTimeNil() {
-	o.ScheduledEndTime.Set(nil)
-}
 
-// UnsetScheduledEndTime ensures that no value is present for ScheduledEndTime, not even an explicit nil
-func (o *ExternalScheduledEventPatchRequestPartial) UnsetScheduledEndTime() {
-	o.ScheduledEndTime.Unset()
-}
-
-// GetEntityType returns the EntityType field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ExternalScheduledEventPatchRequestPartial) GetEntityType() int32 {
-	if o == nil || IsNil(o.EntityType.Get()) {
-		var ret int32
+// GetEntityType returns the EntityType field value if set, zero value otherwise.
+func (o *ExternalScheduledEventPatchRequestPartial) GetEntityType() ExternalScheduledEventPatchRequestPartialEntityType {
+	if o == nil || IsNil(o.EntityType) {
+		var ret ExternalScheduledEventPatchRequestPartialEntityType
 		return ret
 	}
-	return *o.EntityType.Get()
+	return *o.EntityType
 }
 
 // GetEntityTypeOk returns a tuple with the EntityType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ExternalScheduledEventPatchRequestPartial) GetEntityTypeOk() (*int32, bool) {
-	if o == nil || IsNil(o.EntityType.Get()) {
+func (o *ExternalScheduledEventPatchRequestPartial) GetEntityTypeOk() (*ExternalScheduledEventPatchRequestPartialEntityType, bool) {
+	if o == nil || IsNil(o.EntityType) {
 		return nil, false
 	}
-	return o.EntityType.Get(), o.EntityType.IsSet()
+	return o.EntityType, true
 }
 
 // HasEntityType returns a boolean if a field has been set.
 func (o *ExternalScheduledEventPatchRequestPartial) HasEntityType() bool {
-	if o != nil && o.EntityType.IsSet() {
+	if o != nil && !IsNil(o.EntityType) {
 		return true
 	}
 
 	return false
 }
 
-// SetEntityType gets a reference to the given NullableInt32 and assigns it to the EntityType field.
-func (o *ExternalScheduledEventPatchRequestPartial) SetEntityType(v int32) {
-	o.EntityType.Set(&v)
+// SetEntityType gets a reference to the given ExternalScheduledEventPatchRequestPartialEntityType and assigns it to the EntityType field.
+func (o *ExternalScheduledEventPatchRequestPartial) SetEntityType(v ExternalScheduledEventPatchRequestPartialEntityType) {
+	o.EntityType = &v
 }
 
-// SetEntityTypeNil sets the value for EntityType to be an explicit nil
-func (o *ExternalScheduledEventPatchRequestPartial) SetEntityTypeNil() {
-	o.EntityType.Set(nil)
-}
 
-// UnsetEntityType ensures that no value is present for EntityType, not even an explicit nil
-func (o *ExternalScheduledEventPatchRequestPartial) UnsetEntityType() {
-	o.EntityType.Unset()
-}
-
-// GetPrivacyLevel returns the PrivacyLevel field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ExternalScheduledEventPatchRequestPartial) GetPrivacyLevel() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetPrivacyLevel returns the PrivacyLevel field value if set, zero value otherwise.
+func (o *ExternalScheduledEventPatchRequestPartial) GetPrivacyLevel() GuildScheduledEventPrivacyLevels {
+	if o == nil || IsNil(o.PrivacyLevel) {
+		var ret GuildScheduledEventPrivacyLevels
 		return ret
 	}
-	return o.PrivacyLevel
+	return *o.PrivacyLevel
 }
 
 // GetPrivacyLevelOk returns a tuple with the PrivacyLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ExternalScheduledEventPatchRequestPartial) GetPrivacyLevelOk() (*interface{}, bool) {
-	if o == nil {
+func (o *ExternalScheduledEventPatchRequestPartial) GetPrivacyLevelOk() (*GuildScheduledEventPrivacyLevels, bool) {
+	if o == nil || IsNil(o.PrivacyLevel) {
 		return nil, false
 	}
-	return &o.PrivacyLevel, true
+	return o.PrivacyLevel, true
 }
 
 // HasPrivacyLevel returns a boolean if a field has been set.
@@ -392,16 +341,16 @@ func (o *ExternalScheduledEventPatchRequestPartial) HasPrivacyLevel() bool {
 	return false
 }
 
-// SetPrivacyLevel gets a reference to the given interface{} and assigns it to the PrivacyLevel field.
-func (o *ExternalScheduledEventPatchRequestPartial) SetPrivacyLevel(v interface{}) {
-	o.PrivacyLevel = v
+// SetPrivacyLevel gets a reference to the given GuildScheduledEventPrivacyLevels and assigns it to the PrivacyLevel field.
+func (o *ExternalScheduledEventPatchRequestPartial) SetPrivacyLevel(v GuildScheduledEventPrivacyLevels) {
+	o.PrivacyLevel = &v
 }
 
 
 // GetChannelId returns the ChannelId field value if set, zero value otherwise.
-func (o *ExternalScheduledEventPatchRequestPartial) GetChannelId() string {
+func (o *ExternalScheduledEventPatchRequestPartial) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.ChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.ChannelId
@@ -409,7 +358,7 @@ func (o *ExternalScheduledEventPatchRequestPartial) GetChannelId() string {
 
 // GetChannelIdOk returns a tuple with the ChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ExternalScheduledEventPatchRequestPartial) GetChannelIdOk() (*string, bool) {
+func (o *ExternalScheduledEventPatchRequestPartial) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.ChannelId) {
 		return nil, false
 	}
@@ -425,8 +374,8 @@ func (o *ExternalScheduledEventPatchRequestPartial) HasChannelId() bool {
 	return false
 }
 
-// SetChannelId gets a reference to the given string and assigns it to the ChannelId field.
-func (o *ExternalScheduledEventPatchRequestPartial) SetChannelId(v string) {
+// SetChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the ChannelId field.
+func (o *ExternalScheduledEventPatchRequestPartial) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.ChannelId = &v
 }
 
@@ -474,28 +423,28 @@ func (o ExternalScheduledEventPatchRequestPartial) MarshalJSON() ([]byte, error)
 
 func (o ExternalScheduledEventPatchRequestPartial) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Status.IsSet() {
-		toSerialize["status"] = o.Status.Get()
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
-	if o.Image.IsSet() {
-		toSerialize["image"] = o.Image.Get()
+	if !IsNil(o.Image) {
+		toSerialize["image"] = o.Image
 	}
 	if !IsNil(o.ScheduledStartTime) {
 		toSerialize["scheduled_start_time"] = o.ScheduledStartTime
 	}
-	if o.ScheduledEndTime.IsSet() {
-		toSerialize["scheduled_end_time"] = o.ScheduledEndTime.Get()
+	if !IsNil(o.ScheduledEndTime) {
+		toSerialize["scheduled_end_time"] = o.ScheduledEndTime
 	}
-	if o.EntityType.IsSet() {
-		toSerialize["entity_type"] = o.EntityType.Get()
+	if !IsNil(o.EntityType) {
+		toSerialize["entity_type"] = o.EntityType
 	}
-	if o.PrivacyLevel != nil {
+	if !IsNil(o.PrivacyLevel) {
 		toSerialize["privacy_level"] = o.PrivacyLevel
 	}
 	if !IsNil(o.ChannelId) {
@@ -542,5 +491,4 @@ func (v *NullableExternalScheduledEventPatchRequestPartial) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

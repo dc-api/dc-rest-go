@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,7 +53,7 @@ var _ MappedNullable = &CreateGroupDMInviteRequest{}
 
 // CreateGroupDMInviteRequest struct for CreateGroupDMInviteRequest
 type CreateGroupDMInviteRequest struct {
-	MaxAge NullableInt32 `json:"max_age,omitempty"`
+	MaxAge *int32 `json:"max_age,omitempty"`
 }
 
 // NewCreateGroupDMInviteRequest instantiates a new CreateGroupDMInviteRequest object
@@ -73,48 +73,38 @@ func NewCreateGroupDMInviteRequestWithDefaults() *CreateGroupDMInviteRequest {
 	return &this
 }
 
-// GetMaxAge returns the MaxAge field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxAge returns the MaxAge field value if set, zero value otherwise.
 func (o *CreateGroupDMInviteRequest) GetMaxAge() int32 {
-	if o == nil || IsNil(o.MaxAge.Get()) {
+	if o == nil || IsNil(o.MaxAge) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxAge.Get()
+	return *o.MaxAge
 }
 
 // GetMaxAgeOk returns a tuple with the MaxAge field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateGroupDMInviteRequest) GetMaxAgeOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxAge.Get()) {
+	if o == nil || IsNil(o.MaxAge) {
 		return nil, false
 	}
-	return o.MaxAge.Get(), o.MaxAge.IsSet()
+	return o.MaxAge, true
 }
 
 // HasMaxAge returns a boolean if a field has been set.
 func (o *CreateGroupDMInviteRequest) HasMaxAge() bool {
-	if o != nil && o.MaxAge.IsSet() {
+	if o != nil && !IsNil(o.MaxAge) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxAge gets a reference to the given NullableInt32 and assigns it to the MaxAge field.
+// SetMaxAge gets a reference to the given int32 and assigns it to the MaxAge field.
 func (o *CreateGroupDMInviteRequest) SetMaxAge(v int32) {
-	o.MaxAge.Set(&v)
+	o.MaxAge = &v
 }
 
-// SetMaxAgeNil sets the value for MaxAge to be an explicit nil
-func (o *CreateGroupDMInviteRequest) SetMaxAgeNil() {
-	o.MaxAge.Set(nil)
-}
-
-// UnsetMaxAge ensures that no value is present for MaxAge, not even an explicit nil
-func (o *CreateGroupDMInviteRequest) UnsetMaxAge() {
-	o.MaxAge.Unset()
-}
 
 func (o CreateGroupDMInviteRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -126,8 +116,8 @@ func (o CreateGroupDMInviteRequest) MarshalJSON() ([]byte, error) {
 
 func (o CreateGroupDMInviteRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.MaxAge.IsSet() {
-		toSerialize["max_age"] = o.MaxAge.Get()
+	if !IsNil(o.MaxAge) {
+		toSerialize["max_age"] = o.MaxAge
 	}
 	return toSerialize, nil
 }
@@ -167,5 +157,4 @@ func (v *NullableCreateGroupDMInviteRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**Position** | Pointer to **NullableInt32** |  | [optional] 
-**ParentId** | Pointer to **string** |  | [optional] 
-**LockPermissions** | Pointer to **NullableBool** |  | [optional] 
+**Id** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**Position** | Pointer to **int32** |  | [optional] 
+**ParentId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**LockPermissions** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *BulkUpdateGuildChannelsRequestInner) GetId() string`
+`func (o *BulkUpdateGuildChannelsRequestInner) GetId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *BulkUpdateGuildChannelsRequestInner) GetIdOk() (*string, bool)`
+`func (o *BulkUpdateGuildChannelsRequestInner) GetIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *BulkUpdateGuildChannelsRequestInner) SetId(v string)`
+`func (o *BulkUpdateGuildChannelsRequestInner) SetId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetId sets Id field to given value.
 
@@ -78,32 +78,22 @@ SetPosition sets Position field to given value.
 
 HasPosition returns a boolean if a field has been set.
 
-### SetPositionNil
-
-`func (o *BulkUpdateGuildChannelsRequestInner) SetPositionNil(b bool)`
-
- SetPositionNil sets the value for Position to be an explicit nil
-
-### UnsetPosition
-`func (o *BulkUpdateGuildChannelsRequestInner) UnsetPosition()`
-
-UnsetPosition ensures that no value is present for Position, not even an explicit nil
 ### GetParentId
 
-`func (o *BulkUpdateGuildChannelsRequestInner) GetParentId() string`
+`func (o *BulkUpdateGuildChannelsRequestInner) GetParentId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetParentId returns the ParentId field if non-nil, zero value otherwise.
 
 ### GetParentIdOk
 
-`func (o *BulkUpdateGuildChannelsRequestInner) GetParentIdOk() (*string, bool)`
+`func (o *BulkUpdateGuildChannelsRequestInner) GetParentIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetParentIdOk returns a tuple with the ParentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetParentId
 
-`func (o *BulkUpdateGuildChannelsRequestInner) SetParentId(v string)`
+`func (o *BulkUpdateGuildChannelsRequestInner) SetParentId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetParentId sets ParentId field to given value.
 
@@ -138,16 +128,6 @@ SetLockPermissions sets LockPermissions field to given value.
 
 HasLockPermissions returns a boolean if a field has been set.
 
-### SetLockPermissionsNil
-
-`func (o *BulkUpdateGuildChannelsRequestInner) SetLockPermissionsNil(b bool)`
-
- SetLockPermissionsNil sets the value for LockPermissions to be an explicit nil
-
-### UnsetLockPermissions
-`func (o *BulkUpdateGuildChannelsRequestInner) UnsetLockPermissions()`
-
-UnsetLockPermissions ensures that no value is present for LockPermissions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

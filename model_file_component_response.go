@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,11 +55,11 @@ var _ MappedNullable = &FileComponentResponse{}
 
 // FileComponentResponse struct for FileComponentResponse
 type FileComponentResponse struct {
-	Type int32 `json:"type"`
+	Type MessageComponentTypes `json:"type"`
 	Id int32 `json:"id"`
 	File UnfurledMediaResponse `json:"file"`
-	Name NullableString `json:"name,omitempty"`
-	Size NullableInt32 `json:"size,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Size *int32 `json:"size,omitempty"`
 	Spoiler bool `json:"spoiler"`
 }
 
@@ -69,7 +69,7 @@ type _FileComponentResponse FileComponentResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFileComponentResponse(type_ int32, id int32, file UnfurledMediaResponse, spoiler bool) *FileComponentResponse {
+func NewFileComponentResponse(type_ MessageComponentTypes, id int32, file UnfurledMediaResponse, spoiler bool) *FileComponentResponse {
 	this := FileComponentResponse{}
 	this.Type = type_
 	this.Id = id
@@ -87,9 +87,9 @@ func NewFileComponentResponseWithDefaults() *FileComponentResponse {
 }
 
 // GetType returns the Type field value
-func (o *FileComponentResponse) GetType() int32 {
+func (o *FileComponentResponse) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -98,7 +98,7 @@ func (o *FileComponentResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *FileComponentResponse) GetTypeOk() (*int32, bool) {
+func (o *FileComponentResponse) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -106,7 +106,7 @@ func (o *FileComponentResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *FileComponentResponse) SetType(v int32) {
+func (o *FileComponentResponse) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
 
@@ -158,91 +158,71 @@ func (o *FileComponentResponse) SetFile(v UnfurledMediaResponse) {
 	o.File = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *FileComponentResponse) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FileComponentResponse) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *FileComponentResponse) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *FileComponentResponse) SetName(v string) {
-	o.Name.Set(&v)
+	o.Name = &v
 }
 
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *FileComponentResponse) SetNameNil() {
-	o.Name.Set(nil)
-}
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *FileComponentResponse) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetSize returns the Size field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSize returns the Size field value if set, zero value otherwise.
 func (o *FileComponentResponse) GetSize() int32 {
-	if o == nil || IsNil(o.Size.Get()) {
+	if o == nil || IsNil(o.Size) {
 		var ret int32
 		return ret
 	}
-	return *o.Size.Get()
+	return *o.Size
 }
 
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FileComponentResponse) GetSizeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Size.Get()) {
+	if o == nil || IsNil(o.Size) {
 		return nil, false
 	}
-	return o.Size.Get(), o.Size.IsSet()
+	return o.Size, true
 }
 
 // HasSize returns a boolean if a field has been set.
 func (o *FileComponentResponse) HasSize() bool {
-	if o != nil && o.Size.IsSet() {
+	if o != nil && !IsNil(o.Size) {
 		return true
 	}
 
 	return false
 }
 
-// SetSize gets a reference to the given NullableInt32 and assigns it to the Size field.
+// SetSize gets a reference to the given int32 and assigns it to the Size field.
 func (o *FileComponentResponse) SetSize(v int32) {
-	o.Size.Set(&v)
+	o.Size = &v
 }
 
-// SetSizeNil sets the value for Size to be an explicit nil
-func (o *FileComponentResponse) SetSizeNil() {
-	o.Size.Set(nil)
-}
-
-// UnsetSize ensures that no value is present for Size, not even an explicit nil
-func (o *FileComponentResponse) UnsetSize() {
-	o.Size.Unset()
-}
 
 // GetSpoiler returns the Spoiler field value
 func (o *FileComponentResponse) GetSpoiler() bool {
@@ -281,11 +261,11 @@ func (o FileComponentResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["type"] = o.Type
 	toSerialize["id"] = o.Id
 	toSerialize["file"] = o.File
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Size.IsSet() {
-		toSerialize["size"] = o.Size.Get()
+	if !IsNil(o.Size) {
+		toSerialize["size"] = o.Size
 	}
 	toSerialize["spoiler"] = o.Spoiler
 	return toSerialize, nil
@@ -366,5 +346,4 @@ func (v *NullableFileComponentResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

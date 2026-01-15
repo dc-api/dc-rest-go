@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -52,14 +52,14 @@ import (
 
 // GetEntitlementsSkuIdsParameter - struct for GetEntitlementsSkuIdsParameter
 type GetEntitlementsSkuIdsParameter struct {
-	ArrayOfString *[]string
+	ArrayOfGetEntitlementsSkuIdsParameterOneOfInner *[]GetEntitlementsSkuIdsParameterOneOfInner
 	String *string
 }
 
-// []stringAsGetEntitlementsSkuIdsParameter is a convenience function that returns []string wrapped in GetEntitlementsSkuIdsParameter
-func ArrayOfStringAsGetEntitlementsSkuIdsParameter(v *[]string) GetEntitlementsSkuIdsParameter {
+// []GetEntitlementsSkuIdsParameterOneOfInnerAsGetEntitlementsSkuIdsParameter is a convenience function that returns []GetEntitlementsSkuIdsParameterOneOfInner wrapped in GetEntitlementsSkuIdsParameter
+func ArrayOfGetEntitlementsSkuIdsParameterOneOfInnerAsGetEntitlementsSkuIdsParameter(v *[]GetEntitlementsSkuIdsParameterOneOfInner) GetEntitlementsSkuIdsParameter {
 	return GetEntitlementsSkuIdsParameter{
-		ArrayOfString: v,
+		ArrayOfGetEntitlementsSkuIdsParameterOneOfInner: v,
 	}
 }
 
@@ -75,21 +75,21 @@ func StringAsGetEntitlementsSkuIdsParameter(v *string) GetEntitlementsSkuIdsPara
 func (dst *GetEntitlementsSkuIdsParameter) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into ArrayOfString
-	err = newStrictDecoder(data).Decode(&dst.ArrayOfString)
+	// try to unmarshal data into ArrayOfGetEntitlementsSkuIdsParameterOneOfInner
+	err = newStrictDecoder(data).Decode(&dst.ArrayOfGetEntitlementsSkuIdsParameterOneOfInner)
 	if err == nil {
-		jsonArrayOfString, _ := json.Marshal(dst.ArrayOfString)
-		if string(jsonArrayOfString) == "{}" { // empty struct
-			dst.ArrayOfString = nil
+		jsonArrayOfGetEntitlementsSkuIdsParameterOneOfInner, _ := json.Marshal(dst.ArrayOfGetEntitlementsSkuIdsParameterOneOfInner)
+		if string(jsonArrayOfGetEntitlementsSkuIdsParameterOneOfInner) == "{}" { // empty struct
+			dst.ArrayOfGetEntitlementsSkuIdsParameterOneOfInner = nil
 		} else {
-			if err = validator.Validate(dst.ArrayOfString); err != nil {
-				dst.ArrayOfString = nil
+			if err = validator.Validate(dst.ArrayOfGetEntitlementsSkuIdsParameterOneOfInner); err != nil {
+				dst.ArrayOfGetEntitlementsSkuIdsParameterOneOfInner = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.ArrayOfString = nil
+		dst.ArrayOfGetEntitlementsSkuIdsParameterOneOfInner = nil
 	}
 
 	// try to unmarshal data into String
@@ -111,7 +111,7 @@ func (dst *GetEntitlementsSkuIdsParameter) UnmarshalJSON(data []byte) error {
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.ArrayOfString = nil
+		dst.ArrayOfGetEntitlementsSkuIdsParameterOneOfInner = nil
 		dst.String = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(GetEntitlementsSkuIdsParameter)")
@@ -124,8 +124,8 @@ func (dst *GetEntitlementsSkuIdsParameter) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src GetEntitlementsSkuIdsParameter) MarshalJSON() ([]byte, error) {
-	if src.ArrayOfString != nil {
-		return json.Marshal(&src.ArrayOfString)
+	if src.ArrayOfGetEntitlementsSkuIdsParameterOneOfInner != nil {
+		return json.Marshal(&src.ArrayOfGetEntitlementsSkuIdsParameterOneOfInner)
 	}
 
 	if src.String != nil {
@@ -140,8 +140,8 @@ func (obj *GetEntitlementsSkuIdsParameter) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.ArrayOfString != nil {
-		return obj.ArrayOfString
+	if obj.ArrayOfGetEntitlementsSkuIdsParameterOneOfInner != nil {
+		return obj.ArrayOfGetEntitlementsSkuIdsParameterOneOfInner
 	}
 
 	if obj.String != nil {
@@ -154,8 +154,8 @@ func (obj *GetEntitlementsSkuIdsParameter) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj GetEntitlementsSkuIdsParameter) GetActualInstanceValue() (interface{}) {
-	if obj.ArrayOfString != nil {
-		return *obj.ArrayOfString
+	if obj.ArrayOfGetEntitlementsSkuIdsParameterOneOfInner != nil {
+		return *obj.ArrayOfGetEntitlementsSkuIdsParameterOneOfInner
 	}
 
 	if obj.String != nil {
@@ -201,5 +201,4 @@ func (v *NullableGetEntitlementsSkuIdsParameter) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

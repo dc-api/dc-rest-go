@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,8 +58,8 @@ var _ MappedNullable = &OAuth2GetAuthorizationResponse{}
 type OAuth2GetAuthorizationResponse struct {
 	Application ApplicationResponse `json:"application"`
 	Expires time.Time `json:"expires"`
-	Scopes []string `json:"scopes"`
-	User NullableUserResponse `json:"user,omitempty"`
+	Scopes []OAuth2Scopes `json:"scopes"`
+	User *UserResponse `json:"user,omitempty"`
 }
 
 type _OAuth2GetAuthorizationResponse OAuth2GetAuthorizationResponse
@@ -68,7 +68,7 @@ type _OAuth2GetAuthorizationResponse OAuth2GetAuthorizationResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOAuth2GetAuthorizationResponse(application ApplicationResponse, expires time.Time, scopes []string) *OAuth2GetAuthorizationResponse {
+func NewOAuth2GetAuthorizationResponse(application ApplicationResponse, expires time.Time, scopes []OAuth2Scopes) *OAuth2GetAuthorizationResponse {
 	this := OAuth2GetAuthorizationResponse{}
 	this.Application = application
 	this.Expires = expires
@@ -133,9 +133,9 @@ func (o *OAuth2GetAuthorizationResponse) SetExpires(v time.Time) {
 }
 
 // GetScopes returns the Scopes field value
-func (o *OAuth2GetAuthorizationResponse) GetScopes() []string {
+func (o *OAuth2GetAuthorizationResponse) GetScopes() []OAuth2Scopes {
 	if o == nil {
-		var ret []string
+		var ret []OAuth2Scopes
 		return ret
 	}
 
@@ -144,7 +144,7 @@ func (o *OAuth2GetAuthorizationResponse) GetScopes() []string {
 
 // GetScopesOk returns a tuple with the Scopes field value
 // and a boolean to check if the value has been set.
-func (o *OAuth2GetAuthorizationResponse) GetScopesOk() ([]string, bool) {
+func (o *OAuth2GetAuthorizationResponse) GetScopesOk() ([]OAuth2Scopes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -152,52 +152,42 @@ func (o *OAuth2GetAuthorizationResponse) GetScopesOk() ([]string, bool) {
 }
 
 // SetScopes sets field value
-func (o *OAuth2GetAuthorizationResponse) SetScopes(v []string) {
+func (o *OAuth2GetAuthorizationResponse) SetScopes(v []OAuth2Scopes) {
 	o.Scopes = v
 }
 
-// GetUser returns the User field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUser returns the User field value if set, zero value otherwise.
 func (o *OAuth2GetAuthorizationResponse) GetUser() UserResponse {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.User.Get()
+	return *o.User
 }
 
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OAuth2GetAuthorizationResponse) GetUserOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		return nil, false
 	}
-	return o.User.Get(), o.User.IsSet()
+	return o.User, true
 }
 
 // HasUser returns a boolean if a field has been set.
 func (o *OAuth2GetAuthorizationResponse) HasUser() bool {
-	if o != nil && o.User.IsSet() {
+	if o != nil && !IsNil(o.User) {
 		return true
 	}
 
 	return false
 }
 
-// SetUser gets a reference to the given NullableUserResponse and assigns it to the User field.
+// SetUser gets a reference to the given UserResponse and assigns it to the User field.
 func (o *OAuth2GetAuthorizationResponse) SetUser(v UserResponse) {
-	o.User.Set(&v)
+	o.User = &v
 }
 
-// SetUserNil sets the value for User to be an explicit nil
-func (o *OAuth2GetAuthorizationResponse) SetUserNil() {
-	o.User.Set(nil)
-}
-
-// UnsetUser ensures that no value is present for User, not even an explicit nil
-func (o *OAuth2GetAuthorizationResponse) UnsetUser() {
-	o.User.Unset()
-}
 
 func (o OAuth2GetAuthorizationResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -212,8 +202,8 @@ func (o OAuth2GetAuthorizationResponse) ToMap() (map[string]interface{}, error) 
 	toSerialize["application"] = o.Application
 	toSerialize["expires"] = o.Expires
 	toSerialize["scopes"] = o.Scopes
-	if o.User.IsSet() {
-		toSerialize["user"] = o.User.Get()
+	if !IsNil(o.User) {
+		toSerialize["user"] = o.User
 	}
 	return toSerialize, nil
 }
@@ -292,5 +282,4 @@ func (v *NullableOAuth2GetAuthorizationResponse) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

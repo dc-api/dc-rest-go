@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,8 +56,8 @@ var _ MappedNullable = &CreateTextThreadWithMessageRequest{}
 // CreateTextThreadWithMessageRequest struct for CreateTextThreadWithMessageRequest
 type CreateTextThreadWithMessageRequest struct {
 	Name string `json:"name"`
-	AutoArchiveDuration *int32 `json:"auto_archive_duration,omitempty"`
-	RateLimitPerUser NullableInt32 `json:"rate_limit_per_user,omitempty"`
+	AutoArchiveDuration *CreateForumThreadRequestAutoArchiveDuration `json:"auto_archive_duration,omitempty"`
+	RateLimitPerUser *int32 `json:"rate_limit_per_user,omitempty"`
 }
 
 type _CreateTextThreadWithMessageRequest CreateTextThreadWithMessageRequest
@@ -105,9 +105,9 @@ func (o *CreateTextThreadWithMessageRequest) SetName(v string) {
 }
 
 // GetAutoArchiveDuration returns the AutoArchiveDuration field value if set, zero value otherwise.
-func (o *CreateTextThreadWithMessageRequest) GetAutoArchiveDuration() int32 {
+func (o *CreateTextThreadWithMessageRequest) GetAutoArchiveDuration() CreateForumThreadRequestAutoArchiveDuration {
 	if o == nil || IsNil(o.AutoArchiveDuration) {
-		var ret int32
+		var ret CreateForumThreadRequestAutoArchiveDuration
 		return ret
 	}
 	return *o.AutoArchiveDuration
@@ -115,7 +115,7 @@ func (o *CreateTextThreadWithMessageRequest) GetAutoArchiveDuration() int32 {
 
 // GetAutoArchiveDurationOk returns a tuple with the AutoArchiveDuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateTextThreadWithMessageRequest) GetAutoArchiveDurationOk() (*int32, bool) {
+func (o *CreateTextThreadWithMessageRequest) GetAutoArchiveDurationOk() (*CreateForumThreadRequestAutoArchiveDuration, bool) {
 	if o == nil || IsNil(o.AutoArchiveDuration) {
 		return nil, false
 	}
@@ -131,54 +131,44 @@ func (o *CreateTextThreadWithMessageRequest) HasAutoArchiveDuration() bool {
 	return false
 }
 
-// SetAutoArchiveDuration gets a reference to the given int32 and assigns it to the AutoArchiveDuration field.
-func (o *CreateTextThreadWithMessageRequest) SetAutoArchiveDuration(v int32) {
+// SetAutoArchiveDuration gets a reference to the given CreateForumThreadRequestAutoArchiveDuration and assigns it to the AutoArchiveDuration field.
+func (o *CreateTextThreadWithMessageRequest) SetAutoArchiveDuration(v CreateForumThreadRequestAutoArchiveDuration) {
 	o.AutoArchiveDuration = &v
 }
 
 
-// GetRateLimitPerUser returns the RateLimitPerUser field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRateLimitPerUser returns the RateLimitPerUser field value if set, zero value otherwise.
 func (o *CreateTextThreadWithMessageRequest) GetRateLimitPerUser() int32 {
-	if o == nil || IsNil(o.RateLimitPerUser.Get()) {
+	if o == nil || IsNil(o.RateLimitPerUser) {
 		var ret int32
 		return ret
 	}
-	return *o.RateLimitPerUser.Get()
+	return *o.RateLimitPerUser
 }
 
 // GetRateLimitPerUserOk returns a tuple with the RateLimitPerUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateTextThreadWithMessageRequest) GetRateLimitPerUserOk() (*int32, bool) {
-	if o == nil || IsNil(o.RateLimitPerUser.Get()) {
+	if o == nil || IsNil(o.RateLimitPerUser) {
 		return nil, false
 	}
-	return o.RateLimitPerUser.Get(), o.RateLimitPerUser.IsSet()
+	return o.RateLimitPerUser, true
 }
 
 // HasRateLimitPerUser returns a boolean if a field has been set.
 func (o *CreateTextThreadWithMessageRequest) HasRateLimitPerUser() bool {
-	if o != nil && o.RateLimitPerUser.IsSet() {
+	if o != nil && !IsNil(o.RateLimitPerUser) {
 		return true
 	}
 
 	return false
 }
 
-// SetRateLimitPerUser gets a reference to the given NullableInt32 and assigns it to the RateLimitPerUser field.
+// SetRateLimitPerUser gets a reference to the given int32 and assigns it to the RateLimitPerUser field.
 func (o *CreateTextThreadWithMessageRequest) SetRateLimitPerUser(v int32) {
-	o.RateLimitPerUser.Set(&v)
+	o.RateLimitPerUser = &v
 }
 
-// SetRateLimitPerUserNil sets the value for RateLimitPerUser to be an explicit nil
-func (o *CreateTextThreadWithMessageRequest) SetRateLimitPerUserNil() {
-	o.RateLimitPerUser.Set(nil)
-}
-
-// UnsetRateLimitPerUser ensures that no value is present for RateLimitPerUser, not even an explicit nil
-func (o *CreateTextThreadWithMessageRequest) UnsetRateLimitPerUser() {
-	o.RateLimitPerUser.Unset()
-}
 
 func (o CreateTextThreadWithMessageRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -194,8 +184,8 @@ func (o CreateTextThreadWithMessageRequest) ToMap() (map[string]interface{}, err
 	if !IsNil(o.AutoArchiveDuration) {
 		toSerialize["auto_archive_duration"] = o.AutoArchiveDuration
 	}
-	if o.RateLimitPerUser.IsSet() {
-		toSerialize["rate_limit_per_user"] = o.RateLimitPerUser.Get()
+	if !IsNil(o.RateLimitPerUser) {
+		toSerialize["rate_limit_per_user"] = o.RateLimitPerUser
 	}
 	return toSerialize, nil
 }
@@ -272,5 +262,4 @@ func (v *NullableCreateTextThreadWithMessageRequest) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

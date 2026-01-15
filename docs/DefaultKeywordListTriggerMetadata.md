@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AllowList** | Pointer to **[]string** |  | [optional] 
-**Presets** | Pointer to **[]int32** |  | [optional] 
+**Presets** | Pointer to [**[]AutomodKeywordPresetType**](AutomodKeywordPresetType.md) |  | [optional] 
 
 ## Methods
 
@@ -51,32 +51,22 @@ SetAllowList sets AllowList field to given value.
 
 HasAllowList returns a boolean if a field has been set.
 
-### SetAllowListNil
-
-`func (o *DefaultKeywordListTriggerMetadata) SetAllowListNil(b bool)`
-
- SetAllowListNil sets the value for AllowList to be an explicit nil
-
-### UnsetAllowList
-`func (o *DefaultKeywordListTriggerMetadata) UnsetAllowList()`
-
-UnsetAllowList ensures that no value is present for AllowList, not even an explicit nil
 ### GetPresets
 
-`func (o *DefaultKeywordListTriggerMetadata) GetPresets() []int32`
+`func (o *DefaultKeywordListTriggerMetadata) GetPresets() []AutomodKeywordPresetType`
 
 GetPresets returns the Presets field if non-nil, zero value otherwise.
 
 ### GetPresetsOk
 
-`func (o *DefaultKeywordListTriggerMetadata) GetPresetsOk() (*[]int32, bool)`
+`func (o *DefaultKeywordListTriggerMetadata) GetPresetsOk() (*[]AutomodKeywordPresetType, bool)`
 
 GetPresetsOk returns a tuple with the Presets field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPresets
 
-`func (o *DefaultKeywordListTriggerMetadata) SetPresets(v []int32)`
+`func (o *DefaultKeywordListTriggerMetadata) SetPresets(v []AutomodKeywordPresetType)`
 
 SetPresets sets Presets field to given value.
 
@@ -86,16 +76,6 @@ SetPresets sets Presets field to given value.
 
 HasPresets returns a boolean if a field has been set.
 
-### SetPresetsNil
-
-`func (o *DefaultKeywordListTriggerMetadata) SetPresetsNil(b bool)`
-
- SetPresetsNil sets the value for Presets to be an explicit nil
-
-### UnsetPresets
-`func (o *DefaultKeywordListTriggerMetadata) UnsetPresets()`
-
-UnsetPresets ensures that no value is present for Presets, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

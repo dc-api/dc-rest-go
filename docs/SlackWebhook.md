@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Text** | Pointer to **NullableString** |  | [optional] 
-**Username** | Pointer to **NullableString** |  | [optional] 
-**IconUrl** | Pointer to **NullableString** |  | [optional] 
+**Text** | Pointer to **string** |  | [optional] 
+**Username** | Pointer to **string** |  | [optional] 
+**IconUrl** | Pointer to **string** |  | [optional] 
 **Attachments** | Pointer to [**[]WebhookSlackEmbed**](WebhookSlackEmbed.md) |  | [optional] 
 
 ## Methods
@@ -53,16 +53,6 @@ SetText sets Text field to given value.
 
 HasText returns a boolean if a field has been set.
 
-### SetTextNil
-
-`func (o *SlackWebhook) SetTextNil(b bool)`
-
- SetTextNil sets the value for Text to be an explicit nil
-
-### UnsetText
-`func (o *SlackWebhook) UnsetText()`
-
-UnsetText ensures that no value is present for Text, not even an explicit nil
 ### GetUsername
 
 `func (o *SlackWebhook) GetUsername() string`
@@ -88,16 +78,6 @@ SetUsername sets Username field to given value.
 
 HasUsername returns a boolean if a field has been set.
 
-### SetUsernameNil
-
-`func (o *SlackWebhook) SetUsernameNil(b bool)`
-
- SetUsernameNil sets the value for Username to be an explicit nil
-
-### UnsetUsername
-`func (o *SlackWebhook) UnsetUsername()`
-
-UnsetUsername ensures that no value is present for Username, not even an explicit nil
 ### GetIconUrl
 
 `func (o *SlackWebhook) GetIconUrl() string`
@@ -123,16 +103,6 @@ SetIconUrl sets IconUrl field to given value.
 
 HasIconUrl returns a boolean if a field has been set.
 
-### SetIconUrlNil
-
-`func (o *SlackWebhook) SetIconUrlNil(b bool)`
-
- SetIconUrlNil sets the value for IconUrl to be an explicit nil
-
-### UnsetIconUrl
-`func (o *SlackWebhook) UnsetIconUrl()`
-
-UnsetIconUrl ensures that no value is present for IconUrl, not even an explicit nil
 ### GetAttachments
 
 `func (o *SlackWebhook) GetAttachments() []WebhookSlackEmbed`
@@ -158,16 +128,6 @@ SetAttachments sets Attachments field to given value.
 
 HasAttachments returns a boolean if a field has been set.
 
-### SetAttachmentsNil
-
-`func (o *SlackWebhook) SetAttachmentsNil(b bool)`
-
- SetAttachmentsNil sets the value for Attachments to be an explicit nil
-
-### UnsetAttachments
-`func (o *SlackWebhook) UnsetAttachments()`
-
-UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

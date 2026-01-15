@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **int32** |  | 
-**LastMessageId** | Pointer to **string** |  | [optional] 
+**Type** | [**ChannelTypes**](ChannelTypes.md) |  | 
+**LastMessageId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Flags** | **int32** |  | 
 **LastPinTimestamp** | Pointer to **time.Time** |  | [optional] 
 **Recipients** | [**[]UserResponse**](UserResponse.md) |  | 
 **Name** | Pointer to **string** |  | [optional] 
 **Icon** | Pointer to **string** |  | [optional] 
-**OwnerId** | Pointer to **string** |  | [optional] 
+**OwnerId** | **string** |  | 
 **Managed** | Pointer to **bool** |  | [optional] 
 **ApplicationId** | Pointer to **string** |  | [optional] 
 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewAddGroupDmUser201Response
 
-`func NewAddGroupDmUser201Response(id string, type_ int32, flags int32, recipients []UserResponse, ) *AddGroupDmUser201Response`
+`func NewAddGroupDmUser201Response(id string, type_ ChannelTypes, flags int32, recipients []UserResponse, ownerId string, ) *AddGroupDmUser201Response`
 
 NewAddGroupDmUser201Response instantiates a new AddGroupDmUser201Response object
 This constructor will assign default values to properties that have it defined,
@@ -57,40 +57,40 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *AddGroupDmUser201Response) GetType() int32`
+`func (o *AddGroupDmUser201Response) GetType() ChannelTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *AddGroupDmUser201Response) GetTypeOk() (*int32, bool)`
+`func (o *AddGroupDmUser201Response) GetTypeOk() (*ChannelTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *AddGroupDmUser201Response) SetType(v int32)`
+`func (o *AddGroupDmUser201Response) SetType(v ChannelTypes)`
 
 SetType sets Type field to given value.
 
 
 ### GetLastMessageId
 
-`func (o *AddGroupDmUser201Response) GetLastMessageId() string`
+`func (o *AddGroupDmUser201Response) GetLastMessageId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetLastMessageId returns the LastMessageId field if non-nil, zero value otherwise.
 
 ### GetLastMessageIdOk
 
-`func (o *AddGroupDmUser201Response) GetLastMessageIdOk() (*string, bool)`
+`func (o *AddGroupDmUser201Response) GetLastMessageIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetLastMessageIdOk returns a tuple with the LastMessageId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastMessageId
 
-`func (o *AddGroupDmUser201Response) SetLastMessageId(v string)`
+`func (o *AddGroupDmUser201Response) SetLastMessageId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetLastMessageId sets LastMessageId field to given value.
 
@@ -234,11 +234,6 @@ and a boolean to check if the value has been set.
 
 SetOwnerId sets OwnerId field to given value.
 
-### HasOwnerId
-
-`func (o *AddGroupDmUser201Response) HasOwnerId() bool`
-
-HasOwnerId returns a boolean if a field has been set.
 
 ### GetManaged
 

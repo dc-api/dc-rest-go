@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -46,137 +46,91 @@ package dc_rest
 
 import (
 	"encoding/json"
+	"fmt"
+	"gopkg.in/validator.v2"
 )
 
-// checks if the RichEmbedFooter type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &RichEmbedFooter{}
-
-// RichEmbedFooter struct for RichEmbedFooter
+// RichEmbedFooter - struct for RichEmbedFooter
 type RichEmbedFooter struct {
-	Text NullableString `json:"text,omitempty"`
-	IconUrl NullableString `json:"icon_url,omitempty"`
+	RichEmbedFooter *RichEmbedFooter
 }
 
-// NewRichEmbedFooter instantiates a new RichEmbedFooter object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewRichEmbedFooter() *RichEmbedFooter {
-	this := RichEmbedFooter{}
-	return &this
-}
-
-// NewRichEmbedFooterWithDefaults instantiates a new RichEmbedFooter object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewRichEmbedFooterWithDefaults() *RichEmbedFooter {
-	this := RichEmbedFooter{}
-	return &this
-}
-
-// GetText returns the Text field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RichEmbedFooter) GetText() string {
-	if o == nil || IsNil(o.Text.Get()) {
-		var ret string
-		return ret
+// RichEmbedFooterAsRichEmbedFooter is a convenience function that returns RichEmbedFooter wrapped in RichEmbedFooter
+func RichEmbedFooterAsRichEmbedFooter(v *RichEmbedFooter) RichEmbedFooter {
+	return RichEmbedFooter{
+		RichEmbedFooter: v,
 	}
-	return *o.Text.Get()
 }
 
-// GetTextOk returns a tuple with the Text field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RichEmbedFooter) GetTextOk() (*string, bool) {
-	if o == nil || IsNil(o.Text.Get()) {
-		return nil, false
-	}
-	return o.Text.Get(), o.Text.IsSet()
-}
 
-// HasText returns a boolean if a field has been set.
-func (o *RichEmbedFooter) HasText() bool {
-	if o != nil && o.Text.IsSet() {
-		return true
+// Unmarshal JSON data into one of the pointers in the struct
+func (dst *RichEmbedFooter) UnmarshalJSON(data []byte) error {
+	var err error
+	// this object is nullable so check if the payload is null or empty string
+	if string(data) == "" || string(data) == "{}" {
+		return nil
 	}
 
-	return false
-}
-
-// SetText gets a reference to the given NullableString and assigns it to the Text field.
-func (o *RichEmbedFooter) SetText(v string) {
-	o.Text.Set(&v)
-}
-
-// SetTextNil sets the value for Text to be an explicit nil
-func (o *RichEmbedFooter) SetTextNil() {
-	o.Text.Set(nil)
-}
-
-// UnsetText ensures that no value is present for Text, not even an explicit nil
-func (o *RichEmbedFooter) UnsetText() {
-	o.Text.Unset()
-}
-
-// GetIconUrl returns the IconUrl field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RichEmbedFooter) GetIconUrl() string {
-	if o == nil || IsNil(o.IconUrl.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.IconUrl.Get()
-}
-
-// GetIconUrlOk returns a tuple with the IconUrl field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RichEmbedFooter) GetIconUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.IconUrl.Get()) {
-		return nil, false
-	}
-	return o.IconUrl.Get(), o.IconUrl.IsSet()
-}
-
-// HasIconUrl returns a boolean if a field has been set.
-func (o *RichEmbedFooter) HasIconUrl() bool {
-	if o != nil && o.IconUrl.IsSet() {
-		return true
+	match := 0
+	// try to unmarshal data into RichEmbedFooter
+	err = newStrictDecoder(data).Decode(&dst.RichEmbedFooter)
+	if err == nil {
+		jsonRichEmbedFooter, _ := json.Marshal(dst.RichEmbedFooter)
+		if string(jsonRichEmbedFooter) == "{}" { // empty struct
+			dst.RichEmbedFooter = nil
+		} else {
+			if err = validator.Validate(dst.RichEmbedFooter); err != nil {
+				dst.RichEmbedFooter = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.RichEmbedFooter = nil
 	}
 
-	return false
-}
+	if match > 1 { // more than 1 match
+		// reset to nil
+		dst.RichEmbedFooter = nil
 
-// SetIconUrl gets a reference to the given NullableString and assigns it to the IconUrl field.
-func (o *RichEmbedFooter) SetIconUrl(v string) {
-	o.IconUrl.Set(&v)
-}
-
-// SetIconUrlNil sets the value for IconUrl to be an explicit nil
-func (o *RichEmbedFooter) SetIconUrlNil() {
-	o.IconUrl.Set(nil)
-}
-
-// UnsetIconUrl ensures that no value is present for IconUrl, not even an explicit nil
-func (o *RichEmbedFooter) UnsetIconUrl() {
-	o.IconUrl.Unset()
-}
-
-func (o RichEmbedFooter) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
-	if err != nil {
-		return []byte{}, err
+		return fmt.Errorf("data matches more than one schema in oneOf(RichEmbedFooter)")
+	} else if match == 1 {
+		return nil // exactly one match
+	} else { // no match
+		return fmt.Errorf("data failed to match schemas in oneOf(RichEmbedFooter)")
 	}
-	return json.Marshal(toSerialize)
 }
 
-func (o RichEmbedFooter) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
-	if o.Text.IsSet() {
-		toSerialize["text"] = o.Text.Get()
+// Marshal data from the first non-nil pointers in the struct to JSON
+func (src RichEmbedFooter) MarshalJSON() ([]byte, error) {
+	if src.RichEmbedFooter != nil {
+		return json.Marshal(&src.RichEmbedFooter)
 	}
-	if o.IconUrl.IsSet() {
-		toSerialize["icon_url"] = o.IconUrl.Get()
+
+	return nil, nil // no data in oneOf schemas
+}
+
+// Get the actual instance
+func (obj *RichEmbedFooter) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
 	}
-	return toSerialize, nil
+	if obj.RichEmbedFooter != nil {
+		return obj.RichEmbedFooter
+	}
+
+	// all schemas are nil
+	return nil
+}
+
+// Get the actual instance value
+func (obj RichEmbedFooter) GetActualInstanceValue() (interface{}) {
+	if obj.RichEmbedFooter != nil {
+		return *obj.RichEmbedFooter
+	}
+
+	// all schemas are nil
+	return nil
 }
 
 type NullableRichEmbedFooter struct {
@@ -214,5 +168,4 @@ func (v *NullableRichEmbedFooter) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

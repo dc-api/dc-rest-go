@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,10 +57,10 @@ var _ MappedNullable = &PrivateChannelResponse{}
 // PrivateChannelResponse struct for PrivateChannelResponse
 type PrivateChannelResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Type int32 `json:"type"`
-	LastMessageId *string `json:"last_message_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	Type ChannelTypes `json:"type"`
+	LastMessageId *GetEntitlementsSkuIdsParameterOneOfInner `json:"last_message_id,omitempty"`
 	Flags int32 `json:"flags"`
-	LastPinTimestamp NullableTime `json:"last_pin_timestamp,omitempty"`
+	LastPinTimestamp *time.Time `json:"last_pin_timestamp,omitempty"`
 	Recipients []UserResponse `json:"recipients"`
 }
 
@@ -70,7 +70,7 @@ type _PrivateChannelResponse PrivateChannelResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPrivateChannelResponse(id string, type_ int32, flags int32, recipients []UserResponse) *PrivateChannelResponse {
+func NewPrivateChannelResponse(id string, type_ ChannelTypes, flags int32, recipients []UserResponse) *PrivateChannelResponse {
 	this := PrivateChannelResponse{}
 	this.Id = id
 	this.Type = type_
@@ -112,9 +112,9 @@ func (o *PrivateChannelResponse) SetId(v string) {
 }
 
 // GetType returns the Type field value
-func (o *PrivateChannelResponse) GetType() int32 {
+func (o *PrivateChannelResponse) GetType() ChannelTypes {
 	if o == nil {
-		var ret int32
+		var ret ChannelTypes
 		return ret
 	}
 
@@ -123,7 +123,7 @@ func (o *PrivateChannelResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *PrivateChannelResponse) GetTypeOk() (*int32, bool) {
+func (o *PrivateChannelResponse) GetTypeOk() (*ChannelTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -131,14 +131,14 @@ func (o *PrivateChannelResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *PrivateChannelResponse) SetType(v int32) {
+func (o *PrivateChannelResponse) SetType(v ChannelTypes) {
 	o.Type = v
 }
 
 // GetLastMessageId returns the LastMessageId field value if set, zero value otherwise.
-func (o *PrivateChannelResponse) GetLastMessageId() string {
+func (o *PrivateChannelResponse) GetLastMessageId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.LastMessageId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.LastMessageId
@@ -146,7 +146,7 @@ func (o *PrivateChannelResponse) GetLastMessageId() string {
 
 // GetLastMessageIdOk returns a tuple with the LastMessageId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PrivateChannelResponse) GetLastMessageIdOk() (*string, bool) {
+func (o *PrivateChannelResponse) GetLastMessageIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.LastMessageId) {
 		return nil, false
 	}
@@ -162,8 +162,8 @@ func (o *PrivateChannelResponse) HasLastMessageId() bool {
 	return false
 }
 
-// SetLastMessageId gets a reference to the given string and assigns it to the LastMessageId field.
-func (o *PrivateChannelResponse) SetLastMessageId(v string) {
+// SetLastMessageId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the LastMessageId field.
+func (o *PrivateChannelResponse) SetLastMessageId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.LastMessageId = &v
 }
 
@@ -192,48 +192,38 @@ func (o *PrivateChannelResponse) SetFlags(v int32) {
 	o.Flags = v
 }
 
-// GetLastPinTimestamp returns the LastPinTimestamp field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastPinTimestamp returns the LastPinTimestamp field value if set, zero value otherwise.
 func (o *PrivateChannelResponse) GetLastPinTimestamp() time.Time {
-	if o == nil || IsNil(o.LastPinTimestamp.Get()) {
+	if o == nil || IsNil(o.LastPinTimestamp) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastPinTimestamp.Get()
+	return *o.LastPinTimestamp
 }
 
 // GetLastPinTimestampOk returns a tuple with the LastPinTimestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PrivateChannelResponse) GetLastPinTimestampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.LastPinTimestamp.Get()) {
+	if o == nil || IsNil(o.LastPinTimestamp) {
 		return nil, false
 	}
-	return o.LastPinTimestamp.Get(), o.LastPinTimestamp.IsSet()
+	return o.LastPinTimestamp, true
 }
 
 // HasLastPinTimestamp returns a boolean if a field has been set.
 func (o *PrivateChannelResponse) HasLastPinTimestamp() bool {
-	if o != nil && o.LastPinTimestamp.IsSet() {
+	if o != nil && !IsNil(o.LastPinTimestamp) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastPinTimestamp gets a reference to the given NullableTime and assigns it to the LastPinTimestamp field.
+// SetLastPinTimestamp gets a reference to the given time.Time and assigns it to the LastPinTimestamp field.
 func (o *PrivateChannelResponse) SetLastPinTimestamp(v time.Time) {
-	o.LastPinTimestamp.Set(&v)
+	o.LastPinTimestamp = &v
 }
 
-// SetLastPinTimestampNil sets the value for LastPinTimestamp to be an explicit nil
-func (o *PrivateChannelResponse) SetLastPinTimestampNil() {
-	o.LastPinTimestamp.Set(nil)
-}
-
-// UnsetLastPinTimestamp ensures that no value is present for LastPinTimestamp, not even an explicit nil
-func (o *PrivateChannelResponse) UnsetLastPinTimestamp() {
-	o.LastPinTimestamp.Unset()
-}
 
 // GetRecipients returns the Recipients field value
 func (o *PrivateChannelResponse) GetRecipients() []UserResponse {
@@ -275,8 +265,8 @@ func (o PrivateChannelResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["last_message_id"] = o.LastMessageId
 	}
 	toSerialize["flags"] = o.Flags
-	if o.LastPinTimestamp.IsSet() {
-		toSerialize["last_pin_timestamp"] = o.LastPinTimestamp.Get()
+	if !IsNil(o.LastPinTimestamp) {
+		toSerialize["last_pin_timestamp"] = o.LastPinTimestamp
 	}
 	toSerialize["recipients"] = o.Recipients
 	return toSerialize, nil
@@ -357,5 +347,4 @@ func (v *NullablePrivateChannelResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

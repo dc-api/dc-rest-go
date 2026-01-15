@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **Tags** | **string** |  | 
-**Type** | **int32** |  | 
-**FormatType** | Pointer to **NullableInt32** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
+**Type** | [**StickerTypes**](StickerTypes.md) |  | 
+**FormatType** | Pointer to [**GuildStickerResponseFormatType**](GuildStickerResponseFormatType.md) |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **PackId** | **string** |  | 
 **SortValue** | **int32** |  | 
 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewStandardStickerResponse
 
-`func NewStandardStickerResponse(id string, name string, tags string, type_ int32, packId string, sortValue int32, ) *StandardStickerResponse`
+`func NewStandardStickerResponse(id string, name string, tags string, type_ StickerTypes, packId string, sortValue int32, ) *StandardStickerResponse`
 
 NewStandardStickerResponse instantiates a new StandardStickerResponse object
 This constructor will assign default values to properties that have it defined,
@@ -94,40 +94,40 @@ SetTags sets Tags field to given value.
 
 ### GetType
 
-`func (o *StandardStickerResponse) GetType() int32`
+`func (o *StandardStickerResponse) GetType() StickerTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *StandardStickerResponse) GetTypeOk() (*int32, bool)`
+`func (o *StandardStickerResponse) GetTypeOk() (*StickerTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *StandardStickerResponse) SetType(v int32)`
+`func (o *StandardStickerResponse) SetType(v StickerTypes)`
 
 SetType sets Type field to given value.
 
 
 ### GetFormatType
 
-`func (o *StandardStickerResponse) GetFormatType() int32`
+`func (o *StandardStickerResponse) GetFormatType() GuildStickerResponseFormatType`
 
 GetFormatType returns the FormatType field if non-nil, zero value otherwise.
 
 ### GetFormatTypeOk
 
-`func (o *StandardStickerResponse) GetFormatTypeOk() (*int32, bool)`
+`func (o *StandardStickerResponse) GetFormatTypeOk() (*GuildStickerResponseFormatType, bool)`
 
 GetFormatTypeOk returns a tuple with the FormatType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFormatType
 
-`func (o *StandardStickerResponse) SetFormatType(v int32)`
+`func (o *StandardStickerResponse) SetFormatType(v GuildStickerResponseFormatType)`
 
 SetFormatType sets FormatType field to given value.
 
@@ -137,16 +137,6 @@ SetFormatType sets FormatType field to given value.
 
 HasFormatType returns a boolean if a field has been set.
 
-### SetFormatTypeNil
-
-`func (o *StandardStickerResponse) SetFormatTypeNil(b bool)`
-
- SetFormatTypeNil sets the value for FormatType to be an explicit nil
-
-### UnsetFormatType
-`func (o *StandardStickerResponse) UnsetFormatType()`
-
-UnsetFormatType ensures that no value is present for FormatType, not even an explicit nil
 ### GetDescription
 
 `func (o *StandardStickerResponse) GetDescription() string`
@@ -172,16 +162,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *StandardStickerResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *StandardStickerResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetPackId
 
 `func (o *StandardStickerResponse) GetPackId() string`

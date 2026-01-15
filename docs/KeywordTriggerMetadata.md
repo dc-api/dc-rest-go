@@ -52,16 +52,6 @@ SetKeywordFilter sets KeywordFilter field to given value.
 
 HasKeywordFilter returns a boolean if a field has been set.
 
-### SetKeywordFilterNil
-
-`func (o *KeywordTriggerMetadata) SetKeywordFilterNil(b bool)`
-
- SetKeywordFilterNil sets the value for KeywordFilter to be an explicit nil
-
-### UnsetKeywordFilter
-`func (o *KeywordTriggerMetadata) UnsetKeywordFilter()`
-
-UnsetKeywordFilter ensures that no value is present for KeywordFilter, not even an explicit nil
 ### GetRegexPatterns
 
 `func (o *KeywordTriggerMetadata) GetRegexPatterns() []string`
@@ -87,16 +77,6 @@ SetRegexPatterns sets RegexPatterns field to given value.
 
 HasRegexPatterns returns a boolean if a field has been set.
 
-### SetRegexPatternsNil
-
-`func (o *KeywordTriggerMetadata) SetRegexPatternsNil(b bool)`
-
- SetRegexPatternsNil sets the value for RegexPatterns to be an explicit nil
-
-### UnsetRegexPatterns
-`func (o *KeywordTriggerMetadata) UnsetRegexPatterns()`
-
-UnsetRegexPatterns ensures that no value is present for RegexPatterns, not even an explicit nil
 ### GetAllowList
 
 `func (o *KeywordTriggerMetadata) GetAllowList() []string`
@@ -122,16 +102,6 @@ SetAllowList sets AllowList field to given value.
 
 HasAllowList returns a boolean if a field has been set.
 
-### SetAllowListNil
-
-`func (o *KeywordTriggerMetadata) SetAllowListNil(b bool)`
-
- SetAllowListNil sets the value for AllowList to be an explicit nil
-
-### UnsetAllowList
-`func (o *KeywordTriggerMetadata) UnsetAllowList()`
-
-UnsetAllowList ensures that no value is present for AllowList, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

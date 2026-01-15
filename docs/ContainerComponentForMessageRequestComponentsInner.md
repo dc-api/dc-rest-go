@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 **Components** | [**[]TextDisplayComponentForMessageRequest**](TextDisplayComponentForMessageRequest.md) |  | 
 **Spoiler** | Pointer to **bool** |  | [optional] 
 **File** | [**UnfurledMediaRequestWithAttachmentReferenceRequired**](UnfurledMediaRequestWithAttachmentReferenceRequired.md) |  | 
 **Items** | [**[]MediaGalleryItemRequest**](MediaGalleryItemRequest.md) |  | 
 **Accessory** | [**SectionComponentForMessageRequestAccessory**](SectionComponentForMessageRequestAccessory.md) |  | 
-**Spacing** | Pointer to **int32** |  | [optional] 
+**Spacing** | Pointer to [**SeparatorComponentForMessageRequestSpacing**](SeparatorComponentForMessageRequestSpacing.md) |  | [optional] 
 **Divider** | Pointer to **bool** |  | [optional] 
 **Content** | **string** |  | 
 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewContainerComponentForMessageRequestComponentsInner
 
-`func NewContainerComponentForMessageRequestComponentsInner(type_ int32, components []TextDisplayComponentForMessageRequest, file UnfurledMediaRequestWithAttachmentReferenceRequired, items []MediaGalleryItemRequest, accessory SectionComponentForMessageRequestAccessory, content string, ) *ContainerComponentForMessageRequestComponentsInner`
+`func NewContainerComponentForMessageRequestComponentsInner(type_ MessageComponentTypes, components []TextDisplayComponentForMessageRequest, file UnfurledMediaRequestWithAttachmentReferenceRequired, items []MediaGalleryItemRequest, accessory SectionComponentForMessageRequestAccessory, content string, ) *ContainerComponentForMessageRequestComponentsInner`
 
 NewContainerComponentForMessageRequestComponentsInner instantiates a new ContainerComponentForMessageRequestComponentsInner object
 This constructor will assign default values to properties that have it defined,
@@ -35,23 +36,48 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ContainerComponentForMessageRequestComponentsInner) GetType() int32`
+`func (o *ContainerComponentForMessageRequestComponentsInner) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ContainerComponentForMessageRequestComponentsInner) GetTypeOk() (*int32, bool)`
+`func (o *ContainerComponentForMessageRequestComponentsInner) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ContainerComponentForMessageRequestComponentsInner) SetType(v int32)`
+`func (o *ContainerComponentForMessageRequestComponentsInner) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *ContainerComponentForMessageRequestComponentsInner) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ContainerComponentForMessageRequestComponentsInner) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ContainerComponentForMessageRequestComponentsInner) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *ContainerComponentForMessageRequestComponentsInner) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetComponents
 
@@ -160,20 +186,20 @@ SetAccessory sets Accessory field to given value.
 
 ### GetSpacing
 
-`func (o *ContainerComponentForMessageRequestComponentsInner) GetSpacing() int32`
+`func (o *ContainerComponentForMessageRequestComponentsInner) GetSpacing() SeparatorComponentForMessageRequestSpacing`
 
 GetSpacing returns the Spacing field if non-nil, zero value otherwise.
 
 ### GetSpacingOk
 
-`func (o *ContainerComponentForMessageRequestComponentsInner) GetSpacingOk() (*int32, bool)`
+`func (o *ContainerComponentForMessageRequestComponentsInner) GetSpacingOk() (*SeparatorComponentForMessageRequestSpacing, bool)`
 
 GetSpacingOk returns a tuple with the Spacing field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSpacing
 
-`func (o *ContainerComponentForMessageRequestComponentsInner) SetSpacing(v int32)`
+`func (o *ContainerComponentForMessageRequestComponentsInner) SetSpacing(v SeparatorComponentForMessageRequestSpacing)`
 
 SetSpacing sets Spacing field to given value.
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SoundId** | **string** |  | 
-**SourceGuildId** | Pointer to **string** |  | [optional] 
+**SourceGuildId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 
 ## Methods
 
@@ -48,20 +48,20 @@ SetSoundId sets SoundId field to given value.
 
 ### GetSourceGuildId
 
-`func (o *SoundboardSoundSendRequest) GetSourceGuildId() string`
+`func (o *SoundboardSoundSendRequest) GetSourceGuildId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetSourceGuildId returns the SourceGuildId field if non-nil, zero value otherwise.
 
 ### GetSourceGuildIdOk
 
-`func (o *SoundboardSoundSendRequest) GetSourceGuildIdOk() (*string, bool)`
+`func (o *SoundboardSoundSendRequest) GetSourceGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetSourceGuildIdOk returns a tuple with the SourceGuildId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSourceGuildId
 
-`func (o *SoundboardSoundSendRequest) SetSourceGuildId(v string)`
+`func (o *SoundboardSoundSendRequest) SetSourceGuildId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetSourceGuildId sets SourceGuildId field to given value.
 

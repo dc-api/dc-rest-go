@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,7 +55,7 @@ var _ MappedNullable = &SectionComponentResponse{}
 
 // SectionComponentResponse struct for SectionComponentResponse
 type SectionComponentResponse struct {
-	Type int32 `json:"type"`
+	Type MessageComponentTypes `json:"type"`
 	Id int32 `json:"id"`
 	Components []TextDisplayComponentResponse `json:"components"`
 	Accessory SectionComponentResponseAccessory `json:"accessory"`
@@ -67,7 +67,7 @@ type _SectionComponentResponse SectionComponentResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSectionComponentResponse(type_ int32, id int32, components []TextDisplayComponentResponse, accessory SectionComponentResponseAccessory) *SectionComponentResponse {
+func NewSectionComponentResponse(type_ MessageComponentTypes, id int32, components []TextDisplayComponentResponse, accessory SectionComponentResponseAccessory) *SectionComponentResponse {
 	this := SectionComponentResponse{}
 	this.Type = type_
 	this.Id = id
@@ -85,9 +85,9 @@ func NewSectionComponentResponseWithDefaults() *SectionComponentResponse {
 }
 
 // GetType returns the Type field value
-func (o *SectionComponentResponse) GetType() int32 {
+func (o *SectionComponentResponse) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -96,7 +96,7 @@ func (o *SectionComponentResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *SectionComponentResponse) GetTypeOk() (*int32, bool) {
+func (o *SectionComponentResponse) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -104,7 +104,7 @@ func (o *SectionComponentResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *SectionComponentResponse) SetType(v int32) {
+func (o *SectionComponentResponse) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
 
@@ -272,5 +272,4 @@ func (v *NullableSectionComponentResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

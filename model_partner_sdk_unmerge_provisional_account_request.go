@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,9 +56,9 @@ var _ MappedNullable = &PartnerSdkUnmergeProvisionalAccountRequest{}
 // PartnerSdkUnmergeProvisionalAccountRequest struct for PartnerSdkUnmergeProvisionalAccountRequest
 type PartnerSdkUnmergeProvisionalAccountRequest struct {
 	ClientId string `json:"client_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	ClientSecret NullableString `json:"client_secret,omitempty"`
+	ClientSecret *string `json:"client_secret,omitempty"`
 	ExternalAuthToken string `json:"external_auth_token"`
-	ExternalAuthType NullableString `json:"external_auth_type"`
+	ExternalAuthType ApplicationIdentityProviderAuthType `json:"external_auth_type"`
 }
 
 type _PartnerSdkUnmergeProvisionalAccountRequest PartnerSdkUnmergeProvisionalAccountRequest
@@ -67,7 +67,7 @@ type _PartnerSdkUnmergeProvisionalAccountRequest PartnerSdkUnmergeProvisionalAcc
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPartnerSdkUnmergeProvisionalAccountRequest(clientId string, externalAuthToken string, externalAuthType NullableString) *PartnerSdkUnmergeProvisionalAccountRequest {
+func NewPartnerSdkUnmergeProvisionalAccountRequest(clientId string, externalAuthToken string, externalAuthType ApplicationIdentityProviderAuthType) *PartnerSdkUnmergeProvisionalAccountRequest {
 	this := PartnerSdkUnmergeProvisionalAccountRequest{}
 	this.ClientId = clientId
 	this.ExternalAuthToken = externalAuthToken
@@ -107,48 +107,38 @@ func (o *PartnerSdkUnmergeProvisionalAccountRequest) SetClientId(v string) {
 	o.ClientId = v
 }
 
-// GetClientSecret returns the ClientSecret field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetClientSecret returns the ClientSecret field value if set, zero value otherwise.
 func (o *PartnerSdkUnmergeProvisionalAccountRequest) GetClientSecret() string {
-	if o == nil || IsNil(o.ClientSecret.Get()) {
+	if o == nil || IsNil(o.ClientSecret) {
 		var ret string
 		return ret
 	}
-	return *o.ClientSecret.Get()
+	return *o.ClientSecret
 }
 
 // GetClientSecretOk returns a tuple with the ClientSecret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PartnerSdkUnmergeProvisionalAccountRequest) GetClientSecretOk() (*string, bool) {
-	if o == nil || IsNil(o.ClientSecret.Get()) {
+	if o == nil || IsNil(o.ClientSecret) {
 		return nil, false
 	}
-	return o.ClientSecret.Get(), o.ClientSecret.IsSet()
+	return o.ClientSecret, true
 }
 
 // HasClientSecret returns a boolean if a field has been set.
 func (o *PartnerSdkUnmergeProvisionalAccountRequest) HasClientSecret() bool {
-	if o != nil && o.ClientSecret.IsSet() {
+	if o != nil && !IsNil(o.ClientSecret) {
 		return true
 	}
 
 	return false
 }
 
-// SetClientSecret gets a reference to the given NullableString and assigns it to the ClientSecret field.
+// SetClientSecret gets a reference to the given string and assigns it to the ClientSecret field.
 func (o *PartnerSdkUnmergeProvisionalAccountRequest) SetClientSecret(v string) {
-	o.ClientSecret.Set(&v)
+	o.ClientSecret = &v
 }
 
-// SetClientSecretNil sets the value for ClientSecret to be an explicit nil
-func (o *PartnerSdkUnmergeProvisionalAccountRequest) SetClientSecretNil() {
-	o.ClientSecret.Set(nil)
-}
-
-// UnsetClientSecret ensures that no value is present for ClientSecret, not even an explicit nil
-func (o *PartnerSdkUnmergeProvisionalAccountRequest) UnsetClientSecret() {
-	o.ClientSecret.Unset()
-}
 
 // GetExternalAuthToken returns the ExternalAuthToken field value
 func (o *PartnerSdkUnmergeProvisionalAccountRequest) GetExternalAuthToken() string {
@@ -175,29 +165,27 @@ func (o *PartnerSdkUnmergeProvisionalAccountRequest) SetExternalAuthToken(v stri
 }
 
 // GetExternalAuthType returns the ExternalAuthType field value
-// If the value is explicit nil, the zero value for string will be returned
-func (o *PartnerSdkUnmergeProvisionalAccountRequest) GetExternalAuthType() string {
-	if o == nil || o.ExternalAuthType.Get() == nil {
-		var ret string
+func (o *PartnerSdkUnmergeProvisionalAccountRequest) GetExternalAuthType() ApplicationIdentityProviderAuthType {
+	if o == nil {
+		var ret ApplicationIdentityProviderAuthType
 		return ret
 	}
 
-	return *o.ExternalAuthType.Get()
+	return o.ExternalAuthType
 }
 
 // GetExternalAuthTypeOk returns a tuple with the ExternalAuthType field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PartnerSdkUnmergeProvisionalAccountRequest) GetExternalAuthTypeOk() (*string, bool) {
+func (o *PartnerSdkUnmergeProvisionalAccountRequest) GetExternalAuthTypeOk() (*ApplicationIdentityProviderAuthType, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ExternalAuthType.Get(), o.ExternalAuthType.IsSet()
+	return &o.ExternalAuthType, true
 }
 
 // SetExternalAuthType sets field value
-func (o *PartnerSdkUnmergeProvisionalAccountRequest) SetExternalAuthType(v string) {
-	o.ExternalAuthType.Set(&v)
+func (o *PartnerSdkUnmergeProvisionalAccountRequest) SetExternalAuthType(v ApplicationIdentityProviderAuthType) {
+	o.ExternalAuthType = v
 }
 
 func (o PartnerSdkUnmergeProvisionalAccountRequest) MarshalJSON() ([]byte, error) {
@@ -211,11 +199,11 @@ func (o PartnerSdkUnmergeProvisionalAccountRequest) MarshalJSON() ([]byte, error
 func (o PartnerSdkUnmergeProvisionalAccountRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["client_id"] = o.ClientId
-	if o.ClientSecret.IsSet() {
-		toSerialize["client_secret"] = o.ClientSecret.Get()
+	if !IsNil(o.ClientSecret) {
+		toSerialize["client_secret"] = o.ClientSecret
 	}
 	toSerialize["external_auth_token"] = o.ExternalAuthToken
-	toSerialize["external_auth_type"] = o.ExternalAuthType.Get()
+	toSerialize["external_auth_type"] = o.ExternalAuthType
 	return toSerialize, nil
 }
 
@@ -293,5 +281,4 @@ func (v *NullablePartnerSdkUnmergeProvisionalAccountRequest) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

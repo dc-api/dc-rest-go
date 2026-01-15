@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **User** | [**GithubUser**](GithubUser.md) |  | 
-**Body** | Pointer to **NullableString** |  | [optional] 
+**Body** | Pointer to **string** |  | [optional] 
 **HtmlUrl** | **string** |  | 
 **State** | **string** |  | 
 
@@ -73,16 +73,6 @@ SetBody sets Body field to given value.
 
 HasBody returns a boolean if a field has been set.
 
-### SetBodyNil
-
-`func (o *GithubReview) SetBodyNil(b bool)`
-
- SetBodyNil sets the value for Body to be an explicit nil
-
-### UnsetBody
-`func (o *GithubReview) UnsetBody()`
-
-UnsetBody ensures that no value is present for Body, not even an explicit nil
 ### GetHtmlUrl
 
 `func (o *GithubReview) GetHtmlUrl() string`

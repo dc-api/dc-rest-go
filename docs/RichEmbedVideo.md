@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** | Pointer to **NullableString** |  | [optional] 
-**Width** | Pointer to **NullableInt32** |  | [optional] 
-**Height** | Pointer to **NullableInt32** |  | [optional] 
-**Placeholder** | Pointer to **NullableString** |  | [optional] 
-**PlaceholderVersion** | Pointer to **NullableInt32** |  | [optional] 
-**IsAnimated** | Pointer to **NullableBool** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
+**Width** | Pointer to **int32** |  | [optional] 
+**Height** | Pointer to **int32** |  | [optional] 
+**Placeholder** | Pointer to **string** |  | [optional] 
+**PlaceholderVersion** | Pointer to **int32** |  | [optional] 
+**IsAnimated** | Pointer to **bool** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -56,16 +56,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *RichEmbedVideo) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *RichEmbedVideo) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetWidth
 
 `func (o *RichEmbedVideo) GetWidth() int32`
@@ -91,16 +81,6 @@ SetWidth sets Width field to given value.
 
 HasWidth returns a boolean if a field has been set.
 
-### SetWidthNil
-
-`func (o *RichEmbedVideo) SetWidthNil(b bool)`
-
- SetWidthNil sets the value for Width to be an explicit nil
-
-### UnsetWidth
-`func (o *RichEmbedVideo) UnsetWidth()`
-
-UnsetWidth ensures that no value is present for Width, not even an explicit nil
 ### GetHeight
 
 `func (o *RichEmbedVideo) GetHeight() int32`
@@ -126,16 +106,6 @@ SetHeight sets Height field to given value.
 
 HasHeight returns a boolean if a field has been set.
 
-### SetHeightNil
-
-`func (o *RichEmbedVideo) SetHeightNil(b bool)`
-
- SetHeightNil sets the value for Height to be an explicit nil
-
-### UnsetHeight
-`func (o *RichEmbedVideo) UnsetHeight()`
-
-UnsetHeight ensures that no value is present for Height, not even an explicit nil
 ### GetPlaceholder
 
 `func (o *RichEmbedVideo) GetPlaceholder() string`
@@ -161,16 +131,6 @@ SetPlaceholder sets Placeholder field to given value.
 
 HasPlaceholder returns a boolean if a field has been set.
 
-### SetPlaceholderNil
-
-`func (o *RichEmbedVideo) SetPlaceholderNil(b bool)`
-
- SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-
-### UnsetPlaceholder
-`func (o *RichEmbedVideo) UnsetPlaceholder()`
-
-UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
 ### GetPlaceholderVersion
 
 `func (o *RichEmbedVideo) GetPlaceholderVersion() int32`
@@ -196,16 +156,6 @@ SetPlaceholderVersion sets PlaceholderVersion field to given value.
 
 HasPlaceholderVersion returns a boolean if a field has been set.
 
-### SetPlaceholderVersionNil
-
-`func (o *RichEmbedVideo) SetPlaceholderVersionNil(b bool)`
-
- SetPlaceholderVersionNil sets the value for PlaceholderVersion to be an explicit nil
-
-### UnsetPlaceholderVersion
-`func (o *RichEmbedVideo) UnsetPlaceholderVersion()`
-
-UnsetPlaceholderVersion ensures that no value is present for PlaceholderVersion, not even an explicit nil
 ### GetIsAnimated
 
 `func (o *RichEmbedVideo) GetIsAnimated() bool`
@@ -231,16 +181,6 @@ SetIsAnimated sets IsAnimated field to given value.
 
 HasIsAnimated returns a boolean if a field has been set.
 
-### SetIsAnimatedNil
-
-`func (o *RichEmbedVideo) SetIsAnimatedNil(b bool)`
-
- SetIsAnimatedNil sets the value for IsAnimated to be an explicit nil
-
-### UnsetIsAnimated
-`func (o *RichEmbedVideo) UnsetIsAnimated()`
-
-UnsetIsAnimated ensures that no value is present for IsAnimated, not even an explicit nil
 ### GetDescription
 
 `func (o *RichEmbedVideo) GetDescription() string`
@@ -266,16 +206,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *RichEmbedVideo) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *RichEmbedVideo) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

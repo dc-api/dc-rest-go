@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,15 +55,16 @@ var _ MappedNullable = &TextInputComponentForModalRequest{}
 
 // TextInputComponentForModalRequest struct for TextInputComponentForModalRequest
 type TextInputComponentForModalRequest struct {
-	Type int32 `json:"type"`
+	Type MessageComponentTypes `json:"type"`
+	Id *int32 `json:"id,omitempty"`
 	CustomId string `json:"custom_id"`
-	Style int32 `json:"style"`
-	Label string `json:"label"`
-	Value NullableString `json:"value,omitempty"`
-	Placeholder NullableString `json:"placeholder,omitempty"`
-	Required NullableBool `json:"required,omitempty"`
-	MinLength NullableInt32 `json:"min_length,omitempty"`
-	MaxLength NullableInt32 `json:"max_length,omitempty"`
+	Style TextInputStyleTypes `json:"style"`
+	Label *string `json:"label,omitempty"`
+	Value *string `json:"value,omitempty"`
+	Placeholder *string `json:"placeholder,omitempty"`
+	Required *bool `json:"required,omitempty"`
+	MinLength *int32 `json:"min_length,omitempty"`
+	MaxLength *int32 `json:"max_length,omitempty"`
 }
 
 type _TextInputComponentForModalRequest TextInputComponentForModalRequest
@@ -72,12 +73,11 @@ type _TextInputComponentForModalRequest TextInputComponentForModalRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTextInputComponentForModalRequest(type_ int32, customId string, style int32, label string) *TextInputComponentForModalRequest {
+func NewTextInputComponentForModalRequest(type_ MessageComponentTypes, customId string, style TextInputStyleTypes) *TextInputComponentForModalRequest {
 	this := TextInputComponentForModalRequest{}
 	this.Type = type_
 	this.CustomId = customId
 	this.Style = style
-	this.Label = label
 	return &this
 }
 
@@ -90,9 +90,9 @@ func NewTextInputComponentForModalRequestWithDefaults() *TextInputComponentForMo
 }
 
 // GetType returns the Type field value
-func (o *TextInputComponentForModalRequest) GetType() int32 {
+func (o *TextInputComponentForModalRequest) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -101,7 +101,7 @@ func (o *TextInputComponentForModalRequest) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *TextInputComponentForModalRequest) GetTypeOk() (*int32, bool) {
+func (o *TextInputComponentForModalRequest) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -109,9 +109,42 @@ func (o *TextInputComponentForModalRequest) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *TextInputComponentForModalRequest) SetType(v int32) {
+func (o *TextInputComponentForModalRequest) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *TextInputComponentForModalRequest) GetId() int32 {
+	if o == nil || IsNil(o.Id) {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TextInputComponentForModalRequest) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *TextInputComponentForModalRequest) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *TextInputComponentForModalRequest) SetId(v int32) {
+	o.Id = &v
+}
+
 
 // GetCustomId returns the CustomId field value
 func (o *TextInputComponentForModalRequest) GetCustomId() string {
@@ -138,9 +171,9 @@ func (o *TextInputComponentForModalRequest) SetCustomId(v string) {
 }
 
 // GetStyle returns the Style field value
-func (o *TextInputComponentForModalRequest) GetStyle() int32 {
+func (o *TextInputComponentForModalRequest) GetStyle() TextInputStyleTypes {
 	if o == nil {
-		var ret int32
+		var ret TextInputStyleTypes
 		return ret
 	}
 
@@ -149,7 +182,7 @@ func (o *TextInputComponentForModalRequest) GetStyle() int32 {
 
 // GetStyleOk returns a tuple with the Style field value
 // and a boolean to check if the value has been set.
-func (o *TextInputComponentForModalRequest) GetStyleOk() (*int32, bool) {
+func (o *TextInputComponentForModalRequest) GetStyleOk() (*TextInputStyleTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -157,248 +190,207 @@ func (o *TextInputComponentForModalRequest) GetStyleOk() (*int32, bool) {
 }
 
 // SetStyle sets field value
-func (o *TextInputComponentForModalRequest) SetStyle(v int32) {
+func (o *TextInputComponentForModalRequest) SetStyle(v TextInputStyleTypes) {
 	o.Style = v
 }
 
-// GetLabel returns the Label field value
+// GetLabel returns the Label field value if set, zero value otherwise.
 func (o *TextInputComponentForModalRequest) GetLabel() string {
-	if o == nil {
+	if o == nil || IsNil(o.Label) {
 		var ret string
 		return ret
 	}
-
-	return o.Label
+	return *o.Label
 }
 
-// GetLabelOk returns a tuple with the Label field value
+// GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TextInputComponentForModalRequest) GetLabelOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Label) {
 		return nil, false
 	}
-	return &o.Label, true
+	return o.Label, true
 }
 
-// SetLabel sets field value
+// HasLabel returns a boolean if a field has been set.
+func (o *TextInputComponentForModalRequest) HasLabel() bool {
+	if o != nil && !IsNil(o.Label) {
+		return true
+	}
+
+	return false
+}
+
+// SetLabel gets a reference to the given string and assigns it to the Label field.
 func (o *TextInputComponentForModalRequest) SetLabel(v string) {
-	o.Label = v
+	o.Label = &v
 }
 
-// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
+
+// GetValue returns the Value field value if set, zero value otherwise.
 func (o *TextInputComponentForModalRequest) GetValue() string {
-	if o == nil || IsNil(o.Value.Get()) {
+	if o == nil || IsNil(o.Value) {
 		var ret string
 		return ret
 	}
-	return *o.Value.Get()
+	return *o.Value
 }
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TextInputComponentForModalRequest) GetValueOk() (*string, bool) {
-	if o == nil || IsNil(o.Value.Get()) {
+	if o == nil || IsNil(o.Value) {
 		return nil, false
 	}
-	return o.Value.Get(), o.Value.IsSet()
+	return o.Value, true
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *TextInputComponentForModalRequest) HasValue() bool {
-	if o != nil && o.Value.IsSet() {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
 	return false
 }
 
-// SetValue gets a reference to the given NullableString and assigns it to the Value field.
+// SetValue gets a reference to the given string and assigns it to the Value field.
 func (o *TextInputComponentForModalRequest) SetValue(v string) {
-	o.Value.Set(&v)
+	o.Value = &v
 }
 
-// SetValueNil sets the value for Value to be an explicit nil
-func (o *TextInputComponentForModalRequest) SetValueNil() {
-	o.Value.Set(nil)
-}
 
-// UnsetValue ensures that no value is present for Value, not even an explicit nil
-func (o *TextInputComponentForModalRequest) UnsetValue() {
-	o.Value.Unset()
-}
-
-// GetPlaceholder returns the Placeholder field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPlaceholder returns the Placeholder field value if set, zero value otherwise.
 func (o *TextInputComponentForModalRequest) GetPlaceholder() string {
-	if o == nil || IsNil(o.Placeholder.Get()) {
+	if o == nil || IsNil(o.Placeholder) {
 		var ret string
 		return ret
 	}
-	return *o.Placeholder.Get()
+	return *o.Placeholder
 }
 
 // GetPlaceholderOk returns a tuple with the Placeholder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TextInputComponentForModalRequest) GetPlaceholderOk() (*string, bool) {
-	if o == nil || IsNil(o.Placeholder.Get()) {
+	if o == nil || IsNil(o.Placeholder) {
 		return nil, false
 	}
-	return o.Placeholder.Get(), o.Placeholder.IsSet()
+	return o.Placeholder, true
 }
 
 // HasPlaceholder returns a boolean if a field has been set.
 func (o *TextInputComponentForModalRequest) HasPlaceholder() bool {
-	if o != nil && o.Placeholder.IsSet() {
+	if o != nil && !IsNil(o.Placeholder) {
 		return true
 	}
 
 	return false
 }
 
-// SetPlaceholder gets a reference to the given NullableString and assigns it to the Placeholder field.
+// SetPlaceholder gets a reference to the given string and assigns it to the Placeholder field.
 func (o *TextInputComponentForModalRequest) SetPlaceholder(v string) {
-	o.Placeholder.Set(&v)
+	o.Placeholder = &v
 }
 
-// SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-func (o *TextInputComponentForModalRequest) SetPlaceholderNil() {
-	o.Placeholder.Set(nil)
-}
 
-// UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
-func (o *TextInputComponentForModalRequest) UnsetPlaceholder() {
-	o.Placeholder.Unset()
-}
-
-// GetRequired returns the Required field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRequired returns the Required field value if set, zero value otherwise.
 func (o *TextInputComponentForModalRequest) GetRequired() bool {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		var ret bool
 		return ret
 	}
-	return *o.Required.Get()
+	return *o.Required
 }
 
 // GetRequiredOk returns a tuple with the Required field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TextInputComponentForModalRequest) GetRequiredOk() (*bool, bool) {
-	if o == nil || IsNil(o.Required.Get()) {
+	if o == nil || IsNil(o.Required) {
 		return nil, false
 	}
-	return o.Required.Get(), o.Required.IsSet()
+	return o.Required, true
 }
 
 // HasRequired returns a boolean if a field has been set.
 func (o *TextInputComponentForModalRequest) HasRequired() bool {
-	if o != nil && o.Required.IsSet() {
+	if o != nil && !IsNil(o.Required) {
 		return true
 	}
 
 	return false
 }
 
-// SetRequired gets a reference to the given NullableBool and assigns it to the Required field.
+// SetRequired gets a reference to the given bool and assigns it to the Required field.
 func (o *TextInputComponentForModalRequest) SetRequired(v bool) {
-	o.Required.Set(&v)
+	o.Required = &v
 }
 
-// SetRequiredNil sets the value for Required to be an explicit nil
-func (o *TextInputComponentForModalRequest) SetRequiredNil() {
-	o.Required.Set(nil)
-}
 
-// UnsetRequired ensures that no value is present for Required, not even an explicit nil
-func (o *TextInputComponentForModalRequest) UnsetRequired() {
-	o.Required.Unset()
-}
-
-// GetMinLength returns the MinLength field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMinLength returns the MinLength field value if set, zero value otherwise.
 func (o *TextInputComponentForModalRequest) GetMinLength() int32 {
-	if o == nil || IsNil(o.MinLength.Get()) {
+	if o == nil || IsNil(o.MinLength) {
 		var ret int32
 		return ret
 	}
-	return *o.MinLength.Get()
+	return *o.MinLength
 }
 
 // GetMinLengthOk returns a tuple with the MinLength field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TextInputComponentForModalRequest) GetMinLengthOk() (*int32, bool) {
-	if o == nil || IsNil(o.MinLength.Get()) {
+	if o == nil || IsNil(o.MinLength) {
 		return nil, false
 	}
-	return o.MinLength.Get(), o.MinLength.IsSet()
+	return o.MinLength, true
 }
 
 // HasMinLength returns a boolean if a field has been set.
 func (o *TextInputComponentForModalRequest) HasMinLength() bool {
-	if o != nil && o.MinLength.IsSet() {
+	if o != nil && !IsNil(o.MinLength) {
 		return true
 	}
 
 	return false
 }
 
-// SetMinLength gets a reference to the given NullableInt32 and assigns it to the MinLength field.
+// SetMinLength gets a reference to the given int32 and assigns it to the MinLength field.
 func (o *TextInputComponentForModalRequest) SetMinLength(v int32) {
-	o.MinLength.Set(&v)
+	o.MinLength = &v
 }
 
-// SetMinLengthNil sets the value for MinLength to be an explicit nil
-func (o *TextInputComponentForModalRequest) SetMinLengthNil() {
-	o.MinLength.Set(nil)
-}
 
-// UnsetMinLength ensures that no value is present for MinLength, not even an explicit nil
-func (o *TextInputComponentForModalRequest) UnsetMinLength() {
-	o.MinLength.Unset()
-}
-
-// GetMaxLength returns the MaxLength field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxLength returns the MaxLength field value if set, zero value otherwise.
 func (o *TextInputComponentForModalRequest) GetMaxLength() int32 {
-	if o == nil || IsNil(o.MaxLength.Get()) {
+	if o == nil || IsNil(o.MaxLength) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxLength.Get()
+	return *o.MaxLength
 }
 
 // GetMaxLengthOk returns a tuple with the MaxLength field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TextInputComponentForModalRequest) GetMaxLengthOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxLength.Get()) {
+	if o == nil || IsNil(o.MaxLength) {
 		return nil, false
 	}
-	return o.MaxLength.Get(), o.MaxLength.IsSet()
+	return o.MaxLength, true
 }
 
 // HasMaxLength returns a boolean if a field has been set.
 func (o *TextInputComponentForModalRequest) HasMaxLength() bool {
-	if o != nil && o.MaxLength.IsSet() {
+	if o != nil && !IsNil(o.MaxLength) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxLength gets a reference to the given NullableInt32 and assigns it to the MaxLength field.
+// SetMaxLength gets a reference to the given int32 and assigns it to the MaxLength field.
 func (o *TextInputComponentForModalRequest) SetMaxLength(v int32) {
-	o.MaxLength.Set(&v)
+	o.MaxLength = &v
 }
 
-// SetMaxLengthNil sets the value for MaxLength to be an explicit nil
-func (o *TextInputComponentForModalRequest) SetMaxLengthNil() {
-	o.MaxLength.Set(nil)
-}
-
-// UnsetMaxLength ensures that no value is present for MaxLength, not even an explicit nil
-func (o *TextInputComponentForModalRequest) UnsetMaxLength() {
-	o.MaxLength.Unset()
-}
 
 func (o TextInputComponentForModalRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -411,23 +403,28 @@ func (o TextInputComponentForModalRequest) MarshalJSON() ([]byte, error) {
 func (o TextInputComponentForModalRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	toSerialize["custom_id"] = o.CustomId
 	toSerialize["style"] = o.Style
-	toSerialize["label"] = o.Label
-	if o.Value.IsSet() {
-		toSerialize["value"] = o.Value.Get()
+	if !IsNil(o.Label) {
+		toSerialize["label"] = o.Label
 	}
-	if o.Placeholder.IsSet() {
-		toSerialize["placeholder"] = o.Placeholder.Get()
+	if !IsNil(o.Value) {
+		toSerialize["value"] = o.Value
 	}
-	if o.Required.IsSet() {
-		toSerialize["required"] = o.Required.Get()
+	if !IsNil(o.Placeholder) {
+		toSerialize["placeholder"] = o.Placeholder
 	}
-	if o.MinLength.IsSet() {
-		toSerialize["min_length"] = o.MinLength.Get()
+	if !IsNil(o.Required) {
+		toSerialize["required"] = o.Required
 	}
-	if o.MaxLength.IsSet() {
-		toSerialize["max_length"] = o.MaxLength.Get()
+	if !IsNil(o.MinLength) {
+		toSerialize["min_length"] = o.MinLength
+	}
+	if !IsNil(o.MaxLength) {
+		toSerialize["max_length"] = o.MaxLength
 	}
 	return toSerialize, nil
 }
@@ -440,7 +437,6 @@ func (o *TextInputComponentForModalRequest) UnmarshalJSON(data []byte) (err erro
 		"type",
 		"custom_id",
 		"style",
-		"label",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -507,5 +503,4 @@ func (v *NullableTextInputComponentForModalRequest) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

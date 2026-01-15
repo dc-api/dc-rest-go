@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **NullableInt32** |  | 
+**Type** | [**InteractionCallbackTypes**](InteractionCallbackTypes.md) |  | 
 **Data** | [**ModalInteractionCallbackRequestData**](ModalInteractionCallbackRequestData.md) |  | 
 
 ## Methods
 
 ### NewModalInteractionCallbackRequest
 
-`func NewModalInteractionCallbackRequest(type_ NullableInt32, data ModalInteractionCallbackRequestData, ) *ModalInteractionCallbackRequest`
+`func NewModalInteractionCallbackRequest(type_ InteractionCallbackTypes, data ModalInteractionCallbackRequestData, ) *ModalInteractionCallbackRequest`
 
 NewModalInteractionCallbackRequest instantiates a new ModalInteractionCallbackRequest object
 This constructor will assign default values to properties that have it defined,
@@ -28,34 +28,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ModalInteractionCallbackRequest) GetType() int32`
+`func (o *ModalInteractionCallbackRequest) GetType() InteractionCallbackTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ModalInteractionCallbackRequest) GetTypeOk() (*int32, bool)`
+`func (o *ModalInteractionCallbackRequest) GetTypeOk() (*InteractionCallbackTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ModalInteractionCallbackRequest) SetType(v int32)`
+`func (o *ModalInteractionCallbackRequest) SetType(v InteractionCallbackTypes)`
 
 SetType sets Type field to given value.
 
 
-### SetTypeNil
-
-`func (o *ModalInteractionCallbackRequest) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *ModalInteractionCallbackRequest) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetData
 
 `func (o *ModalInteractionCallbackRequest) GetData() ModalInteractionCallbackRequestData`

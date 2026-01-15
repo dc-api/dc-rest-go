@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 **Components** | [**[]TextDisplayComponentForMessageRequest**](TextDisplayComponentForMessageRequest.md) |  | 
 **AccentColor** | Pointer to **int32** |  | [optional] 
 **Spoiler** | Pointer to **bool** |  | [optional] 
 **File** | [**UnfurledMediaRequestWithAttachmentReferenceRequired**](UnfurledMediaRequestWithAttachmentReferenceRequired.md) |  | 
 **Items** | [**[]MediaGalleryItemRequest**](MediaGalleryItemRequest.md) |  | 
 **Accessory** | [**SectionComponentForMessageRequestAccessory**](SectionComponentForMessageRequestAccessory.md) |  | 
-**Spacing** | Pointer to **int32** |  | [optional] 
+**Spacing** | Pointer to [**SeparatorComponentForMessageRequestSpacing**](SeparatorComponentForMessageRequestSpacing.md) |  | [optional] 
 **Divider** | Pointer to **bool** |  | [optional] 
 **Content** | **string** |  | 
 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewBaseCreateMessageCreateRequestComponentsInner
 
-`func NewBaseCreateMessageCreateRequestComponentsInner(type_ int32, components []TextDisplayComponentForMessageRequest, file UnfurledMediaRequestWithAttachmentReferenceRequired, items []MediaGalleryItemRequest, accessory SectionComponentForMessageRequestAccessory, content string, ) *BaseCreateMessageCreateRequestComponentsInner`
+`func NewBaseCreateMessageCreateRequestComponentsInner(type_ MessageComponentTypes, components []TextDisplayComponentForMessageRequest, file UnfurledMediaRequestWithAttachmentReferenceRequired, items []MediaGalleryItemRequest, accessory SectionComponentForMessageRequestAccessory, content string, ) *BaseCreateMessageCreateRequestComponentsInner`
 
 NewBaseCreateMessageCreateRequestComponentsInner instantiates a new BaseCreateMessageCreateRequestComponentsInner object
 This constructor will assign default values to properties that have it defined,
@@ -36,23 +37,48 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *BaseCreateMessageCreateRequestComponentsInner) GetType() int32`
+`func (o *BaseCreateMessageCreateRequestComponentsInner) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *BaseCreateMessageCreateRequestComponentsInner) GetTypeOk() (*int32, bool)`
+`func (o *BaseCreateMessageCreateRequestComponentsInner) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *BaseCreateMessageCreateRequestComponentsInner) SetType(v int32)`
+`func (o *BaseCreateMessageCreateRequestComponentsInner) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *BaseCreateMessageCreateRequestComponentsInner) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *BaseCreateMessageCreateRequestComponentsInner) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *BaseCreateMessageCreateRequestComponentsInner) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *BaseCreateMessageCreateRequestComponentsInner) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetComponents
 
@@ -186,20 +212,20 @@ SetAccessory sets Accessory field to given value.
 
 ### GetSpacing
 
-`func (o *BaseCreateMessageCreateRequestComponentsInner) GetSpacing() int32`
+`func (o *BaseCreateMessageCreateRequestComponentsInner) GetSpacing() SeparatorComponentForMessageRequestSpacing`
 
 GetSpacing returns the Spacing field if non-nil, zero value otherwise.
 
 ### GetSpacingOk
 
-`func (o *BaseCreateMessageCreateRequestComponentsInner) GetSpacingOk() (*int32, bool)`
+`func (o *BaseCreateMessageCreateRequestComponentsInner) GetSpacingOk() (*SeparatorComponentForMessageRequestSpacing, bool)`
 
 GetSpacingOk returns a tuple with the Spacing field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSpacing
 
-`func (o *BaseCreateMessageCreateRequestComponentsInner) SetSpacing(v int32)`
+`func (o *BaseCreateMessageCreateRequestComponentsInner) SetSpacing(v SeparatorComponentForMessageRequestSpacing)`
 
 SetSpacing sets Spacing field to given value.
 

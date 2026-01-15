@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,8 +55,8 @@ var _ MappedNullable = &MediaGalleryItemRequest{}
 
 // MediaGalleryItemRequest struct for MediaGalleryItemRequest
 type MediaGalleryItemRequest struct {
-	Description NullableString `json:"description,omitempty"`
-	Spoiler NullableBool `json:"spoiler,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Spoiler *bool `json:"spoiler,omitempty"`
 	Media UnfurledMediaRequest `json:"media"`
 }
 
@@ -80,91 +80,71 @@ func NewMediaGalleryItemRequestWithDefaults() *MediaGalleryItemRequest {
 	return &this
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *MediaGalleryItemRequest) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MediaGalleryItemRequest) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *MediaGalleryItemRequest) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *MediaGalleryItemRequest) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *MediaGalleryItemRequest) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *MediaGalleryItemRequest) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetSpoiler returns the Spoiler field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSpoiler returns the Spoiler field value if set, zero value otherwise.
 func (o *MediaGalleryItemRequest) GetSpoiler() bool {
-	if o == nil || IsNil(o.Spoiler.Get()) {
+	if o == nil || IsNil(o.Spoiler) {
 		var ret bool
 		return ret
 	}
-	return *o.Spoiler.Get()
+	return *o.Spoiler
 }
 
 // GetSpoilerOk returns a tuple with the Spoiler field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MediaGalleryItemRequest) GetSpoilerOk() (*bool, bool) {
-	if o == nil || IsNil(o.Spoiler.Get()) {
+	if o == nil || IsNil(o.Spoiler) {
 		return nil, false
 	}
-	return o.Spoiler.Get(), o.Spoiler.IsSet()
+	return o.Spoiler, true
 }
 
 // HasSpoiler returns a boolean if a field has been set.
 func (o *MediaGalleryItemRequest) HasSpoiler() bool {
-	if o != nil && o.Spoiler.IsSet() {
+	if o != nil && !IsNil(o.Spoiler) {
 		return true
 	}
 
 	return false
 }
 
-// SetSpoiler gets a reference to the given NullableBool and assigns it to the Spoiler field.
+// SetSpoiler gets a reference to the given bool and assigns it to the Spoiler field.
 func (o *MediaGalleryItemRequest) SetSpoiler(v bool) {
-	o.Spoiler.Set(&v)
+	o.Spoiler = &v
 }
 
-// SetSpoilerNil sets the value for Spoiler to be an explicit nil
-func (o *MediaGalleryItemRequest) SetSpoilerNil() {
-	o.Spoiler.Set(nil)
-}
-
-// UnsetSpoiler ensures that no value is present for Spoiler, not even an explicit nil
-func (o *MediaGalleryItemRequest) UnsetSpoiler() {
-	o.Spoiler.Unset()
-}
 
 // GetMedia returns the Media field value
 func (o *MediaGalleryItemRequest) GetMedia() UnfurledMediaRequest {
@@ -200,11 +180,11 @@ func (o MediaGalleryItemRequest) MarshalJSON() ([]byte, error) {
 
 func (o MediaGalleryItemRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
-	if o.Spoiler.IsSet() {
-		toSerialize["spoiler"] = o.Spoiler.Get()
+	if !IsNil(o.Spoiler) {
+		toSerialize["spoiler"] = o.Spoiler
 	}
 	toSerialize["media"] = o.Media
 	return toSerialize, nil
@@ -282,5 +262,4 @@ func (v *NullableMediaGalleryItemRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **NullableString** |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Account** | Pointer to [**NullableAccountResponse**](AccountResponse.md) |  | [optional] 
-**Enabled** | Pointer to **NullableBool** |  | [optional] 
+**Type** | [**IntegrationTypes**](IntegrationTypes.md) |  | 
+**Name** | Pointer to **string** |  | [optional] 
+**Account** | [**AccountResponse**](AccountResponse.md) |  | 
+**Enabled** | **bool** |  | 
 **Id** | **string** |  | 
 
 ## Methods
 
 ### NewGuildSubscriptionIntegrationResponse
 
-`func NewGuildSubscriptionIntegrationResponse(type_ NullableString, id string, ) *GuildSubscriptionIntegrationResponse`
+`func NewGuildSubscriptionIntegrationResponse(type_ IntegrationTypes, account AccountResponse, enabled bool, id string, ) *GuildSubscriptionIntegrationResponse`
 
 NewGuildSubscriptionIntegrationResponse instantiates a new GuildSubscriptionIntegrationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -31,34 +31,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *GuildSubscriptionIntegrationResponse) GetType() string`
+`func (o *GuildSubscriptionIntegrationResponse) GetType() IntegrationTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *GuildSubscriptionIntegrationResponse) GetTypeOk() (*string, bool)`
+`func (o *GuildSubscriptionIntegrationResponse) GetTypeOk() (*IntegrationTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *GuildSubscriptionIntegrationResponse) SetType(v string)`
+`func (o *GuildSubscriptionIntegrationResponse) SetType(v IntegrationTypes)`
 
 SetType sets Type field to given value.
 
 
-### SetTypeNil
-
-`func (o *GuildSubscriptionIntegrationResponse) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *GuildSubscriptionIntegrationResponse) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetName
 
 `func (o *GuildSubscriptionIntegrationResponse) GetName() string`
@@ -84,16 +74,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *GuildSubscriptionIntegrationResponse) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *GuildSubscriptionIntegrationResponse) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetAccount
 
 `func (o *GuildSubscriptionIntegrationResponse) GetAccount() AccountResponse`
@@ -113,22 +93,7 @@ and a boolean to check if the value has been set.
 
 SetAccount sets Account field to given value.
 
-### HasAccount
 
-`func (o *GuildSubscriptionIntegrationResponse) HasAccount() bool`
-
-HasAccount returns a boolean if a field has been set.
-
-### SetAccountNil
-
-`func (o *GuildSubscriptionIntegrationResponse) SetAccountNil(b bool)`
-
- SetAccountNil sets the value for Account to be an explicit nil
-
-### UnsetAccount
-`func (o *GuildSubscriptionIntegrationResponse) UnsetAccount()`
-
-UnsetAccount ensures that no value is present for Account, not even an explicit nil
 ### GetEnabled
 
 `func (o *GuildSubscriptionIntegrationResponse) GetEnabled() bool`
@@ -148,22 +113,7 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
-### HasEnabled
 
-`func (o *GuildSubscriptionIntegrationResponse) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
-
-### SetEnabledNil
-
-`func (o *GuildSubscriptionIntegrationResponse) SetEnabledNil(b bool)`
-
- SetEnabledNil sets the value for Enabled to be an explicit nil
-
-### UnsetEnabled
-`func (o *GuildSubscriptionIntegrationResponse) UnsetEnabled()`
-
-UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 ### GetId
 
 `func (o *GuildSubscriptionIntegrationResponse) GetId() string`

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **int32** |  | 
+**Type** | [**InteractionTypes**](InteractionTypes.md) |  | 
 **User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 **AuthorizingIntegrationOwners** | **map[string]string** |  | 
 **OriginalResponseMessageId** | Pointer to **string** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewBasicMessageResponseInteractionMetadata
 
-`func NewBasicMessageResponseInteractionMetadata(id string, type_ int32, authorizingIntegrationOwners map[string]string, interactedMessageId string, triggeringInteractionMetadata ModalSubmitInteractionMetadataResponseTriggeringInteractionMetadata, ) *BasicMessageResponseInteractionMetadata`
+`func NewBasicMessageResponseInteractionMetadata(id string, type_ InteractionTypes, authorizingIntegrationOwners map[string]string, interactedMessageId string, triggeringInteractionMetadata ModalSubmitInteractionMetadataResponseTriggeringInteractionMetadata, ) *BasicMessageResponseInteractionMetadata`
 
 NewBasicMessageResponseInteractionMetadata instantiates a new BasicMessageResponseInteractionMetadata object
 This constructor will assign default values to properties that have it defined,
@@ -55,20 +55,20 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *BasicMessageResponseInteractionMetadata) GetType() int32`
+`func (o *BasicMessageResponseInteractionMetadata) GetType() InteractionTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *BasicMessageResponseInteractionMetadata) GetTypeOk() (*int32, bool)`
+`func (o *BasicMessageResponseInteractionMetadata) GetTypeOk() (*InteractionTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *BasicMessageResponseInteractionMetadata) SetType(v int32)`
+`func (o *BasicMessageResponseInteractionMetadata) SetType(v InteractionTypes)`
 
 SetType sets Type field to given value.
 

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
 **Id** | **int32** |  | 
 **CustomId** | **string** |  | 
-**Style** | **int32** |  | 
+**Style** | [**TextInputStyleTypes**](TextInputStyleTypes.md) |  | 
 **Label** | Pointer to **string** |  | [optional] 
 **Disabled** | Pointer to **bool** |  | [optional] 
 **Emoji** | Pointer to [**ComponentEmojiResponse**](ComponentEmojiResponse.md) |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **Placeholder** | Pointer to **string** |  | [optional] 
 **MinValues** | Pointer to **int32** |  | [optional] 
 **MaxValues** | Pointer to **int32** |  | [optional] 
-**ChannelTypes** | Pointer to **[]int32** |  | [optional] 
+**ChannelTypes** | Pointer to [**[]ChannelTypes**](ChannelTypes.md) |  | [optional] 
 **DefaultValues** | Pointer to [**[]UserSelectDefaultValueResponse**](UserSelectDefaultValueResponse.md) |  | [optional] 
 **Options** | [**[]StringSelectOptionResponse**](StringSelectOptionResponse.md) |  | 
 **Value** | Pointer to **string** |  | [optional] 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewActionRowComponentResponseComponentsInner
 
-`func NewActionRowComponentResponseComponentsInner(type_ int32, id int32, customId string, style int32, options []StringSelectOptionResponse, ) *ActionRowComponentResponseComponentsInner`
+`func NewActionRowComponentResponseComponentsInner(type_ MessageComponentTypes, id int32, customId string, style TextInputStyleTypes, options []StringSelectOptionResponse, ) *ActionRowComponentResponseComponentsInner`
 
 NewActionRowComponentResponseComponentsInner instantiates a new ActionRowComponentResponseComponentsInner object
 This constructor will assign default values to properties that have it defined,
@@ -45,20 +45,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ActionRowComponentResponseComponentsInner) GetType() int32`
+`func (o *ActionRowComponentResponseComponentsInner) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ActionRowComponentResponseComponentsInner) GetTypeOk() (*int32, bool)`
+`func (o *ActionRowComponentResponseComponentsInner) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ActionRowComponentResponseComponentsInner) SetType(v int32)`
+`func (o *ActionRowComponentResponseComponentsInner) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
@@ -105,20 +105,20 @@ SetCustomId sets CustomId field to given value.
 
 ### GetStyle
 
-`func (o *ActionRowComponentResponseComponentsInner) GetStyle() int32`
+`func (o *ActionRowComponentResponseComponentsInner) GetStyle() TextInputStyleTypes`
 
 GetStyle returns the Style field if non-nil, zero value otherwise.
 
 ### GetStyleOk
 
-`func (o *ActionRowComponentResponseComponentsInner) GetStyleOk() (*int32, bool)`
+`func (o *ActionRowComponentResponseComponentsInner) GetStyleOk() (*TextInputStyleTypes, bool)`
 
 GetStyleOk returns a tuple with the Style field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStyle
 
-`func (o *ActionRowComponentResponseComponentsInner) SetStyle(v int32)`
+`func (o *ActionRowComponentResponseComponentsInner) SetStyle(v TextInputStyleTypes)`
 
 SetStyle sets Style field to given value.
 
@@ -325,20 +325,20 @@ HasMaxValues returns a boolean if a field has been set.
 
 ### GetChannelTypes
 
-`func (o *ActionRowComponentResponseComponentsInner) GetChannelTypes() []int32`
+`func (o *ActionRowComponentResponseComponentsInner) GetChannelTypes() []ChannelTypes`
 
 GetChannelTypes returns the ChannelTypes field if non-nil, zero value otherwise.
 
 ### GetChannelTypesOk
 
-`func (o *ActionRowComponentResponseComponentsInner) GetChannelTypesOk() (*[]int32, bool)`
+`func (o *ActionRowComponentResponseComponentsInner) GetChannelTypesOk() (*[]ChannelTypes, bool)`
 
 GetChannelTypesOk returns a tuple with the ChannelTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelTypes
 
-`func (o *ActionRowComponentResponseComponentsInner) SetChannelTypes(v []int32)`
+`func (o *ActionRowComponentResponseComponentsInner) SetChannelTypes(v []ChannelTypes)`
 
 SetChannelTypes sets ChannelTypes field to given value.
 

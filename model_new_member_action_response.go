@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,11 +56,11 @@ var _ MappedNullable = &NewMemberActionResponse{}
 // NewMemberActionResponse struct for NewMemberActionResponse
 type NewMemberActionResponse struct {
 	ChannelId string `json:"channel_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	ActionType NullableInt32 `json:"action_type"`
+	ActionType NewMemberActionType `json:"action_type"`
 	Title string `json:"title"`
 	Description string `json:"description"`
-	Emoji NullableSettingsEmojiResponse `json:"emoji,omitempty"`
-	Icon NullableString `json:"icon,omitempty"`
+	Emoji *SettingsEmojiResponse `json:"emoji,omitempty"`
+	Icon *string `json:"icon,omitempty"`
 }
 
 type _NewMemberActionResponse NewMemberActionResponse
@@ -69,7 +69,7 @@ type _NewMemberActionResponse NewMemberActionResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNewMemberActionResponse(channelId string, actionType NullableInt32, title string, description string) *NewMemberActionResponse {
+func NewNewMemberActionResponse(channelId string, actionType NewMemberActionType, title string, description string) *NewMemberActionResponse {
 	this := NewMemberActionResponse{}
 	this.ChannelId = channelId
 	this.ActionType = actionType
@@ -111,29 +111,27 @@ func (o *NewMemberActionResponse) SetChannelId(v string) {
 }
 
 // GetActionType returns the ActionType field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *NewMemberActionResponse) GetActionType() int32 {
-	if o == nil || o.ActionType.Get() == nil {
-		var ret int32
+func (o *NewMemberActionResponse) GetActionType() NewMemberActionType {
+	if o == nil {
+		var ret NewMemberActionType
 		return ret
 	}
 
-	return *o.ActionType.Get()
+	return o.ActionType
 }
 
 // GetActionTypeOk returns a tuple with the ActionType field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NewMemberActionResponse) GetActionTypeOk() (*int32, bool) {
+func (o *NewMemberActionResponse) GetActionTypeOk() (*NewMemberActionType, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ActionType.Get(), o.ActionType.IsSet()
+	return &o.ActionType, true
 }
 
 // SetActionType sets field value
-func (o *NewMemberActionResponse) SetActionType(v int32) {
-	o.ActionType.Set(&v)
+func (o *NewMemberActionResponse) SetActionType(v NewMemberActionType) {
+	o.ActionType = v
 }
 
 // GetTitle returns the Title field value
@@ -184,91 +182,71 @@ func (o *NewMemberActionResponse) SetDescription(v string) {
 	o.Description = v
 }
 
-// GetEmoji returns the Emoji field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmoji returns the Emoji field value if set, zero value otherwise.
 func (o *NewMemberActionResponse) GetEmoji() SettingsEmojiResponse {
-	if o == nil || IsNil(o.Emoji.Get()) {
+	if o == nil || IsNil(o.Emoji) {
 		var ret SettingsEmojiResponse
 		return ret
 	}
-	return *o.Emoji.Get()
+	return *o.Emoji
 }
 
 // GetEmojiOk returns a tuple with the Emoji field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NewMemberActionResponse) GetEmojiOk() (*SettingsEmojiResponse, bool) {
-	if o == nil || IsNil(o.Emoji.Get()) {
+	if o == nil || IsNil(o.Emoji) {
 		return nil, false
 	}
-	return o.Emoji.Get(), o.Emoji.IsSet()
+	return o.Emoji, true
 }
 
 // HasEmoji returns a boolean if a field has been set.
 func (o *NewMemberActionResponse) HasEmoji() bool {
-	if o != nil && o.Emoji.IsSet() {
+	if o != nil && !IsNil(o.Emoji) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmoji gets a reference to the given NullableSettingsEmojiResponse and assigns it to the Emoji field.
+// SetEmoji gets a reference to the given SettingsEmojiResponse and assigns it to the Emoji field.
 func (o *NewMemberActionResponse) SetEmoji(v SettingsEmojiResponse) {
-	o.Emoji.Set(&v)
+	o.Emoji = &v
 }
 
-// SetEmojiNil sets the value for Emoji to be an explicit nil
-func (o *NewMemberActionResponse) SetEmojiNil() {
-	o.Emoji.Set(nil)
-}
 
-// UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
-func (o *NewMemberActionResponse) UnsetEmoji() {
-	o.Emoji.Unset()
-}
-
-// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIcon returns the Icon field value if set, zero value otherwise.
 func (o *NewMemberActionResponse) GetIcon() string {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		var ret string
 		return ret
 	}
-	return *o.Icon.Get()
+	return *o.Icon
 }
 
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NewMemberActionResponse) GetIconOk() (*string, bool) {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		return nil, false
 	}
-	return o.Icon.Get(), o.Icon.IsSet()
+	return o.Icon, true
 }
 
 // HasIcon returns a boolean if a field has been set.
 func (o *NewMemberActionResponse) HasIcon() bool {
-	if o != nil && o.Icon.IsSet() {
+	if o != nil && !IsNil(o.Icon) {
 		return true
 	}
 
 	return false
 }
 
-// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+// SetIcon gets a reference to the given string and assigns it to the Icon field.
 func (o *NewMemberActionResponse) SetIcon(v string) {
-	o.Icon.Set(&v)
+	o.Icon = &v
 }
 
-// SetIconNil sets the value for Icon to be an explicit nil
-func (o *NewMemberActionResponse) SetIconNil() {
-	o.Icon.Set(nil)
-}
-
-// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
-func (o *NewMemberActionResponse) UnsetIcon() {
-	o.Icon.Unset()
-}
 
 func (o NewMemberActionResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -281,14 +259,14 @@ func (o NewMemberActionResponse) MarshalJSON() ([]byte, error) {
 func (o NewMemberActionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["channel_id"] = o.ChannelId
-	toSerialize["action_type"] = o.ActionType.Get()
+	toSerialize["action_type"] = o.ActionType
 	toSerialize["title"] = o.Title
 	toSerialize["description"] = o.Description
-	if o.Emoji.IsSet() {
-		toSerialize["emoji"] = o.Emoji.Get()
+	if !IsNil(o.Emoji) {
+		toSerialize["emoji"] = o.Emoji
 	}
-	if o.Icon.IsSet() {
-		toSerialize["icon"] = o.Icon.Get()
+	if !IsNil(o.Icon) {
+		toSerialize["icon"] = o.Icon
 	}
 	return toSerialize, nil
 }
@@ -368,5 +346,4 @@ func (v *NullableNewMemberActionResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

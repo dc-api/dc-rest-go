@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Content** | Pointer to **NullableString** |  | [optional] 
+**Content** | Pointer to **string** |  | [optional] 
 **Embeds** | Pointer to [**[]RichEmbed**](RichEmbed.md) |  | [optional] 
-**AllowedMentions** | Pointer to [**NullableMessageAllowedMentionsRequest**](MessageAllowedMentionsRequest.md) |  | [optional] 
+**AllowedMentions** | Pointer to [**BaseCreateMessageCreateRequestAllowedMentions**](BaseCreateMessageCreateRequestAllowedMentions.md) |  | [optional] 
 **StickerIds** | Pointer to **[]string** |  | [optional] 
 **Components** | Pointer to [**[]BaseCreateMessageCreateRequestComponentsInner**](BaseCreateMessageCreateRequestComponentsInner.md) |  | [optional] 
-**Flags** | Pointer to **NullableInt32** |  | [optional] 
+**Flags** | Pointer to **int32** |  | [optional] 
 **Attachments** | Pointer to [**[]MessageAttachmentRequest**](MessageAttachmentRequest.md) |  | [optional] 
-**Poll** | Pointer to [**NullablePollCreateRequest**](PollCreateRequest.md) |  | [optional] 
-**ConfettiPotion** | Pointer to **map[string]interface{}** |  | [optional] 
-**MessageReference** | Pointer to [**NullableMessageReferenceRequest**](MessageReferenceRequest.md) |  | [optional] 
-**Nonce** | Pointer to [**NullableBasicMessageResponseNonce**](BasicMessageResponseNonce.md) |  | [optional] 
-**EnforceNonce** | Pointer to **NullableBool** |  | [optional] 
-**Tts** | Pointer to **NullableBool** |  | [optional] 
+**Poll** | Pointer to [**BaseCreateMessageCreateRequestPoll**](BaseCreateMessageCreateRequestPoll.md) |  | [optional] 
+**SharedClientTheme** | Pointer to [**BaseCreateMessageCreateRequestSharedClientTheme**](BaseCreateMessageCreateRequestSharedClientTheme.md) |  | [optional] 
+**MessageReference** | Pointer to [**MessageCreateRequestMessageReference**](MessageCreateRequestMessageReference.md) |  | [optional] 
+**Nonce** | Pointer to [**BasicMessageResponseNonce**](BasicMessageResponseNonce.md) |  | [optional] 
+**EnforceNonce** | Pointer to **bool** |  | [optional] 
+**Tts** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -62,16 +62,6 @@ SetContent sets Content field to given value.
 
 HasContent returns a boolean if a field has been set.
 
-### SetContentNil
-
-`func (o *SDKMessageRequest) SetContentNil(b bool)`
-
- SetContentNil sets the value for Content to be an explicit nil
-
-### UnsetContent
-`func (o *SDKMessageRequest) UnsetContent()`
-
-UnsetContent ensures that no value is present for Content, not even an explicit nil
 ### GetEmbeds
 
 `func (o *SDKMessageRequest) GetEmbeds() []RichEmbed`
@@ -97,32 +87,22 @@ SetEmbeds sets Embeds field to given value.
 
 HasEmbeds returns a boolean if a field has been set.
 
-### SetEmbedsNil
-
-`func (o *SDKMessageRequest) SetEmbedsNil(b bool)`
-
- SetEmbedsNil sets the value for Embeds to be an explicit nil
-
-### UnsetEmbeds
-`func (o *SDKMessageRequest) UnsetEmbeds()`
-
-UnsetEmbeds ensures that no value is present for Embeds, not even an explicit nil
 ### GetAllowedMentions
 
-`func (o *SDKMessageRequest) GetAllowedMentions() MessageAllowedMentionsRequest`
+`func (o *SDKMessageRequest) GetAllowedMentions() BaseCreateMessageCreateRequestAllowedMentions`
 
 GetAllowedMentions returns the AllowedMentions field if non-nil, zero value otherwise.
 
 ### GetAllowedMentionsOk
 
-`func (o *SDKMessageRequest) GetAllowedMentionsOk() (*MessageAllowedMentionsRequest, bool)`
+`func (o *SDKMessageRequest) GetAllowedMentionsOk() (*BaseCreateMessageCreateRequestAllowedMentions, bool)`
 
 GetAllowedMentionsOk returns a tuple with the AllowedMentions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllowedMentions
 
-`func (o *SDKMessageRequest) SetAllowedMentions(v MessageAllowedMentionsRequest)`
+`func (o *SDKMessageRequest) SetAllowedMentions(v BaseCreateMessageCreateRequestAllowedMentions)`
 
 SetAllowedMentions sets AllowedMentions field to given value.
 
@@ -132,16 +112,6 @@ SetAllowedMentions sets AllowedMentions field to given value.
 
 HasAllowedMentions returns a boolean if a field has been set.
 
-### SetAllowedMentionsNil
-
-`func (o *SDKMessageRequest) SetAllowedMentionsNil(b bool)`
-
- SetAllowedMentionsNil sets the value for AllowedMentions to be an explicit nil
-
-### UnsetAllowedMentions
-`func (o *SDKMessageRequest) UnsetAllowedMentions()`
-
-UnsetAllowedMentions ensures that no value is present for AllowedMentions, not even an explicit nil
 ### GetStickerIds
 
 `func (o *SDKMessageRequest) GetStickerIds() []string`
@@ -167,16 +137,6 @@ SetStickerIds sets StickerIds field to given value.
 
 HasStickerIds returns a boolean if a field has been set.
 
-### SetStickerIdsNil
-
-`func (o *SDKMessageRequest) SetStickerIdsNil(b bool)`
-
- SetStickerIdsNil sets the value for StickerIds to be an explicit nil
-
-### UnsetStickerIds
-`func (o *SDKMessageRequest) UnsetStickerIds()`
-
-UnsetStickerIds ensures that no value is present for StickerIds, not even an explicit nil
 ### GetComponents
 
 `func (o *SDKMessageRequest) GetComponents() []BaseCreateMessageCreateRequestComponentsInner`
@@ -202,16 +162,6 @@ SetComponents sets Components field to given value.
 
 HasComponents returns a boolean if a field has been set.
 
-### SetComponentsNil
-
-`func (o *SDKMessageRequest) SetComponentsNil(b bool)`
-
- SetComponentsNil sets the value for Components to be an explicit nil
-
-### UnsetComponents
-`func (o *SDKMessageRequest) UnsetComponents()`
-
-UnsetComponents ensures that no value is present for Components, not even an explicit nil
 ### GetFlags
 
 `func (o *SDKMessageRequest) GetFlags() int32`
@@ -237,16 +187,6 @@ SetFlags sets Flags field to given value.
 
 HasFlags returns a boolean if a field has been set.
 
-### SetFlagsNil
-
-`func (o *SDKMessageRequest) SetFlagsNil(b bool)`
-
- SetFlagsNil sets the value for Flags to be an explicit nil
-
-### UnsetFlags
-`func (o *SDKMessageRequest) UnsetFlags()`
-
-UnsetFlags ensures that no value is present for Flags, not even an explicit nil
 ### GetAttachments
 
 `func (o *SDKMessageRequest) GetAttachments() []MessageAttachmentRequest`
@@ -272,32 +212,22 @@ SetAttachments sets Attachments field to given value.
 
 HasAttachments returns a boolean if a field has been set.
 
-### SetAttachmentsNil
-
-`func (o *SDKMessageRequest) SetAttachmentsNil(b bool)`
-
- SetAttachmentsNil sets the value for Attachments to be an explicit nil
-
-### UnsetAttachments
-`func (o *SDKMessageRequest) UnsetAttachments()`
-
-UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
 ### GetPoll
 
-`func (o *SDKMessageRequest) GetPoll() PollCreateRequest`
+`func (o *SDKMessageRequest) GetPoll() BaseCreateMessageCreateRequestPoll`
 
 GetPoll returns the Poll field if non-nil, zero value otherwise.
 
 ### GetPollOk
 
-`func (o *SDKMessageRequest) GetPollOk() (*PollCreateRequest, bool)`
+`func (o *SDKMessageRequest) GetPollOk() (*BaseCreateMessageCreateRequestPoll, bool)`
 
 GetPollOk returns a tuple with the Poll field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPoll
 
-`func (o *SDKMessageRequest) SetPoll(v PollCreateRequest)`
+`func (o *SDKMessageRequest) SetPoll(v BaseCreateMessageCreateRequestPoll)`
 
 SetPoll sets Poll field to given value.
 
@@ -307,57 +237,47 @@ SetPoll sets Poll field to given value.
 
 HasPoll returns a boolean if a field has been set.
 
-### SetPollNil
+### GetSharedClientTheme
 
-`func (o *SDKMessageRequest) SetPollNil(b bool)`
+`func (o *SDKMessageRequest) GetSharedClientTheme() BaseCreateMessageCreateRequestSharedClientTheme`
 
- SetPollNil sets the value for Poll to be an explicit nil
+GetSharedClientTheme returns the SharedClientTheme field if non-nil, zero value otherwise.
 
-### UnsetPoll
-`func (o *SDKMessageRequest) UnsetPoll()`
+### GetSharedClientThemeOk
 
-UnsetPoll ensures that no value is present for Poll, not even an explicit nil
-### GetConfettiPotion
+`func (o *SDKMessageRequest) GetSharedClientThemeOk() (*BaseCreateMessageCreateRequestSharedClientTheme, bool)`
 
-`func (o *SDKMessageRequest) GetConfettiPotion() map[string]interface{}`
-
-GetConfettiPotion returns the ConfettiPotion field if non-nil, zero value otherwise.
-
-### GetConfettiPotionOk
-
-`func (o *SDKMessageRequest) GetConfettiPotionOk() (*map[string]interface{}, bool)`
-
-GetConfettiPotionOk returns a tuple with the ConfettiPotion field if it's non-nil, zero value otherwise
+GetSharedClientThemeOk returns a tuple with the SharedClientTheme field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetConfettiPotion
+### SetSharedClientTheme
 
-`func (o *SDKMessageRequest) SetConfettiPotion(v map[string]interface{})`
+`func (o *SDKMessageRequest) SetSharedClientTheme(v BaseCreateMessageCreateRequestSharedClientTheme)`
 
-SetConfettiPotion sets ConfettiPotion field to given value.
+SetSharedClientTheme sets SharedClientTheme field to given value.
 
-### HasConfettiPotion
+### HasSharedClientTheme
 
-`func (o *SDKMessageRequest) HasConfettiPotion() bool`
+`func (o *SDKMessageRequest) HasSharedClientTheme() bool`
 
-HasConfettiPotion returns a boolean if a field has been set.
+HasSharedClientTheme returns a boolean if a field has been set.
 
 ### GetMessageReference
 
-`func (o *SDKMessageRequest) GetMessageReference() MessageReferenceRequest`
+`func (o *SDKMessageRequest) GetMessageReference() MessageCreateRequestMessageReference`
 
 GetMessageReference returns the MessageReference field if non-nil, zero value otherwise.
 
 ### GetMessageReferenceOk
 
-`func (o *SDKMessageRequest) GetMessageReferenceOk() (*MessageReferenceRequest, bool)`
+`func (o *SDKMessageRequest) GetMessageReferenceOk() (*MessageCreateRequestMessageReference, bool)`
 
 GetMessageReferenceOk returns a tuple with the MessageReference field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMessageReference
 
-`func (o *SDKMessageRequest) SetMessageReference(v MessageReferenceRequest)`
+`func (o *SDKMessageRequest) SetMessageReference(v MessageCreateRequestMessageReference)`
 
 SetMessageReference sets MessageReference field to given value.
 
@@ -367,16 +287,6 @@ SetMessageReference sets MessageReference field to given value.
 
 HasMessageReference returns a boolean if a field has been set.
 
-### SetMessageReferenceNil
-
-`func (o *SDKMessageRequest) SetMessageReferenceNil(b bool)`
-
- SetMessageReferenceNil sets the value for MessageReference to be an explicit nil
-
-### UnsetMessageReference
-`func (o *SDKMessageRequest) UnsetMessageReference()`
-
-UnsetMessageReference ensures that no value is present for MessageReference, not even an explicit nil
 ### GetNonce
 
 `func (o *SDKMessageRequest) GetNonce() BasicMessageResponseNonce`
@@ -402,16 +312,6 @@ SetNonce sets Nonce field to given value.
 
 HasNonce returns a boolean if a field has been set.
 
-### SetNonceNil
-
-`func (o *SDKMessageRequest) SetNonceNil(b bool)`
-
- SetNonceNil sets the value for Nonce to be an explicit nil
-
-### UnsetNonce
-`func (o *SDKMessageRequest) UnsetNonce()`
-
-UnsetNonce ensures that no value is present for Nonce, not even an explicit nil
 ### GetEnforceNonce
 
 `func (o *SDKMessageRequest) GetEnforceNonce() bool`
@@ -437,16 +337,6 @@ SetEnforceNonce sets EnforceNonce field to given value.
 
 HasEnforceNonce returns a boolean if a field has been set.
 
-### SetEnforceNonceNil
-
-`func (o *SDKMessageRequest) SetEnforceNonceNil(b bool)`
-
- SetEnforceNonceNil sets the value for EnforceNonce to be an explicit nil
-
-### UnsetEnforceNonce
-`func (o *SDKMessageRequest) UnsetEnforceNonce()`
-
-UnsetEnforceNonce ensures that no value is present for EnforceNonce, not even an explicit nil
 ### GetTts
 
 `func (o *SDKMessageRequest) GetTts() bool`
@@ -472,16 +362,6 @@ SetTts sets Tts field to given value.
 
 HasTts returns a boolean if a field has been set.
 
-### SetTtsNil
-
-`func (o *SDKMessageRequest) SetTtsNil(b bool)`
-
- SetTtsNil sets the value for Tts to be an explicit nil
-
-### UnsetTts
-`func (o *SDKMessageRequest) UnsetTts()`
-
-UnsetTts ensures that no value is present for Tts, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

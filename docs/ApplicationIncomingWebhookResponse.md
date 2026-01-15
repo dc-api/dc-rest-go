@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | Pointer to **string** |  | [optional] 
-**Avatar** | Pointer to **NullableString** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
-**GuildId** | Pointer to **string** |  | [optional] 
+**ApplicationId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**Avatar** | Pointer to **string** |  | [optional] 
+**ChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**GuildId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Type** | **int32** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**Type** | [**WebhookTypes**](WebhookTypes.md) |  | 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 
 ## Methods
 
 ### NewApplicationIncomingWebhookResponse
 
-`func NewApplicationIncomingWebhookResponse(id string, name string, type_ int32, ) *ApplicationIncomingWebhookResponse`
+`func NewApplicationIncomingWebhookResponse(id string, name string, type_ WebhookTypes, ) *ApplicationIncomingWebhookResponse`
 
 NewApplicationIncomingWebhookResponse instantiates a new ApplicationIncomingWebhookResponse object
 This constructor will assign default values to properties that have it defined,
@@ -34,20 +34,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetApplicationId
 
-`func (o *ApplicationIncomingWebhookResponse) GetApplicationId() string`
+`func (o *ApplicationIncomingWebhookResponse) GetApplicationId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetApplicationId returns the ApplicationId field if non-nil, zero value otherwise.
 
 ### GetApplicationIdOk
 
-`func (o *ApplicationIncomingWebhookResponse) GetApplicationIdOk() (*string, bool)`
+`func (o *ApplicationIncomingWebhookResponse) GetApplicationIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetApplicationIdOk returns a tuple with the ApplicationId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApplicationId
 
-`func (o *ApplicationIncomingWebhookResponse) SetApplicationId(v string)`
+`func (o *ApplicationIncomingWebhookResponse) SetApplicationId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetApplicationId sets ApplicationId field to given value.
 
@@ -82,32 +82,22 @@ SetAvatar sets Avatar field to given value.
 
 HasAvatar returns a boolean if a field has been set.
 
-### SetAvatarNil
-
-`func (o *ApplicationIncomingWebhookResponse) SetAvatarNil(b bool)`
-
- SetAvatarNil sets the value for Avatar to be an explicit nil
-
-### UnsetAvatar
-`func (o *ApplicationIncomingWebhookResponse) UnsetAvatar()`
-
-UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
 ### GetChannelId
 
-`func (o *ApplicationIncomingWebhookResponse) GetChannelId() string`
+`func (o *ApplicationIncomingWebhookResponse) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
 
 ### GetChannelIdOk
 
-`func (o *ApplicationIncomingWebhookResponse) GetChannelIdOk() (*string, bool)`
+`func (o *ApplicationIncomingWebhookResponse) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelId
 
-`func (o *ApplicationIncomingWebhookResponse) SetChannelId(v string)`
+`func (o *ApplicationIncomingWebhookResponse) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetChannelId sets ChannelId field to given value.
 
@@ -119,20 +109,20 @@ HasChannelId returns a boolean if a field has been set.
 
 ### GetGuildId
 
-`func (o *ApplicationIncomingWebhookResponse) GetGuildId() string`
+`func (o *ApplicationIncomingWebhookResponse) GetGuildId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetGuildId returns the GuildId field if non-nil, zero value otherwise.
 
 ### GetGuildIdOk
 
-`func (o *ApplicationIncomingWebhookResponse) GetGuildIdOk() (*string, bool)`
+`func (o *ApplicationIncomingWebhookResponse) GetGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetGuildIdOk returns a tuple with the GuildId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGuildId
 
-`func (o *ApplicationIncomingWebhookResponse) SetGuildId(v string)`
+`func (o *ApplicationIncomingWebhookResponse) SetGuildId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetGuildId sets GuildId field to given value.
 
@@ -184,20 +174,20 @@ SetName sets Name field to given value.
 
 ### GetType
 
-`func (o *ApplicationIncomingWebhookResponse) GetType() int32`
+`func (o *ApplicationIncomingWebhookResponse) GetType() WebhookTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ApplicationIncomingWebhookResponse) GetTypeOk() (*int32, bool)`
+`func (o *ApplicationIncomingWebhookResponse) GetTypeOk() (*WebhookTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ApplicationIncomingWebhookResponse) SetType(v int32)`
+`func (o *ApplicationIncomingWebhookResponse) SetType(v WebhookTypes)`
 
 SetType sets Type field to given value.
 
@@ -227,16 +217,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *ApplicationIncomingWebhookResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *ApplicationIncomingWebhookResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

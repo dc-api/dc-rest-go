@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,10 +53,10 @@ var _ MappedNullable = &BulkUpdateGuildChannelsRequestInner{}
 
 // BulkUpdateGuildChannelsRequestInner struct for BulkUpdateGuildChannelsRequestInner
 type BulkUpdateGuildChannelsRequestInner struct {
-	Id *string `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Position NullableInt32 `json:"position,omitempty"`
-	ParentId *string `json:"parent_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	LockPermissions NullableBool `json:"lock_permissions,omitempty"`
+	Id *GetEntitlementsSkuIdsParameterOneOfInner `json:"id,omitempty"`
+	Position *int32 `json:"position,omitempty"`
+	ParentId *GetEntitlementsSkuIdsParameterOneOfInner `json:"parent_id,omitempty"`
+	LockPermissions *bool `json:"lock_permissions,omitempty"`
 }
 
 // NewBulkUpdateGuildChannelsRequestInner instantiates a new BulkUpdateGuildChannelsRequestInner object
@@ -77,9 +77,9 @@ func NewBulkUpdateGuildChannelsRequestInnerWithDefaults() *BulkUpdateGuildChanne
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *BulkUpdateGuildChannelsRequestInner) GetId() string {
+func (o *BulkUpdateGuildChannelsRequestInner) GetId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.Id) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.Id
@@ -87,7 +87,7 @@ func (o *BulkUpdateGuildChannelsRequestInner) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BulkUpdateGuildChannelsRequestInner) GetIdOk() (*string, bool) {
+func (o *BulkUpdateGuildChannelsRequestInner) GetIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -103,59 +103,49 @@ func (o *BulkUpdateGuildChannelsRequestInner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *BulkUpdateGuildChannelsRequestInner) SetId(v string) {
+// SetId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the Id field.
+func (o *BulkUpdateGuildChannelsRequestInner) SetId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.Id = &v
 }
 
 
-// GetPosition returns the Position field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPosition returns the Position field value if set, zero value otherwise.
 func (o *BulkUpdateGuildChannelsRequestInner) GetPosition() int32 {
-	if o == nil || IsNil(o.Position.Get()) {
+	if o == nil || IsNil(o.Position) {
 		var ret int32
 		return ret
 	}
-	return *o.Position.Get()
+	return *o.Position
 }
 
 // GetPositionOk returns a tuple with the Position field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BulkUpdateGuildChannelsRequestInner) GetPositionOk() (*int32, bool) {
-	if o == nil || IsNil(o.Position.Get()) {
+	if o == nil || IsNil(o.Position) {
 		return nil, false
 	}
-	return o.Position.Get(), o.Position.IsSet()
+	return o.Position, true
 }
 
 // HasPosition returns a boolean if a field has been set.
 func (o *BulkUpdateGuildChannelsRequestInner) HasPosition() bool {
-	if o != nil && o.Position.IsSet() {
+	if o != nil && !IsNil(o.Position) {
 		return true
 	}
 
 	return false
 }
 
-// SetPosition gets a reference to the given NullableInt32 and assigns it to the Position field.
+// SetPosition gets a reference to the given int32 and assigns it to the Position field.
 func (o *BulkUpdateGuildChannelsRequestInner) SetPosition(v int32) {
-	o.Position.Set(&v)
+	o.Position = &v
 }
 
-// SetPositionNil sets the value for Position to be an explicit nil
-func (o *BulkUpdateGuildChannelsRequestInner) SetPositionNil() {
-	o.Position.Set(nil)
-}
-
-// UnsetPosition ensures that no value is present for Position, not even an explicit nil
-func (o *BulkUpdateGuildChannelsRequestInner) UnsetPosition() {
-	o.Position.Unset()
-}
 
 // GetParentId returns the ParentId field value if set, zero value otherwise.
-func (o *BulkUpdateGuildChannelsRequestInner) GetParentId() string {
+func (o *BulkUpdateGuildChannelsRequestInner) GetParentId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.ParentId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.ParentId
@@ -163,7 +153,7 @@ func (o *BulkUpdateGuildChannelsRequestInner) GetParentId() string {
 
 // GetParentIdOk returns a tuple with the ParentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BulkUpdateGuildChannelsRequestInner) GetParentIdOk() (*string, bool) {
+func (o *BulkUpdateGuildChannelsRequestInner) GetParentIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.ParentId) {
 		return nil, false
 	}
@@ -179,54 +169,44 @@ func (o *BulkUpdateGuildChannelsRequestInner) HasParentId() bool {
 	return false
 }
 
-// SetParentId gets a reference to the given string and assigns it to the ParentId field.
-func (o *BulkUpdateGuildChannelsRequestInner) SetParentId(v string) {
+// SetParentId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the ParentId field.
+func (o *BulkUpdateGuildChannelsRequestInner) SetParentId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.ParentId = &v
 }
 
 
-// GetLockPermissions returns the LockPermissions field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLockPermissions returns the LockPermissions field value if set, zero value otherwise.
 func (o *BulkUpdateGuildChannelsRequestInner) GetLockPermissions() bool {
-	if o == nil || IsNil(o.LockPermissions.Get()) {
+	if o == nil || IsNil(o.LockPermissions) {
 		var ret bool
 		return ret
 	}
-	return *o.LockPermissions.Get()
+	return *o.LockPermissions
 }
 
 // GetLockPermissionsOk returns a tuple with the LockPermissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BulkUpdateGuildChannelsRequestInner) GetLockPermissionsOk() (*bool, bool) {
-	if o == nil || IsNil(o.LockPermissions.Get()) {
+	if o == nil || IsNil(o.LockPermissions) {
 		return nil, false
 	}
-	return o.LockPermissions.Get(), o.LockPermissions.IsSet()
+	return o.LockPermissions, true
 }
 
 // HasLockPermissions returns a boolean if a field has been set.
 func (o *BulkUpdateGuildChannelsRequestInner) HasLockPermissions() bool {
-	if o != nil && o.LockPermissions.IsSet() {
+	if o != nil && !IsNil(o.LockPermissions) {
 		return true
 	}
 
 	return false
 }
 
-// SetLockPermissions gets a reference to the given NullableBool and assigns it to the LockPermissions field.
+// SetLockPermissions gets a reference to the given bool and assigns it to the LockPermissions field.
 func (o *BulkUpdateGuildChannelsRequestInner) SetLockPermissions(v bool) {
-	o.LockPermissions.Set(&v)
+	o.LockPermissions = &v
 }
 
-// SetLockPermissionsNil sets the value for LockPermissions to be an explicit nil
-func (o *BulkUpdateGuildChannelsRequestInner) SetLockPermissionsNil() {
-	o.LockPermissions.Set(nil)
-}
-
-// UnsetLockPermissions ensures that no value is present for LockPermissions, not even an explicit nil
-func (o *BulkUpdateGuildChannelsRequestInner) UnsetLockPermissions() {
-	o.LockPermissions.Unset()
-}
 
 func (o BulkUpdateGuildChannelsRequestInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -241,14 +221,14 @@ func (o BulkUpdateGuildChannelsRequestInner) ToMap() (map[string]interface{}, er
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.Position.IsSet() {
-		toSerialize["position"] = o.Position.Get()
+	if !IsNil(o.Position) {
+		toSerialize["position"] = o.Position
 	}
 	if !IsNil(o.ParentId) {
 		toSerialize["parent_id"] = o.ParentId
 	}
-	if o.LockPermissions.IsSet() {
-		toSerialize["lock_permissions"] = o.LockPermissions.Get()
+	if !IsNil(o.LockPermissions) {
+		toSerialize["lock_permissions"] = o.LockPermissions
 	}
 	return toSerialize, nil
 }
@@ -288,5 +268,4 @@ func (v *NullableBulkUpdateGuildChannelsRequestInner) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -46,184 +46,91 @@ package dc_rest
 
 import (
 	"encoding/json"
+	"fmt"
+	"gopkg.in/validator.v2"
 )
 
-// checks if the RichEmbedAuthor type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &RichEmbedAuthor{}
-
-// RichEmbedAuthor struct for RichEmbedAuthor
+// RichEmbedAuthor - struct for RichEmbedAuthor
 type RichEmbedAuthor struct {
-	Name NullableString `json:"name,omitempty"`
-	Url NullableString `json:"url,omitempty"`
-	IconUrl NullableString `json:"icon_url,omitempty"`
+	RichEmbedAuthor *RichEmbedAuthor
 }
 
-// NewRichEmbedAuthor instantiates a new RichEmbedAuthor object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewRichEmbedAuthor() *RichEmbedAuthor {
-	this := RichEmbedAuthor{}
-	return &this
-}
-
-// NewRichEmbedAuthorWithDefaults instantiates a new RichEmbedAuthor object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewRichEmbedAuthorWithDefaults() *RichEmbedAuthor {
-	this := RichEmbedAuthor{}
-	return &this
-}
-
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RichEmbedAuthor) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
-		var ret string
-		return ret
+// RichEmbedAuthorAsRichEmbedAuthor is a convenience function that returns RichEmbedAuthor wrapped in RichEmbedAuthor
+func RichEmbedAuthorAsRichEmbedAuthor(v *RichEmbedAuthor) RichEmbedAuthor {
+	return RichEmbedAuthor{
+		RichEmbedAuthor: v,
 	}
-	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RichEmbedAuthor) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name.Get()) {
-		return nil, false
-	}
-	return o.Name.Get(), o.Name.IsSet()
-}
 
-// HasName returns a boolean if a field has been set.
-func (o *RichEmbedAuthor) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
+// Unmarshal JSON data into one of the pointers in the struct
+func (dst *RichEmbedAuthor) UnmarshalJSON(data []byte) error {
+	var err error
+	// this object is nullable so check if the payload is null or empty string
+	if string(data) == "" || string(data) == "{}" {
+		return nil
 	}
 
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
-func (o *RichEmbedAuthor) SetName(v string) {
-	o.Name.Set(&v)
-}
-
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *RichEmbedAuthor) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *RichEmbedAuthor) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RichEmbedAuthor) GetUrl() string {
-	if o == nil || IsNil(o.Url.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Url.Get()
-}
-
-// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RichEmbedAuthor) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url.Get()) {
-		return nil, false
-	}
-	return o.Url.Get(), o.Url.IsSet()
-}
-
-// HasUrl returns a boolean if a field has been set.
-func (o *RichEmbedAuthor) HasUrl() bool {
-	if o != nil && o.Url.IsSet() {
-		return true
+	match := 0
+	// try to unmarshal data into RichEmbedAuthor
+	err = newStrictDecoder(data).Decode(&dst.RichEmbedAuthor)
+	if err == nil {
+		jsonRichEmbedAuthor, _ := json.Marshal(dst.RichEmbedAuthor)
+		if string(jsonRichEmbedAuthor) == "{}" { // empty struct
+			dst.RichEmbedAuthor = nil
+		} else {
+			if err = validator.Validate(dst.RichEmbedAuthor); err != nil {
+				dst.RichEmbedAuthor = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.RichEmbedAuthor = nil
 	}
 
-	return false
-}
+	if match > 1 { // more than 1 match
+		// reset to nil
+		dst.RichEmbedAuthor = nil
 
-// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
-func (o *RichEmbedAuthor) SetUrl(v string) {
-	o.Url.Set(&v)
-}
-
-// SetUrlNil sets the value for Url to be an explicit nil
-func (o *RichEmbedAuthor) SetUrlNil() {
-	o.Url.Set(nil)
-}
-
-// UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *RichEmbedAuthor) UnsetUrl() {
-	o.Url.Unset()
-}
-
-// GetIconUrl returns the IconUrl field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RichEmbedAuthor) GetIconUrl() string {
-	if o == nil || IsNil(o.IconUrl.Get()) {
-		var ret string
-		return ret
+		return fmt.Errorf("data matches more than one schema in oneOf(RichEmbedAuthor)")
+	} else if match == 1 {
+		return nil // exactly one match
+	} else { // no match
+		return fmt.Errorf("data failed to match schemas in oneOf(RichEmbedAuthor)")
 	}
-	return *o.IconUrl.Get()
 }
 
-// GetIconUrlOk returns a tuple with the IconUrl field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RichEmbedAuthor) GetIconUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.IconUrl.Get()) {
-		return nil, false
-	}
-	return o.IconUrl.Get(), o.IconUrl.IsSet()
-}
-
-// HasIconUrl returns a boolean if a field has been set.
-func (o *RichEmbedAuthor) HasIconUrl() bool {
-	if o != nil && o.IconUrl.IsSet() {
-		return true
+// Marshal data from the first non-nil pointers in the struct to JSON
+func (src RichEmbedAuthor) MarshalJSON() ([]byte, error) {
+	if src.RichEmbedAuthor != nil {
+		return json.Marshal(&src.RichEmbedAuthor)
 	}
 
-	return false
+	return nil, nil // no data in oneOf schemas
 }
 
-// SetIconUrl gets a reference to the given NullableString and assigns it to the IconUrl field.
-func (o *RichEmbedAuthor) SetIconUrl(v string) {
-	o.IconUrl.Set(&v)
-}
-
-// SetIconUrlNil sets the value for IconUrl to be an explicit nil
-func (o *RichEmbedAuthor) SetIconUrlNil() {
-	o.IconUrl.Set(nil)
-}
-
-// UnsetIconUrl ensures that no value is present for IconUrl, not even an explicit nil
-func (o *RichEmbedAuthor) UnsetIconUrl() {
-	o.IconUrl.Unset()
-}
-
-func (o RichEmbedAuthor) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
-	if err != nil {
-		return []byte{}, err
+// Get the actual instance
+func (obj *RichEmbedAuthor) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
 	}
-	return json.Marshal(toSerialize)
+	if obj.RichEmbedAuthor != nil {
+		return obj.RichEmbedAuthor
+	}
+
+	// all schemas are nil
+	return nil
 }
 
-func (o RichEmbedAuthor) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+// Get the actual instance value
+func (obj RichEmbedAuthor) GetActualInstanceValue() (interface{}) {
+	if obj.RichEmbedAuthor != nil {
+		return *obj.RichEmbedAuthor
 	}
-	if o.Url.IsSet() {
-		toSerialize["url"] = o.Url.Get()
-	}
-	if o.IconUrl.IsSet() {
-		toSerialize["icon_url"] = o.IconUrl.Get()
-	}
-	return toSerialize, nil
+
+	// all schemas are nil
+	return nil
 }
 
 type NullableRichEmbedAuthor struct {
@@ -261,5 +168,4 @@ func (v *NullableRichEmbedAuthor) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

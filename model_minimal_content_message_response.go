@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,17 +56,16 @@ var _ MappedNullable = &MinimalContentMessageResponse{}
 
 // MinimalContentMessageResponse struct for MinimalContentMessageResponse
 type MinimalContentMessageResponse struct {
-	Type int32 `json:"type"`
+	Type MessageType `json:"type"`
 	Content string `json:"content"`
 	Mentions []UserResponse `json:"mentions"`
 	MentionRoles []string `json:"mention_roles"`
 	Attachments []MessageAttachmentResponse `json:"attachments"`
 	Embeds []MessageEmbedResponse `json:"embeds"`
 	Timestamp time.Time `json:"timestamp"`
-	EditedTimestamp NullableTime `json:"edited_timestamp,omitempty"`
+	EditedTimestamp *time.Time `json:"edited_timestamp,omitempty"`
 	Flags int32 `json:"flags"`
 	Components []BasicMessageResponseComponentsInner `json:"components"`
-	Resolved NullableResolvedObjectsResponse `json:"resolved,omitempty"`
 	Stickers []GetSticker200Response `json:"stickers,omitempty"`
 	StickerItems []MessageStickerItemResponse `json:"sticker_items,omitempty"`
 }
@@ -77,7 +76,7 @@ type _MinimalContentMessageResponse MinimalContentMessageResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMinimalContentMessageResponse(type_ int32, content string, mentions []UserResponse, mentionRoles []string, attachments []MessageAttachmentResponse, embeds []MessageEmbedResponse, timestamp time.Time, flags int32, components []BasicMessageResponseComponentsInner) *MinimalContentMessageResponse {
+func NewMinimalContentMessageResponse(type_ MessageType, content string, mentions []UserResponse, mentionRoles []string, attachments []MessageAttachmentResponse, embeds []MessageEmbedResponse, timestamp time.Time, flags int32, components []BasicMessageResponseComponentsInner) *MinimalContentMessageResponse {
 	this := MinimalContentMessageResponse{}
 	this.Type = type_
 	this.Content = content
@@ -100,9 +99,9 @@ func NewMinimalContentMessageResponseWithDefaults() *MinimalContentMessageRespon
 }
 
 // GetType returns the Type field value
-func (o *MinimalContentMessageResponse) GetType() int32 {
+func (o *MinimalContentMessageResponse) GetType() MessageType {
 	if o == nil {
-		var ret int32
+		var ret MessageType
 		return ret
 	}
 
@@ -111,7 +110,7 @@ func (o *MinimalContentMessageResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *MinimalContentMessageResponse) GetTypeOk() (*int32, bool) {
+func (o *MinimalContentMessageResponse) GetTypeOk() (*MessageType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -119,7 +118,7 @@ func (o *MinimalContentMessageResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *MinimalContentMessageResponse) SetType(v int32) {
+func (o *MinimalContentMessageResponse) SetType(v MessageType) {
 	o.Type = v
 }
 
@@ -267,48 +266,38 @@ func (o *MinimalContentMessageResponse) SetTimestamp(v time.Time) {
 	o.Timestamp = v
 }
 
-// GetEditedTimestamp returns the EditedTimestamp field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEditedTimestamp returns the EditedTimestamp field value if set, zero value otherwise.
 func (o *MinimalContentMessageResponse) GetEditedTimestamp() time.Time {
-	if o == nil || IsNil(o.EditedTimestamp.Get()) {
+	if o == nil || IsNil(o.EditedTimestamp) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EditedTimestamp.Get()
+	return *o.EditedTimestamp
 }
 
 // GetEditedTimestampOk returns a tuple with the EditedTimestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MinimalContentMessageResponse) GetEditedTimestampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.EditedTimestamp.Get()) {
+	if o == nil || IsNil(o.EditedTimestamp) {
 		return nil, false
 	}
-	return o.EditedTimestamp.Get(), o.EditedTimestamp.IsSet()
+	return o.EditedTimestamp, true
 }
 
 // HasEditedTimestamp returns a boolean if a field has been set.
 func (o *MinimalContentMessageResponse) HasEditedTimestamp() bool {
-	if o != nil && o.EditedTimestamp.IsSet() {
+	if o != nil && !IsNil(o.EditedTimestamp) {
 		return true
 	}
 
 	return false
 }
 
-// SetEditedTimestamp gets a reference to the given NullableTime and assigns it to the EditedTimestamp field.
+// SetEditedTimestamp gets a reference to the given time.Time and assigns it to the EditedTimestamp field.
 func (o *MinimalContentMessageResponse) SetEditedTimestamp(v time.Time) {
-	o.EditedTimestamp.Set(&v)
+	o.EditedTimestamp = &v
 }
 
-// SetEditedTimestampNil sets the value for EditedTimestamp to be an explicit nil
-func (o *MinimalContentMessageResponse) SetEditedTimestampNil() {
-	o.EditedTimestamp.Set(nil)
-}
-
-// UnsetEditedTimestamp ensures that no value is present for EditedTimestamp, not even an explicit nil
-func (o *MinimalContentMessageResponse) UnsetEditedTimestamp() {
-	o.EditedTimestamp.Unset()
-}
 
 // GetFlags returns the Flags field value
 func (o *MinimalContentMessageResponse) GetFlags() int32 {
@@ -358,52 +347,9 @@ func (o *MinimalContentMessageResponse) SetComponents(v []BasicMessageResponseCo
 	o.Components = v
 }
 
-// GetResolved returns the Resolved field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MinimalContentMessageResponse) GetResolved() ResolvedObjectsResponse {
-	if o == nil || IsNil(o.Resolved.Get()) {
-		var ret ResolvedObjectsResponse
-		return ret
-	}
-	return *o.Resolved.Get()
-}
-
-// GetResolvedOk returns a tuple with the Resolved field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MinimalContentMessageResponse) GetResolvedOk() (*ResolvedObjectsResponse, bool) {
-	if o == nil || IsNil(o.Resolved.Get()) {
-		return nil, false
-	}
-	return o.Resolved.Get(), o.Resolved.IsSet()
-}
-
-// HasResolved returns a boolean if a field has been set.
-func (o *MinimalContentMessageResponse) HasResolved() bool {
-	if o != nil && o.Resolved.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetResolved gets a reference to the given NullableResolvedObjectsResponse and assigns it to the Resolved field.
-func (o *MinimalContentMessageResponse) SetResolved(v ResolvedObjectsResponse) {
-	o.Resolved.Set(&v)
-}
-
-// SetResolvedNil sets the value for Resolved to be an explicit nil
-func (o *MinimalContentMessageResponse) SetResolvedNil() {
-	o.Resolved.Set(nil)
-}
-
-// UnsetResolved ensures that no value is present for Resolved, not even an explicit nil
-func (o *MinimalContentMessageResponse) UnsetResolved() {
-	o.Resolved.Unset()
-}
-
-// GetStickers returns the Stickers field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStickers returns the Stickers field value if set, zero value otherwise.
 func (o *MinimalContentMessageResponse) GetStickers() []GetSticker200Response {
-	if o == nil {
+	if o == nil || IsNil(o.Stickers) {
 		var ret []GetSticker200Response
 		return ret
 	}
@@ -412,9 +358,8 @@ func (o *MinimalContentMessageResponse) GetStickers() []GetSticker200Response {
 
 // GetStickersOk returns a tuple with the Stickers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MinimalContentMessageResponse) GetStickersOk() ([]GetSticker200Response, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Stickers) {
 		return nil, false
 	}
 	return o.Stickers, true
@@ -435,9 +380,9 @@ func (o *MinimalContentMessageResponse) SetStickers(v []GetSticker200Response) {
 }
 
 
-// GetStickerItems returns the StickerItems field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStickerItems returns the StickerItems field value if set, zero value otherwise.
 func (o *MinimalContentMessageResponse) GetStickerItems() []MessageStickerItemResponse {
-	if o == nil {
+	if o == nil || IsNil(o.StickerItems) {
 		var ret []MessageStickerItemResponse
 		return ret
 	}
@@ -446,9 +391,8 @@ func (o *MinimalContentMessageResponse) GetStickerItems() []MessageStickerItemRe
 
 // GetStickerItemsOk returns a tuple with the StickerItems field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MinimalContentMessageResponse) GetStickerItemsOk() ([]MessageStickerItemResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StickerItems) {
 		return nil, false
 	}
 	return o.StickerItems, true
@@ -486,18 +430,15 @@ func (o MinimalContentMessageResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["attachments"] = o.Attachments
 	toSerialize["embeds"] = o.Embeds
 	toSerialize["timestamp"] = o.Timestamp
-	if o.EditedTimestamp.IsSet() {
-		toSerialize["edited_timestamp"] = o.EditedTimestamp.Get()
+	if !IsNil(o.EditedTimestamp) {
+		toSerialize["edited_timestamp"] = o.EditedTimestamp
 	}
 	toSerialize["flags"] = o.Flags
 	toSerialize["components"] = o.Components
-	if o.Resolved.IsSet() {
-		toSerialize["resolved"] = o.Resolved.Get()
-	}
-	if o.Stickers != nil {
+	if !IsNil(o.Stickers) {
 		toSerialize["stickers"] = o.Stickers
 	}
-	if o.StickerItems != nil {
+	if !IsNil(o.StickerItems) {
 		toSerialize["sticker_items"] = o.StickerItems
 	}
 	return toSerialize, nil
@@ -583,5 +524,4 @@ func (v *NullableMinimalContentMessageResponse) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

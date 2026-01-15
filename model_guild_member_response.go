@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,16 +56,17 @@ var _ MappedNullable = &GuildMemberResponse{}
 
 // GuildMemberResponse struct for GuildMemberResponse
 type GuildMemberResponse struct {
-	Avatar NullableString `json:"avatar,omitempty"`
-	AvatarDecorationData NullableUserAvatarDecorationResponse `json:"avatar_decoration_data,omitempty"`
-	Banner NullableString `json:"banner,omitempty"`
-	CommunicationDisabledUntil NullableTime `json:"communication_disabled_until,omitempty"`
+	Avatar *string `json:"avatar,omitempty"`
+	AvatarDecorationData *BasicGuildMemberResponseAvatarDecorationData `json:"avatar_decoration_data,omitempty"`
+	Banner *string `json:"banner,omitempty"`
+	CommunicationDisabledUntil *time.Time `json:"communication_disabled_until,omitempty"`
 	Flags int32 `json:"flags"`
 	JoinedAt time.Time `json:"joined_at"`
-	Nick NullableString `json:"nick,omitempty"`
+	Nick *string `json:"nick,omitempty"`
 	Pending bool `json:"pending"`
-	PremiumSince NullableTime `json:"premium_since,omitempty"`
+	PremiumSince *time.Time `json:"premium_since,omitempty"`
 	Roles []string `json:"roles"`
+	Collectibles *BasicGuildMemberResponseCollectibles `json:"collectibles,omitempty"`
 	User UserResponse `json:"user"`
 	Mute bool `json:"mute"`
 	Deaf bool `json:"deaf"`
@@ -97,177 +98,137 @@ func NewGuildMemberResponseWithDefaults() *GuildMemberResponse {
 	return &this
 }
 
-// GetAvatar returns the Avatar field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAvatar returns the Avatar field value if set, zero value otherwise.
 func (o *GuildMemberResponse) GetAvatar() string {
-	if o == nil || IsNil(o.Avatar.Get()) {
+	if o == nil || IsNil(o.Avatar) {
 		var ret string
 		return ret
 	}
-	return *o.Avatar.Get()
+	return *o.Avatar
 }
 
 // GetAvatarOk returns a tuple with the Avatar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildMemberResponse) GetAvatarOk() (*string, bool) {
-	if o == nil || IsNil(o.Avatar.Get()) {
+	if o == nil || IsNil(o.Avatar) {
 		return nil, false
 	}
-	return o.Avatar.Get(), o.Avatar.IsSet()
+	return o.Avatar, true
 }
 
 // HasAvatar returns a boolean if a field has been set.
 func (o *GuildMemberResponse) HasAvatar() bool {
-	if o != nil && o.Avatar.IsSet() {
+	if o != nil && !IsNil(o.Avatar) {
 		return true
 	}
 
 	return false
 }
 
-// SetAvatar gets a reference to the given NullableString and assigns it to the Avatar field.
+// SetAvatar gets a reference to the given string and assigns it to the Avatar field.
 func (o *GuildMemberResponse) SetAvatar(v string) {
-	o.Avatar.Set(&v)
+	o.Avatar = &v
 }
 
-// SetAvatarNil sets the value for Avatar to be an explicit nil
-func (o *GuildMemberResponse) SetAvatarNil() {
-	o.Avatar.Set(nil)
-}
 
-// UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
-func (o *GuildMemberResponse) UnsetAvatar() {
-	o.Avatar.Unset()
-}
-
-// GetAvatarDecorationData returns the AvatarDecorationData field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GuildMemberResponse) GetAvatarDecorationData() UserAvatarDecorationResponse {
-	if o == nil || IsNil(o.AvatarDecorationData.Get()) {
-		var ret UserAvatarDecorationResponse
+// GetAvatarDecorationData returns the AvatarDecorationData field value if set, zero value otherwise.
+func (o *GuildMemberResponse) GetAvatarDecorationData() BasicGuildMemberResponseAvatarDecorationData {
+	if o == nil || IsNil(o.AvatarDecorationData) {
+		var ret BasicGuildMemberResponseAvatarDecorationData
 		return ret
 	}
-	return *o.AvatarDecorationData.Get()
+	return *o.AvatarDecorationData
 }
 
 // GetAvatarDecorationDataOk returns a tuple with the AvatarDecorationData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GuildMemberResponse) GetAvatarDecorationDataOk() (*UserAvatarDecorationResponse, bool) {
-	if o == nil || IsNil(o.AvatarDecorationData.Get()) {
+func (o *GuildMemberResponse) GetAvatarDecorationDataOk() (*BasicGuildMemberResponseAvatarDecorationData, bool) {
+	if o == nil || IsNil(o.AvatarDecorationData) {
 		return nil, false
 	}
-	return o.AvatarDecorationData.Get(), o.AvatarDecorationData.IsSet()
+	return o.AvatarDecorationData, true
 }
 
 // HasAvatarDecorationData returns a boolean if a field has been set.
 func (o *GuildMemberResponse) HasAvatarDecorationData() bool {
-	if o != nil && o.AvatarDecorationData.IsSet() {
+	if o != nil && !IsNil(o.AvatarDecorationData) {
 		return true
 	}
 
 	return false
 }
 
-// SetAvatarDecorationData gets a reference to the given NullableUserAvatarDecorationResponse and assigns it to the AvatarDecorationData field.
-func (o *GuildMemberResponse) SetAvatarDecorationData(v UserAvatarDecorationResponse) {
-	o.AvatarDecorationData.Set(&v)
+// SetAvatarDecorationData gets a reference to the given BasicGuildMemberResponseAvatarDecorationData and assigns it to the AvatarDecorationData field.
+func (o *GuildMemberResponse) SetAvatarDecorationData(v BasicGuildMemberResponseAvatarDecorationData) {
+	o.AvatarDecorationData = &v
 }
 
-// SetAvatarDecorationDataNil sets the value for AvatarDecorationData to be an explicit nil
-func (o *GuildMemberResponse) SetAvatarDecorationDataNil() {
-	o.AvatarDecorationData.Set(nil)
-}
 
-// UnsetAvatarDecorationData ensures that no value is present for AvatarDecorationData, not even an explicit nil
-func (o *GuildMemberResponse) UnsetAvatarDecorationData() {
-	o.AvatarDecorationData.Unset()
-}
-
-// GetBanner returns the Banner field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBanner returns the Banner field value if set, zero value otherwise.
 func (o *GuildMemberResponse) GetBanner() string {
-	if o == nil || IsNil(o.Banner.Get()) {
+	if o == nil || IsNil(o.Banner) {
 		var ret string
 		return ret
 	}
-	return *o.Banner.Get()
+	return *o.Banner
 }
 
 // GetBannerOk returns a tuple with the Banner field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildMemberResponse) GetBannerOk() (*string, bool) {
-	if o == nil || IsNil(o.Banner.Get()) {
+	if o == nil || IsNil(o.Banner) {
 		return nil, false
 	}
-	return o.Banner.Get(), o.Banner.IsSet()
+	return o.Banner, true
 }
 
 // HasBanner returns a boolean if a field has been set.
 func (o *GuildMemberResponse) HasBanner() bool {
-	if o != nil && o.Banner.IsSet() {
+	if o != nil && !IsNil(o.Banner) {
 		return true
 	}
 
 	return false
 }
 
-// SetBanner gets a reference to the given NullableString and assigns it to the Banner field.
+// SetBanner gets a reference to the given string and assigns it to the Banner field.
 func (o *GuildMemberResponse) SetBanner(v string) {
-	o.Banner.Set(&v)
+	o.Banner = &v
 }
 
-// SetBannerNil sets the value for Banner to be an explicit nil
-func (o *GuildMemberResponse) SetBannerNil() {
-	o.Banner.Set(nil)
-}
 
-// UnsetBanner ensures that no value is present for Banner, not even an explicit nil
-func (o *GuildMemberResponse) UnsetBanner() {
-	o.Banner.Unset()
-}
-
-// GetCommunicationDisabledUntil returns the CommunicationDisabledUntil field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCommunicationDisabledUntil returns the CommunicationDisabledUntil field value if set, zero value otherwise.
 func (o *GuildMemberResponse) GetCommunicationDisabledUntil() time.Time {
-	if o == nil || IsNil(o.CommunicationDisabledUntil.Get()) {
+	if o == nil || IsNil(o.CommunicationDisabledUntil) {
 		var ret time.Time
 		return ret
 	}
-	return *o.CommunicationDisabledUntil.Get()
+	return *o.CommunicationDisabledUntil
 }
 
 // GetCommunicationDisabledUntilOk returns a tuple with the CommunicationDisabledUntil field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildMemberResponse) GetCommunicationDisabledUntilOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CommunicationDisabledUntil.Get()) {
+	if o == nil || IsNil(o.CommunicationDisabledUntil) {
 		return nil, false
 	}
-	return o.CommunicationDisabledUntil.Get(), o.CommunicationDisabledUntil.IsSet()
+	return o.CommunicationDisabledUntil, true
 }
 
 // HasCommunicationDisabledUntil returns a boolean if a field has been set.
 func (o *GuildMemberResponse) HasCommunicationDisabledUntil() bool {
-	if o != nil && o.CommunicationDisabledUntil.IsSet() {
+	if o != nil && !IsNil(o.CommunicationDisabledUntil) {
 		return true
 	}
 
 	return false
 }
 
-// SetCommunicationDisabledUntil gets a reference to the given NullableTime and assigns it to the CommunicationDisabledUntil field.
+// SetCommunicationDisabledUntil gets a reference to the given time.Time and assigns it to the CommunicationDisabledUntil field.
 func (o *GuildMemberResponse) SetCommunicationDisabledUntil(v time.Time) {
-	o.CommunicationDisabledUntil.Set(&v)
+	o.CommunicationDisabledUntil = &v
 }
 
-// SetCommunicationDisabledUntilNil sets the value for CommunicationDisabledUntil to be an explicit nil
-func (o *GuildMemberResponse) SetCommunicationDisabledUntilNil() {
-	o.CommunicationDisabledUntil.Set(nil)
-}
-
-// UnsetCommunicationDisabledUntil ensures that no value is present for CommunicationDisabledUntil, not even an explicit nil
-func (o *GuildMemberResponse) UnsetCommunicationDisabledUntil() {
-	o.CommunicationDisabledUntil.Unset()
-}
 
 // GetFlags returns the Flags field value
 func (o *GuildMemberResponse) GetFlags() int32 {
@@ -317,48 +278,38 @@ func (o *GuildMemberResponse) SetJoinedAt(v time.Time) {
 	o.JoinedAt = v
 }
 
-// GetNick returns the Nick field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNick returns the Nick field value if set, zero value otherwise.
 func (o *GuildMemberResponse) GetNick() string {
-	if o == nil || IsNil(o.Nick.Get()) {
+	if o == nil || IsNil(o.Nick) {
 		var ret string
 		return ret
 	}
-	return *o.Nick.Get()
+	return *o.Nick
 }
 
 // GetNickOk returns a tuple with the Nick field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildMemberResponse) GetNickOk() (*string, bool) {
-	if o == nil || IsNil(o.Nick.Get()) {
+	if o == nil || IsNil(o.Nick) {
 		return nil, false
 	}
-	return o.Nick.Get(), o.Nick.IsSet()
+	return o.Nick, true
 }
 
 // HasNick returns a boolean if a field has been set.
 func (o *GuildMemberResponse) HasNick() bool {
-	if o != nil && o.Nick.IsSet() {
+	if o != nil && !IsNil(o.Nick) {
 		return true
 	}
 
 	return false
 }
 
-// SetNick gets a reference to the given NullableString and assigns it to the Nick field.
+// SetNick gets a reference to the given string and assigns it to the Nick field.
 func (o *GuildMemberResponse) SetNick(v string) {
-	o.Nick.Set(&v)
+	o.Nick = &v
 }
 
-// SetNickNil sets the value for Nick to be an explicit nil
-func (o *GuildMemberResponse) SetNickNil() {
-	o.Nick.Set(nil)
-}
-
-// UnsetNick ensures that no value is present for Nick, not even an explicit nil
-func (o *GuildMemberResponse) UnsetNick() {
-	o.Nick.Unset()
-}
 
 // GetPending returns the Pending field value
 func (o *GuildMemberResponse) GetPending() bool {
@@ -384,48 +335,38 @@ func (o *GuildMemberResponse) SetPending(v bool) {
 	o.Pending = v
 }
 
-// GetPremiumSince returns the PremiumSince field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPremiumSince returns the PremiumSince field value if set, zero value otherwise.
 func (o *GuildMemberResponse) GetPremiumSince() time.Time {
-	if o == nil || IsNil(o.PremiumSince.Get()) {
+	if o == nil || IsNil(o.PremiumSince) {
 		var ret time.Time
 		return ret
 	}
-	return *o.PremiumSince.Get()
+	return *o.PremiumSince
 }
 
 // GetPremiumSinceOk returns a tuple with the PremiumSince field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildMemberResponse) GetPremiumSinceOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.PremiumSince.Get()) {
+	if o == nil || IsNil(o.PremiumSince) {
 		return nil, false
 	}
-	return o.PremiumSince.Get(), o.PremiumSince.IsSet()
+	return o.PremiumSince, true
 }
 
 // HasPremiumSince returns a boolean if a field has been set.
 func (o *GuildMemberResponse) HasPremiumSince() bool {
-	if o != nil && o.PremiumSince.IsSet() {
+	if o != nil && !IsNil(o.PremiumSince) {
 		return true
 	}
 
 	return false
 }
 
-// SetPremiumSince gets a reference to the given NullableTime and assigns it to the PremiumSince field.
+// SetPremiumSince gets a reference to the given time.Time and assigns it to the PremiumSince field.
 func (o *GuildMemberResponse) SetPremiumSince(v time.Time) {
-	o.PremiumSince.Set(&v)
+	o.PremiumSince = &v
 }
 
-// SetPremiumSinceNil sets the value for PremiumSince to be an explicit nil
-func (o *GuildMemberResponse) SetPremiumSinceNil() {
-	o.PremiumSince.Set(nil)
-}
-
-// UnsetPremiumSince ensures that no value is present for PremiumSince, not even an explicit nil
-func (o *GuildMemberResponse) UnsetPremiumSince() {
-	o.PremiumSince.Unset()
-}
 
 // GetRoles returns the Roles field value
 func (o *GuildMemberResponse) GetRoles() []string {
@@ -450,6 +391,39 @@ func (o *GuildMemberResponse) GetRolesOk() ([]string, bool) {
 func (o *GuildMemberResponse) SetRoles(v []string) {
 	o.Roles = v
 }
+
+// GetCollectibles returns the Collectibles field value if set, zero value otherwise.
+func (o *GuildMemberResponse) GetCollectibles() BasicGuildMemberResponseCollectibles {
+	if o == nil || IsNil(o.Collectibles) {
+		var ret BasicGuildMemberResponseCollectibles
+		return ret
+	}
+	return *o.Collectibles
+}
+
+// GetCollectiblesOk returns a tuple with the Collectibles field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GuildMemberResponse) GetCollectiblesOk() (*BasicGuildMemberResponseCollectibles, bool) {
+	if o == nil || IsNil(o.Collectibles) {
+		return nil, false
+	}
+	return o.Collectibles, true
+}
+
+// HasCollectibles returns a boolean if a field has been set.
+func (o *GuildMemberResponse) HasCollectibles() bool {
+	if o != nil && !IsNil(o.Collectibles) {
+		return true
+	}
+
+	return false
+}
+
+// SetCollectibles gets a reference to the given BasicGuildMemberResponseCollectibles and assigns it to the Collectibles field.
+func (o *GuildMemberResponse) SetCollectibles(v BasicGuildMemberResponseCollectibles) {
+	o.Collectibles = &v
+}
+
 
 // GetUser returns the User field value
 func (o *GuildMemberResponse) GetUser() UserResponse {
@@ -533,28 +507,31 @@ func (o GuildMemberResponse) MarshalJSON() ([]byte, error) {
 
 func (o GuildMemberResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Avatar.IsSet() {
-		toSerialize["avatar"] = o.Avatar.Get()
+	if !IsNil(o.Avatar) {
+		toSerialize["avatar"] = o.Avatar
 	}
-	if o.AvatarDecorationData.IsSet() {
-		toSerialize["avatar_decoration_data"] = o.AvatarDecorationData.Get()
+	if !IsNil(o.AvatarDecorationData) {
+		toSerialize["avatar_decoration_data"] = o.AvatarDecorationData
 	}
-	if o.Banner.IsSet() {
-		toSerialize["banner"] = o.Banner.Get()
+	if !IsNil(o.Banner) {
+		toSerialize["banner"] = o.Banner
 	}
-	if o.CommunicationDisabledUntil.IsSet() {
-		toSerialize["communication_disabled_until"] = o.CommunicationDisabledUntil.Get()
+	if !IsNil(o.CommunicationDisabledUntil) {
+		toSerialize["communication_disabled_until"] = o.CommunicationDisabledUntil
 	}
 	toSerialize["flags"] = o.Flags
 	toSerialize["joined_at"] = o.JoinedAt
-	if o.Nick.IsSet() {
-		toSerialize["nick"] = o.Nick.Get()
+	if !IsNil(o.Nick) {
+		toSerialize["nick"] = o.Nick
 	}
 	toSerialize["pending"] = o.Pending
-	if o.PremiumSince.IsSet() {
-		toSerialize["premium_since"] = o.PremiumSince.Get()
+	if !IsNil(o.PremiumSince) {
+		toSerialize["premium_since"] = o.PremiumSince
 	}
 	toSerialize["roles"] = o.Roles
+	if !IsNil(o.Collectibles) {
+		toSerialize["collectibles"] = o.Collectibles
+	}
 	toSerialize["user"] = o.User
 	toSerialize["mute"] = o.Mute
 	toSerialize["deaf"] = o.Deaf
@@ -639,5 +616,4 @@ func (v *NullableGuildMemberResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

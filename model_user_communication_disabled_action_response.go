@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,7 +55,7 @@ var _ MappedNullable = &UserCommunicationDisabledActionResponse{}
 
 // UserCommunicationDisabledActionResponse struct for UserCommunicationDisabledActionResponse
 type UserCommunicationDisabledActionResponse struct {
-	Type int32 `json:"type"`
+	Type AutomodActionType `json:"type"`
 	Metadata UserCommunicationDisabledActionMetadataResponse `json:"metadata"`
 }
 
@@ -65,7 +65,7 @@ type _UserCommunicationDisabledActionResponse UserCommunicationDisabledActionRes
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserCommunicationDisabledActionResponse(type_ int32, metadata UserCommunicationDisabledActionMetadataResponse) *UserCommunicationDisabledActionResponse {
+func NewUserCommunicationDisabledActionResponse(type_ AutomodActionType, metadata UserCommunicationDisabledActionMetadataResponse) *UserCommunicationDisabledActionResponse {
 	this := UserCommunicationDisabledActionResponse{}
 	this.Type = type_
 	this.Metadata = metadata
@@ -81,9 +81,9 @@ func NewUserCommunicationDisabledActionResponseWithDefaults() *UserCommunication
 }
 
 // GetType returns the Type field value
-func (o *UserCommunicationDisabledActionResponse) GetType() int32 {
+func (o *UserCommunicationDisabledActionResponse) GetType() AutomodActionType {
 	if o == nil {
-		var ret int32
+		var ret AutomodActionType
 		return ret
 	}
 
@@ -92,7 +92,7 @@ func (o *UserCommunicationDisabledActionResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *UserCommunicationDisabledActionResponse) GetTypeOk() (*int32, bool) {
+func (o *UserCommunicationDisabledActionResponse) GetTypeOk() (*AutomodActionType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -100,7 +100,7 @@ func (o *UserCommunicationDisabledActionResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *UserCommunicationDisabledActionResponse) SetType(v int32) {
+func (o *UserCommunicationDisabledActionResponse) SetType(v AutomodActionType) {
 	o.Type = v
 }
 
@@ -216,5 +216,4 @@ func (v *NullableUserCommunicationDisabledActionResponse) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

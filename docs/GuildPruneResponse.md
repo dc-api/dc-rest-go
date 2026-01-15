@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Pruned** | Pointer to **NullableInt32** |  | [optional] 
+**Pruned** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -50,16 +50,6 @@ SetPruned sets Pruned field to given value.
 
 HasPruned returns a boolean if a field has been set.
 
-### SetPrunedNil
-
-`func (o *GuildPruneResponse) SetPrunedNil(b bool)`
-
- SetPrunedNil sets the value for Pruned to be an explicit nil
-
-### UnsetPruned
-`func (o *GuildPruneResponse) UnsetPruned()`
-
-UnsetPruned ensures that no value is present for Pruned, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessToken** | Pointer to **NullableString** |  | [optional] 
-**Nick** | Pointer to **NullableString** |  | [optional] 
+**AccessToken** | Pointer to **string** |  | [optional] 
+**Nick** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -51,16 +51,6 @@ SetAccessToken sets AccessToken field to given value.
 
 HasAccessToken returns a boolean if a field has been set.
 
-### SetAccessTokenNil
-
-`func (o *AddGroupDmUserRequest) SetAccessTokenNil(b bool)`
-
- SetAccessTokenNil sets the value for AccessToken to be an explicit nil
-
-### UnsetAccessToken
-`func (o *AddGroupDmUserRequest) UnsetAccessToken()`
-
-UnsetAccessToken ensures that no value is present for AccessToken, not even an explicit nil
 ### GetNick
 
 `func (o *AddGroupDmUserRequest) GetNick() string`
@@ -86,16 +76,6 @@ SetNick sets Nick field to given value.
 
 HasNick returns a boolean if a field has been set.
 
-### SetNickNil
-
-`func (o *AddGroupDmUserRequest) SetNickNil(b bool)`
-
- SetNickNil sets the value for Nick to be an explicit nil
-
-### UnsetNick
-`func (o *AddGroupDmUserRequest) UnsetNick()`
-
-UnsetNick ensures that no value is present for Nick, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

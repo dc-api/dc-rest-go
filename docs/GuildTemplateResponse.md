@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | **string** |  | 
 **Name** | **string** |  | 
-**Description** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **UsageCount** | **int32** |  | 
 **CreatorId** | **string** |  | 
-**Creator** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**Creator** | Pointer to [**GuildTemplateResponseCreator**](GuildTemplateResponseCreator.md) |  | [optional] 
 **CreatedAt** | **time.Time** |  | 
 **UpdatedAt** | **time.Time** |  | 
 **SourceGuildId** | **string** |  | 
 **SerializedSourceGuild** | [**GuildTemplateSnapshotResponse**](GuildTemplateSnapshotResponse.md) |  | 
-**IsDirty** | Pointer to **NullableBool** |  | [optional] 
+**IsDirty** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -100,16 +100,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *GuildTemplateResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *GuildTemplateResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetUsageCount
 
 `func (o *GuildTemplateResponse) GetUsageCount() int32`
@@ -152,20 +142,20 @@ SetCreatorId sets CreatorId field to given value.
 
 ### GetCreator
 
-`func (o *GuildTemplateResponse) GetCreator() UserResponse`
+`func (o *GuildTemplateResponse) GetCreator() GuildTemplateResponseCreator`
 
 GetCreator returns the Creator field if non-nil, zero value otherwise.
 
 ### GetCreatorOk
 
-`func (o *GuildTemplateResponse) GetCreatorOk() (*UserResponse, bool)`
+`func (o *GuildTemplateResponse) GetCreatorOk() (*GuildTemplateResponseCreator, bool)`
 
 GetCreatorOk returns a tuple with the Creator field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreator
 
-`func (o *GuildTemplateResponse) SetCreator(v UserResponse)`
+`func (o *GuildTemplateResponse) SetCreator(v GuildTemplateResponseCreator)`
 
 SetCreator sets Creator field to given value.
 
@@ -175,16 +165,6 @@ SetCreator sets Creator field to given value.
 
 HasCreator returns a boolean if a field has been set.
 
-### SetCreatorNil
-
-`func (o *GuildTemplateResponse) SetCreatorNil(b bool)`
-
- SetCreatorNil sets the value for Creator to be an explicit nil
-
-### UnsetCreator
-`func (o *GuildTemplateResponse) UnsetCreator()`
-
-UnsetCreator ensures that no value is present for Creator, not even an explicit nil
 ### GetCreatedAt
 
 `func (o *GuildTemplateResponse) GetCreatedAt() time.Time`
@@ -290,16 +270,6 @@ SetIsDirty sets IsDirty field to given value.
 
 HasIsDirty returns a boolean if a field has been set.
 
-### SetIsDirtyNil
-
-`func (o *GuildTemplateResponse) SetIsDirtyNil(b bool)`
-
- SetIsDirtyNil sets the value for IsDirty to be an explicit nil
-
-### UnsetIsDirty
-`func (o *GuildTemplateResponse) UnsetIsDirty()`
-
-UnsetIsDirty ensures that no value is present for IsDirty, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

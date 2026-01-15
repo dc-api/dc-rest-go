@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**AutomodActionType**](AutomodActionType.md) |  | 
 **Metadata** | [**UserCommunicationDisabledActionMetadata**](UserCommunicationDisabledActionMetadata.md) |  | 
 
 ## Methods
 
 ### NewDefaultKeywordListUpsertRequestActionsInner
 
-`func NewDefaultKeywordListUpsertRequestActionsInner(type_ int32, metadata UserCommunicationDisabledActionMetadata, ) *DefaultKeywordListUpsertRequestActionsInner`
+`func NewDefaultKeywordListUpsertRequestActionsInner(type_ AutomodActionType, metadata UserCommunicationDisabledActionMetadata, ) *DefaultKeywordListUpsertRequestActionsInner`
 
 NewDefaultKeywordListUpsertRequestActionsInner instantiates a new DefaultKeywordListUpsertRequestActionsInner object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *DefaultKeywordListUpsertRequestActionsInner) GetType() int32`
+`func (o *DefaultKeywordListUpsertRequestActionsInner) GetType() AutomodActionType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *DefaultKeywordListUpsertRequestActionsInner) GetTypeOk() (*int32, bool)`
+`func (o *DefaultKeywordListUpsertRequestActionsInner) GetTypeOk() (*AutomodActionType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *DefaultKeywordListUpsertRequestActionsInner) SetType(v int32)`
+`func (o *DefaultKeywordListUpsertRequestActionsInner) SetType(v AutomodActionType)`
 
 SetType sets Type field to given value.
 

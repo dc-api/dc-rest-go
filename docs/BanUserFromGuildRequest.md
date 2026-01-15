@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeleteMessageSeconds** | Pointer to **NullableInt32** |  | [optional] 
-**DeleteMessageDays** | Pointer to **NullableInt32** |  | [optional] 
+**DeleteMessageSeconds** | Pointer to **int32** |  | [optional] 
+**DeleteMessageDays** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -51,16 +51,6 @@ SetDeleteMessageSeconds sets DeleteMessageSeconds field to given value.
 
 HasDeleteMessageSeconds returns a boolean if a field has been set.
 
-### SetDeleteMessageSecondsNil
-
-`func (o *BanUserFromGuildRequest) SetDeleteMessageSecondsNil(b bool)`
-
- SetDeleteMessageSecondsNil sets the value for DeleteMessageSeconds to be an explicit nil
-
-### UnsetDeleteMessageSeconds
-`func (o *BanUserFromGuildRequest) UnsetDeleteMessageSeconds()`
-
-UnsetDeleteMessageSeconds ensures that no value is present for DeleteMessageSeconds, not even an explicit nil
 ### GetDeleteMessageDays
 
 `func (o *BanUserFromGuildRequest) GetDeleteMessageDays() int32`
@@ -86,16 +76,6 @@ SetDeleteMessageDays sets DeleteMessageDays field to given value.
 
 HasDeleteMessageDays returns a boolean if a field has been set.
 
-### SetDeleteMessageDaysNil
-
-`func (o *BanUserFromGuildRequest) SetDeleteMessageDaysNil(b bool)`
-
- SetDeleteMessageDaysNil sets the value for DeleteMessageDays to be an explicit nil
-
-### UnsetDeleteMessageDays
-`func (o *BanUserFromGuildRequest) UnsetDeleteMessageDays()`
-
-UnsetDeleteMessageDays ensures that no value is present for DeleteMessageDays, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

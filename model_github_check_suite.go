@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,8 +55,8 @@ var _ MappedNullable = &GithubCheckSuite{}
 
 // GithubCheckSuite struct for GithubCheckSuite
 type GithubCheckSuite struct {
-	Conclusion NullableString `json:"conclusion,omitempty"`
-	HeadBranch NullableString `json:"head_branch,omitempty"`
+	Conclusion *string `json:"conclusion,omitempty"`
+	HeadBranch *string `json:"head_branch,omitempty"`
 	HeadSha string `json:"head_sha"`
 	PullRequests []GithubCheckPullRequest `json:"pull_requests,omitempty"`
 	App GithubCheckApp `json:"app"`
@@ -83,91 +83,71 @@ func NewGithubCheckSuiteWithDefaults() *GithubCheckSuite {
 	return &this
 }
 
-// GetConclusion returns the Conclusion field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetConclusion returns the Conclusion field value if set, zero value otherwise.
 func (o *GithubCheckSuite) GetConclusion() string {
-	if o == nil || IsNil(o.Conclusion.Get()) {
+	if o == nil || IsNil(o.Conclusion) {
 		var ret string
 		return ret
 	}
-	return *o.Conclusion.Get()
+	return *o.Conclusion
 }
 
 // GetConclusionOk returns a tuple with the Conclusion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubCheckSuite) GetConclusionOk() (*string, bool) {
-	if o == nil || IsNil(o.Conclusion.Get()) {
+	if o == nil || IsNil(o.Conclusion) {
 		return nil, false
 	}
-	return o.Conclusion.Get(), o.Conclusion.IsSet()
+	return o.Conclusion, true
 }
 
 // HasConclusion returns a boolean if a field has been set.
 func (o *GithubCheckSuite) HasConclusion() bool {
-	if o != nil && o.Conclusion.IsSet() {
+	if o != nil && !IsNil(o.Conclusion) {
 		return true
 	}
 
 	return false
 }
 
-// SetConclusion gets a reference to the given NullableString and assigns it to the Conclusion field.
+// SetConclusion gets a reference to the given string and assigns it to the Conclusion field.
 func (o *GithubCheckSuite) SetConclusion(v string) {
-	o.Conclusion.Set(&v)
+	o.Conclusion = &v
 }
 
-// SetConclusionNil sets the value for Conclusion to be an explicit nil
-func (o *GithubCheckSuite) SetConclusionNil() {
-	o.Conclusion.Set(nil)
-}
 
-// UnsetConclusion ensures that no value is present for Conclusion, not even an explicit nil
-func (o *GithubCheckSuite) UnsetConclusion() {
-	o.Conclusion.Unset()
-}
-
-// GetHeadBranch returns the HeadBranch field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHeadBranch returns the HeadBranch field value if set, zero value otherwise.
 func (o *GithubCheckSuite) GetHeadBranch() string {
-	if o == nil || IsNil(o.HeadBranch.Get()) {
+	if o == nil || IsNil(o.HeadBranch) {
 		var ret string
 		return ret
 	}
-	return *o.HeadBranch.Get()
+	return *o.HeadBranch
 }
 
 // GetHeadBranchOk returns a tuple with the HeadBranch field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubCheckSuite) GetHeadBranchOk() (*string, bool) {
-	if o == nil || IsNil(o.HeadBranch.Get()) {
+	if o == nil || IsNil(o.HeadBranch) {
 		return nil, false
 	}
-	return o.HeadBranch.Get(), o.HeadBranch.IsSet()
+	return o.HeadBranch, true
 }
 
 // HasHeadBranch returns a boolean if a field has been set.
 func (o *GithubCheckSuite) HasHeadBranch() bool {
-	if o != nil && o.HeadBranch.IsSet() {
+	if o != nil && !IsNil(o.HeadBranch) {
 		return true
 	}
 
 	return false
 }
 
-// SetHeadBranch gets a reference to the given NullableString and assigns it to the HeadBranch field.
+// SetHeadBranch gets a reference to the given string and assigns it to the HeadBranch field.
 func (o *GithubCheckSuite) SetHeadBranch(v string) {
-	o.HeadBranch.Set(&v)
+	o.HeadBranch = &v
 }
 
-// SetHeadBranchNil sets the value for HeadBranch to be an explicit nil
-func (o *GithubCheckSuite) SetHeadBranchNil() {
-	o.HeadBranch.Set(nil)
-}
-
-// UnsetHeadBranch ensures that no value is present for HeadBranch, not even an explicit nil
-func (o *GithubCheckSuite) UnsetHeadBranch() {
-	o.HeadBranch.Unset()
-}
 
 // GetHeadSha returns the HeadSha field value
 func (o *GithubCheckSuite) GetHeadSha() string {
@@ -193,9 +173,9 @@ func (o *GithubCheckSuite) SetHeadSha(v string) {
 	o.HeadSha = v
 }
 
-// GetPullRequests returns the PullRequests field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPullRequests returns the PullRequests field value if set, zero value otherwise.
 func (o *GithubCheckSuite) GetPullRequests() []GithubCheckPullRequest {
-	if o == nil {
+	if o == nil || IsNil(o.PullRequests) {
 		var ret []GithubCheckPullRequest
 		return ret
 	}
@@ -204,9 +184,8 @@ func (o *GithubCheckSuite) GetPullRequests() []GithubCheckPullRequest {
 
 // GetPullRequestsOk returns a tuple with the PullRequests field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GithubCheckSuite) GetPullRequestsOk() ([]GithubCheckPullRequest, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PullRequests) {
 		return nil, false
 	}
 	return o.PullRequests, true
@@ -261,14 +240,14 @@ func (o GithubCheckSuite) MarshalJSON() ([]byte, error) {
 
 func (o GithubCheckSuite) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Conclusion.IsSet() {
-		toSerialize["conclusion"] = o.Conclusion.Get()
+	if !IsNil(o.Conclusion) {
+		toSerialize["conclusion"] = o.Conclusion
 	}
-	if o.HeadBranch.IsSet() {
-		toSerialize["head_branch"] = o.HeadBranch.Get()
+	if !IsNil(o.HeadBranch) {
+		toSerialize["head_branch"] = o.HeadBranch
 	}
 	toSerialize["head_sha"] = o.HeadSha
-	if o.PullRequests != nil {
+	if !IsNil(o.PullRequests) {
 		toSerialize["pull_requests"] = o.PullRequests
 	}
 	toSerialize["app"] = o.App
@@ -348,5 +327,4 @@ func (v *NullableGithubCheckSuite) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 
