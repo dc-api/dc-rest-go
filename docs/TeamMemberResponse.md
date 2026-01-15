@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **User** | [**UserResponse**](UserResponse.md) |  | 
 **TeamId** | **string** |  | 
-**MembershipState** | **int32** |  | 
+**MembershipState** | [**TeamMembershipStates**](TeamMembershipStates.md) |  | 
 
 ## Methods
 
 ### NewTeamMemberResponse
 
-`func NewTeamMemberResponse(user UserResponse, teamId string, membershipState int32, ) *TeamMemberResponse`
+`func NewTeamMemberResponse(user UserResponse, teamId string, membershipState TeamMembershipStates, ) *TeamMemberResponse`
 
 NewTeamMemberResponse instantiates a new TeamMemberResponse object
 This constructor will assign default values to properties that have it defined,
@@ -69,20 +69,20 @@ SetTeamId sets TeamId field to given value.
 
 ### GetMembershipState
 
-`func (o *TeamMemberResponse) GetMembershipState() int32`
+`func (o *TeamMemberResponse) GetMembershipState() TeamMembershipStates`
 
 GetMembershipState returns the MembershipState field if non-nil, zero value otherwise.
 
 ### GetMembershipStateOk
 
-`func (o *TeamMemberResponse) GetMembershipStateOk() (*int32, bool)`
+`func (o *TeamMemberResponse) GetMembershipStateOk() (*TeamMembershipStates, bool)`
 
 GetMembershipStateOk returns a tuple with the MembershipState field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMembershipState
 
-`func (o *TeamMemberResponse) SetMembershipState(v int32)`
+`func (o *TeamMemberResponse) SetMembershipState(v TeamMembershipStates)`
 
 SetMembershipState sets MembershipState field to given value.
 

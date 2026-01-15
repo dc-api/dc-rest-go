@@ -4,19 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 **CustomId** | **string** |  | 
-**Placeholder** | Pointer to **NullableString** |  | [optional] 
-**MinValues** | Pointer to **NullableInt32** |  | [optional] 
-**MaxValues** | Pointer to **NullableInt32** |  | [optional] 
-**Disabled** | Pointer to **NullableBool** |  | [optional] 
-**Options** | [**[]StringSelectOptionForMessageRequest**](StringSelectOptionForMessageRequest.md) |  | 
+**Placeholder** | Pointer to **string** |  | [optional] 
+**MinValues** | Pointer to **int32** |  | [optional] 
+**MaxValues** | Pointer to **int32** |  | [optional] 
+**Disabled** | Pointer to **bool** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
+**Options** | [**[]StringSelectOptionForRequest**](StringSelectOptionForRequest.md) |  | 
 
 ## Methods
 
 ### NewStringSelectComponentForMessageRequest
 
-`func NewStringSelectComponentForMessageRequest(type_ int32, customId string, options []StringSelectOptionForMessageRequest, ) *StringSelectComponentForMessageRequest`
+`func NewStringSelectComponentForMessageRequest(type_ MessageComponentTypes, customId string, options []StringSelectOptionForRequest, ) *StringSelectComponentForMessageRequest`
 
 NewStringSelectComponentForMessageRequest instantiates a new StringSelectComponentForMessageRequest object
 This constructor will assign default values to properties that have it defined,
@@ -33,23 +35,48 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *StringSelectComponentForMessageRequest) GetType() int32`
+`func (o *StringSelectComponentForMessageRequest) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *StringSelectComponentForMessageRequest) GetTypeOk() (*int32, bool)`
+`func (o *StringSelectComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *StringSelectComponentForMessageRequest) SetType(v int32)`
+`func (o *StringSelectComponentForMessageRequest) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *StringSelectComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *StringSelectComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *StringSelectComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *StringSelectComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetCustomId
 
@@ -96,16 +123,6 @@ SetPlaceholder sets Placeholder field to given value.
 
 HasPlaceholder returns a boolean if a field has been set.
 
-### SetPlaceholderNil
-
-`func (o *StringSelectComponentForMessageRequest) SetPlaceholderNil(b bool)`
-
- SetPlaceholderNil sets the value for Placeholder to be an explicit nil
-
-### UnsetPlaceholder
-`func (o *StringSelectComponentForMessageRequest) UnsetPlaceholder()`
-
-UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
 ### GetMinValues
 
 `func (o *StringSelectComponentForMessageRequest) GetMinValues() int32`
@@ -131,16 +148,6 @@ SetMinValues sets MinValues field to given value.
 
 HasMinValues returns a boolean if a field has been set.
 
-### SetMinValuesNil
-
-`func (o *StringSelectComponentForMessageRequest) SetMinValuesNil(b bool)`
-
- SetMinValuesNil sets the value for MinValues to be an explicit nil
-
-### UnsetMinValues
-`func (o *StringSelectComponentForMessageRequest) UnsetMinValues()`
-
-UnsetMinValues ensures that no value is present for MinValues, not even an explicit nil
 ### GetMaxValues
 
 `func (o *StringSelectComponentForMessageRequest) GetMaxValues() int32`
@@ -166,16 +173,6 @@ SetMaxValues sets MaxValues field to given value.
 
 HasMaxValues returns a boolean if a field has been set.
 
-### SetMaxValuesNil
-
-`func (o *StringSelectComponentForMessageRequest) SetMaxValuesNil(b bool)`
-
- SetMaxValuesNil sets the value for MaxValues to be an explicit nil
-
-### UnsetMaxValues
-`func (o *StringSelectComponentForMessageRequest) UnsetMaxValues()`
-
-UnsetMaxValues ensures that no value is present for MaxValues, not even an explicit nil
 ### GetDisabled
 
 `func (o *StringSelectComponentForMessageRequest) GetDisabled() bool`
@@ -201,32 +198,47 @@ SetDisabled sets Disabled field to given value.
 
 HasDisabled returns a boolean if a field has been set.
 
-### SetDisabledNil
+### GetRequired
 
-`func (o *StringSelectComponentForMessageRequest) SetDisabledNil(b bool)`
+`func (o *StringSelectComponentForMessageRequest) GetRequired() bool`
 
- SetDisabledNil sets the value for Disabled to be an explicit nil
+GetRequired returns the Required field if non-nil, zero value otherwise.
 
-### UnsetDisabled
-`func (o *StringSelectComponentForMessageRequest) UnsetDisabled()`
+### GetRequiredOk
 
-UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
+`func (o *StringSelectComponentForMessageRequest) GetRequiredOk() (*bool, bool)`
+
+GetRequiredOk returns a tuple with the Required field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequired
+
+`func (o *StringSelectComponentForMessageRequest) SetRequired(v bool)`
+
+SetRequired sets Required field to given value.
+
+### HasRequired
+
+`func (o *StringSelectComponentForMessageRequest) HasRequired() bool`
+
+HasRequired returns a boolean if a field has been set.
+
 ### GetOptions
 
-`func (o *StringSelectComponentForMessageRequest) GetOptions() []StringSelectOptionForMessageRequest`
+`func (o *StringSelectComponentForMessageRequest) GetOptions() []StringSelectOptionForRequest`
 
 GetOptions returns the Options field if non-nil, zero value otherwise.
 
 ### GetOptionsOk
 
-`func (o *StringSelectComponentForMessageRequest) GetOptionsOk() (*[]StringSelectOptionForMessageRequest, bool)`
+`func (o *StringSelectComponentForMessageRequest) GetOptionsOk() (*[]StringSelectOptionForRequest, bool)`
 
 GetOptionsOk returns a tuple with the Options field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOptions
 
-`func (o *StringSelectComponentForMessageRequest) SetOptions(v []StringSelectOptionForMessageRequest)`
+`func (o *StringSelectComponentForMessageRequest) SetOptions(v []StringSelectOptionForRequest)`
 
 SetOptions sets Options field to given value.
 

@@ -5,18 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **int32** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**Type** | [**InteractionTypes**](InteractionTypes.md) |  | 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 **AuthorizingIntegrationOwners** | **map[string]string** |  | 
 **OriginalResponseMessageId** | Pointer to **string** |  | [optional] 
-**TargetUser** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**TargetUser** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 **TargetMessageId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewApplicationCommandInteractionMetadataResponse
 
-`func NewApplicationCommandInteractionMetadataResponse(id string, type_ int32, authorizingIntegrationOwners map[string]string, ) *ApplicationCommandInteractionMetadataResponse`
+`func NewApplicationCommandInteractionMetadataResponse(id string, type_ InteractionTypes, authorizingIntegrationOwners map[string]string, ) *ApplicationCommandInteractionMetadataResponse`
 
 NewApplicationCommandInteractionMetadataResponse instantiates a new ApplicationCommandInteractionMetadataResponse object
 This constructor will assign default values to properties that have it defined,
@@ -53,20 +53,20 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *ApplicationCommandInteractionMetadataResponse) GetType() int32`
+`func (o *ApplicationCommandInteractionMetadataResponse) GetType() InteractionTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ApplicationCommandInteractionMetadataResponse) GetTypeOk() (*int32, bool)`
+`func (o *ApplicationCommandInteractionMetadataResponse) GetTypeOk() (*InteractionTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ApplicationCommandInteractionMetadataResponse) SetType(v int32)`
+`func (o *ApplicationCommandInteractionMetadataResponse) SetType(v InteractionTypes)`
 
 SetType sets Type field to given value.
 
@@ -96,16 +96,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *ApplicationCommandInteractionMetadataResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *ApplicationCommandInteractionMetadataResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetAuthorizingIntegrationOwners
 
 `func (o *ApplicationCommandInteractionMetadataResponse) GetAuthorizingIntegrationOwners() map[string]string`
@@ -176,16 +166,6 @@ SetTargetUser sets TargetUser field to given value.
 
 HasTargetUser returns a boolean if a field has been set.
 
-### SetTargetUserNil
-
-`func (o *ApplicationCommandInteractionMetadataResponse) SetTargetUserNil(b bool)`
-
- SetTargetUserNil sets the value for TargetUser to be an explicit nil
-
-### UnsetTargetUser
-`func (o *ApplicationCommandInteractionMetadataResponse) UnsetTargetUser()`
-
-UnsetTargetUser ensures that no value is present for TargetUser, not even an explicit nil
 ### GetTargetMessageId
 
 `func (o *ApplicationCommandInteractionMetadataResponse) GetTargetMessageId() string`

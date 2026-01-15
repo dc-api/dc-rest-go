@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
-**Volume** | Pointer to **NullableFloat64** |  | [optional] 
-**EmojiId** | Pointer to **string** |  | [optional] 
-**EmojiName** | Pointer to **NullableString** |  | [optional] 
+**Volume** | Pointer to **float64** |  | [optional] 
+**EmojiId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**EmojiName** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -78,32 +78,22 @@ SetVolume sets Volume field to given value.
 
 HasVolume returns a boolean if a field has been set.
 
-### SetVolumeNil
-
-`func (o *SoundboardPatchRequestPartial) SetVolumeNil(b bool)`
-
- SetVolumeNil sets the value for Volume to be an explicit nil
-
-### UnsetVolume
-`func (o *SoundboardPatchRequestPartial) UnsetVolume()`
-
-UnsetVolume ensures that no value is present for Volume, not even an explicit nil
 ### GetEmojiId
 
-`func (o *SoundboardPatchRequestPartial) GetEmojiId() string`
+`func (o *SoundboardPatchRequestPartial) GetEmojiId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetEmojiId returns the EmojiId field if non-nil, zero value otherwise.
 
 ### GetEmojiIdOk
 
-`func (o *SoundboardPatchRequestPartial) GetEmojiIdOk() (*string, bool)`
+`func (o *SoundboardPatchRequestPartial) GetEmojiIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetEmojiIdOk returns a tuple with the EmojiId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmojiId
 
-`func (o *SoundboardPatchRequestPartial) SetEmojiId(v string)`
+`func (o *SoundboardPatchRequestPartial) SetEmojiId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetEmojiId sets EmojiId field to given value.
 
@@ -138,16 +128,6 @@ SetEmojiName sets EmojiName field to given value.
 
 HasEmojiName returns a boolean if a field has been set.
 
-### SetEmojiNameNil
-
-`func (o *SoundboardPatchRequestPartial) SetEmojiNameNil(b bool)`
-
- SetEmojiNameNil sets the value for EmojiName to be an explicit nil
-
-### UnsetEmojiName
-`func (o *SoundboardPatchRequestPartial) UnsetEmojiName()`
-
-UnsetEmojiName ensures that no value is present for EmojiName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

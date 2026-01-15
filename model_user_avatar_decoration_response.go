@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ var _ MappedNullable = &UserAvatarDecorationResponse{}
 // UserAvatarDecorationResponse struct for UserAvatarDecorationResponse
 type UserAvatarDecorationResponse struct {
 	Asset string `json:"asset"`
-	SkuId *string `json:"sku_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	SkuId *GetEntitlementsSkuIdsParameterOneOfInner `json:"sku_id,omitempty"`
 }
 
 type _UserAvatarDecorationResponse UserAvatarDecorationResponse
@@ -104,9 +104,9 @@ func (o *UserAvatarDecorationResponse) SetAsset(v string) {
 }
 
 // GetSkuId returns the SkuId field value if set, zero value otherwise.
-func (o *UserAvatarDecorationResponse) GetSkuId() string {
+func (o *UserAvatarDecorationResponse) GetSkuId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.SkuId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.SkuId
@@ -114,7 +114,7 @@ func (o *UserAvatarDecorationResponse) GetSkuId() string {
 
 // GetSkuIdOk returns a tuple with the SkuId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserAvatarDecorationResponse) GetSkuIdOk() (*string, bool) {
+func (o *UserAvatarDecorationResponse) GetSkuIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.SkuId) {
 		return nil, false
 	}
@@ -130,8 +130,8 @@ func (o *UserAvatarDecorationResponse) HasSkuId() bool {
 	return false
 }
 
-// SetSkuId gets a reference to the given string and assigns it to the SkuId field.
-func (o *UserAvatarDecorationResponse) SetSkuId(v string) {
+// SetSkuId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the SkuId field.
+func (o *UserAvatarDecorationResponse) SetSkuId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.SkuId = &v
 }
 
@@ -225,5 +225,4 @@ func (v *NullableUserAvatarDecorationResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

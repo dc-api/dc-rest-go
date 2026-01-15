@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -54,7 +54,7 @@ var _ MappedNullable = &DefaultKeywordListTriggerMetadata{}
 // DefaultKeywordListTriggerMetadata struct for DefaultKeywordListTriggerMetadata
 type DefaultKeywordListTriggerMetadata struct {
 	AllowList []string `json:"allow_list,omitempty"`
-	Presets []int32 `json:"presets,omitempty"`
+	Presets []AutomodKeywordPresetType `json:"presets,omitempty"`
 }
 
 // NewDefaultKeywordListTriggerMetadata instantiates a new DefaultKeywordListTriggerMetadata object
@@ -74,9 +74,9 @@ func NewDefaultKeywordListTriggerMetadataWithDefaults() *DefaultKeywordListTrigg
 	return &this
 }
 
-// GetAllowList returns the AllowList field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAllowList returns the AllowList field value if set, zero value otherwise.
 func (o *DefaultKeywordListTriggerMetadata) GetAllowList() []string {
-	if o == nil {
+	if o == nil || IsNil(o.AllowList) {
 		var ret []string
 		return ret
 	}
@@ -85,9 +85,8 @@ func (o *DefaultKeywordListTriggerMetadata) GetAllowList() []string {
 
 // GetAllowListOk returns a tuple with the AllowList field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DefaultKeywordListTriggerMetadata) GetAllowListOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AllowList) {
 		return nil, false
 	}
 	return o.AllowList, true
@@ -108,10 +107,10 @@ func (o *DefaultKeywordListTriggerMetadata) SetAllowList(v []string) {
 }
 
 
-// GetPresets returns the Presets field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DefaultKeywordListTriggerMetadata) GetPresets() []int32 {
-	if o == nil {
-		var ret []int32
+// GetPresets returns the Presets field value if set, zero value otherwise.
+func (o *DefaultKeywordListTriggerMetadata) GetPresets() []AutomodKeywordPresetType {
+	if o == nil || IsNil(o.Presets) {
+		var ret []AutomodKeywordPresetType
 		return ret
 	}
 	return o.Presets
@@ -119,9 +118,8 @@ func (o *DefaultKeywordListTriggerMetadata) GetPresets() []int32 {
 
 // GetPresetsOk returns a tuple with the Presets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DefaultKeywordListTriggerMetadata) GetPresetsOk() ([]int32, bool) {
-	if o == nil {
+func (o *DefaultKeywordListTriggerMetadata) GetPresetsOk() ([]AutomodKeywordPresetType, bool) {
+	if o == nil || IsNil(o.Presets) {
 		return nil, false
 	}
 	return o.Presets, true
@@ -136,8 +134,8 @@ func (o *DefaultKeywordListTriggerMetadata) HasPresets() bool {
 	return false
 }
 
-// SetPresets gets a reference to the given []int32 and assigns it to the Presets field.
-func (o *DefaultKeywordListTriggerMetadata) SetPresets(v []int32) {
+// SetPresets gets a reference to the given []AutomodKeywordPresetType and assigns it to the Presets field.
+func (o *DefaultKeywordListTriggerMetadata) SetPresets(v []AutomodKeywordPresetType) {
 	o.Presets = v
 }
 
@@ -152,10 +150,10 @@ func (o DefaultKeywordListTriggerMetadata) MarshalJSON() ([]byte, error) {
 
 func (o DefaultKeywordListTriggerMetadata) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.AllowList != nil {
+	if !IsNil(o.AllowList) {
 		toSerialize["allow_list"] = o.AllowList
 	}
-	if o.Presets != nil {
+	if !IsNil(o.Presets) {
 		toSerialize["presets"] = o.Presets
 	}
 	return toSerialize, nil
@@ -196,5 +194,4 @@ func (v *NullableDefaultKeywordListTriggerMetadata) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

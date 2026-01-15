@@ -7,16 +7,16 @@ Name | Type | Description | Notes
 **GuildId** | **string** |  | 
 **ChannelId** | **string** |  | 
 **Topic** | **string** |  | 
-**PrivacyLevel** | **int32** |  | 
+**PrivacyLevel** | [**StageInstancesPrivacyLevels**](StageInstancesPrivacyLevels.md) |  | 
 **Id** | **string** |  | 
-**DiscoverableDisabled** | Pointer to **NullableBool** |  | [optional] 
-**GuildScheduledEventId** | Pointer to **string** |  | [optional] 
+**DiscoverableDisabled** | **bool** |  | 
+**GuildScheduledEventId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 
 ## Methods
 
 ### NewStageInstanceResponse
 
-`func NewStageInstanceResponse(guildId string, channelId string, topic string, privacyLevel int32, id string, ) *StageInstanceResponse`
+`func NewStageInstanceResponse(guildId string, channelId string, topic string, privacyLevel StageInstancesPrivacyLevels, id string, discoverableDisabled bool, ) *StageInstanceResponse`
 
 NewStageInstanceResponse instantiates a new StageInstanceResponse object
 This constructor will assign default values to properties that have it defined,
@@ -93,20 +93,20 @@ SetTopic sets Topic field to given value.
 
 ### GetPrivacyLevel
 
-`func (o *StageInstanceResponse) GetPrivacyLevel() int32`
+`func (o *StageInstanceResponse) GetPrivacyLevel() StageInstancesPrivacyLevels`
 
 GetPrivacyLevel returns the PrivacyLevel field if non-nil, zero value otherwise.
 
 ### GetPrivacyLevelOk
 
-`func (o *StageInstanceResponse) GetPrivacyLevelOk() (*int32, bool)`
+`func (o *StageInstanceResponse) GetPrivacyLevelOk() (*StageInstancesPrivacyLevels, bool)`
 
 GetPrivacyLevelOk returns a tuple with the PrivacyLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrivacyLevel
 
-`func (o *StageInstanceResponse) SetPrivacyLevel(v int32)`
+`func (o *StageInstanceResponse) SetPrivacyLevel(v StageInstancesPrivacyLevels)`
 
 SetPrivacyLevel sets PrivacyLevel field to given value.
 
@@ -150,38 +150,23 @@ and a boolean to check if the value has been set.
 
 SetDiscoverableDisabled sets DiscoverableDisabled field to given value.
 
-### HasDiscoverableDisabled
 
-`func (o *StageInstanceResponse) HasDiscoverableDisabled() bool`
-
-HasDiscoverableDisabled returns a boolean if a field has been set.
-
-### SetDiscoverableDisabledNil
-
-`func (o *StageInstanceResponse) SetDiscoverableDisabledNil(b bool)`
-
- SetDiscoverableDisabledNil sets the value for DiscoverableDisabled to be an explicit nil
-
-### UnsetDiscoverableDisabled
-`func (o *StageInstanceResponse) UnsetDiscoverableDisabled()`
-
-UnsetDiscoverableDisabled ensures that no value is present for DiscoverableDisabled, not even an explicit nil
 ### GetGuildScheduledEventId
 
-`func (o *StageInstanceResponse) GetGuildScheduledEventId() string`
+`func (o *StageInstanceResponse) GetGuildScheduledEventId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetGuildScheduledEventId returns the GuildScheduledEventId field if non-nil, zero value otherwise.
 
 ### GetGuildScheduledEventIdOk
 
-`func (o *StageInstanceResponse) GetGuildScheduledEventIdOk() (*string, bool)`
+`func (o *StageInstanceResponse) GetGuildScheduledEventIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetGuildScheduledEventIdOk returns a tuple with the GuildScheduledEventId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGuildScheduledEventId
 
-`func (o *StageInstanceResponse) SetGuildScheduledEventId(v string)`
+`func (o *StageInstanceResponse) SetGuildScheduledEventId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetGuildScheduledEventId sets GuildScheduledEventId field to given value.
 

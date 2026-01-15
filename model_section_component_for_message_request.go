@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,7 +55,8 @@ var _ MappedNullable = &SectionComponentForMessageRequest{}
 
 // SectionComponentForMessageRequest struct for SectionComponentForMessageRequest
 type SectionComponentForMessageRequest struct {
-	Type int32 `json:"type"`
+	Type MessageComponentTypes `json:"type"`
+	Id *int32 `json:"id,omitempty"`
 	Components []TextDisplayComponentForMessageRequest `json:"components"`
 	Accessory SectionComponentForMessageRequestAccessory `json:"accessory"`
 }
@@ -66,7 +67,7 @@ type _SectionComponentForMessageRequest SectionComponentForMessageRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSectionComponentForMessageRequest(type_ int32, components []TextDisplayComponentForMessageRequest, accessory SectionComponentForMessageRequestAccessory) *SectionComponentForMessageRequest {
+func NewSectionComponentForMessageRequest(type_ MessageComponentTypes, components []TextDisplayComponentForMessageRequest, accessory SectionComponentForMessageRequestAccessory) *SectionComponentForMessageRequest {
 	this := SectionComponentForMessageRequest{}
 	this.Type = type_
 	this.Components = components
@@ -83,9 +84,9 @@ func NewSectionComponentForMessageRequestWithDefaults() *SectionComponentForMess
 }
 
 // GetType returns the Type field value
-func (o *SectionComponentForMessageRequest) GetType() int32 {
+func (o *SectionComponentForMessageRequest) GetType() MessageComponentTypes {
 	if o == nil {
-		var ret int32
+		var ret MessageComponentTypes
 		return ret
 	}
 
@@ -94,7 +95,7 @@ func (o *SectionComponentForMessageRequest) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *SectionComponentForMessageRequest) GetTypeOk() (*int32, bool) {
+func (o *SectionComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -102,9 +103,42 @@ func (o *SectionComponentForMessageRequest) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *SectionComponentForMessageRequest) SetType(v int32) {
+func (o *SectionComponentForMessageRequest) SetType(v MessageComponentTypes) {
 	o.Type = v
 }
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *SectionComponentForMessageRequest) GetId() int32 {
+	if o == nil || IsNil(o.Id) {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SectionComponentForMessageRequest) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *SectionComponentForMessageRequest) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *SectionComponentForMessageRequest) SetId(v int32) {
+	o.Id = &v
+}
+
 
 // GetComponents returns the Components field value
 func (o *SectionComponentForMessageRequest) GetComponents() []TextDisplayComponentForMessageRequest {
@@ -165,6 +199,9 @@ func (o SectionComponentForMessageRequest) MarshalJSON() ([]byte, error) {
 func (o SectionComponentForMessageRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	toSerialize["components"] = o.Components
 	toSerialize["accessory"] = o.Accessory
 	return toSerialize, nil
@@ -244,5 +281,4 @@ func (v *NullableSectionComponentForMessageRequest) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

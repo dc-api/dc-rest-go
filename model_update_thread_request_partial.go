@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,18 +53,18 @@ var _ MappedNullable = &UpdateThreadRequestPartial{}
 
 // UpdateThreadRequestPartial struct for UpdateThreadRequestPartial
 type UpdateThreadRequestPartial struct {
-	Name NullableString `json:"name,omitempty"`
-	Archived NullableBool `json:"archived,omitempty"`
-	Locked NullableBool `json:"locked,omitempty"`
-	Invitable NullableBool `json:"invitable,omitempty"`
-	AutoArchiveDuration *int32 `json:"auto_archive_duration,omitempty"`
-	RateLimitPerUser NullableInt32 `json:"rate_limit_per_user,omitempty"`
-	Flags NullableInt32 `json:"flags,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Archived *bool `json:"archived,omitempty"`
+	Locked *bool `json:"locked,omitempty"`
+	Invitable *bool `json:"invitable,omitempty"`
+	AutoArchiveDuration *CreateForumThreadRequestAutoArchiveDuration `json:"auto_archive_duration,omitempty"`
+	RateLimitPerUser *int32 `json:"rate_limit_per_user,omitempty"`
+	Flags *int32 `json:"flags,omitempty"`
 	AppliedTags []string `json:"applied_tags,omitempty"`
-	Bitrate NullableInt32 `json:"bitrate,omitempty"`
-	UserLimit NullableInt32 `json:"user_limit,omitempty"`
-	RtcRegion NullableString `json:"rtc_region,omitempty"`
-	VideoQualityMode *int32 `json:"video_quality_mode,omitempty"`
+	Bitrate *int32 `json:"bitrate,omitempty"`
+	UserLimit *int32 `json:"user_limit,omitempty"`
+	RtcRegion *string `json:"rtc_region,omitempty"`
+	VideoQualityMode *CreateGuildChannelRequestVideoQualityMode `json:"video_quality_mode,omitempty"`
 }
 
 // NewUpdateThreadRequestPartial instantiates a new UpdateThreadRequestPartial object
@@ -84,182 +84,142 @@ func NewUpdateThreadRequestPartialWithDefaults() *UpdateThreadRequestPartial {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *UpdateThreadRequestPartial) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateThreadRequestPartial) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *UpdateThreadRequestPartial) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *UpdateThreadRequestPartial) SetName(v string) {
-	o.Name.Set(&v)
+	o.Name = &v
 }
 
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *UpdateThreadRequestPartial) SetNameNil() {
-	o.Name.Set(nil)
-}
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *UpdateThreadRequestPartial) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetArchived returns the Archived field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetArchived returns the Archived field value if set, zero value otherwise.
 func (o *UpdateThreadRequestPartial) GetArchived() bool {
-	if o == nil || IsNil(o.Archived.Get()) {
+	if o == nil || IsNil(o.Archived) {
 		var ret bool
 		return ret
 	}
-	return *o.Archived.Get()
+	return *o.Archived
 }
 
 // GetArchivedOk returns a tuple with the Archived field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateThreadRequestPartial) GetArchivedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Archived.Get()) {
+	if o == nil || IsNil(o.Archived) {
 		return nil, false
 	}
-	return o.Archived.Get(), o.Archived.IsSet()
+	return o.Archived, true
 }
 
 // HasArchived returns a boolean if a field has been set.
 func (o *UpdateThreadRequestPartial) HasArchived() bool {
-	if o != nil && o.Archived.IsSet() {
+	if o != nil && !IsNil(o.Archived) {
 		return true
 	}
 
 	return false
 }
 
-// SetArchived gets a reference to the given NullableBool and assigns it to the Archived field.
+// SetArchived gets a reference to the given bool and assigns it to the Archived field.
 func (o *UpdateThreadRequestPartial) SetArchived(v bool) {
-	o.Archived.Set(&v)
+	o.Archived = &v
 }
 
-// SetArchivedNil sets the value for Archived to be an explicit nil
-func (o *UpdateThreadRequestPartial) SetArchivedNil() {
-	o.Archived.Set(nil)
-}
 
-// UnsetArchived ensures that no value is present for Archived, not even an explicit nil
-func (o *UpdateThreadRequestPartial) UnsetArchived() {
-	o.Archived.Unset()
-}
-
-// GetLocked returns the Locked field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLocked returns the Locked field value if set, zero value otherwise.
 func (o *UpdateThreadRequestPartial) GetLocked() bool {
-	if o == nil || IsNil(o.Locked.Get()) {
+	if o == nil || IsNil(o.Locked) {
 		var ret bool
 		return ret
 	}
-	return *o.Locked.Get()
+	return *o.Locked
 }
 
 // GetLockedOk returns a tuple with the Locked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateThreadRequestPartial) GetLockedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Locked.Get()) {
+	if o == nil || IsNil(o.Locked) {
 		return nil, false
 	}
-	return o.Locked.Get(), o.Locked.IsSet()
+	return o.Locked, true
 }
 
 // HasLocked returns a boolean if a field has been set.
 func (o *UpdateThreadRequestPartial) HasLocked() bool {
-	if o != nil && o.Locked.IsSet() {
+	if o != nil && !IsNil(o.Locked) {
 		return true
 	}
 
 	return false
 }
 
-// SetLocked gets a reference to the given NullableBool and assigns it to the Locked field.
+// SetLocked gets a reference to the given bool and assigns it to the Locked field.
 func (o *UpdateThreadRequestPartial) SetLocked(v bool) {
-	o.Locked.Set(&v)
+	o.Locked = &v
 }
 
-// SetLockedNil sets the value for Locked to be an explicit nil
-func (o *UpdateThreadRequestPartial) SetLockedNil() {
-	o.Locked.Set(nil)
-}
 
-// UnsetLocked ensures that no value is present for Locked, not even an explicit nil
-func (o *UpdateThreadRequestPartial) UnsetLocked() {
-	o.Locked.Unset()
-}
-
-// GetInvitable returns the Invitable field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInvitable returns the Invitable field value if set, zero value otherwise.
 func (o *UpdateThreadRequestPartial) GetInvitable() bool {
-	if o == nil || IsNil(o.Invitable.Get()) {
+	if o == nil || IsNil(o.Invitable) {
 		var ret bool
 		return ret
 	}
-	return *o.Invitable.Get()
+	return *o.Invitable
 }
 
 // GetInvitableOk returns a tuple with the Invitable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateThreadRequestPartial) GetInvitableOk() (*bool, bool) {
-	if o == nil || IsNil(o.Invitable.Get()) {
+	if o == nil || IsNil(o.Invitable) {
 		return nil, false
 	}
-	return o.Invitable.Get(), o.Invitable.IsSet()
+	return o.Invitable, true
 }
 
 // HasInvitable returns a boolean if a field has been set.
 func (o *UpdateThreadRequestPartial) HasInvitable() bool {
-	if o != nil && o.Invitable.IsSet() {
+	if o != nil && !IsNil(o.Invitable) {
 		return true
 	}
 
 	return false
 }
 
-// SetInvitable gets a reference to the given NullableBool and assigns it to the Invitable field.
+// SetInvitable gets a reference to the given bool and assigns it to the Invitable field.
 func (o *UpdateThreadRequestPartial) SetInvitable(v bool) {
-	o.Invitable.Set(&v)
+	o.Invitable = &v
 }
 
-// SetInvitableNil sets the value for Invitable to be an explicit nil
-func (o *UpdateThreadRequestPartial) SetInvitableNil() {
-	o.Invitable.Set(nil)
-}
-
-// UnsetInvitable ensures that no value is present for Invitable, not even an explicit nil
-func (o *UpdateThreadRequestPartial) UnsetInvitable() {
-	o.Invitable.Unset()
-}
 
 // GetAutoArchiveDuration returns the AutoArchiveDuration field value if set, zero value otherwise.
-func (o *UpdateThreadRequestPartial) GetAutoArchiveDuration() int32 {
+func (o *UpdateThreadRequestPartial) GetAutoArchiveDuration() CreateForumThreadRequestAutoArchiveDuration {
 	if o == nil || IsNil(o.AutoArchiveDuration) {
-		var ret int32
+		var ret CreateForumThreadRequestAutoArchiveDuration
 		return ret
 	}
 	return *o.AutoArchiveDuration
@@ -267,7 +227,7 @@ func (o *UpdateThreadRequestPartial) GetAutoArchiveDuration() int32 {
 
 // GetAutoArchiveDurationOk returns a tuple with the AutoArchiveDuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateThreadRequestPartial) GetAutoArchiveDurationOk() (*int32, bool) {
+func (o *UpdateThreadRequestPartial) GetAutoArchiveDurationOk() (*CreateForumThreadRequestAutoArchiveDuration, bool) {
 	if o == nil || IsNil(o.AutoArchiveDuration) {
 		return nil, false
 	}
@@ -283,101 +243,81 @@ func (o *UpdateThreadRequestPartial) HasAutoArchiveDuration() bool {
 	return false
 }
 
-// SetAutoArchiveDuration gets a reference to the given int32 and assigns it to the AutoArchiveDuration field.
-func (o *UpdateThreadRequestPartial) SetAutoArchiveDuration(v int32) {
+// SetAutoArchiveDuration gets a reference to the given CreateForumThreadRequestAutoArchiveDuration and assigns it to the AutoArchiveDuration field.
+func (o *UpdateThreadRequestPartial) SetAutoArchiveDuration(v CreateForumThreadRequestAutoArchiveDuration) {
 	o.AutoArchiveDuration = &v
 }
 
 
-// GetRateLimitPerUser returns the RateLimitPerUser field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRateLimitPerUser returns the RateLimitPerUser field value if set, zero value otherwise.
 func (o *UpdateThreadRequestPartial) GetRateLimitPerUser() int32 {
-	if o == nil || IsNil(o.RateLimitPerUser.Get()) {
+	if o == nil || IsNil(o.RateLimitPerUser) {
 		var ret int32
 		return ret
 	}
-	return *o.RateLimitPerUser.Get()
+	return *o.RateLimitPerUser
 }
 
 // GetRateLimitPerUserOk returns a tuple with the RateLimitPerUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateThreadRequestPartial) GetRateLimitPerUserOk() (*int32, bool) {
-	if o == nil || IsNil(o.RateLimitPerUser.Get()) {
+	if o == nil || IsNil(o.RateLimitPerUser) {
 		return nil, false
 	}
-	return o.RateLimitPerUser.Get(), o.RateLimitPerUser.IsSet()
+	return o.RateLimitPerUser, true
 }
 
 // HasRateLimitPerUser returns a boolean if a field has been set.
 func (o *UpdateThreadRequestPartial) HasRateLimitPerUser() bool {
-	if o != nil && o.RateLimitPerUser.IsSet() {
+	if o != nil && !IsNil(o.RateLimitPerUser) {
 		return true
 	}
 
 	return false
 }
 
-// SetRateLimitPerUser gets a reference to the given NullableInt32 and assigns it to the RateLimitPerUser field.
+// SetRateLimitPerUser gets a reference to the given int32 and assigns it to the RateLimitPerUser field.
 func (o *UpdateThreadRequestPartial) SetRateLimitPerUser(v int32) {
-	o.RateLimitPerUser.Set(&v)
+	o.RateLimitPerUser = &v
 }
 
-// SetRateLimitPerUserNil sets the value for RateLimitPerUser to be an explicit nil
-func (o *UpdateThreadRequestPartial) SetRateLimitPerUserNil() {
-	o.RateLimitPerUser.Set(nil)
-}
 
-// UnsetRateLimitPerUser ensures that no value is present for RateLimitPerUser, not even an explicit nil
-func (o *UpdateThreadRequestPartial) UnsetRateLimitPerUser() {
-	o.RateLimitPerUser.Unset()
-}
-
-// GetFlags returns the Flags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFlags returns the Flags field value if set, zero value otherwise.
 func (o *UpdateThreadRequestPartial) GetFlags() int32 {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		var ret int32
 		return ret
 	}
-	return *o.Flags.Get()
+	return *o.Flags
 }
 
 // GetFlagsOk returns a tuple with the Flags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateThreadRequestPartial) GetFlagsOk() (*int32, bool) {
-	if o == nil || IsNil(o.Flags.Get()) {
+	if o == nil || IsNil(o.Flags) {
 		return nil, false
 	}
-	return o.Flags.Get(), o.Flags.IsSet()
+	return o.Flags, true
 }
 
 // HasFlags returns a boolean if a field has been set.
 func (o *UpdateThreadRequestPartial) HasFlags() bool {
-	if o != nil && o.Flags.IsSet() {
+	if o != nil && !IsNil(o.Flags) {
 		return true
 	}
 
 	return false
 }
 
-// SetFlags gets a reference to the given NullableInt32 and assigns it to the Flags field.
+// SetFlags gets a reference to the given int32 and assigns it to the Flags field.
 func (o *UpdateThreadRequestPartial) SetFlags(v int32) {
-	o.Flags.Set(&v)
+	o.Flags = &v
 }
 
-// SetFlagsNil sets the value for Flags to be an explicit nil
-func (o *UpdateThreadRequestPartial) SetFlagsNil() {
-	o.Flags.Set(nil)
-}
 
-// UnsetFlags ensures that no value is present for Flags, not even an explicit nil
-func (o *UpdateThreadRequestPartial) UnsetFlags() {
-	o.Flags.Unset()
-}
-
-// GetAppliedTags returns the AppliedTags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAppliedTags returns the AppliedTags field value if set, zero value otherwise.
 func (o *UpdateThreadRequestPartial) GetAppliedTags() []string {
-	if o == nil {
+	if o == nil || IsNil(o.AppliedTags) {
 		var ret []string
 		return ret
 	}
@@ -386,9 +326,8 @@ func (o *UpdateThreadRequestPartial) GetAppliedTags() []string {
 
 // GetAppliedTagsOk returns a tuple with the AppliedTags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateThreadRequestPartial) GetAppliedTagsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AppliedTags) {
 		return nil, false
 	}
 	return o.AppliedTags, true
@@ -409,139 +348,109 @@ func (o *UpdateThreadRequestPartial) SetAppliedTags(v []string) {
 }
 
 
-// GetBitrate returns the Bitrate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBitrate returns the Bitrate field value if set, zero value otherwise.
 func (o *UpdateThreadRequestPartial) GetBitrate() int32 {
-	if o == nil || IsNil(o.Bitrate.Get()) {
+	if o == nil || IsNil(o.Bitrate) {
 		var ret int32
 		return ret
 	}
-	return *o.Bitrate.Get()
+	return *o.Bitrate
 }
 
 // GetBitrateOk returns a tuple with the Bitrate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateThreadRequestPartial) GetBitrateOk() (*int32, bool) {
-	if o == nil || IsNil(o.Bitrate.Get()) {
+	if o == nil || IsNil(o.Bitrate) {
 		return nil, false
 	}
-	return o.Bitrate.Get(), o.Bitrate.IsSet()
+	return o.Bitrate, true
 }
 
 // HasBitrate returns a boolean if a field has been set.
 func (o *UpdateThreadRequestPartial) HasBitrate() bool {
-	if o != nil && o.Bitrate.IsSet() {
+	if o != nil && !IsNil(o.Bitrate) {
 		return true
 	}
 
 	return false
 }
 
-// SetBitrate gets a reference to the given NullableInt32 and assigns it to the Bitrate field.
+// SetBitrate gets a reference to the given int32 and assigns it to the Bitrate field.
 func (o *UpdateThreadRequestPartial) SetBitrate(v int32) {
-	o.Bitrate.Set(&v)
+	o.Bitrate = &v
 }
 
-// SetBitrateNil sets the value for Bitrate to be an explicit nil
-func (o *UpdateThreadRequestPartial) SetBitrateNil() {
-	o.Bitrate.Set(nil)
-}
 
-// UnsetBitrate ensures that no value is present for Bitrate, not even an explicit nil
-func (o *UpdateThreadRequestPartial) UnsetBitrate() {
-	o.Bitrate.Unset()
-}
-
-// GetUserLimit returns the UserLimit field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUserLimit returns the UserLimit field value if set, zero value otherwise.
 func (o *UpdateThreadRequestPartial) GetUserLimit() int32 {
-	if o == nil || IsNil(o.UserLimit.Get()) {
+	if o == nil || IsNil(o.UserLimit) {
 		var ret int32
 		return ret
 	}
-	return *o.UserLimit.Get()
+	return *o.UserLimit
 }
 
 // GetUserLimitOk returns a tuple with the UserLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateThreadRequestPartial) GetUserLimitOk() (*int32, bool) {
-	if o == nil || IsNil(o.UserLimit.Get()) {
+	if o == nil || IsNil(o.UserLimit) {
 		return nil, false
 	}
-	return o.UserLimit.Get(), o.UserLimit.IsSet()
+	return o.UserLimit, true
 }
 
 // HasUserLimit returns a boolean if a field has been set.
 func (o *UpdateThreadRequestPartial) HasUserLimit() bool {
-	if o != nil && o.UserLimit.IsSet() {
+	if o != nil && !IsNil(o.UserLimit) {
 		return true
 	}
 
 	return false
 }
 
-// SetUserLimit gets a reference to the given NullableInt32 and assigns it to the UserLimit field.
+// SetUserLimit gets a reference to the given int32 and assigns it to the UserLimit field.
 func (o *UpdateThreadRequestPartial) SetUserLimit(v int32) {
-	o.UserLimit.Set(&v)
+	o.UserLimit = &v
 }
 
-// SetUserLimitNil sets the value for UserLimit to be an explicit nil
-func (o *UpdateThreadRequestPartial) SetUserLimitNil() {
-	o.UserLimit.Set(nil)
-}
 
-// UnsetUserLimit ensures that no value is present for UserLimit, not even an explicit nil
-func (o *UpdateThreadRequestPartial) UnsetUserLimit() {
-	o.UserLimit.Unset()
-}
-
-// GetRtcRegion returns the RtcRegion field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRtcRegion returns the RtcRegion field value if set, zero value otherwise.
 func (o *UpdateThreadRequestPartial) GetRtcRegion() string {
-	if o == nil || IsNil(o.RtcRegion.Get()) {
+	if o == nil || IsNil(o.RtcRegion) {
 		var ret string
 		return ret
 	}
-	return *o.RtcRegion.Get()
+	return *o.RtcRegion
 }
 
 // GetRtcRegionOk returns a tuple with the RtcRegion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateThreadRequestPartial) GetRtcRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.RtcRegion.Get()) {
+	if o == nil || IsNil(o.RtcRegion) {
 		return nil, false
 	}
-	return o.RtcRegion.Get(), o.RtcRegion.IsSet()
+	return o.RtcRegion, true
 }
 
 // HasRtcRegion returns a boolean if a field has been set.
 func (o *UpdateThreadRequestPartial) HasRtcRegion() bool {
-	if o != nil && o.RtcRegion.IsSet() {
+	if o != nil && !IsNil(o.RtcRegion) {
 		return true
 	}
 
 	return false
 }
 
-// SetRtcRegion gets a reference to the given NullableString and assigns it to the RtcRegion field.
+// SetRtcRegion gets a reference to the given string and assigns it to the RtcRegion field.
 func (o *UpdateThreadRequestPartial) SetRtcRegion(v string) {
-	o.RtcRegion.Set(&v)
+	o.RtcRegion = &v
 }
 
-// SetRtcRegionNil sets the value for RtcRegion to be an explicit nil
-func (o *UpdateThreadRequestPartial) SetRtcRegionNil() {
-	o.RtcRegion.Set(nil)
-}
-
-// UnsetRtcRegion ensures that no value is present for RtcRegion, not even an explicit nil
-func (o *UpdateThreadRequestPartial) UnsetRtcRegion() {
-	o.RtcRegion.Unset()
-}
 
 // GetVideoQualityMode returns the VideoQualityMode field value if set, zero value otherwise.
-func (o *UpdateThreadRequestPartial) GetVideoQualityMode() int32 {
+func (o *UpdateThreadRequestPartial) GetVideoQualityMode() CreateGuildChannelRequestVideoQualityMode {
 	if o == nil || IsNil(o.VideoQualityMode) {
-		var ret int32
+		var ret CreateGuildChannelRequestVideoQualityMode
 		return ret
 	}
 	return *o.VideoQualityMode
@@ -549,7 +458,7 @@ func (o *UpdateThreadRequestPartial) GetVideoQualityMode() int32 {
 
 // GetVideoQualityModeOk returns a tuple with the VideoQualityMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateThreadRequestPartial) GetVideoQualityModeOk() (*int32, bool) {
+func (o *UpdateThreadRequestPartial) GetVideoQualityModeOk() (*CreateGuildChannelRequestVideoQualityMode, bool) {
 	if o == nil || IsNil(o.VideoQualityMode) {
 		return nil, false
 	}
@@ -565,8 +474,8 @@ func (o *UpdateThreadRequestPartial) HasVideoQualityMode() bool {
 	return false
 }
 
-// SetVideoQualityMode gets a reference to the given int32 and assigns it to the VideoQualityMode field.
-func (o *UpdateThreadRequestPartial) SetVideoQualityMode(v int32) {
+// SetVideoQualityMode gets a reference to the given CreateGuildChannelRequestVideoQualityMode and assigns it to the VideoQualityMode field.
+func (o *UpdateThreadRequestPartial) SetVideoQualityMode(v CreateGuildChannelRequestVideoQualityMode) {
 	o.VideoQualityMode = &v
 }
 
@@ -581,38 +490,38 @@ func (o UpdateThreadRequestPartial) MarshalJSON() ([]byte, error) {
 
 func (o UpdateThreadRequestPartial) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Archived.IsSet() {
-		toSerialize["archived"] = o.Archived.Get()
+	if !IsNil(o.Archived) {
+		toSerialize["archived"] = o.Archived
 	}
-	if o.Locked.IsSet() {
-		toSerialize["locked"] = o.Locked.Get()
+	if !IsNil(o.Locked) {
+		toSerialize["locked"] = o.Locked
 	}
-	if o.Invitable.IsSet() {
-		toSerialize["invitable"] = o.Invitable.Get()
+	if !IsNil(o.Invitable) {
+		toSerialize["invitable"] = o.Invitable
 	}
 	if !IsNil(o.AutoArchiveDuration) {
 		toSerialize["auto_archive_duration"] = o.AutoArchiveDuration
 	}
-	if o.RateLimitPerUser.IsSet() {
-		toSerialize["rate_limit_per_user"] = o.RateLimitPerUser.Get()
+	if !IsNil(o.RateLimitPerUser) {
+		toSerialize["rate_limit_per_user"] = o.RateLimitPerUser
 	}
-	if o.Flags.IsSet() {
-		toSerialize["flags"] = o.Flags.Get()
+	if !IsNil(o.Flags) {
+		toSerialize["flags"] = o.Flags
 	}
-	if o.AppliedTags != nil {
+	if !IsNil(o.AppliedTags) {
 		toSerialize["applied_tags"] = o.AppliedTags
 	}
-	if o.Bitrate.IsSet() {
-		toSerialize["bitrate"] = o.Bitrate.Get()
+	if !IsNil(o.Bitrate) {
+		toSerialize["bitrate"] = o.Bitrate
 	}
-	if o.UserLimit.IsSet() {
-		toSerialize["user_limit"] = o.UserLimit.Get()
+	if !IsNil(o.UserLimit) {
+		toSerialize["user_limit"] = o.UserLimit
 	}
-	if o.RtcRegion.IsSet() {
-		toSerialize["rtc_region"] = o.RtcRegion.Get()
+	if !IsNil(o.RtcRegion) {
+		toSerialize["rtc_region"] = o.RtcRegion
 	}
 	if !IsNil(o.VideoQualityMode) {
 		toSerialize["video_quality_mode"] = o.VideoQualityMode
@@ -655,5 +564,4 @@ func (v *NullableUpdateThreadRequestPartial) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Url** | **string** |  | 
 **ProxyUrl** | **string** |  | 
-**Width** | Pointer to **NullableInt32** |  | [optional] 
-**Height** | Pointer to **NullableInt32** |  | [optional] 
-**ContentType** | Pointer to **NullableString** |  | [optional] 
+**Width** | Pointer to **int32** |  | [optional] 
+**Height** | Pointer to **int32** |  | [optional] 
+**ContentType** | Pointer to **string** |  | [optional] 
 **AttachmentId** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -116,16 +116,6 @@ SetWidth sets Width field to given value.
 
 HasWidth returns a boolean if a field has been set.
 
-### SetWidthNil
-
-`func (o *UnfurledMediaResponse) SetWidthNil(b bool)`
-
- SetWidthNil sets the value for Width to be an explicit nil
-
-### UnsetWidth
-`func (o *UnfurledMediaResponse) UnsetWidth()`
-
-UnsetWidth ensures that no value is present for Width, not even an explicit nil
 ### GetHeight
 
 `func (o *UnfurledMediaResponse) GetHeight() int32`
@@ -151,16 +141,6 @@ SetHeight sets Height field to given value.
 
 HasHeight returns a boolean if a field has been set.
 
-### SetHeightNil
-
-`func (o *UnfurledMediaResponse) SetHeightNil(b bool)`
-
- SetHeightNil sets the value for Height to be an explicit nil
-
-### UnsetHeight
-`func (o *UnfurledMediaResponse) UnsetHeight()`
-
-UnsetHeight ensures that no value is present for Height, not even an explicit nil
 ### GetContentType
 
 `func (o *UnfurledMediaResponse) GetContentType() string`
@@ -186,16 +166,6 @@ SetContentType sets ContentType field to given value.
 
 HasContentType returns a boolean if a field has been set.
 
-### SetContentTypeNil
-
-`func (o *UnfurledMediaResponse) SetContentTypeNil(b bool)`
-
- SetContentTypeNil sets the value for ContentType to be an explicit nil
-
-### UnsetContentType
-`func (o *UnfurledMediaResponse) UnsetContentType()`
-
-UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
 ### GetAttachmentId
 
 `func (o *UnfurledMediaResponse) GetAttachmentId() string`

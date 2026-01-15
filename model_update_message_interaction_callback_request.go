@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,8 +55,8 @@ var _ MappedNullable = &UpdateMessageInteractionCallbackRequest{}
 
 // UpdateMessageInteractionCallbackRequest struct for UpdateMessageInteractionCallbackRequest
 type UpdateMessageInteractionCallbackRequest struct {
-	Type NullableInt32 `json:"type"`
-	Data NullableIncomingWebhookUpdateForInteractionCallbackRequestPartial `json:"data,omitempty"`
+	Type InteractionCallbackTypes `json:"type"`
+	Data *UpdateMessageInteractionCallbackRequestData `json:"data,omitempty"`
 }
 
 type _UpdateMessageInteractionCallbackRequest UpdateMessageInteractionCallbackRequest
@@ -65,7 +65,7 @@ type _UpdateMessageInteractionCallbackRequest UpdateMessageInteractionCallbackRe
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateMessageInteractionCallbackRequest(type_ NullableInt32) *UpdateMessageInteractionCallbackRequest {
+func NewUpdateMessageInteractionCallbackRequest(type_ InteractionCallbackTypes) *UpdateMessageInteractionCallbackRequest {
 	this := UpdateMessageInteractionCallbackRequest{}
 	this.Type = type_
 	return &this
@@ -80,73 +80,61 @@ func NewUpdateMessageInteractionCallbackRequestWithDefaults() *UpdateMessageInte
 }
 
 // GetType returns the Type field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *UpdateMessageInteractionCallbackRequest) GetType() int32 {
-	if o == nil || o.Type.Get() == nil {
-		var ret int32
+func (o *UpdateMessageInteractionCallbackRequest) GetType() InteractionCallbackTypes {
+	if o == nil {
+		var ret InteractionCallbackTypes
 		return ret
 	}
 
-	return *o.Type.Get()
+	return o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UpdateMessageInteractionCallbackRequest) GetTypeOk() (*int32, bool) {
+func (o *UpdateMessageInteractionCallbackRequest) GetTypeOk() (*InteractionCallbackTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return &o.Type, true
 }
 
 // SetType sets field value
-func (o *UpdateMessageInteractionCallbackRequest) SetType(v int32) {
-	o.Type.Set(&v)
+func (o *UpdateMessageInteractionCallbackRequest) SetType(v InteractionCallbackTypes) {
+	o.Type = v
 }
 
-// GetData returns the Data field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UpdateMessageInteractionCallbackRequest) GetData() IncomingWebhookUpdateForInteractionCallbackRequestPartial {
-	if o == nil || IsNil(o.Data.Get()) {
-		var ret IncomingWebhookUpdateForInteractionCallbackRequestPartial
+// GetData returns the Data field value if set, zero value otherwise.
+func (o *UpdateMessageInteractionCallbackRequest) GetData() UpdateMessageInteractionCallbackRequestData {
+	if o == nil || IsNil(o.Data) {
+		var ret UpdateMessageInteractionCallbackRequestData
 		return ret
 	}
-	return *o.Data.Get()
+	return *o.Data
 }
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UpdateMessageInteractionCallbackRequest) GetDataOk() (*IncomingWebhookUpdateForInteractionCallbackRequestPartial, bool) {
-	if o == nil || IsNil(o.Data.Get()) {
+func (o *UpdateMessageInteractionCallbackRequest) GetDataOk() (*UpdateMessageInteractionCallbackRequestData, bool) {
+	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
-	return o.Data.Get(), o.Data.IsSet()
+	return o.Data, true
 }
 
 // HasData returns a boolean if a field has been set.
 func (o *UpdateMessageInteractionCallbackRequest) HasData() bool {
-	if o != nil && o.Data.IsSet() {
+	if o != nil && !IsNil(o.Data) {
 		return true
 	}
 
 	return false
 }
 
-// SetData gets a reference to the given NullableIncomingWebhookUpdateForInteractionCallbackRequestPartial and assigns it to the Data field.
-func (o *UpdateMessageInteractionCallbackRequest) SetData(v IncomingWebhookUpdateForInteractionCallbackRequestPartial) {
-	o.Data.Set(&v)
+// SetData gets a reference to the given UpdateMessageInteractionCallbackRequestData and assigns it to the Data field.
+func (o *UpdateMessageInteractionCallbackRequest) SetData(v UpdateMessageInteractionCallbackRequestData) {
+	o.Data = &v
 }
 
-// SetDataNil sets the value for Data to be an explicit nil
-func (o *UpdateMessageInteractionCallbackRequest) SetDataNil() {
-	o.Data.Set(nil)
-}
-
-// UnsetData ensures that no value is present for Data, not even an explicit nil
-func (o *UpdateMessageInteractionCallbackRequest) UnsetData() {
-	o.Data.Unset()
-}
 
 func (o UpdateMessageInteractionCallbackRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -158,9 +146,9 @@ func (o UpdateMessageInteractionCallbackRequest) MarshalJSON() ([]byte, error) {
 
 func (o UpdateMessageInteractionCallbackRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["type"] = o.Type.Get()
-	if o.Data.IsSet() {
-		toSerialize["data"] = o.Data.Get()
+	toSerialize["type"] = o.Type
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
 	}
 	return toSerialize, nil
 }
@@ -237,5 +225,4 @@ func (v *NullableUpdateMessageInteractionCallbackRequest) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **NullableInt32** |  | 
+**Type** | [**ChannelPermissionOverwrites**](ChannelPermissionOverwrites.md) |  | 
 **Allow** | **string** |  | 
 **Deny** | **string** |  | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewChannelPermissionOverwriteResponse
 
-`func NewChannelPermissionOverwriteResponse(id string, type_ NullableInt32, allow string, deny string, ) *ChannelPermissionOverwriteResponse`
+`func NewChannelPermissionOverwriteResponse(id string, type_ ChannelPermissionOverwrites, allow string, deny string, ) *ChannelPermissionOverwriteResponse`
 
 NewChannelPermissionOverwriteResponse instantiates a new ChannelPermissionOverwriteResponse object
 This constructor will assign default values to properties that have it defined,
@@ -50,34 +50,24 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *ChannelPermissionOverwriteResponse) GetType() int32`
+`func (o *ChannelPermissionOverwriteResponse) GetType() ChannelPermissionOverwrites`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ChannelPermissionOverwriteResponse) GetTypeOk() (*int32, bool)`
+`func (o *ChannelPermissionOverwriteResponse) GetTypeOk() (*ChannelPermissionOverwrites, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ChannelPermissionOverwriteResponse) SetType(v int32)`
+`func (o *ChannelPermissionOverwriteResponse) SetType(v ChannelPermissionOverwrites)`
 
 SetType sets Type field to given value.
 
 
-### SetTypeNil
-
-`func (o *ChannelPermissionOverwriteResponse) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *ChannelPermissionOverwriteResponse) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetAllow
 
 `func (o *ChannelPermissionOverwriteResponse) GetAllow() string`

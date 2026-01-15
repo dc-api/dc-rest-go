@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GuildId** | Pointer to **string** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
+**GuildId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**ChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **MessageId** | **string** |  | 
-**FailIfNotExists** | Pointer to **NullableBool** |  | [optional] 
-**Type** | Pointer to **interface{}** |  | [optional] 
+**FailIfNotExists** | Pointer to **bool** |  | [optional] 
+**Type** | Pointer to [**MessageReferenceRequestType**](MessageReferenceRequestType.md) |  | [optional] 
 
 ## Methods
 
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetGuildId
 
-`func (o *MessageReferenceRequest) GetGuildId() string`
+`func (o *MessageReferenceRequest) GetGuildId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetGuildId returns the GuildId field if non-nil, zero value otherwise.
 
 ### GetGuildIdOk
 
-`func (o *MessageReferenceRequest) GetGuildIdOk() (*string, bool)`
+`func (o *MessageReferenceRequest) GetGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetGuildIdOk returns a tuple with the GuildId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGuildId
 
-`func (o *MessageReferenceRequest) SetGuildId(v string)`
+`func (o *MessageReferenceRequest) SetGuildId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetGuildId sets GuildId field to given value.
 
@@ -56,20 +56,20 @@ HasGuildId returns a boolean if a field has been set.
 
 ### GetChannelId
 
-`func (o *MessageReferenceRequest) GetChannelId() string`
+`func (o *MessageReferenceRequest) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
 
 ### GetChannelIdOk
 
-`func (o *MessageReferenceRequest) GetChannelIdOk() (*string, bool)`
+`func (o *MessageReferenceRequest) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelId
 
-`func (o *MessageReferenceRequest) SetChannelId(v string)`
+`func (o *MessageReferenceRequest) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetChannelId sets ChannelId field to given value.
 
@@ -124,32 +124,22 @@ SetFailIfNotExists sets FailIfNotExists field to given value.
 
 HasFailIfNotExists returns a boolean if a field has been set.
 
-### SetFailIfNotExistsNil
-
-`func (o *MessageReferenceRequest) SetFailIfNotExistsNil(b bool)`
-
- SetFailIfNotExistsNil sets the value for FailIfNotExists to be an explicit nil
-
-### UnsetFailIfNotExists
-`func (o *MessageReferenceRequest) UnsetFailIfNotExists()`
-
-UnsetFailIfNotExists ensures that no value is present for FailIfNotExists, not even an explicit nil
 ### GetType
 
-`func (o *MessageReferenceRequest) GetType() interface{}`
+`func (o *MessageReferenceRequest) GetType() MessageReferenceRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *MessageReferenceRequest) GetTypeOk() (*interface{}, bool)`
+`func (o *MessageReferenceRequest) GetTypeOk() (*MessageReferenceRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *MessageReferenceRequest) SetType(v interface{})`
+`func (o *MessageReferenceRequest) SetType(v MessageReferenceRequestType)`
 
 SetType sets Type field to given value.
 
@@ -159,16 +149,6 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
-### SetTypeNil
-
-`func (o *MessageReferenceRequest) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *MessageReferenceRequest) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

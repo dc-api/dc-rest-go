@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 **Roles** | **[]string** |  | 
 **RequireColons** | **bool** |  | 
 **Managed** | **bool** |  | 
@@ -97,16 +97,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *EmojiResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *EmojiResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetRoles
 
 `func (o *EmojiResponse) GetRoles() []string`

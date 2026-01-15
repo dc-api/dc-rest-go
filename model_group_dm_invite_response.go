@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,14 +56,14 @@ var _ MappedNullable = &GroupDMInviteResponse{}
 
 // GroupDMInviteResponse struct for GroupDMInviteResponse
 type GroupDMInviteResponse struct {
-	Type NullableInt32 `json:"type,omitempty"`
+	Type InviteTypes `json:"type"`
 	Code string `json:"code"`
-	Inviter NullableUserResponse `json:"inviter,omitempty"`
-	MaxAge NullableInt32 `json:"max_age,omitempty"`
-	CreatedAt NullableTime `json:"created_at,omitempty"`
-	ExpiresAt NullableTime `json:"expires_at,omitempty"`
-	Channel NullableInviteChannelResponse `json:"channel,omitempty"`
-	ApproximateMemberCount NullableInt32 `json:"approximate_member_count,omitempty"`
+	Inviter *UserResponse `json:"inviter,omitempty"`
+	MaxAge *int32 `json:"max_age,omitempty"`
+	CreatedAt *time.Time `json:"created_at,omitempty"`
+	ExpiresAt *time.Time `json:"expires_at,omitempty"`
+	Channel InviteChannelResponse `json:"channel"`
+	ApproximateMemberCount *int32 `json:"approximate_member_count,omitempty"`
 }
 
 type _GroupDMInviteResponse GroupDMInviteResponse
@@ -72,9 +72,11 @@ type _GroupDMInviteResponse GroupDMInviteResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGroupDMInviteResponse(code string) *GroupDMInviteResponse {
+func NewGroupDMInviteResponse(type_ InviteTypes, code string, channel InviteChannelResponse) *GroupDMInviteResponse {
 	this := GroupDMInviteResponse{}
+	this.Type = type_
 	this.Code = code
+	this.Channel = channel
 	return &this
 }
 
@@ -86,47 +88,28 @@ func NewGroupDMInviteResponseWithDefaults() *GroupDMInviteResponse {
 	return &this
 }
 
-// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GroupDMInviteResponse) GetType() int32 {
-	if o == nil || IsNil(o.Type.Get()) {
-		var ret int32
+// GetType returns the Type field value
+func (o *GroupDMInviteResponse) GetType() InviteTypes {
+	if o == nil {
+		var ret InviteTypes
 		return ret
 	}
-	return *o.Type.Get()
+
+	return o.Type
 }
 
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GroupDMInviteResponse) GetTypeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Type.Get()) {
+func (o *GroupDMInviteResponse) GetTypeOk() (*InviteTypes, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return &o.Type, true
 }
 
-// HasType returns a boolean if a field has been set.
-func (o *GroupDMInviteResponse) HasType() bool {
-	if o != nil && o.Type.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given NullableInt32 and assigns it to the Type field.
-func (o *GroupDMInviteResponse) SetType(v int32) {
-	o.Type.Set(&v)
-}
-
-// SetTypeNil sets the value for Type to be an explicit nil
-func (o *GroupDMInviteResponse) SetTypeNil() {
-	o.Type.Set(nil)
-}
-
-// UnsetType ensures that no value is present for Type, not even an explicit nil
-func (o *GroupDMInviteResponse) UnsetType() {
-	o.Type.Unset()
+// SetType sets field value
+func (o *GroupDMInviteResponse) SetType(v InviteTypes) {
+	o.Type = v
 }
 
 // GetCode returns the Code field value
@@ -153,263 +136,194 @@ func (o *GroupDMInviteResponse) SetCode(v string) {
 	o.Code = v
 }
 
-// GetInviter returns the Inviter field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInviter returns the Inviter field value if set, zero value otherwise.
 func (o *GroupDMInviteResponse) GetInviter() UserResponse {
-	if o == nil || IsNil(o.Inviter.Get()) {
+	if o == nil || IsNil(o.Inviter) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.Inviter.Get()
+	return *o.Inviter
 }
 
 // GetInviterOk returns a tuple with the Inviter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GroupDMInviteResponse) GetInviterOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.Inviter.Get()) {
+	if o == nil || IsNil(o.Inviter) {
 		return nil, false
 	}
-	return o.Inviter.Get(), o.Inviter.IsSet()
+	return o.Inviter, true
 }
 
 // HasInviter returns a boolean if a field has been set.
 func (o *GroupDMInviteResponse) HasInviter() bool {
-	if o != nil && o.Inviter.IsSet() {
+	if o != nil && !IsNil(o.Inviter) {
 		return true
 	}
 
 	return false
 }
 
-// SetInviter gets a reference to the given NullableUserResponse and assigns it to the Inviter field.
+// SetInviter gets a reference to the given UserResponse and assigns it to the Inviter field.
 func (o *GroupDMInviteResponse) SetInviter(v UserResponse) {
-	o.Inviter.Set(&v)
+	o.Inviter = &v
 }
 
-// SetInviterNil sets the value for Inviter to be an explicit nil
-func (o *GroupDMInviteResponse) SetInviterNil() {
-	o.Inviter.Set(nil)
-}
 
-// UnsetInviter ensures that no value is present for Inviter, not even an explicit nil
-func (o *GroupDMInviteResponse) UnsetInviter() {
-	o.Inviter.Unset()
-}
-
-// GetMaxAge returns the MaxAge field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxAge returns the MaxAge field value if set, zero value otherwise.
 func (o *GroupDMInviteResponse) GetMaxAge() int32 {
-	if o == nil || IsNil(o.MaxAge.Get()) {
+	if o == nil || IsNil(o.MaxAge) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxAge.Get()
+	return *o.MaxAge
 }
 
 // GetMaxAgeOk returns a tuple with the MaxAge field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GroupDMInviteResponse) GetMaxAgeOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxAge.Get()) {
+	if o == nil || IsNil(o.MaxAge) {
 		return nil, false
 	}
-	return o.MaxAge.Get(), o.MaxAge.IsSet()
+	return o.MaxAge, true
 }
 
 // HasMaxAge returns a boolean if a field has been set.
 func (o *GroupDMInviteResponse) HasMaxAge() bool {
-	if o != nil && o.MaxAge.IsSet() {
+	if o != nil && !IsNil(o.MaxAge) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxAge gets a reference to the given NullableInt32 and assigns it to the MaxAge field.
+// SetMaxAge gets a reference to the given int32 and assigns it to the MaxAge field.
 func (o *GroupDMInviteResponse) SetMaxAge(v int32) {
-	o.MaxAge.Set(&v)
+	o.MaxAge = &v
 }
 
-// SetMaxAgeNil sets the value for MaxAge to be an explicit nil
-func (o *GroupDMInviteResponse) SetMaxAgeNil() {
-	o.MaxAge.Set(nil)
-}
 
-// UnsetMaxAge ensures that no value is present for MaxAge, not even an explicit nil
-func (o *GroupDMInviteResponse) UnsetMaxAge() {
-	o.MaxAge.Unset()
-}
-
-// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *GroupDMInviteResponse) GetCreatedAt() time.Time {
-	if o == nil || IsNil(o.CreatedAt.Get()) {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedAt.Get()
+	return *o.CreatedAt
 }
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GroupDMInviteResponse) GetCreatedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedAt.Get()) {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return o.CreatedAt.Get(), o.CreatedAt.IsSet()
+	return o.CreatedAt, true
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
 func (o *GroupDMInviteResponse) HasCreatedAt() bool {
-	if o != nil && o.CreatedAt.IsSet() {
+	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedAt gets a reference to the given NullableTime and assigns it to the CreatedAt field.
+// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
 func (o *GroupDMInviteResponse) SetCreatedAt(v time.Time) {
-	o.CreatedAt.Set(&v)
+	o.CreatedAt = &v
 }
 
-// SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
-func (o *GroupDMInviteResponse) SetCreatedAtNil() {
-	o.CreatedAt.Set(nil)
-}
 
-// UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
-func (o *GroupDMInviteResponse) UnsetCreatedAt() {
-	o.CreatedAt.Unset()
-}
-
-// GetExpiresAt returns the ExpiresAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExpiresAt returns the ExpiresAt field value if set, zero value otherwise.
 func (o *GroupDMInviteResponse) GetExpiresAt() time.Time {
-	if o == nil || IsNil(o.ExpiresAt.Get()) {
+	if o == nil || IsNil(o.ExpiresAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.ExpiresAt.Get()
+	return *o.ExpiresAt
 }
 
 // GetExpiresAtOk returns a tuple with the ExpiresAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GroupDMInviteResponse) GetExpiresAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.ExpiresAt.Get()) {
+	if o == nil || IsNil(o.ExpiresAt) {
 		return nil, false
 	}
-	return o.ExpiresAt.Get(), o.ExpiresAt.IsSet()
+	return o.ExpiresAt, true
 }
 
 // HasExpiresAt returns a boolean if a field has been set.
 func (o *GroupDMInviteResponse) HasExpiresAt() bool {
-	if o != nil && o.ExpiresAt.IsSet() {
+	if o != nil && !IsNil(o.ExpiresAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetExpiresAt gets a reference to the given NullableTime and assigns it to the ExpiresAt field.
+// SetExpiresAt gets a reference to the given time.Time and assigns it to the ExpiresAt field.
 func (o *GroupDMInviteResponse) SetExpiresAt(v time.Time) {
-	o.ExpiresAt.Set(&v)
+	o.ExpiresAt = &v
 }
 
-// SetExpiresAtNil sets the value for ExpiresAt to be an explicit nil
-func (o *GroupDMInviteResponse) SetExpiresAtNil() {
-	o.ExpiresAt.Set(nil)
-}
 
-// UnsetExpiresAt ensures that no value is present for ExpiresAt, not even an explicit nil
-func (o *GroupDMInviteResponse) UnsetExpiresAt() {
-	o.ExpiresAt.Unset()
-}
-
-// GetChannel returns the Channel field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetChannel returns the Channel field value
 func (o *GroupDMInviteResponse) GetChannel() InviteChannelResponse {
-	if o == nil || IsNil(o.Channel.Get()) {
+	if o == nil {
 		var ret InviteChannelResponse
 		return ret
 	}
-	return *o.Channel.Get()
+
+	return o.Channel
 }
 
-// GetChannelOk returns a tuple with the Channel field value if set, nil otherwise
+// GetChannelOk returns a tuple with the Channel field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GroupDMInviteResponse) GetChannelOk() (*InviteChannelResponse, bool) {
-	if o == nil || IsNil(o.Channel.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Channel.Get(), o.Channel.IsSet()
+	return &o.Channel, true
 }
 
-// HasChannel returns a boolean if a field has been set.
-func (o *GroupDMInviteResponse) HasChannel() bool {
-	if o != nil && o.Channel.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetChannel gets a reference to the given NullableInviteChannelResponse and assigns it to the Channel field.
+// SetChannel sets field value
 func (o *GroupDMInviteResponse) SetChannel(v InviteChannelResponse) {
-	o.Channel.Set(&v)
+	o.Channel = v
 }
 
-// SetChannelNil sets the value for Channel to be an explicit nil
-func (o *GroupDMInviteResponse) SetChannelNil() {
-	o.Channel.Set(nil)
-}
-
-// UnsetChannel ensures that no value is present for Channel, not even an explicit nil
-func (o *GroupDMInviteResponse) UnsetChannel() {
-	o.Channel.Unset()
-}
-
-// GetApproximateMemberCount returns the ApproximateMemberCount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetApproximateMemberCount returns the ApproximateMemberCount field value if set, zero value otherwise.
 func (o *GroupDMInviteResponse) GetApproximateMemberCount() int32 {
-	if o == nil || IsNil(o.ApproximateMemberCount.Get()) {
+	if o == nil || IsNil(o.ApproximateMemberCount) {
 		var ret int32
 		return ret
 	}
-	return *o.ApproximateMemberCount.Get()
+	return *o.ApproximateMemberCount
 }
 
 // GetApproximateMemberCountOk returns a tuple with the ApproximateMemberCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GroupDMInviteResponse) GetApproximateMemberCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.ApproximateMemberCount.Get()) {
+	if o == nil || IsNil(o.ApproximateMemberCount) {
 		return nil, false
 	}
-	return o.ApproximateMemberCount.Get(), o.ApproximateMemberCount.IsSet()
+	return o.ApproximateMemberCount, true
 }
 
 // HasApproximateMemberCount returns a boolean if a field has been set.
 func (o *GroupDMInviteResponse) HasApproximateMemberCount() bool {
-	if o != nil && o.ApproximateMemberCount.IsSet() {
+	if o != nil && !IsNil(o.ApproximateMemberCount) {
 		return true
 	}
 
 	return false
 }
 
-// SetApproximateMemberCount gets a reference to the given NullableInt32 and assigns it to the ApproximateMemberCount field.
+// SetApproximateMemberCount gets a reference to the given int32 and assigns it to the ApproximateMemberCount field.
 func (o *GroupDMInviteResponse) SetApproximateMemberCount(v int32) {
-	o.ApproximateMemberCount.Set(&v)
+	o.ApproximateMemberCount = &v
 }
 
-// SetApproximateMemberCountNil sets the value for ApproximateMemberCount to be an explicit nil
-func (o *GroupDMInviteResponse) SetApproximateMemberCountNil() {
-	o.ApproximateMemberCount.Set(nil)
-}
-
-// UnsetApproximateMemberCount ensures that no value is present for ApproximateMemberCount, not even an explicit nil
-func (o *GroupDMInviteResponse) UnsetApproximateMemberCount() {
-	o.ApproximateMemberCount.Unset()
-}
 
 func (o GroupDMInviteResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -421,27 +335,23 @@ func (o GroupDMInviteResponse) MarshalJSON() ([]byte, error) {
 
 func (o GroupDMInviteResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Type.IsSet() {
-		toSerialize["type"] = o.Type.Get()
-	}
+	toSerialize["type"] = o.Type
 	toSerialize["code"] = o.Code
-	if o.Inviter.IsSet() {
-		toSerialize["inviter"] = o.Inviter.Get()
+	if !IsNil(o.Inviter) {
+		toSerialize["inviter"] = o.Inviter
 	}
-	if o.MaxAge.IsSet() {
-		toSerialize["max_age"] = o.MaxAge.Get()
+	if !IsNil(o.MaxAge) {
+		toSerialize["max_age"] = o.MaxAge
 	}
-	if o.CreatedAt.IsSet() {
-		toSerialize["created_at"] = o.CreatedAt.Get()
+	if !IsNil(o.CreatedAt) {
+		toSerialize["created_at"] = o.CreatedAt
 	}
-	if o.ExpiresAt.IsSet() {
-		toSerialize["expires_at"] = o.ExpiresAt.Get()
+	if !IsNil(o.ExpiresAt) {
+		toSerialize["expires_at"] = o.ExpiresAt
 	}
-	if o.Channel.IsSet() {
-		toSerialize["channel"] = o.Channel.Get()
-	}
-	if o.ApproximateMemberCount.IsSet() {
-		toSerialize["approximate_member_count"] = o.ApproximateMemberCount.Get()
+	toSerialize["channel"] = o.Channel
+	if !IsNil(o.ApproximateMemberCount) {
+		toSerialize["approximate_member_count"] = o.ApproximateMemberCount
 	}
 	return toSerialize, nil
 }
@@ -451,7 +361,9 @@ func (o *GroupDMInviteResponse) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"type",
 		"code",
+		"channel",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -518,5 +430,4 @@ func (v *NullableGroupDMInviteResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

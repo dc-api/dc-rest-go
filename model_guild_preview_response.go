@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,12 +57,12 @@ var _ MappedNullable = &GuildPreviewResponse{}
 type GuildPreviewResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
-	Icon NullableString `json:"icon,omitempty"`
-	Description NullableString `json:"description,omitempty"`
-	HomeHeader NullableString `json:"home_header,omitempty"`
-	Splash NullableString `json:"splash,omitempty"`
-	DiscoverySplash NullableString `json:"discovery_splash,omitempty"`
-	Features []string `json:"features"`
+	Icon *string `json:"icon,omitempty"`
+	Description *string `json:"description,omitempty"`
+	HomeHeader *string `json:"home_header,omitempty"`
+	Splash *string `json:"splash,omitempty"`
+	DiscoverySplash *string `json:"discovery_splash,omitempty"`
+	Features []GuildFeatures `json:"features"`
 	ApproximateMemberCount int32 `json:"approximate_member_count"`
 	ApproximatePresenceCount int32 `json:"approximate_presence_count"`
 	Emojis []EmojiResponse `json:"emojis"`
@@ -75,7 +75,7 @@ type _GuildPreviewResponse GuildPreviewResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGuildPreviewResponse(id string, name string, features []string, approximateMemberCount int32, approximatePresenceCount int32, emojis []EmojiResponse, stickers []GuildStickerResponse) *GuildPreviewResponse {
+func NewGuildPreviewResponse(id string, name string, features []GuildFeatures, approximateMemberCount int32, approximatePresenceCount int32, emojis []EmojiResponse, stickers []GuildStickerResponse) *GuildPreviewResponse {
 	this := GuildPreviewResponse{}
 	this.Id = id
 	this.Name = name
@@ -143,225 +143,175 @@ func (o *GuildPreviewResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIcon returns the Icon field value if set, zero value otherwise.
 func (o *GuildPreviewResponse) GetIcon() string {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		var ret string
 		return ret
 	}
-	return *o.Icon.Get()
+	return *o.Icon
 }
 
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPreviewResponse) GetIconOk() (*string, bool) {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		return nil, false
 	}
-	return o.Icon.Get(), o.Icon.IsSet()
+	return o.Icon, true
 }
 
 // HasIcon returns a boolean if a field has been set.
 func (o *GuildPreviewResponse) HasIcon() bool {
-	if o != nil && o.Icon.IsSet() {
+	if o != nil && !IsNil(o.Icon) {
 		return true
 	}
 
 	return false
 }
 
-// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+// SetIcon gets a reference to the given string and assigns it to the Icon field.
 func (o *GuildPreviewResponse) SetIcon(v string) {
-	o.Icon.Set(&v)
+	o.Icon = &v
 }
 
-// SetIconNil sets the value for Icon to be an explicit nil
-func (o *GuildPreviewResponse) SetIconNil() {
-	o.Icon.Set(nil)
-}
 
-// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
-func (o *GuildPreviewResponse) UnsetIcon() {
-	o.Icon.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *GuildPreviewResponse) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPreviewResponse) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *GuildPreviewResponse) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *GuildPreviewResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = &v
 }
 
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *GuildPreviewResponse) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *GuildPreviewResponse) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetHomeHeader returns the HomeHeader field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHomeHeader returns the HomeHeader field value if set, zero value otherwise.
 func (o *GuildPreviewResponse) GetHomeHeader() string {
-	if o == nil || IsNil(o.HomeHeader.Get()) {
+	if o == nil || IsNil(o.HomeHeader) {
 		var ret string
 		return ret
 	}
-	return *o.HomeHeader.Get()
+	return *o.HomeHeader
 }
 
 // GetHomeHeaderOk returns a tuple with the HomeHeader field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPreviewResponse) GetHomeHeaderOk() (*string, bool) {
-	if o == nil || IsNil(o.HomeHeader.Get()) {
+	if o == nil || IsNil(o.HomeHeader) {
 		return nil, false
 	}
-	return o.HomeHeader.Get(), o.HomeHeader.IsSet()
+	return o.HomeHeader, true
 }
 
 // HasHomeHeader returns a boolean if a field has been set.
 func (o *GuildPreviewResponse) HasHomeHeader() bool {
-	if o != nil && o.HomeHeader.IsSet() {
+	if o != nil && !IsNil(o.HomeHeader) {
 		return true
 	}
 
 	return false
 }
 
-// SetHomeHeader gets a reference to the given NullableString and assigns it to the HomeHeader field.
+// SetHomeHeader gets a reference to the given string and assigns it to the HomeHeader field.
 func (o *GuildPreviewResponse) SetHomeHeader(v string) {
-	o.HomeHeader.Set(&v)
+	o.HomeHeader = &v
 }
 
-// SetHomeHeaderNil sets the value for HomeHeader to be an explicit nil
-func (o *GuildPreviewResponse) SetHomeHeaderNil() {
-	o.HomeHeader.Set(nil)
-}
 
-// UnsetHomeHeader ensures that no value is present for HomeHeader, not even an explicit nil
-func (o *GuildPreviewResponse) UnsetHomeHeader() {
-	o.HomeHeader.Unset()
-}
-
-// GetSplash returns the Splash field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSplash returns the Splash field value if set, zero value otherwise.
 func (o *GuildPreviewResponse) GetSplash() string {
-	if o == nil || IsNil(o.Splash.Get()) {
+	if o == nil || IsNil(o.Splash) {
 		var ret string
 		return ret
 	}
-	return *o.Splash.Get()
+	return *o.Splash
 }
 
 // GetSplashOk returns a tuple with the Splash field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPreviewResponse) GetSplashOk() (*string, bool) {
-	if o == nil || IsNil(o.Splash.Get()) {
+	if o == nil || IsNil(o.Splash) {
 		return nil, false
 	}
-	return o.Splash.Get(), o.Splash.IsSet()
+	return o.Splash, true
 }
 
 // HasSplash returns a boolean if a field has been set.
 func (o *GuildPreviewResponse) HasSplash() bool {
-	if o != nil && o.Splash.IsSet() {
+	if o != nil && !IsNil(o.Splash) {
 		return true
 	}
 
 	return false
 }
 
-// SetSplash gets a reference to the given NullableString and assigns it to the Splash field.
+// SetSplash gets a reference to the given string and assigns it to the Splash field.
 func (o *GuildPreviewResponse) SetSplash(v string) {
-	o.Splash.Set(&v)
+	o.Splash = &v
 }
 
-// SetSplashNil sets the value for Splash to be an explicit nil
-func (o *GuildPreviewResponse) SetSplashNil() {
-	o.Splash.Set(nil)
-}
 
-// UnsetSplash ensures that no value is present for Splash, not even an explicit nil
-func (o *GuildPreviewResponse) UnsetSplash() {
-	o.Splash.Unset()
-}
-
-// GetDiscoverySplash returns the DiscoverySplash field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDiscoverySplash returns the DiscoverySplash field value if set, zero value otherwise.
 func (o *GuildPreviewResponse) GetDiscoverySplash() string {
-	if o == nil || IsNil(o.DiscoverySplash.Get()) {
+	if o == nil || IsNil(o.DiscoverySplash) {
 		var ret string
 		return ret
 	}
-	return *o.DiscoverySplash.Get()
+	return *o.DiscoverySplash
 }
 
 // GetDiscoverySplashOk returns a tuple with the DiscoverySplash field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPreviewResponse) GetDiscoverySplashOk() (*string, bool) {
-	if o == nil || IsNil(o.DiscoverySplash.Get()) {
+	if o == nil || IsNil(o.DiscoverySplash) {
 		return nil, false
 	}
-	return o.DiscoverySplash.Get(), o.DiscoverySplash.IsSet()
+	return o.DiscoverySplash, true
 }
 
 // HasDiscoverySplash returns a boolean if a field has been set.
 func (o *GuildPreviewResponse) HasDiscoverySplash() bool {
-	if o != nil && o.DiscoverySplash.IsSet() {
+	if o != nil && !IsNil(o.DiscoverySplash) {
 		return true
 	}
 
 	return false
 }
 
-// SetDiscoverySplash gets a reference to the given NullableString and assigns it to the DiscoverySplash field.
+// SetDiscoverySplash gets a reference to the given string and assigns it to the DiscoverySplash field.
 func (o *GuildPreviewResponse) SetDiscoverySplash(v string) {
-	o.DiscoverySplash.Set(&v)
+	o.DiscoverySplash = &v
 }
 
-// SetDiscoverySplashNil sets the value for DiscoverySplash to be an explicit nil
-func (o *GuildPreviewResponse) SetDiscoverySplashNil() {
-	o.DiscoverySplash.Set(nil)
-}
-
-// UnsetDiscoverySplash ensures that no value is present for DiscoverySplash, not even an explicit nil
-func (o *GuildPreviewResponse) UnsetDiscoverySplash() {
-	o.DiscoverySplash.Unset()
-}
 
 // GetFeatures returns the Features field value
-func (o *GuildPreviewResponse) GetFeatures() []string {
+func (o *GuildPreviewResponse) GetFeatures() []GuildFeatures {
 	if o == nil {
-		var ret []string
+		var ret []GuildFeatures
 		return ret
 	}
 
@@ -370,7 +320,7 @@ func (o *GuildPreviewResponse) GetFeatures() []string {
 
 // GetFeaturesOk returns a tuple with the Features field value
 // and a boolean to check if the value has been set.
-func (o *GuildPreviewResponse) GetFeaturesOk() ([]string, bool) {
+func (o *GuildPreviewResponse) GetFeaturesOk() ([]GuildFeatures, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -378,7 +328,7 @@ func (o *GuildPreviewResponse) GetFeaturesOk() ([]string, bool) {
 }
 
 // SetFeatures sets field value
-func (o *GuildPreviewResponse) SetFeatures(v []string) {
+func (o *GuildPreviewResponse) SetFeatures(v []GuildFeatures) {
 	o.Features = v
 }
 
@@ -490,20 +440,20 @@ func (o GuildPreviewResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
-	if o.Icon.IsSet() {
-		toSerialize["icon"] = o.Icon.Get()
+	if !IsNil(o.Icon) {
+		toSerialize["icon"] = o.Icon
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
-	if o.HomeHeader.IsSet() {
-		toSerialize["home_header"] = o.HomeHeader.Get()
+	if !IsNil(o.HomeHeader) {
+		toSerialize["home_header"] = o.HomeHeader
 	}
-	if o.Splash.IsSet() {
-		toSerialize["splash"] = o.Splash.Get()
+	if !IsNil(o.Splash) {
+		toSerialize["splash"] = o.Splash
 	}
-	if o.DiscoverySplash.IsSet() {
-		toSerialize["discovery_splash"] = o.DiscoverySplash.Get()
+	if !IsNil(o.DiscoverySplash) {
+		toSerialize["discovery_splash"] = o.DiscoverySplash
 	}
 	toSerialize["features"] = o.Features
 	toSerialize["approximate_member_count"] = o.ApproximateMemberCount
@@ -591,5 +541,4 @@ func (v *NullableGuildPreviewResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

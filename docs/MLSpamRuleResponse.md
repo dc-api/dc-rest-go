@@ -8,19 +8,19 @@ Name | Type | Description | Notes
 **GuildId** | **string** |  | 
 **CreatorId** | **string** |  | 
 **Name** | **string** |  | 
-**EventType** | **int32** |  | 
+**EventType** | [**AutomodEventType**](AutomodEventType.md) |  | 
 **Actions** | [**[]DefaultKeywordRuleResponseActionsInner**](DefaultKeywordRuleResponseActionsInner.md) |  | 
-**TriggerType** | **int32** |  | 
-**Enabled** | Pointer to **NullableBool** |  | [optional] 
-**ExemptRoles** | Pointer to **[]string** |  | [optional] 
-**ExemptChannels** | Pointer to **[]string** |  | [optional] 
+**TriggerType** | [**AutomodTriggerType**](AutomodTriggerType.md) |  | 
+**Enabled** | **bool** |  | 
+**ExemptRoles** | **[]string** |  | 
+**ExemptChannels** | **[]string** |  | 
 **TriggerMetadata** | **map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewMLSpamRuleResponse
 
-`func NewMLSpamRuleResponse(id string, guildId string, creatorId string, name string, eventType int32, actions []DefaultKeywordRuleResponseActionsInner, triggerType int32, triggerMetadata map[string]interface{}, ) *MLSpamRuleResponse`
+`func NewMLSpamRuleResponse(id string, guildId string, creatorId string, name string, eventType AutomodEventType, actions []DefaultKeywordRuleResponseActionsInner, triggerType AutomodTriggerType, enabled bool, exemptRoles []string, exemptChannels []string, triggerMetadata map[string]interface{}, ) *MLSpamRuleResponse`
 
 NewMLSpamRuleResponse instantiates a new MLSpamRuleResponse object
 This constructor will assign default values to properties that have it defined,
@@ -117,20 +117,20 @@ SetName sets Name field to given value.
 
 ### GetEventType
 
-`func (o *MLSpamRuleResponse) GetEventType() int32`
+`func (o *MLSpamRuleResponse) GetEventType() AutomodEventType`
 
 GetEventType returns the EventType field if non-nil, zero value otherwise.
 
 ### GetEventTypeOk
 
-`func (o *MLSpamRuleResponse) GetEventTypeOk() (*int32, bool)`
+`func (o *MLSpamRuleResponse) GetEventTypeOk() (*AutomodEventType, bool)`
 
 GetEventTypeOk returns a tuple with the EventType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEventType
 
-`func (o *MLSpamRuleResponse) SetEventType(v int32)`
+`func (o *MLSpamRuleResponse) SetEventType(v AutomodEventType)`
 
 SetEventType sets EventType field to given value.
 
@@ -157,20 +157,20 @@ SetActions sets Actions field to given value.
 
 ### GetTriggerType
 
-`func (o *MLSpamRuleResponse) GetTriggerType() int32`
+`func (o *MLSpamRuleResponse) GetTriggerType() AutomodTriggerType`
 
 GetTriggerType returns the TriggerType field if non-nil, zero value otherwise.
 
 ### GetTriggerTypeOk
 
-`func (o *MLSpamRuleResponse) GetTriggerTypeOk() (*int32, bool)`
+`func (o *MLSpamRuleResponse) GetTriggerTypeOk() (*AutomodTriggerType, bool)`
 
 GetTriggerTypeOk returns a tuple with the TriggerType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTriggerType
 
-`func (o *MLSpamRuleResponse) SetTriggerType(v int32)`
+`func (o *MLSpamRuleResponse) SetTriggerType(v AutomodTriggerType)`
 
 SetTriggerType sets TriggerType field to given value.
 
@@ -194,22 +194,7 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
-### HasEnabled
 
-`func (o *MLSpamRuleResponse) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
-
-### SetEnabledNil
-
-`func (o *MLSpamRuleResponse) SetEnabledNil(b bool)`
-
- SetEnabledNil sets the value for Enabled to be an explicit nil
-
-### UnsetEnabled
-`func (o *MLSpamRuleResponse) UnsetEnabled()`
-
-UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 ### GetExemptRoles
 
 `func (o *MLSpamRuleResponse) GetExemptRoles() []string`
@@ -229,22 +214,7 @@ and a boolean to check if the value has been set.
 
 SetExemptRoles sets ExemptRoles field to given value.
 
-### HasExemptRoles
 
-`func (o *MLSpamRuleResponse) HasExemptRoles() bool`
-
-HasExemptRoles returns a boolean if a field has been set.
-
-### SetExemptRolesNil
-
-`func (o *MLSpamRuleResponse) SetExemptRolesNil(b bool)`
-
- SetExemptRolesNil sets the value for ExemptRoles to be an explicit nil
-
-### UnsetExemptRoles
-`func (o *MLSpamRuleResponse) UnsetExemptRoles()`
-
-UnsetExemptRoles ensures that no value is present for ExemptRoles, not even an explicit nil
 ### GetExemptChannels
 
 `func (o *MLSpamRuleResponse) GetExemptChannels() []string`
@@ -264,22 +234,7 @@ and a boolean to check if the value has been set.
 
 SetExemptChannels sets ExemptChannels field to given value.
 
-### HasExemptChannels
 
-`func (o *MLSpamRuleResponse) HasExemptChannels() bool`
-
-HasExemptChannels returns a boolean if a field has been set.
-
-### SetExemptChannelsNil
-
-`func (o *MLSpamRuleResponse) SetExemptChannelsNil(b bool)`
-
- SetExemptChannelsNil sets the value for ExemptChannels to be an explicit nil
-
-### UnsetExemptChannels
-`func (o *MLSpamRuleResponse) UnsetExemptChannels()`
-
-UnsetExemptChannels ensures that no value is present for ExemptChannels, not even an explicit nil
 ### GetTriggerMetadata
 
 `func (o *MLSpamRuleResponse) GetTriggerMetadata() map[string]interface{}`

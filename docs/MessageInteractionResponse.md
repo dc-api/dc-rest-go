@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Type** | **int32** |  | 
+**Type** | [**InteractionTypes**](InteractionTypes.md) |  | 
 **Name** | **string** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**NameLocalized** | Pointer to **NullableString** |  | [optional] 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**NameLocalized** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewMessageInteractionResponse
 
-`func NewMessageInteractionResponse(id string, type_ int32, name string, ) *MessageInteractionResponse`
+`func NewMessageInteractionResponse(id string, type_ InteractionTypes, name string, ) *MessageInteractionResponse`
 
 NewMessageInteractionResponse instantiates a new MessageInteractionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -51,20 +51,20 @@ SetId sets Id field to given value.
 
 ### GetType
 
-`func (o *MessageInteractionResponse) GetType() int32`
+`func (o *MessageInteractionResponse) GetType() InteractionTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *MessageInteractionResponse) GetTypeOk() (*int32, bool)`
+`func (o *MessageInteractionResponse) GetTypeOk() (*InteractionTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *MessageInteractionResponse) SetType(v int32)`
+`func (o *MessageInteractionResponse) SetType(v InteractionTypes)`
 
 SetType sets Type field to given value.
 
@@ -114,16 +114,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *MessageInteractionResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *MessageInteractionResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetNameLocalized
 
 `func (o *MessageInteractionResponse) GetNameLocalized() string`
@@ -149,16 +139,6 @@ SetNameLocalized sets NameLocalized field to given value.
 
 HasNameLocalized returns a boolean if a field has been set.
 
-### SetNameLocalizedNil
-
-`func (o *MessageInteractionResponse) SetNameLocalizedNil(b bool)`
-
- SetNameLocalizedNil sets the value for NameLocalized to be an explicit nil
-
-### UnsetNameLocalized
-`func (o *MessageInteractionResponse) UnsetNameLocalized()`
-
-UnsetNameLocalized ensures that no value is present for NameLocalized, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

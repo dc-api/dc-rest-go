@@ -5,19 +5,19 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**EventType** | **int32** |  | 
+**EventType** | [**AutomodEventType**](AutomodEventType.md) |  | 
 **Actions** | Pointer to [**[]DefaultKeywordListUpsertRequestActionsInner**](DefaultKeywordListUpsertRequestActionsInner.md) |  | [optional] 
-**Enabled** | Pointer to **NullableBool** |  | [optional] 
+**Enabled** | Pointer to **bool** |  | [optional] 
 **ExemptRoles** | Pointer to **[]string** |  | [optional] 
 **ExemptChannels** | Pointer to **[]string** |  | [optional] 
-**TriggerType** | **int32** |  | 
-**TriggerMetadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**TriggerType** | [**AutomodTriggerType**](AutomodTriggerType.md) |  | 
+**TriggerMetadata** | Pointer to [**MLSpamUpsertRequestTriggerMetadata**](MLSpamUpsertRequestTriggerMetadata.md) |  | [optional] 
 
 ## Methods
 
 ### NewMLSpamUpsertRequest
 
-`func NewMLSpamUpsertRequest(name string, eventType int32, triggerType int32, ) *MLSpamUpsertRequest`
+`func NewMLSpamUpsertRequest(name string, eventType AutomodEventType, triggerType AutomodTriggerType, ) *MLSpamUpsertRequest`
 
 NewMLSpamUpsertRequest instantiates a new MLSpamUpsertRequest object
 This constructor will assign default values to properties that have it defined,
@@ -54,20 +54,20 @@ SetName sets Name field to given value.
 
 ### GetEventType
 
-`func (o *MLSpamUpsertRequest) GetEventType() int32`
+`func (o *MLSpamUpsertRequest) GetEventType() AutomodEventType`
 
 GetEventType returns the EventType field if non-nil, zero value otherwise.
 
 ### GetEventTypeOk
 
-`func (o *MLSpamUpsertRequest) GetEventTypeOk() (*int32, bool)`
+`func (o *MLSpamUpsertRequest) GetEventTypeOk() (*AutomodEventType, bool)`
 
 GetEventTypeOk returns a tuple with the EventType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEventType
 
-`func (o *MLSpamUpsertRequest) SetEventType(v int32)`
+`func (o *MLSpamUpsertRequest) SetEventType(v AutomodEventType)`
 
 SetEventType sets EventType field to given value.
 
@@ -97,16 +97,6 @@ SetActions sets Actions field to given value.
 
 HasActions returns a boolean if a field has been set.
 
-### SetActionsNil
-
-`func (o *MLSpamUpsertRequest) SetActionsNil(b bool)`
-
- SetActionsNil sets the value for Actions to be an explicit nil
-
-### UnsetActions
-`func (o *MLSpamUpsertRequest) UnsetActions()`
-
-UnsetActions ensures that no value is present for Actions, not even an explicit nil
 ### GetEnabled
 
 `func (o *MLSpamUpsertRequest) GetEnabled() bool`
@@ -132,16 +122,6 @@ SetEnabled sets Enabled field to given value.
 
 HasEnabled returns a boolean if a field has been set.
 
-### SetEnabledNil
-
-`func (o *MLSpamUpsertRequest) SetEnabledNil(b bool)`
-
- SetEnabledNil sets the value for Enabled to be an explicit nil
-
-### UnsetEnabled
-`func (o *MLSpamUpsertRequest) UnsetEnabled()`
-
-UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 ### GetExemptRoles
 
 `func (o *MLSpamUpsertRequest) GetExemptRoles() []string`
@@ -167,16 +147,6 @@ SetExemptRoles sets ExemptRoles field to given value.
 
 HasExemptRoles returns a boolean if a field has been set.
 
-### SetExemptRolesNil
-
-`func (o *MLSpamUpsertRequest) SetExemptRolesNil(b bool)`
-
- SetExemptRolesNil sets the value for ExemptRoles to be an explicit nil
-
-### UnsetExemptRoles
-`func (o *MLSpamUpsertRequest) UnsetExemptRoles()`
-
-UnsetExemptRoles ensures that no value is present for ExemptRoles, not even an explicit nil
 ### GetExemptChannels
 
 `func (o *MLSpamUpsertRequest) GetExemptChannels() []string`
@@ -202,52 +172,42 @@ SetExemptChannels sets ExemptChannels field to given value.
 
 HasExemptChannels returns a boolean if a field has been set.
 
-### SetExemptChannelsNil
-
-`func (o *MLSpamUpsertRequest) SetExemptChannelsNil(b bool)`
-
- SetExemptChannelsNil sets the value for ExemptChannels to be an explicit nil
-
-### UnsetExemptChannels
-`func (o *MLSpamUpsertRequest) UnsetExemptChannels()`
-
-UnsetExemptChannels ensures that no value is present for ExemptChannels, not even an explicit nil
 ### GetTriggerType
 
-`func (o *MLSpamUpsertRequest) GetTriggerType() int32`
+`func (o *MLSpamUpsertRequest) GetTriggerType() AutomodTriggerType`
 
 GetTriggerType returns the TriggerType field if non-nil, zero value otherwise.
 
 ### GetTriggerTypeOk
 
-`func (o *MLSpamUpsertRequest) GetTriggerTypeOk() (*int32, bool)`
+`func (o *MLSpamUpsertRequest) GetTriggerTypeOk() (*AutomodTriggerType, bool)`
 
 GetTriggerTypeOk returns a tuple with the TriggerType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTriggerType
 
-`func (o *MLSpamUpsertRequest) SetTriggerType(v int32)`
+`func (o *MLSpamUpsertRequest) SetTriggerType(v AutomodTriggerType)`
 
 SetTriggerType sets TriggerType field to given value.
 
 
 ### GetTriggerMetadata
 
-`func (o *MLSpamUpsertRequest) GetTriggerMetadata() map[string]interface{}`
+`func (o *MLSpamUpsertRequest) GetTriggerMetadata() MLSpamUpsertRequestTriggerMetadata`
 
 GetTriggerMetadata returns the TriggerMetadata field if non-nil, zero value otherwise.
 
 ### GetTriggerMetadataOk
 
-`func (o *MLSpamUpsertRequest) GetTriggerMetadataOk() (*map[string]interface{}, bool)`
+`func (o *MLSpamUpsertRequest) GetTriggerMetadataOk() (*MLSpamUpsertRequestTriggerMetadata, bool)`
 
 GetTriggerMetadataOk returns a tuple with the TriggerMetadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTriggerMetadata
 
-`func (o *MLSpamUpsertRequest) SetTriggerMetadata(v map[string]interface{})`
+`func (o *MLSpamUpsertRequest) SetTriggerMetadata(v MLSpamUpsertRequestTriggerMetadata)`
 
 SetTriggerMetadata sets TriggerMetadata field to given value.
 

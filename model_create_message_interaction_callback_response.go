@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,7 +55,7 @@ var _ MappedNullable = &CreateMessageInteractionCallbackResponse{}
 
 // CreateMessageInteractionCallbackResponse struct for CreateMessageInteractionCallbackResponse
 type CreateMessageInteractionCallbackResponse struct {
-	Type NullableInt32 `json:"type"`
+	Type InteractionCallbackTypes `json:"type"`
 	Message MessageResponse `json:"message"`
 }
 
@@ -65,7 +65,7 @@ type _CreateMessageInteractionCallbackResponse CreateMessageInteractionCallbackR
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateMessageInteractionCallbackResponse(type_ NullableInt32, message MessageResponse) *CreateMessageInteractionCallbackResponse {
+func NewCreateMessageInteractionCallbackResponse(type_ InteractionCallbackTypes, message MessageResponse) *CreateMessageInteractionCallbackResponse {
 	this := CreateMessageInteractionCallbackResponse{}
 	this.Type = type_
 	this.Message = message
@@ -81,29 +81,27 @@ func NewCreateMessageInteractionCallbackResponseWithDefaults() *CreateMessageInt
 }
 
 // GetType returns the Type field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *CreateMessageInteractionCallbackResponse) GetType() int32 {
-	if o == nil || o.Type.Get() == nil {
-		var ret int32
+func (o *CreateMessageInteractionCallbackResponse) GetType() InteractionCallbackTypes {
+	if o == nil {
+		var ret InteractionCallbackTypes
 		return ret
 	}
 
-	return *o.Type.Get()
+	return o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateMessageInteractionCallbackResponse) GetTypeOk() (*int32, bool) {
+func (o *CreateMessageInteractionCallbackResponse) GetTypeOk() (*InteractionCallbackTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return &o.Type, true
 }
 
 // SetType sets field value
-func (o *CreateMessageInteractionCallbackResponse) SetType(v int32) {
-	o.Type.Set(&v)
+func (o *CreateMessageInteractionCallbackResponse) SetType(v InteractionCallbackTypes) {
+	o.Type = v
 }
 
 // GetMessage returns the Message field value
@@ -140,7 +138,7 @@ func (o CreateMessageInteractionCallbackResponse) MarshalJSON() ([]byte, error) 
 
 func (o CreateMessageInteractionCallbackResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["type"] = o.Type.Get()
+	toSerialize["type"] = o.Type
 	toSerialize["message"] = o.Message
 	return toSerialize, nil
 }
@@ -218,5 +216,4 @@ func (v *NullableCreateMessageInteractionCallbackResponse) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

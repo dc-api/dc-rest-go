@@ -6,29 +6,29 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Username** | **string** |  | 
-**Avatar** | Pointer to **NullableString** |  | [optional] 
+**Avatar** | Pointer to **string** |  | [optional] 
 **Discriminator** | **string** |  | 
 **PublicFlags** | **int32** |  | 
 **Flags** | **int64** |  | 
-**Bot** | Pointer to **NullableBool** |  | [optional] 
-**System** | Pointer to **NullableBool** |  | [optional] 
-**Banner** | Pointer to **NullableString** |  | [optional] 
-**AccentColor** | Pointer to **NullableInt32** |  | [optional] 
-**GlobalName** | Pointer to **NullableString** |  | [optional] 
-**AvatarDecorationData** | Pointer to [**NullableUserAvatarDecorationResponse**](UserAvatarDecorationResponse.md) |  | [optional] 
-**Collectibles** | Pointer to [**NullableUserCollectiblesResponse**](UserCollectiblesResponse.md) |  | [optional] 
-**PrimaryGuild** | Pointer to [**NullableUserPrimaryGuildResponse**](UserPrimaryGuildResponse.md) |  | [optional] 
+**Bot** | Pointer to **bool** |  | [optional] 
+**System** | Pointer to **bool** |  | [optional] 
+**Banner** | Pointer to **string** |  | [optional] 
+**AccentColor** | Pointer to **int32** |  | [optional] 
+**GlobalName** | Pointer to **string** |  | [optional] 
+**AvatarDecorationData** | Pointer to [**BasicGuildMemberResponseAvatarDecorationData**](BasicGuildMemberResponseAvatarDecorationData.md) |  | [optional] 
+**Collectibles** | Pointer to [**BasicGuildMemberResponseCollectibles**](BasicGuildMemberResponseCollectibles.md) |  | [optional] 
+**PrimaryGuild** | Pointer to [**UserPIIResponsePrimaryGuild**](UserPIIResponsePrimaryGuild.md) |  | [optional] 
 **MfaEnabled** | **bool** |  | 
-**Locale** | **string** |  | 
-**PremiumType** | Pointer to **int32** |  | [optional] 
-**Email** | Pointer to **NullableString** |  | [optional] 
-**Verified** | Pointer to **NullableBool** |  | [optional] 
+**Locale** | [**AvailableLocalesEnum**](AvailableLocalesEnum.md) |  | 
+**PremiumType** | Pointer to [**PremiumTypes**](PremiumTypes.md) |  | [optional] 
+**Email** | Pointer to **string** |  | [optional] 
+**Verified** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewUserPIIResponse
 
-`func NewUserPIIResponse(id string, username string, discriminator string, publicFlags int32, flags int64, mfaEnabled bool, locale string, ) *UserPIIResponse`
+`func NewUserPIIResponse(id string, username string, discriminator string, publicFlags int32, flags int64, mfaEnabled bool, locale AvailableLocalesEnum, ) *UserPIIResponse`
 
 NewUserPIIResponse instantiates a new UserPIIResponse object
 This constructor will assign default values to properties that have it defined,
@@ -108,16 +108,6 @@ SetAvatar sets Avatar field to given value.
 
 HasAvatar returns a boolean if a field has been set.
 
-### SetAvatarNil
-
-`func (o *UserPIIResponse) SetAvatarNil(b bool)`
-
- SetAvatarNil sets the value for Avatar to be an explicit nil
-
-### UnsetAvatar
-`func (o *UserPIIResponse) UnsetAvatar()`
-
-UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
 ### GetDiscriminator
 
 `func (o *UserPIIResponse) GetDiscriminator() string`
@@ -203,16 +193,6 @@ SetBot sets Bot field to given value.
 
 HasBot returns a boolean if a field has been set.
 
-### SetBotNil
-
-`func (o *UserPIIResponse) SetBotNil(b bool)`
-
- SetBotNil sets the value for Bot to be an explicit nil
-
-### UnsetBot
-`func (o *UserPIIResponse) UnsetBot()`
-
-UnsetBot ensures that no value is present for Bot, not even an explicit nil
 ### GetSystem
 
 `func (o *UserPIIResponse) GetSystem() bool`
@@ -238,16 +218,6 @@ SetSystem sets System field to given value.
 
 HasSystem returns a boolean if a field has been set.
 
-### SetSystemNil
-
-`func (o *UserPIIResponse) SetSystemNil(b bool)`
-
- SetSystemNil sets the value for System to be an explicit nil
-
-### UnsetSystem
-`func (o *UserPIIResponse) UnsetSystem()`
-
-UnsetSystem ensures that no value is present for System, not even an explicit nil
 ### GetBanner
 
 `func (o *UserPIIResponse) GetBanner() string`
@@ -273,16 +243,6 @@ SetBanner sets Banner field to given value.
 
 HasBanner returns a boolean if a field has been set.
 
-### SetBannerNil
-
-`func (o *UserPIIResponse) SetBannerNil(b bool)`
-
- SetBannerNil sets the value for Banner to be an explicit nil
-
-### UnsetBanner
-`func (o *UserPIIResponse) UnsetBanner()`
-
-UnsetBanner ensures that no value is present for Banner, not even an explicit nil
 ### GetAccentColor
 
 `func (o *UserPIIResponse) GetAccentColor() int32`
@@ -308,16 +268,6 @@ SetAccentColor sets AccentColor field to given value.
 
 HasAccentColor returns a boolean if a field has been set.
 
-### SetAccentColorNil
-
-`func (o *UserPIIResponse) SetAccentColorNil(b bool)`
-
- SetAccentColorNil sets the value for AccentColor to be an explicit nil
-
-### UnsetAccentColor
-`func (o *UserPIIResponse) UnsetAccentColor()`
-
-UnsetAccentColor ensures that no value is present for AccentColor, not even an explicit nil
 ### GetGlobalName
 
 `func (o *UserPIIResponse) GetGlobalName() string`
@@ -343,32 +293,22 @@ SetGlobalName sets GlobalName field to given value.
 
 HasGlobalName returns a boolean if a field has been set.
 
-### SetGlobalNameNil
-
-`func (o *UserPIIResponse) SetGlobalNameNil(b bool)`
-
- SetGlobalNameNil sets the value for GlobalName to be an explicit nil
-
-### UnsetGlobalName
-`func (o *UserPIIResponse) UnsetGlobalName()`
-
-UnsetGlobalName ensures that no value is present for GlobalName, not even an explicit nil
 ### GetAvatarDecorationData
 
-`func (o *UserPIIResponse) GetAvatarDecorationData() UserAvatarDecorationResponse`
+`func (o *UserPIIResponse) GetAvatarDecorationData() BasicGuildMemberResponseAvatarDecorationData`
 
 GetAvatarDecorationData returns the AvatarDecorationData field if non-nil, zero value otherwise.
 
 ### GetAvatarDecorationDataOk
 
-`func (o *UserPIIResponse) GetAvatarDecorationDataOk() (*UserAvatarDecorationResponse, bool)`
+`func (o *UserPIIResponse) GetAvatarDecorationDataOk() (*BasicGuildMemberResponseAvatarDecorationData, bool)`
 
 GetAvatarDecorationDataOk returns a tuple with the AvatarDecorationData field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAvatarDecorationData
 
-`func (o *UserPIIResponse) SetAvatarDecorationData(v UserAvatarDecorationResponse)`
+`func (o *UserPIIResponse) SetAvatarDecorationData(v BasicGuildMemberResponseAvatarDecorationData)`
 
 SetAvatarDecorationData sets AvatarDecorationData field to given value.
 
@@ -378,32 +318,22 @@ SetAvatarDecorationData sets AvatarDecorationData field to given value.
 
 HasAvatarDecorationData returns a boolean if a field has been set.
 
-### SetAvatarDecorationDataNil
-
-`func (o *UserPIIResponse) SetAvatarDecorationDataNil(b bool)`
-
- SetAvatarDecorationDataNil sets the value for AvatarDecorationData to be an explicit nil
-
-### UnsetAvatarDecorationData
-`func (o *UserPIIResponse) UnsetAvatarDecorationData()`
-
-UnsetAvatarDecorationData ensures that no value is present for AvatarDecorationData, not even an explicit nil
 ### GetCollectibles
 
-`func (o *UserPIIResponse) GetCollectibles() UserCollectiblesResponse`
+`func (o *UserPIIResponse) GetCollectibles() BasicGuildMemberResponseCollectibles`
 
 GetCollectibles returns the Collectibles field if non-nil, zero value otherwise.
 
 ### GetCollectiblesOk
 
-`func (o *UserPIIResponse) GetCollectiblesOk() (*UserCollectiblesResponse, bool)`
+`func (o *UserPIIResponse) GetCollectiblesOk() (*BasicGuildMemberResponseCollectibles, bool)`
 
 GetCollectiblesOk returns a tuple with the Collectibles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCollectibles
 
-`func (o *UserPIIResponse) SetCollectibles(v UserCollectiblesResponse)`
+`func (o *UserPIIResponse) SetCollectibles(v BasicGuildMemberResponseCollectibles)`
 
 SetCollectibles sets Collectibles field to given value.
 
@@ -413,32 +343,22 @@ SetCollectibles sets Collectibles field to given value.
 
 HasCollectibles returns a boolean if a field has been set.
 
-### SetCollectiblesNil
-
-`func (o *UserPIIResponse) SetCollectiblesNil(b bool)`
-
- SetCollectiblesNil sets the value for Collectibles to be an explicit nil
-
-### UnsetCollectibles
-`func (o *UserPIIResponse) UnsetCollectibles()`
-
-UnsetCollectibles ensures that no value is present for Collectibles, not even an explicit nil
 ### GetPrimaryGuild
 
-`func (o *UserPIIResponse) GetPrimaryGuild() UserPrimaryGuildResponse`
+`func (o *UserPIIResponse) GetPrimaryGuild() UserPIIResponsePrimaryGuild`
 
 GetPrimaryGuild returns the PrimaryGuild field if non-nil, zero value otherwise.
 
 ### GetPrimaryGuildOk
 
-`func (o *UserPIIResponse) GetPrimaryGuildOk() (*UserPrimaryGuildResponse, bool)`
+`func (o *UserPIIResponse) GetPrimaryGuildOk() (*UserPIIResponsePrimaryGuild, bool)`
 
 GetPrimaryGuildOk returns a tuple with the PrimaryGuild field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrimaryGuild
 
-`func (o *UserPIIResponse) SetPrimaryGuild(v UserPrimaryGuildResponse)`
+`func (o *UserPIIResponse) SetPrimaryGuild(v UserPIIResponsePrimaryGuild)`
 
 SetPrimaryGuild sets PrimaryGuild field to given value.
 
@@ -448,16 +368,6 @@ SetPrimaryGuild sets PrimaryGuild field to given value.
 
 HasPrimaryGuild returns a boolean if a field has been set.
 
-### SetPrimaryGuildNil
-
-`func (o *UserPIIResponse) SetPrimaryGuildNil(b bool)`
-
- SetPrimaryGuildNil sets the value for PrimaryGuild to be an explicit nil
-
-### UnsetPrimaryGuild
-`func (o *UserPIIResponse) UnsetPrimaryGuild()`
-
-UnsetPrimaryGuild ensures that no value is present for PrimaryGuild, not even an explicit nil
 ### GetMfaEnabled
 
 `func (o *UserPIIResponse) GetMfaEnabled() bool`
@@ -480,40 +390,40 @@ SetMfaEnabled sets MfaEnabled field to given value.
 
 ### GetLocale
 
-`func (o *UserPIIResponse) GetLocale() string`
+`func (o *UserPIIResponse) GetLocale() AvailableLocalesEnum`
 
 GetLocale returns the Locale field if non-nil, zero value otherwise.
 
 ### GetLocaleOk
 
-`func (o *UserPIIResponse) GetLocaleOk() (*string, bool)`
+`func (o *UserPIIResponse) GetLocaleOk() (*AvailableLocalesEnum, bool)`
 
 GetLocaleOk returns a tuple with the Locale field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLocale
 
-`func (o *UserPIIResponse) SetLocale(v string)`
+`func (o *UserPIIResponse) SetLocale(v AvailableLocalesEnum)`
 
 SetLocale sets Locale field to given value.
 
 
 ### GetPremiumType
 
-`func (o *UserPIIResponse) GetPremiumType() int32`
+`func (o *UserPIIResponse) GetPremiumType() PremiumTypes`
 
 GetPremiumType returns the PremiumType field if non-nil, zero value otherwise.
 
 ### GetPremiumTypeOk
 
-`func (o *UserPIIResponse) GetPremiumTypeOk() (*int32, bool)`
+`func (o *UserPIIResponse) GetPremiumTypeOk() (*PremiumTypes, bool)`
 
 GetPremiumTypeOk returns a tuple with the PremiumType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPremiumType
 
-`func (o *UserPIIResponse) SetPremiumType(v int32)`
+`func (o *UserPIIResponse) SetPremiumType(v PremiumTypes)`
 
 SetPremiumType sets PremiumType field to given value.
 
@@ -548,16 +458,6 @@ SetEmail sets Email field to given value.
 
 HasEmail returns a boolean if a field has been set.
 
-### SetEmailNil
-
-`func (o *UserPIIResponse) SetEmailNil(b bool)`
-
- SetEmailNil sets the value for Email to be an explicit nil
-
-### UnsetEmail
-`func (o *UserPIIResponse) UnsetEmail()`
-
-UnsetEmail ensures that no value is present for Email, not even an explicit nil
 ### GetVerified
 
 `func (o *UserPIIResponse) GetVerified() bool`
@@ -583,16 +483,6 @@ SetVerified sets Verified field to given value.
 
 HasVerified returns a boolean if a field has been set.
 
-### SetVerifiedNil
-
-`func (o *UserPIIResponse) SetVerifiedNil(b bool)`
-
- SetVerifiedNil sets the value for Verified to be an explicit nil
-
-### UnsetVerified
-`func (o *UserPIIResponse) UnsetVerified()`
-
-UnsetVerified ensures that no value is present for Verified, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,15 +57,15 @@ var _ MappedNullable = &PrivateGroupChannelResponse{}
 // PrivateGroupChannelResponse struct for PrivateGroupChannelResponse
 type PrivateGroupChannelResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Type int32 `json:"type"`
-	LastMessageId *string `json:"last_message_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	Type ChannelTypes `json:"type"`
+	LastMessageId *GetEntitlementsSkuIdsParameterOneOfInner `json:"last_message_id,omitempty"`
 	Flags int32 `json:"flags"`
-	LastPinTimestamp NullableTime `json:"last_pin_timestamp,omitempty"`
+	LastPinTimestamp *time.Time `json:"last_pin_timestamp,omitempty"`
 	Recipients []UserResponse `json:"recipients"`
-	Name NullableString `json:"name,omitempty"`
-	Icon NullableString `json:"icon,omitempty"`
-	OwnerId *string `json:"owner_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Managed NullableBool `json:"managed,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Icon *string `json:"icon,omitempty"`
+	OwnerId string `json:"owner_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	Managed *bool `json:"managed,omitempty"`
 	ApplicationId *string `json:"application_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
@@ -75,12 +75,13 @@ type _PrivateGroupChannelResponse PrivateGroupChannelResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPrivateGroupChannelResponse(id string, type_ int32, flags int32, recipients []UserResponse) *PrivateGroupChannelResponse {
+func NewPrivateGroupChannelResponse(id string, type_ ChannelTypes, flags int32, recipients []UserResponse, ownerId string) *PrivateGroupChannelResponse {
 	this := PrivateGroupChannelResponse{}
 	this.Id = id
 	this.Type = type_
 	this.Flags = flags
 	this.Recipients = recipients
+	this.OwnerId = ownerId
 	return &this
 }
 
@@ -117,9 +118,9 @@ func (o *PrivateGroupChannelResponse) SetId(v string) {
 }
 
 // GetType returns the Type field value
-func (o *PrivateGroupChannelResponse) GetType() int32 {
+func (o *PrivateGroupChannelResponse) GetType() ChannelTypes {
 	if o == nil {
-		var ret int32
+		var ret ChannelTypes
 		return ret
 	}
 
@@ -128,7 +129,7 @@ func (o *PrivateGroupChannelResponse) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *PrivateGroupChannelResponse) GetTypeOk() (*int32, bool) {
+func (o *PrivateGroupChannelResponse) GetTypeOk() (*ChannelTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -136,14 +137,14 @@ func (o *PrivateGroupChannelResponse) GetTypeOk() (*int32, bool) {
 }
 
 // SetType sets field value
-func (o *PrivateGroupChannelResponse) SetType(v int32) {
+func (o *PrivateGroupChannelResponse) SetType(v ChannelTypes) {
 	o.Type = v
 }
 
 // GetLastMessageId returns the LastMessageId field value if set, zero value otherwise.
-func (o *PrivateGroupChannelResponse) GetLastMessageId() string {
+func (o *PrivateGroupChannelResponse) GetLastMessageId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.LastMessageId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.LastMessageId
@@ -151,7 +152,7 @@ func (o *PrivateGroupChannelResponse) GetLastMessageId() string {
 
 // GetLastMessageIdOk returns a tuple with the LastMessageId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PrivateGroupChannelResponse) GetLastMessageIdOk() (*string, bool) {
+func (o *PrivateGroupChannelResponse) GetLastMessageIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.LastMessageId) {
 		return nil, false
 	}
@@ -167,8 +168,8 @@ func (o *PrivateGroupChannelResponse) HasLastMessageId() bool {
 	return false
 }
 
-// SetLastMessageId gets a reference to the given string and assigns it to the LastMessageId field.
-func (o *PrivateGroupChannelResponse) SetLastMessageId(v string) {
+// SetLastMessageId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the LastMessageId field.
+func (o *PrivateGroupChannelResponse) SetLastMessageId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.LastMessageId = &v
 }
 
@@ -197,48 +198,38 @@ func (o *PrivateGroupChannelResponse) SetFlags(v int32) {
 	o.Flags = v
 }
 
-// GetLastPinTimestamp returns the LastPinTimestamp field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastPinTimestamp returns the LastPinTimestamp field value if set, zero value otherwise.
 func (o *PrivateGroupChannelResponse) GetLastPinTimestamp() time.Time {
-	if o == nil || IsNil(o.LastPinTimestamp.Get()) {
+	if o == nil || IsNil(o.LastPinTimestamp) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastPinTimestamp.Get()
+	return *o.LastPinTimestamp
 }
 
 // GetLastPinTimestampOk returns a tuple with the LastPinTimestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PrivateGroupChannelResponse) GetLastPinTimestampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.LastPinTimestamp.Get()) {
+	if o == nil || IsNil(o.LastPinTimestamp) {
 		return nil, false
 	}
-	return o.LastPinTimestamp.Get(), o.LastPinTimestamp.IsSet()
+	return o.LastPinTimestamp, true
 }
 
 // HasLastPinTimestamp returns a boolean if a field has been set.
 func (o *PrivateGroupChannelResponse) HasLastPinTimestamp() bool {
-	if o != nil && o.LastPinTimestamp.IsSet() {
+	if o != nil && !IsNil(o.LastPinTimestamp) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastPinTimestamp gets a reference to the given NullableTime and assigns it to the LastPinTimestamp field.
+// SetLastPinTimestamp gets a reference to the given time.Time and assigns it to the LastPinTimestamp field.
 func (o *PrivateGroupChannelResponse) SetLastPinTimestamp(v time.Time) {
-	o.LastPinTimestamp.Set(&v)
+	o.LastPinTimestamp = &v
 }
 
-// SetLastPinTimestampNil sets the value for LastPinTimestamp to be an explicit nil
-func (o *PrivateGroupChannelResponse) SetLastPinTimestampNil() {
-	o.LastPinTimestamp.Set(nil)
-}
-
-// UnsetLastPinTimestamp ensures that no value is present for LastPinTimestamp, not even an explicit nil
-func (o *PrivateGroupChannelResponse) UnsetLastPinTimestamp() {
-	o.LastPinTimestamp.Unset()
-}
 
 // GetRecipients returns the Recipients field value
 func (o *PrivateGroupChannelResponse) GetRecipients() []UserResponse {
@@ -264,167 +255,128 @@ func (o *PrivateGroupChannelResponse) SetRecipients(v []UserResponse) {
 	o.Recipients = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *PrivateGroupChannelResponse) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PrivateGroupChannelResponse) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *PrivateGroupChannelResponse) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *PrivateGroupChannelResponse) SetName(v string) {
-	o.Name.Set(&v)
+	o.Name = &v
 }
 
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *PrivateGroupChannelResponse) SetNameNil() {
-	o.Name.Set(nil)
-}
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *PrivateGroupChannelResponse) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIcon returns the Icon field value if set, zero value otherwise.
 func (o *PrivateGroupChannelResponse) GetIcon() string {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		var ret string
 		return ret
 	}
-	return *o.Icon.Get()
+	return *o.Icon
 }
 
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PrivateGroupChannelResponse) GetIconOk() (*string, bool) {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		return nil, false
 	}
-	return o.Icon.Get(), o.Icon.IsSet()
+	return o.Icon, true
 }
 
 // HasIcon returns a boolean if a field has been set.
 func (o *PrivateGroupChannelResponse) HasIcon() bool {
-	if o != nil && o.Icon.IsSet() {
+	if o != nil && !IsNil(o.Icon) {
 		return true
 	}
 
 	return false
 }
 
-// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+// SetIcon gets a reference to the given string and assigns it to the Icon field.
 func (o *PrivateGroupChannelResponse) SetIcon(v string) {
-	o.Icon.Set(&v)
+	o.Icon = &v
 }
 
-// SetIconNil sets the value for Icon to be an explicit nil
-func (o *PrivateGroupChannelResponse) SetIconNil() {
-	o.Icon.Set(nil)
-}
 
-// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
-func (o *PrivateGroupChannelResponse) UnsetIcon() {
-	o.Icon.Unset()
-}
-
-// GetOwnerId returns the OwnerId field value if set, zero value otherwise.
+// GetOwnerId returns the OwnerId field value
 func (o *PrivateGroupChannelResponse) GetOwnerId() string {
-	if o == nil || IsNil(o.OwnerId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OwnerId
+
+	return o.OwnerId
 }
 
-// GetOwnerIdOk returns a tuple with the OwnerId field value if set, nil otherwise
+// GetOwnerIdOk returns a tuple with the OwnerId field value
 // and a boolean to check if the value has been set.
 func (o *PrivateGroupChannelResponse) GetOwnerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.OwnerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OwnerId, true
+	return &o.OwnerId, true
 }
 
-// HasOwnerId returns a boolean if a field has been set.
-func (o *PrivateGroupChannelResponse) HasOwnerId() bool {
-	if o != nil && !IsNil(o.OwnerId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOwnerId gets a reference to the given string and assigns it to the OwnerId field.
+// SetOwnerId sets field value
 func (o *PrivateGroupChannelResponse) SetOwnerId(v string) {
-	o.OwnerId = &v
+	o.OwnerId = v
 }
 
-
-// GetManaged returns the Managed field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetManaged returns the Managed field value if set, zero value otherwise.
 func (o *PrivateGroupChannelResponse) GetManaged() bool {
-	if o == nil || IsNil(o.Managed.Get()) {
+	if o == nil || IsNil(o.Managed) {
 		var ret bool
 		return ret
 	}
-	return *o.Managed.Get()
+	return *o.Managed
 }
 
 // GetManagedOk returns a tuple with the Managed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PrivateGroupChannelResponse) GetManagedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Managed.Get()) {
+	if o == nil || IsNil(o.Managed) {
 		return nil, false
 	}
-	return o.Managed.Get(), o.Managed.IsSet()
+	return o.Managed, true
 }
 
 // HasManaged returns a boolean if a field has been set.
 func (o *PrivateGroupChannelResponse) HasManaged() bool {
-	if o != nil && o.Managed.IsSet() {
+	if o != nil && !IsNil(o.Managed) {
 		return true
 	}
 
 	return false
 }
 
-// SetManaged gets a reference to the given NullableBool and assigns it to the Managed field.
+// SetManaged gets a reference to the given bool and assigns it to the Managed field.
 func (o *PrivateGroupChannelResponse) SetManaged(v bool) {
-	o.Managed.Set(&v)
+	o.Managed = &v
 }
 
-// SetManagedNil sets the value for Managed to be an explicit nil
-func (o *PrivateGroupChannelResponse) SetManagedNil() {
-	o.Managed.Set(nil)
-}
-
-// UnsetManaged ensures that no value is present for Managed, not even an explicit nil
-func (o *PrivateGroupChannelResponse) UnsetManaged() {
-	o.Managed.Unset()
-}
 
 // GetApplicationId returns the ApplicationId field value if set, zero value otherwise.
 func (o *PrivateGroupChannelResponse) GetApplicationId() string {
@@ -475,21 +427,19 @@ func (o PrivateGroupChannelResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["last_message_id"] = o.LastMessageId
 	}
 	toSerialize["flags"] = o.Flags
-	if o.LastPinTimestamp.IsSet() {
-		toSerialize["last_pin_timestamp"] = o.LastPinTimestamp.Get()
+	if !IsNil(o.LastPinTimestamp) {
+		toSerialize["last_pin_timestamp"] = o.LastPinTimestamp
 	}
 	toSerialize["recipients"] = o.Recipients
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Icon.IsSet() {
-		toSerialize["icon"] = o.Icon.Get()
+	if !IsNil(o.Icon) {
+		toSerialize["icon"] = o.Icon
 	}
-	if !IsNil(o.OwnerId) {
-		toSerialize["owner_id"] = o.OwnerId
-	}
-	if o.Managed.IsSet() {
-		toSerialize["managed"] = o.Managed.Get()
+	toSerialize["owner_id"] = o.OwnerId
+	if !IsNil(o.Managed) {
+		toSerialize["managed"] = o.Managed
 	}
 	if !IsNil(o.ApplicationId) {
 		toSerialize["application_id"] = o.ApplicationId
@@ -506,6 +456,7 @@ func (o *PrivateGroupChannelResponse) UnmarshalJSON(data []byte) (err error) {
 		"type",
 		"flags",
 		"recipients",
+		"owner_id",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -572,5 +523,4 @@ func (v *NullablePrivateGroupChannelResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

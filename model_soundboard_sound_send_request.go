@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ var _ MappedNullable = &SoundboardSoundSendRequest{}
 // SoundboardSoundSendRequest struct for SoundboardSoundSendRequest
 type SoundboardSoundSendRequest struct {
 	SoundId string `json:"sound_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	SourceGuildId *string `json:"source_guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	SourceGuildId *GetEntitlementsSkuIdsParameterOneOfInner `json:"source_guild_id,omitempty"`
 }
 
 type _SoundboardSoundSendRequest SoundboardSoundSendRequest
@@ -104,9 +104,9 @@ func (o *SoundboardSoundSendRequest) SetSoundId(v string) {
 }
 
 // GetSourceGuildId returns the SourceGuildId field value if set, zero value otherwise.
-func (o *SoundboardSoundSendRequest) GetSourceGuildId() string {
+func (o *SoundboardSoundSendRequest) GetSourceGuildId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.SourceGuildId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.SourceGuildId
@@ -114,7 +114,7 @@ func (o *SoundboardSoundSendRequest) GetSourceGuildId() string {
 
 // GetSourceGuildIdOk returns a tuple with the SourceGuildId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SoundboardSoundSendRequest) GetSourceGuildIdOk() (*string, bool) {
+func (o *SoundboardSoundSendRequest) GetSourceGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.SourceGuildId) {
 		return nil, false
 	}
@@ -130,8 +130,8 @@ func (o *SoundboardSoundSendRequest) HasSourceGuildId() bool {
 	return false
 }
 
-// SetSourceGuildId gets a reference to the given string and assigns it to the SourceGuildId field.
-func (o *SoundboardSoundSendRequest) SetSourceGuildId(v string) {
+// SetSourceGuildId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the SourceGuildId field.
+func (o *SoundboardSoundSendRequest) SetSourceGuildId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.SourceGuildId = &v
 }
 
@@ -225,5 +225,4 @@ func (v *NullableSoundboardSoundSendRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

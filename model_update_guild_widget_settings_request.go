@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,8 +53,8 @@ var _ MappedNullable = &UpdateGuildWidgetSettingsRequest{}
 
 // UpdateGuildWidgetSettingsRequest struct for UpdateGuildWidgetSettingsRequest
 type UpdateGuildWidgetSettingsRequest struct {
-	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Enabled NullableBool `json:"enabled,omitempty"`
+	ChannelId *GetEntitlementsSkuIdsParameterOneOfInner `json:"channel_id,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
 }
 
 // NewUpdateGuildWidgetSettingsRequest instantiates a new UpdateGuildWidgetSettingsRequest object
@@ -75,9 +75,9 @@ func NewUpdateGuildWidgetSettingsRequestWithDefaults() *UpdateGuildWidgetSetting
 }
 
 // GetChannelId returns the ChannelId field value if set, zero value otherwise.
-func (o *UpdateGuildWidgetSettingsRequest) GetChannelId() string {
+func (o *UpdateGuildWidgetSettingsRequest) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.ChannelId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.ChannelId
@@ -85,7 +85,7 @@ func (o *UpdateGuildWidgetSettingsRequest) GetChannelId() string {
 
 // GetChannelIdOk returns a tuple with the ChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateGuildWidgetSettingsRequest) GetChannelIdOk() (*string, bool) {
+func (o *UpdateGuildWidgetSettingsRequest) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.ChannelId) {
 		return nil, false
 	}
@@ -101,54 +101,44 @@ func (o *UpdateGuildWidgetSettingsRequest) HasChannelId() bool {
 	return false
 }
 
-// SetChannelId gets a reference to the given string and assigns it to the ChannelId field.
-func (o *UpdateGuildWidgetSettingsRequest) SetChannelId(v string) {
+// SetChannelId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the ChannelId field.
+func (o *UpdateGuildWidgetSettingsRequest) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.ChannelId = &v
 }
 
 
-// GetEnabled returns the Enabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *UpdateGuildWidgetSettingsRequest) GetEnabled() bool {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil || IsNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
-	return *o.Enabled.Get()
+	return *o.Enabled
 }
 
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateGuildWidgetSettingsRequest) GetEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil || IsNil(o.Enabled) {
 		return nil, false
 	}
-	return o.Enabled.Get(), o.Enabled.IsSet()
+	return o.Enabled, true
 }
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *UpdateGuildWidgetSettingsRequest) HasEnabled() bool {
-	if o != nil && o.Enabled.IsSet() {
+	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
 
 	return false
 }
 
-// SetEnabled gets a reference to the given NullableBool and assigns it to the Enabled field.
+// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
 func (o *UpdateGuildWidgetSettingsRequest) SetEnabled(v bool) {
-	o.Enabled.Set(&v)
+	o.Enabled = &v
 }
 
-// SetEnabledNil sets the value for Enabled to be an explicit nil
-func (o *UpdateGuildWidgetSettingsRequest) SetEnabledNil() {
-	o.Enabled.Set(nil)
-}
-
-// UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
-func (o *UpdateGuildWidgetSettingsRequest) UnsetEnabled() {
-	o.Enabled.Unset()
-}
 
 func (o UpdateGuildWidgetSettingsRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -163,8 +153,8 @@ func (o UpdateGuildWidgetSettingsRequest) ToMap() (map[string]interface{}, error
 	if !IsNil(o.ChannelId) {
 		toSerialize["channel_id"] = o.ChannelId
 	}
-	if o.Enabled.IsSet() {
-		toSerialize["enabled"] = o.Enabled.Get()
+	if !IsNil(o.Enabled) {
+		toSerialize["enabled"] = o.Enabled
 	}
 	return toSerialize, nil
 }
@@ -204,5 +194,4 @@ func (v *NullableUpdateGuildWidgetSettingsRequest) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

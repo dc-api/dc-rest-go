@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Username** | Pointer to **NullableString** |  | [optional] 
+**Username** | Pointer to **string** |  | [optional] 
 **Name** | **string** |  | 
 
 ## Methods
@@ -51,16 +51,6 @@ SetUsername sets Username field to given value.
 
 HasUsername returns a boolean if a field has been set.
 
-### SetUsernameNil
-
-`func (o *GithubAuthor) SetUsernameNil(b bool)`
-
- SetUsernameNil sets the value for Username to be an explicit nil
-
-### UnsetUsername
-`func (o *GithubAuthor) UnsetUsername()`
-
-UnsetUsername ensures that no value is present for Username, not even an explicit nil
 ### GetName
 
 `func (o *GithubAuthor) GetName() string`

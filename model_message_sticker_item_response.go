@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,7 +57,7 @@ var _ MappedNullable = &MessageStickerItemResponse{}
 type MessageStickerItemResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
-	FormatType NullableInt32 `json:"format_type"`
+	FormatType StickerFormatTypes `json:"format_type"`
 }
 
 type _MessageStickerItemResponse MessageStickerItemResponse
@@ -66,7 +66,7 @@ type _MessageStickerItemResponse MessageStickerItemResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMessageStickerItemResponse(id string, name string, formatType NullableInt32) *MessageStickerItemResponse {
+func NewMessageStickerItemResponse(id string, name string, formatType StickerFormatTypes) *MessageStickerItemResponse {
 	this := MessageStickerItemResponse{}
 	this.Id = id
 	this.Name = name
@@ -131,29 +131,27 @@ func (o *MessageStickerItemResponse) SetName(v string) {
 }
 
 // GetFormatType returns the FormatType field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *MessageStickerItemResponse) GetFormatType() int32 {
-	if o == nil || o.FormatType.Get() == nil {
-		var ret int32
+func (o *MessageStickerItemResponse) GetFormatType() StickerFormatTypes {
+	if o == nil {
+		var ret StickerFormatTypes
 		return ret
 	}
 
-	return *o.FormatType.Get()
+	return o.FormatType
 }
 
 // GetFormatTypeOk returns a tuple with the FormatType field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MessageStickerItemResponse) GetFormatTypeOk() (*int32, bool) {
+func (o *MessageStickerItemResponse) GetFormatTypeOk() (*StickerFormatTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.FormatType.Get(), o.FormatType.IsSet()
+	return &o.FormatType, true
 }
 
 // SetFormatType sets field value
-func (o *MessageStickerItemResponse) SetFormatType(v int32) {
-	o.FormatType.Set(&v)
+func (o *MessageStickerItemResponse) SetFormatType(v StickerFormatTypes) {
+	o.FormatType = v
 }
 
 func (o MessageStickerItemResponse) MarshalJSON() ([]byte, error) {
@@ -168,7 +166,7 @@ func (o MessageStickerItemResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
-	toSerialize["format_type"] = o.FormatType.Get()
+	toSerialize["format_type"] = o.FormatType
 	return toSerialize, nil
 }
 
@@ -246,5 +244,4 @@ func (v *NullableMessageStickerItemResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

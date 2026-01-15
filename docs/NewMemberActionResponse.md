@@ -5,17 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ChannelId** | **string** |  | 
-**ActionType** | **NullableInt32** |  | 
+**ActionType** | [**NewMemberActionType**](NewMemberActionType.md) |  | 
 **Title** | **string** |  | 
 **Description** | **string** |  | 
-**Emoji** | Pointer to [**NullableSettingsEmojiResponse**](SettingsEmojiResponse.md) |  | [optional] 
-**Icon** | Pointer to **NullableString** |  | [optional] 
+**Emoji** | Pointer to [**SettingsEmojiResponse**](SettingsEmojiResponse.md) |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewNewMemberActionResponse
 
-`func NewNewMemberActionResponse(channelId string, actionType NullableInt32, title string, description string, ) *NewMemberActionResponse`
+`func NewNewMemberActionResponse(channelId string, actionType NewMemberActionType, title string, description string, ) *NewMemberActionResponse`
 
 NewNewMemberActionResponse instantiates a new NewMemberActionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -52,34 +52,24 @@ SetChannelId sets ChannelId field to given value.
 
 ### GetActionType
 
-`func (o *NewMemberActionResponse) GetActionType() int32`
+`func (o *NewMemberActionResponse) GetActionType() NewMemberActionType`
 
 GetActionType returns the ActionType field if non-nil, zero value otherwise.
 
 ### GetActionTypeOk
 
-`func (o *NewMemberActionResponse) GetActionTypeOk() (*int32, bool)`
+`func (o *NewMemberActionResponse) GetActionTypeOk() (*NewMemberActionType, bool)`
 
 GetActionTypeOk returns a tuple with the ActionType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetActionType
 
-`func (o *NewMemberActionResponse) SetActionType(v int32)`
+`func (o *NewMemberActionResponse) SetActionType(v NewMemberActionType)`
 
 SetActionType sets ActionType field to given value.
 
 
-### SetActionTypeNil
-
-`func (o *NewMemberActionResponse) SetActionTypeNil(b bool)`
-
- SetActionTypeNil sets the value for ActionType to be an explicit nil
-
-### UnsetActionType
-`func (o *NewMemberActionResponse) UnsetActionType()`
-
-UnsetActionType ensures that no value is present for ActionType, not even an explicit nil
 ### GetTitle
 
 `func (o *NewMemberActionResponse) GetTitle() string`
@@ -145,16 +135,6 @@ SetEmoji sets Emoji field to given value.
 
 HasEmoji returns a boolean if a field has been set.
 
-### SetEmojiNil
-
-`func (o *NewMemberActionResponse) SetEmojiNil(b bool)`
-
- SetEmojiNil sets the value for Emoji to be an explicit nil
-
-### UnsetEmoji
-`func (o *NewMemberActionResponse) UnsetEmoji()`
-
-UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
 ### GetIcon
 
 `func (o *NewMemberActionResponse) GetIcon() string`
@@ -180,16 +160,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *NewMemberActionResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *NewMemberActionResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 **Components** | [**[]ActionRowComponentForMessageRequestComponentsInner**](ActionRowComponentForMessageRequestComponentsInner.md) |  | 
 
 ## Methods
 
 ### NewActionRowComponentForMessageRequest
 
-`func NewActionRowComponentForMessageRequest(type_ int32, components []ActionRowComponentForMessageRequestComponentsInner, ) *ActionRowComponentForMessageRequest`
+`func NewActionRowComponentForMessageRequest(type_ MessageComponentTypes, components []ActionRowComponentForMessageRequestComponentsInner, ) *ActionRowComponentForMessageRequest`
 
 NewActionRowComponentForMessageRequest instantiates a new ActionRowComponentForMessageRequest object
 This constructor will assign default values to properties that have it defined,
@@ -28,23 +29,48 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ActionRowComponentForMessageRequest) GetType() int32`
+`func (o *ActionRowComponentForMessageRequest) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ActionRowComponentForMessageRequest) GetTypeOk() (*int32, bool)`
+`func (o *ActionRowComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ActionRowComponentForMessageRequest) SetType(v int32)`
+`func (o *ActionRowComponentForMessageRequest) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *ActionRowComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ActionRowComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ActionRowComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *ActionRowComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetComponents
 

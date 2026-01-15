@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,7 +57,7 @@ var _ MappedNullable = &WidgetResponse{}
 type WidgetResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
-	InstantInvite NullableString `json:"instant_invite,omitempty"`
+	InstantInvite *string `json:"instant_invite,omitempty"`
 	Channels []WidgetChannel `json:"channels"`
 	Members []WidgetMember `json:"members"`
 	PresenceCount int32 `json:"presence_count"`
@@ -135,48 +135,38 @@ func (o *WidgetResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetInstantInvite returns the InstantInvite field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInstantInvite returns the InstantInvite field value if set, zero value otherwise.
 func (o *WidgetResponse) GetInstantInvite() string {
-	if o == nil || IsNil(o.InstantInvite.Get()) {
+	if o == nil || IsNil(o.InstantInvite) {
 		var ret string
 		return ret
 	}
-	return *o.InstantInvite.Get()
+	return *o.InstantInvite
 }
 
 // GetInstantInviteOk returns a tuple with the InstantInvite field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WidgetResponse) GetInstantInviteOk() (*string, bool) {
-	if o == nil || IsNil(o.InstantInvite.Get()) {
+	if o == nil || IsNil(o.InstantInvite) {
 		return nil, false
 	}
-	return o.InstantInvite.Get(), o.InstantInvite.IsSet()
+	return o.InstantInvite, true
 }
 
 // HasInstantInvite returns a boolean if a field has been set.
 func (o *WidgetResponse) HasInstantInvite() bool {
-	if o != nil && o.InstantInvite.IsSet() {
+	if o != nil && !IsNil(o.InstantInvite) {
 		return true
 	}
 
 	return false
 }
 
-// SetInstantInvite gets a reference to the given NullableString and assigns it to the InstantInvite field.
+// SetInstantInvite gets a reference to the given string and assigns it to the InstantInvite field.
 func (o *WidgetResponse) SetInstantInvite(v string) {
-	o.InstantInvite.Set(&v)
+	o.InstantInvite = &v
 }
 
-// SetInstantInviteNil sets the value for InstantInvite to be an explicit nil
-func (o *WidgetResponse) SetInstantInviteNil() {
-	o.InstantInvite.Set(nil)
-}
-
-// UnsetInstantInvite ensures that no value is present for InstantInvite, not even an explicit nil
-func (o *WidgetResponse) UnsetInstantInvite() {
-	o.InstantInvite.Unset()
-}
 
 // GetChannels returns the Channels field value
 func (o *WidgetResponse) GetChannels() []WidgetChannel {
@@ -262,8 +252,8 @@ func (o WidgetResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
-	if o.InstantInvite.IsSet() {
-		toSerialize["instant_invite"] = o.InstantInvite.Get()
+	if !IsNil(o.InstantInvite) {
+		toSerialize["instant_invite"] = o.InstantInvite
 	}
 	toSerialize["channels"] = o.Channels
 	toSerialize["members"] = o.Members
@@ -347,5 +337,4 @@ func (v *NullableWidgetResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

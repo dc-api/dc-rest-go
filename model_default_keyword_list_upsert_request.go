@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,12 +56,12 @@ var _ MappedNullable = &DefaultKeywordListUpsertRequest{}
 // DefaultKeywordListUpsertRequest struct for DefaultKeywordListUpsertRequest
 type DefaultKeywordListUpsertRequest struct {
 	Name string `json:"name"`
-	EventType int32 `json:"event_type"`
+	EventType AutomodEventType `json:"event_type"`
 	Actions []DefaultKeywordListUpsertRequestActionsInner `json:"actions,omitempty"`
-	Enabled NullableBool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
 	ExemptRoles []string `json:"exempt_roles,omitempty"`
 	ExemptChannels []string `json:"exempt_channels,omitempty"`
-	TriggerType int32 `json:"trigger_type"`
+	TriggerType AutomodTriggerType `json:"trigger_type"`
 	TriggerMetadata DefaultKeywordListTriggerMetadata `json:"trigger_metadata"`
 }
 
@@ -71,7 +71,7 @@ type _DefaultKeywordListUpsertRequest DefaultKeywordListUpsertRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDefaultKeywordListUpsertRequest(name string, eventType int32, triggerType int32, triggerMetadata DefaultKeywordListTriggerMetadata) *DefaultKeywordListUpsertRequest {
+func NewDefaultKeywordListUpsertRequest(name string, eventType AutomodEventType, triggerType AutomodTriggerType, triggerMetadata DefaultKeywordListTriggerMetadata) *DefaultKeywordListUpsertRequest {
 	this := DefaultKeywordListUpsertRequest{}
 	this.Name = name
 	this.EventType = eventType
@@ -113,9 +113,9 @@ func (o *DefaultKeywordListUpsertRequest) SetName(v string) {
 }
 
 // GetEventType returns the EventType field value
-func (o *DefaultKeywordListUpsertRequest) GetEventType() int32 {
+func (o *DefaultKeywordListUpsertRequest) GetEventType() AutomodEventType {
 	if o == nil {
-		var ret int32
+		var ret AutomodEventType
 		return ret
 	}
 
@@ -124,7 +124,7 @@ func (o *DefaultKeywordListUpsertRequest) GetEventType() int32 {
 
 // GetEventTypeOk returns a tuple with the EventType field value
 // and a boolean to check if the value has been set.
-func (o *DefaultKeywordListUpsertRequest) GetEventTypeOk() (*int32, bool) {
+func (o *DefaultKeywordListUpsertRequest) GetEventTypeOk() (*AutomodEventType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -132,13 +132,13 @@ func (o *DefaultKeywordListUpsertRequest) GetEventTypeOk() (*int32, bool) {
 }
 
 // SetEventType sets field value
-func (o *DefaultKeywordListUpsertRequest) SetEventType(v int32) {
+func (o *DefaultKeywordListUpsertRequest) SetEventType(v AutomodEventType) {
 	o.EventType = v
 }
 
-// GetActions returns the Actions field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetActions returns the Actions field value if set, zero value otherwise.
 func (o *DefaultKeywordListUpsertRequest) GetActions() []DefaultKeywordListUpsertRequestActionsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Actions) {
 		var ret []DefaultKeywordListUpsertRequestActionsInner
 		return ret
 	}
@@ -147,9 +147,8 @@ func (o *DefaultKeywordListUpsertRequest) GetActions() []DefaultKeywordListUpser
 
 // GetActionsOk returns a tuple with the Actions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DefaultKeywordListUpsertRequest) GetActionsOk() ([]DefaultKeywordListUpsertRequestActionsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Actions) {
 		return nil, false
 	}
 	return o.Actions, true
@@ -170,52 +169,42 @@ func (o *DefaultKeywordListUpsertRequest) SetActions(v []DefaultKeywordListUpser
 }
 
 
-// GetEnabled returns the Enabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *DefaultKeywordListUpsertRequest) GetEnabled() bool {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil || IsNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
-	return *o.Enabled.Get()
+	return *o.Enabled
 }
 
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DefaultKeywordListUpsertRequest) GetEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Enabled.Get()) {
+	if o == nil || IsNil(o.Enabled) {
 		return nil, false
 	}
-	return o.Enabled.Get(), o.Enabled.IsSet()
+	return o.Enabled, true
 }
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *DefaultKeywordListUpsertRequest) HasEnabled() bool {
-	if o != nil && o.Enabled.IsSet() {
+	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
 
 	return false
 }
 
-// SetEnabled gets a reference to the given NullableBool and assigns it to the Enabled field.
+// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
 func (o *DefaultKeywordListUpsertRequest) SetEnabled(v bool) {
-	o.Enabled.Set(&v)
+	o.Enabled = &v
 }
 
-// SetEnabledNil sets the value for Enabled to be an explicit nil
-func (o *DefaultKeywordListUpsertRequest) SetEnabledNil() {
-	o.Enabled.Set(nil)
-}
 
-// UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
-func (o *DefaultKeywordListUpsertRequest) UnsetEnabled() {
-	o.Enabled.Unset()
-}
-
-// GetExemptRoles returns the ExemptRoles field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExemptRoles returns the ExemptRoles field value if set, zero value otherwise.
 func (o *DefaultKeywordListUpsertRequest) GetExemptRoles() []string {
-	if o == nil {
+	if o == nil || IsNil(o.ExemptRoles) {
 		var ret []string
 		return ret
 	}
@@ -224,9 +213,8 @@ func (o *DefaultKeywordListUpsertRequest) GetExemptRoles() []string {
 
 // GetExemptRolesOk returns a tuple with the ExemptRoles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DefaultKeywordListUpsertRequest) GetExemptRolesOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ExemptRoles) {
 		return nil, false
 	}
 	return o.ExemptRoles, true
@@ -247,9 +235,9 @@ func (o *DefaultKeywordListUpsertRequest) SetExemptRoles(v []string) {
 }
 
 
-// GetExemptChannels returns the ExemptChannels field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExemptChannels returns the ExemptChannels field value if set, zero value otherwise.
 func (o *DefaultKeywordListUpsertRequest) GetExemptChannels() []string {
-	if o == nil {
+	if o == nil || IsNil(o.ExemptChannels) {
 		var ret []string
 		return ret
 	}
@@ -258,9 +246,8 @@ func (o *DefaultKeywordListUpsertRequest) GetExemptChannels() []string {
 
 // GetExemptChannelsOk returns a tuple with the ExemptChannels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DefaultKeywordListUpsertRequest) GetExemptChannelsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ExemptChannels) {
 		return nil, false
 	}
 	return o.ExemptChannels, true
@@ -282,9 +269,9 @@ func (o *DefaultKeywordListUpsertRequest) SetExemptChannels(v []string) {
 
 
 // GetTriggerType returns the TriggerType field value
-func (o *DefaultKeywordListUpsertRequest) GetTriggerType() int32 {
+func (o *DefaultKeywordListUpsertRequest) GetTriggerType() AutomodTriggerType {
 	if o == nil {
-		var ret int32
+		var ret AutomodTriggerType
 		return ret
 	}
 
@@ -293,7 +280,7 @@ func (o *DefaultKeywordListUpsertRequest) GetTriggerType() int32 {
 
 // GetTriggerTypeOk returns a tuple with the TriggerType field value
 // and a boolean to check if the value has been set.
-func (o *DefaultKeywordListUpsertRequest) GetTriggerTypeOk() (*int32, bool) {
+func (o *DefaultKeywordListUpsertRequest) GetTriggerTypeOk() (*AutomodTriggerType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -301,7 +288,7 @@ func (o *DefaultKeywordListUpsertRequest) GetTriggerTypeOk() (*int32, bool) {
 }
 
 // SetTriggerType sets field value
-func (o *DefaultKeywordListUpsertRequest) SetTriggerType(v int32) {
+func (o *DefaultKeywordListUpsertRequest) SetTriggerType(v AutomodTriggerType) {
 	o.TriggerType = v
 }
 
@@ -341,16 +328,16 @@ func (o DefaultKeywordListUpsertRequest) ToMap() (map[string]interface{}, error)
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
 	toSerialize["event_type"] = o.EventType
-	if o.Actions != nil {
+	if !IsNil(o.Actions) {
 		toSerialize["actions"] = o.Actions
 	}
-	if o.Enabled.IsSet() {
-		toSerialize["enabled"] = o.Enabled.Get()
+	if !IsNil(o.Enabled) {
+		toSerialize["enabled"] = o.Enabled
 	}
-	if o.ExemptRoles != nil {
+	if !IsNil(o.ExemptRoles) {
 		toSerialize["exempt_roles"] = o.ExemptRoles
 	}
-	if o.ExemptChannels != nil {
+	if !IsNil(o.ExemptChannels) {
 		toSerialize["exempt_channels"] = o.ExemptChannels
 	}
 	toSerialize["trigger_type"] = o.TriggerType
@@ -433,5 +420,4 @@ func (v *NullableDefaultKeywordListUpsertRequest) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

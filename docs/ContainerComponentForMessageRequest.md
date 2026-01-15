@@ -4,16 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
-**AccentColor** | Pointer to **NullableInt32** |  | [optional] 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**AccentColor** | Pointer to **int32** |  | [optional] 
 **Components** | [**[]ContainerComponentForMessageRequestComponentsInner**](ContainerComponentForMessageRequestComponentsInner.md) |  | 
-**Spoiler** | Pointer to **NullableBool** |  | [optional] 
+**Spoiler** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewContainerComponentForMessageRequest
 
-`func NewContainerComponentForMessageRequest(type_ int32, components []ContainerComponentForMessageRequestComponentsInner, ) *ContainerComponentForMessageRequest`
+`func NewContainerComponentForMessageRequest(type_ MessageComponentTypes, components []ContainerComponentForMessageRequestComponentsInner, ) *ContainerComponentForMessageRequest`
 
 NewContainerComponentForMessageRequest instantiates a new ContainerComponentForMessageRequest object
 This constructor will assign default values to properties that have it defined,
@@ -30,23 +31,48 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ContainerComponentForMessageRequest) GetType() int32`
+`func (o *ContainerComponentForMessageRequest) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ContainerComponentForMessageRequest) GetTypeOk() (*int32, bool)`
+`func (o *ContainerComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ContainerComponentForMessageRequest) SetType(v int32)`
+`func (o *ContainerComponentForMessageRequest) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *ContainerComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ContainerComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ContainerComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *ContainerComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetAccentColor
 
@@ -73,16 +99,6 @@ SetAccentColor sets AccentColor field to given value.
 
 HasAccentColor returns a boolean if a field has been set.
 
-### SetAccentColorNil
-
-`func (o *ContainerComponentForMessageRequest) SetAccentColorNil(b bool)`
-
- SetAccentColorNil sets the value for AccentColor to be an explicit nil
-
-### UnsetAccentColor
-`func (o *ContainerComponentForMessageRequest) UnsetAccentColor()`
-
-UnsetAccentColor ensures that no value is present for AccentColor, not even an explicit nil
 ### GetComponents
 
 `func (o *ContainerComponentForMessageRequest) GetComponents() []ContainerComponentForMessageRequestComponentsInner`
@@ -128,16 +144,6 @@ SetSpoiler sets Spoiler field to given value.
 
 HasSpoiler returns a boolean if a field has been set.
 
-### SetSpoilerNil
-
-`func (o *ContainerComponentForMessageRequest) SetSpoilerNil(b bool)`
-
- SetSpoilerNil sets the value for Spoiler to be an explicit nil
-
-### UnsetSpoiler
-`func (o *ContainerComponentForMessageRequest) UnsetSpoiler()`
-
-UnsetSpoiler ensures that no value is present for Spoiler, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

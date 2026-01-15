@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **NullableInt32** |  | [optional] 
+**Type** | [**InviteTypes**](InviteTypes.md) |  | 
 **Code** | **string** |  | 
-**Inviter** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**MaxAge** | Pointer to **NullableInt32** |  | [optional] 
-**CreatedAt** | Pointer to **NullableTime** |  | [optional] 
-**ExpiresAt** | Pointer to **NullableTime** |  | [optional] 
-**Channel** | Pointer to [**NullableInviteChannelResponse**](InviteChannelResponse.md) |  | [optional] 
-**ApproximateMemberCount** | Pointer to **NullableInt32** |  | [optional] 
+**Inviter** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**MaxAge** | Pointer to **int32** |  | [optional] 
+**CreatedAt** | Pointer to **time.Time** |  | [optional] 
+**ExpiresAt** | Pointer to **time.Time** |  | [optional] 
+**Channel** | [**InviteChannelResponse**](InviteChannelResponse.md) |  | 
+**ApproximateMemberCount** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewGroupDMInviteResponse
 
-`func NewGroupDMInviteResponse(code string, ) *GroupDMInviteResponse`
+`func NewGroupDMInviteResponse(type_ InviteTypes, code string, channel InviteChannelResponse, ) *GroupDMInviteResponse`
 
 NewGroupDMInviteResponse instantiates a new GroupDMInviteResponse object
 This constructor will assign default values to properties that have it defined,
@@ -34,39 +34,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *GroupDMInviteResponse) GetType() int32`
+`func (o *GroupDMInviteResponse) GetType() InviteTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *GroupDMInviteResponse) GetTypeOk() (*int32, bool)`
+`func (o *GroupDMInviteResponse) GetTypeOk() (*InviteTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *GroupDMInviteResponse) SetType(v int32)`
+`func (o *GroupDMInviteResponse) SetType(v InviteTypes)`
 
 SetType sets Type field to given value.
 
-### HasType
 
-`func (o *GroupDMInviteResponse) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### SetTypeNil
-
-`func (o *GroupDMInviteResponse) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *GroupDMInviteResponse) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetCode
 
 `func (o *GroupDMInviteResponse) GetCode() string`
@@ -112,16 +97,6 @@ SetInviter sets Inviter field to given value.
 
 HasInviter returns a boolean if a field has been set.
 
-### SetInviterNil
-
-`func (o *GroupDMInviteResponse) SetInviterNil(b bool)`
-
- SetInviterNil sets the value for Inviter to be an explicit nil
-
-### UnsetInviter
-`func (o *GroupDMInviteResponse) UnsetInviter()`
-
-UnsetInviter ensures that no value is present for Inviter, not even an explicit nil
 ### GetMaxAge
 
 `func (o *GroupDMInviteResponse) GetMaxAge() int32`
@@ -147,16 +122,6 @@ SetMaxAge sets MaxAge field to given value.
 
 HasMaxAge returns a boolean if a field has been set.
 
-### SetMaxAgeNil
-
-`func (o *GroupDMInviteResponse) SetMaxAgeNil(b bool)`
-
- SetMaxAgeNil sets the value for MaxAge to be an explicit nil
-
-### UnsetMaxAge
-`func (o *GroupDMInviteResponse) UnsetMaxAge()`
-
-UnsetMaxAge ensures that no value is present for MaxAge, not even an explicit nil
 ### GetCreatedAt
 
 `func (o *GroupDMInviteResponse) GetCreatedAt() time.Time`
@@ -182,16 +147,6 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
-### SetCreatedAtNil
-
-`func (o *GroupDMInviteResponse) SetCreatedAtNil(b bool)`
-
- SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
-
-### UnsetCreatedAt
-`func (o *GroupDMInviteResponse) UnsetCreatedAt()`
-
-UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
 ### GetExpiresAt
 
 `func (o *GroupDMInviteResponse) GetExpiresAt() time.Time`
@@ -217,16 +172,6 @@ SetExpiresAt sets ExpiresAt field to given value.
 
 HasExpiresAt returns a boolean if a field has been set.
 
-### SetExpiresAtNil
-
-`func (o *GroupDMInviteResponse) SetExpiresAtNil(b bool)`
-
- SetExpiresAtNil sets the value for ExpiresAt to be an explicit nil
-
-### UnsetExpiresAt
-`func (o *GroupDMInviteResponse) UnsetExpiresAt()`
-
-UnsetExpiresAt ensures that no value is present for ExpiresAt, not even an explicit nil
 ### GetChannel
 
 `func (o *GroupDMInviteResponse) GetChannel() InviteChannelResponse`
@@ -246,22 +191,7 @@ and a boolean to check if the value has been set.
 
 SetChannel sets Channel field to given value.
 
-### HasChannel
 
-`func (o *GroupDMInviteResponse) HasChannel() bool`
-
-HasChannel returns a boolean if a field has been set.
-
-### SetChannelNil
-
-`func (o *GroupDMInviteResponse) SetChannelNil(b bool)`
-
- SetChannelNil sets the value for Channel to be an explicit nil
-
-### UnsetChannel
-`func (o *GroupDMInviteResponse) UnsetChannel()`
-
-UnsetChannel ensures that no value is present for Channel, not even an explicit nil
 ### GetApproximateMemberCount
 
 `func (o *GroupDMInviteResponse) GetApproximateMemberCount() int32`
@@ -287,16 +217,6 @@ SetApproximateMemberCount sets ApproximateMemberCount field to given value.
 
 HasApproximateMemberCount returns a boolean if a field has been set.
 
-### SetApproximateMemberCountNil
-
-`func (o *GroupDMInviteResponse) SetApproximateMemberCountNil(b bool)`
-
- SetApproximateMemberCountNil sets the value for ApproximateMemberCount to be an explicit nil
-
-### UnsetApproximateMemberCount
-`func (o *GroupDMInviteResponse) UnsetApproximateMemberCount()`
-
-UnsetApproximateMemberCount ensures that no value is present for ApproximateMemberCount, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

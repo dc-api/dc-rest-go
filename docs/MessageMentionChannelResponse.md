@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Type** | **int32** |  | 
+**Type** | [**ChannelTypes**](ChannelTypes.md) |  | 
 **GuildId** | **string** |  | 
 
 ## Methods
 
 ### NewMessageMentionChannelResponse
 
-`func NewMessageMentionChannelResponse(id string, name string, type_ int32, guildId string, ) *MessageMentionChannelResponse`
+`func NewMessageMentionChannelResponse(id string, name string, type_ ChannelTypes, guildId string, ) *MessageMentionChannelResponse`
 
 NewMessageMentionChannelResponse instantiates a new MessageMentionChannelResponse object
 This constructor will assign default values to properties that have it defined,
@@ -70,20 +70,20 @@ SetName sets Name field to given value.
 
 ### GetType
 
-`func (o *MessageMentionChannelResponse) GetType() int32`
+`func (o *MessageMentionChannelResponse) GetType() ChannelTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *MessageMentionChannelResponse) GetTypeOk() (*int32, bool)`
+`func (o *MessageMentionChannelResponse) GetTypeOk() (*ChannelTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *MessageMentionChannelResponse) SetType(v int32)`
+`func (o *MessageMentionChannelResponse) SetType(v ChannelTypes)`
 
 SetType sets Type field to given value.
 

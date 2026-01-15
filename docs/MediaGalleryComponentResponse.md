@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
 **Id** | **int32** |  | 
 **Items** | [**[]MediaGalleryItemResponse**](MediaGalleryItemResponse.md) |  | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewMediaGalleryComponentResponse
 
-`func NewMediaGalleryComponentResponse(type_ int32, id int32, items []MediaGalleryItemResponse, ) *MediaGalleryComponentResponse`
+`func NewMediaGalleryComponentResponse(type_ MessageComponentTypes, id int32, items []MediaGalleryItemResponse, ) *MediaGalleryComponentResponse`
 
 NewMediaGalleryComponentResponse instantiates a new MediaGalleryComponentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *MediaGalleryComponentResponse) GetType() int32`
+`func (o *MediaGalleryComponentResponse) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *MediaGalleryComponentResponse) GetTypeOk() (*int32, bool)`
+`func (o *MediaGalleryComponentResponse) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *MediaGalleryComponentResponse) SetType(v int32)`
+`func (o *MediaGalleryComponentResponse) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 

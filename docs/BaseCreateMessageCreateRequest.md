@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Content** | Pointer to **NullableString** |  | [optional] 
+**Content** | Pointer to **string** |  | [optional] 
 **Embeds** | Pointer to [**[]RichEmbed**](RichEmbed.md) |  | [optional] 
-**AllowedMentions** | Pointer to [**NullableMessageAllowedMentionsRequest**](MessageAllowedMentionsRequest.md) |  | [optional] 
+**AllowedMentions** | Pointer to [**BaseCreateMessageCreateRequestAllowedMentions**](BaseCreateMessageCreateRequestAllowedMentions.md) |  | [optional] 
 **StickerIds** | Pointer to **[]string** |  | [optional] 
 **Components** | Pointer to [**[]BaseCreateMessageCreateRequestComponentsInner**](BaseCreateMessageCreateRequestComponentsInner.md) |  | [optional] 
-**Flags** | Pointer to **NullableInt32** |  | [optional] 
+**Flags** | Pointer to **int32** |  | [optional] 
 **Attachments** | Pointer to [**[]MessageAttachmentRequest**](MessageAttachmentRequest.md) |  | [optional] 
-**Poll** | Pointer to [**NullablePollCreateRequest**](PollCreateRequest.md) |  | [optional] 
-**ConfettiPotion** | Pointer to **map[string]interface{}** |  | [optional] 
+**Poll** | Pointer to [**BaseCreateMessageCreateRequestPoll**](BaseCreateMessageCreateRequestPoll.md) |  | [optional] 
+**SharedClientTheme** | Pointer to [**BaseCreateMessageCreateRequestSharedClientTheme**](BaseCreateMessageCreateRequestSharedClientTheme.md) |  | [optional] 
 
 ## Methods
 
@@ -58,16 +58,6 @@ SetContent sets Content field to given value.
 
 HasContent returns a boolean if a field has been set.
 
-### SetContentNil
-
-`func (o *BaseCreateMessageCreateRequest) SetContentNil(b bool)`
-
- SetContentNil sets the value for Content to be an explicit nil
-
-### UnsetContent
-`func (o *BaseCreateMessageCreateRequest) UnsetContent()`
-
-UnsetContent ensures that no value is present for Content, not even an explicit nil
 ### GetEmbeds
 
 `func (o *BaseCreateMessageCreateRequest) GetEmbeds() []RichEmbed`
@@ -93,32 +83,22 @@ SetEmbeds sets Embeds field to given value.
 
 HasEmbeds returns a boolean if a field has been set.
 
-### SetEmbedsNil
-
-`func (o *BaseCreateMessageCreateRequest) SetEmbedsNil(b bool)`
-
- SetEmbedsNil sets the value for Embeds to be an explicit nil
-
-### UnsetEmbeds
-`func (o *BaseCreateMessageCreateRequest) UnsetEmbeds()`
-
-UnsetEmbeds ensures that no value is present for Embeds, not even an explicit nil
 ### GetAllowedMentions
 
-`func (o *BaseCreateMessageCreateRequest) GetAllowedMentions() MessageAllowedMentionsRequest`
+`func (o *BaseCreateMessageCreateRequest) GetAllowedMentions() BaseCreateMessageCreateRequestAllowedMentions`
 
 GetAllowedMentions returns the AllowedMentions field if non-nil, zero value otherwise.
 
 ### GetAllowedMentionsOk
 
-`func (o *BaseCreateMessageCreateRequest) GetAllowedMentionsOk() (*MessageAllowedMentionsRequest, bool)`
+`func (o *BaseCreateMessageCreateRequest) GetAllowedMentionsOk() (*BaseCreateMessageCreateRequestAllowedMentions, bool)`
 
 GetAllowedMentionsOk returns a tuple with the AllowedMentions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllowedMentions
 
-`func (o *BaseCreateMessageCreateRequest) SetAllowedMentions(v MessageAllowedMentionsRequest)`
+`func (o *BaseCreateMessageCreateRequest) SetAllowedMentions(v BaseCreateMessageCreateRequestAllowedMentions)`
 
 SetAllowedMentions sets AllowedMentions field to given value.
 
@@ -128,16 +108,6 @@ SetAllowedMentions sets AllowedMentions field to given value.
 
 HasAllowedMentions returns a boolean if a field has been set.
 
-### SetAllowedMentionsNil
-
-`func (o *BaseCreateMessageCreateRequest) SetAllowedMentionsNil(b bool)`
-
- SetAllowedMentionsNil sets the value for AllowedMentions to be an explicit nil
-
-### UnsetAllowedMentions
-`func (o *BaseCreateMessageCreateRequest) UnsetAllowedMentions()`
-
-UnsetAllowedMentions ensures that no value is present for AllowedMentions, not even an explicit nil
 ### GetStickerIds
 
 `func (o *BaseCreateMessageCreateRequest) GetStickerIds() []string`
@@ -163,16 +133,6 @@ SetStickerIds sets StickerIds field to given value.
 
 HasStickerIds returns a boolean if a field has been set.
 
-### SetStickerIdsNil
-
-`func (o *BaseCreateMessageCreateRequest) SetStickerIdsNil(b bool)`
-
- SetStickerIdsNil sets the value for StickerIds to be an explicit nil
-
-### UnsetStickerIds
-`func (o *BaseCreateMessageCreateRequest) UnsetStickerIds()`
-
-UnsetStickerIds ensures that no value is present for StickerIds, not even an explicit nil
 ### GetComponents
 
 `func (o *BaseCreateMessageCreateRequest) GetComponents() []BaseCreateMessageCreateRequestComponentsInner`
@@ -198,16 +158,6 @@ SetComponents sets Components field to given value.
 
 HasComponents returns a boolean if a field has been set.
 
-### SetComponentsNil
-
-`func (o *BaseCreateMessageCreateRequest) SetComponentsNil(b bool)`
-
- SetComponentsNil sets the value for Components to be an explicit nil
-
-### UnsetComponents
-`func (o *BaseCreateMessageCreateRequest) UnsetComponents()`
-
-UnsetComponents ensures that no value is present for Components, not even an explicit nil
 ### GetFlags
 
 `func (o *BaseCreateMessageCreateRequest) GetFlags() int32`
@@ -233,16 +183,6 @@ SetFlags sets Flags field to given value.
 
 HasFlags returns a boolean if a field has been set.
 
-### SetFlagsNil
-
-`func (o *BaseCreateMessageCreateRequest) SetFlagsNil(b bool)`
-
- SetFlagsNil sets the value for Flags to be an explicit nil
-
-### UnsetFlags
-`func (o *BaseCreateMessageCreateRequest) UnsetFlags()`
-
-UnsetFlags ensures that no value is present for Flags, not even an explicit nil
 ### GetAttachments
 
 `func (o *BaseCreateMessageCreateRequest) GetAttachments() []MessageAttachmentRequest`
@@ -268,32 +208,22 @@ SetAttachments sets Attachments field to given value.
 
 HasAttachments returns a boolean if a field has been set.
 
-### SetAttachmentsNil
-
-`func (o *BaseCreateMessageCreateRequest) SetAttachmentsNil(b bool)`
-
- SetAttachmentsNil sets the value for Attachments to be an explicit nil
-
-### UnsetAttachments
-`func (o *BaseCreateMessageCreateRequest) UnsetAttachments()`
-
-UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
 ### GetPoll
 
-`func (o *BaseCreateMessageCreateRequest) GetPoll() PollCreateRequest`
+`func (o *BaseCreateMessageCreateRequest) GetPoll() BaseCreateMessageCreateRequestPoll`
 
 GetPoll returns the Poll field if non-nil, zero value otherwise.
 
 ### GetPollOk
 
-`func (o *BaseCreateMessageCreateRequest) GetPollOk() (*PollCreateRequest, bool)`
+`func (o *BaseCreateMessageCreateRequest) GetPollOk() (*BaseCreateMessageCreateRequestPoll, bool)`
 
 GetPollOk returns a tuple with the Poll field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPoll
 
-`func (o *BaseCreateMessageCreateRequest) SetPoll(v PollCreateRequest)`
+`func (o *BaseCreateMessageCreateRequest) SetPoll(v BaseCreateMessageCreateRequestPoll)`
 
 SetPoll sets Poll field to given value.
 
@@ -303,40 +233,30 @@ SetPoll sets Poll field to given value.
 
 HasPoll returns a boolean if a field has been set.
 
-### SetPollNil
+### GetSharedClientTheme
 
-`func (o *BaseCreateMessageCreateRequest) SetPollNil(b bool)`
+`func (o *BaseCreateMessageCreateRequest) GetSharedClientTheme() BaseCreateMessageCreateRequestSharedClientTheme`
 
- SetPollNil sets the value for Poll to be an explicit nil
+GetSharedClientTheme returns the SharedClientTheme field if non-nil, zero value otherwise.
 
-### UnsetPoll
-`func (o *BaseCreateMessageCreateRequest) UnsetPoll()`
+### GetSharedClientThemeOk
 
-UnsetPoll ensures that no value is present for Poll, not even an explicit nil
-### GetConfettiPotion
+`func (o *BaseCreateMessageCreateRequest) GetSharedClientThemeOk() (*BaseCreateMessageCreateRequestSharedClientTheme, bool)`
 
-`func (o *BaseCreateMessageCreateRequest) GetConfettiPotion() map[string]interface{}`
-
-GetConfettiPotion returns the ConfettiPotion field if non-nil, zero value otherwise.
-
-### GetConfettiPotionOk
-
-`func (o *BaseCreateMessageCreateRequest) GetConfettiPotionOk() (*map[string]interface{}, bool)`
-
-GetConfettiPotionOk returns a tuple with the ConfettiPotion field if it's non-nil, zero value otherwise
+GetSharedClientThemeOk returns a tuple with the SharedClientTheme field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetConfettiPotion
+### SetSharedClientTheme
 
-`func (o *BaseCreateMessageCreateRequest) SetConfettiPotion(v map[string]interface{})`
+`func (o *BaseCreateMessageCreateRequest) SetSharedClientTheme(v BaseCreateMessageCreateRequestSharedClientTheme)`
 
-SetConfettiPotion sets ConfettiPotion field to given value.
+SetSharedClientTheme sets SharedClientTheme field to given value.
 
-### HasConfettiPotion
+### HasSharedClientTheme
 
-`func (o *BaseCreateMessageCreateRequest) HasConfettiPotion() bool`
+`func (o *BaseCreateMessageCreateRequest) HasSharedClientTheme() bool`
 
-HasConfettiPotion returns a boolean if a field has been set.
+HasSharedClientTheme returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

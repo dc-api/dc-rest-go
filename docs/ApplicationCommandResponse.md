@@ -7,26 +7,26 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **ApplicationId** | **string** |  | 
 **Version** | **string** |  | 
-**DefaultMemberPermissions** | Pointer to **NullableString** |  | [optional] 
-**Type** | **int32** |  | 
+**DefaultMemberPermissions** | Pointer to **string** |  | [optional] 
+**Type** | [**ApplicationCommandType**](ApplicationCommandType.md) |  | 
 **Name** | **string** |  | 
-**NameLocalized** | Pointer to **NullableString** |  | [optional] 
+**NameLocalized** | Pointer to **string** |  | [optional] 
 **NameLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Description** | **string** |  | 
-**DescriptionLocalized** | Pointer to **NullableString** |  | [optional] 
+**DescriptionLocalized** | Pointer to **string** |  | [optional] 
 **DescriptionLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **GuildId** | Pointer to **string** |  | [optional] 
-**DmPermission** | Pointer to **NullableBool** |  | [optional] 
-**Contexts** | Pointer to **[]int32** |  | [optional] 
-**IntegrationTypes** | Pointer to **[]int32** |  | [optional] 
+**DmPermission** | Pointer to **bool** |  | [optional] 
+**Contexts** | Pointer to [**[]InteractionContextType**](InteractionContextType.md) |  | [optional] 
+**IntegrationTypes** | Pointer to [**[]ApplicationIntegrationType**](ApplicationIntegrationType.md) |  | [optional] 
 **Options** | Pointer to [**[]ApplicationCommandResponseOptionsInner**](ApplicationCommandResponseOptionsInner.md) |  | [optional] 
-**Nsfw** | Pointer to **NullableBool** |  | [optional] 
+**Nsfw** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewApplicationCommandResponse
 
-`func NewApplicationCommandResponse(id string, applicationId string, version string, type_ int32, name string, description string, ) *ApplicationCommandResponse`
+`func NewApplicationCommandResponse(id string, applicationId string, version string, type_ ApplicationCommandType, name string, description string, ) *ApplicationCommandResponse`
 
 NewApplicationCommandResponse instantiates a new ApplicationCommandResponse object
 This constructor will assign default values to properties that have it defined,
@@ -126,32 +126,22 @@ SetDefaultMemberPermissions sets DefaultMemberPermissions field to given value.
 
 HasDefaultMemberPermissions returns a boolean if a field has been set.
 
-### SetDefaultMemberPermissionsNil
-
-`func (o *ApplicationCommandResponse) SetDefaultMemberPermissionsNil(b bool)`
-
- SetDefaultMemberPermissionsNil sets the value for DefaultMemberPermissions to be an explicit nil
-
-### UnsetDefaultMemberPermissions
-`func (o *ApplicationCommandResponse) UnsetDefaultMemberPermissions()`
-
-UnsetDefaultMemberPermissions ensures that no value is present for DefaultMemberPermissions, not even an explicit nil
 ### GetType
 
-`func (o *ApplicationCommandResponse) GetType() int32`
+`func (o *ApplicationCommandResponse) GetType() ApplicationCommandType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ApplicationCommandResponse) GetTypeOk() (*int32, bool)`
+`func (o *ApplicationCommandResponse) GetTypeOk() (*ApplicationCommandType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ApplicationCommandResponse) SetType(v int32)`
+`func (o *ApplicationCommandResponse) SetType(v ApplicationCommandType)`
 
 SetType sets Type field to given value.
 
@@ -201,16 +191,6 @@ SetNameLocalized sets NameLocalized field to given value.
 
 HasNameLocalized returns a boolean if a field has been set.
 
-### SetNameLocalizedNil
-
-`func (o *ApplicationCommandResponse) SetNameLocalizedNil(b bool)`
-
- SetNameLocalizedNil sets the value for NameLocalized to be an explicit nil
-
-### UnsetNameLocalized
-`func (o *ApplicationCommandResponse) UnsetNameLocalized()`
-
-UnsetNameLocalized ensures that no value is present for NameLocalized, not even an explicit nil
 ### GetNameLocalizations
 
 `func (o *ApplicationCommandResponse) GetNameLocalizations() map[string]string`
@@ -281,16 +261,6 @@ SetDescriptionLocalized sets DescriptionLocalized field to given value.
 
 HasDescriptionLocalized returns a boolean if a field has been set.
 
-### SetDescriptionLocalizedNil
-
-`func (o *ApplicationCommandResponse) SetDescriptionLocalizedNil(b bool)`
-
- SetDescriptionLocalizedNil sets the value for DescriptionLocalized to be an explicit nil
-
-### UnsetDescriptionLocalized
-`func (o *ApplicationCommandResponse) UnsetDescriptionLocalized()`
-
-UnsetDescriptionLocalized ensures that no value is present for DescriptionLocalized, not even an explicit nil
 ### GetDescriptionLocalizations
 
 `func (o *ApplicationCommandResponse) GetDescriptionLocalizations() map[string]string`
@@ -366,32 +336,22 @@ SetDmPermission sets DmPermission field to given value.
 
 HasDmPermission returns a boolean if a field has been set.
 
-### SetDmPermissionNil
-
-`func (o *ApplicationCommandResponse) SetDmPermissionNil(b bool)`
-
- SetDmPermissionNil sets the value for DmPermission to be an explicit nil
-
-### UnsetDmPermission
-`func (o *ApplicationCommandResponse) UnsetDmPermission()`
-
-UnsetDmPermission ensures that no value is present for DmPermission, not even an explicit nil
 ### GetContexts
 
-`func (o *ApplicationCommandResponse) GetContexts() []int32`
+`func (o *ApplicationCommandResponse) GetContexts() []InteractionContextType`
 
 GetContexts returns the Contexts field if non-nil, zero value otherwise.
 
 ### GetContextsOk
 
-`func (o *ApplicationCommandResponse) GetContextsOk() (*[]int32, bool)`
+`func (o *ApplicationCommandResponse) GetContextsOk() (*[]InteractionContextType, bool)`
 
 GetContextsOk returns a tuple with the Contexts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetContexts
 
-`func (o *ApplicationCommandResponse) SetContexts(v []int32)`
+`func (o *ApplicationCommandResponse) SetContexts(v []InteractionContextType)`
 
 SetContexts sets Contexts field to given value.
 
@@ -401,32 +361,22 @@ SetContexts sets Contexts field to given value.
 
 HasContexts returns a boolean if a field has been set.
 
-### SetContextsNil
-
-`func (o *ApplicationCommandResponse) SetContextsNil(b bool)`
-
- SetContextsNil sets the value for Contexts to be an explicit nil
-
-### UnsetContexts
-`func (o *ApplicationCommandResponse) UnsetContexts()`
-
-UnsetContexts ensures that no value is present for Contexts, not even an explicit nil
 ### GetIntegrationTypes
 
-`func (o *ApplicationCommandResponse) GetIntegrationTypes() []int32`
+`func (o *ApplicationCommandResponse) GetIntegrationTypes() []ApplicationIntegrationType`
 
 GetIntegrationTypes returns the IntegrationTypes field if non-nil, zero value otherwise.
 
 ### GetIntegrationTypesOk
 
-`func (o *ApplicationCommandResponse) GetIntegrationTypesOk() (*[]int32, bool)`
+`func (o *ApplicationCommandResponse) GetIntegrationTypesOk() (*[]ApplicationIntegrationType, bool)`
 
 GetIntegrationTypesOk returns a tuple with the IntegrationTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIntegrationTypes
 
-`func (o *ApplicationCommandResponse) SetIntegrationTypes(v []int32)`
+`func (o *ApplicationCommandResponse) SetIntegrationTypes(v []ApplicationIntegrationType)`
 
 SetIntegrationTypes sets IntegrationTypes field to given value.
 
@@ -436,16 +386,6 @@ SetIntegrationTypes sets IntegrationTypes field to given value.
 
 HasIntegrationTypes returns a boolean if a field has been set.
 
-### SetIntegrationTypesNil
-
-`func (o *ApplicationCommandResponse) SetIntegrationTypesNil(b bool)`
-
- SetIntegrationTypesNil sets the value for IntegrationTypes to be an explicit nil
-
-### UnsetIntegrationTypes
-`func (o *ApplicationCommandResponse) UnsetIntegrationTypes()`
-
-UnsetIntegrationTypes ensures that no value is present for IntegrationTypes, not even an explicit nil
 ### GetOptions
 
 `func (o *ApplicationCommandResponse) GetOptions() []ApplicationCommandResponseOptionsInner`
@@ -471,16 +411,6 @@ SetOptions sets Options field to given value.
 
 HasOptions returns a boolean if a field has been set.
 
-### SetOptionsNil
-
-`func (o *ApplicationCommandResponse) SetOptionsNil(b bool)`
-
- SetOptionsNil sets the value for Options to be an explicit nil
-
-### UnsetOptions
-`func (o *ApplicationCommandResponse) UnsetOptions()`
-
-UnsetOptions ensures that no value is present for Options, not even an explicit nil
 ### GetNsfw
 
 `func (o *ApplicationCommandResponse) GetNsfw() bool`
@@ -506,16 +436,6 @@ SetNsfw sets Nsfw field to given value.
 
 HasNsfw returns a boolean if a field has been set.
 
-### SetNsfwNil
-
-`func (o *ApplicationCommandResponse) SetNsfwNil(b bool)`
-
- SetNsfwNil sets the value for Nsfw to be an explicit nil
-
-### UnsetNsfw
-`func (o *ApplicationCommandResponse) UnsetNsfw()`
-
-UnsetNsfw ensures that no value is present for Nsfw, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -12,6 +12,8 @@ Method | HTTP request | Description
 [**AddThreadMember**](DefaultAPI.md#AddThreadMember) | **Put** /channels/{channel_id}/thread-members/{user_id} | 
 [**ApplicationsGetActivityInstance**](DefaultAPI.md#ApplicationsGetActivityInstance) | **Get** /applications/{application_id}/activity-instances/{instance_id} | 
 [**BanUserFromGuild**](DefaultAPI.md#BanUserFromGuild) | **Put** /guilds/{guild_id}/bans/{user_id} | 
+[**BotPartnerSdkToken**](DefaultAPI.md#BotPartnerSdkToken) | **Post** /partner-sdk/token/bot | 
+[**BotPartnerSdkUnmergeProvisionalAccount**](DefaultAPI.md#BotPartnerSdkUnmergeProvisionalAccount) | **Post** /partner-sdk/provisional-accounts/unmerge/bot | 
 [**BulkBanUsersFromGuild**](DefaultAPI.md#BulkBanUsersFromGuild) | **Post** /guilds/{guild_id}/bulk-ban | 
 [**BulkDeleteMessages**](DefaultAPI.md#BulkDeleteMessages) | **Post** /channels/{channel_id}/messages/bulk-delete | 
 [**BulkSetApplicationCommands**](DefaultAPI.md#BulkSetApplicationCommands) | **Put** /applications/{application_id}/commands | 
@@ -26,17 +28,17 @@ Method | HTTP request | Description
 [**CreateChannelInvite**](DefaultAPI.md#CreateChannelInvite) | **Post** /channels/{channel_id}/invites | 
 [**CreateDm**](DefaultAPI.md#CreateDm) | **Post** /users/@me/channels | 
 [**CreateEntitlement**](DefaultAPI.md#CreateEntitlement) | **Post** /applications/{application_id}/entitlements | 
-[**CreateGuild**](DefaultAPI.md#CreateGuild) | **Post** /guilds | 
 [**CreateGuildApplicationCommand**](DefaultAPI.md#CreateGuildApplicationCommand) | **Post** /applications/{application_id}/guilds/{guild_id}/commands | 
 [**CreateGuildChannel**](DefaultAPI.md#CreateGuildChannel) | **Post** /guilds/{guild_id}/channels | 
 [**CreateGuildEmoji**](DefaultAPI.md#CreateGuildEmoji) | **Post** /guilds/{guild_id}/emojis | 
-[**CreateGuildFromTemplate**](DefaultAPI.md#CreateGuildFromTemplate) | **Post** /guilds/templates/{code} | 
 [**CreateGuildRole**](DefaultAPI.md#CreateGuildRole) | **Post** /guilds/{guild_id}/roles | 
 [**CreateGuildScheduledEvent**](DefaultAPI.md#CreateGuildScheduledEvent) | **Post** /guilds/{guild_id}/scheduled-events | 
 [**CreateGuildSoundboardSound**](DefaultAPI.md#CreateGuildSoundboardSound) | **Post** /guilds/{guild_id}/soundboard-sounds | 
 [**CreateGuildSticker**](DefaultAPI.md#CreateGuildSticker) | **Post** /guilds/{guild_id}/stickers | 
 [**CreateGuildTemplate**](DefaultAPI.md#CreateGuildTemplate) | **Post** /guilds/{guild_id}/templates | 
 [**CreateInteractionResponse**](DefaultAPI.md#CreateInteractionResponse) | **Post** /interactions/{interaction_id}/{interaction_token}/callback | 
+[**CreateLinkedLobbyGuildInviteForSelf**](DefaultAPI.md#CreateLinkedLobbyGuildInviteForSelf) | **Post** /lobbies/{lobby_id}/members/@me/invites | 
+[**CreateLinkedLobbyGuildInviteForUser**](DefaultAPI.md#CreateLinkedLobbyGuildInviteForUser) | **Post** /lobbies/{lobby_id}/members/{user_id}/invites | 
 [**CreateLobby**](DefaultAPI.md#CreateLobby) | **Post** /lobbies | 
 [**CreateLobbyMessage**](DefaultAPI.md#CreateLobbyMessage) | **Post** /lobbies/{lobby_id}/messages | 
 [**CreateMessage**](DefaultAPI.md#CreateMessage) | **Post** /channels/{channel_id}/messages | 
@@ -57,7 +59,6 @@ Method | HTTP request | Description
 [**DeleteChannelPermissionOverwrite**](DefaultAPI.md#DeleteChannelPermissionOverwrite) | **Delete** /channels/{channel_id}/permissions/{overwrite_id} | 
 [**DeleteEntitlement**](DefaultAPI.md#DeleteEntitlement) | **Delete** /applications/{application_id}/entitlements/{entitlement_id} | 
 [**DeleteGroupDmUser**](DefaultAPI.md#DeleteGroupDmUser) | **Delete** /channels/{channel_id}/recipients/{user_id} | 
-[**DeleteGuild**](DefaultAPI.md#DeleteGuild) | **Delete** /guilds/{guild_id} | 
 [**DeleteGuildApplicationCommand**](DefaultAPI.md#DeleteGuildApplicationCommand) | **Delete** /applications/{application_id}/guilds/{guild_id}/commands/{command_id} | 
 [**DeleteGuildEmoji**](DefaultAPI.md#DeleteGuildEmoji) | **Delete** /guilds/{guild_id}/emojis/{emoji_id} | 
 [**DeleteGuildIntegration**](DefaultAPI.md#DeleteGuildIntegration) | **Delete** /guilds/{guild_id}/integrations/{integration_id} | 
@@ -98,6 +99,7 @@ Method | HTTP request | Description
 [**GetAutoModerationRule**](DefaultAPI.md#GetAutoModerationRule) | **Get** /guilds/{guild_id}/auto-moderation/rules/{rule_id} | 
 [**GetBotGateway**](DefaultAPI.md#GetBotGateway) | **Get** /gateway/bot | 
 [**GetChannel**](DefaultAPI.md#GetChannel) | **Get** /channels/{channel_id} | 
+[**GetCurrentUserApplicationEntitlements**](DefaultAPI.md#GetCurrentUserApplicationEntitlements) | **Get** /users/@me/applications/{application_id}/entitlements | 
 [**GetEntitlement**](DefaultAPI.md#GetEntitlement) | **Get** /applications/{application_id}/entitlements/{entitlement_id} | 
 [**GetEntitlements**](DefaultAPI.md#GetEntitlements) | **Get** /applications/{application_id}/entitlements | 
 [**GetGateway**](DefaultAPI.md#GetGateway) | **Get** /gateway | 
@@ -121,6 +123,8 @@ Method | HTTP request | Description
 [**GetGuildWidgetPng**](DefaultAPI.md#GetGuildWidgetPng) | **Get** /guilds/{guild_id}/widget.png | 
 [**GetGuildWidgetSettings**](DefaultAPI.md#GetGuildWidgetSettings) | **Get** /guilds/{guild_id}/widget | 
 [**GetGuildsOnboarding**](DefaultAPI.md#GetGuildsOnboarding) | **Get** /guilds/{guild_id}/onboarding | 
+[**GetInviteTargetUsers**](DefaultAPI.md#GetInviteTargetUsers) | **Get** /invites/{code}/target-users | 
+[**GetInviteTargetUsersJobStatus**](DefaultAPI.md#GetInviteTargetUsersJobStatus) | **Get** /invites/{code}/target-users/job-status | 
 [**GetLobby**](DefaultAPI.md#GetLobby) | **Get** /lobbies/{lobby_id} | 
 [**GetLobbyMessages**](DefaultAPI.md#GetLobbyMessages) | **Get** /lobbies/{lobby_id}/messages | 
 [**GetMessage**](DefaultAPI.md#GetMessage) | **Get** /channels/{channel_id}/messages/{message_id} | 
@@ -143,6 +147,7 @@ Method | HTTP request | Description
 [**GetWebhook**](DefaultAPI.md#GetWebhook) | **Get** /webhooks/{webhook_id} | 
 [**GetWebhookByToken**](DefaultAPI.md#GetWebhookByToken) | **Get** /webhooks/{webhook_id}/{webhook_token} | 
 [**GetWebhookMessage**](DefaultAPI.md#GetWebhookMessage) | **Get** /webhooks/{webhook_id}/{webhook_token}/messages/{message_id} | 
+[**GuildRoleMemberCounts**](DefaultAPI.md#GuildRoleMemberCounts) | **Get** /guilds/{guild_id}/roles/member-counts | 
 [**InviteResolve**](DefaultAPI.md#InviteResolve) | **Get** /invites/{code} | 
 [**InviteRevoke**](DefaultAPI.md#InviteRevoke) | **Delete** /invites/{code} | 
 [**JoinThread**](DefaultAPI.md#JoinThread) | **Put** /channels/{channel_id}/thread-members/@me | 
@@ -191,7 +196,6 @@ Method | HTTP request | Description
 [**SendSoundboardSound**](DefaultAPI.md#SendSoundboardSound) | **Post** /channels/{channel_id}/send-soundboard-sound | 
 [**SetChannelPermissionOverwrite**](DefaultAPI.md#SetChannelPermissionOverwrite) | **Put** /channels/{channel_id}/permissions/{overwrite_id} | 
 [**SetGuildApplicationCommandPermissions**](DefaultAPI.md#SetGuildApplicationCommandPermissions) | **Put** /applications/{application_id}/guilds/{guild_id}/commands/{command_id}/permissions | 
-[**SetGuildMfaLevel**](DefaultAPI.md#SetGuildMfaLevel) | **Post** /guilds/{guild_id}/mfa | 
 [**SyncGuildTemplate**](DefaultAPI.md#SyncGuildTemplate) | **Put** /guilds/{guild_id}/templates/{code} | 
 [**ThreadSearch**](DefaultAPI.md#ThreadSearch) | **Get** /channels/{channel_id}/threads/search | 
 [**TriggerTypingIndicator**](DefaultAPI.md#TriggerTypingIndicator) | **Post** /channels/{channel_id}/typing | 
@@ -214,6 +218,7 @@ Method | HTTP request | Description
 [**UpdateGuildTemplate**](DefaultAPI.md#UpdateGuildTemplate) | **Patch** /guilds/{guild_id}/templates/{code} | 
 [**UpdateGuildWelcomeScreen**](DefaultAPI.md#UpdateGuildWelcomeScreen) | **Patch** /guilds/{guild_id}/welcome-screen | 
 [**UpdateGuildWidgetSettings**](DefaultAPI.md#UpdateGuildWidgetSettings) | **Patch** /guilds/{guild_id}/widget | 
+[**UpdateInviteTargetUsers**](DefaultAPI.md#UpdateInviteTargetUsers) | **Put** /invites/{code}/target-users | 
 [**UpdateMessage**](DefaultAPI.md#UpdateMessage) | **Patch** /channels/{channel_id}/messages/{message_id} | 
 [**UpdateMyApplication**](DefaultAPI.md#UpdateMyApplication) | **Patch** /applications/@me | 
 [**UpdateMyGuildMember**](DefaultAPI.md#UpdateMyGuildMember) | **Patch** /guilds/{guild_id}/members/@me | 
@@ -304,7 +309,7 @@ Name | Type | Description  | Notes
 
 ## AddGuildMember
 
-> GuildMemberResponse AddGuildMember(ctx, guildId, userId).AddGuildMemberRequest(addGuildMemberRequest).Execute()
+> GuildMemberResponse AddGuildMember(ctx, guildId, userId).BotAddGuildMemberRequest(botAddGuildMemberRequest).Execute()
 
 
 
@@ -323,11 +328,11 @@ import (
 func main() {
 	guildId := "guildId_example" // string | 
 	userId := "userId_example" // string | 
-	addGuildMemberRequest := *openapiclient.NewAddGuildMemberRequest("AccessToken_example") // AddGuildMemberRequest | 
+	botAddGuildMemberRequest := *openapiclient.NewBotAddGuildMemberRequest("AccessToken_example") // BotAddGuildMemberRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.AddGuildMember(context.Background(), guildId, userId).AddGuildMemberRequest(addGuildMemberRequest).Execute()
+	resp, r, err := apiClient.DefaultAPI.AddGuildMember(context.Background(), guildId, userId).BotAddGuildMemberRequest(botAddGuildMemberRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.AddGuildMember``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -355,7 +360,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **addGuildMemberRequest** | [**AddGuildMemberRequest**](AddGuildMemberRequest.md) |  | 
+ **botAddGuildMemberRequest** | [**BotAddGuildMemberRequest**](BotAddGuildMemberRequest.md) |  | 
 
 ### Return type
 
@@ -803,9 +808,135 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## BotPartnerSdkToken
+
+> ProvisionalTokenResponse BotPartnerSdkToken(ctx).BotPartnerSdkTokenRequest(botPartnerSdkTokenRequest).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/dc-api/dc-rest-go"
+)
+
+func main() {
+	botPartnerSdkTokenRequest := *openapiclient.NewBotPartnerSdkTokenRequest("ExternalUserId_example") // BotPartnerSdkTokenRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.BotPartnerSdkToken(context.Background()).BotPartnerSdkTokenRequest(botPartnerSdkTokenRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.BotPartnerSdkToken``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BotPartnerSdkToken`: ProvisionalTokenResponse
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.BotPartnerSdkToken`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBotPartnerSdkTokenRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **botPartnerSdkTokenRequest** | [**BotPartnerSdkTokenRequest**](BotPartnerSdkTokenRequest.md) |  | 
+
+### Return type
+
+[**ProvisionalTokenResponse**](ProvisionalTokenResponse.md)
+
+### Authorization
+
+[BotToken](../README.md#BotToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BotPartnerSdkUnmergeProvisionalAccount
+
+> BotPartnerSdkUnmergeProvisionalAccount(ctx).BotPartnerSdkUnmergeProvisionalAccountRequest(botPartnerSdkUnmergeProvisionalAccountRequest).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/dc-api/dc-rest-go"
+)
+
+func main() {
+	botPartnerSdkUnmergeProvisionalAccountRequest := *openapiclient.NewBotPartnerSdkUnmergeProvisionalAccountRequest("ExternalUserId_example") // BotPartnerSdkUnmergeProvisionalAccountRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DefaultAPI.BotPartnerSdkUnmergeProvisionalAccount(context.Background()).BotPartnerSdkUnmergeProvisionalAccountRequest(botPartnerSdkUnmergeProvisionalAccountRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.BotPartnerSdkUnmergeProvisionalAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBotPartnerSdkUnmergeProvisionalAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **botPartnerSdkUnmergeProvisionalAccountRequest** | [**BotPartnerSdkUnmergeProvisionalAccountRequest**](BotPartnerSdkUnmergeProvisionalAccountRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BotToken](../README.md#BotToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## BulkBanUsersFromGuild
 
-> BulkBanUsersResponse BulkBanUsersFromGuild(ctx, guildId).BulkBanUsersFromGuildRequest(bulkBanUsersFromGuildRequest).Execute()
+> BulkBanUsersResponse BulkBanUsersFromGuild(ctx, guildId).BulkBanUsersRequest(bulkBanUsersRequest).Execute()
 
 
 
@@ -823,11 +954,11 @@ import (
 
 func main() {
 	guildId := "guildId_example" // string | 
-	bulkBanUsersFromGuildRequest := *openapiclient.NewBulkBanUsersFromGuildRequest([]string{"UserIds_example"}) // BulkBanUsersFromGuildRequest | 
+	bulkBanUsersRequest := *openapiclient.NewBulkBanUsersRequest([]string{"UserIds_example"}) // BulkBanUsersRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.BulkBanUsersFromGuild(context.Background(), guildId).BulkBanUsersFromGuildRequest(bulkBanUsersFromGuildRequest).Execute()
+	resp, r, err := apiClient.DefaultAPI.BulkBanUsersFromGuild(context.Background(), guildId).BulkBanUsersRequest(bulkBanUsersRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.BulkBanUsersFromGuild``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -853,7 +984,7 @@ Other parameters are passed through a pointer to a apiBulkBanUsersFromGuildReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **bulkBanUsersFromGuildRequest** | [**BulkBanUsersFromGuildRequest**](BulkBanUsersFromGuildRequest.md) |  | 
+ **bulkBanUsersRequest** | [**BulkBanUsersRequest**](BulkBanUsersRequest.md) |  | 
 
 ### Return type
 
@@ -1154,7 +1285,7 @@ Name | Type | Description  | Notes
 
 ## BulkUpdateGuildRoles
 
-> []GuildRoleResponse BulkUpdateGuildRoles(ctx, guildId).BulkUpdateGuildRolesRequestInner(bulkUpdateGuildRolesRequestInner).Execute()
+> []GuildRoleResponse BulkUpdateGuildRoles(ctx, guildId).UpdateRolePositionsRequest(updateRolePositionsRequest).Execute()
 
 
 
@@ -1172,11 +1303,11 @@ import (
 
 func main() {
 	guildId := "guildId_example" // string | 
-	bulkUpdateGuildRolesRequestInner := []openapiclient.BulkUpdateGuildRolesRequestInner{*openapiclient.NewBulkUpdateGuildRolesRequestInner()} // []BulkUpdateGuildRolesRequestInner | 
+	updateRolePositionsRequest := []openapiclient.UpdateRolePositionsRequest{*openapiclient.NewUpdateRolePositionsRequest()} // []UpdateRolePositionsRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.BulkUpdateGuildRoles(context.Background(), guildId).BulkUpdateGuildRolesRequestInner(bulkUpdateGuildRolesRequestInner).Execute()
+	resp, r, err := apiClient.DefaultAPI.BulkUpdateGuildRoles(context.Background(), guildId).UpdateRolePositionsRequest(updateRolePositionsRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.BulkUpdateGuildRoles``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1202,7 +1333,7 @@ Other parameters are passed through a pointer to a apiBulkUpdateGuildRolesReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **bulkUpdateGuildRolesRequestInner** | [**[]BulkUpdateGuildRolesRequestInner**](BulkUpdateGuildRolesRequestInner.md) |  | 
+ **updateRolePositionsRequest** | [**[]UpdateRolePositionsRequest**](UpdateRolePositionsRequest.md) |  | 
 
 ### Return type
 
@@ -1521,7 +1652,7 @@ import (
 
 func main() {
 	guildId := "guildId_example" // string | 
-	createAutoModerationRuleRequest := openapiclient.create_auto_moderation_rule_request{DefaultKeywordListUpsertRequest: openapiclient.NewDefaultKeywordListUpsertRequest("Name_example", int32(123), int32(123), *openapiclient.NewDefaultKeywordListTriggerMetadata())} // CreateAutoModerationRuleRequest | 
+	createAutoModerationRuleRequest := openapiclient.create_auto_moderation_rule_request{DefaultKeywordListUpsertRequest: openapiclient.NewDefaultKeywordListUpsertRequest("Name_example", openapiclient.AutomodEventType{Any: new(interface{})}, openapiclient.AutomodTriggerType{Any: new(interface{})}, *openapiclient.NewDefaultKeywordListTriggerMetadata())} // CreateAutoModerationRuleRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1573,7 +1704,7 @@ Name | Type | Description  | Notes
 
 ## CreateChannelInvite
 
-> ListChannelInvites200ResponseInner CreateChannelInvite(ctx, channelId).CreateChannelInviteRequest(createChannelInviteRequest).Execute()
+> CreateChannelInvite200Response CreateChannelInvite(ctx, channelId).CreateChannelInviteRequest(createChannelInviteRequest).Execute()
 
 
 
@@ -1600,7 +1731,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateChannelInvite``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateChannelInvite`: ListChannelInvites200ResponseInner
+	// response from `CreateChannelInvite`: CreateChannelInvite200Response
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateChannelInvite`: %v\n", resp)
 }
 ```
@@ -1625,7 +1756,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListChannelInvites200ResponseInner**](ListChannelInvites200ResponseInner.md)
+[**CreateChannelInvite200Response**](CreateChannelInvite200Response.md)
 
 ### Authorization
 
@@ -1633,7 +1764,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1760,70 +1891,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EntitlementResponse**](EntitlementResponse.md)
-
-### Authorization
-
-[BotToken](../README.md#BotToken)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## CreateGuild
-
-> GuildResponse CreateGuild(ctx).GuildCreateRequest(guildCreateRequest).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/dc-api/dc-rest-go"
-)
-
-func main() {
-	guildCreateRequest := *openapiclient.NewGuildCreateRequest("Name_example") // GuildCreateRequest | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.CreateGuild(context.Background()).GuildCreateRequest(guildCreateRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateGuild``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateGuild`: GuildResponse
-	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateGuild`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateGuildRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **guildCreateRequest** | [**GuildCreateRequest**](GuildCreateRequest.md) |  | 
-
-### Return type
-
-[**GuildResponse**](GuildResponse.md)
 
 ### Authorization
 
@@ -2052,79 +2119,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CreateGuildFromTemplate
-
-> GuildResponse CreateGuildFromTemplate(ctx, code).CreateGuildFromTemplateRequest(createGuildFromTemplateRequest).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/dc-api/dc-rest-go"
-)
-
-func main() {
-	code := "code_example" // string | 
-	createGuildFromTemplateRequest := *openapiclient.NewCreateGuildFromTemplateRequest("Name_example") // CreateGuildFromTemplateRequest | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.CreateGuildFromTemplate(context.Background(), code).CreateGuildFromTemplateRequest(createGuildFromTemplateRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateGuildFromTemplate``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateGuildFromTemplate`: GuildResponse
-	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateGuildFromTemplate`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**code** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateGuildFromTemplateRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **createGuildFromTemplateRequest** | [**CreateGuildFromTemplateRequest**](CreateGuildFromTemplateRequest.md) |  | 
-
-### Return type
-
-[**GuildResponse**](GuildResponse.md)
-
-### Authorization
-
-[BotToken](../README.md#BotToken)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## CreateGuildRole
 
-> GuildRoleResponse CreateGuildRole(ctx, guildId).CreateGuildRoleRequest(createGuildRoleRequest).Execute()
+> GuildRoleResponse CreateGuildRole(ctx, guildId).CreateRoleRequest(createRoleRequest).Execute()
 
 
 
@@ -2142,11 +2139,11 @@ import (
 
 func main() {
 	guildId := "guildId_example" // string | 
-	createGuildRoleRequest := *openapiclient.NewCreateGuildRoleRequest() // CreateGuildRoleRequest | 
+	createRoleRequest := *openapiclient.NewCreateRoleRequest() // CreateRoleRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.CreateGuildRole(context.Background(), guildId).CreateGuildRoleRequest(createGuildRoleRequest).Execute()
+	resp, r, err := apiClient.DefaultAPI.CreateGuildRole(context.Background(), guildId).CreateRoleRequest(createRoleRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateGuildRole``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2172,7 +2169,7 @@ Other parameters are passed through a pointer to a apiCreateGuildRoleRequest str
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createGuildRoleRequest** | [**CreateGuildRoleRequest**](CreateGuildRoleRequest.md) |  | 
+ **createRoleRequest** | [**CreateRoleRequest**](CreateRoleRequest.md) |  | 
 
 ### Return type
 
@@ -2213,7 +2210,7 @@ import (
 
 func main() {
 	guildId := "guildId_example" // string | 
-	createGuildScheduledEventRequest := openapiclient.create_guild_scheduled_event_request{ExternalScheduledEventCreateRequest: openapiclient.NewExternalScheduledEventCreateRequest("Name_example", time.Now(), interface{}(123), NullableInt32(123), *openapiclient.NewEntityMetadataExternal("Location_example"))} // CreateGuildScheduledEventRequest | 
+	createGuildScheduledEventRequest := openapiclient.create_guild_scheduled_event_request{ExternalScheduledEventCreateRequest: openapiclient.NewExternalScheduledEventCreateRequest("Name_example", time.Now(), openapiclient.GuildScheduledEventPrivacyLevels{Any: new(interface{})}, openapiclient.GuildScheduledEventEntityTypes{Any: new(interface{})}, *openapiclient.NewEntityMetadataExternal("Location_example"))} // CreateGuildScheduledEventRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2500,7 +2497,7 @@ import (
 func main() {
 	interactionId := "interactionId_example" // string | 
 	interactionToken := "interactionToken_example" // string | 
-	createInteractionResponseRequest := *openapiclient.NewCreateInteractionResponseRequest(NullableInt32(123), *openapiclient.NewIncomingWebhookUpdateForInteractionCallbackRequestPartial()) // CreateInteractionResponseRequest | 
+	createInteractionResponseRequest := *openapiclient.NewCreateInteractionResponseRequest(openapiclient.InteractionCallbackTypes{Any: new(interface{})}, openapiclient.UpdateMessageInteractionCallbackRequest_data{IncomingWebhookUpdateForInteractionCallbackRequestPartial: openapiclient.NewIncomingWebhookUpdateForInteractionCallbackRequestPartial()}) // CreateInteractionResponseRequest | 
 	withResponse := true // bool |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -2547,6 +2544,145 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateLinkedLobbyGuildInviteForSelf
+
+> LobbyGuildInviteResponse CreateLinkedLobbyGuildInviteForSelf(ctx, lobbyId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/dc-api/dc-rest-go"
+)
+
+func main() {
+	lobbyId := "lobbyId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.CreateLinkedLobbyGuildInviteForSelf(context.Background(), lobbyId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateLinkedLobbyGuildInviteForSelf``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateLinkedLobbyGuildInviteForSelf`: LobbyGuildInviteResponse
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateLinkedLobbyGuildInviteForSelf`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**lobbyId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateLinkedLobbyGuildInviteForSelfRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**LobbyGuildInviteResponse**](LobbyGuildInviteResponse.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2), [BotToken](../README.md#BotToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateLinkedLobbyGuildInviteForUser
+
+> LobbyGuildInviteResponse CreateLinkedLobbyGuildInviteForUser(ctx, lobbyId, userId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/dc-api/dc-rest-go"
+)
+
+func main() {
+	lobbyId := "lobbyId_example" // string | 
+	userId := "userId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.CreateLinkedLobbyGuildInviteForUser(context.Background(), lobbyId, userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateLinkedLobbyGuildInviteForUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateLinkedLobbyGuildInviteForUser`: LobbyGuildInviteResponse
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateLinkedLobbyGuildInviteForUser`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**lobbyId** | **string** |  | 
+**userId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateLinkedLobbyGuildInviteForUserRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**LobbyGuildInviteResponse**](LobbyGuildInviteResponse.md)
+
+### Authorization
+
+[BotToken](../README.md#BotToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -3908,72 +4044,6 @@ Other parameters are passed through a pointer to a apiDeleteGroupDmUserRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[BotToken](../README.md#BotToken)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## DeleteGuild
-
-> DeleteGuild(ctx, guildId).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/dc-api/dc-rest-go"
-)
-
-func main() {
-	guildId := "guildId_example" // string | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.DefaultAPI.DeleteGuild(context.Background(), guildId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteGuild``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**guildId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteGuildRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
 
 
 ### Return type
@@ -6798,6 +6868,78 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetCurrentUserApplicationEntitlements
+
+> []GetEntitlements200ResponseInner GetCurrentUserApplicationEntitlements(ctx, applicationId).SkuIds(skuIds).ExcludeConsumed(excludeConsumed).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/dc-api/dc-rest-go"
+)
+
+func main() {
+	applicationId := "applicationId_example" // string | 
+	skuIds := openapiclient.get_entitlements_sku_ids_parameter{ArrayOfGetEntitlementsSkuIdsParameterOneOfInner: new([]GetEntitlementsSkuIdsParameterOneOfInner)} // GetEntitlementsSkuIdsParameter |  (optional)
+	excludeConsumed := true // bool |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.GetCurrentUserApplicationEntitlements(context.Background(), applicationId).SkuIds(skuIds).ExcludeConsumed(excludeConsumed).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetCurrentUserApplicationEntitlements``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCurrentUserApplicationEntitlements`: []GetEntitlements200ResponseInner
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetCurrentUserApplicationEntitlements`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**applicationId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCurrentUserApplicationEntitlementsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **skuIds** | [**GetEntitlementsSkuIdsParameter**](GetEntitlementsSkuIdsParameter.md) |  | 
+ **excludeConsumed** | **bool** |  | 
+
+### Return type
+
+[**[]GetEntitlements200ResponseInner**](GetEntitlements200ResponseInner.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetEntitlement
 
 > EntitlementResponse GetEntitlement(ctx, applicationId, entitlementId).Execute()
@@ -6871,7 +7013,7 @@ Name | Type | Description  | Notes
 
 ## GetEntitlements
 
-> []*EntitlementResponse GetEntitlements(ctx, applicationId).SkuIds(skuIds).UserId(userId).GuildId(guildId).Before(before).After(after).Limit(limit).ExcludeEnded(excludeEnded).ExcludeDeleted(excludeDeleted).OnlyActive(onlyActive).Execute()
+> []GetEntitlements200ResponseInner GetEntitlements(ctx, applicationId).UserId(userId).SkuIds(skuIds).GuildId(guildId).Before(before).After(after).Limit(limit).ExcludeEnded(excludeEnded).ExcludeDeleted(excludeDeleted).OnlyActive(onlyActive).Execute()
 
 
 
@@ -6888,9 +7030,9 @@ import (
 )
 
 func main() {
-	skuIds := openapiclient.get_entitlements_sku_ids_parameter{ArrayOfString: new([]string)} // GetEntitlementsSkuIdsParameter | 
 	applicationId := "applicationId_example" // string | 
 	userId := "userId_example" // string |  (optional)
+	skuIds := openapiclient.get_entitlements_sku_ids_parameter{ArrayOfGetEntitlementsSkuIdsParameterOneOfInner: new([]GetEntitlementsSkuIdsParameterOneOfInner)} // GetEntitlementsSkuIdsParameter |  (optional)
 	guildId := "guildId_example" // string |  (optional)
 	before := "before_example" // string |  (optional)
 	after := "after_example" // string |  (optional)
@@ -6901,12 +7043,12 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.GetEntitlements(context.Background(), applicationId).SkuIds(skuIds).UserId(userId).GuildId(guildId).Before(before).After(after).Limit(limit).ExcludeEnded(excludeEnded).ExcludeDeleted(excludeDeleted).OnlyActive(onlyActive).Execute()
+	resp, r, err := apiClient.DefaultAPI.GetEntitlements(context.Background(), applicationId).UserId(userId).SkuIds(skuIds).GuildId(guildId).Before(before).After(after).Limit(limit).ExcludeEnded(excludeEnded).ExcludeDeleted(excludeDeleted).OnlyActive(onlyActive).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetEntitlements``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetEntitlements`: []*EntitlementResponse
+	// response from `GetEntitlements`: []GetEntitlements200ResponseInner
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetEntitlements`: %v\n", resp)
 }
 ```
@@ -6926,9 +7068,9 @@ Other parameters are passed through a pointer to a apiGetEntitlementsRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skuIds** | [**GetEntitlementsSkuIdsParameter**](GetEntitlementsSkuIdsParameter.md) |  | 
 
  **userId** | **string** |  | 
+ **skuIds** | [**GetEntitlementsSkuIdsParameter**](GetEntitlementsSkuIdsParameter.md) |  | 
  **guildId** | **string** |  | 
  **before** | **string** |  | 
  **after** | **string** |  | 
@@ -6939,7 +7081,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]*EntitlementResponse**](EntitlementResponse.md)
+[**[]GetEntitlements200ResponseInner**](GetEntitlements200ResponseInner.md)
 
 ### Authorization
 
@@ -8227,7 +8369,7 @@ import (
 
 func main() {
 	guildId := "guildId_example" // string | 
-	style := "style_example" // string |  (optional)
+	style := "style_example" // WidgetImageStyles |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -8257,7 +8399,7 @@ Other parameters are passed through a pointer to a apiGetGuildWidgetPngRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **style** | **string** |  | 
+ **style** | **WidgetImageStyles** |  | 
 
 ### Return type
 
@@ -8398,6 +8540,146 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserGuildOnboardingResponse**](UserGuildOnboardingResponse.md)
+
+### Authorization
+
+[BotToken](../README.md#BotToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetInviteTargetUsers
+
+> string GetInviteTargetUsers(ctx, code).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/dc-api/dc-rest-go"
+)
+
+func main() {
+	code := "code_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.GetInviteTargetUsers(context.Background(), code).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetInviteTargetUsers``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetInviteTargetUsers`: string
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetInviteTargetUsers`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**code** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetInviteTargetUsersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+**string**
+
+### Authorization
+
+[BotToken](../README.md#BotToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/csv, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetInviteTargetUsersJobStatus
+
+> TargetUsersJobStatusResponse GetInviteTargetUsersJobStatus(ctx, code).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/dc-api/dc-rest-go"
+)
+
+func main() {
+	code := "code_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.GetInviteTargetUsersJobStatus(context.Background(), code).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetInviteTargetUsersJobStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetInviteTargetUsersJobStatus`: TargetUsersJobStatusResponse
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetInviteTargetUsersJobStatus`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**code** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetInviteTargetUsersJobStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**TargetUsersJobStatusResponse**](TargetUsersJobStatusResponse.md)
 
 ### Authorization
 
@@ -9875,9 +10157,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GuildRoleMemberCounts
+
+> map[string]int32 GuildRoleMemberCounts(ctx, guildId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/dc-api/dc-rest-go"
+)
+
+func main() {
+	guildId := "guildId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.GuildRoleMemberCounts(context.Background(), guildId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GuildRoleMemberCounts``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GuildRoleMemberCounts`: map[string]int32
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GuildRoleMemberCounts`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**guildId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGuildRoleMemberCountsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+**map[string]int32**
+
+### Authorization
+
+[BotToken](../README.md#BotToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InviteResolve
 
-> ListChannelInvites200ResponseInner InviteResolve(ctx, code).WithCounts(withCounts).GuildScheduledEventId(guildScheduledEventId).Execute()
+> CreateChannelInvite200Response InviteResolve(ctx, code).WithCounts(withCounts).GuildScheduledEventId(guildScheduledEventId).Execute()
 
 
 
@@ -9905,7 +10255,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.InviteResolve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `InviteResolve`: ListChannelInvites200ResponseInner
+	// response from `InviteResolve`: CreateChannelInvite200Response
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.InviteResolve`: %v\n", resp)
 }
 ```
@@ -9931,7 +10281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListChannelInvites200ResponseInner**](ListChannelInvites200ResponseInner.md)
+[**CreateChannelInvite200Response**](CreateChannelInvite200Response.md)
 
 ### Authorization
 
@@ -9949,7 +10299,7 @@ Name | Type | Description  | Notes
 
 ## InviteRevoke
 
-> ListChannelInvites200ResponseInner InviteRevoke(ctx, code).Execute()
+> CreateChannelInvite200Response InviteRevoke(ctx, code).Execute()
 
 
 
@@ -9975,7 +10325,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.InviteRevoke``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `InviteRevoke`: ListChannelInvites200ResponseInner
+	// response from `InviteRevoke`: CreateChannelInvite200Response
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.InviteRevoke`: %v\n", resp)
 }
 ```
@@ -9999,7 +10349,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListChannelInvites200ResponseInner**](ListChannelInvites200ResponseInner.md)
+[**CreateChannelInvite200Response**](CreateChannelInvite200Response.md)
 
 ### Authorization
 
@@ -10787,7 +11137,7 @@ func main() {
 	guildId := "guildId_example" // string | 
 	userId := "userId_example" // string |  (optional)
 	targetId := "targetId_example" // string |  (optional)
-	actionType := int32(56) // int32 |  (optional)
+	actionType := AuditLogActionTypes(56) // AuditLogActionTypes |  (optional)
 	before := "before_example" // string |  (optional)
 	after := "after_example" // string |  (optional)
 	limit := int32(56) // int32 |  (optional)
@@ -10822,7 +11172,7 @@ Name | Type | Description  | Notes
 
  **userId** | **string** |  | 
  **targetId** | **string** |  | 
- **actionType** | **int32** |  | 
+ **actionType** | **AuditLogActionTypes** |  | 
  **before** | **string** |  | 
  **after** | **string** |  | 
  **limit** | **int32** |  | 
@@ -11776,7 +12126,7 @@ func main() {
 	emojiName := "emojiName_example" // string | 
 	after := "after_example" // string |  (optional)
 	limit := int32(56) // int32 |  (optional)
-	type_ := int32(56) // int32 |  (optional)
+	type_ := ReactionTypes(56) // ReactionTypes |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -11812,7 +12162,7 @@ Name | Type | Description  | Notes
 
  **after** | **string** |  | 
  **limit** | **int32** |  | 
- **type_** | **int32** |  | 
+ **type_** | **ReactionTypes** |  | 
 
 ### Return type
 
@@ -12539,7 +12889,7 @@ import (
 )
 
 func main() {
-	partnerSdkUnmergeProvisionalAccountRequest := *openapiclient.NewPartnerSdkUnmergeProvisionalAccountRequest("ClientId_example", "ExternalAuthToken_example", "ExternalAuthType_example") // PartnerSdkUnmergeProvisionalAccountRequest | 
+	partnerSdkUnmergeProvisionalAccountRequest := *openapiclient.NewPartnerSdkUnmergeProvisionalAccountRequest("ClientId_example", "ExternalAuthToken_example", openapiclient.ApplicationIdentityProviderAuthType{Any: new(interface{})}) // PartnerSdkUnmergeProvisionalAccountRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -12603,7 +12953,7 @@ import (
 )
 
 func main() {
-	partnerSdkUnmergeProvisionalAccountRequest := *openapiclient.NewPartnerSdkUnmergeProvisionalAccountRequest("ClientId_example", "ExternalAuthToken_example", "ExternalAuthType_example") // PartnerSdkUnmergeProvisionalAccountRequest | 
+	partnerSdkUnmergeProvisionalAccountRequest := *openapiclient.NewPartnerSdkUnmergeProvisionalAccountRequest("ClientId_example", "ExternalAuthToken_example", openapiclient.ApplicationIdentityProviderAuthType{Any: new(interface{})}) // PartnerSdkUnmergeProvisionalAccountRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -12738,7 +13088,7 @@ import (
 func main() {
 	guildId := "guildId_example" // string | 
 	days := int32(56) // int32 |  (optional)
-	includeRoles := openapiclient.get_entitlements_sku_ids_parameter{ArrayOfString: new([]string)} // GetEntitlementsSkuIdsParameter |  (optional)
+	includeRoles := openapiclient.get_entitlements_sku_ids_parameter{ArrayOfGetEntitlementsSkuIdsParameterOneOfInner: new([]GetEntitlementsSkuIdsParameterOneOfInner)} // GetEntitlementsSkuIdsParameter |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -12931,7 +13281,7 @@ Name | Type | Description  | Notes
 
 ## SearchGuildMembers
 
-> []GuildMemberResponse SearchGuildMembers(ctx, guildId).Limit(limit).Query(query).Execute()
+> []GuildMemberResponse SearchGuildMembers(ctx, guildId).Query(query).Limit(limit).Execute()
 
 
 
@@ -12948,13 +13298,13 @@ import (
 )
 
 func main() {
-	limit := int32(56) // int32 | 
 	query := "query_example" // string | 
 	guildId := "guildId_example" // string | 
+	limit := int32(56) // int32 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.SearchGuildMembers(context.Background(), guildId).Limit(limit).Query(query).Execute()
+	resp, r, err := apiClient.DefaultAPI.SearchGuildMembers(context.Background(), guildId).Query(query).Limit(limit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.SearchGuildMembers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12979,9 +13329,9 @@ Other parameters are passed through a pointer to a apiSearchGuildMembersRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int32** |  | 
  **query** | **string** |  | 
 
+ **limit** | **int32** |  | 
 
 ### Return type
 
@@ -13216,76 +13566,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## SetGuildMfaLevel
-
-> GuildMFALevelResponse SetGuildMfaLevel(ctx, guildId).SetGuildMfaLevelRequest(setGuildMfaLevelRequest).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/dc-api/dc-rest-go"
-)
-
-func main() {
-	guildId := "guildId_example" // string | 
-	setGuildMfaLevelRequest := *openapiclient.NewSetGuildMfaLevelRequest(int32(123)) // SetGuildMfaLevelRequest | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.SetGuildMfaLevel(context.Background(), guildId).SetGuildMfaLevelRequest(setGuildMfaLevelRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.SetGuildMfaLevel``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SetGuildMfaLevel`: GuildMFALevelResponse
-	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.SetGuildMfaLevel`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**guildId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSetGuildMfaLevelRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **setGuildMfaLevelRequest** | [**SetGuildMfaLevelRequest**](SetGuildMfaLevelRequest.md) |  | 
-
-### Return type
-
-[**GuildMFALevelResponse**](GuildMFALevelResponse.md)
-
-### Authorization
-
-[BotToken](../README.md#BotToken)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## SyncGuildTemplate
 
 > GuildTemplateResponse SyncGuildTemplate(ctx, guildId, code).Execute()
@@ -13382,10 +13662,10 @@ func main() {
 	minId := "minId_example" // string |  (optional)
 	maxId := "maxId_example" // string |  (optional)
 	tag := openapiclient.thread_search_tag_parameter{ArrayOfString: new([]string)} // ThreadSearchTagParameter |  (optional)
-	tagSetting := "tagSetting_example" // string |  (optional)
+	tagSetting := "tagSetting_example" // ThreadSearchTagSetting |  (optional)
 	archived := true // bool |  (optional)
-	sortBy := "sortBy_example" // string |  (optional)
-	sortOrder := "sortOrder_example" // string |  (optional)
+	sortBy := "sortBy_example" // ThreadSortingMode |  (optional)
+	sortOrder := "sortOrder_example" // SortingOrder |  (optional)
 	limit := int32(56) // int32 |  (optional)
 	offset := int32(56) // int32 |  (optional)
 
@@ -13422,10 +13702,10 @@ Name | Type | Description  | Notes
  **minId** | **string** |  | 
  **maxId** | **string** |  | 
  **tag** | [**ThreadSearchTagParameter**](ThreadSearchTagParameter.md) |  | 
- **tagSetting** | **string** |  | 
+ **tagSetting** | **ThreadSearchTagSetting** |  | 
  **archived** | **bool** |  | 
- **sortBy** | **string** |  | 
- **sortOrder** | **string** |  | 
+ **sortBy** | **ThreadSortingMode** |  | 
+ **sortOrder** | **SortingOrder** |  | 
  **limit** | **int32** |  | 
  **offset** | **int32** |  | 
 
@@ -13517,7 +13797,7 @@ Name | Type | Description  | Notes
 
 ## UnbanUserFromGuild
 
-> UnbanUserFromGuild(ctx, guildId, userId).Execute()
+> UnbanUserFromGuild(ctx, guildId, userId).Body(body).Execute()
 
 
 
@@ -13536,10 +13816,11 @@ import (
 func main() {
 	guildId := "guildId_example" // string | 
 	userId := "userId_example" // string | 
+	body := map[string]interface{}{ ... } // map[string]interface{} | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.DefaultAPI.UnbanUserFromGuild(context.Background(), guildId, userId).Execute()
+	r, err := apiClient.DefaultAPI.UnbanUserFromGuild(context.Background(), guildId, userId).Body(body).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UnbanUserFromGuild``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -13565,6 +13846,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **body** | **map[string]interface{}** |  | 
 
 ### Return type
 
@@ -13576,7 +13858,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -13820,7 +14102,7 @@ import (
 
 func main() {
 	applicationId := "applicationId_example" // string | 
-	applicationRoleConnectionsMetadataItemRequest := []openapiclient.ApplicationRoleConnectionsMetadataItemRequest{*openapiclient.NewApplicationRoleConnectionsMetadataItemRequest(int32(123), "Key_example", "Name_example", "Description_example")} // []ApplicationRoleConnectionsMetadataItemRequest | 
+	applicationRoleConnectionsMetadataItemRequest := []openapiclient.ApplicationRoleConnectionsMetadataItemRequest{*openapiclient.NewApplicationRoleConnectionsMetadataItemRequest(openapiclient.MetadataItemTypes{Any: new(interface{})}, "Key_example", "Name_example", "Description_example")} // []ApplicationRoleConnectionsMetadataItemRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -14377,7 +14659,7 @@ Name | Type | Description  | Notes
 
 ## UpdateGuildRole
 
-> GuildRoleResponse UpdateGuildRole(ctx, guildId, roleId).CreateGuildRoleRequest(createGuildRoleRequest).Execute()
+> GuildRoleResponse UpdateGuildRole(ctx, guildId, roleId).UpdateRoleRequestPartial(updateRoleRequestPartial).Execute()
 
 
 
@@ -14396,11 +14678,11 @@ import (
 func main() {
 	guildId := "guildId_example" // string | 
 	roleId := "roleId_example" // string | 
-	createGuildRoleRequest := *openapiclient.NewCreateGuildRoleRequest() // CreateGuildRoleRequest | 
+	updateRoleRequestPartial := *openapiclient.NewUpdateRoleRequestPartial() // UpdateRoleRequestPartial | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.UpdateGuildRole(context.Background(), guildId, roleId).CreateGuildRoleRequest(createGuildRoleRequest).Execute()
+	resp, r, err := apiClient.DefaultAPI.UpdateGuildRole(context.Background(), guildId, roleId).UpdateRoleRequestPartial(updateRoleRequestPartial).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateGuildRole``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -14428,7 +14710,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **createGuildRoleRequest** | [**CreateGuildRoleRequest**](CreateGuildRoleRequest.md) |  | 
+ **updateRoleRequestPartial** | [**UpdateRoleRequestPartial**](UpdateRoleRequestPartial.md) |  | 
 
 ### Return type
 
@@ -14880,6 +15162,76 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## UpdateInviteTargetUsers
+
+> UpdateInviteTargetUsers(ctx, code).TargetUsersFile(targetUsersFile).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/dc-api/dc-rest-go"
+)
+
+func main() {
+	code := "code_example" // string | 
+	targetUsersFile := "targetUsersFile_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DefaultAPI.UpdateInviteTargetUsers(context.Background(), code).TargetUsersFile(targetUsersFile).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateInviteTargetUsers``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**code** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateInviteTargetUsersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **targetUsersFile** | **string** |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BotToken](../README.md#BotToken)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateMessage
 
 > MessageResponse UpdateMessage(ctx, channelId, messageId).MessageEditRequestPartial(messageEditRequestPartial).Execute()
@@ -15230,7 +15582,7 @@ Name | Type | Description  | Notes
 
 ## UpdateSelfVoiceState
 
-> UpdateSelfVoiceState(ctx, guildId).UpdateSelfVoiceStateRequest(updateSelfVoiceStateRequest).Execute()
+> UpdateSelfVoiceState(ctx, guildId).UpdateSelfVoiceStateRequestPartial(updateSelfVoiceStateRequestPartial).Execute()
 
 
 
@@ -15248,11 +15600,11 @@ import (
 
 func main() {
 	guildId := "guildId_example" // string | 
-	updateSelfVoiceStateRequest := *openapiclient.NewUpdateSelfVoiceStateRequest() // UpdateSelfVoiceStateRequest | 
+	updateSelfVoiceStateRequestPartial := *openapiclient.NewUpdateSelfVoiceStateRequestPartial() // UpdateSelfVoiceStateRequestPartial | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.DefaultAPI.UpdateSelfVoiceState(context.Background(), guildId).UpdateSelfVoiceStateRequest(updateSelfVoiceStateRequest).Execute()
+	r, err := apiClient.DefaultAPI.UpdateSelfVoiceState(context.Background(), guildId).UpdateSelfVoiceStateRequestPartial(updateSelfVoiceStateRequestPartial).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateSelfVoiceState``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -15276,7 +15628,7 @@ Other parameters are passed through a pointer to a apiUpdateSelfVoiceStateReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateSelfVoiceStateRequest** | [**UpdateSelfVoiceStateRequest**](UpdateSelfVoiceStateRequest.md) |  | 
+ **updateSelfVoiceStateRequestPartial** | [**UpdateSelfVoiceStateRequestPartial**](UpdateSelfVoiceStateRequestPartial.md) |  | 
 
 ### Return type
 
@@ -15368,7 +15720,7 @@ Name | Type | Description  | Notes
 
 ## UpdateVoiceState
 
-> UpdateVoiceState(ctx, guildId, userId).UpdateVoiceStateRequest(updateVoiceStateRequest).Execute()
+> UpdateVoiceState(ctx, guildId, userId).UpdateVoiceStateRequestPartial(updateVoiceStateRequestPartial).Execute()
 
 
 
@@ -15387,11 +15739,11 @@ import (
 func main() {
 	guildId := "guildId_example" // string | 
 	userId := "userId_example" // string | 
-	updateVoiceStateRequest := *openapiclient.NewUpdateVoiceStateRequest() // UpdateVoiceStateRequest | 
+	updateVoiceStateRequestPartial := *openapiclient.NewUpdateVoiceStateRequestPartial() // UpdateVoiceStateRequestPartial | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.DefaultAPI.UpdateVoiceState(context.Background(), guildId, userId).UpdateVoiceStateRequest(updateVoiceStateRequest).Execute()
+	r, err := apiClient.DefaultAPI.UpdateVoiceState(context.Background(), guildId, userId).UpdateVoiceStateRequestPartial(updateVoiceStateRequestPartial).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateVoiceState``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -15417,7 +15769,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateVoiceStateRequest** | [**UpdateVoiceStateRequest**](UpdateVoiceStateRequest.md) |  | 
+ **updateVoiceStateRequestPartial** | [**UpdateVoiceStateRequestPartial**](UpdateVoiceStateRequestPartial.md) |  | 
 
 ### Return type
 

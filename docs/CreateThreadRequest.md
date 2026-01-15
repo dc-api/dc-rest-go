@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**AutoArchiveDuration** | Pointer to **int32** |  | [optional] 
+**AutoArchiveDuration** | Pointer to [**CreateForumThreadRequestAutoArchiveDuration**](CreateForumThreadRequestAutoArchiveDuration.md) |  | [optional] 
 **RateLimitPerUser** | Pointer to **int32** |  | [optional] 
 **AppliedTags** | Pointer to **[]string** |  | [optional] 
 **Message** | [**BaseCreateMessageCreateRequest**](BaseCreateMessageCreateRequest.md) |  | 
-**Type** | Pointer to **int32** |  | [optional] 
+**Type** | Pointer to [**CreateTextThreadWithoutMessageRequestType**](CreateTextThreadWithoutMessageRequestType.md) |  | [optional] 
 **Invitable** | Pointer to **bool** |  | [optional] 
 
 ## Methods
@@ -53,20 +53,20 @@ SetName sets Name field to given value.
 
 ### GetAutoArchiveDuration
 
-`func (o *CreateThreadRequest) GetAutoArchiveDuration() int32`
+`func (o *CreateThreadRequest) GetAutoArchiveDuration() CreateForumThreadRequestAutoArchiveDuration`
 
 GetAutoArchiveDuration returns the AutoArchiveDuration field if non-nil, zero value otherwise.
 
 ### GetAutoArchiveDurationOk
 
-`func (o *CreateThreadRequest) GetAutoArchiveDurationOk() (*int32, bool)`
+`func (o *CreateThreadRequest) GetAutoArchiveDurationOk() (*CreateForumThreadRequestAutoArchiveDuration, bool)`
 
 GetAutoArchiveDurationOk returns a tuple with the AutoArchiveDuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutoArchiveDuration
 
-`func (o *CreateThreadRequest) SetAutoArchiveDuration(v int32)`
+`func (o *CreateThreadRequest) SetAutoArchiveDuration(v CreateForumThreadRequestAutoArchiveDuration)`
 
 SetAutoArchiveDuration sets AutoArchiveDuration field to given value.
 
@@ -148,20 +148,20 @@ SetMessage sets Message field to given value.
 
 ### GetType
 
-`func (o *CreateThreadRequest) GetType() int32`
+`func (o *CreateThreadRequest) GetType() CreateTextThreadWithoutMessageRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *CreateThreadRequest) GetTypeOk() (*int32, bool)`
+`func (o *CreateThreadRequest) GetTypeOk() (*CreateTextThreadWithoutMessageRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *CreateThreadRequest) SetType(v int32)`
+`func (o *CreateThreadRequest) SetType(v CreateTextThreadWithoutMessageRequestType)`
 
 SetType sets Type field to given value.
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -46,6 +46,8 @@ package dc_rest
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the UserNameplateResponse type satisfies the MappedNullable interface at compile time
@@ -53,18 +55,23 @@ var _ MappedNullable = &UserNameplateResponse{}
 
 // UserNameplateResponse struct for UserNameplateResponse
 type UserNameplateResponse struct {
-	SkuId *string `json:"sku_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Asset NullableString `json:"asset,omitempty"`
-	Label NullableString `json:"label,omitempty"`
-	Palette *string `json:"palette,omitempty"`
+	SkuId *GetEntitlementsSkuIdsParameterOneOfInner `json:"sku_id,omitempty"`
+	Asset string `json:"asset"`
+	Label string `json:"label"`
+	Palette string `json:"palette"`
 }
+
+type _UserNameplateResponse UserNameplateResponse
 
 // NewUserNameplateResponse instantiates a new UserNameplateResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserNameplateResponse() *UserNameplateResponse {
+func NewUserNameplateResponse(asset string, label string, palette string) *UserNameplateResponse {
 	this := UserNameplateResponse{}
+	this.Asset = asset
+	this.Label = label
+	this.Palette = palette
 	return &this
 }
 
@@ -77,9 +84,9 @@ func NewUserNameplateResponseWithDefaults() *UserNameplateResponse {
 }
 
 // GetSkuId returns the SkuId field value if set, zero value otherwise.
-func (o *UserNameplateResponse) GetSkuId() string {
+func (o *UserNameplateResponse) GetSkuId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.SkuId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.SkuId
@@ -87,7 +94,7 @@ func (o *UserNameplateResponse) GetSkuId() string {
 
 // GetSkuIdOk returns a tuple with the SkuId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserNameplateResponse) GetSkuIdOk() (*string, bool) {
+func (o *UserNameplateResponse) GetSkuIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.SkuId) {
 		return nil, false
 	}
@@ -103,130 +110,83 @@ func (o *UserNameplateResponse) HasSkuId() bool {
 	return false
 }
 
-// SetSkuId gets a reference to the given string and assigns it to the SkuId field.
-func (o *UserNameplateResponse) SetSkuId(v string) {
+// SetSkuId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the SkuId field.
+func (o *UserNameplateResponse) SetSkuId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.SkuId = &v
 }
 
 
-// GetAsset returns the Asset field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAsset returns the Asset field value
 func (o *UserNameplateResponse) GetAsset() string {
-	if o == nil || IsNil(o.Asset.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Asset.Get()
+
+	return o.Asset
 }
 
-// GetAssetOk returns a tuple with the Asset field value if set, nil otherwise
+// GetAssetOk returns a tuple with the Asset field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserNameplateResponse) GetAssetOk() (*string, bool) {
-	if o == nil || IsNil(o.Asset.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Asset.Get(), o.Asset.IsSet()
+	return &o.Asset, true
 }
 
-// HasAsset returns a boolean if a field has been set.
-func (o *UserNameplateResponse) HasAsset() bool {
-	if o != nil && o.Asset.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAsset gets a reference to the given NullableString and assigns it to the Asset field.
+// SetAsset sets field value
 func (o *UserNameplateResponse) SetAsset(v string) {
-	o.Asset.Set(&v)
+	o.Asset = v
 }
 
-// SetAssetNil sets the value for Asset to be an explicit nil
-func (o *UserNameplateResponse) SetAssetNil() {
-	o.Asset.Set(nil)
-}
-
-// UnsetAsset ensures that no value is present for Asset, not even an explicit nil
-func (o *UserNameplateResponse) UnsetAsset() {
-	o.Asset.Unset()
-}
-
-// GetLabel returns the Label field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLabel returns the Label field value
 func (o *UserNameplateResponse) GetLabel() string {
-	if o == nil || IsNil(o.Label.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Label.Get()
+
+	return o.Label
 }
 
-// GetLabelOk returns a tuple with the Label field value if set, nil otherwise
+// GetLabelOk returns a tuple with the Label field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserNameplateResponse) GetLabelOk() (*string, bool) {
-	if o == nil || IsNil(o.Label.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Label.Get(), o.Label.IsSet()
+	return &o.Label, true
 }
 
-// HasLabel returns a boolean if a field has been set.
-func (o *UserNameplateResponse) HasLabel() bool {
-	if o != nil && o.Label.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetLabel gets a reference to the given NullableString and assigns it to the Label field.
+// SetLabel sets field value
 func (o *UserNameplateResponse) SetLabel(v string) {
-	o.Label.Set(&v)
+	o.Label = v
 }
 
-// SetLabelNil sets the value for Label to be an explicit nil
-func (o *UserNameplateResponse) SetLabelNil() {
-	o.Label.Set(nil)
-}
-
-// UnsetLabel ensures that no value is present for Label, not even an explicit nil
-func (o *UserNameplateResponse) UnsetLabel() {
-	o.Label.Unset()
-}
-
-// GetPalette returns the Palette field value if set, zero value otherwise.
+// GetPalette returns the Palette field value
 func (o *UserNameplateResponse) GetPalette() string {
-	if o == nil || IsNil(o.Palette) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Palette
+
+	return o.Palette
 }
 
-// GetPaletteOk returns a tuple with the Palette field value if set, nil otherwise
+// GetPaletteOk returns a tuple with the Palette field value
 // and a boolean to check if the value has been set.
 func (o *UserNameplateResponse) GetPaletteOk() (*string, bool) {
-	if o == nil || IsNil(o.Palette) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Palette, true
+	return &o.Palette, true
 }
 
-// HasPalette returns a boolean if a field has been set.
-func (o *UserNameplateResponse) HasPalette() bool {
-	if o != nil && !IsNil(o.Palette) {
-		return true
-	}
-
-	return false
-}
-
-// SetPalette gets a reference to the given string and assigns it to the Palette field.
+// SetPalette sets field value
 func (o *UserNameplateResponse) SetPalette(v string) {
-	o.Palette = &v
+	o.Palette = v
 }
-
 
 func (o UserNameplateResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -241,16 +201,49 @@ func (o UserNameplateResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SkuId) {
 		toSerialize["sku_id"] = o.SkuId
 	}
-	if o.Asset.IsSet() {
-		toSerialize["asset"] = o.Asset.Get()
-	}
-	if o.Label.IsSet() {
-		toSerialize["label"] = o.Label.Get()
-	}
-	if !IsNil(o.Palette) {
-		toSerialize["palette"] = o.Palette
-	}
+	toSerialize["asset"] = o.Asset
+	toSerialize["label"] = o.Label
+	toSerialize["palette"] = o.Palette
 	return toSerialize, nil
+}
+
+func (o *UserNameplateResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"asset",
+		"label",
+		"palette",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUserNameplateResponse := _UserNameplateResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varUserNameplateResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UserNameplateResponse(varUserNameplateResponse)
+
+	return err
 }
 
 type NullableUserNameplateResponse struct {
@@ -288,5 +281,4 @@ func (v *NullableUserNameplateResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

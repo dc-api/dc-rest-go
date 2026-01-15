@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,7 +53,7 @@ var _ MappedNullable = &InteractionApplicationCommandAutocompleteCallbackStringD
 
 // InteractionApplicationCommandAutocompleteCallbackStringData struct for InteractionApplicationCommandAutocompleteCallbackStringData
 type InteractionApplicationCommandAutocompleteCallbackStringData struct {
-	Choices []*ApplicationCommandOptionStringChoice `json:"choices,omitempty"`
+	Choices []InteractionApplicationCommandAutocompleteCallbackStringDataChoicesInner `json:"choices,omitempty"`
 }
 
 // NewInteractionApplicationCommandAutocompleteCallbackStringData instantiates a new InteractionApplicationCommandAutocompleteCallbackStringData object
@@ -73,10 +73,10 @@ func NewInteractionApplicationCommandAutocompleteCallbackStringDataWithDefaults(
 	return &this
 }
 
-// GetChoices returns the Choices field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *InteractionApplicationCommandAutocompleteCallbackStringData) GetChoices() []*ApplicationCommandOptionStringChoice {
-	if o == nil {
-		var ret []*ApplicationCommandOptionStringChoice
+// GetChoices returns the Choices field value if set, zero value otherwise.
+func (o *InteractionApplicationCommandAutocompleteCallbackStringData) GetChoices() []InteractionApplicationCommandAutocompleteCallbackStringDataChoicesInner {
+	if o == nil || IsNil(o.Choices) {
+		var ret []InteractionApplicationCommandAutocompleteCallbackStringDataChoicesInner
 		return ret
 	}
 	return o.Choices
@@ -84,9 +84,8 @@ func (o *InteractionApplicationCommandAutocompleteCallbackStringData) GetChoices
 
 // GetChoicesOk returns a tuple with the Choices field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *InteractionApplicationCommandAutocompleteCallbackStringData) GetChoicesOk() ([]*ApplicationCommandOptionStringChoice, bool) {
-	if o == nil {
+func (o *InteractionApplicationCommandAutocompleteCallbackStringData) GetChoicesOk() ([]InteractionApplicationCommandAutocompleteCallbackStringDataChoicesInner, bool) {
+	if o == nil || IsNil(o.Choices) {
 		return nil, false
 	}
 	return o.Choices, true
@@ -101,8 +100,8 @@ func (o *InteractionApplicationCommandAutocompleteCallbackStringData) HasChoices
 	return false
 }
 
-// SetChoices gets a reference to the given []*ApplicationCommandOptionStringChoice and assigns it to the Choices field.
-func (o *InteractionApplicationCommandAutocompleteCallbackStringData) SetChoices(v []*ApplicationCommandOptionStringChoice) {
+// SetChoices gets a reference to the given []InteractionApplicationCommandAutocompleteCallbackStringDataChoicesInner and assigns it to the Choices field.
+func (o *InteractionApplicationCommandAutocompleteCallbackStringData) SetChoices(v []InteractionApplicationCommandAutocompleteCallbackStringDataChoicesInner) {
 	o.Choices = v
 }
 
@@ -117,7 +116,7 @@ func (o InteractionApplicationCommandAutocompleteCallbackStringData) MarshalJSON
 
 func (o InteractionApplicationCommandAutocompleteCallbackStringData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Choices != nil {
+	if !IsNil(o.Choices) {
 		toSerialize["choices"] = o.Choices
 	}
 	return toSerialize, nil
@@ -158,5 +157,4 @@ func (v *NullableInteractionApplicationCommandAutocompleteCallbackStringData) Un
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

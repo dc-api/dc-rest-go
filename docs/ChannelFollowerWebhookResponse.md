@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | Pointer to **string** |  | [optional] 
-**Avatar** | Pointer to **NullableString** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
-**GuildId** | Pointer to **string** |  | [optional] 
+**ApplicationId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**Avatar** | Pointer to **string** |  | [optional] 
+**ChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**GuildId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Type** | **int32** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**SourceGuild** | Pointer to [**NullableWebhookSourceGuildResponse**](WebhookSourceGuildResponse.md) |  | [optional] 
-**SourceChannel** | Pointer to [**NullableWebhookSourceChannelResponse**](WebhookSourceChannelResponse.md) |  | [optional] 
+**Type** | [**WebhookTypes**](WebhookTypes.md) |  | 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**SourceGuild** | Pointer to [**WebhookSourceGuildResponse**](WebhookSourceGuildResponse.md) |  | [optional] 
+**SourceChannel** | Pointer to [**WebhookSourceChannelResponse**](WebhookSourceChannelResponse.md) |  | [optional] 
 
 ## Methods
 
 ### NewChannelFollowerWebhookResponse
 
-`func NewChannelFollowerWebhookResponse(id string, name string, type_ int32, ) *ChannelFollowerWebhookResponse`
+`func NewChannelFollowerWebhookResponse(id string, name string, type_ WebhookTypes, ) *ChannelFollowerWebhookResponse`
 
 NewChannelFollowerWebhookResponse instantiates a new ChannelFollowerWebhookResponse object
 This constructor will assign default values to properties that have it defined,
@@ -36,20 +36,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetApplicationId
 
-`func (o *ChannelFollowerWebhookResponse) GetApplicationId() string`
+`func (o *ChannelFollowerWebhookResponse) GetApplicationId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetApplicationId returns the ApplicationId field if non-nil, zero value otherwise.
 
 ### GetApplicationIdOk
 
-`func (o *ChannelFollowerWebhookResponse) GetApplicationIdOk() (*string, bool)`
+`func (o *ChannelFollowerWebhookResponse) GetApplicationIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetApplicationIdOk returns a tuple with the ApplicationId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApplicationId
 
-`func (o *ChannelFollowerWebhookResponse) SetApplicationId(v string)`
+`func (o *ChannelFollowerWebhookResponse) SetApplicationId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetApplicationId sets ApplicationId field to given value.
 
@@ -84,32 +84,22 @@ SetAvatar sets Avatar field to given value.
 
 HasAvatar returns a boolean if a field has been set.
 
-### SetAvatarNil
-
-`func (o *ChannelFollowerWebhookResponse) SetAvatarNil(b bool)`
-
- SetAvatarNil sets the value for Avatar to be an explicit nil
-
-### UnsetAvatar
-`func (o *ChannelFollowerWebhookResponse) UnsetAvatar()`
-
-UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
 ### GetChannelId
 
-`func (o *ChannelFollowerWebhookResponse) GetChannelId() string`
+`func (o *ChannelFollowerWebhookResponse) GetChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
 
 ### GetChannelIdOk
 
-`func (o *ChannelFollowerWebhookResponse) GetChannelIdOk() (*string, bool)`
+`func (o *ChannelFollowerWebhookResponse) GetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannelId
 
-`func (o *ChannelFollowerWebhookResponse) SetChannelId(v string)`
+`func (o *ChannelFollowerWebhookResponse) SetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetChannelId sets ChannelId field to given value.
 
@@ -121,20 +111,20 @@ HasChannelId returns a boolean if a field has been set.
 
 ### GetGuildId
 
-`func (o *ChannelFollowerWebhookResponse) GetGuildId() string`
+`func (o *ChannelFollowerWebhookResponse) GetGuildId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetGuildId returns the GuildId field if non-nil, zero value otherwise.
 
 ### GetGuildIdOk
 
-`func (o *ChannelFollowerWebhookResponse) GetGuildIdOk() (*string, bool)`
+`func (o *ChannelFollowerWebhookResponse) GetGuildIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetGuildIdOk returns a tuple with the GuildId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGuildId
 
-`func (o *ChannelFollowerWebhookResponse) SetGuildId(v string)`
+`func (o *ChannelFollowerWebhookResponse) SetGuildId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetGuildId sets GuildId field to given value.
 
@@ -186,20 +176,20 @@ SetName sets Name field to given value.
 
 ### GetType
 
-`func (o *ChannelFollowerWebhookResponse) GetType() int32`
+`func (o *ChannelFollowerWebhookResponse) GetType() WebhookTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ChannelFollowerWebhookResponse) GetTypeOk() (*int32, bool)`
+`func (o *ChannelFollowerWebhookResponse) GetTypeOk() (*WebhookTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ChannelFollowerWebhookResponse) SetType(v int32)`
+`func (o *ChannelFollowerWebhookResponse) SetType(v WebhookTypes)`
 
 SetType sets Type field to given value.
 
@@ -229,16 +219,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *ChannelFollowerWebhookResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *ChannelFollowerWebhookResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetSourceGuild
 
 `func (o *ChannelFollowerWebhookResponse) GetSourceGuild() WebhookSourceGuildResponse`
@@ -264,16 +244,6 @@ SetSourceGuild sets SourceGuild field to given value.
 
 HasSourceGuild returns a boolean if a field has been set.
 
-### SetSourceGuildNil
-
-`func (o *ChannelFollowerWebhookResponse) SetSourceGuildNil(b bool)`
-
- SetSourceGuildNil sets the value for SourceGuild to be an explicit nil
-
-### UnsetSourceGuild
-`func (o *ChannelFollowerWebhookResponse) UnsetSourceGuild()`
-
-UnsetSourceGuild ensures that no value is present for SourceGuild, not even an explicit nil
 ### GetSourceChannel
 
 `func (o *ChannelFollowerWebhookResponse) GetSourceChannel() WebhookSourceChannelResponse`
@@ -299,16 +269,6 @@ SetSourceChannel sets SourceChannel field to given value.
 
 HasSourceChannel returns a boolean if a field has been set.
 
-### SetSourceChannelNil
-
-`func (o *ChannelFollowerWebhookResponse) SetSourceChannelNil(b bool)`
-
- SetSourceChannelNil sets the value for SourceChannel to be an explicit nil
-
-### UnsetSourceChannel
-`func (o *ChannelFollowerWebhookResponse) UnsetSourceChannel()`
-
-UnsetSourceChannel ensures that no value is present for SourceChannel, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

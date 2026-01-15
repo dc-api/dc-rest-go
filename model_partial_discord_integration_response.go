@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,9 +56,9 @@ var _ MappedNullable = &PartialDiscordIntegrationResponse{}
 // PartialDiscordIntegrationResponse struct for PartialDiscordIntegrationResponse
 type PartialDiscordIntegrationResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Type NullableString `json:"type"`
-	Name NullableString `json:"name,omitempty"`
-	Account NullableAccountResponse `json:"account,omitempty"`
+	Type IntegrationTypes `json:"type"`
+	Name *string `json:"name,omitempty"`
+	Account AccountResponse `json:"account"`
 	ApplicationId string `json:"application_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
@@ -68,10 +68,11 @@ type _PartialDiscordIntegrationResponse PartialDiscordIntegrationResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPartialDiscordIntegrationResponse(id string, type_ NullableString, applicationId string) *PartialDiscordIntegrationResponse {
+func NewPartialDiscordIntegrationResponse(id string, type_ IntegrationTypes, account AccountResponse, applicationId string) *PartialDiscordIntegrationResponse {
 	this := PartialDiscordIntegrationResponse{}
 	this.Id = id
 	this.Type = type_
+	this.Account = account
 	this.ApplicationId = applicationId
 	return &this
 }
@@ -109,115 +110,84 @@ func (o *PartialDiscordIntegrationResponse) SetId(v string) {
 }
 
 // GetType returns the Type field value
-// If the value is explicit nil, the zero value for string will be returned
-func (o *PartialDiscordIntegrationResponse) GetType() string {
-	if o == nil || o.Type.Get() == nil {
-		var ret string
+func (o *PartialDiscordIntegrationResponse) GetType() IntegrationTypes {
+	if o == nil {
+		var ret IntegrationTypes
 		return ret
 	}
 
-	return *o.Type.Get()
+	return o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PartialDiscordIntegrationResponse) GetTypeOk() (*string, bool) {
+func (o *PartialDiscordIntegrationResponse) GetTypeOk() (*IntegrationTypes, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return &o.Type, true
 }
 
 // SetType sets field value
-func (o *PartialDiscordIntegrationResponse) SetType(v string) {
-	o.Type.Set(&v)
+func (o *PartialDiscordIntegrationResponse) SetType(v IntegrationTypes) {
+	o.Type = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *PartialDiscordIntegrationResponse) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PartialDiscordIntegrationResponse) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *PartialDiscordIntegrationResponse) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *PartialDiscordIntegrationResponse) SetName(v string) {
-	o.Name.Set(&v)
+	o.Name = &v
 }
 
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *PartialDiscordIntegrationResponse) SetNameNil() {
-	o.Name.Set(nil)
-}
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *PartialDiscordIntegrationResponse) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetAccount returns the Account field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAccount returns the Account field value
 func (o *PartialDiscordIntegrationResponse) GetAccount() AccountResponse {
-	if o == nil || IsNil(o.Account.Get()) {
+	if o == nil {
 		var ret AccountResponse
 		return ret
 	}
-	return *o.Account.Get()
+
+	return o.Account
 }
 
-// GetAccountOk returns a tuple with the Account field value if set, nil otherwise
+// GetAccountOk returns a tuple with the Account field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PartialDiscordIntegrationResponse) GetAccountOk() (*AccountResponse, bool) {
-	if o == nil || IsNil(o.Account.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Account.Get(), o.Account.IsSet()
+	return &o.Account, true
 }
 
-// HasAccount returns a boolean if a field has been set.
-func (o *PartialDiscordIntegrationResponse) HasAccount() bool {
-	if o != nil && o.Account.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAccount gets a reference to the given NullableAccountResponse and assigns it to the Account field.
+// SetAccount sets field value
 func (o *PartialDiscordIntegrationResponse) SetAccount(v AccountResponse) {
-	o.Account.Set(&v)
-}
-
-// SetAccountNil sets the value for Account to be an explicit nil
-func (o *PartialDiscordIntegrationResponse) SetAccountNil() {
-	o.Account.Set(nil)
-}
-
-// UnsetAccount ensures that no value is present for Account, not even an explicit nil
-func (o *PartialDiscordIntegrationResponse) UnsetAccount() {
-	o.Account.Unset()
+	o.Account = v
 }
 
 // GetApplicationId returns the ApplicationId field value
@@ -255,13 +225,11 @@ func (o PartialDiscordIntegrationResponse) MarshalJSON() ([]byte, error) {
 func (o PartialDiscordIntegrationResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	toSerialize["type"] = o.Type.Get()
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	toSerialize["type"] = o.Type
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Account.IsSet() {
-		toSerialize["account"] = o.Account.Get()
-	}
+	toSerialize["account"] = o.Account
 	toSerialize["application_id"] = o.ApplicationId
 	return toSerialize, nil
 }
@@ -273,6 +241,7 @@ func (o *PartialDiscordIntegrationResponse) UnmarshalJSON(data []byte) (err erro
 	requiredProperties := []string{
 		"id",
 		"type",
+		"account",
 		"application_id",
 	}
 
@@ -340,5 +309,4 @@ func (v *NullablePartialDiscordIntegrationResponse) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

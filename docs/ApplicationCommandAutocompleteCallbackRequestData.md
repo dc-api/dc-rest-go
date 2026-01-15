@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Choices** | Pointer to [**[]ApplicationCommandOptionStringChoice**](ApplicationCommandOptionStringChoice.md) |  | [optional] 
+**Choices** | Pointer to [**[]InteractionApplicationCommandAutocompleteCallbackStringDataChoicesInner**](InteractionApplicationCommandAutocompleteCallbackStringDataChoicesInner.md) |  | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetChoices
 
-`func (o *ApplicationCommandAutocompleteCallbackRequestData) GetChoices() []ApplicationCommandOptionStringChoice`
+`func (o *ApplicationCommandAutocompleteCallbackRequestData) GetChoices() []InteractionApplicationCommandAutocompleteCallbackStringDataChoicesInner`
 
 GetChoices returns the Choices field if non-nil, zero value otherwise.
 
 ### GetChoicesOk
 
-`func (o *ApplicationCommandAutocompleteCallbackRequestData) GetChoicesOk() (*[]ApplicationCommandOptionStringChoice, bool)`
+`func (o *ApplicationCommandAutocompleteCallbackRequestData) GetChoicesOk() (*[]InteractionApplicationCommandAutocompleteCallbackStringDataChoicesInner, bool)`
 
 GetChoicesOk returns a tuple with the Choices field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChoices
 
-`func (o *ApplicationCommandAutocompleteCallbackRequestData) SetChoices(v []ApplicationCommandOptionStringChoice)`
+`func (o *ApplicationCommandAutocompleteCallbackRequestData) SetChoices(v []InteractionApplicationCommandAutocompleteCallbackStringDataChoicesInner)`
 
 SetChoices sets Choices field to given value.
 

@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**ApplicationCommandOptionType**](ApplicationCommandOptionType.md) |  | 
 **Name** | **string** |  | 
 **NameLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Description** | **string** |  | 
 **DescriptionLocalizations** | Pointer to **map[string]string** |  | [optional] 
-**Required** | Pointer to **NullableBool** |  | [optional] 
-**Autocomplete** | Pointer to **NullableBool** |  | [optional] 
-**MinLength** | Pointer to **NullableInt32** |  | [optional] 
-**MaxLength** | Pointer to **NullableInt32** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
+**Autocomplete** | Pointer to **bool** |  | [optional] 
+**MinLength** | Pointer to **int32** |  | [optional] 
+**MaxLength** | Pointer to **int32** |  | [optional] 
 **Choices** | Pointer to [**[]ApplicationCommandOptionStringChoice**](ApplicationCommandOptionStringChoice.md) |  | [optional] 
 
 ## Methods
 
 ### NewApplicationCommandStringOption
 
-`func NewApplicationCommandStringOption(type_ int32, name string, description string, ) *ApplicationCommandStringOption`
+`func NewApplicationCommandStringOption(type_ ApplicationCommandOptionType, name string, description string, ) *ApplicationCommandStringOption`
 
 NewApplicationCommandStringOption instantiates a new ApplicationCommandStringOption object
 This constructor will assign default values to properties that have it defined,
@@ -36,20 +36,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ApplicationCommandStringOption) GetType() int32`
+`func (o *ApplicationCommandStringOption) GetType() ApplicationCommandOptionType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ApplicationCommandStringOption) GetTypeOk() (*int32, bool)`
+`func (o *ApplicationCommandStringOption) GetTypeOk() (*ApplicationCommandOptionType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ApplicationCommandStringOption) SetType(v int32)`
+`func (o *ApplicationCommandStringOption) SetType(v ApplicationCommandOptionType)`
 
 SetType sets Type field to given value.
 
@@ -169,16 +169,6 @@ SetRequired sets Required field to given value.
 
 HasRequired returns a boolean if a field has been set.
 
-### SetRequiredNil
-
-`func (o *ApplicationCommandStringOption) SetRequiredNil(b bool)`
-
- SetRequiredNil sets the value for Required to be an explicit nil
-
-### UnsetRequired
-`func (o *ApplicationCommandStringOption) UnsetRequired()`
-
-UnsetRequired ensures that no value is present for Required, not even an explicit nil
 ### GetAutocomplete
 
 `func (o *ApplicationCommandStringOption) GetAutocomplete() bool`
@@ -204,16 +194,6 @@ SetAutocomplete sets Autocomplete field to given value.
 
 HasAutocomplete returns a boolean if a field has been set.
 
-### SetAutocompleteNil
-
-`func (o *ApplicationCommandStringOption) SetAutocompleteNil(b bool)`
-
- SetAutocompleteNil sets the value for Autocomplete to be an explicit nil
-
-### UnsetAutocomplete
-`func (o *ApplicationCommandStringOption) UnsetAutocomplete()`
-
-UnsetAutocomplete ensures that no value is present for Autocomplete, not even an explicit nil
 ### GetMinLength
 
 `func (o *ApplicationCommandStringOption) GetMinLength() int32`
@@ -239,16 +219,6 @@ SetMinLength sets MinLength field to given value.
 
 HasMinLength returns a boolean if a field has been set.
 
-### SetMinLengthNil
-
-`func (o *ApplicationCommandStringOption) SetMinLengthNil(b bool)`
-
- SetMinLengthNil sets the value for MinLength to be an explicit nil
-
-### UnsetMinLength
-`func (o *ApplicationCommandStringOption) UnsetMinLength()`
-
-UnsetMinLength ensures that no value is present for MinLength, not even an explicit nil
 ### GetMaxLength
 
 `func (o *ApplicationCommandStringOption) GetMaxLength() int32`
@@ -274,16 +244,6 @@ SetMaxLength sets MaxLength field to given value.
 
 HasMaxLength returns a boolean if a field has been set.
 
-### SetMaxLengthNil
-
-`func (o *ApplicationCommandStringOption) SetMaxLengthNil(b bool)`
-
- SetMaxLengthNil sets the value for MaxLength to be an explicit nil
-
-### UnsetMaxLength
-`func (o *ApplicationCommandStringOption) UnsetMaxLength()`
-
-UnsetMaxLength ensures that no value is present for MaxLength, not even an explicit nil
 ### GetChoices
 
 `func (o *ApplicationCommandStringOption) GetChoices() []ApplicationCommandOptionStringChoice`
@@ -309,16 +269,6 @@ SetChoices sets Choices field to given value.
 
 HasChoices returns a boolean if a field has been set.
 
-### SetChoicesNil
-
-`func (o *ApplicationCommandStringOption) SetChoicesNil(b bool)`
-
- SetChoicesNil sets the value for Choices to be an explicit nil
-
-### UnsetChoices
-`func (o *ApplicationCommandStringOption) UnsetChoices()`
-
-UnsetChoices ensures that no value is present for Choices, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

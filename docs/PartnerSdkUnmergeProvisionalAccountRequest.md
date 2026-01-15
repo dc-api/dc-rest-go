@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClientId** | **string** |  | 
-**ClientSecret** | Pointer to **NullableString** |  | [optional] 
+**ClientSecret** | Pointer to **string** |  | [optional] 
 **ExternalAuthToken** | **string** |  | 
-**ExternalAuthType** | **NullableString** |  | 
+**ExternalAuthType** | [**ApplicationIdentityProviderAuthType**](ApplicationIdentityProviderAuthType.md) |  | 
 
 ## Methods
 
 ### NewPartnerSdkUnmergeProvisionalAccountRequest
 
-`func NewPartnerSdkUnmergeProvisionalAccountRequest(clientId string, externalAuthToken string, externalAuthType NullableString, ) *PartnerSdkUnmergeProvisionalAccountRequest`
+`func NewPartnerSdkUnmergeProvisionalAccountRequest(clientId string, externalAuthToken string, externalAuthType ApplicationIdentityProviderAuthType, ) *PartnerSdkUnmergeProvisionalAccountRequest`
 
 NewPartnerSdkUnmergeProvisionalAccountRequest instantiates a new PartnerSdkUnmergeProvisionalAccountRequest object
 This constructor will assign default values to properties that have it defined,
@@ -73,16 +73,6 @@ SetClientSecret sets ClientSecret field to given value.
 
 HasClientSecret returns a boolean if a field has been set.
 
-### SetClientSecretNil
-
-`func (o *PartnerSdkUnmergeProvisionalAccountRequest) SetClientSecretNil(b bool)`
-
- SetClientSecretNil sets the value for ClientSecret to be an explicit nil
-
-### UnsetClientSecret
-`func (o *PartnerSdkUnmergeProvisionalAccountRequest) UnsetClientSecret()`
-
-UnsetClientSecret ensures that no value is present for ClientSecret, not even an explicit nil
 ### GetExternalAuthToken
 
 `func (o *PartnerSdkUnmergeProvisionalAccountRequest) GetExternalAuthToken() string`
@@ -105,34 +95,24 @@ SetExternalAuthToken sets ExternalAuthToken field to given value.
 
 ### GetExternalAuthType
 
-`func (o *PartnerSdkUnmergeProvisionalAccountRequest) GetExternalAuthType() string`
+`func (o *PartnerSdkUnmergeProvisionalAccountRequest) GetExternalAuthType() ApplicationIdentityProviderAuthType`
 
 GetExternalAuthType returns the ExternalAuthType field if non-nil, zero value otherwise.
 
 ### GetExternalAuthTypeOk
 
-`func (o *PartnerSdkUnmergeProvisionalAccountRequest) GetExternalAuthTypeOk() (*string, bool)`
+`func (o *PartnerSdkUnmergeProvisionalAccountRequest) GetExternalAuthTypeOk() (*ApplicationIdentityProviderAuthType, bool)`
 
 GetExternalAuthTypeOk returns a tuple with the ExternalAuthType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExternalAuthType
 
-`func (o *PartnerSdkUnmergeProvisionalAccountRequest) SetExternalAuthType(v string)`
+`func (o *PartnerSdkUnmergeProvisionalAccountRequest) SetExternalAuthType(v ApplicationIdentityProviderAuthType)`
 
 SetExternalAuthType sets ExternalAuthType field to given value.
 
 
-### SetExternalAuthTypeNil
-
-`func (o *PartnerSdkUnmergeProvisionalAccountRequest) SetExternalAuthTypeNil(b bool)`
-
- SetExternalAuthTypeNil sets the value for ExternalAuthType to be an explicit nil
-
-### UnsetExternalAuthType
-`func (o *PartnerSdkUnmergeProvisionalAccountRequest) UnsetExternalAuthType()`
-
-UnsetExternalAuthType ensures that no value is present for ExternalAuthType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

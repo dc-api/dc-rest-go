@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -54,9 +54,9 @@ var _ MappedNullable = &SoundboardPatchRequestPartial{}
 // SoundboardPatchRequestPartial struct for SoundboardPatchRequestPartial
 type SoundboardPatchRequestPartial struct {
 	Name *string `json:"name,omitempty"`
-	Volume NullableFloat64 `json:"volume,omitempty"`
-	EmojiId *string `json:"emoji_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	EmojiName NullableString `json:"emoji_name,omitempty"`
+	Volume *float64 `json:"volume,omitempty"`
+	EmojiId *GetEntitlementsSkuIdsParameterOneOfInner `json:"emoji_id,omitempty"`
+	EmojiName *string `json:"emoji_name,omitempty"`
 }
 
 // NewSoundboardPatchRequestPartial instantiates a new SoundboardPatchRequestPartial object
@@ -109,53 +109,43 @@ func (o *SoundboardPatchRequestPartial) SetName(v string) {
 }
 
 
-// GetVolume returns the Volume field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetVolume returns the Volume field value if set, zero value otherwise.
 func (o *SoundboardPatchRequestPartial) GetVolume() float64 {
-	if o == nil || IsNil(o.Volume.Get()) {
+	if o == nil || IsNil(o.Volume) {
 		var ret float64
 		return ret
 	}
-	return *o.Volume.Get()
+	return *o.Volume
 }
 
 // GetVolumeOk returns a tuple with the Volume field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SoundboardPatchRequestPartial) GetVolumeOk() (*float64, bool) {
-	if o == nil || IsNil(o.Volume.Get()) {
+	if o == nil || IsNil(o.Volume) {
 		return nil, false
 	}
-	return o.Volume.Get(), o.Volume.IsSet()
+	return o.Volume, true
 }
 
 // HasVolume returns a boolean if a field has been set.
 func (o *SoundboardPatchRequestPartial) HasVolume() bool {
-	if o != nil && o.Volume.IsSet() {
+	if o != nil && !IsNil(o.Volume) {
 		return true
 	}
 
 	return false
 }
 
-// SetVolume gets a reference to the given NullableFloat64 and assigns it to the Volume field.
+// SetVolume gets a reference to the given float64 and assigns it to the Volume field.
 func (o *SoundboardPatchRequestPartial) SetVolume(v float64) {
-	o.Volume.Set(&v)
+	o.Volume = &v
 }
 
-// SetVolumeNil sets the value for Volume to be an explicit nil
-func (o *SoundboardPatchRequestPartial) SetVolumeNil() {
-	o.Volume.Set(nil)
-}
-
-// UnsetVolume ensures that no value is present for Volume, not even an explicit nil
-func (o *SoundboardPatchRequestPartial) UnsetVolume() {
-	o.Volume.Unset()
-}
 
 // GetEmojiId returns the EmojiId field value if set, zero value otherwise.
-func (o *SoundboardPatchRequestPartial) GetEmojiId() string {
+func (o *SoundboardPatchRequestPartial) GetEmojiId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.EmojiId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.EmojiId
@@ -163,7 +153,7 @@ func (o *SoundboardPatchRequestPartial) GetEmojiId() string {
 
 // GetEmojiIdOk returns a tuple with the EmojiId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SoundboardPatchRequestPartial) GetEmojiIdOk() (*string, bool) {
+func (o *SoundboardPatchRequestPartial) GetEmojiIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.EmojiId) {
 		return nil, false
 	}
@@ -179,54 +169,44 @@ func (o *SoundboardPatchRequestPartial) HasEmojiId() bool {
 	return false
 }
 
-// SetEmojiId gets a reference to the given string and assigns it to the EmojiId field.
-func (o *SoundboardPatchRequestPartial) SetEmojiId(v string) {
+// SetEmojiId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the EmojiId field.
+func (o *SoundboardPatchRequestPartial) SetEmojiId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.EmojiId = &v
 }
 
 
-// GetEmojiName returns the EmojiName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmojiName returns the EmojiName field value if set, zero value otherwise.
 func (o *SoundboardPatchRequestPartial) GetEmojiName() string {
-	if o == nil || IsNil(o.EmojiName.Get()) {
+	if o == nil || IsNil(o.EmojiName) {
 		var ret string
 		return ret
 	}
-	return *o.EmojiName.Get()
+	return *o.EmojiName
 }
 
 // GetEmojiNameOk returns a tuple with the EmojiName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SoundboardPatchRequestPartial) GetEmojiNameOk() (*string, bool) {
-	if o == nil || IsNil(o.EmojiName.Get()) {
+	if o == nil || IsNil(o.EmojiName) {
 		return nil, false
 	}
-	return o.EmojiName.Get(), o.EmojiName.IsSet()
+	return o.EmojiName, true
 }
 
 // HasEmojiName returns a boolean if a field has been set.
 func (o *SoundboardPatchRequestPartial) HasEmojiName() bool {
-	if o != nil && o.EmojiName.IsSet() {
+	if o != nil && !IsNil(o.EmojiName) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmojiName gets a reference to the given NullableString and assigns it to the EmojiName field.
+// SetEmojiName gets a reference to the given string and assigns it to the EmojiName field.
 func (o *SoundboardPatchRequestPartial) SetEmojiName(v string) {
-	o.EmojiName.Set(&v)
+	o.EmojiName = &v
 }
 
-// SetEmojiNameNil sets the value for EmojiName to be an explicit nil
-func (o *SoundboardPatchRequestPartial) SetEmojiNameNil() {
-	o.EmojiName.Set(nil)
-}
-
-// UnsetEmojiName ensures that no value is present for EmojiName, not even an explicit nil
-func (o *SoundboardPatchRequestPartial) UnsetEmojiName() {
-	o.EmojiName.Unset()
-}
 
 func (o SoundboardPatchRequestPartial) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -241,14 +221,14 @@ func (o SoundboardPatchRequestPartial) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if o.Volume.IsSet() {
-		toSerialize["volume"] = o.Volume.Get()
+	if !IsNil(o.Volume) {
+		toSerialize["volume"] = o.Volume
 	}
 	if !IsNil(o.EmojiId) {
 		toSerialize["emoji_id"] = o.EmojiId
 	}
-	if o.EmojiName.IsSet() {
-		toSerialize["emoji_name"] = o.EmojiName.Get()
+	if !IsNil(o.EmojiName) {
+		toSerialize["emoji_name"] = o.EmojiName
 	}
 	return toSerialize, nil
 }
@@ -288,5 +268,4 @@ func (v *NullableSoundboardPatchRequestPartial) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

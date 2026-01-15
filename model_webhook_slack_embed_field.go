@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,9 +53,9 @@ var _ MappedNullable = &WebhookSlackEmbedField{}
 
 // WebhookSlackEmbedField struct for WebhookSlackEmbedField
 type WebhookSlackEmbedField struct {
-	Name NullableString `json:"name,omitempty"`
-	Value NullableString `json:"value,omitempty"`
-	Inline NullableBool `json:"inline,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Value *string `json:"value,omitempty"`
+	Inline *bool `json:"inline,omitempty"`
 }
 
 // NewWebhookSlackEmbedField instantiates a new WebhookSlackEmbedField object
@@ -75,134 +75,104 @@ func NewWebhookSlackEmbedFieldWithDefaults() *WebhookSlackEmbedField {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *WebhookSlackEmbedField) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbedField) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *WebhookSlackEmbedField) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *WebhookSlackEmbedField) SetName(v string) {
-	o.Name.Set(&v)
+	o.Name = &v
 }
 
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *WebhookSlackEmbedField) SetNameNil() {
-	o.Name.Set(nil)
-}
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *WebhookSlackEmbedField) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetValue returns the Value field value if set, zero value otherwise.
 func (o *WebhookSlackEmbedField) GetValue() string {
-	if o == nil || IsNil(o.Value.Get()) {
+	if o == nil || IsNil(o.Value) {
 		var ret string
 		return ret
 	}
-	return *o.Value.Get()
+	return *o.Value
 }
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbedField) GetValueOk() (*string, bool) {
-	if o == nil || IsNil(o.Value.Get()) {
+	if o == nil || IsNil(o.Value) {
 		return nil, false
 	}
-	return o.Value.Get(), o.Value.IsSet()
+	return o.Value, true
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *WebhookSlackEmbedField) HasValue() bool {
-	if o != nil && o.Value.IsSet() {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
 	return false
 }
 
-// SetValue gets a reference to the given NullableString and assigns it to the Value field.
+// SetValue gets a reference to the given string and assigns it to the Value field.
 func (o *WebhookSlackEmbedField) SetValue(v string) {
-	o.Value.Set(&v)
+	o.Value = &v
 }
 
-// SetValueNil sets the value for Value to be an explicit nil
-func (o *WebhookSlackEmbedField) SetValueNil() {
-	o.Value.Set(nil)
-}
 
-// UnsetValue ensures that no value is present for Value, not even an explicit nil
-func (o *WebhookSlackEmbedField) UnsetValue() {
-	o.Value.Unset()
-}
-
-// GetInline returns the Inline field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInline returns the Inline field value if set, zero value otherwise.
 func (o *WebhookSlackEmbedField) GetInline() bool {
-	if o == nil || IsNil(o.Inline.Get()) {
+	if o == nil || IsNil(o.Inline) {
 		var ret bool
 		return ret
 	}
-	return *o.Inline.Get()
+	return *o.Inline
 }
 
 // GetInlineOk returns a tuple with the Inline field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookSlackEmbedField) GetInlineOk() (*bool, bool) {
-	if o == nil || IsNil(o.Inline.Get()) {
+	if o == nil || IsNil(o.Inline) {
 		return nil, false
 	}
-	return o.Inline.Get(), o.Inline.IsSet()
+	return o.Inline, true
 }
 
 // HasInline returns a boolean if a field has been set.
 func (o *WebhookSlackEmbedField) HasInline() bool {
-	if o != nil && o.Inline.IsSet() {
+	if o != nil && !IsNil(o.Inline) {
 		return true
 	}
 
 	return false
 }
 
-// SetInline gets a reference to the given NullableBool and assigns it to the Inline field.
+// SetInline gets a reference to the given bool and assigns it to the Inline field.
 func (o *WebhookSlackEmbedField) SetInline(v bool) {
-	o.Inline.Set(&v)
+	o.Inline = &v
 }
 
-// SetInlineNil sets the value for Inline to be an explicit nil
-func (o *WebhookSlackEmbedField) SetInlineNil() {
-	o.Inline.Set(nil)
-}
-
-// UnsetInline ensures that no value is present for Inline, not even an explicit nil
-func (o *WebhookSlackEmbedField) UnsetInline() {
-	o.Inline.Unset()
-}
 
 func (o WebhookSlackEmbedField) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -214,14 +184,14 @@ func (o WebhookSlackEmbedField) MarshalJSON() ([]byte, error) {
 
 func (o WebhookSlackEmbedField) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Value.IsSet() {
-		toSerialize["value"] = o.Value.Get()
+	if !IsNil(o.Value) {
+		toSerialize["value"] = o.Value
 	}
-	if o.Inline.IsSet() {
-		toSerialize["inline"] = o.Inline.Get()
+	if !IsNil(o.Inline) {
+		toSerialize["inline"] = o.Inline
 	}
 	return toSerialize, nil
 }
@@ -261,5 +231,4 @@ func (v *NullableWebhookSlackEmbedField) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

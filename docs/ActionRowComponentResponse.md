@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
 **Id** | **int32** |  | 
-**Components** | Pointer to [**[]ActionRowComponentResponseComponentsInner**](ActionRowComponentResponseComponentsInner.md) |  | [optional] 
+**Components** | [**[]ActionRowComponentResponseComponentsInner**](ActionRowComponentResponseComponentsInner.md) |  | 
 
 ## Methods
 
 ### NewActionRowComponentResponse
 
-`func NewActionRowComponentResponse(type_ int32, id int32, ) *ActionRowComponentResponse`
+`func NewActionRowComponentResponse(type_ MessageComponentTypes, id int32, components []ActionRowComponentResponseComponentsInner, ) *ActionRowComponentResponse`
 
 NewActionRowComponentResponse instantiates a new ActionRowComponentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ActionRowComponentResponse) GetType() int32`
+`func (o *ActionRowComponentResponse) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ActionRowComponentResponse) GetTypeOk() (*int32, bool)`
+`func (o *ActionRowComponentResponse) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ActionRowComponentResponse) SetType(v int32)`
+`func (o *ActionRowComponentResponse) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
@@ -86,22 +86,7 @@ and a boolean to check if the value has been set.
 
 SetComponents sets Components field to given value.
 
-### HasComponents
 
-`func (o *ActionRowComponentResponse) HasComponents() bool`
-
-HasComponents returns a boolean if a field has been set.
-
-### SetComponentsNil
-
-`func (o *ActionRowComponentResponse) SetComponentsNil(b bool)`
-
- SetComponentsNil sets the value for Components to be an explicit nil
-
-### UnsetComponents
-`func (o *ActionRowComponentResponse) UnsetComponents()`
-
-UnsetComponents ensures that no value is present for Components, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

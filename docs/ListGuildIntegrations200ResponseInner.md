@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **NullableString** |  | 
+**Type** | [**IntegrationTypes**](IntegrationTypes.md) |  | 
 **Name** | Pointer to **string** |  | [optional] 
-**Account** | Pointer to [**AccountResponse**](AccountResponse.md) |  | [optional] 
-**Enabled** | Pointer to **bool** |  | [optional] 
+**Account** | [**AccountResponse**](AccountResponse.md) |  | 
+**Enabled** | **bool** |  | 
 **Id** | **string** |  | 
 **Application** | [**IntegrationApplicationResponse**](IntegrationApplicationResponse.md) |  | 
-**Scopes** | **[]string** |  | 
+**Scopes** | [**[]OAuth2Scopes**](OAuth2Scopes.md) |  | 
 **User** | [**UserResponse**](UserResponse.md) |  | 
 **Revoked** | Pointer to **bool** |  | [optional] 
-**ExpireBehavior** | Pointer to **int32** |  | [optional] 
-**ExpireGracePeriod** | Pointer to **int32** |  | [optional] 
+**ExpireBehavior** | Pointer to [**IntegrationExpireBehaviorTypes**](IntegrationExpireBehaviorTypes.md) |  | [optional] 
+**ExpireGracePeriod** | Pointer to [**IntegrationExpireGracePeriodTypes**](IntegrationExpireGracePeriodTypes.md) |  | [optional] 
 **SubscriberCount** | Pointer to **int32** |  | [optional] 
 **SyncedAt** | Pointer to **time.Time** |  | [optional] 
-**RoleId** | Pointer to **string** |  | [optional] 
+**RoleId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Syncing** | Pointer to **bool** |  | [optional] 
 **EnableEmoticons** | Pointer to **bool** |  | [optional] 
 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewListGuildIntegrations200ResponseInner
 
-`func NewListGuildIntegrations200ResponseInner(type_ NullableString, id string, application IntegrationApplicationResponse, scopes []string, user UserResponse, ) *ListGuildIntegrations200ResponseInner`
+`func NewListGuildIntegrations200ResponseInner(type_ IntegrationTypes, account AccountResponse, enabled bool, id string, application IntegrationApplicationResponse, scopes []OAuth2Scopes, user UserResponse, ) *ListGuildIntegrations200ResponseInner`
 
 NewListGuildIntegrations200ResponseInner instantiates a new ListGuildIntegrations200ResponseInner object
 This constructor will assign default values to properties that have it defined,
@@ -42,34 +42,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ListGuildIntegrations200ResponseInner) GetType() string`
+`func (o *ListGuildIntegrations200ResponseInner) GetType() IntegrationTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ListGuildIntegrations200ResponseInner) GetTypeOk() (*string, bool)`
+`func (o *ListGuildIntegrations200ResponseInner) GetTypeOk() (*IntegrationTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ListGuildIntegrations200ResponseInner) SetType(v string)`
+`func (o *ListGuildIntegrations200ResponseInner) SetType(v IntegrationTypes)`
 
 SetType sets Type field to given value.
 
 
-### SetTypeNil
-
-`func (o *ListGuildIntegrations200ResponseInner) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *ListGuildIntegrations200ResponseInner) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetName
 
 `func (o *ListGuildIntegrations200ResponseInner) GetName() string`
@@ -114,11 +104,6 @@ and a boolean to check if the value has been set.
 
 SetAccount sets Account field to given value.
 
-### HasAccount
-
-`func (o *ListGuildIntegrations200ResponseInner) HasAccount() bool`
-
-HasAccount returns a boolean if a field has been set.
 
 ### GetEnabled
 
@@ -139,11 +124,6 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
-### HasEnabled
-
-`func (o *ListGuildIntegrations200ResponseInner) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
 
 ### GetId
 
@@ -187,20 +167,20 @@ SetApplication sets Application field to given value.
 
 ### GetScopes
 
-`func (o *ListGuildIntegrations200ResponseInner) GetScopes() []string`
+`func (o *ListGuildIntegrations200ResponseInner) GetScopes() []OAuth2Scopes`
 
 GetScopes returns the Scopes field if non-nil, zero value otherwise.
 
 ### GetScopesOk
 
-`func (o *ListGuildIntegrations200ResponseInner) GetScopesOk() (*[]string, bool)`
+`func (o *ListGuildIntegrations200ResponseInner) GetScopesOk() (*[]OAuth2Scopes, bool)`
 
 GetScopesOk returns a tuple with the Scopes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScopes
 
-`func (o *ListGuildIntegrations200ResponseInner) SetScopes(v []string)`
+`func (o *ListGuildIntegrations200ResponseInner) SetScopes(v []OAuth2Scopes)`
 
 SetScopes sets Scopes field to given value.
 
@@ -252,20 +232,20 @@ HasRevoked returns a boolean if a field has been set.
 
 ### GetExpireBehavior
 
-`func (o *ListGuildIntegrations200ResponseInner) GetExpireBehavior() int32`
+`func (o *ListGuildIntegrations200ResponseInner) GetExpireBehavior() IntegrationExpireBehaviorTypes`
 
 GetExpireBehavior returns the ExpireBehavior field if non-nil, zero value otherwise.
 
 ### GetExpireBehaviorOk
 
-`func (o *ListGuildIntegrations200ResponseInner) GetExpireBehaviorOk() (*int32, bool)`
+`func (o *ListGuildIntegrations200ResponseInner) GetExpireBehaviorOk() (*IntegrationExpireBehaviorTypes, bool)`
 
 GetExpireBehaviorOk returns a tuple with the ExpireBehavior field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExpireBehavior
 
-`func (o *ListGuildIntegrations200ResponseInner) SetExpireBehavior(v int32)`
+`func (o *ListGuildIntegrations200ResponseInner) SetExpireBehavior(v IntegrationExpireBehaviorTypes)`
 
 SetExpireBehavior sets ExpireBehavior field to given value.
 
@@ -277,20 +257,20 @@ HasExpireBehavior returns a boolean if a field has been set.
 
 ### GetExpireGracePeriod
 
-`func (o *ListGuildIntegrations200ResponseInner) GetExpireGracePeriod() int32`
+`func (o *ListGuildIntegrations200ResponseInner) GetExpireGracePeriod() IntegrationExpireGracePeriodTypes`
 
 GetExpireGracePeriod returns the ExpireGracePeriod field if non-nil, zero value otherwise.
 
 ### GetExpireGracePeriodOk
 
-`func (o *ListGuildIntegrations200ResponseInner) GetExpireGracePeriodOk() (*int32, bool)`
+`func (o *ListGuildIntegrations200ResponseInner) GetExpireGracePeriodOk() (*IntegrationExpireGracePeriodTypes, bool)`
 
 GetExpireGracePeriodOk returns a tuple with the ExpireGracePeriod field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExpireGracePeriod
 
-`func (o *ListGuildIntegrations200ResponseInner) SetExpireGracePeriod(v int32)`
+`func (o *ListGuildIntegrations200ResponseInner) SetExpireGracePeriod(v IntegrationExpireGracePeriodTypes)`
 
 SetExpireGracePeriod sets ExpireGracePeriod field to given value.
 
@@ -352,20 +332,20 @@ HasSyncedAt returns a boolean if a field has been set.
 
 ### GetRoleId
 
-`func (o *ListGuildIntegrations200ResponseInner) GetRoleId() string`
+`func (o *ListGuildIntegrations200ResponseInner) GetRoleId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetRoleId returns the RoleId field if non-nil, zero value otherwise.
 
 ### GetRoleIdOk
 
-`func (o *ListGuildIntegrations200ResponseInner) GetRoleIdOk() (*string, bool)`
+`func (o *ListGuildIntegrations200ResponseInner) GetRoleIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetRoleIdOk returns a tuple with the RoleId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRoleId
 
-`func (o *ListGuildIntegrations200ResponseInner) SetRoleId(v string)`
+`func (o *ListGuildIntegrations200ResponseInner) SetRoleId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetRoleId sets RoleId field to given value.
 

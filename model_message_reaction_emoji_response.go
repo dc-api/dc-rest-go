@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,9 +53,9 @@ var _ MappedNullable = &MessageReactionEmojiResponse{}
 
 // MessageReactionEmojiResponse struct for MessageReactionEmojiResponse
 type MessageReactionEmojiResponse struct {
-	Id *string `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Name NullableString `json:"name,omitempty"`
-	Animated NullableBool `json:"animated,omitempty"`
+	Id *GetEntitlementsSkuIdsParameterOneOfInner `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Animated *bool `json:"animated,omitempty"`
 }
 
 // NewMessageReactionEmojiResponse instantiates a new MessageReactionEmojiResponse object
@@ -76,9 +76,9 @@ func NewMessageReactionEmojiResponseWithDefaults() *MessageReactionEmojiResponse
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *MessageReactionEmojiResponse) GetId() string {
+func (o *MessageReactionEmojiResponse) GetId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.Id) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.Id
@@ -86,7 +86,7 @@ func (o *MessageReactionEmojiResponse) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageReactionEmojiResponse) GetIdOk() (*string, bool) {
+func (o *MessageReactionEmojiResponse) GetIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -102,97 +102,77 @@ func (o *MessageReactionEmojiResponse) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *MessageReactionEmojiResponse) SetId(v string) {
+// SetId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the Id field.
+func (o *MessageReactionEmojiResponse) SetId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.Id = &v
 }
 
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *MessageReactionEmojiResponse) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageReactionEmojiResponse) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *MessageReactionEmojiResponse) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *MessageReactionEmojiResponse) SetName(v string) {
-	o.Name.Set(&v)
+	o.Name = &v
 }
 
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *MessageReactionEmojiResponse) SetNameNil() {
-	o.Name.Set(nil)
-}
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *MessageReactionEmojiResponse) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetAnimated returns the Animated field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAnimated returns the Animated field value if set, zero value otherwise.
 func (o *MessageReactionEmojiResponse) GetAnimated() bool {
-	if o == nil || IsNil(o.Animated.Get()) {
+	if o == nil || IsNil(o.Animated) {
 		var ret bool
 		return ret
 	}
-	return *o.Animated.Get()
+	return *o.Animated
 }
 
 // GetAnimatedOk returns a tuple with the Animated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageReactionEmojiResponse) GetAnimatedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Animated.Get()) {
+	if o == nil || IsNil(o.Animated) {
 		return nil, false
 	}
-	return o.Animated.Get(), o.Animated.IsSet()
+	return o.Animated, true
 }
 
 // HasAnimated returns a boolean if a field has been set.
 func (o *MessageReactionEmojiResponse) HasAnimated() bool {
-	if o != nil && o.Animated.IsSet() {
+	if o != nil && !IsNil(o.Animated) {
 		return true
 	}
 
 	return false
 }
 
-// SetAnimated gets a reference to the given NullableBool and assigns it to the Animated field.
+// SetAnimated gets a reference to the given bool and assigns it to the Animated field.
 func (o *MessageReactionEmojiResponse) SetAnimated(v bool) {
-	o.Animated.Set(&v)
+	o.Animated = &v
 }
 
-// SetAnimatedNil sets the value for Animated to be an explicit nil
-func (o *MessageReactionEmojiResponse) SetAnimatedNil() {
-	o.Animated.Set(nil)
-}
-
-// UnsetAnimated ensures that no value is present for Animated, not even an explicit nil
-func (o *MessageReactionEmojiResponse) UnsetAnimated() {
-	o.Animated.Unset()
-}
 
 func (o MessageReactionEmojiResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -207,11 +187,11 @@ func (o MessageReactionEmojiResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Animated.IsSet() {
-		toSerialize["animated"] = o.Animated.Get()
+	if !IsNil(o.Animated) {
+		toSerialize["animated"] = o.Animated
 	}
 	return toSerialize, nil
 }
@@ -251,5 +231,4 @@ func (v *NullableMessageReactionEmojiResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

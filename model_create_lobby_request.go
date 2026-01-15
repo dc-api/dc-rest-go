@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,9 +53,11 @@ var _ MappedNullable = &CreateLobbyRequest{}
 
 // CreateLobbyRequest struct for CreateLobbyRequest
 type CreateLobbyRequest struct {
-	IdleTimeoutSeconds NullableInt32 `json:"idle_timeout_seconds,omitempty"`
+	IdleTimeoutSeconds *int32 `json:"idle_timeout_seconds,omitempty"`
 	Members []LobbyMemberRequest `json:"members,omitempty"`
 	Metadata map[string]string `json:"metadata,omitempty"`
+	Flags *CreateOrJoinLobbyRequestFlags `json:"flags,omitempty"`
+	OverrideEventWebhooksUrl *string `json:"override_event_webhooks_url,omitempty"`
 }
 
 // NewCreateLobbyRequest instantiates a new CreateLobbyRequest object
@@ -75,52 +77,42 @@ func NewCreateLobbyRequestWithDefaults() *CreateLobbyRequest {
 	return &this
 }
 
-// GetIdleTimeoutSeconds returns the IdleTimeoutSeconds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIdleTimeoutSeconds returns the IdleTimeoutSeconds field value if set, zero value otherwise.
 func (o *CreateLobbyRequest) GetIdleTimeoutSeconds() int32 {
-	if o == nil || IsNil(o.IdleTimeoutSeconds.Get()) {
+	if o == nil || IsNil(o.IdleTimeoutSeconds) {
 		var ret int32
 		return ret
 	}
-	return *o.IdleTimeoutSeconds.Get()
+	return *o.IdleTimeoutSeconds
 }
 
 // GetIdleTimeoutSecondsOk returns a tuple with the IdleTimeoutSeconds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateLobbyRequest) GetIdleTimeoutSecondsOk() (*int32, bool) {
-	if o == nil || IsNil(o.IdleTimeoutSeconds.Get()) {
+	if o == nil || IsNil(o.IdleTimeoutSeconds) {
 		return nil, false
 	}
-	return o.IdleTimeoutSeconds.Get(), o.IdleTimeoutSeconds.IsSet()
+	return o.IdleTimeoutSeconds, true
 }
 
 // HasIdleTimeoutSeconds returns a boolean if a field has been set.
 func (o *CreateLobbyRequest) HasIdleTimeoutSeconds() bool {
-	if o != nil && o.IdleTimeoutSeconds.IsSet() {
+	if o != nil && !IsNil(o.IdleTimeoutSeconds) {
 		return true
 	}
 
 	return false
 }
 
-// SetIdleTimeoutSeconds gets a reference to the given NullableInt32 and assigns it to the IdleTimeoutSeconds field.
+// SetIdleTimeoutSeconds gets a reference to the given int32 and assigns it to the IdleTimeoutSeconds field.
 func (o *CreateLobbyRequest) SetIdleTimeoutSeconds(v int32) {
-	o.IdleTimeoutSeconds.Set(&v)
+	o.IdleTimeoutSeconds = &v
 }
 
-// SetIdleTimeoutSecondsNil sets the value for IdleTimeoutSeconds to be an explicit nil
-func (o *CreateLobbyRequest) SetIdleTimeoutSecondsNil() {
-	o.IdleTimeoutSeconds.Set(nil)
-}
 
-// UnsetIdleTimeoutSeconds ensures that no value is present for IdleTimeoutSeconds, not even an explicit nil
-func (o *CreateLobbyRequest) UnsetIdleTimeoutSeconds() {
-	o.IdleTimeoutSeconds.Unset()
-}
-
-// GetMembers returns the Members field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMembers returns the Members field value if set, zero value otherwise.
 func (o *CreateLobbyRequest) GetMembers() []LobbyMemberRequest {
-	if o == nil {
+	if o == nil || IsNil(o.Members) {
 		var ret []LobbyMemberRequest
 		return ret
 	}
@@ -129,9 +121,8 @@ func (o *CreateLobbyRequest) GetMembers() []LobbyMemberRequest {
 
 // GetMembersOk returns a tuple with the Members field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateLobbyRequest) GetMembersOk() ([]LobbyMemberRequest, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Members) {
 		return nil, false
 	}
 	return o.Members, true
@@ -185,6 +176,72 @@ func (o *CreateLobbyRequest) SetMetadata(v map[string]string) {
 }
 
 
+// GetFlags returns the Flags field value if set, zero value otherwise.
+func (o *CreateLobbyRequest) GetFlags() CreateOrJoinLobbyRequestFlags {
+	if o == nil || IsNil(o.Flags) {
+		var ret CreateOrJoinLobbyRequestFlags
+		return ret
+	}
+	return *o.Flags
+}
+
+// GetFlagsOk returns a tuple with the Flags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateLobbyRequest) GetFlagsOk() (*CreateOrJoinLobbyRequestFlags, bool) {
+	if o == nil || IsNil(o.Flags) {
+		return nil, false
+	}
+	return o.Flags, true
+}
+
+// HasFlags returns a boolean if a field has been set.
+func (o *CreateLobbyRequest) HasFlags() bool {
+	if o != nil && !IsNil(o.Flags) {
+		return true
+	}
+
+	return false
+}
+
+// SetFlags gets a reference to the given CreateOrJoinLobbyRequestFlags and assigns it to the Flags field.
+func (o *CreateLobbyRequest) SetFlags(v CreateOrJoinLobbyRequestFlags) {
+	o.Flags = &v
+}
+
+
+// GetOverrideEventWebhooksUrl returns the OverrideEventWebhooksUrl field value if set, zero value otherwise.
+func (o *CreateLobbyRequest) GetOverrideEventWebhooksUrl() string {
+	if o == nil || IsNil(o.OverrideEventWebhooksUrl) {
+		var ret string
+		return ret
+	}
+	return *o.OverrideEventWebhooksUrl
+}
+
+// GetOverrideEventWebhooksUrlOk returns a tuple with the OverrideEventWebhooksUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateLobbyRequest) GetOverrideEventWebhooksUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.OverrideEventWebhooksUrl) {
+		return nil, false
+	}
+	return o.OverrideEventWebhooksUrl, true
+}
+
+// HasOverrideEventWebhooksUrl returns a boolean if a field has been set.
+func (o *CreateLobbyRequest) HasOverrideEventWebhooksUrl() bool {
+	if o != nil && !IsNil(o.OverrideEventWebhooksUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetOverrideEventWebhooksUrl gets a reference to the given string and assigns it to the OverrideEventWebhooksUrl field.
+func (o *CreateLobbyRequest) SetOverrideEventWebhooksUrl(v string) {
+	o.OverrideEventWebhooksUrl = &v
+}
+
+
 func (o CreateLobbyRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -195,14 +252,20 @@ func (o CreateLobbyRequest) MarshalJSON() ([]byte, error) {
 
 func (o CreateLobbyRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.IdleTimeoutSeconds.IsSet() {
-		toSerialize["idle_timeout_seconds"] = o.IdleTimeoutSeconds.Get()
+	if !IsNil(o.IdleTimeoutSeconds) {
+		toSerialize["idle_timeout_seconds"] = o.IdleTimeoutSeconds
 	}
-	if o.Members != nil {
+	if !IsNil(o.Members) {
 		toSerialize["members"] = o.Members
 	}
 	if !IsNil(o.Metadata) {
 		toSerialize["metadata"] = o.Metadata
+	}
+	if !IsNil(o.Flags) {
+		toSerialize["flags"] = o.Flags
+	}
+	if !IsNil(o.OverrideEventWebhooksUrl) {
+		toSerialize["override_event_webhooks_url"] = o.OverrideEventWebhooksUrl
 	}
 	return toSerialize, nil
 }
@@ -242,5 +305,4 @@ func (v *NullableCreateLobbyRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

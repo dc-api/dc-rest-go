@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **int32** |  | 
+**Type** | [**MessageComponentTypes**](MessageComponentTypes.md) |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 **Content** | **string** |  | 
 
 ## Methods
 
 ### NewTextDisplayComponentForMessageRequest
 
-`func NewTextDisplayComponentForMessageRequest(type_ int32, content string, ) *TextDisplayComponentForMessageRequest`
+`func NewTextDisplayComponentForMessageRequest(type_ MessageComponentTypes, content string, ) *TextDisplayComponentForMessageRequest`
 
 NewTextDisplayComponentForMessageRequest instantiates a new TextDisplayComponentForMessageRequest object
 This constructor will assign default values to properties that have it defined,
@@ -28,23 +29,48 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *TextDisplayComponentForMessageRequest) GetType() int32`
+`func (o *TextDisplayComponentForMessageRequest) GetType() MessageComponentTypes`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *TextDisplayComponentForMessageRequest) GetTypeOk() (*int32, bool)`
+`func (o *TextDisplayComponentForMessageRequest) GetTypeOk() (*MessageComponentTypes, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *TextDisplayComponentForMessageRequest) SetType(v int32)`
+`func (o *TextDisplayComponentForMessageRequest) SetType(v MessageComponentTypes)`
 
 SetType sets Type field to given value.
 
+
+### GetId
+
+`func (o *TextDisplayComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *TextDisplayComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *TextDisplayComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *TextDisplayComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetContent
 

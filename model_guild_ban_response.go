@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ var _ MappedNullable = &GuildBanResponse{}
 // GuildBanResponse struct for GuildBanResponse
 type GuildBanResponse struct {
 	User UserResponse `json:"user"`
-	Reason NullableString `json:"reason,omitempty"`
+	Reason *string `json:"reason,omitempty"`
 }
 
 type _GuildBanResponse GuildBanResponse
@@ -103,48 +103,38 @@ func (o *GuildBanResponse) SetUser(v UserResponse) {
 	o.User = v
 }
 
-// GetReason returns the Reason field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetReason returns the Reason field value if set, zero value otherwise.
 func (o *GuildBanResponse) GetReason() string {
-	if o == nil || IsNil(o.Reason.Get()) {
+	if o == nil || IsNil(o.Reason) {
 		var ret string
 		return ret
 	}
-	return *o.Reason.Get()
+	return *o.Reason
 }
 
 // GetReasonOk returns a tuple with the Reason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildBanResponse) GetReasonOk() (*string, bool) {
-	if o == nil || IsNil(o.Reason.Get()) {
+	if o == nil || IsNil(o.Reason) {
 		return nil, false
 	}
-	return o.Reason.Get(), o.Reason.IsSet()
+	return o.Reason, true
 }
 
 // HasReason returns a boolean if a field has been set.
 func (o *GuildBanResponse) HasReason() bool {
-	if o != nil && o.Reason.IsSet() {
+	if o != nil && !IsNil(o.Reason) {
 		return true
 	}
 
 	return false
 }
 
-// SetReason gets a reference to the given NullableString and assigns it to the Reason field.
+// SetReason gets a reference to the given string and assigns it to the Reason field.
 func (o *GuildBanResponse) SetReason(v string) {
-	o.Reason.Set(&v)
+	o.Reason = &v
 }
 
-// SetReasonNil sets the value for Reason to be an explicit nil
-func (o *GuildBanResponse) SetReasonNil() {
-	o.Reason.Set(nil)
-}
-
-// UnsetReason ensures that no value is present for Reason, not even an explicit nil
-func (o *GuildBanResponse) UnsetReason() {
-	o.Reason.Unset()
-}
 
 func (o GuildBanResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -157,8 +147,8 @@ func (o GuildBanResponse) MarshalJSON() ([]byte, error) {
 func (o GuildBanResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["user"] = o.User
-	if o.Reason.IsSet() {
-		toSerialize["reason"] = o.Reason.Get()
+	if !IsNil(o.Reason) {
+		toSerialize["reason"] = o.Reason
 	}
 	return toSerialize, nil
 }
@@ -235,5 +225,4 @@ func (v *NullableGuildBanResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

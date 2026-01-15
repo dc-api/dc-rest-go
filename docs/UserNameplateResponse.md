@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SkuId** | Pointer to **string** |  | [optional] 
-**Asset** | Pointer to **NullableString** |  | [optional] 
-**Label** | Pointer to **NullableString** |  | [optional] 
-**Palette** | Pointer to **string** |  | [optional] 
+**SkuId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**Asset** | **string** |  | 
+**Label** | **string** |  | 
+**Palette** | **string** |  | 
 
 ## Methods
 
 ### NewUserNameplateResponse
 
-`func NewUserNameplateResponse() *UserNameplateResponse`
+`func NewUserNameplateResponse(asset string, label string, palette string, ) *UserNameplateResponse`
 
 NewUserNameplateResponse instantiates a new UserNameplateResponse object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetSkuId
 
-`func (o *UserNameplateResponse) GetSkuId() string`
+`func (o *UserNameplateResponse) GetSkuId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetSkuId returns the SkuId field if non-nil, zero value otherwise.
 
 ### GetSkuIdOk
 
-`func (o *UserNameplateResponse) GetSkuIdOk() (*string, bool)`
+`func (o *UserNameplateResponse) GetSkuIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetSkuIdOk returns a tuple with the SkuId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSkuId
 
-`func (o *UserNameplateResponse) SetSkuId(v string)`
+`func (o *UserNameplateResponse) SetSkuId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetSkuId sets SkuId field to given value.
 
@@ -72,22 +72,7 @@ and a boolean to check if the value has been set.
 
 SetAsset sets Asset field to given value.
 
-### HasAsset
 
-`func (o *UserNameplateResponse) HasAsset() bool`
-
-HasAsset returns a boolean if a field has been set.
-
-### SetAssetNil
-
-`func (o *UserNameplateResponse) SetAssetNil(b bool)`
-
- SetAssetNil sets the value for Asset to be an explicit nil
-
-### UnsetAsset
-`func (o *UserNameplateResponse) UnsetAsset()`
-
-UnsetAsset ensures that no value is present for Asset, not even an explicit nil
 ### GetLabel
 
 `func (o *UserNameplateResponse) GetLabel() string`
@@ -107,22 +92,7 @@ and a boolean to check if the value has been set.
 
 SetLabel sets Label field to given value.
 
-### HasLabel
 
-`func (o *UserNameplateResponse) HasLabel() bool`
-
-HasLabel returns a boolean if a field has been set.
-
-### SetLabelNil
-
-`func (o *UserNameplateResponse) SetLabelNil(b bool)`
-
- SetLabelNil sets the value for Label to be an explicit nil
-
-### UnsetLabel
-`func (o *UserNameplateResponse) UnsetLabel()`
-
-UnsetLabel ensures that no value is present for Label, not even an explicit nil
 ### GetPalette
 
 `func (o *UserNameplateResponse) GetPalette() string`
@@ -142,11 +112,6 @@ and a boolean to check if the value has been set.
 
 SetPalette sets Palette field to given value.
 
-### HasPalette
-
-`func (o *UserNameplateResponse) HasPalette() bool`
-
-HasPalette returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

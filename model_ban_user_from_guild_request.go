@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,8 +53,8 @@ var _ MappedNullable = &BanUserFromGuildRequest{}
 
 // BanUserFromGuildRequest struct for BanUserFromGuildRequest
 type BanUserFromGuildRequest struct {
-	DeleteMessageSeconds NullableInt32 `json:"delete_message_seconds,omitempty"`
-	DeleteMessageDays NullableInt32 `json:"delete_message_days,omitempty"`
+	DeleteMessageSeconds *int32 `json:"delete_message_seconds,omitempty"`
+	DeleteMessageDays *int32 `json:"delete_message_days,omitempty"`
 }
 
 // NewBanUserFromGuildRequest instantiates a new BanUserFromGuildRequest object
@@ -74,91 +74,71 @@ func NewBanUserFromGuildRequestWithDefaults() *BanUserFromGuildRequest {
 	return &this
 }
 
-// GetDeleteMessageSeconds returns the DeleteMessageSeconds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeleteMessageSeconds returns the DeleteMessageSeconds field value if set, zero value otherwise.
 func (o *BanUserFromGuildRequest) GetDeleteMessageSeconds() int32 {
-	if o == nil || IsNil(o.DeleteMessageSeconds.Get()) {
+	if o == nil || IsNil(o.DeleteMessageSeconds) {
 		var ret int32
 		return ret
 	}
-	return *o.DeleteMessageSeconds.Get()
+	return *o.DeleteMessageSeconds
 }
 
 // GetDeleteMessageSecondsOk returns a tuple with the DeleteMessageSeconds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BanUserFromGuildRequest) GetDeleteMessageSecondsOk() (*int32, bool) {
-	if o == nil || IsNil(o.DeleteMessageSeconds.Get()) {
+	if o == nil || IsNil(o.DeleteMessageSeconds) {
 		return nil, false
 	}
-	return o.DeleteMessageSeconds.Get(), o.DeleteMessageSeconds.IsSet()
+	return o.DeleteMessageSeconds, true
 }
 
 // HasDeleteMessageSeconds returns a boolean if a field has been set.
 func (o *BanUserFromGuildRequest) HasDeleteMessageSeconds() bool {
-	if o != nil && o.DeleteMessageSeconds.IsSet() {
+	if o != nil && !IsNil(o.DeleteMessageSeconds) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeleteMessageSeconds gets a reference to the given NullableInt32 and assigns it to the DeleteMessageSeconds field.
+// SetDeleteMessageSeconds gets a reference to the given int32 and assigns it to the DeleteMessageSeconds field.
 func (o *BanUserFromGuildRequest) SetDeleteMessageSeconds(v int32) {
-	o.DeleteMessageSeconds.Set(&v)
+	o.DeleteMessageSeconds = &v
 }
 
-// SetDeleteMessageSecondsNil sets the value for DeleteMessageSeconds to be an explicit nil
-func (o *BanUserFromGuildRequest) SetDeleteMessageSecondsNil() {
-	o.DeleteMessageSeconds.Set(nil)
-}
 
-// UnsetDeleteMessageSeconds ensures that no value is present for DeleteMessageSeconds, not even an explicit nil
-func (o *BanUserFromGuildRequest) UnsetDeleteMessageSeconds() {
-	o.DeleteMessageSeconds.Unset()
-}
-
-// GetDeleteMessageDays returns the DeleteMessageDays field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeleteMessageDays returns the DeleteMessageDays field value if set, zero value otherwise.
 func (o *BanUserFromGuildRequest) GetDeleteMessageDays() int32 {
-	if o == nil || IsNil(o.DeleteMessageDays.Get()) {
+	if o == nil || IsNil(o.DeleteMessageDays) {
 		var ret int32
 		return ret
 	}
-	return *o.DeleteMessageDays.Get()
+	return *o.DeleteMessageDays
 }
 
 // GetDeleteMessageDaysOk returns a tuple with the DeleteMessageDays field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BanUserFromGuildRequest) GetDeleteMessageDaysOk() (*int32, bool) {
-	if o == nil || IsNil(o.DeleteMessageDays.Get()) {
+	if o == nil || IsNil(o.DeleteMessageDays) {
 		return nil, false
 	}
-	return o.DeleteMessageDays.Get(), o.DeleteMessageDays.IsSet()
+	return o.DeleteMessageDays, true
 }
 
 // HasDeleteMessageDays returns a boolean if a field has been set.
 func (o *BanUserFromGuildRequest) HasDeleteMessageDays() bool {
-	if o != nil && o.DeleteMessageDays.IsSet() {
+	if o != nil && !IsNil(o.DeleteMessageDays) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeleteMessageDays gets a reference to the given NullableInt32 and assigns it to the DeleteMessageDays field.
+// SetDeleteMessageDays gets a reference to the given int32 and assigns it to the DeleteMessageDays field.
 func (o *BanUserFromGuildRequest) SetDeleteMessageDays(v int32) {
-	o.DeleteMessageDays.Set(&v)
+	o.DeleteMessageDays = &v
 }
 
-// SetDeleteMessageDaysNil sets the value for DeleteMessageDays to be an explicit nil
-func (o *BanUserFromGuildRequest) SetDeleteMessageDaysNil() {
-	o.DeleteMessageDays.Set(nil)
-}
-
-// UnsetDeleteMessageDays ensures that no value is present for DeleteMessageDays, not even an explicit nil
-func (o *BanUserFromGuildRequest) UnsetDeleteMessageDays() {
-	o.DeleteMessageDays.Unset()
-}
 
 func (o BanUserFromGuildRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -170,11 +150,11 @@ func (o BanUserFromGuildRequest) MarshalJSON() ([]byte, error) {
 
 func (o BanUserFromGuildRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.DeleteMessageSeconds.IsSet() {
-		toSerialize["delete_message_seconds"] = o.DeleteMessageSeconds.Get()
+	if !IsNil(o.DeleteMessageSeconds) {
+		toSerialize["delete_message_seconds"] = o.DeleteMessageSeconds
 	}
-	if o.DeleteMessageDays.IsSet() {
-		toSerialize["delete_message_days"] = o.DeleteMessageDays.Get()
+	if !IsNil(o.DeleteMessageDays) {
+		toSerialize["delete_message_days"] = o.DeleteMessageDays
 	}
 	return toSerialize, nil
 }
@@ -214,5 +194,4 @@ func (v *NullableBanUserFromGuildRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

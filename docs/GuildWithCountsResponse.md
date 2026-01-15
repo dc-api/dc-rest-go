@@ -6,51 +6,51 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Icon** | Pointer to **NullableString** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**HomeHeader** | Pointer to **NullableString** |  | [optional] 
-**Splash** | Pointer to **NullableString** |  | [optional] 
-**DiscoverySplash** | Pointer to **NullableString** |  | [optional] 
-**Features** | **[]string** |  | 
-**Banner** | Pointer to **NullableString** |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**HomeHeader** | Pointer to **string** |  | [optional] 
+**Splash** | Pointer to **string** |  | [optional] 
+**DiscoverySplash** | Pointer to **string** |  | [optional] 
+**Features** | [**[]GuildFeatures**](GuildFeatures.md) |  | 
+**Banner** | Pointer to **string** |  | [optional] 
 **OwnerId** | **string** |  | 
-**ApplicationId** | Pointer to **string** |  | [optional] 
+**ApplicationId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **Region** | **string** |  | 
-**AfkChannelId** | Pointer to **string** |  | [optional] 
-**AfkTimeout** | **NullableInt32** |  | 
-**SystemChannelId** | Pointer to **string** |  | [optional] 
+**AfkChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**AfkTimeout** | [**AfkTimeouts**](AfkTimeouts.md) |  | 
+**SystemChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **SystemChannelFlags** | **int32** |  | 
 **WidgetEnabled** | **bool** |  | 
-**WidgetChannelId** | Pointer to **string** |  | [optional] 
-**VerificationLevel** | **int32** |  | 
+**WidgetChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**VerificationLevel** | [**VerificationLevels**](VerificationLevels.md) |  | 
 **Roles** | [**[]GuildRoleResponse**](GuildRoleResponse.md) |  | 
-**DefaultMessageNotifications** | **int32** |  | 
-**MfaLevel** | **int32** |  | 
-**ExplicitContentFilter** | **int32** |  | 
-**MaxPresences** | Pointer to **NullableInt32** |  | [optional] 
-**MaxMembers** | Pointer to **NullableInt32** |  | [optional] 
-**MaxStageVideoChannelUsers** | Pointer to **NullableInt32** |  | [optional] 
-**MaxVideoChannelUsers** | Pointer to **NullableInt32** |  | [optional] 
-**VanityUrlCode** | Pointer to **NullableString** |  | [optional] 
-**PremiumTier** | **int32** |  | 
+**DefaultMessageNotifications** | [**UserNotificationSettings**](UserNotificationSettings.md) |  | 
+**MfaLevel** | [**GuildMFALevel**](GuildMFALevel.md) |  | 
+**ExplicitContentFilter** | [**GuildExplicitContentFilterTypes**](GuildExplicitContentFilterTypes.md) |  | 
+**MaxPresences** | Pointer to **int32** |  | [optional] 
+**MaxMembers** | **int32** |  | 
+**MaxStageVideoChannelUsers** | **int32** |  | 
+**MaxVideoChannelUsers** | **int32** |  | 
+**VanityUrlCode** | Pointer to **string** |  | [optional] 
+**PremiumTier** | [**PremiumGuildTiers**](PremiumGuildTiers.md) |  | 
 **PremiumSubscriptionCount** | **int32** |  | 
-**PreferredLocale** | **string** |  | 
-**RulesChannelId** | Pointer to **string** |  | [optional] 
-**SafetyAlertsChannelId** | Pointer to **string** |  | [optional] 
-**PublicUpdatesChannelId** | Pointer to **string** |  | [optional] 
+**PreferredLocale** | [**AvailableLocalesEnum**](AvailableLocalesEnum.md) |  | 
+**RulesChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**SafetyAlertsChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
+**PublicUpdatesChannelId** | Pointer to [**GetEntitlementsSkuIdsParameterOneOfInner**](GetEntitlementsSkuIdsParameterOneOfInner.md) |  | [optional] 
 **PremiumProgressBarEnabled** | **bool** |  | 
 **Nsfw** | **bool** |  | 
-**NsfwLevel** | **NullableInt32** |  | 
+**NsfwLevel** | [**GuildNSFWContentLevel**](GuildNSFWContentLevel.md) |  | 
 **Emojis** | [**[]EmojiResponse**](EmojiResponse.md) |  | 
 **Stickers** | [**[]GuildStickerResponse**](GuildStickerResponse.md) |  | 
-**ApproximateMemberCount** | Pointer to **NullableInt32** |  | [optional] 
-**ApproximatePresenceCount** | Pointer to **NullableInt32** |  | [optional] 
+**ApproximateMemberCount** | Pointer to **int32** |  | [optional] 
+**ApproximatePresenceCount** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewGuildWithCountsResponse
 
-`func NewGuildWithCountsResponse(id string, name string, features []string, ownerId string, region string, afkTimeout NullableInt32, systemChannelFlags int32, widgetEnabled bool, verificationLevel int32, roles []GuildRoleResponse, defaultMessageNotifications int32, mfaLevel int32, explicitContentFilter int32, premiumTier int32, premiumSubscriptionCount int32, preferredLocale string, premiumProgressBarEnabled bool, nsfw bool, nsfwLevel NullableInt32, emojis []EmojiResponse, stickers []GuildStickerResponse, ) *GuildWithCountsResponse`
+`func NewGuildWithCountsResponse(id string, name string, features []GuildFeatures, ownerId string, region string, afkTimeout AfkTimeouts, systemChannelFlags int32, widgetEnabled bool, verificationLevel VerificationLevels, roles []GuildRoleResponse, defaultMessageNotifications UserNotificationSettings, mfaLevel GuildMFALevel, explicitContentFilter GuildExplicitContentFilterTypes, maxMembers int32, maxStageVideoChannelUsers int32, maxVideoChannelUsers int32, premiumTier PremiumGuildTiers, premiumSubscriptionCount int32, preferredLocale AvailableLocalesEnum, premiumProgressBarEnabled bool, nsfw bool, nsfwLevel GuildNSFWContentLevel, emojis []EmojiResponse, stickers []GuildStickerResponse, ) *GuildWithCountsResponse`
 
 NewGuildWithCountsResponse instantiates a new GuildWithCountsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -130,16 +130,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *GuildWithCountsResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *GuildWithCountsResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetDescription
 
 `func (o *GuildWithCountsResponse) GetDescription() string`
@@ -165,16 +155,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *GuildWithCountsResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *GuildWithCountsResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetHomeHeader
 
 `func (o *GuildWithCountsResponse) GetHomeHeader() string`
@@ -200,16 +180,6 @@ SetHomeHeader sets HomeHeader field to given value.
 
 HasHomeHeader returns a boolean if a field has been set.
 
-### SetHomeHeaderNil
-
-`func (o *GuildWithCountsResponse) SetHomeHeaderNil(b bool)`
-
- SetHomeHeaderNil sets the value for HomeHeader to be an explicit nil
-
-### UnsetHomeHeader
-`func (o *GuildWithCountsResponse) UnsetHomeHeader()`
-
-UnsetHomeHeader ensures that no value is present for HomeHeader, not even an explicit nil
 ### GetSplash
 
 `func (o *GuildWithCountsResponse) GetSplash() string`
@@ -235,16 +205,6 @@ SetSplash sets Splash field to given value.
 
 HasSplash returns a boolean if a field has been set.
 
-### SetSplashNil
-
-`func (o *GuildWithCountsResponse) SetSplashNil(b bool)`
-
- SetSplashNil sets the value for Splash to be an explicit nil
-
-### UnsetSplash
-`func (o *GuildWithCountsResponse) UnsetSplash()`
-
-UnsetSplash ensures that no value is present for Splash, not even an explicit nil
 ### GetDiscoverySplash
 
 `func (o *GuildWithCountsResponse) GetDiscoverySplash() string`
@@ -270,32 +230,22 @@ SetDiscoverySplash sets DiscoverySplash field to given value.
 
 HasDiscoverySplash returns a boolean if a field has been set.
 
-### SetDiscoverySplashNil
-
-`func (o *GuildWithCountsResponse) SetDiscoverySplashNil(b bool)`
-
- SetDiscoverySplashNil sets the value for DiscoverySplash to be an explicit nil
-
-### UnsetDiscoverySplash
-`func (o *GuildWithCountsResponse) UnsetDiscoverySplash()`
-
-UnsetDiscoverySplash ensures that no value is present for DiscoverySplash, not even an explicit nil
 ### GetFeatures
 
-`func (o *GuildWithCountsResponse) GetFeatures() []string`
+`func (o *GuildWithCountsResponse) GetFeatures() []GuildFeatures`
 
 GetFeatures returns the Features field if non-nil, zero value otherwise.
 
 ### GetFeaturesOk
 
-`func (o *GuildWithCountsResponse) GetFeaturesOk() (*[]string, bool)`
+`func (o *GuildWithCountsResponse) GetFeaturesOk() (*[]GuildFeatures, bool)`
 
 GetFeaturesOk returns a tuple with the Features field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFeatures
 
-`func (o *GuildWithCountsResponse) SetFeatures(v []string)`
+`func (o *GuildWithCountsResponse) SetFeatures(v []GuildFeatures)`
 
 SetFeatures sets Features field to given value.
 
@@ -325,16 +275,6 @@ SetBanner sets Banner field to given value.
 
 HasBanner returns a boolean if a field has been set.
 
-### SetBannerNil
-
-`func (o *GuildWithCountsResponse) SetBannerNil(b bool)`
-
- SetBannerNil sets the value for Banner to be an explicit nil
-
-### UnsetBanner
-`func (o *GuildWithCountsResponse) UnsetBanner()`
-
-UnsetBanner ensures that no value is present for Banner, not even an explicit nil
 ### GetOwnerId
 
 `func (o *GuildWithCountsResponse) GetOwnerId() string`
@@ -357,20 +297,20 @@ SetOwnerId sets OwnerId field to given value.
 
 ### GetApplicationId
 
-`func (o *GuildWithCountsResponse) GetApplicationId() string`
+`func (o *GuildWithCountsResponse) GetApplicationId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetApplicationId returns the ApplicationId field if non-nil, zero value otherwise.
 
 ### GetApplicationIdOk
 
-`func (o *GuildWithCountsResponse) GetApplicationIdOk() (*string, bool)`
+`func (o *GuildWithCountsResponse) GetApplicationIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetApplicationIdOk returns a tuple with the ApplicationId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApplicationId
 
-`func (o *GuildWithCountsResponse) SetApplicationId(v string)`
+`func (o *GuildWithCountsResponse) SetApplicationId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetApplicationId sets ApplicationId field to given value.
 
@@ -402,20 +342,20 @@ SetRegion sets Region field to given value.
 
 ### GetAfkChannelId
 
-`func (o *GuildWithCountsResponse) GetAfkChannelId() string`
+`func (o *GuildWithCountsResponse) GetAfkChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetAfkChannelId returns the AfkChannelId field if non-nil, zero value otherwise.
 
 ### GetAfkChannelIdOk
 
-`func (o *GuildWithCountsResponse) GetAfkChannelIdOk() (*string, bool)`
+`func (o *GuildWithCountsResponse) GetAfkChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetAfkChannelIdOk returns a tuple with the AfkChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAfkChannelId
 
-`func (o *GuildWithCountsResponse) SetAfkChannelId(v string)`
+`func (o *GuildWithCountsResponse) SetAfkChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetAfkChannelId sets AfkChannelId field to given value.
 
@@ -427,50 +367,40 @@ HasAfkChannelId returns a boolean if a field has been set.
 
 ### GetAfkTimeout
 
-`func (o *GuildWithCountsResponse) GetAfkTimeout() int32`
+`func (o *GuildWithCountsResponse) GetAfkTimeout() AfkTimeouts`
 
 GetAfkTimeout returns the AfkTimeout field if non-nil, zero value otherwise.
 
 ### GetAfkTimeoutOk
 
-`func (o *GuildWithCountsResponse) GetAfkTimeoutOk() (*int32, bool)`
+`func (o *GuildWithCountsResponse) GetAfkTimeoutOk() (*AfkTimeouts, bool)`
 
 GetAfkTimeoutOk returns a tuple with the AfkTimeout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAfkTimeout
 
-`func (o *GuildWithCountsResponse) SetAfkTimeout(v int32)`
+`func (o *GuildWithCountsResponse) SetAfkTimeout(v AfkTimeouts)`
 
 SetAfkTimeout sets AfkTimeout field to given value.
 
 
-### SetAfkTimeoutNil
-
-`func (o *GuildWithCountsResponse) SetAfkTimeoutNil(b bool)`
-
- SetAfkTimeoutNil sets the value for AfkTimeout to be an explicit nil
-
-### UnsetAfkTimeout
-`func (o *GuildWithCountsResponse) UnsetAfkTimeout()`
-
-UnsetAfkTimeout ensures that no value is present for AfkTimeout, not even an explicit nil
 ### GetSystemChannelId
 
-`func (o *GuildWithCountsResponse) GetSystemChannelId() string`
+`func (o *GuildWithCountsResponse) GetSystemChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetSystemChannelId returns the SystemChannelId field if non-nil, zero value otherwise.
 
 ### GetSystemChannelIdOk
 
-`func (o *GuildWithCountsResponse) GetSystemChannelIdOk() (*string, bool)`
+`func (o *GuildWithCountsResponse) GetSystemChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetSystemChannelIdOk returns a tuple with the SystemChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSystemChannelId
 
-`func (o *GuildWithCountsResponse) SetSystemChannelId(v string)`
+`func (o *GuildWithCountsResponse) SetSystemChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetSystemChannelId sets SystemChannelId field to given value.
 
@@ -522,20 +452,20 @@ SetWidgetEnabled sets WidgetEnabled field to given value.
 
 ### GetWidgetChannelId
 
-`func (o *GuildWithCountsResponse) GetWidgetChannelId() string`
+`func (o *GuildWithCountsResponse) GetWidgetChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetWidgetChannelId returns the WidgetChannelId field if non-nil, zero value otherwise.
 
 ### GetWidgetChannelIdOk
 
-`func (o *GuildWithCountsResponse) GetWidgetChannelIdOk() (*string, bool)`
+`func (o *GuildWithCountsResponse) GetWidgetChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetWidgetChannelIdOk returns a tuple with the WidgetChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWidgetChannelId
 
-`func (o *GuildWithCountsResponse) SetWidgetChannelId(v string)`
+`func (o *GuildWithCountsResponse) SetWidgetChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetWidgetChannelId sets WidgetChannelId field to given value.
 
@@ -547,20 +477,20 @@ HasWidgetChannelId returns a boolean if a field has been set.
 
 ### GetVerificationLevel
 
-`func (o *GuildWithCountsResponse) GetVerificationLevel() int32`
+`func (o *GuildWithCountsResponse) GetVerificationLevel() VerificationLevels`
 
 GetVerificationLevel returns the VerificationLevel field if non-nil, zero value otherwise.
 
 ### GetVerificationLevelOk
 
-`func (o *GuildWithCountsResponse) GetVerificationLevelOk() (*int32, bool)`
+`func (o *GuildWithCountsResponse) GetVerificationLevelOk() (*VerificationLevels, bool)`
 
 GetVerificationLevelOk returns a tuple with the VerificationLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVerificationLevel
 
-`func (o *GuildWithCountsResponse) SetVerificationLevel(v int32)`
+`func (o *GuildWithCountsResponse) SetVerificationLevel(v VerificationLevels)`
 
 SetVerificationLevel sets VerificationLevel field to given value.
 
@@ -587,60 +517,60 @@ SetRoles sets Roles field to given value.
 
 ### GetDefaultMessageNotifications
 
-`func (o *GuildWithCountsResponse) GetDefaultMessageNotifications() int32`
+`func (o *GuildWithCountsResponse) GetDefaultMessageNotifications() UserNotificationSettings`
 
 GetDefaultMessageNotifications returns the DefaultMessageNotifications field if non-nil, zero value otherwise.
 
 ### GetDefaultMessageNotificationsOk
 
-`func (o *GuildWithCountsResponse) GetDefaultMessageNotificationsOk() (*int32, bool)`
+`func (o *GuildWithCountsResponse) GetDefaultMessageNotificationsOk() (*UserNotificationSettings, bool)`
 
 GetDefaultMessageNotificationsOk returns a tuple with the DefaultMessageNotifications field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultMessageNotifications
 
-`func (o *GuildWithCountsResponse) SetDefaultMessageNotifications(v int32)`
+`func (o *GuildWithCountsResponse) SetDefaultMessageNotifications(v UserNotificationSettings)`
 
 SetDefaultMessageNotifications sets DefaultMessageNotifications field to given value.
 
 
 ### GetMfaLevel
 
-`func (o *GuildWithCountsResponse) GetMfaLevel() int32`
+`func (o *GuildWithCountsResponse) GetMfaLevel() GuildMFALevel`
 
 GetMfaLevel returns the MfaLevel field if non-nil, zero value otherwise.
 
 ### GetMfaLevelOk
 
-`func (o *GuildWithCountsResponse) GetMfaLevelOk() (*int32, bool)`
+`func (o *GuildWithCountsResponse) GetMfaLevelOk() (*GuildMFALevel, bool)`
 
 GetMfaLevelOk returns a tuple with the MfaLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMfaLevel
 
-`func (o *GuildWithCountsResponse) SetMfaLevel(v int32)`
+`func (o *GuildWithCountsResponse) SetMfaLevel(v GuildMFALevel)`
 
 SetMfaLevel sets MfaLevel field to given value.
 
 
 ### GetExplicitContentFilter
 
-`func (o *GuildWithCountsResponse) GetExplicitContentFilter() int32`
+`func (o *GuildWithCountsResponse) GetExplicitContentFilter() GuildExplicitContentFilterTypes`
 
 GetExplicitContentFilter returns the ExplicitContentFilter field if non-nil, zero value otherwise.
 
 ### GetExplicitContentFilterOk
 
-`func (o *GuildWithCountsResponse) GetExplicitContentFilterOk() (*int32, bool)`
+`func (o *GuildWithCountsResponse) GetExplicitContentFilterOk() (*GuildExplicitContentFilterTypes, bool)`
 
 GetExplicitContentFilterOk returns a tuple with the ExplicitContentFilter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExplicitContentFilter
 
-`func (o *GuildWithCountsResponse) SetExplicitContentFilter(v int32)`
+`func (o *GuildWithCountsResponse) SetExplicitContentFilter(v GuildExplicitContentFilterTypes)`
 
 SetExplicitContentFilter sets ExplicitContentFilter field to given value.
 
@@ -670,16 +600,6 @@ SetMaxPresences sets MaxPresences field to given value.
 
 HasMaxPresences returns a boolean if a field has been set.
 
-### SetMaxPresencesNil
-
-`func (o *GuildWithCountsResponse) SetMaxPresencesNil(b bool)`
-
- SetMaxPresencesNil sets the value for MaxPresences to be an explicit nil
-
-### UnsetMaxPresences
-`func (o *GuildWithCountsResponse) UnsetMaxPresences()`
-
-UnsetMaxPresences ensures that no value is present for MaxPresences, not even an explicit nil
 ### GetMaxMembers
 
 `func (o *GuildWithCountsResponse) GetMaxMembers() int32`
@@ -699,22 +619,7 @@ and a boolean to check if the value has been set.
 
 SetMaxMembers sets MaxMembers field to given value.
 
-### HasMaxMembers
 
-`func (o *GuildWithCountsResponse) HasMaxMembers() bool`
-
-HasMaxMembers returns a boolean if a field has been set.
-
-### SetMaxMembersNil
-
-`func (o *GuildWithCountsResponse) SetMaxMembersNil(b bool)`
-
- SetMaxMembersNil sets the value for MaxMembers to be an explicit nil
-
-### UnsetMaxMembers
-`func (o *GuildWithCountsResponse) UnsetMaxMembers()`
-
-UnsetMaxMembers ensures that no value is present for MaxMembers, not even an explicit nil
 ### GetMaxStageVideoChannelUsers
 
 `func (o *GuildWithCountsResponse) GetMaxStageVideoChannelUsers() int32`
@@ -734,22 +639,7 @@ and a boolean to check if the value has been set.
 
 SetMaxStageVideoChannelUsers sets MaxStageVideoChannelUsers field to given value.
 
-### HasMaxStageVideoChannelUsers
 
-`func (o *GuildWithCountsResponse) HasMaxStageVideoChannelUsers() bool`
-
-HasMaxStageVideoChannelUsers returns a boolean if a field has been set.
-
-### SetMaxStageVideoChannelUsersNil
-
-`func (o *GuildWithCountsResponse) SetMaxStageVideoChannelUsersNil(b bool)`
-
- SetMaxStageVideoChannelUsersNil sets the value for MaxStageVideoChannelUsers to be an explicit nil
-
-### UnsetMaxStageVideoChannelUsers
-`func (o *GuildWithCountsResponse) UnsetMaxStageVideoChannelUsers()`
-
-UnsetMaxStageVideoChannelUsers ensures that no value is present for MaxStageVideoChannelUsers, not even an explicit nil
 ### GetMaxVideoChannelUsers
 
 `func (o *GuildWithCountsResponse) GetMaxVideoChannelUsers() int32`
@@ -769,22 +659,7 @@ and a boolean to check if the value has been set.
 
 SetMaxVideoChannelUsers sets MaxVideoChannelUsers field to given value.
 
-### HasMaxVideoChannelUsers
 
-`func (o *GuildWithCountsResponse) HasMaxVideoChannelUsers() bool`
-
-HasMaxVideoChannelUsers returns a boolean if a field has been set.
-
-### SetMaxVideoChannelUsersNil
-
-`func (o *GuildWithCountsResponse) SetMaxVideoChannelUsersNil(b bool)`
-
- SetMaxVideoChannelUsersNil sets the value for MaxVideoChannelUsers to be an explicit nil
-
-### UnsetMaxVideoChannelUsers
-`func (o *GuildWithCountsResponse) UnsetMaxVideoChannelUsers()`
-
-UnsetMaxVideoChannelUsers ensures that no value is present for MaxVideoChannelUsers, not even an explicit nil
 ### GetVanityUrlCode
 
 `func (o *GuildWithCountsResponse) GetVanityUrlCode() string`
@@ -810,32 +685,22 @@ SetVanityUrlCode sets VanityUrlCode field to given value.
 
 HasVanityUrlCode returns a boolean if a field has been set.
 
-### SetVanityUrlCodeNil
-
-`func (o *GuildWithCountsResponse) SetVanityUrlCodeNil(b bool)`
-
- SetVanityUrlCodeNil sets the value for VanityUrlCode to be an explicit nil
-
-### UnsetVanityUrlCode
-`func (o *GuildWithCountsResponse) UnsetVanityUrlCode()`
-
-UnsetVanityUrlCode ensures that no value is present for VanityUrlCode, not even an explicit nil
 ### GetPremiumTier
 
-`func (o *GuildWithCountsResponse) GetPremiumTier() int32`
+`func (o *GuildWithCountsResponse) GetPremiumTier() PremiumGuildTiers`
 
 GetPremiumTier returns the PremiumTier field if non-nil, zero value otherwise.
 
 ### GetPremiumTierOk
 
-`func (o *GuildWithCountsResponse) GetPremiumTierOk() (*int32, bool)`
+`func (o *GuildWithCountsResponse) GetPremiumTierOk() (*PremiumGuildTiers, bool)`
 
 GetPremiumTierOk returns a tuple with the PremiumTier field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPremiumTier
 
-`func (o *GuildWithCountsResponse) SetPremiumTier(v int32)`
+`func (o *GuildWithCountsResponse) SetPremiumTier(v PremiumGuildTiers)`
 
 SetPremiumTier sets PremiumTier field to given value.
 
@@ -862,40 +727,40 @@ SetPremiumSubscriptionCount sets PremiumSubscriptionCount field to given value.
 
 ### GetPreferredLocale
 
-`func (o *GuildWithCountsResponse) GetPreferredLocale() string`
+`func (o *GuildWithCountsResponse) GetPreferredLocale() AvailableLocalesEnum`
 
 GetPreferredLocale returns the PreferredLocale field if non-nil, zero value otherwise.
 
 ### GetPreferredLocaleOk
 
-`func (o *GuildWithCountsResponse) GetPreferredLocaleOk() (*string, bool)`
+`func (o *GuildWithCountsResponse) GetPreferredLocaleOk() (*AvailableLocalesEnum, bool)`
 
 GetPreferredLocaleOk returns a tuple with the PreferredLocale field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPreferredLocale
 
-`func (o *GuildWithCountsResponse) SetPreferredLocale(v string)`
+`func (o *GuildWithCountsResponse) SetPreferredLocale(v AvailableLocalesEnum)`
 
 SetPreferredLocale sets PreferredLocale field to given value.
 
 
 ### GetRulesChannelId
 
-`func (o *GuildWithCountsResponse) GetRulesChannelId() string`
+`func (o *GuildWithCountsResponse) GetRulesChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetRulesChannelId returns the RulesChannelId field if non-nil, zero value otherwise.
 
 ### GetRulesChannelIdOk
 
-`func (o *GuildWithCountsResponse) GetRulesChannelIdOk() (*string, bool)`
+`func (o *GuildWithCountsResponse) GetRulesChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetRulesChannelIdOk returns a tuple with the RulesChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRulesChannelId
 
-`func (o *GuildWithCountsResponse) SetRulesChannelId(v string)`
+`func (o *GuildWithCountsResponse) SetRulesChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetRulesChannelId sets RulesChannelId field to given value.
 
@@ -907,20 +772,20 @@ HasRulesChannelId returns a boolean if a field has been set.
 
 ### GetSafetyAlertsChannelId
 
-`func (o *GuildWithCountsResponse) GetSafetyAlertsChannelId() string`
+`func (o *GuildWithCountsResponse) GetSafetyAlertsChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetSafetyAlertsChannelId returns the SafetyAlertsChannelId field if non-nil, zero value otherwise.
 
 ### GetSafetyAlertsChannelIdOk
 
-`func (o *GuildWithCountsResponse) GetSafetyAlertsChannelIdOk() (*string, bool)`
+`func (o *GuildWithCountsResponse) GetSafetyAlertsChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetSafetyAlertsChannelIdOk returns a tuple with the SafetyAlertsChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSafetyAlertsChannelId
 
-`func (o *GuildWithCountsResponse) SetSafetyAlertsChannelId(v string)`
+`func (o *GuildWithCountsResponse) SetSafetyAlertsChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetSafetyAlertsChannelId sets SafetyAlertsChannelId field to given value.
 
@@ -932,20 +797,20 @@ HasSafetyAlertsChannelId returns a boolean if a field has been set.
 
 ### GetPublicUpdatesChannelId
 
-`func (o *GuildWithCountsResponse) GetPublicUpdatesChannelId() string`
+`func (o *GuildWithCountsResponse) GetPublicUpdatesChannelId() GetEntitlementsSkuIdsParameterOneOfInner`
 
 GetPublicUpdatesChannelId returns the PublicUpdatesChannelId field if non-nil, zero value otherwise.
 
 ### GetPublicUpdatesChannelIdOk
 
-`func (o *GuildWithCountsResponse) GetPublicUpdatesChannelIdOk() (*string, bool)`
+`func (o *GuildWithCountsResponse) GetPublicUpdatesChannelIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool)`
 
 GetPublicUpdatesChannelIdOk returns a tuple with the PublicUpdatesChannelId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPublicUpdatesChannelId
 
-`func (o *GuildWithCountsResponse) SetPublicUpdatesChannelId(v string)`
+`func (o *GuildWithCountsResponse) SetPublicUpdatesChannelId(v GetEntitlementsSkuIdsParameterOneOfInner)`
 
 SetPublicUpdatesChannelId sets PublicUpdatesChannelId field to given value.
 
@@ -997,34 +862,24 @@ SetNsfw sets Nsfw field to given value.
 
 ### GetNsfwLevel
 
-`func (o *GuildWithCountsResponse) GetNsfwLevel() int32`
+`func (o *GuildWithCountsResponse) GetNsfwLevel() GuildNSFWContentLevel`
 
 GetNsfwLevel returns the NsfwLevel field if non-nil, zero value otherwise.
 
 ### GetNsfwLevelOk
 
-`func (o *GuildWithCountsResponse) GetNsfwLevelOk() (*int32, bool)`
+`func (o *GuildWithCountsResponse) GetNsfwLevelOk() (*GuildNSFWContentLevel, bool)`
 
 GetNsfwLevelOk returns a tuple with the NsfwLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNsfwLevel
 
-`func (o *GuildWithCountsResponse) SetNsfwLevel(v int32)`
+`func (o *GuildWithCountsResponse) SetNsfwLevel(v GuildNSFWContentLevel)`
 
 SetNsfwLevel sets NsfwLevel field to given value.
 
 
-### SetNsfwLevelNil
-
-`func (o *GuildWithCountsResponse) SetNsfwLevelNil(b bool)`
-
- SetNsfwLevelNil sets the value for NsfwLevel to be an explicit nil
-
-### UnsetNsfwLevel
-`func (o *GuildWithCountsResponse) UnsetNsfwLevel()`
-
-UnsetNsfwLevel ensures that no value is present for NsfwLevel, not even an explicit nil
 ### GetEmojis
 
 `func (o *GuildWithCountsResponse) GetEmojis() []EmojiResponse`
@@ -1090,16 +945,6 @@ SetApproximateMemberCount sets ApproximateMemberCount field to given value.
 
 HasApproximateMemberCount returns a boolean if a field has been set.
 
-### SetApproximateMemberCountNil
-
-`func (o *GuildWithCountsResponse) SetApproximateMemberCountNil(b bool)`
-
- SetApproximateMemberCountNil sets the value for ApproximateMemberCount to be an explicit nil
-
-### UnsetApproximateMemberCount
-`func (o *GuildWithCountsResponse) UnsetApproximateMemberCount()`
-
-UnsetApproximateMemberCount ensures that no value is present for ApproximateMemberCount, not even an explicit nil
 ### GetApproximatePresenceCount
 
 `func (o *GuildWithCountsResponse) GetApproximatePresenceCount() int32`
@@ -1125,16 +970,6 @@ SetApproximatePresenceCount sets ApproximatePresenceCount field to given value.
 
 HasApproximatePresenceCount returns a boolean if a field has been set.
 
-### SetApproximatePresenceCountNil
-
-`func (o *GuildWithCountsResponse) SetApproximatePresenceCountNil(b bool)`
-
- SetApproximatePresenceCountNil sets the value for ApproximatePresenceCount to be an explicit nil
-
-### UnsetApproximatePresenceCount
-`func (o *GuildWithCountsResponse) UnsetApproximatePresenceCount()`
-
-UnsetApproximatePresenceCount ensures that no value is present for ApproximatePresenceCount, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

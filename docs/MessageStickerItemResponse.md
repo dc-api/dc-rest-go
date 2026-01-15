@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**FormatType** | **NullableInt32** |  | 
+**FormatType** | [**StickerFormatTypes**](StickerFormatTypes.md) |  | 
 
 ## Methods
 
 ### NewMessageStickerItemResponse
 
-`func NewMessageStickerItemResponse(id string, name string, formatType NullableInt32, ) *MessageStickerItemResponse`
+`func NewMessageStickerItemResponse(id string, name string, formatType StickerFormatTypes, ) *MessageStickerItemResponse`
 
 NewMessageStickerItemResponse instantiates a new MessageStickerItemResponse object
 This constructor will assign default values to properties that have it defined,
@@ -69,34 +69,24 @@ SetName sets Name field to given value.
 
 ### GetFormatType
 
-`func (o *MessageStickerItemResponse) GetFormatType() int32`
+`func (o *MessageStickerItemResponse) GetFormatType() StickerFormatTypes`
 
 GetFormatType returns the FormatType field if non-nil, zero value otherwise.
 
 ### GetFormatTypeOk
 
-`func (o *MessageStickerItemResponse) GetFormatTypeOk() (*int32, bool)`
+`func (o *MessageStickerItemResponse) GetFormatTypeOk() (*StickerFormatTypes, bool)`
 
 GetFormatTypeOk returns a tuple with the FormatType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFormatType
 
-`func (o *MessageStickerItemResponse) SetFormatType(v int32)`
+`func (o *MessageStickerItemResponse) SetFormatType(v StickerFormatTypes)`
 
 SetFormatType sets FormatType field to given value.
 
 
-### SetFormatTypeNil
-
-`func (o *MessageStickerItemResponse) SetFormatTypeNil(b bool)`
-
- SetFormatTypeNil sets the value for FormatType to be an explicit nil
-
-### UnsetFormatType
-`func (o *MessageStickerItemResponse) UnsetFormatType()`
-
-UnsetFormatType ensures that no value is present for FormatType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

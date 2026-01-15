@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-15T01:01:02.545594866Z[Etc/UTC]
+ *    * - **Generator Version**: 7.18.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,10 +55,11 @@ var _ MappedNullable = &GuildTemplateChannelTags{}
 
 // GuildTemplateChannelTags struct for GuildTemplateChannelTags
 type GuildTemplateChannelTags struct {
+	Id *int32 `json:"id,omitempty"`
 	Name string `json:"name"`
-	EmojiId *string `json:"emoji_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	EmojiName NullableString `json:"emoji_name,omitempty"`
-	Moderated NullableBool `json:"moderated,omitempty"`
+	EmojiId *GetEntitlementsSkuIdsParameterOneOfInner `json:"emoji_id,omitempty"`
+	EmojiName *string `json:"emoji_name,omitempty"`
+	Moderated *bool `json:"moderated,omitempty"`
 }
 
 type _GuildTemplateChannelTags GuildTemplateChannelTags
@@ -80,6 +81,39 @@ func NewGuildTemplateChannelTagsWithDefaults() *GuildTemplateChannelTags {
 	this := GuildTemplateChannelTags{}
 	return &this
 }
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *GuildTemplateChannelTags) GetId() int32 {
+	if o == nil || IsNil(o.Id) {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GuildTemplateChannelTags) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *GuildTemplateChannelTags) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *GuildTemplateChannelTags) SetId(v int32) {
+	o.Id = &v
+}
+
 
 // GetName returns the Name field value
 func (o *GuildTemplateChannelTags) GetName() string {
@@ -106,9 +140,9 @@ func (o *GuildTemplateChannelTags) SetName(v string) {
 }
 
 // GetEmojiId returns the EmojiId field value if set, zero value otherwise.
-func (o *GuildTemplateChannelTags) GetEmojiId() string {
+func (o *GuildTemplateChannelTags) GetEmojiId() GetEntitlementsSkuIdsParameterOneOfInner {
 	if o == nil || IsNil(o.EmojiId) {
-		var ret string
+		var ret GetEntitlementsSkuIdsParameterOneOfInner
 		return ret
 	}
 	return *o.EmojiId
@@ -116,7 +150,7 @@ func (o *GuildTemplateChannelTags) GetEmojiId() string {
 
 // GetEmojiIdOk returns a tuple with the EmojiId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GuildTemplateChannelTags) GetEmojiIdOk() (*string, bool) {
+func (o *GuildTemplateChannelTags) GetEmojiIdOk() (*GetEntitlementsSkuIdsParameterOneOfInner, bool) {
 	if o == nil || IsNil(o.EmojiId) {
 		return nil, false
 	}
@@ -132,97 +166,77 @@ func (o *GuildTemplateChannelTags) HasEmojiId() bool {
 	return false
 }
 
-// SetEmojiId gets a reference to the given string and assigns it to the EmojiId field.
-func (o *GuildTemplateChannelTags) SetEmojiId(v string) {
+// SetEmojiId gets a reference to the given GetEntitlementsSkuIdsParameterOneOfInner and assigns it to the EmojiId field.
+func (o *GuildTemplateChannelTags) SetEmojiId(v GetEntitlementsSkuIdsParameterOneOfInner) {
 	o.EmojiId = &v
 }
 
 
-// GetEmojiName returns the EmojiName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmojiName returns the EmojiName field value if set, zero value otherwise.
 func (o *GuildTemplateChannelTags) GetEmojiName() string {
-	if o == nil || IsNil(o.EmojiName.Get()) {
+	if o == nil || IsNil(o.EmojiName) {
 		var ret string
 		return ret
 	}
-	return *o.EmojiName.Get()
+	return *o.EmojiName
 }
 
 // GetEmojiNameOk returns a tuple with the EmojiName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateChannelTags) GetEmojiNameOk() (*string, bool) {
-	if o == nil || IsNil(o.EmojiName.Get()) {
+	if o == nil || IsNil(o.EmojiName) {
 		return nil, false
 	}
-	return o.EmojiName.Get(), o.EmojiName.IsSet()
+	return o.EmojiName, true
 }
 
 // HasEmojiName returns a boolean if a field has been set.
 func (o *GuildTemplateChannelTags) HasEmojiName() bool {
-	if o != nil && o.EmojiName.IsSet() {
+	if o != nil && !IsNil(o.EmojiName) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmojiName gets a reference to the given NullableString and assigns it to the EmojiName field.
+// SetEmojiName gets a reference to the given string and assigns it to the EmojiName field.
 func (o *GuildTemplateChannelTags) SetEmojiName(v string) {
-	o.EmojiName.Set(&v)
+	o.EmojiName = &v
 }
 
-// SetEmojiNameNil sets the value for EmojiName to be an explicit nil
-func (o *GuildTemplateChannelTags) SetEmojiNameNil() {
-	o.EmojiName.Set(nil)
-}
 
-// UnsetEmojiName ensures that no value is present for EmojiName, not even an explicit nil
-func (o *GuildTemplateChannelTags) UnsetEmojiName() {
-	o.EmojiName.Unset()
-}
-
-// GetModerated returns the Moderated field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetModerated returns the Moderated field value if set, zero value otherwise.
 func (o *GuildTemplateChannelTags) GetModerated() bool {
-	if o == nil || IsNil(o.Moderated.Get()) {
+	if o == nil || IsNil(o.Moderated) {
 		var ret bool
 		return ret
 	}
-	return *o.Moderated.Get()
+	return *o.Moderated
 }
 
 // GetModeratedOk returns a tuple with the Moderated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateChannelTags) GetModeratedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Moderated.Get()) {
+	if o == nil || IsNil(o.Moderated) {
 		return nil, false
 	}
-	return o.Moderated.Get(), o.Moderated.IsSet()
+	return o.Moderated, true
 }
 
 // HasModerated returns a boolean if a field has been set.
 func (o *GuildTemplateChannelTags) HasModerated() bool {
-	if o != nil && o.Moderated.IsSet() {
+	if o != nil && !IsNil(o.Moderated) {
 		return true
 	}
 
 	return false
 }
 
-// SetModerated gets a reference to the given NullableBool and assigns it to the Moderated field.
+// SetModerated gets a reference to the given bool and assigns it to the Moderated field.
 func (o *GuildTemplateChannelTags) SetModerated(v bool) {
-	o.Moderated.Set(&v)
+	o.Moderated = &v
 }
 
-// SetModeratedNil sets the value for Moderated to be an explicit nil
-func (o *GuildTemplateChannelTags) SetModeratedNil() {
-	o.Moderated.Set(nil)
-}
-
-// UnsetModerated ensures that no value is present for Moderated, not even an explicit nil
-func (o *GuildTemplateChannelTags) UnsetModerated() {
-	o.Moderated.Unset()
-}
 
 func (o GuildTemplateChannelTags) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -234,15 +248,18 @@ func (o GuildTemplateChannelTags) MarshalJSON() ([]byte, error) {
 
 func (o GuildTemplateChannelTags) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	toSerialize["name"] = o.Name
 	if !IsNil(o.EmojiId) {
 		toSerialize["emoji_id"] = o.EmojiId
 	}
-	if o.EmojiName.IsSet() {
-		toSerialize["emoji_name"] = o.EmojiName.Get()
+	if !IsNil(o.EmojiName) {
+		toSerialize["emoji_name"] = o.EmojiName
 	}
-	if o.Moderated.IsSet() {
-		toSerialize["moderated"] = o.Moderated.Get()
+	if !IsNil(o.Moderated) {
+		toSerialize["moderated"] = o.Moderated
 	}
 	return toSerialize, nil
 }
@@ -319,5 +336,4 @@ func (v *NullableGuildTemplateChannelTags) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 
