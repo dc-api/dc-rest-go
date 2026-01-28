@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Oauth2InstallParams** | Pointer to [**NullableApplicationOAuth2InstallParamsResponse**](ApplicationOAuth2InstallParamsResponse.md) |  | [optional] 
+**Oauth2InstallParams** | Pointer to [**ApplicationOAuth2InstallParamsResponse**](ApplicationOAuth2InstallParamsResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -50,16 +50,6 @@ SetOauth2InstallParams sets Oauth2InstallParams field to given value.
 
 HasOauth2InstallParams returns a boolean if a field has been set.
 
-### SetOauth2InstallParamsNil
-
-`func (o *ApplicationIntegrationTypeConfigurationResponse) SetOauth2InstallParamsNil(b bool)`
-
- SetOauth2InstallParamsNil sets the value for Oauth2InstallParams to be an explicit nil
-
-### UnsetOauth2InstallParams
-`func (o *ApplicationIntegrationTypeConfigurationResponse) UnsetOauth2InstallParams()`
-
-UnsetOauth2InstallParams ensures that no value is present for Oauth2InstallParams, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

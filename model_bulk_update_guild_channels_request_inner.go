@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,9 +53,9 @@ var _ MappedNullable = &BulkUpdateGuildChannelsRequestInner{}
 
 // BulkUpdateGuildChannelsRequestInner struct for BulkUpdateGuildChannelsRequestInner
 type BulkUpdateGuildChannelsRequestInner struct {
-	Id *string `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	Id NullableString `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Position NullableInt32 `json:"position,omitempty"`
-	ParentId *string `json:"parent_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	ParentId NullableString `json:"parent_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	LockPermissions NullableBool `json:"lock_permissions,omitempty"`
 }
 
@@ -76,38 +76,48 @@ func NewBulkUpdateGuildChannelsRequestInnerWithDefaults() *BulkUpdateGuildChanne
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BulkUpdateGuildChannelsRequestInner) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BulkUpdateGuildChannelsRequestInner) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *BulkUpdateGuildChannelsRequestInner) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
+	if o != nil && o.Id.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *BulkUpdateGuildChannelsRequestInner) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
 }
 
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *BulkUpdateGuildChannelsRequestInner) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *BulkUpdateGuildChannelsRequestInner) UnsetId() {
+	o.Id.Unset()
+}
 
 // GetPosition returns the Position field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BulkUpdateGuildChannelsRequestInner) GetPosition() int32 {
@@ -152,38 +162,48 @@ func (o *BulkUpdateGuildChannelsRequestInner) UnsetPosition() {
 	o.Position.Unset()
 }
 
-// GetParentId returns the ParentId field value if set, zero value otherwise.
+// GetParentId returns the ParentId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BulkUpdateGuildChannelsRequestInner) GetParentId() string {
-	if o == nil || IsNil(o.ParentId) {
+	if o == nil || IsNil(o.ParentId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ParentId
+	return *o.ParentId.Get()
 }
 
 // GetParentIdOk returns a tuple with the ParentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BulkUpdateGuildChannelsRequestInner) GetParentIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ParentId) {
+	if o == nil || IsNil(o.ParentId.Get()) {
 		return nil, false
 	}
-	return o.ParentId, true
+	return o.ParentId.Get(), o.ParentId.IsSet()
 }
 
 // HasParentId returns a boolean if a field has been set.
 func (o *BulkUpdateGuildChannelsRequestInner) HasParentId() bool {
-	if o != nil && !IsNil(o.ParentId) {
+	if o != nil && o.ParentId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetParentId gets a reference to the given string and assigns it to the ParentId field.
+// SetParentId gets a reference to the given NullableString and assigns it to the ParentId field.
 func (o *BulkUpdateGuildChannelsRequestInner) SetParentId(v string) {
-	o.ParentId = &v
+	o.ParentId.Set(&v)
 }
 
+// SetParentIdNil sets the value for ParentId to be an explicit nil
+func (o *BulkUpdateGuildChannelsRequestInner) SetParentIdNil() {
+	o.ParentId.Set(nil)
+}
+
+// UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
+func (o *BulkUpdateGuildChannelsRequestInner) UnsetParentId() {
+	o.ParentId.Unset()
+}
 
 // GetLockPermissions returns the LockPermissions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BulkUpdateGuildChannelsRequestInner) GetLockPermissions() bool {
@@ -238,14 +258,14 @@ func (o BulkUpdateGuildChannelsRequestInner) MarshalJSON() ([]byte, error) {
 
 func (o BulkUpdateGuildChannelsRequestInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
 	if o.Position.IsSet() {
 		toSerialize["position"] = o.Position.Get()
 	}
-	if !IsNil(o.ParentId) {
-		toSerialize["parent_id"] = o.ParentId
+	if o.ParentId.IsSet() {
+		toSerialize["parent_id"] = o.ParentId.Get()
 	}
 	if o.LockPermissions.IsSet() {
 		toSerialize["lock_permissions"] = o.LockPermissions.Get()
@@ -288,5 +308,4 @@ func (v *NullableBulkUpdateGuildChannelsRequestInner) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,9 +57,9 @@ var _ MappedNullable = &GuildHomeSettingsResponse{}
 type GuildHomeSettingsResponse struct {
 	GuildId string `json:"guild_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Enabled bool `json:"enabled"`
-	WelcomeMessage NullableWelcomeMessageResponse `json:"welcome_message,omitempty"`
-	NewMemberActions []*NewMemberActionResponse `json:"new_member_actions,omitempty"`
-	ResourceChannels []*ResourceChannelResponse `json:"resource_channels,omitempty"`
+	WelcomeMessage *WelcomeMessageResponse `json:"welcome_message,omitempty"`
+	NewMemberActions []*NewMemberActionResponse `json:"new_member_actions"`
+	ResourceChannels []*ResourceChannelResponse `json:"resource_channels"`
 }
 
 type _GuildHomeSettingsResponse GuildHomeSettingsResponse
@@ -68,10 +68,12 @@ type _GuildHomeSettingsResponse GuildHomeSettingsResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGuildHomeSettingsResponse(guildId string, enabled bool) *GuildHomeSettingsResponse {
+func NewGuildHomeSettingsResponse(guildId string, enabled bool, newMemberActions []*NewMemberActionResponse, resourceChannels []*ResourceChannelResponse) *GuildHomeSettingsResponse {
 	this := GuildHomeSettingsResponse{}
 	this.GuildId = guildId
 	this.Enabled = enabled
+	this.NewMemberActions = newMemberActions
+	this.ResourceChannels = resourceChannels
 	return &this
 }
 
@@ -131,61 +133,51 @@ func (o *GuildHomeSettingsResponse) SetEnabled(v bool) {
 	o.Enabled = v
 }
 
-// GetWelcomeMessage returns the WelcomeMessage field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetWelcomeMessage returns the WelcomeMessage field value if set, zero value otherwise.
 func (o *GuildHomeSettingsResponse) GetWelcomeMessage() WelcomeMessageResponse {
-	if o == nil || IsNil(o.WelcomeMessage.Get()) {
+	if o == nil || IsNil(o.WelcomeMessage) {
 		var ret WelcomeMessageResponse
 		return ret
 	}
-	return *o.WelcomeMessage.Get()
+	return *o.WelcomeMessage
 }
 
 // GetWelcomeMessageOk returns a tuple with the WelcomeMessage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildHomeSettingsResponse) GetWelcomeMessageOk() (*WelcomeMessageResponse, bool) {
-	if o == nil || IsNil(o.WelcomeMessage.Get()) {
+	if o == nil || IsNil(o.WelcomeMessage) {
 		return nil, false
 	}
-	return o.WelcomeMessage.Get(), o.WelcomeMessage.IsSet()
+	return o.WelcomeMessage, true
 }
 
 // HasWelcomeMessage returns a boolean if a field has been set.
 func (o *GuildHomeSettingsResponse) HasWelcomeMessage() bool {
-	if o != nil && o.WelcomeMessage.IsSet() {
+	if o != nil && !IsNil(o.WelcomeMessage) {
 		return true
 	}
 
 	return false
 }
 
-// SetWelcomeMessage gets a reference to the given NullableWelcomeMessageResponse and assigns it to the WelcomeMessage field.
+// SetWelcomeMessage gets a reference to the given WelcomeMessageResponse and assigns it to the WelcomeMessage field.
 func (o *GuildHomeSettingsResponse) SetWelcomeMessage(v WelcomeMessageResponse) {
-	o.WelcomeMessage.Set(&v)
+	o.WelcomeMessage = &v
 }
 
-// SetWelcomeMessageNil sets the value for WelcomeMessage to be an explicit nil
-func (o *GuildHomeSettingsResponse) SetWelcomeMessageNil() {
-	o.WelcomeMessage.Set(nil)
-}
 
-// UnsetWelcomeMessage ensures that no value is present for WelcomeMessage, not even an explicit nil
-func (o *GuildHomeSettingsResponse) UnsetWelcomeMessage() {
-	o.WelcomeMessage.Unset()
-}
-
-// GetNewMemberActions returns the NewMemberActions field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNewMemberActions returns the NewMemberActions field value
 func (o *GuildHomeSettingsResponse) GetNewMemberActions() []*NewMemberActionResponse {
 	if o == nil {
 		var ret []*NewMemberActionResponse
 		return ret
 	}
+
 	return o.NewMemberActions
 }
 
-// GetNewMemberActionsOk returns a tuple with the NewMemberActions field value if set, nil otherwise
+// GetNewMemberActionsOk returns a tuple with the NewMemberActions field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildHomeSettingsResponse) GetNewMemberActionsOk() ([]*NewMemberActionResponse, bool) {
 	if o == nil {
 		return nil, false
@@ -193,33 +185,23 @@ func (o *GuildHomeSettingsResponse) GetNewMemberActionsOk() ([]*NewMemberActionR
 	return o.NewMemberActions, true
 }
 
-// HasNewMemberActions returns a boolean if a field has been set.
-func (o *GuildHomeSettingsResponse) HasNewMemberActions() bool {
-	if o != nil && !IsNil(o.NewMemberActions) {
-		return true
-	}
-
-	return false
-}
-
-// SetNewMemberActions gets a reference to the given []*NewMemberActionResponse and assigns it to the NewMemberActions field.
+// SetNewMemberActions sets field value
 func (o *GuildHomeSettingsResponse) SetNewMemberActions(v []*NewMemberActionResponse) {
 	o.NewMemberActions = v
 }
 
-
-// GetResourceChannels returns the ResourceChannels field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetResourceChannels returns the ResourceChannels field value
 func (o *GuildHomeSettingsResponse) GetResourceChannels() []*ResourceChannelResponse {
 	if o == nil {
 		var ret []*ResourceChannelResponse
 		return ret
 	}
+
 	return o.ResourceChannels
 }
 
-// GetResourceChannelsOk returns a tuple with the ResourceChannels field value if set, nil otherwise
+// GetResourceChannelsOk returns a tuple with the ResourceChannels field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildHomeSettingsResponse) GetResourceChannelsOk() ([]*ResourceChannelResponse, bool) {
 	if o == nil {
 		return nil, false
@@ -227,20 +209,10 @@ func (o *GuildHomeSettingsResponse) GetResourceChannelsOk() ([]*ResourceChannelR
 	return o.ResourceChannels, true
 }
 
-// HasResourceChannels returns a boolean if a field has been set.
-func (o *GuildHomeSettingsResponse) HasResourceChannels() bool {
-	if o != nil && !IsNil(o.ResourceChannels) {
-		return true
-	}
-
-	return false
-}
-
-// SetResourceChannels gets a reference to the given []*ResourceChannelResponse and assigns it to the ResourceChannels field.
+// SetResourceChannels sets field value
 func (o *GuildHomeSettingsResponse) SetResourceChannels(v []*ResourceChannelResponse) {
 	o.ResourceChannels = v
 }
-
 
 func (o GuildHomeSettingsResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -254,15 +226,11 @@ func (o GuildHomeSettingsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["guild_id"] = o.GuildId
 	toSerialize["enabled"] = o.Enabled
-	if o.WelcomeMessage.IsSet() {
-		toSerialize["welcome_message"] = o.WelcomeMessage.Get()
+	if !IsNil(o.WelcomeMessage) {
+		toSerialize["welcome_message"] = o.WelcomeMessage
 	}
-	if o.NewMemberActions != nil {
-		toSerialize["new_member_actions"] = o.NewMemberActions
-	}
-	if o.ResourceChannels != nil {
-		toSerialize["resource_channels"] = o.ResourceChannels
-	}
+	toSerialize["new_member_actions"] = o.NewMemberActions
+	toSerialize["resource_channels"] = o.ResourceChannels
 	return toSerialize, nil
 }
 
@@ -273,6 +241,8 @@ func (o *GuildHomeSettingsResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"guild_id",
 		"enabled",
+		"new_member_actions",
+		"resource_channels",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -339,5 +309,4 @@ func (v *NullableGuildHomeSettingsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

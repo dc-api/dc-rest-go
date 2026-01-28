@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Question** | [**PollMedia**](PollMedia.md) |  | 
 **Answers** | [**[]PollAnswerCreateRequest**](PollAnswerCreateRequest.md) |  | 
 **AllowMultiselect** | Pointer to **NullableBool** |  | [optional] 
-**LayoutType** | Pointer to **int32** |  | [optional] 
+**LayoutType** | Pointer to **NullableInt32** |  | [optional] 
 **Duration** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
@@ -129,6 +129,16 @@ SetLayoutType sets LayoutType field to given value.
 
 HasLayoutType returns a boolean if a field has been set.
 
+### SetLayoutTypeNil
+
+`func (o *PollCreateRequest) SetLayoutTypeNil(b bool)`
+
+ SetLayoutTypeNil sets the value for LayoutType to be an explicit nil
+
+### UnsetLayoutType
+`func (o *PollCreateRequest) UnsetLayoutType()`
+
+UnsetLayoutType ensures that no value is present for LayoutType, not even an explicit nil
 ### GetDuration
 
 `func (o *PollCreateRequest) GetDuration() int32`

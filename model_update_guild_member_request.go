@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,10 +55,10 @@ var _ MappedNullable = &UpdateGuildMemberRequest{}
 // UpdateGuildMemberRequest struct for UpdateGuildMemberRequest
 type UpdateGuildMemberRequest struct {
 	Nick NullableString `json:"nick,omitempty"`
-	Roles []string `json:"roles,omitempty"`
+	Roles []*string `json:"roles,omitempty"`
 	Mute NullableBool `json:"mute,omitempty"`
 	Deaf NullableBool `json:"deaf,omitempty"`
-	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	ChannelId NullableString `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	CommunicationDisabledUntil NullableTime `json:"communication_disabled_until,omitempty"`
 	Flags NullableInt32 `json:"flags,omitempty"`
 }
@@ -124,9 +124,9 @@ func (o *UpdateGuildMemberRequest) UnsetNick() {
 }
 
 // GetRoles returns the Roles field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UpdateGuildMemberRequest) GetRoles() []string {
+func (o *UpdateGuildMemberRequest) GetRoles() []*string {
 	if o == nil {
-		var ret []string
+		var ret []*string
 		return ret
 	}
 	return o.Roles
@@ -135,7 +135,7 @@ func (o *UpdateGuildMemberRequest) GetRoles() []string {
 // GetRolesOk returns a tuple with the Roles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UpdateGuildMemberRequest) GetRolesOk() ([]string, bool) {
+func (o *UpdateGuildMemberRequest) GetRolesOk() ([]*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -151,8 +151,8 @@ func (o *UpdateGuildMemberRequest) HasRoles() bool {
 	return false
 }
 
-// SetRoles gets a reference to the given []string and assigns it to the Roles field.
-func (o *UpdateGuildMemberRequest) SetRoles(v []string) {
+// SetRoles gets a reference to the given []*string and assigns it to the Roles field.
+func (o *UpdateGuildMemberRequest) SetRoles(v []*string) {
 	o.Roles = v
 }
 
@@ -243,38 +243,48 @@ func (o *UpdateGuildMemberRequest) UnsetDeaf() {
 	o.Deaf.Unset()
 }
 
-// GetChannelId returns the ChannelId field value if set, zero value otherwise.
+// GetChannelId returns the ChannelId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateGuildMemberRequest) GetChannelId() string {
-	if o == nil || IsNil(o.ChannelId) {
+	if o == nil || IsNil(o.ChannelId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ChannelId
+	return *o.ChannelId.Get()
 }
 
 // GetChannelIdOk returns a tuple with the ChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateGuildMemberRequest) GetChannelIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ChannelId) {
+	if o == nil || IsNil(o.ChannelId.Get()) {
 		return nil, false
 	}
-	return o.ChannelId, true
+	return o.ChannelId.Get(), o.ChannelId.IsSet()
 }
 
 // HasChannelId returns a boolean if a field has been set.
 func (o *UpdateGuildMemberRequest) HasChannelId() bool {
-	if o != nil && !IsNil(o.ChannelId) {
+	if o != nil && o.ChannelId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetChannelId gets a reference to the given string and assigns it to the ChannelId field.
+// SetChannelId gets a reference to the given NullableString and assigns it to the ChannelId field.
 func (o *UpdateGuildMemberRequest) SetChannelId(v string) {
-	o.ChannelId = &v
+	o.ChannelId.Set(&v)
 }
 
+// SetChannelIdNil sets the value for ChannelId to be an explicit nil
+func (o *UpdateGuildMemberRequest) SetChannelIdNil() {
+	o.ChannelId.Set(nil)
+}
+
+// UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
+func (o *UpdateGuildMemberRequest) UnsetChannelId() {
+	o.ChannelId.Unset()
+}
 
 // GetCommunicationDisabledUntil returns the CommunicationDisabledUntil field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateGuildMemberRequest) GetCommunicationDisabledUntil() time.Time {
@@ -384,8 +394,8 @@ func (o UpdateGuildMemberRequest) ToMap() (map[string]interface{}, error) {
 	if o.Deaf.IsSet() {
 		toSerialize["deaf"] = o.Deaf.Get()
 	}
-	if !IsNil(o.ChannelId) {
-		toSerialize["channel_id"] = o.ChannelId
+	if o.ChannelId.IsSet() {
+		toSerialize["channel_id"] = o.ChannelId.Get()
 	}
 	if o.CommunicationDisabledUntil.IsSet() {
 		toSerialize["communication_disabled_until"] = o.CommunicationDisabledUntil.Get()
@@ -431,5 +441,4 @@ func (v *NullableUpdateGuildMemberRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

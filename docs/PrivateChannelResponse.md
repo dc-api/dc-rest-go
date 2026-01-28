@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Type** | **int32** |  | 
-**LastMessageId** | Pointer to **string** |  | [optional] 
+**LastMessageId** | Pointer to **NullableString** |  | [optional] 
 **Flags** | **int32** |  | 
 **LastPinTimestamp** | Pointer to **NullableTime** |  | [optional] 
 **Recipients** | [**[]UserResponse**](UserResponse.md) |  | 
@@ -95,6 +95,16 @@ SetLastMessageId sets LastMessageId field to given value.
 
 HasLastMessageId returns a boolean if a field has been set.
 
+### SetLastMessageIdNil
+
+`func (o *PrivateChannelResponse) SetLastMessageIdNil(b bool)`
+
+ SetLastMessageIdNil sets the value for LastMessageId to be an explicit nil
+
+### UnsetLastMessageId
+`func (o *PrivateChannelResponse) UnsetLastMessageId()`
+
+UnsetLastMessageId ensures that no value is present for LastMessageId, not even an explicit nil
 ### GetFlags
 
 `func (o *PrivateChannelResponse) GetFlags() int32`

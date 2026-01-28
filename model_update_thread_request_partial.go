@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,14 +57,14 @@ type UpdateThreadRequestPartial struct {
 	Archived NullableBool `json:"archived,omitempty"`
 	Locked NullableBool `json:"locked,omitempty"`
 	Invitable NullableBool `json:"invitable,omitempty"`
-	AutoArchiveDuration *int32 `json:"auto_archive_duration,omitempty"`
+	AutoArchiveDuration NullableInt32 `json:"auto_archive_duration,omitempty"`
 	RateLimitPerUser NullableInt32 `json:"rate_limit_per_user,omitempty"`
 	Flags NullableInt32 `json:"flags,omitempty"`
 	AppliedTags []string `json:"applied_tags,omitempty"`
 	Bitrate NullableInt32 `json:"bitrate,omitempty"`
 	UserLimit NullableInt32 `json:"user_limit,omitempty"`
 	RtcRegion NullableString `json:"rtc_region,omitempty"`
-	VideoQualityMode *int32 `json:"video_quality_mode,omitempty"`
+	VideoQualityMode NullableInt32 `json:"video_quality_mode,omitempty"`
 }
 
 // NewUpdateThreadRequestPartial instantiates a new UpdateThreadRequestPartial object
@@ -256,38 +256,48 @@ func (o *UpdateThreadRequestPartial) UnsetInvitable() {
 	o.Invitable.Unset()
 }
 
-// GetAutoArchiveDuration returns the AutoArchiveDuration field value if set, zero value otherwise.
+// GetAutoArchiveDuration returns the AutoArchiveDuration field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateThreadRequestPartial) GetAutoArchiveDuration() int32 {
-	if o == nil || IsNil(o.AutoArchiveDuration) {
+	if o == nil || IsNil(o.AutoArchiveDuration.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.AutoArchiveDuration
+	return *o.AutoArchiveDuration.Get()
 }
 
 // GetAutoArchiveDurationOk returns a tuple with the AutoArchiveDuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateThreadRequestPartial) GetAutoArchiveDurationOk() (*int32, bool) {
-	if o == nil || IsNil(o.AutoArchiveDuration) {
+	if o == nil || IsNil(o.AutoArchiveDuration.Get()) {
 		return nil, false
 	}
-	return o.AutoArchiveDuration, true
+	return o.AutoArchiveDuration.Get(), o.AutoArchiveDuration.IsSet()
 }
 
 // HasAutoArchiveDuration returns a boolean if a field has been set.
 func (o *UpdateThreadRequestPartial) HasAutoArchiveDuration() bool {
-	if o != nil && !IsNil(o.AutoArchiveDuration) {
+	if o != nil && o.AutoArchiveDuration.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAutoArchiveDuration gets a reference to the given int32 and assigns it to the AutoArchiveDuration field.
+// SetAutoArchiveDuration gets a reference to the given NullableInt32 and assigns it to the AutoArchiveDuration field.
 func (o *UpdateThreadRequestPartial) SetAutoArchiveDuration(v int32) {
-	o.AutoArchiveDuration = &v
+	o.AutoArchiveDuration.Set(&v)
 }
 
+// SetAutoArchiveDurationNil sets the value for AutoArchiveDuration to be an explicit nil
+func (o *UpdateThreadRequestPartial) SetAutoArchiveDurationNil() {
+	o.AutoArchiveDuration.Set(nil)
+}
+
+// UnsetAutoArchiveDuration ensures that no value is present for AutoArchiveDuration, not even an explicit nil
+func (o *UpdateThreadRequestPartial) UnsetAutoArchiveDuration() {
+	o.AutoArchiveDuration.Unset()
+}
 
 // GetRateLimitPerUser returns the RateLimitPerUser field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateThreadRequestPartial) GetRateLimitPerUser() int32 {
@@ -538,38 +548,48 @@ func (o *UpdateThreadRequestPartial) UnsetRtcRegion() {
 	o.RtcRegion.Unset()
 }
 
-// GetVideoQualityMode returns the VideoQualityMode field value if set, zero value otherwise.
+// GetVideoQualityMode returns the VideoQualityMode field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateThreadRequestPartial) GetVideoQualityMode() int32 {
-	if o == nil || IsNil(o.VideoQualityMode) {
+	if o == nil || IsNil(o.VideoQualityMode.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.VideoQualityMode
+	return *o.VideoQualityMode.Get()
 }
 
 // GetVideoQualityModeOk returns a tuple with the VideoQualityMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateThreadRequestPartial) GetVideoQualityModeOk() (*int32, bool) {
-	if o == nil || IsNil(o.VideoQualityMode) {
+	if o == nil || IsNil(o.VideoQualityMode.Get()) {
 		return nil, false
 	}
-	return o.VideoQualityMode, true
+	return o.VideoQualityMode.Get(), o.VideoQualityMode.IsSet()
 }
 
 // HasVideoQualityMode returns a boolean if a field has been set.
 func (o *UpdateThreadRequestPartial) HasVideoQualityMode() bool {
-	if o != nil && !IsNil(o.VideoQualityMode) {
+	if o != nil && o.VideoQualityMode.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetVideoQualityMode gets a reference to the given int32 and assigns it to the VideoQualityMode field.
+// SetVideoQualityMode gets a reference to the given NullableInt32 and assigns it to the VideoQualityMode field.
 func (o *UpdateThreadRequestPartial) SetVideoQualityMode(v int32) {
-	o.VideoQualityMode = &v
+	o.VideoQualityMode.Set(&v)
 }
 
+// SetVideoQualityModeNil sets the value for VideoQualityMode to be an explicit nil
+func (o *UpdateThreadRequestPartial) SetVideoQualityModeNil() {
+	o.VideoQualityMode.Set(nil)
+}
+
+// UnsetVideoQualityMode ensures that no value is present for VideoQualityMode, not even an explicit nil
+func (o *UpdateThreadRequestPartial) UnsetVideoQualityMode() {
+	o.VideoQualityMode.Unset()
+}
 
 func (o UpdateThreadRequestPartial) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -593,8 +613,8 @@ func (o UpdateThreadRequestPartial) ToMap() (map[string]interface{}, error) {
 	if o.Invitable.IsSet() {
 		toSerialize["invitable"] = o.Invitable.Get()
 	}
-	if !IsNil(o.AutoArchiveDuration) {
-		toSerialize["auto_archive_duration"] = o.AutoArchiveDuration
+	if o.AutoArchiveDuration.IsSet() {
+		toSerialize["auto_archive_duration"] = o.AutoArchiveDuration.Get()
 	}
 	if o.RateLimitPerUser.IsSet() {
 		toSerialize["rate_limit_per_user"] = o.RateLimitPerUser.Get()
@@ -614,8 +634,8 @@ func (o UpdateThreadRequestPartial) ToMap() (map[string]interface{}, error) {
 	if o.RtcRegion.IsSet() {
 		toSerialize["rtc_region"] = o.RtcRegion.Get()
 	}
-	if !IsNil(o.VideoQualityMode) {
-		toSerialize["video_quality_mode"] = o.VideoQualityMode
+	if o.VideoQualityMode.IsSet() {
+		toSerialize["video_quality_mode"] = o.VideoQualityMode.Get()
 	}
 	return toSerialize, nil
 }
@@ -655,5 +675,4 @@ func (v *NullableUpdateThreadRequestPartial) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -13,16 +13,16 @@ Name | Type | Description | Notes
 **UserLimit** | **int32** |  | 
 **Nsfw** | **bool** |  | 
 **RateLimitPerUser** | **int32** |  | 
-**ParentId** | Pointer to **string** |  | [optional] 
-**DefaultAutoArchiveDuration** | Pointer to **int32** |  | [optional] 
+**ParentId** | Pointer to **NullableString** |  | [optional] 
+**DefaultAutoArchiveDuration** | Pointer to **NullableInt32** |  | [optional] 
 **PermissionOverwrites** | [**[]ChannelPermissionOverwriteResponse**](ChannelPermissionOverwriteResponse.md) |  | 
 **AvailableTags** | Pointer to [**[]GuildTemplateChannelTags**](GuildTemplateChannelTags.md) |  | [optional] 
 **Template** | **string** |  | 
 **DefaultReactionEmoji** | Pointer to [**NullableDefaultReactionEmojiResponse**](DefaultReactionEmojiResponse.md) |  | [optional] 
 **DefaultThreadRateLimitPerUser** | Pointer to **NullableInt32** |  | [optional] 
-**DefaultSortOrder** | Pointer to **int32** |  | [optional] 
-**DefaultForumLayout** | Pointer to **int32** |  | [optional] 
-**DefaultTagSetting** | Pointer to **string** |  | [optional] 
+**DefaultSortOrder** | Pointer to **NullableInt32** |  | [optional] 
+**DefaultForumLayout** | Pointer to **NullableInt32** |  | [optional] 
+**DefaultTagSetting** | Pointer to **NullableString** |  | [optional] 
 **IconEmoji** | Pointer to **map[string]interface{}** |  | [optional] 
 **ThemeColor** | Pointer to **NullableInt32** |  | [optional] 
 
@@ -310,6 +310,16 @@ SetParentId sets ParentId field to given value.
 
 HasParentId returns a boolean if a field has been set.
 
+### SetParentIdNil
+
+`func (o *GuildTemplateChannelResponse) SetParentIdNil(b bool)`
+
+ SetParentIdNil sets the value for ParentId to be an explicit nil
+
+### UnsetParentId
+`func (o *GuildTemplateChannelResponse) UnsetParentId()`
+
+UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
 ### GetDefaultAutoArchiveDuration
 
 `func (o *GuildTemplateChannelResponse) GetDefaultAutoArchiveDuration() int32`
@@ -335,6 +345,16 @@ SetDefaultAutoArchiveDuration sets DefaultAutoArchiveDuration field to given val
 
 HasDefaultAutoArchiveDuration returns a boolean if a field has been set.
 
+### SetDefaultAutoArchiveDurationNil
+
+`func (o *GuildTemplateChannelResponse) SetDefaultAutoArchiveDurationNil(b bool)`
+
+ SetDefaultAutoArchiveDurationNil sets the value for DefaultAutoArchiveDuration to be an explicit nil
+
+### UnsetDefaultAutoArchiveDuration
+`func (o *GuildTemplateChannelResponse) UnsetDefaultAutoArchiveDuration()`
+
+UnsetDefaultAutoArchiveDuration ensures that no value is present for DefaultAutoArchiveDuration, not even an explicit nil
 ### GetPermissionOverwrites
 
 `func (o *GuildTemplateChannelResponse) GetPermissionOverwrites() []*ChannelPermissionOverwriteResponse`
@@ -505,6 +525,16 @@ SetDefaultSortOrder sets DefaultSortOrder field to given value.
 
 HasDefaultSortOrder returns a boolean if a field has been set.
 
+### SetDefaultSortOrderNil
+
+`func (o *GuildTemplateChannelResponse) SetDefaultSortOrderNil(b bool)`
+
+ SetDefaultSortOrderNil sets the value for DefaultSortOrder to be an explicit nil
+
+### UnsetDefaultSortOrder
+`func (o *GuildTemplateChannelResponse) UnsetDefaultSortOrder()`
+
+UnsetDefaultSortOrder ensures that no value is present for DefaultSortOrder, not even an explicit nil
 ### GetDefaultForumLayout
 
 `func (o *GuildTemplateChannelResponse) GetDefaultForumLayout() int32`
@@ -530,6 +560,16 @@ SetDefaultForumLayout sets DefaultForumLayout field to given value.
 
 HasDefaultForumLayout returns a boolean if a field has been set.
 
+### SetDefaultForumLayoutNil
+
+`func (o *GuildTemplateChannelResponse) SetDefaultForumLayoutNil(b bool)`
+
+ SetDefaultForumLayoutNil sets the value for DefaultForumLayout to be an explicit nil
+
+### UnsetDefaultForumLayout
+`func (o *GuildTemplateChannelResponse) UnsetDefaultForumLayout()`
+
+UnsetDefaultForumLayout ensures that no value is present for DefaultForumLayout, not even an explicit nil
 ### GetDefaultTagSetting
 
 `func (o *GuildTemplateChannelResponse) GetDefaultTagSetting() string`
@@ -555,6 +595,16 @@ SetDefaultTagSetting sets DefaultTagSetting field to given value.
 
 HasDefaultTagSetting returns a boolean if a field has been set.
 
+### SetDefaultTagSettingNil
+
+`func (o *GuildTemplateChannelResponse) SetDefaultTagSettingNil(b bool)`
+
+ SetDefaultTagSettingNil sets the value for DefaultTagSetting to be an explicit nil
+
+### UnsetDefaultTagSetting
+`func (o *GuildTemplateChannelResponse) UnsetDefaultTagSetting()`
+
+UnsetDefaultTagSetting ensures that no value is present for DefaultTagSetting, not even an explicit nil
 ### GetIconEmoji
 
 `func (o *GuildTemplateChannelResponse) GetIconEmoji() map[string]interface{}`
@@ -580,6 +630,16 @@ SetIconEmoji sets IconEmoji field to given value.
 
 HasIconEmoji returns a boolean if a field has been set.
 
+### SetIconEmojiNil
+
+`func (o *GuildTemplateChannelResponse) SetIconEmojiNil(b bool)`
+
+ SetIconEmojiNil sets the value for IconEmoji to be an explicit nil
+
+### UnsetIconEmoji
+`func (o *GuildTemplateChannelResponse) UnsetIconEmoji()`
+
+UnsetIconEmoji ensures that no value is present for IconEmoji, not even an explicit nil
 ### GetThemeColor
 
 `func (o *GuildTemplateChannelResponse) GetThemeColor() int32`

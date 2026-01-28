@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetParse
 
-`func (o *MessageAllowedMentionsRequest) GetParse() []string`
+`func (o *MessageAllowedMentionsRequest) GetParse() []*string`
 
 GetParse returns the Parse field if non-nil, zero value otherwise.
 
 ### GetParseOk
 
-`func (o *MessageAllowedMentionsRequest) GetParseOk() (*[]string, bool)`
+`func (o *MessageAllowedMentionsRequest) GetParseOk() (*[]*string, bool)`
 
 GetParseOk returns a tuple with the Parse field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetParse
 
-`func (o *MessageAllowedMentionsRequest) SetParse(v []string)`
+`func (o *MessageAllowedMentionsRequest) SetParse(v []*string)`
 
 SetParse sets Parse field to given value.
 
@@ -65,20 +65,20 @@ HasParse returns a boolean if a field has been set.
 UnsetParse ensures that no value is present for Parse, not even an explicit nil
 ### GetUsers
 
-`func (o *MessageAllowedMentionsRequest) GetUsers() []string`
+`func (o *MessageAllowedMentionsRequest) GetUsers() []*string`
 
 GetUsers returns the Users field if non-nil, zero value otherwise.
 
 ### GetUsersOk
 
-`func (o *MessageAllowedMentionsRequest) GetUsersOk() (*[]string, bool)`
+`func (o *MessageAllowedMentionsRequest) GetUsersOk() (*[]*string, bool)`
 
 GetUsersOk returns a tuple with the Users field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUsers
 
-`func (o *MessageAllowedMentionsRequest) SetUsers(v []string)`
+`func (o *MessageAllowedMentionsRequest) SetUsers(v []*string)`
 
 SetUsers sets Users field to given value.
 
@@ -100,20 +100,20 @@ HasUsers returns a boolean if a field has been set.
 UnsetUsers ensures that no value is present for Users, not even an explicit nil
 ### GetRoles
 
-`func (o *MessageAllowedMentionsRequest) GetRoles() []string`
+`func (o *MessageAllowedMentionsRequest) GetRoles() []*string`
 
 GetRoles returns the Roles field if non-nil, zero value otherwise.
 
 ### GetRolesOk
 
-`func (o *MessageAllowedMentionsRequest) GetRolesOk() (*[]string, bool)`
+`func (o *MessageAllowedMentionsRequest) GetRolesOk() (*[]*string, bool)`
 
 GetRolesOk returns a tuple with the Roles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRoles
 
-`func (o *MessageAllowedMentionsRequest) SetRoles(v []string)`
+`func (o *MessageAllowedMentionsRequest) SetRoles(v []*string)`
 
 SetRoles sets Roles field to given value.
 

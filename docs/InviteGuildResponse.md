@@ -11,17 +11,17 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Icon** | Pointer to **NullableString** |  | [optional] 
 **Features** | **[]string** |  | 
-**VerificationLevel** | Pointer to **int32** |  | [optional] 
+**VerificationLevel** | Pointer to **NullableInt32** |  | [optional] 
 **VanityUrlCode** | Pointer to **NullableString** |  | [optional] 
 **NsfwLevel** | Pointer to **NullableInt32** |  | [optional] 
 **Nsfw** | Pointer to **NullableBool** |  | [optional] 
-**PremiumSubscriptionCount** | Pointer to **NullableInt32** |  | [optional] 
+**PremiumSubscriptionCount** | **int32** |  | 
 
 ## Methods
 
 ### NewInviteGuildResponse
 
-`func NewInviteGuildResponse(id string, name string, features []string, ) *InviteGuildResponse`
+`func NewInviteGuildResponse(id string, name string, features []string, premiumSubscriptionCount int32, ) *InviteGuildResponse`
 
 NewInviteGuildResponse instantiates a new InviteGuildResponse object
 This constructor will assign default values to properties that have it defined,
@@ -261,6 +261,16 @@ SetVerificationLevel sets VerificationLevel field to given value.
 
 HasVerificationLevel returns a boolean if a field has been set.
 
+### SetVerificationLevelNil
+
+`func (o *InviteGuildResponse) SetVerificationLevelNil(b bool)`
+
+ SetVerificationLevelNil sets the value for VerificationLevel to be an explicit nil
+
+### UnsetVerificationLevel
+`func (o *InviteGuildResponse) UnsetVerificationLevel()`
+
+UnsetVerificationLevel ensures that no value is present for VerificationLevel, not even an explicit nil
 ### GetVanityUrlCode
 
 `func (o *InviteGuildResponse) GetVanityUrlCode() string`
@@ -385,22 +395,7 @@ and a boolean to check if the value has been set.
 
 SetPremiumSubscriptionCount sets PremiumSubscriptionCount field to given value.
 
-### HasPremiumSubscriptionCount
 
-`func (o *InviteGuildResponse) HasPremiumSubscriptionCount() bool`
-
-HasPremiumSubscriptionCount returns a boolean if a field has been set.
-
-### SetPremiumSubscriptionCountNil
-
-`func (o *InviteGuildResponse) SetPremiumSubscriptionCountNil(b bool)`
-
- SetPremiumSubscriptionCountNil sets the value for PremiumSubscriptionCount to be an explicit nil
-
-### UnsetPremiumSubscriptionCount
-`func (o *InviteGuildResponse) UnsetPremiumSubscriptionCount()`
-
-UnsetPremiumSubscriptionCount ensures that no value is present for PremiumSubscriptionCount, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

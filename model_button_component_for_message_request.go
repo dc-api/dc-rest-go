@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,13 +56,14 @@ var _ MappedNullable = &ButtonComponentForMessageRequest{}
 // ButtonComponentForMessageRequest struct for ButtonComponentForMessageRequest
 type ButtonComponentForMessageRequest struct {
 	Type int32 `json:"type"`
+	Id NullableInt32 `json:"id,omitempty"`
 	CustomId NullableString `json:"custom_id,omitempty"`
 	Style NullableInt32 `json:"style"`
 	Label NullableString `json:"label,omitempty"`
 	Disabled NullableBool `json:"disabled,omitempty"`
 	Url NullableString `json:"url,omitempty"`
-	SkuId *string `json:"sku_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	Emoji NullableComponentEmojiForMessageRequest `json:"emoji,omitempty"`
+	SkuId NullableString `json:"sku_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	Emoji NullableComponentEmojiForRequest `json:"emoji,omitempty"`
 }
 
 type _ButtonComponentForMessageRequest ButtonComponentForMessageRequest
@@ -108,6 +109,49 @@ func (o *ButtonComponentForMessageRequest) GetTypeOk() (*int32, bool) {
 // SetType sets field value
 func (o *ButtonComponentForMessageRequest) SetType(v int32) {
 	o.Type = v
+}
+
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ButtonComponentForMessageRequest) GetId() int32 {
+	if o == nil || IsNil(o.Id.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.Id.Get()
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ButtonComponentForMessageRequest) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id.Get()) {
+		return nil, false
+	}
+	return o.Id.Get(), o.Id.IsSet()
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *ButtonComponentForMessageRequest) HasId() bool {
+	if o != nil && o.Id.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given NullableInt32 and assigns it to the Id field.
+func (o *ButtonComponentForMessageRequest) SetId(v int32) {
+	o.Id.Set(&v)
+}
+
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *ButtonComponentForMessageRequest) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *ButtonComponentForMessageRequest) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetCustomId returns the CustomId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -308,43 +352,53 @@ func (o *ButtonComponentForMessageRequest) UnsetUrl() {
 	o.Url.Unset()
 }
 
-// GetSkuId returns the SkuId field value if set, zero value otherwise.
+// GetSkuId returns the SkuId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ButtonComponentForMessageRequest) GetSkuId() string {
-	if o == nil || IsNil(o.SkuId) {
+	if o == nil || IsNil(o.SkuId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SkuId
+	return *o.SkuId.Get()
 }
 
 // GetSkuIdOk returns a tuple with the SkuId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ButtonComponentForMessageRequest) GetSkuIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SkuId) {
+	if o == nil || IsNil(o.SkuId.Get()) {
 		return nil, false
 	}
-	return o.SkuId, true
+	return o.SkuId.Get(), o.SkuId.IsSet()
 }
 
 // HasSkuId returns a boolean if a field has been set.
 func (o *ButtonComponentForMessageRequest) HasSkuId() bool {
-	if o != nil && !IsNil(o.SkuId) {
+	if o != nil && o.SkuId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSkuId gets a reference to the given string and assigns it to the SkuId field.
+// SetSkuId gets a reference to the given NullableString and assigns it to the SkuId field.
 func (o *ButtonComponentForMessageRequest) SetSkuId(v string) {
-	o.SkuId = &v
+	o.SkuId.Set(&v)
 }
 
+// SetSkuIdNil sets the value for SkuId to be an explicit nil
+func (o *ButtonComponentForMessageRequest) SetSkuIdNil() {
+	o.SkuId.Set(nil)
+}
+
+// UnsetSkuId ensures that no value is present for SkuId, not even an explicit nil
+func (o *ButtonComponentForMessageRequest) UnsetSkuId() {
+	o.SkuId.Unset()
+}
 
 // GetEmoji returns the Emoji field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ButtonComponentForMessageRequest) GetEmoji() ComponentEmojiForMessageRequest {
+func (o *ButtonComponentForMessageRequest) GetEmoji() ComponentEmojiForRequest {
 	if o == nil || IsNil(o.Emoji.Get()) {
-		var ret ComponentEmojiForMessageRequest
+		var ret ComponentEmojiForRequest
 		return ret
 	}
 	return *o.Emoji.Get()
@@ -353,7 +407,7 @@ func (o *ButtonComponentForMessageRequest) GetEmoji() ComponentEmojiForMessageRe
 // GetEmojiOk returns a tuple with the Emoji field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ButtonComponentForMessageRequest) GetEmojiOk() (*ComponentEmojiForMessageRequest, bool) {
+func (o *ButtonComponentForMessageRequest) GetEmojiOk() (*ComponentEmojiForRequest, bool) {
 	if o == nil || IsNil(o.Emoji.Get()) {
 		return nil, false
 	}
@@ -369,8 +423,8 @@ func (o *ButtonComponentForMessageRequest) HasEmoji() bool {
 	return false
 }
 
-// SetEmoji gets a reference to the given NullableComponentEmojiForMessageRequest and assigns it to the Emoji field.
-func (o *ButtonComponentForMessageRequest) SetEmoji(v ComponentEmojiForMessageRequest) {
+// SetEmoji gets a reference to the given NullableComponentEmojiForRequest and assigns it to the Emoji field.
+func (o *ButtonComponentForMessageRequest) SetEmoji(v ComponentEmojiForRequest) {
 	o.Emoji.Set(&v)
 }
 
@@ -395,6 +449,9 @@ func (o ButtonComponentForMessageRequest) MarshalJSON() ([]byte, error) {
 func (o ButtonComponentForMessageRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
+	}
 	if o.CustomId.IsSet() {
 		toSerialize["custom_id"] = o.CustomId.Get()
 	}
@@ -408,8 +465,8 @@ func (o ButtonComponentForMessageRequest) ToMap() (map[string]interface{}, error
 	if o.Url.IsSet() {
 		toSerialize["url"] = o.Url.Get()
 	}
-	if !IsNil(o.SkuId) {
-		toSerialize["sku_id"] = o.SkuId
+	if o.SkuId.IsSet() {
+		toSerialize["sku_id"] = o.SkuId.Get()
 	}
 	if o.Emoji.IsSet() {
 		toSerialize["emoji"] = o.Emoji.Get()
@@ -490,5 +547,4 @@ func (v *NullableButtonComponentForMessageRequest) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

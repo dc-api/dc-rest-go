@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ChannelId** | Pointer to **string** |  | [optional] 
+**ChannelId** | Pointer to **NullableString** |  | [optional] 
 **Deaf** | **bool** |  | 
-**GuildId** | Pointer to **string** |  | [optional] 
-**Member** | Pointer to [**NullableGuildMemberResponse**](GuildMemberResponse.md) |  | [optional] 
+**GuildId** | Pointer to **NullableString** |  | [optional] 
+**Member** | Pointer to [**GuildMemberResponse**](GuildMemberResponse.md) |  | [optional] 
 **Mute** | **bool** |  | 
 **RequestToSpeakTimestamp** | Pointer to **NullableTime** |  | [optional] 
 **Suppress** | **bool** |  | 
@@ -62,6 +62,16 @@ SetChannelId sets ChannelId field to given value.
 
 HasChannelId returns a boolean if a field has been set.
 
+### SetChannelIdNil
+
+`func (o *VoiceStateResponse) SetChannelIdNil(b bool)`
+
+ SetChannelIdNil sets the value for ChannelId to be an explicit nil
+
+### UnsetChannelId
+`func (o *VoiceStateResponse) UnsetChannelId()`
+
+UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
 ### GetDeaf
 
 `func (o *VoiceStateResponse) GetDeaf() bool`
@@ -107,6 +117,16 @@ SetGuildId sets GuildId field to given value.
 
 HasGuildId returns a boolean if a field has been set.
 
+### SetGuildIdNil
+
+`func (o *VoiceStateResponse) SetGuildIdNil(b bool)`
+
+ SetGuildIdNil sets the value for GuildId to be an explicit nil
+
+### UnsetGuildId
+`func (o *VoiceStateResponse) UnsetGuildId()`
+
+UnsetGuildId ensures that no value is present for GuildId, not even an explicit nil
 ### GetMember
 
 `func (o *VoiceStateResponse) GetMember() GuildMemberResponse`
@@ -132,16 +152,6 @@ SetMember sets Member field to given value.
 
 HasMember returns a boolean if a field has been set.
 
-### SetMemberNil
-
-`func (o *VoiceStateResponse) SetMemberNil(b bool)`
-
- SetMemberNil sets the value for Member to be an explicit nil
-
-### UnsetMember
-`func (o *VoiceStateResponse) UnsetMember()`
-
-UnsetMember ensures that no value is present for Member, not even an explicit nil
 ### GetMute
 
 `func (o *VoiceStateResponse) GetMute() bool`

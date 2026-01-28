@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | Pointer to **string** |  | [optional] 
+**ApplicationId** | Pointer to **NullableString** |  | [optional] 
 **Avatar** | Pointer to **NullableString** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
-**GuildId** | Pointer to **string** |  | [optional] 
+**ChannelId** | Pointer to **NullableString** |  | [optional] 
+**GuildId** | Pointer to **NullableString** |  | [optional] 
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **Type** | **int32** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -57,6 +57,16 @@ SetApplicationId sets ApplicationId field to given value.
 
 HasApplicationId returns a boolean if a field has been set.
 
+### SetApplicationIdNil
+
+`func (o *ApplicationIncomingWebhookResponse) SetApplicationIdNil(b bool)`
+
+ SetApplicationIdNil sets the value for ApplicationId to be an explicit nil
+
+### UnsetApplicationId
+`func (o *ApplicationIncomingWebhookResponse) UnsetApplicationId()`
+
+UnsetApplicationId ensures that no value is present for ApplicationId, not even an explicit nil
 ### GetAvatar
 
 `func (o *ApplicationIncomingWebhookResponse) GetAvatar() string`
@@ -117,6 +127,16 @@ SetChannelId sets ChannelId field to given value.
 
 HasChannelId returns a boolean if a field has been set.
 
+### SetChannelIdNil
+
+`func (o *ApplicationIncomingWebhookResponse) SetChannelIdNil(b bool)`
+
+ SetChannelIdNil sets the value for ChannelId to be an explicit nil
+
+### UnsetChannelId
+`func (o *ApplicationIncomingWebhookResponse) UnsetChannelId()`
+
+UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
 ### GetGuildId
 
 `func (o *ApplicationIncomingWebhookResponse) GetGuildId() string`
@@ -142,6 +162,16 @@ SetGuildId sets GuildId field to given value.
 
 HasGuildId returns a boolean if a field has been set.
 
+### SetGuildIdNil
+
+`func (o *ApplicationIncomingWebhookResponse) SetGuildIdNil(b bool)`
+
+ SetGuildIdNil sets the value for GuildId to be an explicit nil
+
+### UnsetGuildId
+`func (o *ApplicationIncomingWebhookResponse) UnsetGuildId()`
+
+UnsetGuildId ensures that no value is present for GuildId, not even an explicit nil
 ### GetId
 
 `func (o *ApplicationIncomingWebhookResponse) GetId() string`
@@ -227,16 +257,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *ApplicationIncomingWebhookResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *ApplicationIncomingWebhookResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

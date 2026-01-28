@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ var _ MappedNullable = &ApplicationCommandOptionIntegerChoiceResponse{}
 // ApplicationCommandOptionIntegerChoiceResponse struct for ApplicationCommandOptionIntegerChoiceResponse
 type ApplicationCommandOptionIntegerChoiceResponse struct {
 	Name string `json:"name"`
-	NameLocalized NullableString `json:"name_localized,omitempty"`
+	NameLocalized *string `json:"name_localized,omitempty"`
 	NameLocalizations map[string]string `json:"name_localizations,omitempty"`
 	Value int64 `json:"value"`
 }
@@ -106,48 +106,38 @@ func (o *ApplicationCommandOptionIntegerChoiceResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetNameLocalized returns the NameLocalized field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNameLocalized returns the NameLocalized field value if set, zero value otherwise.
 func (o *ApplicationCommandOptionIntegerChoiceResponse) GetNameLocalized() string {
-	if o == nil || IsNil(o.NameLocalized.Get()) {
+	if o == nil || IsNil(o.NameLocalized) {
 		var ret string
 		return ret
 	}
-	return *o.NameLocalized.Get()
+	return *o.NameLocalized
 }
 
 // GetNameLocalizedOk returns a tuple with the NameLocalized field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandOptionIntegerChoiceResponse) GetNameLocalizedOk() (*string, bool) {
-	if o == nil || IsNil(o.NameLocalized.Get()) {
+	if o == nil || IsNil(o.NameLocalized) {
 		return nil, false
 	}
-	return o.NameLocalized.Get(), o.NameLocalized.IsSet()
+	return o.NameLocalized, true
 }
 
 // HasNameLocalized returns a boolean if a field has been set.
 func (o *ApplicationCommandOptionIntegerChoiceResponse) HasNameLocalized() bool {
-	if o != nil && o.NameLocalized.IsSet() {
+	if o != nil && !IsNil(o.NameLocalized) {
 		return true
 	}
 
 	return false
 }
 
-// SetNameLocalized gets a reference to the given NullableString and assigns it to the NameLocalized field.
+// SetNameLocalized gets a reference to the given string and assigns it to the NameLocalized field.
 func (o *ApplicationCommandOptionIntegerChoiceResponse) SetNameLocalized(v string) {
-	o.NameLocalized.Set(&v)
+	o.NameLocalized = &v
 }
 
-// SetNameLocalizedNil sets the value for NameLocalized to be an explicit nil
-func (o *ApplicationCommandOptionIntegerChoiceResponse) SetNameLocalizedNil() {
-	o.NameLocalized.Set(nil)
-}
-
-// UnsetNameLocalized ensures that no value is present for NameLocalized, not even an explicit nil
-func (o *ApplicationCommandOptionIntegerChoiceResponse) UnsetNameLocalized() {
-	o.NameLocalized.Unset()
-}
 
 // GetNameLocalizations returns the NameLocalizations field value if set, zero value otherwise.
 func (o *ApplicationCommandOptionIntegerChoiceResponse) GetNameLocalizations() map[string]string {
@@ -217,8 +207,8 @@ func (o ApplicationCommandOptionIntegerChoiceResponse) MarshalJSON() ([]byte, er
 func (o ApplicationCommandOptionIntegerChoiceResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
-	if o.NameLocalized.IsSet() {
-		toSerialize["name_localized"] = o.NameLocalized.Get()
+	if !IsNil(o.NameLocalized) {
+		toSerialize["name_localized"] = o.NameLocalized
 	}
 	if !IsNil(o.NameLocalizations) {
 		toSerialize["name_localizations"] = o.NameLocalizations
@@ -300,5 +290,4 @@ func (v *NullableApplicationCommandOptionIntegerChoiceResponse) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

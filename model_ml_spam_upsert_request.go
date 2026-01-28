@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -304,9 +304,9 @@ func (o *MLSpamUpsertRequest) SetTriggerType(v int32) {
 	o.TriggerType = v
 }
 
-// GetTriggerMetadata returns the TriggerMetadata field value if set, zero value otherwise.
+// GetTriggerMetadata returns the TriggerMetadata field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MLSpamUpsertRequest) GetTriggerMetadata() map[string]interface{} {
-	if o == nil || IsNil(o.TriggerMetadata) {
+	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -315,8 +315,9 @@ func (o *MLSpamUpsertRequest) GetTriggerMetadata() map[string]interface{} {
 
 // GetTriggerMetadataOk returns a tuple with the TriggerMetadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MLSpamUpsertRequest) GetTriggerMetadataOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.TriggerMetadata) {
+	if o == nil {
 		return map[string]interface{}{}, false
 	}
 	return o.TriggerMetadata, true
@@ -362,7 +363,7 @@ func (o MLSpamUpsertRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["exempt_channels"] = o.ExemptChannels
 	}
 	toSerialize["trigger_type"] = o.TriggerType
-	if !IsNil(o.TriggerMetadata) {
+	if o.TriggerMetadata != nil {
 		toSerialize["trigger_metadata"] = o.TriggerMetadata
 	}
 	return toSerialize, nil
@@ -442,5 +443,4 @@ func (v *NullableMLSpamUpsertRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **Archived** | Pointer to **NullableBool** |  | [optional] 
 **Locked** | Pointer to **NullableBool** |  | [optional] 
 **Invitable** | Pointer to **NullableBool** |  | [optional] 
-**AutoArchiveDuration** | Pointer to **int32** |  | [optional] 
+**AutoArchiveDuration** | Pointer to **NullableInt32** |  | [optional] 
 **RateLimitPerUser** | Pointer to **NullableInt32** |  | [optional] 
 **Flags** | Pointer to **NullableInt32** |  | [optional] 
 **AppliedTags** | Pointer to **[]string** |  | [optional] 
 **Bitrate** | Pointer to **NullableInt32** |  | [optional] 
 **UserLimit** | Pointer to **NullableInt32** |  | [optional] 
 **RtcRegion** | Pointer to **NullableString** |  | [optional] 
-**VideoQualityMode** | Pointer to **int32** |  | [optional] 
+**VideoQualityMode** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
 
@@ -201,6 +201,16 @@ SetAutoArchiveDuration sets AutoArchiveDuration field to given value.
 
 HasAutoArchiveDuration returns a boolean if a field has been set.
 
+### SetAutoArchiveDurationNil
+
+`func (o *UpdateThreadRequestPartial) SetAutoArchiveDurationNil(b bool)`
+
+ SetAutoArchiveDurationNil sets the value for AutoArchiveDuration to be an explicit nil
+
+### UnsetAutoArchiveDuration
+`func (o *UpdateThreadRequestPartial) UnsetAutoArchiveDuration()`
+
+UnsetAutoArchiveDuration ensures that no value is present for AutoArchiveDuration, not even an explicit nil
 ### GetRateLimitPerUser
 
 `func (o *UpdateThreadRequestPartial) GetRateLimitPerUser() int32`
@@ -436,6 +446,16 @@ SetVideoQualityMode sets VideoQualityMode field to given value.
 
 HasVideoQualityMode returns a boolean if a field has been set.
 
+### SetVideoQualityModeNil
+
+`func (o *UpdateThreadRequestPartial) SetVideoQualityModeNil(b bool)`
+
+ SetVideoQualityModeNil sets the value for VideoQualityMode to be an explicit nil
+
+### UnsetVideoQualityMode
+`func (o *UpdateThreadRequestPartial) UnsetVideoQualityMode()`
+
+UnsetVideoQualityMode ensures that no value is present for VideoQualityMode, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

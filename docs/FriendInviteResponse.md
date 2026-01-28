@@ -4,24 +4,24 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **NullableInt32** |  | [optional] 
+**Type** | **NullableInt32** |  | 
 **Code** | **string** |  | 
-**Inviter** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**MaxAge** | Pointer to **NullableInt32** |  | [optional] 
-**CreatedAt** | Pointer to **NullableTime** |  | [optional] 
+**Inviter** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**MaxAge** | Pointer to **int32** |  | [optional] 
+**CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **ExpiresAt** | Pointer to **NullableTime** |  | [optional] 
-**FriendsCount** | Pointer to **NullableInt32** |  | [optional] 
+**FriendsCount** | Pointer to **int32** |  | [optional] 
 **Channel** | Pointer to [**NullableInviteChannelResponse**](InviteChannelResponse.md) |  | [optional] 
-**IsContact** | Pointer to **NullableBool** |  | [optional] 
-**Uses** | Pointer to **NullableInt32** |  | [optional] 
-**MaxUses** | Pointer to **NullableInt32** |  | [optional] 
-**Flags** | Pointer to **NullableInt32** |  | [optional] 
+**IsContact** | Pointer to **bool** |  | [optional] 
+**Uses** | Pointer to **int32** |  | [optional] 
+**MaxUses** | Pointer to **int32** |  | [optional] 
+**Flags** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewFriendInviteResponse
 
-`func NewFriendInviteResponse(code string, ) *FriendInviteResponse`
+`func NewFriendInviteResponse(type_ NullableInt32, code string, ) *FriendInviteResponse`
 
 NewFriendInviteResponse instantiates a new FriendInviteResponse object
 This constructor will assign default values to properties that have it defined,
@@ -55,11 +55,6 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
-
-`func (o *FriendInviteResponse) HasType() bool`
-
-HasType returns a boolean if a field has been set.
 
 ### SetTypeNil
 
@@ -116,16 +111,6 @@ SetInviter sets Inviter field to given value.
 
 HasInviter returns a boolean if a field has been set.
 
-### SetInviterNil
-
-`func (o *FriendInviteResponse) SetInviterNil(b bool)`
-
- SetInviterNil sets the value for Inviter to be an explicit nil
-
-### UnsetInviter
-`func (o *FriendInviteResponse) UnsetInviter()`
-
-UnsetInviter ensures that no value is present for Inviter, not even an explicit nil
 ### GetMaxAge
 
 `func (o *FriendInviteResponse) GetMaxAge() int32`
@@ -151,16 +136,6 @@ SetMaxAge sets MaxAge field to given value.
 
 HasMaxAge returns a boolean if a field has been set.
 
-### SetMaxAgeNil
-
-`func (o *FriendInviteResponse) SetMaxAgeNil(b bool)`
-
- SetMaxAgeNil sets the value for MaxAge to be an explicit nil
-
-### UnsetMaxAge
-`func (o *FriendInviteResponse) UnsetMaxAge()`
-
-UnsetMaxAge ensures that no value is present for MaxAge, not even an explicit nil
 ### GetCreatedAt
 
 `func (o *FriendInviteResponse) GetCreatedAt() time.Time`
@@ -186,16 +161,6 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
-### SetCreatedAtNil
-
-`func (o *FriendInviteResponse) SetCreatedAtNil(b bool)`
-
- SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
-
-### UnsetCreatedAt
-`func (o *FriendInviteResponse) UnsetCreatedAt()`
-
-UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
 ### GetExpiresAt
 
 `func (o *FriendInviteResponse) GetExpiresAt() time.Time`
@@ -256,16 +221,6 @@ SetFriendsCount sets FriendsCount field to given value.
 
 HasFriendsCount returns a boolean if a field has been set.
 
-### SetFriendsCountNil
-
-`func (o *FriendInviteResponse) SetFriendsCountNil(b bool)`
-
- SetFriendsCountNil sets the value for FriendsCount to be an explicit nil
-
-### UnsetFriendsCount
-`func (o *FriendInviteResponse) UnsetFriendsCount()`
-
-UnsetFriendsCount ensures that no value is present for FriendsCount, not even an explicit nil
 ### GetChannel
 
 `func (o *FriendInviteResponse) GetChannel() InviteChannelResponse`
@@ -326,16 +281,6 @@ SetIsContact sets IsContact field to given value.
 
 HasIsContact returns a boolean if a field has been set.
 
-### SetIsContactNil
-
-`func (o *FriendInviteResponse) SetIsContactNil(b bool)`
-
- SetIsContactNil sets the value for IsContact to be an explicit nil
-
-### UnsetIsContact
-`func (o *FriendInviteResponse) UnsetIsContact()`
-
-UnsetIsContact ensures that no value is present for IsContact, not even an explicit nil
 ### GetUses
 
 `func (o *FriendInviteResponse) GetUses() int32`
@@ -361,16 +306,6 @@ SetUses sets Uses field to given value.
 
 HasUses returns a boolean if a field has been set.
 
-### SetUsesNil
-
-`func (o *FriendInviteResponse) SetUsesNil(b bool)`
-
- SetUsesNil sets the value for Uses to be an explicit nil
-
-### UnsetUses
-`func (o *FriendInviteResponse) UnsetUses()`
-
-UnsetUses ensures that no value is present for Uses, not even an explicit nil
 ### GetMaxUses
 
 `func (o *FriendInviteResponse) GetMaxUses() int32`
@@ -396,16 +331,6 @@ SetMaxUses sets MaxUses field to given value.
 
 HasMaxUses returns a boolean if a field has been set.
 
-### SetMaxUsesNil
-
-`func (o *FriendInviteResponse) SetMaxUsesNil(b bool)`
-
- SetMaxUsesNil sets the value for MaxUses to be an explicit nil
-
-### UnsetMaxUses
-`func (o *FriendInviteResponse) UnsetMaxUses()`
-
-UnsetMaxUses ensures that no value is present for MaxUses, not even an explicit nil
 ### GetFlags
 
 `func (o *FriendInviteResponse) GetFlags() int32`
@@ -431,16 +356,6 @@ SetFlags sets Flags field to given value.
 
 HasFlags returns a boolean if a field has been set.
 
-### SetFlagsNil
-
-`func (o *FriendInviteResponse) SetFlagsNil(b bool)`
-
- SetFlagsNil sets the value for Flags to be an explicit nil
-
-### UnsetFlags
-`func (o *FriendInviteResponse) UnsetFlags()`
-
-UnsetFlags ensures that no value is present for Flags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **Required** | Pointer to **NullableBool** |  | [optional] 
 **Autocomplete** | Pointer to **NullableBool** |  | [optional] 
 **Choices** | Pointer to [**[]ApplicationCommandOptionIntegerChoice**](ApplicationCommandOptionIntegerChoice.md) |  | [optional] 
-**MinValue** | Pointer to **int64** |  | [optional] 
-**MaxValue** | Pointer to **int64** |  | [optional] 
+**MinValue** | Pointer to **NullableInt64** |  | [optional] 
+**MaxValue** | Pointer to **NullableInt64** |  | [optional] 
 
 ## Methods
 
@@ -274,6 +274,16 @@ SetMinValue sets MinValue field to given value.
 
 HasMinValue returns a boolean if a field has been set.
 
+### SetMinValueNil
+
+`func (o *ApplicationCommandIntegerOption) SetMinValueNil(b bool)`
+
+ SetMinValueNil sets the value for MinValue to be an explicit nil
+
+### UnsetMinValue
+`func (o *ApplicationCommandIntegerOption) UnsetMinValue()`
+
+UnsetMinValue ensures that no value is present for MinValue, not even an explicit nil
 ### GetMaxValue
 
 `func (o *ApplicationCommandIntegerOption) GetMaxValue() int64`
@@ -299,6 +309,16 @@ SetMaxValue sets MaxValue field to given value.
 
 HasMaxValue returns a boolean if a field has been set.
 
+### SetMaxValueNil
+
+`func (o *ApplicationCommandIntegerOption) SetMaxValueNil(b bool)`
+
+ SetMaxValueNil sets the value for MaxValue to be an explicit nil
+
+### UnsetMaxValue
+`func (o *ApplicationCommandIntegerOption) UnsetMaxValue()`
+
+UnsetMaxValue ensures that no value is present for MaxValue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

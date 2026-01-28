@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**AutoArchiveDuration** | Pointer to **int32** |  | [optional] 
+**AutoArchiveDuration** | Pointer to **NullableInt32** |  | [optional] 
 **RateLimitPerUser** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
@@ -72,6 +72,16 @@ SetAutoArchiveDuration sets AutoArchiveDuration field to given value.
 
 HasAutoArchiveDuration returns a boolean if a field has been set.
 
+### SetAutoArchiveDurationNil
+
+`func (o *CreateTextThreadWithMessageRequest) SetAutoArchiveDurationNil(b bool)`
+
+ SetAutoArchiveDurationNil sets the value for AutoArchiveDuration to be an explicit nil
+
+### UnsetAutoArchiveDuration
+`func (o *CreateTextThreadWithMessageRequest) UnsetAutoArchiveDuration()`
+
+UnsetAutoArchiveDuration ensures that no value is present for AutoArchiveDuration, not even an explicit nil
 ### GetRateLimitPerUser
 
 `func (o *CreateTextThreadWithMessageRequest) GetRateLimitPerUser() int32`

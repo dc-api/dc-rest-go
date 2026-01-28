@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,7 +58,7 @@ type PollCreateRequest struct {
 	Question PollMedia `json:"question"`
 	Answers []PollAnswerCreateRequest `json:"answers"`
 	AllowMultiselect NullableBool `json:"allow_multiselect,omitempty"`
-	LayoutType *int32 `json:"layout_type,omitempty"`
+	LayoutType NullableInt32 `json:"layout_type,omitempty"`
 	Duration NullableInt32 `json:"duration,omitempty"`
 }
 
@@ -174,38 +174,48 @@ func (o *PollCreateRequest) UnsetAllowMultiselect() {
 	o.AllowMultiselect.Unset()
 }
 
-// GetLayoutType returns the LayoutType field value if set, zero value otherwise.
+// GetLayoutType returns the LayoutType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PollCreateRequest) GetLayoutType() int32 {
-	if o == nil || IsNil(o.LayoutType) {
+	if o == nil || IsNil(o.LayoutType.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.LayoutType
+	return *o.LayoutType.Get()
 }
 
 // GetLayoutTypeOk returns a tuple with the LayoutType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PollCreateRequest) GetLayoutTypeOk() (*int32, bool) {
-	if o == nil || IsNil(o.LayoutType) {
+	if o == nil || IsNil(o.LayoutType.Get()) {
 		return nil, false
 	}
-	return o.LayoutType, true
+	return o.LayoutType.Get(), o.LayoutType.IsSet()
 }
 
 // HasLayoutType returns a boolean if a field has been set.
 func (o *PollCreateRequest) HasLayoutType() bool {
-	if o != nil && !IsNil(o.LayoutType) {
+	if o != nil && o.LayoutType.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLayoutType gets a reference to the given int32 and assigns it to the LayoutType field.
+// SetLayoutType gets a reference to the given NullableInt32 and assigns it to the LayoutType field.
 func (o *PollCreateRequest) SetLayoutType(v int32) {
-	o.LayoutType = &v
+	o.LayoutType.Set(&v)
 }
 
+// SetLayoutTypeNil sets the value for LayoutType to be an explicit nil
+func (o *PollCreateRequest) SetLayoutTypeNil() {
+	o.LayoutType.Set(nil)
+}
+
+// UnsetLayoutType ensures that no value is present for LayoutType, not even an explicit nil
+func (o *PollCreateRequest) UnsetLayoutType() {
+	o.LayoutType.Unset()
+}
 
 // GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PollCreateRequest) GetDuration() int32 {
@@ -265,8 +275,8 @@ func (o PollCreateRequest) ToMap() (map[string]interface{}, error) {
 	if o.AllowMultiselect.IsSet() {
 		toSerialize["allow_multiselect"] = o.AllowMultiselect.Get()
 	}
-	if !IsNil(o.LayoutType) {
-		toSerialize["layout_type"] = o.LayoutType
+	if o.LayoutType.IsSet() {
+		toSerialize["layout_type"] = o.LayoutType.Get()
 	}
 	if o.Duration.IsSet() {
 		toSerialize["duration"] = o.Duration.Get()
@@ -347,5 +357,4 @@ func (v *NullablePollCreateRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

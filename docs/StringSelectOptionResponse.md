@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Label** | **string** |  | 
 **Value** | **string** |  | 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Emoji** | Pointer to [**NullableComponentEmojiResponse**](ComponentEmojiResponse.md) |  | [optional] 
-**Default** | Pointer to **NullableBool** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Emoji** | Pointer to [**ComponentEmojiResponse**](ComponentEmojiResponse.md) |  | [optional] 
+**Default** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -94,16 +94,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *StringSelectOptionResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *StringSelectOptionResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetEmoji
 
 `func (o *StringSelectOptionResponse) GetEmoji() ComponentEmojiResponse`
@@ -129,16 +119,6 @@ SetEmoji sets Emoji field to given value.
 
 HasEmoji returns a boolean if a field has been set.
 
-### SetEmojiNil
-
-`func (o *StringSelectOptionResponse) SetEmojiNil(b bool)`
-
- SetEmojiNil sets the value for Emoji to be an explicit nil
-
-### UnsetEmoji
-`func (o *StringSelectOptionResponse) UnsetEmoji()`
-
-UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
 ### GetDefault
 
 `func (o *StringSelectOptionResponse) GetDefault() bool`
@@ -164,16 +144,6 @@ SetDefault sets Default field to given value.
 
 HasDefault returns a boolean if a field has been set.
 
-### SetDefaultNil
-
-`func (o *StringSelectOptionResponse) SetDefaultNil(b bool)`
-
- SetDefaultNil sets the value for Default to be an explicit nil
-
-### UnsetDefault
-`func (o *StringSelectOptionResponse) UnsetDefault()`
-
-UnsetDefault ensures that no value is present for Default, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

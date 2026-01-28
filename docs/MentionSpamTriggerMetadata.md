@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MentionTotalLimit** | **int32** |  | 
+**MentionTotalLimit** | Pointer to **NullableInt32** |  | [optional] 
 **MentionRaidProtectionEnabled** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
 
 ### NewMentionSpamTriggerMetadata
 
-`func NewMentionSpamTriggerMetadata(mentionTotalLimit int32, ) *MentionSpamTriggerMetadata`
+`func NewMentionSpamTriggerMetadata() *MentionSpamTriggerMetadata`
 
 NewMentionSpamTriggerMetadata instantiates a new MentionSpamTriggerMetadata object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetMentionTotalLimit sets MentionTotalLimit field to given value.
 
+### HasMentionTotalLimit
 
+`func (o *MentionSpamTriggerMetadata) HasMentionTotalLimit() bool`
+
+HasMentionTotalLimit returns a boolean if a field has been set.
+
+### SetMentionTotalLimitNil
+
+`func (o *MentionSpamTriggerMetadata) SetMentionTotalLimitNil(b bool)`
+
+ SetMentionTotalLimitNil sets the value for MentionTotalLimit to be an explicit nil
+
+### UnsetMentionTotalLimit
+`func (o *MentionSpamTriggerMetadata) UnsetMentionTotalLimit()`
+
+UnsetMentionTotalLimit ensures that no value is present for MentionTotalLimit, not even an explicit nil
 ### GetMentionRaidProtectionEnabled
 
 `func (o *MentionSpamTriggerMetadata) GetMentionRaidProtectionEnabled() bool`

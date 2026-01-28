@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Prompts** | Pointer to [**[]UpdateOnboardingPromptRequest**](UpdateOnboardingPromptRequest.md) |  | [optional] 
 **Enabled** | Pointer to **NullableBool** |  | [optional] 
 **DefaultChannelIds** | Pointer to **[]string** |  | [optional] 
-**Mode** | Pointer to **int32** |  | [optional] 
+**Mode** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
 
@@ -158,6 +158,16 @@ SetMode sets Mode field to given value.
 
 HasMode returns a boolean if a field has been set.
 
+### SetModeNil
+
+`func (o *UpdateGuildOnboardingRequest) SetModeNil(b bool)`
+
+ SetModeNil sets the value for Mode to be an explicit nil
+
+### UnsetMode
+`func (o *UpdateGuildOnboardingRequest) UnsetMode()`
+
+UnsetMode ensures that no value is present for Mode, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

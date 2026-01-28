@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **SkuId** | **string** |  | 
 **ApplicationId** | **string** |  | 
 **UserId** | **string** |  | 
-**GuildId** | Pointer to **string** |  | [optional] 
+**GuildId** | Pointer to **NullableString** |  | [optional] 
 **Deleted** | **bool** |  | 
 **StartsAt** | Pointer to **NullableTime** |  | [optional] 
 **EndsAt** | Pointer to **NullableTime** |  | [optional] 
@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **FulfilledAt** | Pointer to **NullableTime** |  | [optional] 
 **FulfillmentStatus** | Pointer to **NullableInt32** |  | [optional] 
 **Consumed** | Pointer to **NullableBool** |  | [optional] 
+**GifterUserId** | Pointer to **NullableString** |  | [optional] 
+**ParentId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -141,6 +143,16 @@ SetGuildId sets GuildId field to given value.
 
 HasGuildId returns a boolean if a field has been set.
 
+### SetGuildIdNil
+
+`func (o *EntitlementResponse) SetGuildIdNil(b bool)`
+
+ SetGuildIdNil sets the value for GuildId to be an explicit nil
+
+### UnsetGuildId
+`func (o *EntitlementResponse) UnsetGuildId()`
+
+UnsetGuildId ensures that no value is present for GuildId, not even an explicit nil
 ### GetDeleted
 
 `func (o *EntitlementResponse) GetDeleted() bool`
@@ -366,6 +378,76 @@ HasConsumed returns a boolean if a field has been set.
 `func (o *EntitlementResponse) UnsetConsumed()`
 
 UnsetConsumed ensures that no value is present for Consumed, not even an explicit nil
+### GetGifterUserId
+
+`func (o *EntitlementResponse) GetGifterUserId() string`
+
+GetGifterUserId returns the GifterUserId field if non-nil, zero value otherwise.
+
+### GetGifterUserIdOk
+
+`func (o *EntitlementResponse) GetGifterUserIdOk() (*string, bool)`
+
+GetGifterUserIdOk returns a tuple with the GifterUserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGifterUserId
+
+`func (o *EntitlementResponse) SetGifterUserId(v string)`
+
+SetGifterUserId sets GifterUserId field to given value.
+
+### HasGifterUserId
+
+`func (o *EntitlementResponse) HasGifterUserId() bool`
+
+HasGifterUserId returns a boolean if a field has been set.
+
+### SetGifterUserIdNil
+
+`func (o *EntitlementResponse) SetGifterUserIdNil(b bool)`
+
+ SetGifterUserIdNil sets the value for GifterUserId to be an explicit nil
+
+### UnsetGifterUserId
+`func (o *EntitlementResponse) UnsetGifterUserId()`
+
+UnsetGifterUserId ensures that no value is present for GifterUserId, not even an explicit nil
+### GetParentId
+
+`func (o *EntitlementResponse) GetParentId() string`
+
+GetParentId returns the ParentId field if non-nil, zero value otherwise.
+
+### GetParentIdOk
+
+`func (o *EntitlementResponse) GetParentIdOk() (*string, bool)`
+
+GetParentIdOk returns a tuple with the ParentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParentId
+
+`func (o *EntitlementResponse) SetParentId(v string)`
+
+SetParentId sets ParentId field to given value.
+
+### HasParentId
+
+`func (o *EntitlementResponse) HasParentId() bool`
+
+HasParentId returns a boolean if a field has been set.
+
+### SetParentIdNil
+
+`func (o *EntitlementResponse) SetParentIdNil(b bool)`
+
+ SetParentIdNil sets the value for ParentId to be an explicit nil
+
+### UnsetParentId
+`func (o *EntitlementResponse) UnsetParentId()`
+
+UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

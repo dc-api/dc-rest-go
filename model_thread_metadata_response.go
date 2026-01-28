@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -60,8 +60,8 @@ type ThreadMetadataResponse struct {
 	ArchiveTimestamp NullableTime `json:"archive_timestamp,omitempty"`
 	AutoArchiveDuration int32 `json:"auto_archive_duration"`
 	Locked bool `json:"locked"`
-	CreateTimestamp NullableTime `json:"create_timestamp,omitempty"`
-	Invitable NullableBool `json:"invitable,omitempty"`
+	CreateTimestamp *time.Time `json:"create_timestamp,omitempty"`
+	Invitable *bool `json:"invitable,omitempty"`
 }
 
 type _ThreadMetadataResponse ThreadMetadataResponse
@@ -201,91 +201,71 @@ func (o *ThreadMetadataResponse) SetLocked(v bool) {
 	o.Locked = v
 }
 
-// GetCreateTimestamp returns the CreateTimestamp field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreateTimestamp returns the CreateTimestamp field value if set, zero value otherwise.
 func (o *ThreadMetadataResponse) GetCreateTimestamp() time.Time {
-	if o == nil || IsNil(o.CreateTimestamp.Get()) {
+	if o == nil || IsNil(o.CreateTimestamp) {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreateTimestamp.Get()
+	return *o.CreateTimestamp
 }
 
 // GetCreateTimestampOk returns a tuple with the CreateTimestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ThreadMetadataResponse) GetCreateTimestampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreateTimestamp.Get()) {
+	if o == nil || IsNil(o.CreateTimestamp) {
 		return nil, false
 	}
-	return o.CreateTimestamp.Get(), o.CreateTimestamp.IsSet()
+	return o.CreateTimestamp, true
 }
 
 // HasCreateTimestamp returns a boolean if a field has been set.
 func (o *ThreadMetadataResponse) HasCreateTimestamp() bool {
-	if o != nil && o.CreateTimestamp.IsSet() {
+	if o != nil && !IsNil(o.CreateTimestamp) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreateTimestamp gets a reference to the given NullableTime and assigns it to the CreateTimestamp field.
+// SetCreateTimestamp gets a reference to the given time.Time and assigns it to the CreateTimestamp field.
 func (o *ThreadMetadataResponse) SetCreateTimestamp(v time.Time) {
-	o.CreateTimestamp.Set(&v)
+	o.CreateTimestamp = &v
 }
 
-// SetCreateTimestampNil sets the value for CreateTimestamp to be an explicit nil
-func (o *ThreadMetadataResponse) SetCreateTimestampNil() {
-	o.CreateTimestamp.Set(nil)
-}
 
-// UnsetCreateTimestamp ensures that no value is present for CreateTimestamp, not even an explicit nil
-func (o *ThreadMetadataResponse) UnsetCreateTimestamp() {
-	o.CreateTimestamp.Unset()
-}
-
-// GetInvitable returns the Invitable field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInvitable returns the Invitable field value if set, zero value otherwise.
 func (o *ThreadMetadataResponse) GetInvitable() bool {
-	if o == nil || IsNil(o.Invitable.Get()) {
+	if o == nil || IsNil(o.Invitable) {
 		var ret bool
 		return ret
 	}
-	return *o.Invitable.Get()
+	return *o.Invitable
 }
 
 // GetInvitableOk returns a tuple with the Invitable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ThreadMetadataResponse) GetInvitableOk() (*bool, bool) {
-	if o == nil || IsNil(o.Invitable.Get()) {
+	if o == nil || IsNil(o.Invitable) {
 		return nil, false
 	}
-	return o.Invitable.Get(), o.Invitable.IsSet()
+	return o.Invitable, true
 }
 
 // HasInvitable returns a boolean if a field has been set.
 func (o *ThreadMetadataResponse) HasInvitable() bool {
-	if o != nil && o.Invitable.IsSet() {
+	if o != nil && !IsNil(o.Invitable) {
 		return true
 	}
 
 	return false
 }
 
-// SetInvitable gets a reference to the given NullableBool and assigns it to the Invitable field.
+// SetInvitable gets a reference to the given bool and assigns it to the Invitable field.
 func (o *ThreadMetadataResponse) SetInvitable(v bool) {
-	o.Invitable.Set(&v)
+	o.Invitable = &v
 }
 
-// SetInvitableNil sets the value for Invitable to be an explicit nil
-func (o *ThreadMetadataResponse) SetInvitableNil() {
-	o.Invitable.Set(nil)
-}
-
-// UnsetInvitable ensures that no value is present for Invitable, not even an explicit nil
-func (o *ThreadMetadataResponse) UnsetInvitable() {
-	o.Invitable.Unset()
-}
 
 func (o ThreadMetadataResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -303,11 +283,11 @@ func (o ThreadMetadataResponse) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["auto_archive_duration"] = o.AutoArchiveDuration
 	toSerialize["locked"] = o.Locked
-	if o.CreateTimestamp.IsSet() {
-		toSerialize["create_timestamp"] = o.CreateTimestamp.Get()
+	if !IsNil(o.CreateTimestamp) {
+		toSerialize["create_timestamp"] = o.CreateTimestamp
 	}
-	if o.Invitable.IsSet() {
-		toSerialize["invitable"] = o.Invitable.Get()
+	if !IsNil(o.Invitable) {
+		toSerialize["invitable"] = o.Invitable
 	}
 	return toSerialize, nil
 }
@@ -386,5 +366,4 @@ func (v *NullableThreadMetadataResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

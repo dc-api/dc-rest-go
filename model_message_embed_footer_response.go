@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,8 +56,8 @@ var _ MappedNullable = &MessageEmbedFooterResponse{}
 // MessageEmbedFooterResponse struct for MessageEmbedFooterResponse
 type MessageEmbedFooterResponse struct {
 	Text string `json:"text"`
-	IconUrl NullableString `json:"icon_url,omitempty"`
-	ProxyIconUrl NullableString `json:"proxy_icon_url,omitempty"`
+	IconUrl *string `json:"icon_url,omitempty"`
+	ProxyIconUrl *string `json:"proxy_icon_url,omitempty"`
 }
 
 type _MessageEmbedFooterResponse MessageEmbedFooterResponse
@@ -104,91 +104,71 @@ func (o *MessageEmbedFooterResponse) SetText(v string) {
 	o.Text = v
 }
 
-// GetIconUrl returns the IconUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIconUrl returns the IconUrl field value if set, zero value otherwise.
 func (o *MessageEmbedFooterResponse) GetIconUrl() string {
-	if o == nil || IsNil(o.IconUrl.Get()) {
+	if o == nil || IsNil(o.IconUrl) {
 		var ret string
 		return ret
 	}
-	return *o.IconUrl.Get()
+	return *o.IconUrl
 }
 
 // GetIconUrlOk returns a tuple with the IconUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedFooterResponse) GetIconUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.IconUrl.Get()) {
+	if o == nil || IsNil(o.IconUrl) {
 		return nil, false
 	}
-	return o.IconUrl.Get(), o.IconUrl.IsSet()
+	return o.IconUrl, true
 }
 
 // HasIconUrl returns a boolean if a field has been set.
 func (o *MessageEmbedFooterResponse) HasIconUrl() bool {
-	if o != nil && o.IconUrl.IsSet() {
+	if o != nil && !IsNil(o.IconUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetIconUrl gets a reference to the given NullableString and assigns it to the IconUrl field.
+// SetIconUrl gets a reference to the given string and assigns it to the IconUrl field.
 func (o *MessageEmbedFooterResponse) SetIconUrl(v string) {
-	o.IconUrl.Set(&v)
+	o.IconUrl = &v
 }
 
-// SetIconUrlNil sets the value for IconUrl to be an explicit nil
-func (o *MessageEmbedFooterResponse) SetIconUrlNil() {
-	o.IconUrl.Set(nil)
-}
 
-// UnsetIconUrl ensures that no value is present for IconUrl, not even an explicit nil
-func (o *MessageEmbedFooterResponse) UnsetIconUrl() {
-	o.IconUrl.Unset()
-}
-
-// GetProxyIconUrl returns the ProxyIconUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetProxyIconUrl returns the ProxyIconUrl field value if set, zero value otherwise.
 func (o *MessageEmbedFooterResponse) GetProxyIconUrl() string {
-	if o == nil || IsNil(o.ProxyIconUrl.Get()) {
+	if o == nil || IsNil(o.ProxyIconUrl) {
 		var ret string
 		return ret
 	}
-	return *o.ProxyIconUrl.Get()
+	return *o.ProxyIconUrl
 }
 
 // GetProxyIconUrlOk returns a tuple with the ProxyIconUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageEmbedFooterResponse) GetProxyIconUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.ProxyIconUrl.Get()) {
+	if o == nil || IsNil(o.ProxyIconUrl) {
 		return nil, false
 	}
-	return o.ProxyIconUrl.Get(), o.ProxyIconUrl.IsSet()
+	return o.ProxyIconUrl, true
 }
 
 // HasProxyIconUrl returns a boolean if a field has been set.
 func (o *MessageEmbedFooterResponse) HasProxyIconUrl() bool {
-	if o != nil && o.ProxyIconUrl.IsSet() {
+	if o != nil && !IsNil(o.ProxyIconUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetProxyIconUrl gets a reference to the given NullableString and assigns it to the ProxyIconUrl field.
+// SetProxyIconUrl gets a reference to the given string and assigns it to the ProxyIconUrl field.
 func (o *MessageEmbedFooterResponse) SetProxyIconUrl(v string) {
-	o.ProxyIconUrl.Set(&v)
+	o.ProxyIconUrl = &v
 }
 
-// SetProxyIconUrlNil sets the value for ProxyIconUrl to be an explicit nil
-func (o *MessageEmbedFooterResponse) SetProxyIconUrlNil() {
-	o.ProxyIconUrl.Set(nil)
-}
-
-// UnsetProxyIconUrl ensures that no value is present for ProxyIconUrl, not even an explicit nil
-func (o *MessageEmbedFooterResponse) UnsetProxyIconUrl() {
-	o.ProxyIconUrl.Unset()
-}
 
 func (o MessageEmbedFooterResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -201,11 +181,11 @@ func (o MessageEmbedFooterResponse) MarshalJSON() ([]byte, error) {
 func (o MessageEmbedFooterResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["text"] = o.Text
-	if o.IconUrl.IsSet() {
-		toSerialize["icon_url"] = o.IconUrl.Get()
+	if !IsNil(o.IconUrl) {
+		toSerialize["icon_url"] = o.IconUrl
 	}
-	if o.ProxyIconUrl.IsSet() {
-		toSerialize["proxy_icon_url"] = o.ProxyIconUrl.Get()
+	if !IsNil(o.ProxyIconUrl) {
+		toSerialize["proxy_icon_url"] = o.ProxyIconUrl
 	}
 	return toSerialize, nil
 }
@@ -282,5 +262,4 @@ func (v *NullableMessageEmbedFooterResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

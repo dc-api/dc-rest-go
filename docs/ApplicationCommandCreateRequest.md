@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **DmPermission** | Pointer to **NullableBool** |  | [optional] 
 **Contexts** | Pointer to **[]int32** |  | [optional] 
 **IntegrationTypes** | Pointer to **[]int32** |  | [optional] 
-**Handler** | Pointer to **int32** |  | [optional] 
-**Type** | Pointer to **int32** |  | [optional] 
+**Handler** | Pointer to **NullableInt32** |  | [optional] 
+**Type** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
 
@@ -340,6 +340,16 @@ SetHandler sets Handler field to given value.
 
 HasHandler returns a boolean if a field has been set.
 
+### SetHandlerNil
+
+`func (o *ApplicationCommandCreateRequest) SetHandlerNil(b bool)`
+
+ SetHandlerNil sets the value for Handler to be an explicit nil
+
+### UnsetHandler
+`func (o *ApplicationCommandCreateRequest) UnsetHandler()`
+
+UnsetHandler ensures that no value is present for Handler, not even an explicit nil
 ### GetType
 
 `func (o *ApplicationCommandCreateRequest) GetType() int32`
@@ -365,6 +375,16 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### SetTypeNil
+
+`func (o *ApplicationCommandCreateRequest) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *ApplicationCommandCreateRequest) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

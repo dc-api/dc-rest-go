@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,9 +53,9 @@ var _ MappedNullable = &MessageAllowedMentionsRequest{}
 
 // MessageAllowedMentionsRequest struct for MessageAllowedMentionsRequest
 type MessageAllowedMentionsRequest struct {
-	Parse []string `json:"parse,omitempty"`
-	Users []string `json:"users,omitempty"`
-	Roles []string `json:"roles,omitempty"`
+	Parse []*string `json:"parse,omitempty"`
+	Users []*string `json:"users,omitempty"`
+	Roles []*string `json:"roles,omitempty"`
 	RepliedUser NullableBool `json:"replied_user,omitempty"`
 }
 
@@ -77,9 +77,9 @@ func NewMessageAllowedMentionsRequestWithDefaults() *MessageAllowedMentionsReque
 }
 
 // GetParse returns the Parse field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MessageAllowedMentionsRequest) GetParse() []string {
+func (o *MessageAllowedMentionsRequest) GetParse() []*string {
 	if o == nil {
-		var ret []string
+		var ret []*string
 		return ret
 	}
 	return o.Parse
@@ -88,7 +88,7 @@ func (o *MessageAllowedMentionsRequest) GetParse() []string {
 // GetParseOk returns a tuple with the Parse field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MessageAllowedMentionsRequest) GetParseOk() ([]string, bool) {
+func (o *MessageAllowedMentionsRequest) GetParseOk() ([]*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -104,16 +104,16 @@ func (o *MessageAllowedMentionsRequest) HasParse() bool {
 	return false
 }
 
-// SetParse gets a reference to the given []string and assigns it to the Parse field.
-func (o *MessageAllowedMentionsRequest) SetParse(v []string) {
+// SetParse gets a reference to the given []*string and assigns it to the Parse field.
+func (o *MessageAllowedMentionsRequest) SetParse(v []*string) {
 	o.Parse = v
 }
 
 
 // GetUsers returns the Users field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MessageAllowedMentionsRequest) GetUsers() []string {
+func (o *MessageAllowedMentionsRequest) GetUsers() []*string {
 	if o == nil {
-		var ret []string
+		var ret []*string
 		return ret
 	}
 	return o.Users
@@ -122,7 +122,7 @@ func (o *MessageAllowedMentionsRequest) GetUsers() []string {
 // GetUsersOk returns a tuple with the Users field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MessageAllowedMentionsRequest) GetUsersOk() ([]string, bool) {
+func (o *MessageAllowedMentionsRequest) GetUsersOk() ([]*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -138,16 +138,16 @@ func (o *MessageAllowedMentionsRequest) HasUsers() bool {
 	return false
 }
 
-// SetUsers gets a reference to the given []string and assigns it to the Users field.
-func (o *MessageAllowedMentionsRequest) SetUsers(v []string) {
+// SetUsers gets a reference to the given []*string and assigns it to the Users field.
+func (o *MessageAllowedMentionsRequest) SetUsers(v []*string) {
 	o.Users = v
 }
 
 
 // GetRoles returns the Roles field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MessageAllowedMentionsRequest) GetRoles() []string {
+func (o *MessageAllowedMentionsRequest) GetRoles() []*string {
 	if o == nil {
-		var ret []string
+		var ret []*string
 		return ret
 	}
 	return o.Roles
@@ -156,7 +156,7 @@ func (o *MessageAllowedMentionsRequest) GetRoles() []string {
 // GetRolesOk returns a tuple with the Roles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MessageAllowedMentionsRequest) GetRolesOk() ([]string, bool) {
+func (o *MessageAllowedMentionsRequest) GetRolesOk() ([]*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -172,8 +172,8 @@ func (o *MessageAllowedMentionsRequest) HasRoles() bool {
 	return false
 }
 
-// SetRoles gets a reference to the given []string and assigns it to the Roles field.
-func (o *MessageAllowedMentionsRequest) SetRoles(v []string) {
+// SetRoles gets a reference to the given []*string and assigns it to the Roles field.
+func (o *MessageAllowedMentionsRequest) SetRoles(v []*string) {
 	o.Roles = v
 }
 
@@ -281,5 +281,4 @@ func (v *NullableMessageAllowedMentionsRequest) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

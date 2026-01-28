@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SoundId** | **string** |  | 
-**SourceGuildId** | Pointer to **string** |  | [optional] 
+**SourceGuildId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -71,6 +71,16 @@ SetSourceGuildId sets SourceGuildId field to given value.
 
 HasSourceGuildId returns a boolean if a field has been set.
 
+### SetSourceGuildIdNil
+
+`func (o *SoundboardSoundSendRequest) SetSourceGuildIdNil(b bool)`
+
+ SetSourceGuildIdNil sets the value for SourceGuildId to be an explicit nil
+
+### UnsetSourceGuildId
+`func (o *SoundboardSoundSendRequest) UnsetSourceGuildId()`
+
+UnsetSourceGuildId ensures that no value is present for SourceGuildId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

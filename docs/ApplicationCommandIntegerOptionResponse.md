@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **int32** |  | 
 **Name** | **string** |  | 
-**NameLocalized** | Pointer to **NullableString** |  | [optional] 
+**NameLocalized** | Pointer to **string** |  | [optional] 
 **NameLocalizations** | Pointer to **map[string]string** |  | [optional] 
 **Description** | **string** |  | 
-**DescriptionLocalized** | Pointer to **NullableString** |  | [optional] 
+**DescriptionLocalized** | Pointer to **string** |  | [optional] 
 **DescriptionLocalizations** | Pointer to **map[string]string** |  | [optional] 
-**Required** | Pointer to **NullableBool** |  | [optional] 
-**Autocomplete** | Pointer to **NullableBool** |  | [optional] 
+**Required** | Pointer to **bool** |  | [optional] 
+**Autocomplete** | Pointer to **bool** |  | [optional] 
 **Choices** | Pointer to [**[]ApplicationCommandOptionIntegerChoiceResponse**](ApplicationCommandOptionIntegerChoiceResponse.md) |  | [optional] 
 **MinValue** | Pointer to **int64** |  | [optional] 
 **MaxValue** | Pointer to **int64** |  | [optional] 
@@ -101,16 +101,6 @@ SetNameLocalized sets NameLocalized field to given value.
 
 HasNameLocalized returns a boolean if a field has been set.
 
-### SetNameLocalizedNil
-
-`func (o *ApplicationCommandIntegerOptionResponse) SetNameLocalizedNil(b bool)`
-
- SetNameLocalizedNil sets the value for NameLocalized to be an explicit nil
-
-### UnsetNameLocalized
-`func (o *ApplicationCommandIntegerOptionResponse) UnsetNameLocalized()`
-
-UnsetNameLocalized ensures that no value is present for NameLocalized, not even an explicit nil
 ### GetNameLocalizations
 
 `func (o *ApplicationCommandIntegerOptionResponse) GetNameLocalizations() map[string]string`
@@ -181,16 +171,6 @@ SetDescriptionLocalized sets DescriptionLocalized field to given value.
 
 HasDescriptionLocalized returns a boolean if a field has been set.
 
-### SetDescriptionLocalizedNil
-
-`func (o *ApplicationCommandIntegerOptionResponse) SetDescriptionLocalizedNil(b bool)`
-
- SetDescriptionLocalizedNil sets the value for DescriptionLocalized to be an explicit nil
-
-### UnsetDescriptionLocalized
-`func (o *ApplicationCommandIntegerOptionResponse) UnsetDescriptionLocalized()`
-
-UnsetDescriptionLocalized ensures that no value is present for DescriptionLocalized, not even an explicit nil
 ### GetDescriptionLocalizations
 
 `func (o *ApplicationCommandIntegerOptionResponse) GetDescriptionLocalizations() map[string]string`
@@ -241,16 +221,6 @@ SetRequired sets Required field to given value.
 
 HasRequired returns a boolean if a field has been set.
 
-### SetRequiredNil
-
-`func (o *ApplicationCommandIntegerOptionResponse) SetRequiredNil(b bool)`
-
- SetRequiredNil sets the value for Required to be an explicit nil
-
-### UnsetRequired
-`func (o *ApplicationCommandIntegerOptionResponse) UnsetRequired()`
-
-UnsetRequired ensures that no value is present for Required, not even an explicit nil
 ### GetAutocomplete
 
 `func (o *ApplicationCommandIntegerOptionResponse) GetAutocomplete() bool`
@@ -276,16 +246,6 @@ SetAutocomplete sets Autocomplete field to given value.
 
 HasAutocomplete returns a boolean if a field has been set.
 
-### SetAutocompleteNil
-
-`func (o *ApplicationCommandIntegerOptionResponse) SetAutocompleteNil(b bool)`
-
- SetAutocompleteNil sets the value for Autocomplete to be an explicit nil
-
-### UnsetAutocomplete
-`func (o *ApplicationCommandIntegerOptionResponse) UnsetAutocomplete()`
-
-UnsetAutocomplete ensures that no value is present for Autocomplete, not even an explicit nil
 ### GetChoices
 
 `func (o *ApplicationCommandIntegerOptionResponse) GetChoices() []ApplicationCommandOptionIntegerChoiceResponse`
@@ -311,16 +271,6 @@ SetChoices sets Choices field to given value.
 
 HasChoices returns a boolean if a field has been set.
 
-### SetChoicesNil
-
-`func (o *ApplicationCommandIntegerOptionResponse) SetChoicesNil(b bool)`
-
- SetChoicesNil sets the value for Choices to be an explicit nil
-
-### UnsetChoices
-`func (o *ApplicationCommandIntegerOptionResponse) UnsetChoices()`
-
-UnsetChoices ensures that no value is present for Choices, not even an explicit nil
 ### GetMinValue
 
 `func (o *ApplicationCommandIntegerOptionResponse) GetMinValue() int64`

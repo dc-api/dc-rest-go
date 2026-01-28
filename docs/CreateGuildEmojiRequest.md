@@ -69,20 +69,20 @@ SetImage sets Image field to given value.
 
 ### GetRoles
 
-`func (o *CreateGuildEmojiRequest) GetRoles() []string`
+`func (o *CreateGuildEmojiRequest) GetRoles() []*string`
 
 GetRoles returns the Roles field if non-nil, zero value otherwise.
 
 ### GetRolesOk
 
-`func (o *CreateGuildEmojiRequest) GetRolesOk() (*[]string, bool)`
+`func (o *CreateGuildEmojiRequest) GetRolesOk() (*[]*string, bool)`
 
 GetRolesOk returns a tuple with the Roles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRoles
 
-`func (o *CreateGuildEmojiRequest) SetRoles(v []string)`
+`func (o *CreateGuildEmojiRequest) SetRoles(v []*string)`
 
 SetRoles sets Roles field to given value.
 

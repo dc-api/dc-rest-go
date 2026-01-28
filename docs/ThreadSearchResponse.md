@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Threads** | [**[]ThreadResponse**](ThreadResponse.md) |  | 
 **Members** | [**[]ThreadMemberResponse**](ThreadMemberResponse.md) |  | 
-**HasMore** | Pointer to **NullableBool** |  | [optional] 
+**HasMore** | **bool** |  | 
 **FirstMessages** | Pointer to [**[]MessageResponse**](MessageResponse.md) |  | [optional] 
-**TotalResults** | Pointer to **NullableInt32** |  | [optional] 
+**TotalResults** | **int32** |  | 
 
 ## Methods
 
 ### NewThreadSearchResponse
 
-`func NewThreadSearchResponse(threads []ThreadResponse, members []ThreadMemberResponse, ) *ThreadSearchResponse`
+`func NewThreadSearchResponse(threads []ThreadResponse, members []ThreadMemberResponse, hasMore bool, totalResults int32, ) *ThreadSearchResponse`
 
 NewThreadSearchResponse instantiates a new ThreadSearchResponse object
 This constructor will assign default values to properties that have it defined,
@@ -88,22 +88,7 @@ and a boolean to check if the value has been set.
 
 SetHasMore sets HasMore field to given value.
 
-### HasHasMore
 
-`func (o *ThreadSearchResponse) HasHasMore() bool`
-
-HasHasMore returns a boolean if a field has been set.
-
-### SetHasMoreNil
-
-`func (o *ThreadSearchResponse) SetHasMoreNil(b bool)`
-
- SetHasMoreNil sets the value for HasMore to be an explicit nil
-
-### UnsetHasMore
-`func (o *ThreadSearchResponse) UnsetHasMore()`
-
-UnsetHasMore ensures that no value is present for HasMore, not even an explicit nil
 ### GetFirstMessages
 
 `func (o *ThreadSearchResponse) GetFirstMessages() []MessageResponse`
@@ -129,16 +114,6 @@ SetFirstMessages sets FirstMessages field to given value.
 
 HasFirstMessages returns a boolean if a field has been set.
 
-### SetFirstMessagesNil
-
-`func (o *ThreadSearchResponse) SetFirstMessagesNil(b bool)`
-
- SetFirstMessagesNil sets the value for FirstMessages to be an explicit nil
-
-### UnsetFirstMessages
-`func (o *ThreadSearchResponse) UnsetFirstMessages()`
-
-UnsetFirstMessages ensures that no value is present for FirstMessages, not even an explicit nil
 ### GetTotalResults
 
 `func (o *ThreadSearchResponse) GetTotalResults() int32`
@@ -158,22 +133,7 @@ and a boolean to check if the value has been set.
 
 SetTotalResults sets TotalResults field to given value.
 
-### HasTotalResults
 
-`func (o *ThreadSearchResponse) HasTotalResults() bool`
-
-HasTotalResults returns a boolean if a field has been set.
-
-### SetTotalResultsNil
-
-`func (o *ThreadSearchResponse) SetTotalResultsNil(b bool)`
-
- SetTotalResultsNil sets the value for TotalResults to be an explicit nil
-
-### UnsetTotalResults
-`func (o *ThreadSearchResponse) UnsetTotalResults()`
-
-UnsetTotalResults ensures that no value is present for TotalResults, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

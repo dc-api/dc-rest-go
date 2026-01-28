@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,7 +53,7 @@ var _ MappedNullable = &UserPrimaryGuildResponse{}
 
 // UserPrimaryGuildResponse struct for UserPrimaryGuildResponse
 type UserPrimaryGuildResponse struct {
-	IdentityGuildId *string `json:"identity_guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	IdentityGuildId NullableString `json:"identity_guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	IdentityEnabled NullableBool `json:"identity_enabled,omitempty"`
 	Tag NullableString `json:"tag,omitempty"`
 	Badge NullableString `json:"badge,omitempty"`
@@ -76,38 +76,48 @@ func NewUserPrimaryGuildResponseWithDefaults() *UserPrimaryGuildResponse {
 	return &this
 }
 
-// GetIdentityGuildId returns the IdentityGuildId field value if set, zero value otherwise.
+// GetIdentityGuildId returns the IdentityGuildId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserPrimaryGuildResponse) GetIdentityGuildId() string {
-	if o == nil || IsNil(o.IdentityGuildId) {
+	if o == nil || IsNil(o.IdentityGuildId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.IdentityGuildId
+	return *o.IdentityGuildId.Get()
 }
 
 // GetIdentityGuildIdOk returns a tuple with the IdentityGuildId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserPrimaryGuildResponse) GetIdentityGuildIdOk() (*string, bool) {
-	if o == nil || IsNil(o.IdentityGuildId) {
+	if o == nil || IsNil(o.IdentityGuildId.Get()) {
 		return nil, false
 	}
-	return o.IdentityGuildId, true
+	return o.IdentityGuildId.Get(), o.IdentityGuildId.IsSet()
 }
 
 // HasIdentityGuildId returns a boolean if a field has been set.
 func (o *UserPrimaryGuildResponse) HasIdentityGuildId() bool {
-	if o != nil && !IsNil(o.IdentityGuildId) {
+	if o != nil && o.IdentityGuildId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetIdentityGuildId gets a reference to the given string and assigns it to the IdentityGuildId field.
+// SetIdentityGuildId gets a reference to the given NullableString and assigns it to the IdentityGuildId field.
 func (o *UserPrimaryGuildResponse) SetIdentityGuildId(v string) {
-	o.IdentityGuildId = &v
+	o.IdentityGuildId.Set(&v)
 }
 
+// SetIdentityGuildIdNil sets the value for IdentityGuildId to be an explicit nil
+func (o *UserPrimaryGuildResponse) SetIdentityGuildIdNil() {
+	o.IdentityGuildId.Set(nil)
+}
+
+// UnsetIdentityGuildId ensures that no value is present for IdentityGuildId, not even an explicit nil
+func (o *UserPrimaryGuildResponse) UnsetIdentityGuildId() {
+	o.IdentityGuildId.Unset()
+}
 
 // GetIdentityEnabled returns the IdentityEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserPrimaryGuildResponse) GetIdentityEnabled() bool {
@@ -248,8 +258,8 @@ func (o UserPrimaryGuildResponse) MarshalJSON() ([]byte, error) {
 
 func (o UserPrimaryGuildResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.IdentityGuildId) {
-		toSerialize["identity_guild_id"] = o.IdentityGuildId
+	if o.IdentityGuildId.IsSet() {
+		toSerialize["identity_guild_id"] = o.IdentityGuildId.Get()
 	}
 	if o.IdentityEnabled.IsSet() {
 		toSerialize["identity_enabled"] = o.IdentityEnabled.Get()
@@ -298,5 +308,4 @@ func (v *NullableUserPrimaryGuildResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

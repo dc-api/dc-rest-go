@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | Pointer to **NullableInt32** |  | [optional] 
 **Name** | **string** |  | 
-**EmojiId** | Pointer to **string** |  | [optional] 
+**EmojiId** | Pointer to **NullableString** |  | [optional] 
 **EmojiName** | Pointer to **NullableString** |  | [optional] 
 **Moderated** | Pointer to **NullableBool** |  | [optional] 
 
@@ -28,6 +29,41 @@ NewGuildTemplateChannelTagsWithDefaults instantiates a new GuildTemplateChannelT
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetId
+
+`func (o *GuildTemplateChannelTags) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *GuildTemplateChannelTags) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *GuildTemplateChannelTags) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *GuildTemplateChannelTags) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *GuildTemplateChannelTags) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *GuildTemplateChannelTags) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *GuildTemplateChannelTags) GetName() string`
@@ -73,6 +109,16 @@ SetEmojiId sets EmojiId field to given value.
 
 HasEmojiId returns a boolean if a field has been set.
 
+### SetEmojiIdNil
+
+`func (o *GuildTemplateChannelTags) SetEmojiIdNil(b bool)`
+
+ SetEmojiIdNil sets the value for EmojiId to be an explicit nil
+
+### UnsetEmojiId
+`func (o *GuildTemplateChannelTags) UnsetEmojiId()`
+
+UnsetEmojiId ensures that no value is present for EmojiId, not even an explicit nil
 ### GetEmojiName
 
 `func (o *GuildTemplateChannelTags) GetEmojiName() string`

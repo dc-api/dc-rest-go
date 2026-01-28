@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to **NullableString** |  | [optional] 
 **Position** | Pointer to **NullableInt32** |  | [optional] 
-**ParentId** | Pointer to **string** |  | [optional] 
+**ParentId** | Pointer to **NullableString** |  | [optional] 
 **LockPermissions** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
@@ -53,6 +53,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *BulkUpdateGuildChannelsRequestInner) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *BulkUpdateGuildChannelsRequestInner) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetPosition
 
 `func (o *BulkUpdateGuildChannelsRequestInner) GetPosition() int32`
@@ -113,6 +123,16 @@ SetParentId sets ParentId field to given value.
 
 HasParentId returns a boolean if a field has been set.
 
+### SetParentIdNil
+
+`func (o *BulkUpdateGuildChannelsRequestInner) SetParentIdNil(b bool)`
+
+ SetParentIdNil sets the value for ParentId to be an explicit nil
+
+### UnsetParentId
+`func (o *BulkUpdateGuildChannelsRequestInner) UnsetParentId()`
+
+UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
 ### GetLockPermissions
 
 `func (o *BulkUpdateGuildChannelsRequestInner) GetLockPermissions() bool`

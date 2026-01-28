@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ChannelId** | **string** |  | 
 **Description** | **string** |  | 
-**EmojiId** | Pointer to **string** |  | [optional] 
+**EmojiId** | Pointer to **NullableString** |  | [optional] 
 **EmojiName** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -93,6 +93,16 @@ SetEmojiId sets EmojiId field to given value.
 
 HasEmojiId returns a boolean if a field has been set.
 
+### SetEmojiIdNil
+
+`func (o *GuildWelcomeScreenChannelResponse) SetEmojiIdNil(b bool)`
+
+ SetEmojiIdNil sets the value for EmojiId to be an explicit nil
+
+### UnsetEmojiId
+`func (o *GuildWelcomeScreenChannelResponse) UnsetEmojiId()`
+
+UnsetEmojiId ensures that no value is present for EmojiId, not even an explicit nil
 ### GetEmojiName
 
 `func (o *GuildWelcomeScreenChannelResponse) GetEmojiName() string`

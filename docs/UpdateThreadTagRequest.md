@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**EmojiId** | Pointer to **string** |  | [optional] 
+**EmojiId** | Pointer to **NullableString** |  | [optional] 
 **EmojiName** | Pointer to **NullableString** |  | [optional] 
 **Moderated** | Pointer to **NullableBool** |  | [optional] 
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -74,6 +74,16 @@ SetEmojiId sets EmojiId field to given value.
 
 HasEmojiId returns a boolean if a field has been set.
 
+### SetEmojiIdNil
+
+`func (o *UpdateThreadTagRequest) SetEmojiIdNil(b bool)`
+
+ SetEmojiIdNil sets the value for EmojiId to be an explicit nil
+
+### UnsetEmojiId
+`func (o *UpdateThreadTagRequest) UnsetEmojiId()`
+
+UnsetEmojiId ensures that no value is present for EmojiId, not even an explicit nil
 ### GetEmojiName
 
 `func (o *UpdateThreadTagRequest) GetEmojiName() string`
@@ -169,6 +179,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *UpdateThreadTagRequest) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *UpdateThreadTagRequest) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

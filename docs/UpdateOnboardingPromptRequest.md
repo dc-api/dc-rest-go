@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **SingleSelect** | Pointer to **NullableBool** |  | [optional] 
 **Required** | Pointer to **NullableBool** |  | [optional] 
 **InOnboarding** | Pointer to **NullableBool** |  | [optional] 
-**Type** | Pointer to **int32** |  | [optional] 
+**Type** | Pointer to **NullableInt32** |  | [optional] 
 **Id** | **string** |  | 
 
 ## Methods
@@ -201,6 +201,16 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### SetTypeNil
+
+`func (o *UpdateOnboardingPromptRequest) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *UpdateOnboardingPromptRequest) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetId
 
 `func (o *UpdateOnboardingPromptRequest) GetId() string`

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,7 +57,7 @@ var _ MappedNullable = &ThreadsResponse{}
 type ThreadsResponse struct {
 	Threads []ThreadResponse `json:"threads"`
 	Members []ThreadMemberResponse `json:"members"`
-	HasMore NullableBool `json:"has_more,omitempty"`
+	HasMore bool `json:"has_more"`
 	FirstMessages []MessageResponse `json:"first_messages,omitempty"`
 }
 
@@ -67,10 +67,11 @@ type _ThreadsResponse ThreadsResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewThreadsResponse(threads []ThreadResponse, members []ThreadMemberResponse) *ThreadsResponse {
+func NewThreadsResponse(threads []ThreadResponse, members []ThreadMemberResponse, hasMore bool) *ThreadsResponse {
 	this := ThreadsResponse{}
 	this.Threads = threads
 	this.Members = members
+	this.HasMore = hasMore
 	return &this
 }
 
@@ -130,52 +131,33 @@ func (o *ThreadsResponse) SetMembers(v []ThreadMemberResponse) {
 	o.Members = v
 }
 
-// GetHasMore returns the HasMore field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHasMore returns the HasMore field value
 func (o *ThreadsResponse) GetHasMore() bool {
-	if o == nil || IsNil(o.HasMore.Get()) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.HasMore.Get()
+
+	return o.HasMore
 }
 
-// GetHasMoreOk returns a tuple with the HasMore field value if set, nil otherwise
+// GetHasMoreOk returns a tuple with the HasMore field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ThreadsResponse) GetHasMoreOk() (*bool, bool) {
-	if o == nil || IsNil(o.HasMore.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HasMore.Get(), o.HasMore.IsSet()
+	return &o.HasMore, true
 }
 
-// HasHasMore returns a boolean if a field has been set.
-func (o *ThreadsResponse) HasHasMore() bool {
-	if o != nil && o.HasMore.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHasMore gets a reference to the given NullableBool and assigns it to the HasMore field.
+// SetHasMore sets field value
 func (o *ThreadsResponse) SetHasMore(v bool) {
-	o.HasMore.Set(&v)
+	o.HasMore = v
 }
 
-// SetHasMoreNil sets the value for HasMore to be an explicit nil
-func (o *ThreadsResponse) SetHasMoreNil() {
-	o.HasMore.Set(nil)
-}
-
-// UnsetHasMore ensures that no value is present for HasMore, not even an explicit nil
-func (o *ThreadsResponse) UnsetHasMore() {
-	o.HasMore.Unset()
-}
-
-// GetFirstMessages returns the FirstMessages field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFirstMessages returns the FirstMessages field value if set, zero value otherwise.
 func (o *ThreadsResponse) GetFirstMessages() []MessageResponse {
-	if o == nil {
+	if o == nil || IsNil(o.FirstMessages) {
 		var ret []MessageResponse
 		return ret
 	}
@@ -184,9 +166,8 @@ func (o *ThreadsResponse) GetFirstMessages() []MessageResponse {
 
 // GetFirstMessagesOk returns a tuple with the FirstMessages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ThreadsResponse) GetFirstMessagesOk() ([]MessageResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FirstMessages) {
 		return nil, false
 	}
 	return o.FirstMessages, true
@@ -219,10 +200,8 @@ func (o ThreadsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["threads"] = o.Threads
 	toSerialize["members"] = o.Members
-	if o.HasMore.IsSet() {
-		toSerialize["has_more"] = o.HasMore.Get()
-	}
-	if o.FirstMessages != nil {
+	toSerialize["has_more"] = o.HasMore
+	if !IsNil(o.FirstMessages) {
 		toSerialize["first_messages"] = o.FirstMessages
 	}
 	return toSerialize, nil
@@ -235,6 +214,7 @@ func (o *ThreadsResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"threads",
 		"members",
+		"has_more",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -301,5 +281,4 @@ func (v *NullableThreadsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

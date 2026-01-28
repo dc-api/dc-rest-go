@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **int32** |  | 
-**Spacing** | Pointer to **int32** |  | [optional] 
+**Id** | Pointer to **NullableInt32** |  | [optional] 
+**Spacing** | Pointer to **NullableInt32** |  | [optional] 
 **Divider** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
@@ -47,6 +48,41 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
+### GetId
+
+`func (o *SeparatorComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *SeparatorComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *SeparatorComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *SeparatorComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *SeparatorComponentForMessageRequest) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *SeparatorComponentForMessageRequest) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetSpacing
 
 `func (o *SeparatorComponentForMessageRequest) GetSpacing() int32`
@@ -72,6 +108,16 @@ SetSpacing sets Spacing field to given value.
 
 HasSpacing returns a boolean if a field has been set.
 
+### SetSpacingNil
+
+`func (o *SeparatorComponentForMessageRequest) SetSpacingNil(b bool)`
+
+ SetSpacingNil sets the value for Spacing to be an explicit nil
+
+### UnsetSpacing
+`func (o *SeparatorComponentForMessageRequest) UnsetSpacing()`
+
+UnsetSpacing ensures that no value is present for Spacing, not even an explicit nil
 ### GetDivider
 
 `func (o *SeparatorComponentForMessageRequest) GetDivider() bool`

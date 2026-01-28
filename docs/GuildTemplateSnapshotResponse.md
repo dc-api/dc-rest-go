@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **DefaultMessageNotifications** | **int32** |  | 
 **ExplicitContentFilter** | **int32** |  | 
 **PreferredLocale** | **string** |  | 
-**AfkChannelId** | Pointer to **string** |  | [optional] 
+**AfkChannelId** | Pointer to **NullableString** |  | [optional] 
 **AfkTimeout** | **NullableInt32** |  | 
-**SystemChannelId** | Pointer to **string** |  | [optional] 
+**SystemChannelId** | Pointer to **NullableString** |  | [optional] 
 **SystemChannelFlags** | **int32** |  | 
 **Roles** | [**[]GuildTemplateRoleResponse**](GuildTemplateRoleResponse.md) |  | 
 **Channels** | [**[]GuildTemplateChannelResponse**](GuildTemplateChannelResponse.md) |  | 
@@ -232,6 +232,16 @@ SetAfkChannelId sets AfkChannelId field to given value.
 
 HasAfkChannelId returns a boolean if a field has been set.
 
+### SetAfkChannelIdNil
+
+`func (o *GuildTemplateSnapshotResponse) SetAfkChannelIdNil(b bool)`
+
+ SetAfkChannelIdNil sets the value for AfkChannelId to be an explicit nil
+
+### UnsetAfkChannelId
+`func (o *GuildTemplateSnapshotResponse) UnsetAfkChannelId()`
+
+UnsetAfkChannelId ensures that no value is present for AfkChannelId, not even an explicit nil
 ### GetAfkTimeout
 
 `func (o *GuildTemplateSnapshotResponse) GetAfkTimeout() int32`
@@ -287,6 +297,16 @@ SetSystemChannelId sets SystemChannelId field to given value.
 
 HasSystemChannelId returns a boolean if a field has been set.
 
+### SetSystemChannelIdNil
+
+`func (o *GuildTemplateSnapshotResponse) SetSystemChannelIdNil(b bool)`
+
+ SetSystemChannelIdNil sets the value for SystemChannelId to be an explicit nil
+
+### UnsetSystemChannelId
+`func (o *GuildTemplateSnapshotResponse) UnsetSystemChannelId()`
+
+UnsetSystemChannelId ensures that no value is present for SystemChannelId, not even an explicit nil
 ### GetSystemChannelFlags
 
 `func (o *GuildTemplateSnapshotResponse) GetSystemChannelFlags() int32`

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -53,7 +53,7 @@ var _ MappedNullable = &CreatePrivateChannelRequest{}
 
 // CreatePrivateChannelRequest struct for CreatePrivateChannelRequest
 type CreatePrivateChannelRequest struct {
-	RecipientId *string `json:"recipient_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	RecipientId NullableString `json:"recipient_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	AccessTokens []string `json:"access_tokens,omitempty"`
 	Nicks map[string]string `json:"nicks,omitempty"`
 }
@@ -75,38 +75,48 @@ func NewCreatePrivateChannelRequestWithDefaults() *CreatePrivateChannelRequest {
 	return &this
 }
 
-// GetRecipientId returns the RecipientId field value if set, zero value otherwise.
+// GetRecipientId returns the RecipientId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreatePrivateChannelRequest) GetRecipientId() string {
-	if o == nil || IsNil(o.RecipientId) {
+	if o == nil || IsNil(o.RecipientId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.RecipientId
+	return *o.RecipientId.Get()
 }
 
 // GetRecipientIdOk returns a tuple with the RecipientId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreatePrivateChannelRequest) GetRecipientIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RecipientId) {
+	if o == nil || IsNil(o.RecipientId.Get()) {
 		return nil, false
 	}
-	return o.RecipientId, true
+	return o.RecipientId.Get(), o.RecipientId.IsSet()
 }
 
 // HasRecipientId returns a boolean if a field has been set.
 func (o *CreatePrivateChannelRequest) HasRecipientId() bool {
-	if o != nil && !IsNil(o.RecipientId) {
+	if o != nil && o.RecipientId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetRecipientId gets a reference to the given string and assigns it to the RecipientId field.
+// SetRecipientId gets a reference to the given NullableString and assigns it to the RecipientId field.
 func (o *CreatePrivateChannelRequest) SetRecipientId(v string) {
-	o.RecipientId = &v
+	o.RecipientId.Set(&v)
 }
 
+// SetRecipientIdNil sets the value for RecipientId to be an explicit nil
+func (o *CreatePrivateChannelRequest) SetRecipientIdNil() {
+	o.RecipientId.Set(nil)
+}
+
+// UnsetRecipientId ensures that no value is present for RecipientId, not even an explicit nil
+func (o *CreatePrivateChannelRequest) UnsetRecipientId() {
+	o.RecipientId.Unset()
+}
 
 // GetAccessTokens returns the AccessTokens field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreatePrivateChannelRequest) GetAccessTokens() []string {
@@ -185,8 +195,8 @@ func (o CreatePrivateChannelRequest) MarshalJSON() ([]byte, error) {
 
 func (o CreatePrivateChannelRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.RecipientId) {
-		toSerialize["recipient_id"] = o.RecipientId
+	if o.RecipientId.IsSet() {
+		toSerialize["recipient_id"] = o.RecipientId.Get()
 	}
 	if o.AccessTokens != nil {
 		toSerialize["access_tokens"] = o.AccessTokens
@@ -232,5 +242,4 @@ func (v *NullableCreatePrivateChannelRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

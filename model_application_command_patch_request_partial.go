@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -62,7 +62,7 @@ type ApplicationCommandPatchRequestPartial struct {
 	DmPermission NullableBool `json:"dm_permission,omitempty"`
 	Contexts []int32 `json:"contexts,omitempty"`
 	IntegrationTypes []int32 `json:"integration_types,omitempty"`
-	Handler *int32 `json:"handler,omitempty"`
+	Handler NullableInt32 `json:"handler,omitempty"`
 }
 
 // NewApplicationCommandPatchRequestPartial instantiates a new ApplicationCommandPatchRequestPartial object
@@ -412,38 +412,48 @@ func (o *ApplicationCommandPatchRequestPartial) SetIntegrationTypes(v []int32) {
 }
 
 
-// GetHandler returns the Handler field value if set, zero value otherwise.
+// GetHandler returns the Handler field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplicationCommandPatchRequestPartial) GetHandler() int32 {
-	if o == nil || IsNil(o.Handler) {
+	if o == nil || IsNil(o.Handler.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.Handler
+	return *o.Handler.Get()
 }
 
 // GetHandlerOk returns a tuple with the Handler field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandPatchRequestPartial) GetHandlerOk() (*int32, bool) {
-	if o == nil || IsNil(o.Handler) {
+	if o == nil || IsNil(o.Handler.Get()) {
 		return nil, false
 	}
-	return o.Handler, true
+	return o.Handler.Get(), o.Handler.IsSet()
 }
 
 // HasHandler returns a boolean if a field has been set.
 func (o *ApplicationCommandPatchRequestPartial) HasHandler() bool {
-	if o != nil && !IsNil(o.Handler) {
+	if o != nil && o.Handler.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetHandler gets a reference to the given int32 and assigns it to the Handler field.
+// SetHandler gets a reference to the given NullableInt32 and assigns it to the Handler field.
 func (o *ApplicationCommandPatchRequestPartial) SetHandler(v int32) {
-	o.Handler = &v
+	o.Handler.Set(&v)
 }
 
+// SetHandlerNil sets the value for Handler to be an explicit nil
+func (o *ApplicationCommandPatchRequestPartial) SetHandlerNil() {
+	o.Handler.Set(nil)
+}
+
+// UnsetHandler ensures that no value is present for Handler, not even an explicit nil
+func (o *ApplicationCommandPatchRequestPartial) UnsetHandler() {
+	o.Handler.Unset()
+}
 
 func (o ApplicationCommandPatchRequestPartial) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -482,8 +492,8 @@ func (o ApplicationCommandPatchRequestPartial) ToMap() (map[string]interface{}, 
 	if o.IntegrationTypes != nil {
 		toSerialize["integration_types"] = o.IntegrationTypes
 	}
-	if !IsNil(o.Handler) {
-		toSerialize["handler"] = o.Handler
+	if o.Handler.IsSet() {
+		toSerialize["handler"] = o.Handler.Get()
 	}
 	return toSerialize, nil
 }
@@ -523,5 +533,4 @@ func (v *NullableApplicationCommandPatchRequestPartial) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

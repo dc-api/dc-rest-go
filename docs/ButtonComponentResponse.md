@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **int32** |  | 
 **Id** | **int32** |  | 
-**CustomId** | Pointer to **NullableString** |  | [optional] 
+**CustomId** | Pointer to **string** |  | [optional] 
 **Style** | **NullableInt32** |  | 
-**Label** | Pointer to **NullableString** |  | [optional] 
-**Disabled** | Pointer to **NullableBool** |  | [optional] 
-**Emoji** | Pointer to [**NullableComponentEmojiResponse**](ComponentEmojiResponse.md) |  | [optional] 
+**Label** | Pointer to **string** |  | [optional] 
+**Disabled** | Pointer to **bool** |  | [optional] 
+**Emoji** | Pointer to [**ComponentEmojiResponse**](ComponentEmojiResponse.md) |  | [optional] 
 **Url** | Pointer to **NullableString** |  | [optional] 
 **SkuId** | Pointer to **string** |  | [optional] 
 
@@ -98,16 +98,6 @@ SetCustomId sets CustomId field to given value.
 
 HasCustomId returns a boolean if a field has been set.
 
-### SetCustomIdNil
-
-`func (o *ButtonComponentResponse) SetCustomIdNil(b bool)`
-
- SetCustomIdNil sets the value for CustomId to be an explicit nil
-
-### UnsetCustomId
-`func (o *ButtonComponentResponse) UnsetCustomId()`
-
-UnsetCustomId ensures that no value is present for CustomId, not even an explicit nil
 ### GetStyle
 
 `func (o *ButtonComponentResponse) GetStyle() int32`
@@ -163,16 +153,6 @@ SetLabel sets Label field to given value.
 
 HasLabel returns a boolean if a field has been set.
 
-### SetLabelNil
-
-`func (o *ButtonComponentResponse) SetLabelNil(b bool)`
-
- SetLabelNil sets the value for Label to be an explicit nil
-
-### UnsetLabel
-`func (o *ButtonComponentResponse) UnsetLabel()`
-
-UnsetLabel ensures that no value is present for Label, not even an explicit nil
 ### GetDisabled
 
 `func (o *ButtonComponentResponse) GetDisabled() bool`
@@ -198,16 +178,6 @@ SetDisabled sets Disabled field to given value.
 
 HasDisabled returns a boolean if a field has been set.
 
-### SetDisabledNil
-
-`func (o *ButtonComponentResponse) SetDisabledNil(b bool)`
-
- SetDisabledNil sets the value for Disabled to be an explicit nil
-
-### UnsetDisabled
-`func (o *ButtonComponentResponse) UnsetDisabled()`
-
-UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
 ### GetEmoji
 
 `func (o *ButtonComponentResponse) GetEmoji() ComponentEmojiResponse`
@@ -233,16 +203,6 @@ SetEmoji sets Emoji field to given value.
 
 HasEmoji returns a boolean if a field has been set.
 
-### SetEmojiNil
-
-`func (o *ButtonComponentResponse) SetEmojiNil(b bool)`
-
- SetEmojiNil sets the value for Emoji to be an explicit nil
-
-### UnsetEmoji
-`func (o *ButtonComponentResponse) UnsetEmoji()`
-
-UnsetEmoji ensures that no value is present for Emoji, not even an explicit nil
 ### GetUrl
 
 `func (o *ButtonComponentResponse) GetUrl() string`

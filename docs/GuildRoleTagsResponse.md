@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PremiumSubscriber** | Pointer to **interface{}** |  | [optional] 
+**PremiumSubscriber** | Pointer to [**nil**](nil.md) |  | [optional] 
 **BotId** | Pointer to **string** |  | [optional] 
 **IntegrationId** | Pointer to **string** |  | [optional] 
 **SubscriptionListingId** | Pointer to **string** |  | [optional] 
-**AvailableForPurchase** | Pointer to **interface{}** |  | [optional] 
-**GuildConnections** | Pointer to **interface{}** |  | [optional] 
+**AvailableForPurchase** | Pointer to [**nil**](nil.md) |  | [optional] 
+**GuildConnections** | Pointer to [**nil**](nil.md) |  | [optional] 
 
 ## Methods
 
@@ -32,20 +32,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetPremiumSubscriber
 
-`func (o *GuildRoleTagsResponse) GetPremiumSubscriber() interface{}`
+`func (o *GuildRoleTagsResponse) GetPremiumSubscriber() nil`
 
 GetPremiumSubscriber returns the PremiumSubscriber field if non-nil, zero value otherwise.
 
 ### GetPremiumSubscriberOk
 
-`func (o *GuildRoleTagsResponse) GetPremiumSubscriberOk() (*interface{}, bool)`
+`func (o *GuildRoleTagsResponse) GetPremiumSubscriberOk() (*nil, bool)`
 
 GetPremiumSubscriberOk returns a tuple with the PremiumSubscriber field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPremiumSubscriber
 
-`func (o *GuildRoleTagsResponse) SetPremiumSubscriber(v interface{})`
+`func (o *GuildRoleTagsResponse) SetPremiumSubscriber(v nil)`
 
 SetPremiumSubscriber sets PremiumSubscriber field to given value.
 
@@ -55,16 +55,6 @@ SetPremiumSubscriber sets PremiumSubscriber field to given value.
 
 HasPremiumSubscriber returns a boolean if a field has been set.
 
-### SetPremiumSubscriberNil
-
-`func (o *GuildRoleTagsResponse) SetPremiumSubscriberNil(b bool)`
-
- SetPremiumSubscriberNil sets the value for PremiumSubscriber to be an explicit nil
-
-### UnsetPremiumSubscriber
-`func (o *GuildRoleTagsResponse) UnsetPremiumSubscriber()`
-
-UnsetPremiumSubscriber ensures that no value is present for PremiumSubscriber, not even an explicit nil
 ### GetBotId
 
 `func (o *GuildRoleTagsResponse) GetBotId() string`
@@ -142,20 +132,20 @@ HasSubscriptionListingId returns a boolean if a field has been set.
 
 ### GetAvailableForPurchase
 
-`func (o *GuildRoleTagsResponse) GetAvailableForPurchase() interface{}`
+`func (o *GuildRoleTagsResponse) GetAvailableForPurchase() nil`
 
 GetAvailableForPurchase returns the AvailableForPurchase field if non-nil, zero value otherwise.
 
 ### GetAvailableForPurchaseOk
 
-`func (o *GuildRoleTagsResponse) GetAvailableForPurchaseOk() (*interface{}, bool)`
+`func (o *GuildRoleTagsResponse) GetAvailableForPurchaseOk() (*nil, bool)`
 
 GetAvailableForPurchaseOk returns a tuple with the AvailableForPurchase field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAvailableForPurchase
 
-`func (o *GuildRoleTagsResponse) SetAvailableForPurchase(v interface{})`
+`func (o *GuildRoleTagsResponse) SetAvailableForPurchase(v nil)`
 
 SetAvailableForPurchase sets AvailableForPurchase field to given value.
 
@@ -165,32 +155,22 @@ SetAvailableForPurchase sets AvailableForPurchase field to given value.
 
 HasAvailableForPurchase returns a boolean if a field has been set.
 
-### SetAvailableForPurchaseNil
-
-`func (o *GuildRoleTagsResponse) SetAvailableForPurchaseNil(b bool)`
-
- SetAvailableForPurchaseNil sets the value for AvailableForPurchase to be an explicit nil
-
-### UnsetAvailableForPurchase
-`func (o *GuildRoleTagsResponse) UnsetAvailableForPurchase()`
-
-UnsetAvailableForPurchase ensures that no value is present for AvailableForPurchase, not even an explicit nil
 ### GetGuildConnections
 
-`func (o *GuildRoleTagsResponse) GetGuildConnections() interface{}`
+`func (o *GuildRoleTagsResponse) GetGuildConnections() nil`
 
 GetGuildConnections returns the GuildConnections field if non-nil, zero value otherwise.
 
 ### GetGuildConnectionsOk
 
-`func (o *GuildRoleTagsResponse) GetGuildConnectionsOk() (*interface{}, bool)`
+`func (o *GuildRoleTagsResponse) GetGuildConnectionsOk() (*nil, bool)`
 
 GetGuildConnectionsOk returns a tuple with the GuildConnections field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGuildConnections
 
-`func (o *GuildRoleTagsResponse) SetGuildConnections(v interface{})`
+`func (o *GuildRoleTagsResponse) SetGuildConnections(v nil)`
 
 SetGuildConnections sets GuildConnections field to given value.
 
@@ -200,16 +180,6 @@ SetGuildConnections sets GuildConnections field to given value.
 
 HasGuildConnections returns a boolean if a field has been set.
 
-### SetGuildConnectionsNil
-
-`func (o *GuildRoleTagsResponse) SetGuildConnectionsNil(b bool)`
-
- SetGuildConnectionsNil sets the value for GuildConnections to be an explicit nil
-
-### UnsetGuildConnections
-`func (o *GuildRoleTagsResponse) UnsetGuildConnections()`
-
-UnsetGuildConnections ensures that no value is present for GuildConnections, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ type UpdateGuildOnboardingRequest struct {
 	Prompts []UpdateOnboardingPromptRequest `json:"prompts,omitempty"`
 	Enabled NullableBool `json:"enabled,omitempty"`
 	DefaultChannelIds []string `json:"default_channel_ids,omitempty"`
-	Mode *int32 `json:"mode,omitempty"`
+	Mode NullableInt32 `json:"mode,omitempty"`
 }
 
 // NewUpdateGuildOnboardingRequest instantiates a new UpdateGuildOnboardingRequest object
@@ -187,38 +187,48 @@ func (o *UpdateGuildOnboardingRequest) SetDefaultChannelIds(v []string) {
 }
 
 
-// GetMode returns the Mode field value if set, zero value otherwise.
+// GetMode returns the Mode field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateGuildOnboardingRequest) GetMode() int32 {
-	if o == nil || IsNil(o.Mode) {
+	if o == nil || IsNil(o.Mode.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.Mode
+	return *o.Mode.Get()
 }
 
 // GetModeOk returns a tuple with the Mode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateGuildOnboardingRequest) GetModeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Mode) {
+	if o == nil || IsNil(o.Mode.Get()) {
 		return nil, false
 	}
-	return o.Mode, true
+	return o.Mode.Get(), o.Mode.IsSet()
 }
 
 // HasMode returns a boolean if a field has been set.
 func (o *UpdateGuildOnboardingRequest) HasMode() bool {
-	if o != nil && !IsNil(o.Mode) {
+	if o != nil && o.Mode.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMode gets a reference to the given int32 and assigns it to the Mode field.
+// SetMode gets a reference to the given NullableInt32 and assigns it to the Mode field.
 func (o *UpdateGuildOnboardingRequest) SetMode(v int32) {
-	o.Mode = &v
+	o.Mode.Set(&v)
 }
 
+// SetModeNil sets the value for Mode to be an explicit nil
+func (o *UpdateGuildOnboardingRequest) SetModeNil() {
+	o.Mode.Set(nil)
+}
+
+// UnsetMode ensures that no value is present for Mode, not even an explicit nil
+func (o *UpdateGuildOnboardingRequest) UnsetMode() {
+	o.Mode.Unset()
+}
 
 func (o UpdateGuildOnboardingRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -239,8 +249,8 @@ func (o UpdateGuildOnboardingRequest) ToMap() (map[string]interface{}, error) {
 	if o.DefaultChannelIds != nil {
 		toSerialize["default_channel_ids"] = o.DefaultChannelIds
 	}
-	if !IsNil(o.Mode) {
-		toSerialize["mode"] = o.Mode
+	if o.Mode.IsSet() {
+		toSerialize["mode"] = o.Mode.Get()
 	}
 	return toSerialize, nil
 }
@@ -280,5 +290,4 @@ func (v *NullableUpdateGuildOnboardingRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

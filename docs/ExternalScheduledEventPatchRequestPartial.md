@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **ScheduledEndTime** | Pointer to **NullableTime** |  | [optional] 
 **EntityType** | Pointer to **NullableInt32** |  | [optional] 
 **PrivacyLevel** | Pointer to **interface{}** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
+**ChannelId** | Pointer to **NullableString** |  | [optional] 
 **EntityMetadata** | Pointer to [**EntityMetadataExternal**](EntityMetadataExternal.md) |  | [optional] 
 
 ## Methods
@@ -319,6 +319,16 @@ SetChannelId sets ChannelId field to given value.
 
 HasChannelId returns a boolean if a field has been set.
 
+### SetChannelIdNil
+
+`func (o *ExternalScheduledEventPatchRequestPartial) SetChannelIdNil(b bool)`
+
+ SetChannelIdNil sets the value for ChannelId to be an explicit nil
+
+### UnsetChannelId
+`func (o *ExternalScheduledEventPatchRequestPartial) UnsetChannelId()`
+
+UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
 ### GetEntityMetadata
 
 `func (o *ExternalScheduledEventPatchRequestPartial) GetEntityMetadata() EntityMetadataExternal`

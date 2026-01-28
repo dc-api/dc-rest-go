@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,11 +58,11 @@ type SoundboardSoundResponse struct {
 	Name string `json:"name"`
 	SoundId string `json:"sound_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Volume float64 `json:"volume"`
-	EmojiId *string `json:"emoji_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	EmojiId NullableString `json:"emoji_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	EmojiName NullableString `json:"emoji_name,omitempty"`
 	GuildId *string `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Available bool `json:"available"`
-	User NullableUserResponse `json:"user,omitempty"`
+	User *UserResponse `json:"user,omitempty"`
 }
 
 type _SoundboardSoundResponse SoundboardSoundResponse
@@ -160,38 +160,48 @@ func (o *SoundboardSoundResponse) SetVolume(v float64) {
 	o.Volume = v
 }
 
-// GetEmojiId returns the EmojiId field value if set, zero value otherwise.
+// GetEmojiId returns the EmojiId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SoundboardSoundResponse) GetEmojiId() string {
-	if o == nil || IsNil(o.EmojiId) {
+	if o == nil || IsNil(o.EmojiId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.EmojiId
+	return *o.EmojiId.Get()
 }
 
 // GetEmojiIdOk returns a tuple with the EmojiId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SoundboardSoundResponse) GetEmojiIdOk() (*string, bool) {
-	if o == nil || IsNil(o.EmojiId) {
+	if o == nil || IsNil(o.EmojiId.Get()) {
 		return nil, false
 	}
-	return o.EmojiId, true
+	return o.EmojiId.Get(), o.EmojiId.IsSet()
 }
 
 // HasEmojiId returns a boolean if a field has been set.
 func (o *SoundboardSoundResponse) HasEmojiId() bool {
-	if o != nil && !IsNil(o.EmojiId) {
+	if o != nil && o.EmojiId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetEmojiId gets a reference to the given string and assigns it to the EmojiId field.
+// SetEmojiId gets a reference to the given NullableString and assigns it to the EmojiId field.
 func (o *SoundboardSoundResponse) SetEmojiId(v string) {
-	o.EmojiId = &v
+	o.EmojiId.Set(&v)
 }
 
+// SetEmojiIdNil sets the value for EmojiId to be an explicit nil
+func (o *SoundboardSoundResponse) SetEmojiIdNil() {
+	o.EmojiId.Set(nil)
+}
+
+// UnsetEmojiId ensures that no value is present for EmojiId, not even an explicit nil
+func (o *SoundboardSoundResponse) UnsetEmojiId() {
+	o.EmojiId.Unset()
+}
 
 // GetEmojiName returns the EmojiName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SoundboardSoundResponse) GetEmojiName() string {
@@ -293,48 +303,38 @@ func (o *SoundboardSoundResponse) SetAvailable(v bool) {
 	o.Available = v
 }
 
-// GetUser returns the User field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUser returns the User field value if set, zero value otherwise.
 func (o *SoundboardSoundResponse) GetUser() UserResponse {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.User.Get()
+	return *o.User
 }
 
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SoundboardSoundResponse) GetUserOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		return nil, false
 	}
-	return o.User.Get(), o.User.IsSet()
+	return o.User, true
 }
 
 // HasUser returns a boolean if a field has been set.
 func (o *SoundboardSoundResponse) HasUser() bool {
-	if o != nil && o.User.IsSet() {
+	if o != nil && !IsNil(o.User) {
 		return true
 	}
 
 	return false
 }
 
-// SetUser gets a reference to the given NullableUserResponse and assigns it to the User field.
+// SetUser gets a reference to the given UserResponse and assigns it to the User field.
 func (o *SoundboardSoundResponse) SetUser(v UserResponse) {
-	o.User.Set(&v)
+	o.User = &v
 }
 
-// SetUserNil sets the value for User to be an explicit nil
-func (o *SoundboardSoundResponse) SetUserNil() {
-	o.User.Set(nil)
-}
-
-// UnsetUser ensures that no value is present for User, not even an explicit nil
-func (o *SoundboardSoundResponse) UnsetUser() {
-	o.User.Unset()
-}
 
 func (o SoundboardSoundResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -349,8 +349,8 @@ func (o SoundboardSoundResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["sound_id"] = o.SoundId
 	toSerialize["volume"] = o.Volume
-	if !IsNil(o.EmojiId) {
-		toSerialize["emoji_id"] = o.EmojiId
+	if o.EmojiId.IsSet() {
+		toSerialize["emoji_id"] = o.EmojiId.Get()
 	}
 	if o.EmojiName.IsSet() {
 		toSerialize["emoji_name"] = o.EmojiName.Get()
@@ -359,8 +359,8 @@ func (o SoundboardSoundResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["guild_id"] = o.GuildId
 	}
 	toSerialize["available"] = o.Available
-	if o.User.IsSet() {
-		toSerialize["user"] = o.User.Get()
+	if !IsNil(o.User) {
+		toSerialize["user"] = o.User
 	}
 	return toSerialize, nil
 }
@@ -440,5 +440,4 @@ func (v *NullableSoundboardSoundResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

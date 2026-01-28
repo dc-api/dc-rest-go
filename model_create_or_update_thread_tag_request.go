@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ var _ MappedNullable = &CreateOrUpdateThreadTagRequest{}
 // CreateOrUpdateThreadTagRequest struct for CreateOrUpdateThreadTagRequest
 type CreateOrUpdateThreadTagRequest struct {
 	Name string `json:"name"`
-	EmojiId *string `json:"emoji_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	EmojiId NullableString `json:"emoji_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	EmojiName NullableString `json:"emoji_name,omitempty"`
 	Moderated NullableBool `json:"moderated,omitempty"`
 }
@@ -105,38 +105,48 @@ func (o *CreateOrUpdateThreadTagRequest) SetName(v string) {
 	o.Name = v
 }
 
-// GetEmojiId returns the EmojiId field value if set, zero value otherwise.
+// GetEmojiId returns the EmojiId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateOrUpdateThreadTagRequest) GetEmojiId() string {
-	if o == nil || IsNil(o.EmojiId) {
+	if o == nil || IsNil(o.EmojiId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.EmojiId
+	return *o.EmojiId.Get()
 }
 
 // GetEmojiIdOk returns a tuple with the EmojiId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateThreadTagRequest) GetEmojiIdOk() (*string, bool) {
-	if o == nil || IsNil(o.EmojiId) {
+	if o == nil || IsNil(o.EmojiId.Get()) {
 		return nil, false
 	}
-	return o.EmojiId, true
+	return o.EmojiId.Get(), o.EmojiId.IsSet()
 }
 
 // HasEmojiId returns a boolean if a field has been set.
 func (o *CreateOrUpdateThreadTagRequest) HasEmojiId() bool {
-	if o != nil && !IsNil(o.EmojiId) {
+	if o != nil && o.EmojiId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetEmojiId gets a reference to the given string and assigns it to the EmojiId field.
+// SetEmojiId gets a reference to the given NullableString and assigns it to the EmojiId field.
 func (o *CreateOrUpdateThreadTagRequest) SetEmojiId(v string) {
-	o.EmojiId = &v
+	o.EmojiId.Set(&v)
 }
 
+// SetEmojiIdNil sets the value for EmojiId to be an explicit nil
+func (o *CreateOrUpdateThreadTagRequest) SetEmojiIdNil() {
+	o.EmojiId.Set(nil)
+}
+
+// UnsetEmojiId ensures that no value is present for EmojiId, not even an explicit nil
+func (o *CreateOrUpdateThreadTagRequest) UnsetEmojiId() {
+	o.EmojiId.Unset()
+}
 
 // GetEmojiName returns the EmojiName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateOrUpdateThreadTagRequest) GetEmojiName() string {
@@ -235,8 +245,8 @@ func (o CreateOrUpdateThreadTagRequest) MarshalJSON() ([]byte, error) {
 func (o CreateOrUpdateThreadTagRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
-	if !IsNil(o.EmojiId) {
-		toSerialize["emoji_id"] = o.EmojiId
+	if o.EmojiId.IsSet() {
+		toSerialize["emoji_id"] = o.EmojiId.Get()
 	}
 	if o.EmojiName.IsSet() {
 		toSerialize["emoji_name"] = o.EmojiName.Get()
@@ -319,5 +329,4 @@ func (v *NullableCreateOrUpdateThreadTagRequest) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

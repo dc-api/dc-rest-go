@@ -6,31 +6,31 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Type** | **int32** |  | 
-**LastMessageId** | Pointer to **string** |  | [optional] 
+**LastMessageId** | Pointer to **NullableString** |  | [optional] 
 **Flags** | **int32** |  | 
 **LastPinTimestamp** | Pointer to **NullableTime** |  | [optional] 
 **GuildId** | **string** |  | 
 **Name** | **string** |  | 
-**ParentId** | Pointer to **string** |  | [optional] 
-**RateLimitPerUser** | Pointer to **NullableInt32** |  | [optional] 
-**Bitrate** | Pointer to **NullableInt32** |  | [optional] 
-**UserLimit** | Pointer to **NullableInt32** |  | [optional] 
+**ParentId** | Pointer to **NullableString** |  | [optional] 
+**RateLimitPerUser** | Pointer to **int32** |  | [optional] 
+**Bitrate** | Pointer to **int32** |  | [optional] 
+**UserLimit** | Pointer to **int32** |  | [optional] 
 **RtcRegion** | Pointer to **NullableString** |  | [optional] 
 **VideoQualityMode** | Pointer to **int32** |  | [optional] 
 **Permissions** | Pointer to **NullableString** |  | [optional] 
 **OwnerId** | **string** |  | 
-**ThreadMetadata** | Pointer to [**NullableThreadMetadataResponse**](ThreadMetadataResponse.md) |  | [optional] 
+**ThreadMetadata** | [**ThreadMetadataResponse**](ThreadMetadataResponse.md) |  | 
 **MessageCount** | **int32** |  | 
 **MemberCount** | **int32** |  | 
 **TotalMessageSent** | **int32** |  | 
 **AppliedTags** | Pointer to **[]string** |  | [optional] 
-**Member** | Pointer to [**NullableThreadMemberResponse**](ThreadMemberResponse.md) |  | [optional] 
+**Member** | Pointer to [**ThreadMemberResponse**](ThreadMemberResponse.md) |  | [optional] 
 
 ## Methods
 
 ### NewThreadResponse
 
-`func NewThreadResponse(id string, type_ int32, flags int32, guildId string, name string, ownerId string, messageCount int32, memberCount int32, totalMessageSent int32, ) *ThreadResponse`
+`func NewThreadResponse(id string, type_ int32, flags int32, guildId string, name string, ownerId string, threadMetadata ThreadMetadataResponse, messageCount int32, memberCount int32, totalMessageSent int32, ) *ThreadResponse`
 
 NewThreadResponse instantiates a new ThreadResponse object
 This constructor will assign default values to properties that have it defined,
@@ -110,6 +110,16 @@ SetLastMessageId sets LastMessageId field to given value.
 
 HasLastMessageId returns a boolean if a field has been set.
 
+### SetLastMessageIdNil
+
+`func (o *ThreadResponse) SetLastMessageIdNil(b bool)`
+
+ SetLastMessageIdNil sets the value for LastMessageId to be an explicit nil
+
+### UnsetLastMessageId
+`func (o *ThreadResponse) UnsetLastMessageId()`
+
+UnsetLastMessageId ensures that no value is present for LastMessageId, not even an explicit nil
 ### GetFlags
 
 `func (o *ThreadResponse) GetFlags() int32`
@@ -230,6 +240,16 @@ SetParentId sets ParentId field to given value.
 
 HasParentId returns a boolean if a field has been set.
 
+### SetParentIdNil
+
+`func (o *ThreadResponse) SetParentIdNil(b bool)`
+
+ SetParentIdNil sets the value for ParentId to be an explicit nil
+
+### UnsetParentId
+`func (o *ThreadResponse) UnsetParentId()`
+
+UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
 ### GetRateLimitPerUser
 
 `func (o *ThreadResponse) GetRateLimitPerUser() int32`
@@ -255,16 +275,6 @@ SetRateLimitPerUser sets RateLimitPerUser field to given value.
 
 HasRateLimitPerUser returns a boolean if a field has been set.
 
-### SetRateLimitPerUserNil
-
-`func (o *ThreadResponse) SetRateLimitPerUserNil(b bool)`
-
- SetRateLimitPerUserNil sets the value for RateLimitPerUser to be an explicit nil
-
-### UnsetRateLimitPerUser
-`func (o *ThreadResponse) UnsetRateLimitPerUser()`
-
-UnsetRateLimitPerUser ensures that no value is present for RateLimitPerUser, not even an explicit nil
 ### GetBitrate
 
 `func (o *ThreadResponse) GetBitrate() int32`
@@ -290,16 +300,6 @@ SetBitrate sets Bitrate field to given value.
 
 HasBitrate returns a boolean if a field has been set.
 
-### SetBitrateNil
-
-`func (o *ThreadResponse) SetBitrateNil(b bool)`
-
- SetBitrateNil sets the value for Bitrate to be an explicit nil
-
-### UnsetBitrate
-`func (o *ThreadResponse) UnsetBitrate()`
-
-UnsetBitrate ensures that no value is present for Bitrate, not even an explicit nil
 ### GetUserLimit
 
 `func (o *ThreadResponse) GetUserLimit() int32`
@@ -325,16 +325,6 @@ SetUserLimit sets UserLimit field to given value.
 
 HasUserLimit returns a boolean if a field has been set.
 
-### SetUserLimitNil
-
-`func (o *ThreadResponse) SetUserLimitNil(b bool)`
-
- SetUserLimitNil sets the value for UserLimit to be an explicit nil
-
-### UnsetUserLimit
-`func (o *ThreadResponse) UnsetUserLimit()`
-
-UnsetUserLimit ensures that no value is present for UserLimit, not even an explicit nil
 ### GetRtcRegion
 
 `func (o *ThreadResponse) GetRtcRegion() string`
@@ -469,22 +459,7 @@ and a boolean to check if the value has been set.
 
 SetThreadMetadata sets ThreadMetadata field to given value.
 
-### HasThreadMetadata
 
-`func (o *ThreadResponse) HasThreadMetadata() bool`
-
-HasThreadMetadata returns a boolean if a field has been set.
-
-### SetThreadMetadataNil
-
-`func (o *ThreadResponse) SetThreadMetadataNil(b bool)`
-
- SetThreadMetadataNil sets the value for ThreadMetadata to be an explicit nil
-
-### UnsetThreadMetadata
-`func (o *ThreadResponse) UnsetThreadMetadata()`
-
-UnsetThreadMetadata ensures that no value is present for ThreadMetadata, not even an explicit nil
 ### GetMessageCount
 
 `func (o *ThreadResponse) GetMessageCount() int32`
@@ -570,16 +545,6 @@ SetAppliedTags sets AppliedTags field to given value.
 
 HasAppliedTags returns a boolean if a field has been set.
 
-### SetAppliedTagsNil
-
-`func (o *ThreadResponse) SetAppliedTagsNil(b bool)`
-
- SetAppliedTagsNil sets the value for AppliedTags to be an explicit nil
-
-### UnsetAppliedTags
-`func (o *ThreadResponse) UnsetAppliedTags()`
-
-UnsetAppliedTags ensures that no value is present for AppliedTags, not even an explicit nil
 ### GetMember
 
 `func (o *ThreadResponse) GetMember() ThreadMemberResponse`
@@ -605,16 +570,6 @@ SetMember sets Member field to given value.
 
 HasMember returns a boolean if a field has been set.
 
-### SetMemberNil
-
-`func (o *ThreadResponse) SetMemberNil(b bool)`
-
- SetMemberNil sets the value for Member to be an explicit nil
-
-### UnsetMember
-`func (o *ThreadResponse) UnsetMember()`
-
-UnsetMember ensures that no value is present for Member, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

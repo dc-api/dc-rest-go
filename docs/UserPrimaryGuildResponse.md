@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityGuildId** | Pointer to **string** |  | [optional] 
+**IdentityGuildId** | Pointer to **NullableString** |  | [optional] 
 **IdentityEnabled** | Pointer to **NullableBool** |  | [optional] 
 **Tag** | Pointer to **NullableString** |  | [optional] 
 **Badge** | Pointer to **NullableString** |  | [optional] 
@@ -53,6 +53,16 @@ SetIdentityGuildId sets IdentityGuildId field to given value.
 
 HasIdentityGuildId returns a boolean if a field has been set.
 
+### SetIdentityGuildIdNil
+
+`func (o *UserPrimaryGuildResponse) SetIdentityGuildIdNil(b bool)`
+
+ SetIdentityGuildIdNil sets the value for IdentityGuildId to be an explicit nil
+
+### UnsetIdentityGuildId
+`func (o *UserPrimaryGuildResponse) UnsetIdentityGuildId()`
+
+UnsetIdentityGuildId ensures that no value is present for IdentityGuildId, not even an explicit nil
 ### GetIdentityEnabled
 
 `func (o *UserPrimaryGuildResponse) GetIdentityEnabled() bool`

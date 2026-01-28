@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -60,7 +60,7 @@ type EntitlementResponse struct {
 	SkuId string `json:"sku_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	ApplicationId string `json:"application_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	UserId string `json:"user_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	GuildId *string `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	GuildId NullableString `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Deleted bool `json:"deleted"`
 	StartsAt NullableTime `json:"starts_at,omitempty"`
 	EndsAt NullableTime `json:"ends_at,omitempty"`
@@ -68,6 +68,8 @@ type EntitlementResponse struct {
 	FulfilledAt NullableTime `json:"fulfilled_at,omitempty"`
 	FulfillmentStatus NullableInt32 `json:"fulfillment_status,omitempty"`
 	Consumed NullableBool `json:"consumed,omitempty"`
+	GifterUserId NullableString `json:"gifter_user_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	ParentId NullableString `json:"parent_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
 type _EntitlementResponse EntitlementResponse
@@ -191,38 +193,48 @@ func (o *EntitlementResponse) SetUserId(v string) {
 	o.UserId = v
 }
 
-// GetGuildId returns the GuildId field value if set, zero value otherwise.
+// GetGuildId returns the GuildId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EntitlementResponse) GetGuildId() string {
-	if o == nil || IsNil(o.GuildId) {
+	if o == nil || IsNil(o.GuildId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.GuildId
+	return *o.GuildId.Get()
 }
 
 // GetGuildIdOk returns a tuple with the GuildId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EntitlementResponse) GetGuildIdOk() (*string, bool) {
-	if o == nil || IsNil(o.GuildId) {
+	if o == nil || IsNil(o.GuildId.Get()) {
 		return nil, false
 	}
-	return o.GuildId, true
+	return o.GuildId.Get(), o.GuildId.IsSet()
 }
 
 // HasGuildId returns a boolean if a field has been set.
 func (o *EntitlementResponse) HasGuildId() bool {
-	if o != nil && !IsNil(o.GuildId) {
+	if o != nil && o.GuildId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetGuildId gets a reference to the given string and assigns it to the GuildId field.
+// SetGuildId gets a reference to the given NullableString and assigns it to the GuildId field.
 func (o *EntitlementResponse) SetGuildId(v string) {
-	o.GuildId = &v
+	o.GuildId.Set(&v)
 }
 
+// SetGuildIdNil sets the value for GuildId to be an explicit nil
+func (o *EntitlementResponse) SetGuildIdNil() {
+	o.GuildId.Set(nil)
+}
+
+// UnsetGuildId ensures that no value is present for GuildId, not even an explicit nil
+func (o *EntitlementResponse) UnsetGuildId() {
+	o.GuildId.Unset()
+}
 
 // GetDeleted returns the Deleted field value
 func (o *EntitlementResponse) GetDeleted() bool {
@@ -489,6 +501,92 @@ func (o *EntitlementResponse) UnsetConsumed() {
 	o.Consumed.Unset()
 }
 
+// GetGifterUserId returns the GifterUserId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *EntitlementResponse) GetGifterUserId() string {
+	if o == nil || IsNil(o.GifterUserId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.GifterUserId.Get()
+}
+
+// GetGifterUserIdOk returns a tuple with the GifterUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *EntitlementResponse) GetGifterUserIdOk() (*string, bool) {
+	if o == nil || IsNil(o.GifterUserId.Get()) {
+		return nil, false
+	}
+	return o.GifterUserId.Get(), o.GifterUserId.IsSet()
+}
+
+// HasGifterUserId returns a boolean if a field has been set.
+func (o *EntitlementResponse) HasGifterUserId() bool {
+	if o != nil && o.GifterUserId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGifterUserId gets a reference to the given NullableString and assigns it to the GifterUserId field.
+func (o *EntitlementResponse) SetGifterUserId(v string) {
+	o.GifterUserId.Set(&v)
+}
+
+// SetGifterUserIdNil sets the value for GifterUserId to be an explicit nil
+func (o *EntitlementResponse) SetGifterUserIdNil() {
+	o.GifterUserId.Set(nil)
+}
+
+// UnsetGifterUserId ensures that no value is present for GifterUserId, not even an explicit nil
+func (o *EntitlementResponse) UnsetGifterUserId() {
+	o.GifterUserId.Unset()
+}
+
+// GetParentId returns the ParentId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *EntitlementResponse) GetParentId() string {
+	if o == nil || IsNil(o.ParentId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ParentId.Get()
+}
+
+// GetParentIdOk returns a tuple with the ParentId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *EntitlementResponse) GetParentIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ParentId.Get()) {
+		return nil, false
+	}
+	return o.ParentId.Get(), o.ParentId.IsSet()
+}
+
+// HasParentId returns a boolean if a field has been set.
+func (o *EntitlementResponse) HasParentId() bool {
+	if o != nil && o.ParentId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetParentId gets a reference to the given NullableString and assigns it to the ParentId field.
+func (o *EntitlementResponse) SetParentId(v string) {
+	o.ParentId.Set(&v)
+}
+
+// SetParentIdNil sets the value for ParentId to be an explicit nil
+func (o *EntitlementResponse) SetParentIdNil() {
+	o.ParentId.Set(nil)
+}
+
+// UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
+func (o *EntitlementResponse) UnsetParentId() {
+	o.ParentId.Unset()
+}
+
 func (o EntitlementResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -503,8 +601,8 @@ func (o EntitlementResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["sku_id"] = o.SkuId
 	toSerialize["application_id"] = o.ApplicationId
 	toSerialize["user_id"] = o.UserId
-	if !IsNil(o.GuildId) {
-		toSerialize["guild_id"] = o.GuildId
+	if o.GuildId.IsSet() {
+		toSerialize["guild_id"] = o.GuildId.Get()
 	}
 	toSerialize["deleted"] = o.Deleted
 	if o.StartsAt.IsSet() {
@@ -522,6 +620,12 @@ func (o EntitlementResponse) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Consumed.IsSet() {
 		toSerialize["consumed"] = o.Consumed.Get()
+	}
+	if o.GifterUserId.IsSet() {
+		toSerialize["gifter_user_id"] = o.GifterUserId.Get()
+	}
+	if o.ParentId.IsSet() {
+		toSerialize["parent_id"] = o.ParentId.Get()
 	}
 	return toSerialize, nil
 }
@@ -603,5 +707,4 @@ func (v *NullableEntitlementResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 
