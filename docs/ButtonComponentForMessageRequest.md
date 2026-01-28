@@ -5,13 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **int32** |  | 
+**Id** | Pointer to **NullableInt32** |  | [optional] 
 **CustomId** | Pointer to **NullableString** |  | [optional] 
 **Style** | **NullableInt32** |  | 
 **Label** | Pointer to **NullableString** |  | [optional] 
 **Disabled** | Pointer to **NullableBool** |  | [optional] 
 **Url** | Pointer to **NullableString** |  | [optional] 
-**SkuId** | Pointer to **string** |  | [optional] 
-**Emoji** | Pointer to [**NullableComponentEmojiForMessageRequest**](ComponentEmojiForMessageRequest.md) |  | [optional] 
+**SkuId** | Pointer to **NullableString** |  | [optional] 
+**Emoji** | Pointer to [**NullableComponentEmojiForRequest**](ComponentEmojiForRequest.md) |  | [optional] 
 
 ## Methods
 
@@ -52,6 +53,41 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
+### GetId
+
+`func (o *ButtonComponentForMessageRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ButtonComponentForMessageRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ButtonComponentForMessageRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *ButtonComponentForMessageRequest) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *ButtonComponentForMessageRequest) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *ButtonComponentForMessageRequest) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetCustomId
 
 `func (o *ButtonComponentForMessageRequest) GetCustomId() string`
@@ -247,22 +283,32 @@ SetSkuId sets SkuId field to given value.
 
 HasSkuId returns a boolean if a field has been set.
 
+### SetSkuIdNil
+
+`func (o *ButtonComponentForMessageRequest) SetSkuIdNil(b bool)`
+
+ SetSkuIdNil sets the value for SkuId to be an explicit nil
+
+### UnsetSkuId
+`func (o *ButtonComponentForMessageRequest) UnsetSkuId()`
+
+UnsetSkuId ensures that no value is present for SkuId, not even an explicit nil
 ### GetEmoji
 
-`func (o *ButtonComponentForMessageRequest) GetEmoji() ComponentEmojiForMessageRequest`
+`func (o *ButtonComponentForMessageRequest) GetEmoji() ComponentEmojiForRequest`
 
 GetEmoji returns the Emoji field if non-nil, zero value otherwise.
 
 ### GetEmojiOk
 
-`func (o *ButtonComponentForMessageRequest) GetEmojiOk() (*ComponentEmojiForMessageRequest, bool)`
+`func (o *ButtonComponentForMessageRequest) GetEmojiOk() (*ComponentEmojiForRequest, bool)`
 
 GetEmojiOk returns a tuple with the Emoji field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmoji
 
-`func (o *ButtonComponentForMessageRequest) SetEmoji(v ComponentEmojiForMessageRequest)`
+`func (o *ButtonComponentForMessageRequest) SetEmoji(v ComponentEmojiForRequest)`
 
 SetEmoji sets Emoji field to given value.
 

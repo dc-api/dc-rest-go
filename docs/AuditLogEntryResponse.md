@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **ActionType** | **NullableInt32** |  | 
-**UserId** | Pointer to **string** |  | [optional] 
-**TargetId** | Pointer to **string** |  | [optional] 
+**UserId** | Pointer to **NullableString** |  | [optional] 
+**TargetId** | Pointer to **NullableString** |  | [optional] 
 **Changes** | Pointer to [**[]AuditLogObjectChangeResponse**](AuditLogObjectChangeResponse.md) |  | [optional] 
 **Options** | Pointer to **map[string]string** |  | [optional] 
-**Reason** | Pointer to **NullableString** |  | [optional] 
+**Reason** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -106,6 +106,16 @@ SetUserId sets UserId field to given value.
 
 HasUserId returns a boolean if a field has been set.
 
+### SetUserIdNil
+
+`func (o *AuditLogEntryResponse) SetUserIdNil(b bool)`
+
+ SetUserIdNil sets the value for UserId to be an explicit nil
+
+### UnsetUserId
+`func (o *AuditLogEntryResponse) UnsetUserId()`
+
+UnsetUserId ensures that no value is present for UserId, not even an explicit nil
 ### GetTargetId
 
 `func (o *AuditLogEntryResponse) GetTargetId() string`
@@ -131,6 +141,16 @@ SetTargetId sets TargetId field to given value.
 
 HasTargetId returns a boolean if a field has been set.
 
+### SetTargetIdNil
+
+`func (o *AuditLogEntryResponse) SetTargetIdNil(b bool)`
+
+ SetTargetIdNil sets the value for TargetId to be an explicit nil
+
+### UnsetTargetId
+`func (o *AuditLogEntryResponse) UnsetTargetId()`
+
+UnsetTargetId ensures that no value is present for TargetId, not even an explicit nil
 ### GetChanges
 
 `func (o *AuditLogEntryResponse) GetChanges() []AuditLogObjectChangeResponse`
@@ -156,16 +176,6 @@ SetChanges sets Changes field to given value.
 
 HasChanges returns a boolean if a field has been set.
 
-### SetChangesNil
-
-`func (o *AuditLogEntryResponse) SetChangesNil(b bool)`
-
- SetChangesNil sets the value for Changes to be an explicit nil
-
-### UnsetChanges
-`func (o *AuditLogEntryResponse) UnsetChanges()`
-
-UnsetChanges ensures that no value is present for Changes, not even an explicit nil
 ### GetOptions
 
 `func (o *AuditLogEntryResponse) GetOptions() map[string]string`
@@ -216,16 +226,6 @@ SetReason sets Reason field to given value.
 
 HasReason returns a boolean if a field has been set.
 
-### SetReasonNil
-
-`func (o *AuditLogEntryResponse) SetReasonNil(b bool)`
-
- SetReasonNil sets the value for Reason to be an explicit nil
-
-### UnsetReason
-`func (o *AuditLogEntryResponse) UnsetReason()`
-
-UnsetReason ensures that no value is present for Reason, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

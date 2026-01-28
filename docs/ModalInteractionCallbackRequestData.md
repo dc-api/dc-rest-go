@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CustomId** | **string** |  | 
 **Title** | **string** |  | 
-**Components** | [**[]ActionRowComponentForModalRequest**](ActionRowComponentForModalRequest.md) |  | 
+**Components** | [**[]ModalInteractionCallbackRequestDataComponentsInner**](ModalInteractionCallbackRequestDataComponentsInner.md) |  | 
 
 ## Methods
 
 ### NewModalInteractionCallbackRequestData
 
-`func NewModalInteractionCallbackRequestData(customId string, title string, components []ActionRowComponentForModalRequest, ) *ModalInteractionCallbackRequestData`
+`func NewModalInteractionCallbackRequestData(customId string, title string, components []ModalInteractionCallbackRequestDataComponentsInner, ) *ModalInteractionCallbackRequestData`
 
 NewModalInteractionCallbackRequestData instantiates a new ModalInteractionCallbackRequestData object
 This constructor will assign default values to properties that have it defined,
@@ -69,20 +69,20 @@ SetTitle sets Title field to given value.
 
 ### GetComponents
 
-`func (o *ModalInteractionCallbackRequestData) GetComponents() []ActionRowComponentForModalRequest`
+`func (o *ModalInteractionCallbackRequestData) GetComponents() []ModalInteractionCallbackRequestDataComponentsInner`
 
 GetComponents returns the Components field if non-nil, zero value otherwise.
 
 ### GetComponentsOk
 
-`func (o *ModalInteractionCallbackRequestData) GetComponentsOk() (*[]ActionRowComponentForModalRequest, bool)`
+`func (o *ModalInteractionCallbackRequestData) GetComponentsOk() (*[]ModalInteractionCallbackRequestDataComponentsInner, bool)`
 
 GetComponentsOk returns a tuple with the Components field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetComponents
 
-`func (o *ModalInteractionCallbackRequestData) SetComponents(v []ActionRowComponentForModalRequest)`
+`func (o *ModalInteractionCallbackRequestData) SetComponents(v []ModalInteractionCallbackRequestDataComponentsInner)`
 
 SetComponents sets Components field to given value.
 

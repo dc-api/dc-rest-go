@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,8 +57,8 @@ type CreateGuildInviteRequest struct {
 	Temporary NullableBool `json:"temporary,omitempty"`
 	MaxUses NullableInt32 `json:"max_uses,omitempty"`
 	Unique NullableBool `json:"unique,omitempty"`
-	TargetUserId *string `json:"target_user_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	TargetApplicationId *string `json:"target_application_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	TargetUserId NullableString `json:"target_user_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	TargetApplicationId NullableString `json:"target_application_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	TargetType NullableInt32 `json:"target_type,omitempty"`
 }
 
@@ -251,71 +251,91 @@ func (o *CreateGuildInviteRequest) UnsetUnique() {
 	o.Unique.Unset()
 }
 
-// GetTargetUserId returns the TargetUserId field value if set, zero value otherwise.
+// GetTargetUserId returns the TargetUserId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateGuildInviteRequest) GetTargetUserId() string {
-	if o == nil || IsNil(o.TargetUserId) {
+	if o == nil || IsNil(o.TargetUserId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TargetUserId
+	return *o.TargetUserId.Get()
 }
 
 // GetTargetUserIdOk returns a tuple with the TargetUserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateGuildInviteRequest) GetTargetUserIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TargetUserId) {
+	if o == nil || IsNil(o.TargetUserId.Get()) {
 		return nil, false
 	}
-	return o.TargetUserId, true
+	return o.TargetUserId.Get(), o.TargetUserId.IsSet()
 }
 
 // HasTargetUserId returns a boolean if a field has been set.
 func (o *CreateGuildInviteRequest) HasTargetUserId() bool {
-	if o != nil && !IsNil(o.TargetUserId) {
+	if o != nil && o.TargetUserId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTargetUserId gets a reference to the given string and assigns it to the TargetUserId field.
+// SetTargetUserId gets a reference to the given NullableString and assigns it to the TargetUserId field.
 func (o *CreateGuildInviteRequest) SetTargetUserId(v string) {
-	o.TargetUserId = &v
+	o.TargetUserId.Set(&v)
 }
 
+// SetTargetUserIdNil sets the value for TargetUserId to be an explicit nil
+func (o *CreateGuildInviteRequest) SetTargetUserIdNil() {
+	o.TargetUserId.Set(nil)
+}
 
-// GetTargetApplicationId returns the TargetApplicationId field value if set, zero value otherwise.
+// UnsetTargetUserId ensures that no value is present for TargetUserId, not even an explicit nil
+func (o *CreateGuildInviteRequest) UnsetTargetUserId() {
+	o.TargetUserId.Unset()
+}
+
+// GetTargetApplicationId returns the TargetApplicationId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateGuildInviteRequest) GetTargetApplicationId() string {
-	if o == nil || IsNil(o.TargetApplicationId) {
+	if o == nil || IsNil(o.TargetApplicationId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TargetApplicationId
+	return *o.TargetApplicationId.Get()
 }
 
 // GetTargetApplicationIdOk returns a tuple with the TargetApplicationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateGuildInviteRequest) GetTargetApplicationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TargetApplicationId) {
+	if o == nil || IsNil(o.TargetApplicationId.Get()) {
 		return nil, false
 	}
-	return o.TargetApplicationId, true
+	return o.TargetApplicationId.Get(), o.TargetApplicationId.IsSet()
 }
 
 // HasTargetApplicationId returns a boolean if a field has been set.
 func (o *CreateGuildInviteRequest) HasTargetApplicationId() bool {
-	if o != nil && !IsNil(o.TargetApplicationId) {
+	if o != nil && o.TargetApplicationId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTargetApplicationId gets a reference to the given string and assigns it to the TargetApplicationId field.
+// SetTargetApplicationId gets a reference to the given NullableString and assigns it to the TargetApplicationId field.
 func (o *CreateGuildInviteRequest) SetTargetApplicationId(v string) {
-	o.TargetApplicationId = &v
+	o.TargetApplicationId.Set(&v)
 }
 
+// SetTargetApplicationIdNil sets the value for TargetApplicationId to be an explicit nil
+func (o *CreateGuildInviteRequest) SetTargetApplicationIdNil() {
+	o.TargetApplicationId.Set(nil)
+}
+
+// UnsetTargetApplicationId ensures that no value is present for TargetApplicationId, not even an explicit nil
+func (o *CreateGuildInviteRequest) UnsetTargetApplicationId() {
+	o.TargetApplicationId.Unset()
+}
 
 // GetTargetType returns the TargetType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateGuildInviteRequest) GetTargetType() int32 {
@@ -382,11 +402,11 @@ func (o CreateGuildInviteRequest) ToMap() (map[string]interface{}, error) {
 	if o.Unique.IsSet() {
 		toSerialize["unique"] = o.Unique.Get()
 	}
-	if !IsNil(o.TargetUserId) {
-		toSerialize["target_user_id"] = o.TargetUserId
+	if o.TargetUserId.IsSet() {
+		toSerialize["target_user_id"] = o.TargetUserId.Get()
 	}
-	if !IsNil(o.TargetApplicationId) {
-		toSerialize["target_application_id"] = o.TargetApplicationId
+	if o.TargetApplicationId.IsSet() {
+		toSerialize["target_application_id"] = o.TargetApplicationId.Get()
 	}
 	if o.TargetType.IsSet() {
 		toSerialize["target_type"] = o.TargetType.Get()
@@ -429,5 +449,4 @@ func (v *NullableCreateGuildInviteRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Temporary** | Pointer to **NullableBool** |  | [optional] 
 **MaxUses** | Pointer to **NullableInt32** |  | [optional] 
 **Unique** | Pointer to **NullableBool** |  | [optional] 
-**TargetUserId** | Pointer to **string** |  | [optional] 
-**TargetApplicationId** | Pointer to **string** |  | [optional] 
+**TargetUserId** | Pointer to **NullableString** |  | [optional] 
+**TargetApplicationId** | Pointer to **NullableString** |  | [optional] 
 **TargetType** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
@@ -196,6 +196,16 @@ SetTargetUserId sets TargetUserId field to given value.
 
 HasTargetUserId returns a boolean if a field has been set.
 
+### SetTargetUserIdNil
+
+`func (o *CreateGuildInviteRequest) SetTargetUserIdNil(b bool)`
+
+ SetTargetUserIdNil sets the value for TargetUserId to be an explicit nil
+
+### UnsetTargetUserId
+`func (o *CreateGuildInviteRequest) UnsetTargetUserId()`
+
+UnsetTargetUserId ensures that no value is present for TargetUserId, not even an explicit nil
 ### GetTargetApplicationId
 
 `func (o *CreateGuildInviteRequest) GetTargetApplicationId() string`
@@ -221,6 +231,16 @@ SetTargetApplicationId sets TargetApplicationId field to given value.
 
 HasTargetApplicationId returns a boolean if a field has been set.
 
+### SetTargetApplicationIdNil
+
+`func (o *CreateGuildInviteRequest) SetTargetApplicationIdNil(b bool)`
+
+ SetTargetApplicationIdNil sets the value for TargetApplicationId to be an explicit nil
+
+### UnsetTargetApplicationId
+`func (o *CreateGuildInviteRequest) UnsetTargetApplicationId()`
+
+UnsetTargetApplicationId ensures that no value is present for TargetApplicationId, not even an explicit nil
 ### GetTargetType
 
 `func (o *CreateGuildInviteRequest) GetTargetType() int32`

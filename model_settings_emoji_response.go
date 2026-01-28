@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -46,6 +46,8 @@ package dc_rest
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the SettingsEmojiResponse type satisfies the MappedNullable interface at compile time
@@ -53,17 +55,20 @@ var _ MappedNullable = &SettingsEmojiResponse{}
 
 // SettingsEmojiResponse struct for SettingsEmojiResponse
 type SettingsEmojiResponse struct {
-	Id *string `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	Id NullableString `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name NullableString `json:"name,omitempty"`
-	Animated NullableBool `json:"animated,omitempty"`
+	Animated bool `json:"animated"`
 }
+
+type _SettingsEmojiResponse SettingsEmojiResponse
 
 // NewSettingsEmojiResponse instantiates a new SettingsEmojiResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSettingsEmojiResponse() *SettingsEmojiResponse {
+func NewSettingsEmojiResponse(animated bool) *SettingsEmojiResponse {
 	this := SettingsEmojiResponse{}
+	this.Animated = animated
 	return &this
 }
 
@@ -75,38 +80,48 @@ func NewSettingsEmojiResponseWithDefaults() *SettingsEmojiResponse {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SettingsEmojiResponse) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SettingsEmojiResponse) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *SettingsEmojiResponse) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
+	if o != nil && o.Id.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *SettingsEmojiResponse) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
 }
 
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *SettingsEmojiResponse) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *SettingsEmojiResponse) UnsetId() {
+	o.Id.Unset()
+}
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SettingsEmojiResponse) GetName() string {
@@ -151,47 +166,28 @@ func (o *SettingsEmojiResponse) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetAnimated returns the Animated field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAnimated returns the Animated field value
 func (o *SettingsEmojiResponse) GetAnimated() bool {
-	if o == nil || IsNil(o.Animated.Get()) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.Animated.Get()
+
+	return o.Animated
 }
 
-// GetAnimatedOk returns a tuple with the Animated field value if set, nil otherwise
+// GetAnimatedOk returns a tuple with the Animated field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SettingsEmojiResponse) GetAnimatedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Animated.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Animated.Get(), o.Animated.IsSet()
+	return &o.Animated, true
 }
 
-// HasAnimated returns a boolean if a field has been set.
-func (o *SettingsEmojiResponse) HasAnimated() bool {
-	if o != nil && o.Animated.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAnimated gets a reference to the given NullableBool and assigns it to the Animated field.
+// SetAnimated sets field value
 func (o *SettingsEmojiResponse) SetAnimated(v bool) {
-	o.Animated.Set(&v)
-}
-
-// SetAnimatedNil sets the value for Animated to be an explicit nil
-func (o *SettingsEmojiResponse) SetAnimatedNil() {
-	o.Animated.Set(nil)
-}
-
-// UnsetAnimated ensures that no value is present for Animated, not even an explicit nil
-func (o *SettingsEmojiResponse) UnsetAnimated() {
-	o.Animated.Unset()
+	o.Animated = v
 }
 
 func (o SettingsEmojiResponse) MarshalJSON() ([]byte, error) {
@@ -204,16 +200,51 @@ func (o SettingsEmojiResponse) MarshalJSON() ([]byte, error) {
 
 func (o SettingsEmojiResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if o.Animated.IsSet() {
-		toSerialize["animated"] = o.Animated.Get()
-	}
+	toSerialize["animated"] = o.Animated
 	return toSerialize, nil
+}
+
+func (o *SettingsEmojiResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"animated",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varSettingsEmojiResponse := _SettingsEmojiResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varSettingsEmojiResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = SettingsEmojiResponse(varSettingsEmojiResponse)
+
+	return err
 }
 
 type NullableSettingsEmojiResponse struct {
@@ -251,5 +282,4 @@ func (v *NullableSettingsEmojiResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

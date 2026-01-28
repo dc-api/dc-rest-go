@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,7 @@ var _ MappedNullable = &SoundboardSoundSendRequest{}
 // SoundboardSoundSendRequest struct for SoundboardSoundSendRequest
 type SoundboardSoundSendRequest struct {
 	SoundId string `json:"sound_id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	SourceGuildId *string `json:"source_guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	SourceGuildId NullableString `json:"source_guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
 type _SoundboardSoundSendRequest SoundboardSoundSendRequest
@@ -103,38 +103,48 @@ func (o *SoundboardSoundSendRequest) SetSoundId(v string) {
 	o.SoundId = v
 }
 
-// GetSourceGuildId returns the SourceGuildId field value if set, zero value otherwise.
+// GetSourceGuildId returns the SourceGuildId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SoundboardSoundSendRequest) GetSourceGuildId() string {
-	if o == nil || IsNil(o.SourceGuildId) {
+	if o == nil || IsNil(o.SourceGuildId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SourceGuildId
+	return *o.SourceGuildId.Get()
 }
 
 // GetSourceGuildIdOk returns a tuple with the SourceGuildId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SoundboardSoundSendRequest) GetSourceGuildIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SourceGuildId) {
+	if o == nil || IsNil(o.SourceGuildId.Get()) {
 		return nil, false
 	}
-	return o.SourceGuildId, true
+	return o.SourceGuildId.Get(), o.SourceGuildId.IsSet()
 }
 
 // HasSourceGuildId returns a boolean if a field has been set.
 func (o *SoundboardSoundSendRequest) HasSourceGuildId() bool {
-	if o != nil && !IsNil(o.SourceGuildId) {
+	if o != nil && o.SourceGuildId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSourceGuildId gets a reference to the given string and assigns it to the SourceGuildId field.
+// SetSourceGuildId gets a reference to the given NullableString and assigns it to the SourceGuildId field.
 func (o *SoundboardSoundSendRequest) SetSourceGuildId(v string) {
-	o.SourceGuildId = &v
+	o.SourceGuildId.Set(&v)
 }
 
+// SetSourceGuildIdNil sets the value for SourceGuildId to be an explicit nil
+func (o *SoundboardSoundSendRequest) SetSourceGuildIdNil() {
+	o.SourceGuildId.Set(nil)
+}
+
+// UnsetSourceGuildId ensures that no value is present for SourceGuildId, not even an explicit nil
+func (o *SoundboardSoundSendRequest) UnsetSourceGuildId() {
+	o.SourceGuildId.Unset()
+}
 
 func (o SoundboardSoundSendRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -147,8 +157,8 @@ func (o SoundboardSoundSendRequest) MarshalJSON() ([]byte, error) {
 func (o SoundboardSoundSendRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["sound_id"] = o.SoundId
-	if !IsNil(o.SourceGuildId) {
-		toSerialize["source_guild_id"] = o.SourceGuildId
+	if o.SourceGuildId.IsSet() {
+		toSerialize["source_guild_id"] = o.SourceGuildId.Get()
 	}
 	return toSerialize, nil
 }
@@ -225,5 +235,4 @@ func (v *NullableSoundboardSoundSendRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

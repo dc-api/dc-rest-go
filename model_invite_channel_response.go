@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -58,7 +58,7 @@ type InviteChannelResponse struct {
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Type int32 `json:"type"`
 	Name NullableString `json:"name,omitempty"`
-	Icon NullableString `json:"icon,omitempty"`
+	Icon *string `json:"icon,omitempty"`
 	Recipients []InviteChannelRecipientResponse `json:"recipients,omitempty"`
 }
 
@@ -174,52 +174,42 @@ func (o *InviteChannelResponse) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIcon returns the Icon field value if set, zero value otherwise.
 func (o *InviteChannelResponse) GetIcon() string {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		var ret string
 		return ret
 	}
-	return *o.Icon.Get()
+	return *o.Icon
 }
 
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteChannelResponse) GetIconOk() (*string, bool) {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		return nil, false
 	}
-	return o.Icon.Get(), o.Icon.IsSet()
+	return o.Icon, true
 }
 
 // HasIcon returns a boolean if a field has been set.
 func (o *InviteChannelResponse) HasIcon() bool {
-	if o != nil && o.Icon.IsSet() {
+	if o != nil && !IsNil(o.Icon) {
 		return true
 	}
 
 	return false
 }
 
-// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+// SetIcon gets a reference to the given string and assigns it to the Icon field.
 func (o *InviteChannelResponse) SetIcon(v string) {
-	o.Icon.Set(&v)
+	o.Icon = &v
 }
 
-// SetIconNil sets the value for Icon to be an explicit nil
-func (o *InviteChannelResponse) SetIconNil() {
-	o.Icon.Set(nil)
-}
 
-// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
-func (o *InviteChannelResponse) UnsetIcon() {
-	o.Icon.Unset()
-}
-
-// GetRecipients returns the Recipients field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRecipients returns the Recipients field value if set, zero value otherwise.
 func (o *InviteChannelResponse) GetRecipients() []InviteChannelRecipientResponse {
-	if o == nil {
+	if o == nil || IsNil(o.Recipients) {
 		var ret []InviteChannelRecipientResponse
 		return ret
 	}
@@ -228,9 +218,8 @@ func (o *InviteChannelResponse) GetRecipients() []InviteChannelRecipientResponse
 
 // GetRecipientsOk returns a tuple with the Recipients field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteChannelResponse) GetRecipientsOk() ([]InviteChannelRecipientResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Recipients) {
 		return nil, false
 	}
 	return o.Recipients, true
@@ -266,10 +255,10 @@ func (o InviteChannelResponse) ToMap() (map[string]interface{}, error) {
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if o.Icon.IsSet() {
-		toSerialize["icon"] = o.Icon.Get()
+	if !IsNil(o.Icon) {
+		toSerialize["icon"] = o.Icon
 	}
-	if o.Recipients != nil {
+	if !IsNil(o.Recipients) {
 		toSerialize["recipients"] = o.Recipients
 	}
 	return toSerialize, nil
@@ -348,5 +337,4 @@ func (v *NullableInviteChannelResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

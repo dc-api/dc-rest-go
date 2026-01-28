@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,10 +56,10 @@ type ApplicationFormPartial struct {
 	Description *ApplicationFormPartialDescription `json:"description,omitempty"`
 	Icon NullableString `json:"icon,omitempty"`
 	CoverImage NullableString `json:"cover_image,omitempty"`
-	TeamId *string `json:"team_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	TeamId NullableString `json:"team_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Flags NullableInt32 `json:"flags,omitempty"`
 	InteractionsEndpointUrl NullableString `json:"interactions_endpoint_url,omitempty"`
-	ExplicitContentFilter *int32 `json:"explicit_content_filter,omitempty"`
+	ExplicitContentFilter NullableInt32 `json:"explicit_content_filter,omitempty"`
 	MaxParticipants NullableInt32 `json:"max_participants,omitempty"`
 	Type NullableInt32 `json:"type,omitempty"`
 	Tags []string `json:"tags,omitempty"`
@@ -205,38 +205,48 @@ func (o *ApplicationFormPartial) UnsetCoverImage() {
 	o.CoverImage.Unset()
 }
 
-// GetTeamId returns the TeamId field value if set, zero value otherwise.
+// GetTeamId returns the TeamId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplicationFormPartial) GetTeamId() string {
-	if o == nil || IsNil(o.TeamId) {
+	if o == nil || IsNil(o.TeamId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TeamId
+	return *o.TeamId.Get()
 }
 
 // GetTeamIdOk returns a tuple with the TeamId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationFormPartial) GetTeamIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TeamId) {
+	if o == nil || IsNil(o.TeamId.Get()) {
 		return nil, false
 	}
-	return o.TeamId, true
+	return o.TeamId.Get(), o.TeamId.IsSet()
 }
 
 // HasTeamId returns a boolean if a field has been set.
 func (o *ApplicationFormPartial) HasTeamId() bool {
-	if o != nil && !IsNil(o.TeamId) {
+	if o != nil && o.TeamId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTeamId gets a reference to the given string and assigns it to the TeamId field.
+// SetTeamId gets a reference to the given NullableString and assigns it to the TeamId field.
 func (o *ApplicationFormPartial) SetTeamId(v string) {
-	o.TeamId = &v
+	o.TeamId.Set(&v)
 }
 
+// SetTeamIdNil sets the value for TeamId to be an explicit nil
+func (o *ApplicationFormPartial) SetTeamIdNil() {
+	o.TeamId.Set(nil)
+}
+
+// UnsetTeamId ensures that no value is present for TeamId, not even an explicit nil
+func (o *ApplicationFormPartial) UnsetTeamId() {
+	o.TeamId.Unset()
+}
 
 // GetFlags returns the Flags field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplicationFormPartial) GetFlags() int32 {
@@ -324,38 +334,48 @@ func (o *ApplicationFormPartial) UnsetInteractionsEndpointUrl() {
 	o.InteractionsEndpointUrl.Unset()
 }
 
-// GetExplicitContentFilter returns the ExplicitContentFilter field value if set, zero value otherwise.
+// GetExplicitContentFilter returns the ExplicitContentFilter field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplicationFormPartial) GetExplicitContentFilter() int32 {
-	if o == nil || IsNil(o.ExplicitContentFilter) {
+	if o == nil || IsNil(o.ExplicitContentFilter.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.ExplicitContentFilter
+	return *o.ExplicitContentFilter.Get()
 }
 
 // GetExplicitContentFilterOk returns a tuple with the ExplicitContentFilter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationFormPartial) GetExplicitContentFilterOk() (*int32, bool) {
-	if o == nil || IsNil(o.ExplicitContentFilter) {
+	if o == nil || IsNil(o.ExplicitContentFilter.Get()) {
 		return nil, false
 	}
-	return o.ExplicitContentFilter, true
+	return o.ExplicitContentFilter.Get(), o.ExplicitContentFilter.IsSet()
 }
 
 // HasExplicitContentFilter returns a boolean if a field has been set.
 func (o *ApplicationFormPartial) HasExplicitContentFilter() bool {
-	if o != nil && !IsNil(o.ExplicitContentFilter) {
+	if o != nil && o.ExplicitContentFilter.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetExplicitContentFilter gets a reference to the given int32 and assigns it to the ExplicitContentFilter field.
+// SetExplicitContentFilter gets a reference to the given NullableInt32 and assigns it to the ExplicitContentFilter field.
 func (o *ApplicationFormPartial) SetExplicitContentFilter(v int32) {
-	o.ExplicitContentFilter = &v
+	o.ExplicitContentFilter.Set(&v)
 }
 
+// SetExplicitContentFilterNil sets the value for ExplicitContentFilter to be an explicit nil
+func (o *ApplicationFormPartial) SetExplicitContentFilterNil() {
+	o.ExplicitContentFilter.Set(nil)
+}
+
+// UnsetExplicitContentFilter ensures that no value is present for ExplicitContentFilter, not even an explicit nil
+func (o *ApplicationFormPartial) UnsetExplicitContentFilter() {
+	o.ExplicitContentFilter.Unset()
+}
 
 // GetMaxParticipants returns the MaxParticipants field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplicationFormPartial) GetMaxParticipants() int32 {
@@ -658,8 +678,8 @@ func (o ApplicationFormPartial) ToMap() (map[string]interface{}, error) {
 	if o.CoverImage.IsSet() {
 		toSerialize["cover_image"] = o.CoverImage.Get()
 	}
-	if !IsNil(o.TeamId) {
-		toSerialize["team_id"] = o.TeamId
+	if o.TeamId.IsSet() {
+		toSerialize["team_id"] = o.TeamId.Get()
 	}
 	if o.Flags.IsSet() {
 		toSerialize["flags"] = o.Flags.Get()
@@ -667,8 +687,8 @@ func (o ApplicationFormPartial) ToMap() (map[string]interface{}, error) {
 	if o.InteractionsEndpointUrl.IsSet() {
 		toSerialize["interactions_endpoint_url"] = o.InteractionsEndpointUrl.Get()
 	}
-	if !IsNil(o.ExplicitContentFilter) {
-		toSerialize["explicit_content_filter"] = o.ExplicitContentFilter
+	if o.ExplicitContentFilter.IsSet() {
+		toSerialize["explicit_content_filter"] = o.ExplicitContentFilter.Get()
 	}
 	if o.MaxParticipants.IsSet() {
 		toSerialize["max_participants"] = o.MaxParticipants.Get()
@@ -729,5 +749,4 @@ func (v *NullableApplicationFormPartial) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

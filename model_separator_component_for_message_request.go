@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -56,7 +56,8 @@ var _ MappedNullable = &SeparatorComponentForMessageRequest{}
 // SeparatorComponentForMessageRequest struct for SeparatorComponentForMessageRequest
 type SeparatorComponentForMessageRequest struct {
 	Type int32 `json:"type"`
-	Spacing *int32 `json:"spacing,omitempty"`
+	Id NullableInt32 `json:"id,omitempty"`
+	Spacing NullableInt32 `json:"spacing,omitempty"`
 	Divider NullableBool `json:"divider,omitempty"`
 }
 
@@ -104,38 +105,91 @@ func (o *SeparatorComponentForMessageRequest) SetType(v int32) {
 	o.Type = v
 }
 
-// GetSpacing returns the Spacing field value if set, zero value otherwise.
-func (o *SeparatorComponentForMessageRequest) GetSpacing() int32 {
-	if o == nil || IsNil(o.Spacing) {
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SeparatorComponentForMessageRequest) GetId() int32 {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.Spacing
+	return *o.Id.Get()
 }
 
-// GetSpacingOk returns a tuple with the Spacing field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SeparatorComponentForMessageRequest) GetSpacingOk() (*int32, bool) {
-	if o == nil || IsNil(o.Spacing) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SeparatorComponentForMessageRequest) GetIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.Id.Get()) {
 		return nil, false
 	}
-	return o.Spacing, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// HasSpacing returns a boolean if a field has been set.
-func (o *SeparatorComponentForMessageRequest) HasSpacing() bool {
-	if o != nil && !IsNil(o.Spacing) {
+// HasId returns a boolean if a field has been set.
+func (o *SeparatorComponentForMessageRequest) HasId() bool {
+	if o != nil && o.Id.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSpacing gets a reference to the given int32 and assigns it to the Spacing field.
-func (o *SeparatorComponentForMessageRequest) SetSpacing(v int32) {
-	o.Spacing = &v
+// SetId gets a reference to the given NullableInt32 and assigns it to the Id field.
+func (o *SeparatorComponentForMessageRequest) SetId(v int32) {
+	o.Id.Set(&v)
 }
 
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *SeparatorComponentForMessageRequest) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *SeparatorComponentForMessageRequest) UnsetId() {
+	o.Id.Unset()
+}
+
+// GetSpacing returns the Spacing field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SeparatorComponentForMessageRequest) GetSpacing() int32 {
+	if o == nil || IsNil(o.Spacing.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.Spacing.Get()
+}
+
+// GetSpacingOk returns a tuple with the Spacing field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SeparatorComponentForMessageRequest) GetSpacingOk() (*int32, bool) {
+	if o == nil || IsNil(o.Spacing.Get()) {
+		return nil, false
+	}
+	return o.Spacing.Get(), o.Spacing.IsSet()
+}
+
+// HasSpacing returns a boolean if a field has been set.
+func (o *SeparatorComponentForMessageRequest) HasSpacing() bool {
+	if o != nil && o.Spacing.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSpacing gets a reference to the given NullableInt32 and assigns it to the Spacing field.
+func (o *SeparatorComponentForMessageRequest) SetSpacing(v int32) {
+	o.Spacing.Set(&v)
+}
+
+// SetSpacingNil sets the value for Spacing to be an explicit nil
+func (o *SeparatorComponentForMessageRequest) SetSpacingNil() {
+	o.Spacing.Set(nil)
+}
+
+// UnsetSpacing ensures that no value is present for Spacing, not even an explicit nil
+func (o *SeparatorComponentForMessageRequest) UnsetSpacing() {
+	o.Spacing.Unset()
+}
 
 // GetDivider returns the Divider field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SeparatorComponentForMessageRequest) GetDivider() bool {
@@ -191,8 +245,11 @@ func (o SeparatorComponentForMessageRequest) MarshalJSON() ([]byte, error) {
 func (o SeparatorComponentForMessageRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
-	if !IsNil(o.Spacing) {
-		toSerialize["spacing"] = o.Spacing
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
+	}
+	if o.Spacing.IsSet() {
+		toSerialize["spacing"] = o.Spacing.Get()
 	}
 	if o.Divider.IsSet() {
 		toSerialize["divider"] = o.Divider.Get()
@@ -272,5 +329,4 @@ func (v *NullableSeparatorComponentForMessageRequest) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

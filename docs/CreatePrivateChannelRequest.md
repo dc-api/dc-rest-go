@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RecipientId** | Pointer to **string** |  | [optional] 
+**RecipientId** | Pointer to **NullableString** |  | [optional] 
 **AccessTokens** | Pointer to **[]string** |  | [optional] 
 **Nicks** | Pointer to **map[string]string** |  | [optional] 
 
@@ -52,6 +52,16 @@ SetRecipientId sets RecipientId field to given value.
 
 HasRecipientId returns a boolean if a field has been set.
 
+### SetRecipientIdNil
+
+`func (o *CreatePrivateChannelRequest) SetRecipientIdNil(b bool)`
+
+ SetRecipientIdNil sets the value for RecipientId to be an explicit nil
+
+### UnsetRecipientId
+`func (o *CreatePrivateChannelRequest) UnsetRecipientId()`
+
+UnsetRecipientId ensures that no value is present for RecipientId, not even an explicit nil
 ### GetAccessTokens
 
 `func (o *CreatePrivateChannelRequest) GetAccessTokens() []string`

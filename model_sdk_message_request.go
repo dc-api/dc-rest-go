@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -61,7 +61,7 @@ type SDKMessageRequest struct {
 	Flags NullableInt32 `json:"flags,omitempty"`
 	Attachments []MessageAttachmentRequest `json:"attachments,omitempty"`
 	Poll NullablePollCreateRequest `json:"poll,omitempty"`
-	ConfettiPotion map[string]interface{} `json:"confetti_potion,omitempty"`
+	SharedClientTheme NullableCustomClientThemeShareRequest `json:"shared_client_theme,omitempty"`
 	MessageReference NullableMessageReferenceRequest `json:"message_reference,omitempty"`
 	Nonce NullableBasicMessageResponseNonce `json:"nonce,omitempty"`
 	EnforceNonce NullableBool `json:"enforce_nonce,omitempty"`
@@ -393,38 +393,48 @@ func (o *SDKMessageRequest) UnsetPoll() {
 	o.Poll.Unset()
 }
 
-// GetConfettiPotion returns the ConfettiPotion field value if set, zero value otherwise.
-func (o *SDKMessageRequest) GetConfettiPotion() map[string]interface{} {
-	if o == nil || IsNil(o.ConfettiPotion) {
-		var ret map[string]interface{}
+// GetSharedClientTheme returns the SharedClientTheme field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SDKMessageRequest) GetSharedClientTheme() CustomClientThemeShareRequest {
+	if o == nil || IsNil(o.SharedClientTheme.Get()) {
+		var ret CustomClientThemeShareRequest
 		return ret
 	}
-	return o.ConfettiPotion
+	return *o.SharedClientTheme.Get()
 }
 
-// GetConfettiPotionOk returns a tuple with the ConfettiPotion field value if set, nil otherwise
+// GetSharedClientThemeOk returns a tuple with the SharedClientTheme field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SDKMessageRequest) GetConfettiPotionOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.ConfettiPotion) {
-		return map[string]interface{}{}, false
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SDKMessageRequest) GetSharedClientThemeOk() (*CustomClientThemeShareRequest, bool) {
+	if o == nil || IsNil(o.SharedClientTheme.Get()) {
+		return nil, false
 	}
-	return o.ConfettiPotion, true
+	return o.SharedClientTheme.Get(), o.SharedClientTheme.IsSet()
 }
 
-// HasConfettiPotion returns a boolean if a field has been set.
-func (o *SDKMessageRequest) HasConfettiPotion() bool {
-	if o != nil && !IsNil(o.ConfettiPotion) {
+// HasSharedClientTheme returns a boolean if a field has been set.
+func (o *SDKMessageRequest) HasSharedClientTheme() bool {
+	if o != nil && o.SharedClientTheme.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetConfettiPotion gets a reference to the given map[string]interface{} and assigns it to the ConfettiPotion field.
-func (o *SDKMessageRequest) SetConfettiPotion(v map[string]interface{}) {
-	o.ConfettiPotion = v
+// SetSharedClientTheme gets a reference to the given NullableCustomClientThemeShareRequest and assigns it to the SharedClientTheme field.
+func (o *SDKMessageRequest) SetSharedClientTheme(v CustomClientThemeShareRequest) {
+	o.SharedClientTheme.Set(&v)
 }
 
+// SetSharedClientThemeNil sets the value for SharedClientTheme to be an explicit nil
+func (o *SDKMessageRequest) SetSharedClientThemeNil() {
+	o.SharedClientTheme.Set(nil)
+}
+
+// UnsetSharedClientTheme ensures that no value is present for SharedClientTheme, not even an explicit nil
+func (o *SDKMessageRequest) UnsetSharedClientTheme() {
+	o.SharedClientTheme.Unset()
+}
 
 // GetMessageReference returns the MessageReference field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SDKMessageRequest) GetMessageReference() MessageReferenceRequest {
@@ -632,8 +642,8 @@ func (o SDKMessageRequest) ToMap() (map[string]interface{}, error) {
 	if o.Poll.IsSet() {
 		toSerialize["poll"] = o.Poll.Get()
 	}
-	if !IsNil(o.ConfettiPotion) {
-		toSerialize["confetti_potion"] = o.ConfettiPotion
+	if o.SharedClientTheme.IsSet() {
+		toSerialize["shared_client_theme"] = o.SharedClientTheme.Get()
 	}
 	if o.MessageReference.IsSet() {
 		toSerialize["message_reference"] = o.MessageReference.Get()
@@ -685,5 +695,4 @@ func (v *NullableSDKMessageRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

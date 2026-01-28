@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 **DmPermission** | Pointer to **NullableBool** |  | [optional] 
 **Contexts** | Pointer to **[]int32** |  | [optional] 
 **IntegrationTypes** | Pointer to **[]int32** |  | [optional] 
-**Handler** | Pointer to **int32** |  | [optional] 
-**Type** | Pointer to **int32** |  | [optional] 
-**Id** | Pointer to **string** |  | [optional] 
+**Handler** | Pointer to **NullableInt32** |  | [optional] 
+**Type** | Pointer to **NullableInt32** |  | [optional] 
+**Id** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -341,6 +341,16 @@ SetHandler sets Handler field to given value.
 
 HasHandler returns a boolean if a field has been set.
 
+### SetHandlerNil
+
+`func (o *ApplicationCommandUpdateRequest) SetHandlerNil(b bool)`
+
+ SetHandlerNil sets the value for Handler to be an explicit nil
+
+### UnsetHandler
+`func (o *ApplicationCommandUpdateRequest) UnsetHandler()`
+
+UnsetHandler ensures that no value is present for Handler, not even an explicit nil
 ### GetType
 
 `func (o *ApplicationCommandUpdateRequest) GetType() int32`
@@ -366,6 +376,16 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### SetTypeNil
+
+`func (o *ApplicationCommandUpdateRequest) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *ApplicationCommandUpdateRequest) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetId
 
 `func (o *ApplicationCommandUpdateRequest) GetId() string`
@@ -391,6 +411,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *ApplicationCommandUpdateRequest) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *ApplicationCommandUpdateRequest) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

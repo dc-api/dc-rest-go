@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,6 +57,7 @@ type CreateInteractionResponseRequest struct {
 	LaunchActivityInteractionCallbackRequest *LaunchActivityInteractionCallbackRequest
 	ModalInteractionCallbackRequest *ModalInteractionCallbackRequest
 	PongInteractionCallbackRequest *PongInteractionCallbackRequest
+	SocialLayerSKUPurchaseEligibilityInteractionCallbackRequest *SocialLayerSKUPurchaseEligibilityInteractionCallbackRequest
 	UpdateMessageInteractionCallbackRequest *UpdateMessageInteractionCallbackRequest
 }
 
@@ -128,6 +129,19 @@ func (dst *CreateInteractionResponseRequest) UnmarshalJSON(data []byte) error {
 		dst.PongInteractionCallbackRequest = nil
 	}
 
+	// try to unmarshal JSON data into SocialLayerSKUPurchaseEligibilityInteractionCallbackRequest
+	err = json.Unmarshal(data, &dst.SocialLayerSKUPurchaseEligibilityInteractionCallbackRequest);
+	if err == nil {
+		jsonSocialLayerSKUPurchaseEligibilityInteractionCallbackRequest, _ := json.Marshal(dst.SocialLayerSKUPurchaseEligibilityInteractionCallbackRequest)
+		if string(jsonSocialLayerSKUPurchaseEligibilityInteractionCallbackRequest) == "{}" { // empty struct
+			dst.SocialLayerSKUPurchaseEligibilityInteractionCallbackRequest = nil
+		} else {
+			return nil // data stored in dst.SocialLayerSKUPurchaseEligibilityInteractionCallbackRequest, return on the first match
+		}
+	} else {
+		dst.SocialLayerSKUPurchaseEligibilityInteractionCallbackRequest = nil
+	}
+
 	// try to unmarshal JSON data into UpdateMessageInteractionCallbackRequest
 	err = json.Unmarshal(data, &dst.UpdateMessageInteractionCallbackRequest);
 	if err == nil {
@@ -164,6 +178,10 @@ func (src CreateInteractionResponseRequest) MarshalJSON() ([]byte, error) {
 
 	if src.PongInteractionCallbackRequest != nil {
 		return json.Marshal(&src.PongInteractionCallbackRequest)
+	}
+
+	if src.SocialLayerSKUPurchaseEligibilityInteractionCallbackRequest != nil {
+		return json.Marshal(&src.SocialLayerSKUPurchaseEligibilityInteractionCallbackRequest)
 	}
 
 	if src.UpdateMessageInteractionCallbackRequest != nil {
@@ -209,5 +227,4 @@ func (v *NullableCreateInteractionResponseRequest) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

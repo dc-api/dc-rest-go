@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Topic** | **string** |  | 
 **ChannelId** | **string** |  | 
-**PrivacyLevel** | Pointer to **int32** |  | [optional] 
-**GuildScheduledEventId** | Pointer to **string** |  | [optional] 
+**PrivacyLevel** | Pointer to **NullableInt32** |  | [optional] 
+**GuildScheduledEventId** | Pointer to **NullableString** |  | [optional] 
 **SendStartNotification** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
@@ -94,6 +94,16 @@ SetPrivacyLevel sets PrivacyLevel field to given value.
 
 HasPrivacyLevel returns a boolean if a field has been set.
 
+### SetPrivacyLevelNil
+
+`func (o *CreateStageInstanceRequest) SetPrivacyLevelNil(b bool)`
+
+ SetPrivacyLevelNil sets the value for PrivacyLevel to be an explicit nil
+
+### UnsetPrivacyLevel
+`func (o *CreateStageInstanceRequest) UnsetPrivacyLevel()`
+
+UnsetPrivacyLevel ensures that no value is present for PrivacyLevel, not even an explicit nil
 ### GetGuildScheduledEventId
 
 `func (o *CreateStageInstanceRequest) GetGuildScheduledEventId() string`
@@ -119,6 +129,16 @@ SetGuildScheduledEventId sets GuildScheduledEventId field to given value.
 
 HasGuildScheduledEventId returns a boolean if a field has been set.
 
+### SetGuildScheduledEventIdNil
+
+`func (o *CreateStageInstanceRequest) SetGuildScheduledEventIdNil(b bool)`
+
+ SetGuildScheduledEventIdNil sets the value for GuildScheduledEventId to be an explicit nil
+
+### UnsetGuildScheduledEventId
+`func (o *CreateStageInstanceRequest) UnsetGuildScheduledEventId()`
+
+UnsetGuildScheduledEventId ensures that no value is present for GuildScheduledEventId, not even an explicit nil
 ### GetSendStartNotification
 
 `func (o *CreateStageInstanceRequest) GetSendStartNotification() bool`

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -62,7 +62,7 @@ type ExternalScheduledEventPatchRequestPartial struct {
 	ScheduledEndTime NullableTime `json:"scheduled_end_time,omitempty"`
 	EntityType NullableInt32 `json:"entity_type,omitempty"`
 	PrivacyLevel interface{} `json:"privacy_level,omitempty"`
-	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	ChannelId NullableString `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	EntityMetadata *EntityMetadataExternal `json:"entity_metadata,omitempty"`
 }
 
@@ -398,38 +398,48 @@ func (o *ExternalScheduledEventPatchRequestPartial) SetPrivacyLevel(v interface{
 }
 
 
-// GetChannelId returns the ChannelId field value if set, zero value otherwise.
+// GetChannelId returns the ChannelId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ExternalScheduledEventPatchRequestPartial) GetChannelId() string {
-	if o == nil || IsNil(o.ChannelId) {
+	if o == nil || IsNil(o.ChannelId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ChannelId
+	return *o.ChannelId.Get()
 }
 
 // GetChannelIdOk returns a tuple with the ChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalScheduledEventPatchRequestPartial) GetChannelIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ChannelId) {
+	if o == nil || IsNil(o.ChannelId.Get()) {
 		return nil, false
 	}
-	return o.ChannelId, true
+	return o.ChannelId.Get(), o.ChannelId.IsSet()
 }
 
 // HasChannelId returns a boolean if a field has been set.
 func (o *ExternalScheduledEventPatchRequestPartial) HasChannelId() bool {
-	if o != nil && !IsNil(o.ChannelId) {
+	if o != nil && o.ChannelId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetChannelId gets a reference to the given string and assigns it to the ChannelId field.
+// SetChannelId gets a reference to the given NullableString and assigns it to the ChannelId field.
 func (o *ExternalScheduledEventPatchRequestPartial) SetChannelId(v string) {
-	o.ChannelId = &v
+	o.ChannelId.Set(&v)
 }
 
+// SetChannelIdNil sets the value for ChannelId to be an explicit nil
+func (o *ExternalScheduledEventPatchRequestPartial) SetChannelIdNil() {
+	o.ChannelId.Set(nil)
+}
+
+// UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
+func (o *ExternalScheduledEventPatchRequestPartial) UnsetChannelId() {
+	o.ChannelId.Unset()
+}
 
 // GetEntityMetadata returns the EntityMetadata field value if set, zero value otherwise.
 func (o *ExternalScheduledEventPatchRequestPartial) GetEntityMetadata() EntityMetadataExternal {
@@ -498,8 +508,8 @@ func (o ExternalScheduledEventPatchRequestPartial) ToMap() (map[string]interface
 	if o.PrivacyLevel != nil {
 		toSerialize["privacy_level"] = o.PrivacyLevel
 	}
-	if !IsNil(o.ChannelId) {
-		toSerialize["channel_id"] = o.ChannelId
+	if o.ChannelId.IsSet() {
+		toSerialize["channel_id"] = o.ChannelId.Get()
 	}
 	if !IsNil(o.EntityMetadata) {
 		toSerialize["entity_metadata"] = o.EntityMetadata
@@ -542,5 +552,4 @@ func (v *NullableExternalScheduledEventPatchRequestPartial) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

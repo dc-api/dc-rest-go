@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | Pointer to **string** |  | [optional] 
+**ApplicationId** | Pointer to **NullableString** |  | [optional] 
 **Avatar** | Pointer to **NullableString** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
-**GuildId** | Pointer to **string** |  | [optional] 
+**ChannelId** | Pointer to **NullableString** |  | [optional] 
+**GuildId** | Pointer to **NullableString** |  | [optional] 
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **Type** | **int32** |  | 
-**User** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**Token** | Pointer to **NullableString** |  | [optional] 
-**Url** | Pointer to **NullableString** |  | [optional] 
+**User** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**Token** | Pointer to **string** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -59,6 +59,16 @@ SetApplicationId sets ApplicationId field to given value.
 
 HasApplicationId returns a boolean if a field has been set.
 
+### SetApplicationIdNil
+
+`func (o *GuildIncomingWebhookResponse) SetApplicationIdNil(b bool)`
+
+ SetApplicationIdNil sets the value for ApplicationId to be an explicit nil
+
+### UnsetApplicationId
+`func (o *GuildIncomingWebhookResponse) UnsetApplicationId()`
+
+UnsetApplicationId ensures that no value is present for ApplicationId, not even an explicit nil
 ### GetAvatar
 
 `func (o *GuildIncomingWebhookResponse) GetAvatar() string`
@@ -119,6 +129,16 @@ SetChannelId sets ChannelId field to given value.
 
 HasChannelId returns a boolean if a field has been set.
 
+### SetChannelIdNil
+
+`func (o *GuildIncomingWebhookResponse) SetChannelIdNil(b bool)`
+
+ SetChannelIdNil sets the value for ChannelId to be an explicit nil
+
+### UnsetChannelId
+`func (o *GuildIncomingWebhookResponse) UnsetChannelId()`
+
+UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
 ### GetGuildId
 
 `func (o *GuildIncomingWebhookResponse) GetGuildId() string`
@@ -144,6 +164,16 @@ SetGuildId sets GuildId field to given value.
 
 HasGuildId returns a boolean if a field has been set.
 
+### SetGuildIdNil
+
+`func (o *GuildIncomingWebhookResponse) SetGuildIdNil(b bool)`
+
+ SetGuildIdNil sets the value for GuildId to be an explicit nil
+
+### UnsetGuildId
+`func (o *GuildIncomingWebhookResponse) UnsetGuildId()`
+
+UnsetGuildId ensures that no value is present for GuildId, not even an explicit nil
 ### GetId
 
 `func (o *GuildIncomingWebhookResponse) GetId() string`
@@ -229,16 +259,6 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
-### SetUserNil
-
-`func (o *GuildIncomingWebhookResponse) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *GuildIncomingWebhookResponse) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetToken
 
 `func (o *GuildIncomingWebhookResponse) GetToken() string`
@@ -264,16 +284,6 @@ SetToken sets Token field to given value.
 
 HasToken returns a boolean if a field has been set.
 
-### SetTokenNil
-
-`func (o *GuildIncomingWebhookResponse) SetTokenNil(b bool)`
-
- SetTokenNil sets the value for Token to be an explicit nil
-
-### UnsetToken
-`func (o *GuildIncomingWebhookResponse) UnsetToken()`
-
-UnsetToken ensures that no value is present for Token, not even an explicit nil
 ### GetUrl
 
 `func (o *GuildIncomingWebhookResponse) GetUrl() string`
@@ -299,16 +309,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *GuildIncomingWebhookResponse) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *GuildIncomingWebhookResponse) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

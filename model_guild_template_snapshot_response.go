@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -62,9 +62,9 @@ type GuildTemplateSnapshotResponse struct {
 	DefaultMessageNotifications int32 `json:"default_message_notifications"`
 	ExplicitContentFilter int32 `json:"explicit_content_filter"`
 	PreferredLocale string `json:"preferred_locale"`
-	AfkChannelId *string `json:"afk_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	AfkChannelId NullableString `json:"afk_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	AfkTimeout NullableInt32 `json:"afk_timeout"`
-	SystemChannelId *string `json:"system_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	SystemChannelId NullableString `json:"system_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	SystemChannelFlags int32 `json:"system_channel_flags"`
 	Roles []GuildTemplateRoleResponse `json:"roles"`
 	Channels []GuildTemplateChannelResponse `json:"channels"`
@@ -304,38 +304,48 @@ func (o *GuildTemplateSnapshotResponse) SetPreferredLocale(v string) {
 	o.PreferredLocale = v
 }
 
-// GetAfkChannelId returns the AfkChannelId field value if set, zero value otherwise.
+// GetAfkChannelId returns the AfkChannelId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildTemplateSnapshotResponse) GetAfkChannelId() string {
-	if o == nil || IsNil(o.AfkChannelId) {
+	if o == nil || IsNil(o.AfkChannelId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AfkChannelId
+	return *o.AfkChannelId.Get()
 }
 
 // GetAfkChannelIdOk returns a tuple with the AfkChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateSnapshotResponse) GetAfkChannelIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AfkChannelId) {
+	if o == nil || IsNil(o.AfkChannelId.Get()) {
 		return nil, false
 	}
-	return o.AfkChannelId, true
+	return o.AfkChannelId.Get(), o.AfkChannelId.IsSet()
 }
 
 // HasAfkChannelId returns a boolean if a field has been set.
 func (o *GuildTemplateSnapshotResponse) HasAfkChannelId() bool {
-	if o != nil && !IsNil(o.AfkChannelId) {
+	if o != nil && o.AfkChannelId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAfkChannelId gets a reference to the given string and assigns it to the AfkChannelId field.
+// SetAfkChannelId gets a reference to the given NullableString and assigns it to the AfkChannelId field.
 func (o *GuildTemplateSnapshotResponse) SetAfkChannelId(v string) {
-	o.AfkChannelId = &v
+	o.AfkChannelId.Set(&v)
 }
 
+// SetAfkChannelIdNil sets the value for AfkChannelId to be an explicit nil
+func (o *GuildTemplateSnapshotResponse) SetAfkChannelIdNil() {
+	o.AfkChannelId.Set(nil)
+}
+
+// UnsetAfkChannelId ensures that no value is present for AfkChannelId, not even an explicit nil
+func (o *GuildTemplateSnapshotResponse) UnsetAfkChannelId() {
+	o.AfkChannelId.Unset()
+}
 
 // GetAfkTimeout returns the AfkTimeout field value
 // If the value is explicit nil, the zero value for int32 will be returned
@@ -363,38 +373,48 @@ func (o *GuildTemplateSnapshotResponse) SetAfkTimeout(v int32) {
 	o.AfkTimeout.Set(&v)
 }
 
-// GetSystemChannelId returns the SystemChannelId field value if set, zero value otherwise.
+// GetSystemChannelId returns the SystemChannelId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildTemplateSnapshotResponse) GetSystemChannelId() string {
-	if o == nil || IsNil(o.SystemChannelId) {
+	if o == nil || IsNil(o.SystemChannelId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SystemChannelId
+	return *o.SystemChannelId.Get()
 }
 
 // GetSystemChannelIdOk returns a tuple with the SystemChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildTemplateSnapshotResponse) GetSystemChannelIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SystemChannelId) {
+	if o == nil || IsNil(o.SystemChannelId.Get()) {
 		return nil, false
 	}
-	return o.SystemChannelId, true
+	return o.SystemChannelId.Get(), o.SystemChannelId.IsSet()
 }
 
 // HasSystemChannelId returns a boolean if a field has been set.
 func (o *GuildTemplateSnapshotResponse) HasSystemChannelId() bool {
-	if o != nil && !IsNil(o.SystemChannelId) {
+	if o != nil && o.SystemChannelId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSystemChannelId gets a reference to the given string and assigns it to the SystemChannelId field.
+// SetSystemChannelId gets a reference to the given NullableString and assigns it to the SystemChannelId field.
 func (o *GuildTemplateSnapshotResponse) SetSystemChannelId(v string) {
-	o.SystemChannelId = &v
+	o.SystemChannelId.Set(&v)
 }
 
+// SetSystemChannelIdNil sets the value for SystemChannelId to be an explicit nil
+func (o *GuildTemplateSnapshotResponse) SetSystemChannelIdNil() {
+	o.SystemChannelId.Set(nil)
+}
+
+// UnsetSystemChannelId ensures that no value is present for SystemChannelId, not even an explicit nil
+func (o *GuildTemplateSnapshotResponse) UnsetSystemChannelId() {
+	o.SystemChannelId.Unset()
+}
 
 // GetSystemChannelFlags returns the SystemChannelFlags field value
 func (o *GuildTemplateSnapshotResponse) GetSystemChannelFlags() int32 {
@@ -489,12 +509,12 @@ func (o GuildTemplateSnapshotResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["default_message_notifications"] = o.DefaultMessageNotifications
 	toSerialize["explicit_content_filter"] = o.ExplicitContentFilter
 	toSerialize["preferred_locale"] = o.PreferredLocale
-	if !IsNil(o.AfkChannelId) {
-		toSerialize["afk_channel_id"] = o.AfkChannelId
+	if o.AfkChannelId.IsSet() {
+		toSerialize["afk_channel_id"] = o.AfkChannelId.Get()
 	}
 	toSerialize["afk_timeout"] = o.AfkTimeout.Get()
-	if !IsNil(o.SystemChannelId) {
-		toSerialize["system_channel_id"] = o.SystemChannelId
+	if o.SystemChannelId.IsSet() {
+		toSerialize["system_channel_id"] = o.SystemChannelId.Get()
 	}
 	toSerialize["system_channel_flags"] = o.SystemChannelFlags
 	toSerialize["roles"] = o.Roles
@@ -582,5 +602,4 @@ func (v *NullableGuildTemplateSnapshotResponse) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

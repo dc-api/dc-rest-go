@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**Animated** | Pointer to **NullableBool** |  | [optional] 
+**Animated** | **bool** |  | 
 
 ## Methods
 
 ### NewSettingsEmojiResponse
 
-`func NewSettingsEmojiResponse() *SettingsEmojiResponse`
+`func NewSettingsEmojiResponse(animated bool, ) *SettingsEmojiResponse`
 
 NewSettingsEmojiResponse instantiates a new SettingsEmojiResponse object
 This constructor will assign default values to properties that have it defined,
@@ -52,6 +52,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *SettingsEmojiResponse) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *SettingsEmojiResponse) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *SettingsEmojiResponse) GetName() string`
@@ -106,22 +116,7 @@ and a boolean to check if the value has been set.
 
 SetAnimated sets Animated field to given value.
 
-### HasAnimated
 
-`func (o *SettingsEmojiResponse) HasAnimated() bool`
-
-HasAnimated returns a boolean if a field has been set.
-
-### SetAnimatedNil
-
-`func (o *SettingsEmojiResponse) SetAnimatedNil(b bool)`
-
- SetAnimatedNil sets the value for Animated to be an explicit nil
-
-### UnsetAnimated
-`func (o *SettingsEmojiResponse) UnsetAnimated()`
-
-UnsetAnimated ensures that no value is present for Animated, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

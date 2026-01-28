@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -64,9 +64,9 @@ type ApplicationCommandUpdateRequest struct {
 	DmPermission NullableBool `json:"dm_permission,omitempty"`
 	Contexts []int32 `json:"contexts,omitempty"`
 	IntegrationTypes []int32 `json:"integration_types,omitempty"`
-	Handler *int32 `json:"handler,omitempty"`
-	Type *int32 `json:"type,omitempty"`
-	Id *string `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	Handler NullableInt32 `json:"handler,omitempty"`
+	Type NullableInt32 `json:"type,omitempty"`
+	Id NullableString `json:"id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
 type _ApplicationCommandUpdateRequest ApplicationCommandUpdateRequest
@@ -410,104 +410,134 @@ func (o *ApplicationCommandUpdateRequest) SetIntegrationTypes(v []int32) {
 }
 
 
-// GetHandler returns the Handler field value if set, zero value otherwise.
+// GetHandler returns the Handler field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplicationCommandUpdateRequest) GetHandler() int32 {
-	if o == nil || IsNil(o.Handler) {
+	if o == nil || IsNil(o.Handler.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.Handler
+	return *o.Handler.Get()
 }
 
 // GetHandlerOk returns a tuple with the Handler field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandUpdateRequest) GetHandlerOk() (*int32, bool) {
-	if o == nil || IsNil(o.Handler) {
+	if o == nil || IsNil(o.Handler.Get()) {
 		return nil, false
 	}
-	return o.Handler, true
+	return o.Handler.Get(), o.Handler.IsSet()
 }
 
 // HasHandler returns a boolean if a field has been set.
 func (o *ApplicationCommandUpdateRequest) HasHandler() bool {
-	if o != nil && !IsNil(o.Handler) {
+	if o != nil && o.Handler.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetHandler gets a reference to the given int32 and assigns it to the Handler field.
+// SetHandler gets a reference to the given NullableInt32 and assigns it to the Handler field.
 func (o *ApplicationCommandUpdateRequest) SetHandler(v int32) {
-	o.Handler = &v
+	o.Handler.Set(&v)
 }
 
+// SetHandlerNil sets the value for Handler to be an explicit nil
+func (o *ApplicationCommandUpdateRequest) SetHandlerNil() {
+	o.Handler.Set(nil)
+}
 
-// GetType returns the Type field value if set, zero value otherwise.
+// UnsetHandler ensures that no value is present for Handler, not even an explicit nil
+func (o *ApplicationCommandUpdateRequest) UnsetHandler() {
+	o.Handler.Unset()
+}
+
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplicationCommandUpdateRequest) GetType() int32 {
-	if o == nil || IsNil(o.Type) {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.Type
+	return *o.Type.Get()
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandUpdateRequest) GetTypeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil || IsNil(o.Type.Get()) {
 		return nil, false
 	}
-	return o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *ApplicationCommandUpdateRequest) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
+	if o != nil && o.Type.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given int32 and assigns it to the Type field.
+// SetType gets a reference to the given NullableInt32 and assigns it to the Type field.
 func (o *ApplicationCommandUpdateRequest) SetType(v int32) {
-	o.Type = &v
+	o.Type.Set(&v)
 }
 
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *ApplicationCommandUpdateRequest) SetTypeNil() {
+	o.Type.Set(nil)
+}
 
-// GetId returns the Id field value if set, zero value otherwise.
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *ApplicationCommandUpdateRequest) UnsetType() {
+	o.Type.Unset()
+}
+
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplicationCommandUpdateRequest) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandUpdateRequest) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *ApplicationCommandUpdateRequest) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
+	if o != nil && o.Id.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *ApplicationCommandUpdateRequest) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
 }
 
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *ApplicationCommandUpdateRequest) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *ApplicationCommandUpdateRequest) UnsetId() {
+	o.Id.Unset()
+}
 
 func (o ApplicationCommandUpdateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -544,14 +574,14 @@ func (o ApplicationCommandUpdateRequest) ToMap() (map[string]interface{}, error)
 	if o.IntegrationTypes != nil {
 		toSerialize["integration_types"] = o.IntegrationTypes
 	}
-	if !IsNil(o.Handler) {
-		toSerialize["handler"] = o.Handler
+	if o.Handler.IsSet() {
+		toSerialize["handler"] = o.Handler.Get()
 	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
 	return toSerialize, nil
 }
@@ -628,5 +658,4 @@ func (v *NullableApplicationCommandUpdateRequest) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

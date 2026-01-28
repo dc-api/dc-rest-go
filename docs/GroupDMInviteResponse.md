@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **NullableInt32** |  | [optional] 
+**Type** | **NullableInt32** |  | 
 **Code** | **string** |  | 
-**Inviter** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
-**MaxAge** | Pointer to **NullableInt32** |  | [optional] 
-**CreatedAt** | Pointer to **NullableTime** |  | [optional] 
+**Inviter** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
+**MaxAge** | Pointer to **int32** |  | [optional] 
+**CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **ExpiresAt** | Pointer to **NullableTime** |  | [optional] 
-**Channel** | Pointer to [**NullableInviteChannelResponse**](InviteChannelResponse.md) |  | [optional] 
+**Channel** | [**InviteChannelResponse**](InviteChannelResponse.md) |  | 
 **ApproximateMemberCount** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
 
 ### NewGroupDMInviteResponse
 
-`func NewGroupDMInviteResponse(code string, ) *GroupDMInviteResponse`
+`func NewGroupDMInviteResponse(type_ NullableInt32, code string, channel InviteChannelResponse, ) *GroupDMInviteResponse`
 
 NewGroupDMInviteResponse instantiates a new GroupDMInviteResponse object
 This constructor will assign default values to properties that have it defined,
@@ -51,11 +51,6 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
-
-`func (o *GroupDMInviteResponse) HasType() bool`
-
-HasType returns a boolean if a field has been set.
 
 ### SetTypeNil
 
@@ -112,16 +107,6 @@ SetInviter sets Inviter field to given value.
 
 HasInviter returns a boolean if a field has been set.
 
-### SetInviterNil
-
-`func (o *GroupDMInviteResponse) SetInviterNil(b bool)`
-
- SetInviterNil sets the value for Inviter to be an explicit nil
-
-### UnsetInviter
-`func (o *GroupDMInviteResponse) UnsetInviter()`
-
-UnsetInviter ensures that no value is present for Inviter, not even an explicit nil
 ### GetMaxAge
 
 `func (o *GroupDMInviteResponse) GetMaxAge() int32`
@@ -147,16 +132,6 @@ SetMaxAge sets MaxAge field to given value.
 
 HasMaxAge returns a boolean if a field has been set.
 
-### SetMaxAgeNil
-
-`func (o *GroupDMInviteResponse) SetMaxAgeNil(b bool)`
-
- SetMaxAgeNil sets the value for MaxAge to be an explicit nil
-
-### UnsetMaxAge
-`func (o *GroupDMInviteResponse) UnsetMaxAge()`
-
-UnsetMaxAge ensures that no value is present for MaxAge, not even an explicit nil
 ### GetCreatedAt
 
 `func (o *GroupDMInviteResponse) GetCreatedAt() time.Time`
@@ -182,16 +157,6 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
-### SetCreatedAtNil
-
-`func (o *GroupDMInviteResponse) SetCreatedAtNil(b bool)`
-
- SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
-
-### UnsetCreatedAt
-`func (o *GroupDMInviteResponse) UnsetCreatedAt()`
-
-UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
 ### GetExpiresAt
 
 `func (o *GroupDMInviteResponse) GetExpiresAt() time.Time`
@@ -246,22 +211,7 @@ and a boolean to check if the value has been set.
 
 SetChannel sets Channel field to given value.
 
-### HasChannel
 
-`func (o *GroupDMInviteResponse) HasChannel() bool`
-
-HasChannel returns a boolean if a field has been set.
-
-### SetChannelNil
-
-`func (o *GroupDMInviteResponse) SetChannelNil(b bool)`
-
- SetChannelNil sets the value for Channel to be an explicit nil
-
-### UnsetChannel
-`func (o *GroupDMInviteResponse) UnsetChannel()`
-
-UnsetChannel ensures that no value is present for Channel, not even an explicit nil
 ### GetApproximateMemberCount
 
 `func (o *GroupDMInviteResponse) GetApproximateMemberCount() int32`

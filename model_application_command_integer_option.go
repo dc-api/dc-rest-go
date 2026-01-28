@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -63,8 +63,8 @@ type ApplicationCommandIntegerOption struct {
 	Required NullableBool `json:"required,omitempty"`
 	Autocomplete NullableBool `json:"autocomplete,omitempty"`
 	Choices []ApplicationCommandOptionIntegerChoice `json:"choices,omitempty"`
-	MinValue *int64 `json:"min_value,omitempty"`
-	MaxValue *int64 `json:"max_value,omitempty"`
+	MinValue NullableInt64 `json:"min_value,omitempty"`
+	MaxValue NullableInt64 `json:"max_value,omitempty"`
 }
 
 type _ApplicationCommandIntegerOption ApplicationCommandIntegerOption
@@ -347,71 +347,91 @@ func (o *ApplicationCommandIntegerOption) SetChoices(v []ApplicationCommandOptio
 }
 
 
-// GetMinValue returns the MinValue field value if set, zero value otherwise.
+// GetMinValue returns the MinValue field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplicationCommandIntegerOption) GetMinValue() int64 {
-	if o == nil || IsNil(o.MinValue) {
+	if o == nil || IsNil(o.MinValue.Get()) {
 		var ret int64
 		return ret
 	}
-	return *o.MinValue
+	return *o.MinValue.Get()
 }
 
 // GetMinValueOk returns a tuple with the MinValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandIntegerOption) GetMinValueOk() (*int64, bool) {
-	if o == nil || IsNil(o.MinValue) {
+	if o == nil || IsNil(o.MinValue.Get()) {
 		return nil, false
 	}
-	return o.MinValue, true
+	return o.MinValue.Get(), o.MinValue.IsSet()
 }
 
 // HasMinValue returns a boolean if a field has been set.
 func (o *ApplicationCommandIntegerOption) HasMinValue() bool {
-	if o != nil && !IsNil(o.MinValue) {
+	if o != nil && o.MinValue.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMinValue gets a reference to the given int64 and assigns it to the MinValue field.
+// SetMinValue gets a reference to the given NullableInt64 and assigns it to the MinValue field.
 func (o *ApplicationCommandIntegerOption) SetMinValue(v int64) {
-	o.MinValue = &v
+	o.MinValue.Set(&v)
 }
 
+// SetMinValueNil sets the value for MinValue to be an explicit nil
+func (o *ApplicationCommandIntegerOption) SetMinValueNil() {
+	o.MinValue.Set(nil)
+}
 
-// GetMaxValue returns the MaxValue field value if set, zero value otherwise.
+// UnsetMinValue ensures that no value is present for MinValue, not even an explicit nil
+func (o *ApplicationCommandIntegerOption) UnsetMinValue() {
+	o.MinValue.Unset()
+}
+
+// GetMaxValue returns the MaxValue field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplicationCommandIntegerOption) GetMaxValue() int64 {
-	if o == nil || IsNil(o.MaxValue) {
+	if o == nil || IsNil(o.MaxValue.Get()) {
 		var ret int64
 		return ret
 	}
-	return *o.MaxValue
+	return *o.MaxValue.Get()
 }
 
 // GetMaxValueOk returns a tuple with the MaxValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationCommandIntegerOption) GetMaxValueOk() (*int64, bool) {
-	if o == nil || IsNil(o.MaxValue) {
+	if o == nil || IsNil(o.MaxValue.Get()) {
 		return nil, false
 	}
-	return o.MaxValue, true
+	return o.MaxValue.Get(), o.MaxValue.IsSet()
 }
 
 // HasMaxValue returns a boolean if a field has been set.
 func (o *ApplicationCommandIntegerOption) HasMaxValue() bool {
-	if o != nil && !IsNil(o.MaxValue) {
+	if o != nil && o.MaxValue.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxValue gets a reference to the given int64 and assigns it to the MaxValue field.
+// SetMaxValue gets a reference to the given NullableInt64 and assigns it to the MaxValue field.
 func (o *ApplicationCommandIntegerOption) SetMaxValue(v int64) {
-	o.MaxValue = &v
+	o.MaxValue.Set(&v)
 }
 
+// SetMaxValueNil sets the value for MaxValue to be an explicit nil
+func (o *ApplicationCommandIntegerOption) SetMaxValueNil() {
+	o.MaxValue.Set(nil)
+}
+
+// UnsetMaxValue ensures that no value is present for MaxValue, not even an explicit nil
+func (o *ApplicationCommandIntegerOption) UnsetMaxValue() {
+	o.MaxValue.Unset()
+}
 
 func (o ApplicationCommandIntegerOption) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -441,11 +461,11 @@ func (o ApplicationCommandIntegerOption) ToMap() (map[string]interface{}, error)
 	if o.Choices != nil {
 		toSerialize["choices"] = o.Choices
 	}
-	if !IsNil(o.MinValue) {
-		toSerialize["min_value"] = o.MinValue
+	if o.MinValue.IsSet() {
+		toSerialize["min_value"] = o.MinValue.Get()
 	}
-	if !IsNil(o.MaxValue) {
-		toSerialize["max_value"] = o.MaxValue
+	if o.MaxValue.IsSet() {
+		toSerialize["max_value"] = o.MaxValue.Get()
 	}
 	return toSerialize, nil
 }
@@ -524,5 +544,4 @@ func (v *NullableApplicationCommandIntegerOption) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

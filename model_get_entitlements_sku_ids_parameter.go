@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -52,14 +52,14 @@ import (
 
 // GetEntitlementsSkuIdsParameter - struct for GetEntitlementsSkuIdsParameter
 type GetEntitlementsSkuIdsParameter struct {
-	ArrayOfString *[]string
+	ArrayOf*string *[]*string
 	String *string
 }
 
-// []stringAsGetEntitlementsSkuIdsParameter is a convenience function that returns []string wrapped in GetEntitlementsSkuIdsParameter
-func ArrayOfStringAsGetEntitlementsSkuIdsParameter(v *[]string) GetEntitlementsSkuIdsParameter {
+// []*stringAsGetEntitlementsSkuIdsParameter is a convenience function that returns []*string wrapped in GetEntitlementsSkuIdsParameter
+func ArrayOf*stringAsGetEntitlementsSkuIdsParameter(v *[]*string) GetEntitlementsSkuIdsParameter {
 	return GetEntitlementsSkuIdsParameter{
-		ArrayOfString: v,
+		ArrayOf*string: v,
 	}
 }
 
@@ -75,21 +75,21 @@ func StringAsGetEntitlementsSkuIdsParameter(v *string) GetEntitlementsSkuIdsPara
 func (dst *GetEntitlementsSkuIdsParameter) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into ArrayOfString
-	err = newStrictDecoder(data).Decode(&dst.ArrayOfString)
+	// try to unmarshal data into ArrayOf*string
+	err = newStrictDecoder(data).Decode(&dst.ArrayOf*string)
 	if err == nil {
-		jsonArrayOfString, _ := json.Marshal(dst.ArrayOfString)
-		if string(jsonArrayOfString) == "{}" { // empty struct
-			dst.ArrayOfString = nil
+		jsonArrayOf*string, _ := json.Marshal(dst.ArrayOf*string)
+		if string(jsonArrayOf*string) == "{}" { // empty struct
+			dst.ArrayOf*string = nil
 		} else {
-			if err = validator.Validate(dst.ArrayOfString); err != nil {
-				dst.ArrayOfString = nil
+			if err = validator.Validate(dst.ArrayOf*string); err != nil {
+				dst.ArrayOf*string = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.ArrayOfString = nil
+		dst.ArrayOf*string = nil
 	}
 
 	// try to unmarshal data into String
@@ -111,7 +111,7 @@ func (dst *GetEntitlementsSkuIdsParameter) UnmarshalJSON(data []byte) error {
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.ArrayOfString = nil
+		dst.ArrayOf*string = nil
 		dst.String = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(GetEntitlementsSkuIdsParameter)")
@@ -124,8 +124,8 @@ func (dst *GetEntitlementsSkuIdsParameter) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src GetEntitlementsSkuIdsParameter) MarshalJSON() ([]byte, error) {
-	if src.ArrayOfString != nil {
-		return json.Marshal(&src.ArrayOfString)
+	if src.ArrayOf*string != nil {
+		return json.Marshal(&src.ArrayOf*string)
 	}
 
 	if src.String != nil {
@@ -140,8 +140,8 @@ func (obj *GetEntitlementsSkuIdsParameter) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.ArrayOfString != nil {
-		return obj.ArrayOfString
+	if obj.ArrayOf*string != nil {
+		return obj.ArrayOf*string
 	}
 
 	if obj.String != nil {
@@ -154,8 +154,8 @@ func (obj *GetEntitlementsSkuIdsParameter) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj GetEntitlementsSkuIdsParameter) GetActualInstanceValue() (interface{}) {
-	if obj.ArrayOfString != nil {
-		return *obj.ArrayOfString
+	if obj.ArrayOf*string != nil {
+		return *obj.ArrayOf*string
 	}
 
 	if obj.String != nil {
@@ -201,5 +201,4 @@ func (v *NullableGetEntitlementsSkuIdsParameter) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -54,6 +54,9 @@ var _ MappedNullable = &UpdateMyGuildMemberRequest{}
 // UpdateMyGuildMemberRequest struct for UpdateMyGuildMemberRequest
 type UpdateMyGuildMemberRequest struct {
 	Nick NullableString `json:"nick,omitempty"`
+	Avatar NullableString `json:"avatar,omitempty"`
+	Bio NullableString `json:"bio,omitempty"`
+	Banner NullableString `json:"banner,omitempty"`
 }
 
 // NewUpdateMyGuildMemberRequest instantiates a new UpdateMyGuildMemberRequest object
@@ -116,6 +119,135 @@ func (o *UpdateMyGuildMemberRequest) UnsetNick() {
 	o.Nick.Unset()
 }
 
+// GetAvatar returns the Avatar field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateMyGuildMemberRequest) GetAvatar() string {
+	if o == nil || IsNil(o.Avatar.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Avatar.Get()
+}
+
+// GetAvatarOk returns a tuple with the Avatar field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateMyGuildMemberRequest) GetAvatarOk() (*string, bool) {
+	if o == nil || IsNil(o.Avatar.Get()) {
+		return nil, false
+	}
+	return o.Avatar.Get(), o.Avatar.IsSet()
+}
+
+// HasAvatar returns a boolean if a field has been set.
+func (o *UpdateMyGuildMemberRequest) HasAvatar() bool {
+	if o != nil && o.Avatar.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAvatar gets a reference to the given NullableString and assigns it to the Avatar field.
+func (o *UpdateMyGuildMemberRequest) SetAvatar(v string) {
+	o.Avatar.Set(&v)
+}
+
+// SetAvatarNil sets the value for Avatar to be an explicit nil
+func (o *UpdateMyGuildMemberRequest) SetAvatarNil() {
+	o.Avatar.Set(nil)
+}
+
+// UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
+func (o *UpdateMyGuildMemberRequest) UnsetAvatar() {
+	o.Avatar.Unset()
+}
+
+// GetBio returns the Bio field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateMyGuildMemberRequest) GetBio() string {
+	if o == nil || IsNil(o.Bio.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Bio.Get()
+}
+
+// GetBioOk returns a tuple with the Bio field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateMyGuildMemberRequest) GetBioOk() (*string, bool) {
+	if o == nil || IsNil(o.Bio.Get()) {
+		return nil, false
+	}
+	return o.Bio.Get(), o.Bio.IsSet()
+}
+
+// HasBio returns a boolean if a field has been set.
+func (o *UpdateMyGuildMemberRequest) HasBio() bool {
+	if o != nil && o.Bio.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBio gets a reference to the given NullableString and assigns it to the Bio field.
+func (o *UpdateMyGuildMemberRequest) SetBio(v string) {
+	o.Bio.Set(&v)
+}
+
+// SetBioNil sets the value for Bio to be an explicit nil
+func (o *UpdateMyGuildMemberRequest) SetBioNil() {
+	o.Bio.Set(nil)
+}
+
+// UnsetBio ensures that no value is present for Bio, not even an explicit nil
+func (o *UpdateMyGuildMemberRequest) UnsetBio() {
+	o.Bio.Unset()
+}
+
+// GetBanner returns the Banner field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateMyGuildMemberRequest) GetBanner() string {
+	if o == nil || IsNil(o.Banner.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Banner.Get()
+}
+
+// GetBannerOk returns a tuple with the Banner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateMyGuildMemberRequest) GetBannerOk() (*string, bool) {
+	if o == nil || IsNil(o.Banner.Get()) {
+		return nil, false
+	}
+	return o.Banner.Get(), o.Banner.IsSet()
+}
+
+// HasBanner returns a boolean if a field has been set.
+func (o *UpdateMyGuildMemberRequest) HasBanner() bool {
+	if o != nil && o.Banner.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBanner gets a reference to the given NullableString and assigns it to the Banner field.
+func (o *UpdateMyGuildMemberRequest) SetBanner(v string) {
+	o.Banner.Set(&v)
+}
+
+// SetBannerNil sets the value for Banner to be an explicit nil
+func (o *UpdateMyGuildMemberRequest) SetBannerNil() {
+	o.Banner.Set(nil)
+}
+
+// UnsetBanner ensures that no value is present for Banner, not even an explicit nil
+func (o *UpdateMyGuildMemberRequest) UnsetBanner() {
+	o.Banner.Unset()
+}
+
 func (o UpdateMyGuildMemberRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -128,6 +260,15 @@ func (o UpdateMyGuildMemberRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Nick.IsSet() {
 		toSerialize["nick"] = o.Nick.Get()
+	}
+	if o.Avatar.IsSet() {
+		toSerialize["avatar"] = o.Avatar.Get()
+	}
+	if o.Bio.IsSet() {
+		toSerialize["bio"] = o.Bio.Get()
+	}
+	if o.Banner.IsSet() {
+		toSerialize["banner"] = o.Banner.Get()
 	}
 	return toSerialize, nil
 }
@@ -167,5 +308,4 @@ func (v *NullableUpdateMyGuildMemberRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

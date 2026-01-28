@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -62,11 +62,11 @@ type InviteGuildResponse struct {
 	Description NullableString `json:"description,omitempty"`
 	Icon NullableString `json:"icon,omitempty"`
 	Features []string `json:"features"`
-	VerificationLevel *int32 `json:"verification_level,omitempty"`
+	VerificationLevel NullableInt32 `json:"verification_level,omitempty"`
 	VanityUrlCode NullableString `json:"vanity_url_code,omitempty"`
 	NsfwLevel NullableInt32 `json:"nsfw_level,omitempty"`
 	Nsfw NullableBool `json:"nsfw,omitempty"`
-	PremiumSubscriptionCount NullableInt32 `json:"premium_subscription_count,omitempty"`
+	PremiumSubscriptionCount int32 `json:"premium_subscription_count"`
 }
 
 type _InviteGuildResponse InviteGuildResponse
@@ -75,11 +75,12 @@ type _InviteGuildResponse InviteGuildResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInviteGuildResponse(id string, name string, features []string) *InviteGuildResponse {
+func NewInviteGuildResponse(id string, name string, features []string, premiumSubscriptionCount int32) *InviteGuildResponse {
 	this := InviteGuildResponse{}
 	this.Id = id
 	this.Name = name
 	this.Features = features
+	this.PremiumSubscriptionCount = premiumSubscriptionCount
 	return &this
 }
 
@@ -335,38 +336,48 @@ func (o *InviteGuildResponse) SetFeatures(v []string) {
 	o.Features = v
 }
 
-// GetVerificationLevel returns the VerificationLevel field value if set, zero value otherwise.
+// GetVerificationLevel returns the VerificationLevel field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *InviteGuildResponse) GetVerificationLevel() int32 {
-	if o == nil || IsNil(o.VerificationLevel) {
+	if o == nil || IsNil(o.VerificationLevel.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.VerificationLevel
+	return *o.VerificationLevel.Get()
 }
 
 // GetVerificationLevelOk returns a tuple with the VerificationLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteGuildResponse) GetVerificationLevelOk() (*int32, bool) {
-	if o == nil || IsNil(o.VerificationLevel) {
+	if o == nil || IsNil(o.VerificationLevel.Get()) {
 		return nil, false
 	}
-	return o.VerificationLevel, true
+	return o.VerificationLevel.Get(), o.VerificationLevel.IsSet()
 }
 
 // HasVerificationLevel returns a boolean if a field has been set.
 func (o *InviteGuildResponse) HasVerificationLevel() bool {
-	if o != nil && !IsNil(o.VerificationLevel) {
+	if o != nil && o.VerificationLevel.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetVerificationLevel gets a reference to the given int32 and assigns it to the VerificationLevel field.
+// SetVerificationLevel gets a reference to the given NullableInt32 and assigns it to the VerificationLevel field.
 func (o *InviteGuildResponse) SetVerificationLevel(v int32) {
-	o.VerificationLevel = &v
+	o.VerificationLevel.Set(&v)
 }
 
+// SetVerificationLevelNil sets the value for VerificationLevel to be an explicit nil
+func (o *InviteGuildResponse) SetVerificationLevelNil() {
+	o.VerificationLevel.Set(nil)
+}
+
+// UnsetVerificationLevel ensures that no value is present for VerificationLevel, not even an explicit nil
+func (o *InviteGuildResponse) UnsetVerificationLevel() {
+	o.VerificationLevel.Unset()
+}
 
 // GetVanityUrlCode returns the VanityUrlCode field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *InviteGuildResponse) GetVanityUrlCode() string {
@@ -497,47 +508,28 @@ func (o *InviteGuildResponse) UnsetNsfw() {
 	o.Nsfw.Unset()
 }
 
-// GetPremiumSubscriptionCount returns the PremiumSubscriptionCount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPremiumSubscriptionCount returns the PremiumSubscriptionCount field value
 func (o *InviteGuildResponse) GetPremiumSubscriptionCount() int32 {
-	if o == nil || IsNil(o.PremiumSubscriptionCount.Get()) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.PremiumSubscriptionCount.Get()
+
+	return o.PremiumSubscriptionCount
 }
 
-// GetPremiumSubscriptionCountOk returns a tuple with the PremiumSubscriptionCount field value if set, nil otherwise
+// GetPremiumSubscriptionCountOk returns a tuple with the PremiumSubscriptionCount field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InviteGuildResponse) GetPremiumSubscriptionCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.PremiumSubscriptionCount.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PremiumSubscriptionCount.Get(), o.PremiumSubscriptionCount.IsSet()
+	return &o.PremiumSubscriptionCount, true
 }
 
-// HasPremiumSubscriptionCount returns a boolean if a field has been set.
-func (o *InviteGuildResponse) HasPremiumSubscriptionCount() bool {
-	if o != nil && o.PremiumSubscriptionCount.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPremiumSubscriptionCount gets a reference to the given NullableInt32 and assigns it to the PremiumSubscriptionCount field.
+// SetPremiumSubscriptionCount sets field value
 func (o *InviteGuildResponse) SetPremiumSubscriptionCount(v int32) {
-	o.PremiumSubscriptionCount.Set(&v)
-}
-
-// SetPremiumSubscriptionCountNil sets the value for PremiumSubscriptionCount to be an explicit nil
-func (o *InviteGuildResponse) SetPremiumSubscriptionCountNil() {
-	o.PremiumSubscriptionCount.Set(nil)
-}
-
-// UnsetPremiumSubscriptionCount ensures that no value is present for PremiumSubscriptionCount, not even an explicit nil
-func (o *InviteGuildResponse) UnsetPremiumSubscriptionCount() {
-	o.PremiumSubscriptionCount.Unset()
+	o.PremiumSubscriptionCount = v
 }
 
 func (o InviteGuildResponse) MarshalJSON() ([]byte, error) {
@@ -565,8 +557,8 @@ func (o InviteGuildResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["icon"] = o.Icon.Get()
 	}
 	toSerialize["features"] = o.Features
-	if !IsNil(o.VerificationLevel) {
-		toSerialize["verification_level"] = o.VerificationLevel
+	if o.VerificationLevel.IsSet() {
+		toSerialize["verification_level"] = o.VerificationLevel.Get()
 	}
 	if o.VanityUrlCode.IsSet() {
 		toSerialize["vanity_url_code"] = o.VanityUrlCode.Get()
@@ -577,9 +569,7 @@ func (o InviteGuildResponse) ToMap() (map[string]interface{}, error) {
 	if o.Nsfw.IsSet() {
 		toSerialize["nsfw"] = o.Nsfw.Get()
 	}
-	if o.PremiumSubscriptionCount.IsSet() {
-		toSerialize["premium_subscription_count"] = o.PremiumSubscriptionCount.Get()
-	}
+	toSerialize["premium_subscription_count"] = o.PremiumSubscriptionCount
 	return toSerialize, nil
 }
 
@@ -591,6 +581,7 @@ func (o *InviteGuildResponse) UnmarshalJSON(data []byte) (err error) {
 		"id",
 		"name",
 		"features",
+		"premium_subscription_count",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -657,5 +648,4 @@ func (v *NullableInviteGuildResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

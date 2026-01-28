@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -60,8 +60,8 @@ type StageInstanceResponse struct {
 	Topic string `json:"topic"`
 	PrivacyLevel int32 `json:"privacy_level"`
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	DiscoverableDisabled NullableBool `json:"discoverable_disabled,omitempty"`
-	GuildScheduledEventId *string `json:"guild_scheduled_event_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	DiscoverableDisabled bool `json:"discoverable_disabled"`
+	GuildScheduledEventId NullableString `json:"guild_scheduled_event_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
 type _StageInstanceResponse StageInstanceResponse
@@ -70,13 +70,14 @@ type _StageInstanceResponse StageInstanceResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStageInstanceResponse(guildId string, channelId string, topic string, privacyLevel int32, id string) *StageInstanceResponse {
+func NewStageInstanceResponse(guildId string, channelId string, topic string, privacyLevel int32, id string, discoverableDisabled bool) *StageInstanceResponse {
 	this := StageInstanceResponse{}
 	this.GuildId = guildId
 	this.ChannelId = channelId
 	this.Topic = topic
 	this.PrivacyLevel = privacyLevel
 	this.Id = id
+	this.DiscoverableDisabled = discoverableDisabled
 	return &this
 }
 
@@ -208,81 +209,72 @@ func (o *StageInstanceResponse) SetId(v string) {
 	o.Id = v
 }
 
-// GetDiscoverableDisabled returns the DiscoverableDisabled field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDiscoverableDisabled returns the DiscoverableDisabled field value
 func (o *StageInstanceResponse) GetDiscoverableDisabled() bool {
-	if o == nil || IsNil(o.DiscoverableDisabled.Get()) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.DiscoverableDisabled.Get()
+
+	return o.DiscoverableDisabled
 }
 
-// GetDiscoverableDisabledOk returns a tuple with the DiscoverableDisabled field value if set, nil otherwise
+// GetDiscoverableDisabledOk returns a tuple with the DiscoverableDisabled field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StageInstanceResponse) GetDiscoverableDisabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.DiscoverableDisabled.Get()) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DiscoverableDisabled.Get(), o.DiscoverableDisabled.IsSet()
+	return &o.DiscoverableDisabled, true
 }
 
-// HasDiscoverableDisabled returns a boolean if a field has been set.
-func (o *StageInstanceResponse) HasDiscoverableDisabled() bool {
-	if o != nil && o.DiscoverableDisabled.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDiscoverableDisabled gets a reference to the given NullableBool and assigns it to the DiscoverableDisabled field.
+// SetDiscoverableDisabled sets field value
 func (o *StageInstanceResponse) SetDiscoverableDisabled(v bool) {
-	o.DiscoverableDisabled.Set(&v)
+	o.DiscoverableDisabled = v
 }
 
-// SetDiscoverableDisabledNil sets the value for DiscoverableDisabled to be an explicit nil
-func (o *StageInstanceResponse) SetDiscoverableDisabledNil() {
-	o.DiscoverableDisabled.Set(nil)
-}
-
-// UnsetDiscoverableDisabled ensures that no value is present for DiscoverableDisabled, not even an explicit nil
-func (o *StageInstanceResponse) UnsetDiscoverableDisabled() {
-	o.DiscoverableDisabled.Unset()
-}
-
-// GetGuildScheduledEventId returns the GuildScheduledEventId field value if set, zero value otherwise.
+// GetGuildScheduledEventId returns the GuildScheduledEventId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StageInstanceResponse) GetGuildScheduledEventId() string {
-	if o == nil || IsNil(o.GuildScheduledEventId) {
+	if o == nil || IsNil(o.GuildScheduledEventId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.GuildScheduledEventId
+	return *o.GuildScheduledEventId.Get()
 }
 
 // GetGuildScheduledEventIdOk returns a tuple with the GuildScheduledEventId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StageInstanceResponse) GetGuildScheduledEventIdOk() (*string, bool) {
-	if o == nil || IsNil(o.GuildScheduledEventId) {
+	if o == nil || IsNil(o.GuildScheduledEventId.Get()) {
 		return nil, false
 	}
-	return o.GuildScheduledEventId, true
+	return o.GuildScheduledEventId.Get(), o.GuildScheduledEventId.IsSet()
 }
 
 // HasGuildScheduledEventId returns a boolean if a field has been set.
 func (o *StageInstanceResponse) HasGuildScheduledEventId() bool {
-	if o != nil && !IsNil(o.GuildScheduledEventId) {
+	if o != nil && o.GuildScheduledEventId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetGuildScheduledEventId gets a reference to the given string and assigns it to the GuildScheduledEventId field.
+// SetGuildScheduledEventId gets a reference to the given NullableString and assigns it to the GuildScheduledEventId field.
 func (o *StageInstanceResponse) SetGuildScheduledEventId(v string) {
-	o.GuildScheduledEventId = &v
+	o.GuildScheduledEventId.Set(&v)
 }
 
+// SetGuildScheduledEventIdNil sets the value for GuildScheduledEventId to be an explicit nil
+func (o *StageInstanceResponse) SetGuildScheduledEventIdNil() {
+	o.GuildScheduledEventId.Set(nil)
+}
+
+// UnsetGuildScheduledEventId ensures that no value is present for GuildScheduledEventId, not even an explicit nil
+func (o *StageInstanceResponse) UnsetGuildScheduledEventId() {
+	o.GuildScheduledEventId.Unset()
+}
 
 func (o StageInstanceResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -299,11 +291,9 @@ func (o StageInstanceResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["topic"] = o.Topic
 	toSerialize["privacy_level"] = o.PrivacyLevel
 	toSerialize["id"] = o.Id
-	if o.DiscoverableDisabled.IsSet() {
-		toSerialize["discoverable_disabled"] = o.DiscoverableDisabled.Get()
-	}
-	if !IsNil(o.GuildScheduledEventId) {
-		toSerialize["guild_scheduled_event_id"] = o.GuildScheduledEventId
+	toSerialize["discoverable_disabled"] = o.DiscoverableDisabled
+	if o.GuildScheduledEventId.IsSet() {
+		toSerialize["guild_scheduled_event_id"] = o.GuildScheduledEventId.Get()
 	}
 	return toSerialize, nil
 }
@@ -318,6 +308,7 @@ func (o *StageInstanceResponse) UnmarshalJSON(data []byte) (err error) {
 		"topic",
 		"privacy_level",
 		"id",
+		"discoverable_disabled",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -384,5 +375,4 @@ func (v *NullableStageInstanceResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

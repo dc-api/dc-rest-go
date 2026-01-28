@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Tags** | **string** |  | 
 **Type** | **int32** |  | 
-**FormatType** | Pointer to **int32** |  | [optional] 
+**FormatType** | Pointer to **NullableInt32** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Available** | **bool** |  | 
 **GuildId** | **string** |  | 
@@ -140,6 +140,16 @@ SetFormatType sets FormatType field to given value.
 
 HasFormatType returns a boolean if a field has been set.
 
+### SetFormatTypeNil
+
+`func (o *GetSticker200Response) SetFormatTypeNil(b bool)`
+
+ SetFormatTypeNil sets the value for FormatType to be an explicit nil
+
+### UnsetFormatType
+`func (o *GetSticker200Response) UnsetFormatType()`
+
+UnsetFormatType ensures that no value is present for FormatType, not even an explicit nil
 ### GetDescription
 
 `func (o *GetSticker200Response) GetDescription() string`

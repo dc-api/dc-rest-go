@@ -257,6 +257,16 @@ SetTriggerMetadata sets TriggerMetadata field to given value.
 
 HasTriggerMetadata returns a boolean if a field has been set.
 
+### SetTriggerMetadataNil
+
+`func (o *MLSpamUpsertRequest) SetTriggerMetadataNil(b bool)`
+
+ SetTriggerMetadataNil sets the value for TriggerMetadata to be an explicit nil
+
+### UnsetTriggerMetadata
+`func (o *MLSpamUpsertRequest) UnsetTriggerMetadata()`
+
+UnsetTriggerMetadata ensures that no value is present for TriggerMetadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Roles** | Pointer to **[]string** |  | [optional] 
 **Mute** | Pointer to **NullableBool** |  | [optional] 
 **Deaf** | Pointer to **NullableBool** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
+**ChannelId** | Pointer to **NullableString** |  | [optional] 
 **CommunicationDisabledUntil** | Pointer to **NullableTime** |  | [optional] 
 **Flags** | Pointer to **NullableInt32** |  | [optional] 
 
@@ -68,20 +68,20 @@ HasNick returns a boolean if a field has been set.
 UnsetNick ensures that no value is present for Nick, not even an explicit nil
 ### GetRoles
 
-`func (o *UpdateGuildMemberRequest) GetRoles() []string`
+`func (o *UpdateGuildMemberRequest) GetRoles() []*string`
 
 GetRoles returns the Roles field if non-nil, zero value otherwise.
 
 ### GetRolesOk
 
-`func (o *UpdateGuildMemberRequest) GetRolesOk() (*[]string, bool)`
+`func (o *UpdateGuildMemberRequest) GetRolesOk() (*[]*string, bool)`
 
 GetRolesOk returns a tuple with the Roles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRoles
 
-`func (o *UpdateGuildMemberRequest) SetRoles(v []string)`
+`func (o *UpdateGuildMemberRequest) SetRoles(v []*string)`
 
 SetRoles sets Roles field to given value.
 
@@ -196,6 +196,16 @@ SetChannelId sets ChannelId field to given value.
 
 HasChannelId returns a boolean if a field has been set.
 
+### SetChannelIdNil
+
+`func (o *UpdateGuildMemberRequest) SetChannelIdNil(b bool)`
+
+ SetChannelIdNil sets the value for ChannelId to be an explicit nil
+
+### UnsetChannelId
+`func (o *UpdateGuildMemberRequest) UnsetChannelId()`
+
+UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
 ### GetCommunicationDisabledUntil
 
 `func (o *UpdateGuildMemberRequest) GetCommunicationDisabledUntil() time.Time`

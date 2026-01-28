@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **ScheduledEndTime** | Pointer to **NullableTime** |  | [optional] 
 **PrivacyLevel** | **interface{}** |  | 
 **EntityType** | **NullableInt32** |  | 
-**ChannelId** | Pointer to **string** |  | [optional] 
+**ChannelId** | Pointer to **NullableString** |  | [optional] 
 **EntityMetadata** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
@@ -263,6 +263,16 @@ SetChannelId sets ChannelId field to given value.
 
 HasChannelId returns a boolean if a field has been set.
 
+### SetChannelIdNil
+
+`func (o *StageScheduledEventCreateRequest) SetChannelIdNil(b bool)`
+
+ SetChannelIdNil sets the value for ChannelId to be an explicit nil
+
+### UnsetChannelId
+`func (o *StageScheduledEventCreateRequest) UnsetChannelId()`
+
+UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
 ### GetEntityMetadata
 
 `func (o *StageScheduledEventCreateRequest) GetEntityMetadata() map[string]interface{}`
@@ -288,6 +298,16 @@ SetEntityMetadata sets EntityMetadata field to given value.
 
 HasEntityMetadata returns a boolean if a field has been set.
 
+### SetEntityMetadataNil
+
+`func (o *StageScheduledEventCreateRequest) SetEntityMetadataNil(b bool)`
+
+ SetEntityMetadataNil sets the value for EntityMetadata to be an explicit nil
+
+### UnsetEntityMetadata
+`func (o *StageScheduledEventCreateRequest) UnsetEntityMetadata()`
+
+UnsetEntityMetadata ensures that no value is present for EntityMetadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -8,16 +8,16 @@ Name | Type | Description | Notes
 **GuildId** | **string** |  | 
 **Name** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
-**CreatorId** | Pointer to **string** |  | [optional] 
-**Creator** | Pointer to [**NullableUserResponse**](UserResponse.md) |  | [optional] 
+**ChannelId** | Pointer to **NullableString** |  | [optional] 
+**CreatorId** | Pointer to **NullableString** |  | [optional] 
+**Creator** | Pointer to [**UserResponse**](UserResponse.md) |  | [optional] 
 **Image** | Pointer to **NullableString** |  | [optional] 
 **ScheduledStartTime** | **time.Time** |  | 
 **ScheduledEndTime** | Pointer to **NullableTime** |  | [optional] 
 **Status** | **NullableInt32** |  | 
 **EntityType** | **NullableInt32** |  | 
-**EntityId** | Pointer to **string** |  | [optional] 
-**UserCount** | Pointer to **NullableInt32** |  | [optional] 
+**EntityId** | Pointer to **NullableString** |  | [optional] 
+**UserCount** | Pointer to **int32** |  | [optional] 
 **PrivacyLevel** | **interface{}** |  | 
 **UserRsvp** | Pointer to [**NullableScheduledEventUserResponse**](ScheduledEventUserResponse.md) |  | [optional] 
 **EntityMetadata** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -161,6 +161,16 @@ SetChannelId sets ChannelId field to given value.
 
 HasChannelId returns a boolean if a field has been set.
 
+### SetChannelIdNil
+
+`func (o *StageScheduledEventResponse) SetChannelIdNil(b bool)`
+
+ SetChannelIdNil sets the value for ChannelId to be an explicit nil
+
+### UnsetChannelId
+`func (o *StageScheduledEventResponse) UnsetChannelId()`
+
+UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
 ### GetCreatorId
 
 `func (o *StageScheduledEventResponse) GetCreatorId() string`
@@ -186,6 +196,16 @@ SetCreatorId sets CreatorId field to given value.
 
 HasCreatorId returns a boolean if a field has been set.
 
+### SetCreatorIdNil
+
+`func (o *StageScheduledEventResponse) SetCreatorIdNil(b bool)`
+
+ SetCreatorIdNil sets the value for CreatorId to be an explicit nil
+
+### UnsetCreatorId
+`func (o *StageScheduledEventResponse) UnsetCreatorId()`
+
+UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
 ### GetCreator
 
 `func (o *StageScheduledEventResponse) GetCreator() UserResponse`
@@ -211,16 +231,6 @@ SetCreator sets Creator field to given value.
 
 HasCreator returns a boolean if a field has been set.
 
-### SetCreatorNil
-
-`func (o *StageScheduledEventResponse) SetCreatorNil(b bool)`
-
- SetCreatorNil sets the value for Creator to be an explicit nil
-
-### UnsetCreator
-`func (o *StageScheduledEventResponse) UnsetCreator()`
-
-UnsetCreator ensures that no value is present for Creator, not even an explicit nil
 ### GetImage
 
 `func (o *StageScheduledEventResponse) GetImage() string`
@@ -396,6 +406,16 @@ SetEntityId sets EntityId field to given value.
 
 HasEntityId returns a boolean if a field has been set.
 
+### SetEntityIdNil
+
+`func (o *StageScheduledEventResponse) SetEntityIdNil(b bool)`
+
+ SetEntityIdNil sets the value for EntityId to be an explicit nil
+
+### UnsetEntityId
+`func (o *StageScheduledEventResponse) UnsetEntityId()`
+
+UnsetEntityId ensures that no value is present for EntityId, not even an explicit nil
 ### GetUserCount
 
 `func (o *StageScheduledEventResponse) GetUserCount() int32`
@@ -421,16 +441,6 @@ SetUserCount sets UserCount field to given value.
 
 HasUserCount returns a boolean if a field has been set.
 
-### SetUserCountNil
-
-`func (o *StageScheduledEventResponse) SetUserCountNil(b bool)`
-
- SetUserCountNil sets the value for UserCount to be an explicit nil
-
-### UnsetUserCount
-`func (o *StageScheduledEventResponse) UnsetUserCount()`
-
-UnsetUserCount ensures that no value is present for UserCount, not even an explicit nil
 ### GetPrivacyLevel
 
 `func (o *StageScheduledEventResponse) GetPrivacyLevel() interface{}`
@@ -521,6 +531,16 @@ SetEntityMetadata sets EntityMetadata field to given value.
 
 HasEntityMetadata returns a boolean if a field has been set.
 
+### SetEntityMetadataNil
+
+`func (o *StageScheduledEventResponse) SetEntityMetadataNil(b bool)`
+
+ SetEntityMetadataNil sets the value for EntityMetadata to be an explicit nil
+
+### UnsetEntityMetadata
+`func (o *StageScheduledEventResponse) UnsetEntityMetadata()`
+
+UnsetEntityMetadata ensures that no value is present for EntityMetadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **DmPermission** | Pointer to **NullableBool** |  | [optional] 
 **Contexts** | Pointer to **[]int32** |  | [optional] 
 **IntegrationTypes** | Pointer to **[]int32** |  | [optional] 
-**Handler** | Pointer to **int32** |  | [optional] 
+**Handler** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
 
@@ -344,6 +344,16 @@ SetHandler sets Handler field to given value.
 
 HasHandler returns a boolean if a field has been set.
 
+### SetHandlerNil
+
+`func (o *ApplicationCommandPatchRequestPartial) SetHandlerNil(b bool)`
+
+ SetHandlerNil sets the value for Handler to be an explicit nil
+
+### UnsetHandler
+`func (o *ApplicationCommandPatchRequestPartial) UnsetHandler()`
+
+UnsetHandler ensures that no value is present for Handler, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -55,14 +55,14 @@ var _ MappedNullable = &ApplicationIncomingWebhookResponse{}
 
 // ApplicationIncomingWebhookResponse struct for ApplicationIncomingWebhookResponse
 type ApplicationIncomingWebhookResponse struct {
-	ApplicationId *string `json:"application_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	ApplicationId NullableString `json:"application_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Avatar NullableString `json:"avatar,omitempty"`
-	ChannelId *string `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	GuildId *string `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	ChannelId NullableString `json:"channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	GuildId NullableString `json:"guild_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Name string `json:"name"`
 	Type int32 `json:"type"`
-	User NullableUserResponse `json:"user,omitempty"`
+	User *UserResponse `json:"user,omitempty"`
 }
 
 type _ApplicationIncomingWebhookResponse ApplicationIncomingWebhookResponse
@@ -87,38 +87,48 @@ func NewApplicationIncomingWebhookResponseWithDefaults() *ApplicationIncomingWeb
 	return &this
 }
 
-// GetApplicationId returns the ApplicationId field value if set, zero value otherwise.
+// GetApplicationId returns the ApplicationId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplicationIncomingWebhookResponse) GetApplicationId() string {
-	if o == nil || IsNil(o.ApplicationId) {
+	if o == nil || IsNil(o.ApplicationId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ApplicationId
+	return *o.ApplicationId.Get()
 }
 
 // GetApplicationIdOk returns a tuple with the ApplicationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationIncomingWebhookResponse) GetApplicationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ApplicationId) {
+	if o == nil || IsNil(o.ApplicationId.Get()) {
 		return nil, false
 	}
-	return o.ApplicationId, true
+	return o.ApplicationId.Get(), o.ApplicationId.IsSet()
 }
 
 // HasApplicationId returns a boolean if a field has been set.
 func (o *ApplicationIncomingWebhookResponse) HasApplicationId() bool {
-	if o != nil && !IsNil(o.ApplicationId) {
+	if o != nil && o.ApplicationId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetApplicationId gets a reference to the given string and assigns it to the ApplicationId field.
+// SetApplicationId gets a reference to the given NullableString and assigns it to the ApplicationId field.
 func (o *ApplicationIncomingWebhookResponse) SetApplicationId(v string) {
-	o.ApplicationId = &v
+	o.ApplicationId.Set(&v)
 }
 
+// SetApplicationIdNil sets the value for ApplicationId to be an explicit nil
+func (o *ApplicationIncomingWebhookResponse) SetApplicationIdNil() {
+	o.ApplicationId.Set(nil)
+}
+
+// UnsetApplicationId ensures that no value is present for ApplicationId, not even an explicit nil
+func (o *ApplicationIncomingWebhookResponse) UnsetApplicationId() {
+	o.ApplicationId.Unset()
+}
 
 // GetAvatar returns the Avatar field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplicationIncomingWebhookResponse) GetAvatar() string {
@@ -163,71 +173,91 @@ func (o *ApplicationIncomingWebhookResponse) UnsetAvatar() {
 	o.Avatar.Unset()
 }
 
-// GetChannelId returns the ChannelId field value if set, zero value otherwise.
+// GetChannelId returns the ChannelId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplicationIncomingWebhookResponse) GetChannelId() string {
-	if o == nil || IsNil(o.ChannelId) {
+	if o == nil || IsNil(o.ChannelId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ChannelId
+	return *o.ChannelId.Get()
 }
 
 // GetChannelIdOk returns a tuple with the ChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationIncomingWebhookResponse) GetChannelIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ChannelId) {
+	if o == nil || IsNil(o.ChannelId.Get()) {
 		return nil, false
 	}
-	return o.ChannelId, true
+	return o.ChannelId.Get(), o.ChannelId.IsSet()
 }
 
 // HasChannelId returns a boolean if a field has been set.
 func (o *ApplicationIncomingWebhookResponse) HasChannelId() bool {
-	if o != nil && !IsNil(o.ChannelId) {
+	if o != nil && o.ChannelId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetChannelId gets a reference to the given string and assigns it to the ChannelId field.
+// SetChannelId gets a reference to the given NullableString and assigns it to the ChannelId field.
 func (o *ApplicationIncomingWebhookResponse) SetChannelId(v string) {
-	o.ChannelId = &v
+	o.ChannelId.Set(&v)
 }
 
+// SetChannelIdNil sets the value for ChannelId to be an explicit nil
+func (o *ApplicationIncomingWebhookResponse) SetChannelIdNil() {
+	o.ChannelId.Set(nil)
+}
 
-// GetGuildId returns the GuildId field value if set, zero value otherwise.
+// UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
+func (o *ApplicationIncomingWebhookResponse) UnsetChannelId() {
+	o.ChannelId.Unset()
+}
+
+// GetGuildId returns the GuildId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplicationIncomingWebhookResponse) GetGuildId() string {
-	if o == nil || IsNil(o.GuildId) {
+	if o == nil || IsNil(o.GuildId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.GuildId
+	return *o.GuildId.Get()
 }
 
 // GetGuildIdOk returns a tuple with the GuildId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationIncomingWebhookResponse) GetGuildIdOk() (*string, bool) {
-	if o == nil || IsNil(o.GuildId) {
+	if o == nil || IsNil(o.GuildId.Get()) {
 		return nil, false
 	}
-	return o.GuildId, true
+	return o.GuildId.Get(), o.GuildId.IsSet()
 }
 
 // HasGuildId returns a boolean if a field has been set.
 func (o *ApplicationIncomingWebhookResponse) HasGuildId() bool {
-	if o != nil && !IsNil(o.GuildId) {
+	if o != nil && o.GuildId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetGuildId gets a reference to the given string and assigns it to the GuildId field.
+// SetGuildId gets a reference to the given NullableString and assigns it to the GuildId field.
 func (o *ApplicationIncomingWebhookResponse) SetGuildId(v string) {
-	o.GuildId = &v
+	o.GuildId.Set(&v)
 }
 
+// SetGuildIdNil sets the value for GuildId to be an explicit nil
+func (o *ApplicationIncomingWebhookResponse) SetGuildIdNil() {
+	o.GuildId.Set(nil)
+}
+
+// UnsetGuildId ensures that no value is present for GuildId, not even an explicit nil
+func (o *ApplicationIncomingWebhookResponse) UnsetGuildId() {
+	o.GuildId.Unset()
+}
 
 // GetId returns the Id field value
 func (o *ApplicationIncomingWebhookResponse) GetId() string {
@@ -301,48 +331,38 @@ func (o *ApplicationIncomingWebhookResponse) SetType(v int32) {
 	o.Type = v
 }
 
-// GetUser returns the User field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUser returns the User field value if set, zero value otherwise.
 func (o *ApplicationIncomingWebhookResponse) GetUser() UserResponse {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		var ret UserResponse
 		return ret
 	}
-	return *o.User.Get()
+	return *o.User
 }
 
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationIncomingWebhookResponse) GetUserOk() (*UserResponse, bool) {
-	if o == nil || IsNil(o.User.Get()) {
+	if o == nil || IsNil(o.User) {
 		return nil, false
 	}
-	return o.User.Get(), o.User.IsSet()
+	return o.User, true
 }
 
 // HasUser returns a boolean if a field has been set.
 func (o *ApplicationIncomingWebhookResponse) HasUser() bool {
-	if o != nil && o.User.IsSet() {
+	if o != nil && !IsNil(o.User) {
 		return true
 	}
 
 	return false
 }
 
-// SetUser gets a reference to the given NullableUserResponse and assigns it to the User field.
+// SetUser gets a reference to the given UserResponse and assigns it to the User field.
 func (o *ApplicationIncomingWebhookResponse) SetUser(v UserResponse) {
-	o.User.Set(&v)
+	o.User = &v
 }
 
-// SetUserNil sets the value for User to be an explicit nil
-func (o *ApplicationIncomingWebhookResponse) SetUserNil() {
-	o.User.Set(nil)
-}
-
-// UnsetUser ensures that no value is present for User, not even an explicit nil
-func (o *ApplicationIncomingWebhookResponse) UnsetUser() {
-	o.User.Unset()
-}
 
 func (o ApplicationIncomingWebhookResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -354,23 +374,23 @@ func (o ApplicationIncomingWebhookResponse) MarshalJSON() ([]byte, error) {
 
 func (o ApplicationIncomingWebhookResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ApplicationId) {
-		toSerialize["application_id"] = o.ApplicationId
+	if o.ApplicationId.IsSet() {
+		toSerialize["application_id"] = o.ApplicationId.Get()
 	}
 	if o.Avatar.IsSet() {
 		toSerialize["avatar"] = o.Avatar.Get()
 	}
-	if !IsNil(o.ChannelId) {
-		toSerialize["channel_id"] = o.ChannelId
+	if o.ChannelId.IsSet() {
+		toSerialize["channel_id"] = o.ChannelId.Get()
 	}
-	if !IsNil(o.GuildId) {
-		toSerialize["guild_id"] = o.GuildId
+	if o.GuildId.IsSet() {
+		toSerialize["guild_id"] = o.GuildId.Get()
 	}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	toSerialize["type"] = o.Type
-	if o.User.IsSet() {
-		toSerialize["user"] = o.User.Get()
+	if !IsNil(o.User) {
+		toSerialize["user"] = o.User
 	}
 	return toSerialize, nil
 }
@@ -449,5 +469,4 @@ func (v *NullableApplicationIncomingWebhookResponse) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

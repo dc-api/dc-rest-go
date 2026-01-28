@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**Animated** | Pointer to **NullableBool** |  | [optional] 
+**Animated** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *MessageReactionEmojiResponse) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *MessageReactionEmojiResponse) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *MessageReactionEmojiResponse) GetName() string`
@@ -112,16 +122,6 @@ SetAnimated sets Animated field to given value.
 
 HasAnimated returns a boolean if a field has been set.
 
-### SetAnimatedNil
-
-`func (o *MessageReactionEmojiResponse) SetAnimatedNil(b bool)`
-
- SetAnimatedNil sets the value for Animated to be an explicit nil
-
-### UnsetAnimated
-`func (o *MessageReactionEmojiResponse) UnsetAnimated()`
-
-UnsetAnimated ensures that no value is present for Animated, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

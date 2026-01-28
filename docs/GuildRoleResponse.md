@@ -10,20 +10,20 @@ Name | Type | Description | Notes
 **Permissions** | **string** |  | 
 **Position** | **int32** |  | 
 **Color** | **int32** |  | 
-**Colors** | Pointer to [**NullableGuildRoleColorsResponse**](GuildRoleColorsResponse.md) |  | [optional] 
+**Colors** | [**GuildRoleColorsResponse**](GuildRoleColorsResponse.md) |  | 
 **Hoist** | **bool** |  | 
 **Managed** | **bool** |  | 
 **Mentionable** | **bool** |  | 
 **Icon** | Pointer to **NullableString** |  | [optional] 
 **UnicodeEmoji** | Pointer to **NullableString** |  | [optional] 
-**Tags** | Pointer to [**NullableGuildRoleTagsResponse**](GuildRoleTagsResponse.md) |  | [optional] 
+**Tags** | Pointer to [**GuildRoleTagsResponse**](GuildRoleTagsResponse.md) |  | [optional] 
 **Flags** | **int32** |  | 
 
 ## Methods
 
 ### NewGuildRoleResponse
 
-`func NewGuildRoleResponse(id string, name string, permissions string, position int32, color int32, hoist bool, managed bool, mentionable bool, flags int32, ) *GuildRoleResponse`
+`func NewGuildRoleResponse(id string, name string, permissions string, position int32, color int32, colors GuildRoleColorsResponse, hoist bool, managed bool, mentionable bool, flags int32, ) *GuildRoleResponse`
 
 NewGuildRoleResponse instantiates a new GuildRoleResponse object
 This constructor will assign default values to properties that have it defined,
@@ -192,22 +192,7 @@ and a boolean to check if the value has been set.
 
 SetColors sets Colors field to given value.
 
-### HasColors
 
-`func (o *GuildRoleResponse) HasColors() bool`
-
-HasColors returns a boolean if a field has been set.
-
-### SetColorsNil
-
-`func (o *GuildRoleResponse) SetColorsNil(b bool)`
-
- SetColorsNil sets the value for Colors to be an explicit nil
-
-### UnsetColors
-`func (o *GuildRoleResponse) UnsetColors()`
-
-UnsetColors ensures that no value is present for Colors, not even an explicit nil
 ### GetHoist
 
 `func (o *GuildRoleResponse) GetHoist() bool`
@@ -363,16 +348,6 @@ SetTags sets Tags field to given value.
 
 HasTags returns a boolean if a field has been set.
 
-### SetTagsNil
-
-`func (o *GuildRoleResponse) SetTagsNil(b bool)`
-
- SetTagsNil sets the value for Tags to be an explicit nil
-
-### UnsetTags
-`func (o *GuildRoleResponse) UnsetTags()`
-
-UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetFlags
 
 `func (o *GuildRoleResponse) GetFlags() int32`

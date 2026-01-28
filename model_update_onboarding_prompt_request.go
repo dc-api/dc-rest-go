@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -60,7 +60,7 @@ type UpdateOnboardingPromptRequest struct {
 	SingleSelect NullableBool `json:"single_select,omitempty"`
 	Required NullableBool `json:"required,omitempty"`
 	InOnboarding NullableBool `json:"in_onboarding,omitempty"`
-	Type *int32 `json:"type,omitempty"`
+	Type NullableInt32 `json:"type,omitempty"`
 	Id string `json:"id" validate:"regexp=^(0|[1-9][0-9]*)$"`
 }
 
@@ -263,38 +263,48 @@ func (o *UpdateOnboardingPromptRequest) UnsetInOnboarding() {
 	o.InOnboarding.Unset()
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateOnboardingPromptRequest) GetType() int32 {
-	if o == nil || IsNil(o.Type) {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.Type
+	return *o.Type.Get()
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateOnboardingPromptRequest) GetTypeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil || IsNil(o.Type.Get()) {
 		return nil, false
 	}
-	return o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *UpdateOnboardingPromptRequest) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
+	if o != nil && o.Type.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given int32 and assigns it to the Type field.
+// SetType gets a reference to the given NullableInt32 and assigns it to the Type field.
 func (o *UpdateOnboardingPromptRequest) SetType(v int32) {
-	o.Type = &v
+	o.Type.Set(&v)
 }
 
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *UpdateOnboardingPromptRequest) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *UpdateOnboardingPromptRequest) UnsetType() {
+	o.Type.Unset()
+}
 
 // GetId returns the Id field value
 func (o *UpdateOnboardingPromptRequest) GetId() string {
@@ -341,8 +351,8 @@ func (o UpdateOnboardingPromptRequest) ToMap() (map[string]interface{}, error) {
 	if o.InOnboarding.IsSet() {
 		toSerialize["in_onboarding"] = o.InOnboarding.Get()
 	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
 	toSerialize["id"] = o.Id
 	return toSerialize, nil
@@ -422,5 +432,4 @@ func (v *NullableUpdateOnboardingPromptRequest) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -9,14 +9,14 @@ Name | Type | Description | Notes
 **Topic** | **string** |  | 
 **PrivacyLevel** | **int32** |  | 
 **Id** | **string** |  | 
-**DiscoverableDisabled** | Pointer to **NullableBool** |  | [optional] 
-**GuildScheduledEventId** | Pointer to **string** |  | [optional] 
+**DiscoverableDisabled** | **bool** |  | 
+**GuildScheduledEventId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewStageInstanceResponse
 
-`func NewStageInstanceResponse(guildId string, channelId string, topic string, privacyLevel int32, id string, ) *StageInstanceResponse`
+`func NewStageInstanceResponse(guildId string, channelId string, topic string, privacyLevel int32, id string, discoverableDisabled bool, ) *StageInstanceResponse`
 
 NewStageInstanceResponse instantiates a new StageInstanceResponse object
 This constructor will assign default values to properties that have it defined,
@@ -150,22 +150,7 @@ and a boolean to check if the value has been set.
 
 SetDiscoverableDisabled sets DiscoverableDisabled field to given value.
 
-### HasDiscoverableDisabled
 
-`func (o *StageInstanceResponse) HasDiscoverableDisabled() bool`
-
-HasDiscoverableDisabled returns a boolean if a field has been set.
-
-### SetDiscoverableDisabledNil
-
-`func (o *StageInstanceResponse) SetDiscoverableDisabledNil(b bool)`
-
- SetDiscoverableDisabledNil sets the value for DiscoverableDisabled to be an explicit nil
-
-### UnsetDiscoverableDisabled
-`func (o *StageInstanceResponse) UnsetDiscoverableDisabled()`
-
-UnsetDiscoverableDisabled ensures that no value is present for DiscoverableDisabled, not even an explicit nil
 ### GetGuildScheduledEventId
 
 `func (o *StageInstanceResponse) GetGuildScheduledEventId() string`
@@ -191,6 +176,16 @@ SetGuildScheduledEventId sets GuildScheduledEventId field to given value.
 
 HasGuildScheduledEventId returns a boolean if a field has been set.
 
+### SetGuildScheduledEventIdNil
+
+`func (o *StageInstanceResponse) SetGuildScheduledEventIdNil(b bool)`
+
+ SetGuildScheduledEventIdNil sets the value for GuildScheduledEventId to be an explicit nil
+
+### UnsetGuildScheduledEventId
+`func (o *StageInstanceResponse) UnsetGuildScheduledEventId()`
+
+UnsetGuildScheduledEventId ensures that no value is present for GuildScheduledEventId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

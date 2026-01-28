@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Asset** | **string** |  | 
-**SkuId** | Pointer to **string** |  | [optional] 
+**SkuId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -71,6 +71,16 @@ SetSkuId sets SkuId field to given value.
 
 HasSkuId returns a boolean if a field has been set.
 
+### SetSkuIdNil
+
+`func (o *UserAvatarDecorationResponse) SetSkuIdNil(b bool)`
+
+ SetSkuIdNil sets the value for SkuId to be an explicit nil
+
+### UnsetSkuId
+`func (o *UserAvatarDecorationResponse) UnsetSkuId()`
+
+UnsetSkuId ensures that no value is present for SkuId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

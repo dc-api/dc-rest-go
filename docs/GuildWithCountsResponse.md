@@ -14,30 +14,30 @@ Name | Type | Description | Notes
 **Features** | **[]string** |  | 
 **Banner** | Pointer to **NullableString** |  | [optional] 
 **OwnerId** | **string** |  | 
-**ApplicationId** | Pointer to **string** |  | [optional] 
+**ApplicationId** | Pointer to **NullableString** |  | [optional] 
 **Region** | **string** |  | 
-**AfkChannelId** | Pointer to **string** |  | [optional] 
+**AfkChannelId** | Pointer to **NullableString** |  | [optional] 
 **AfkTimeout** | **NullableInt32** |  | 
-**SystemChannelId** | Pointer to **string** |  | [optional] 
+**SystemChannelId** | Pointer to **NullableString** |  | [optional] 
 **SystemChannelFlags** | **int32** |  | 
 **WidgetEnabled** | **bool** |  | 
-**WidgetChannelId** | Pointer to **string** |  | [optional] 
+**WidgetChannelId** | Pointer to **NullableString** |  | [optional] 
 **VerificationLevel** | **int32** |  | 
 **Roles** | [**[]GuildRoleResponse**](GuildRoleResponse.md) |  | 
 **DefaultMessageNotifications** | **int32** |  | 
 **MfaLevel** | **int32** |  | 
 **ExplicitContentFilter** | **int32** |  | 
 **MaxPresences** | Pointer to **NullableInt32** |  | [optional] 
-**MaxMembers** | Pointer to **NullableInt32** |  | [optional] 
-**MaxStageVideoChannelUsers** | Pointer to **NullableInt32** |  | [optional] 
-**MaxVideoChannelUsers** | Pointer to **NullableInt32** |  | [optional] 
+**MaxMembers** | **int32** |  | 
+**MaxStageVideoChannelUsers** | **int32** |  | 
+**MaxVideoChannelUsers** | **int32** |  | 
 **VanityUrlCode** | Pointer to **NullableString** |  | [optional] 
 **PremiumTier** | **int32** |  | 
 **PremiumSubscriptionCount** | **int32** |  | 
 **PreferredLocale** | **string** |  | 
-**RulesChannelId** | Pointer to **string** |  | [optional] 
-**SafetyAlertsChannelId** | Pointer to **string** |  | [optional] 
-**PublicUpdatesChannelId** | Pointer to **string** |  | [optional] 
+**RulesChannelId** | Pointer to **NullableString** |  | [optional] 
+**SafetyAlertsChannelId** | Pointer to **NullableString** |  | [optional] 
+**PublicUpdatesChannelId** | Pointer to **NullableString** |  | [optional] 
 **PremiumProgressBarEnabled** | **bool** |  | 
 **Nsfw** | **bool** |  | 
 **NsfwLevel** | **NullableInt32** |  | 
@@ -50,7 +50,7 @@ Name | Type | Description | Notes
 
 ### NewGuildWithCountsResponse
 
-`func NewGuildWithCountsResponse(id string, name string, features []string, ownerId string, region string, afkTimeout NullableInt32, systemChannelFlags int32, widgetEnabled bool, verificationLevel int32, roles []GuildRoleResponse, defaultMessageNotifications int32, mfaLevel int32, explicitContentFilter int32, premiumTier int32, premiumSubscriptionCount int32, preferredLocale string, premiumProgressBarEnabled bool, nsfw bool, nsfwLevel NullableInt32, emojis []EmojiResponse, stickers []GuildStickerResponse, ) *GuildWithCountsResponse`
+`func NewGuildWithCountsResponse(id string, name string, features []string, ownerId string, region string, afkTimeout NullableInt32, systemChannelFlags int32, widgetEnabled bool, verificationLevel int32, roles []GuildRoleResponse, defaultMessageNotifications int32, mfaLevel int32, explicitContentFilter int32, maxMembers int32, maxStageVideoChannelUsers int32, maxVideoChannelUsers int32, premiumTier int32, premiumSubscriptionCount int32, preferredLocale string, premiumProgressBarEnabled bool, nsfw bool, nsfwLevel NullableInt32, emojis []EmojiResponse, stickers []GuildStickerResponse, ) *GuildWithCountsResponse`
 
 NewGuildWithCountsResponse instantiates a new GuildWithCountsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -380,6 +380,16 @@ SetApplicationId sets ApplicationId field to given value.
 
 HasApplicationId returns a boolean if a field has been set.
 
+### SetApplicationIdNil
+
+`func (o *GuildWithCountsResponse) SetApplicationIdNil(b bool)`
+
+ SetApplicationIdNil sets the value for ApplicationId to be an explicit nil
+
+### UnsetApplicationId
+`func (o *GuildWithCountsResponse) UnsetApplicationId()`
+
+UnsetApplicationId ensures that no value is present for ApplicationId, not even an explicit nil
 ### GetRegion
 
 `func (o *GuildWithCountsResponse) GetRegion() string`
@@ -425,6 +435,16 @@ SetAfkChannelId sets AfkChannelId field to given value.
 
 HasAfkChannelId returns a boolean if a field has been set.
 
+### SetAfkChannelIdNil
+
+`func (o *GuildWithCountsResponse) SetAfkChannelIdNil(b bool)`
+
+ SetAfkChannelIdNil sets the value for AfkChannelId to be an explicit nil
+
+### UnsetAfkChannelId
+`func (o *GuildWithCountsResponse) UnsetAfkChannelId()`
+
+UnsetAfkChannelId ensures that no value is present for AfkChannelId, not even an explicit nil
 ### GetAfkTimeout
 
 `func (o *GuildWithCountsResponse) GetAfkTimeout() int32`
@@ -480,6 +500,16 @@ SetSystemChannelId sets SystemChannelId field to given value.
 
 HasSystemChannelId returns a boolean if a field has been set.
 
+### SetSystemChannelIdNil
+
+`func (o *GuildWithCountsResponse) SetSystemChannelIdNil(b bool)`
+
+ SetSystemChannelIdNil sets the value for SystemChannelId to be an explicit nil
+
+### UnsetSystemChannelId
+`func (o *GuildWithCountsResponse) UnsetSystemChannelId()`
+
+UnsetSystemChannelId ensures that no value is present for SystemChannelId, not even an explicit nil
 ### GetSystemChannelFlags
 
 `func (o *GuildWithCountsResponse) GetSystemChannelFlags() int32`
@@ -545,6 +575,16 @@ SetWidgetChannelId sets WidgetChannelId field to given value.
 
 HasWidgetChannelId returns a boolean if a field has been set.
 
+### SetWidgetChannelIdNil
+
+`func (o *GuildWithCountsResponse) SetWidgetChannelIdNil(b bool)`
+
+ SetWidgetChannelIdNil sets the value for WidgetChannelId to be an explicit nil
+
+### UnsetWidgetChannelId
+`func (o *GuildWithCountsResponse) UnsetWidgetChannelId()`
+
+UnsetWidgetChannelId ensures that no value is present for WidgetChannelId, not even an explicit nil
 ### GetVerificationLevel
 
 `func (o *GuildWithCountsResponse) GetVerificationLevel() int32`
@@ -699,22 +739,7 @@ and a boolean to check if the value has been set.
 
 SetMaxMembers sets MaxMembers field to given value.
 
-### HasMaxMembers
 
-`func (o *GuildWithCountsResponse) HasMaxMembers() bool`
-
-HasMaxMembers returns a boolean if a field has been set.
-
-### SetMaxMembersNil
-
-`func (o *GuildWithCountsResponse) SetMaxMembersNil(b bool)`
-
- SetMaxMembersNil sets the value for MaxMembers to be an explicit nil
-
-### UnsetMaxMembers
-`func (o *GuildWithCountsResponse) UnsetMaxMembers()`
-
-UnsetMaxMembers ensures that no value is present for MaxMembers, not even an explicit nil
 ### GetMaxStageVideoChannelUsers
 
 `func (o *GuildWithCountsResponse) GetMaxStageVideoChannelUsers() int32`
@@ -734,22 +759,7 @@ and a boolean to check if the value has been set.
 
 SetMaxStageVideoChannelUsers sets MaxStageVideoChannelUsers field to given value.
 
-### HasMaxStageVideoChannelUsers
 
-`func (o *GuildWithCountsResponse) HasMaxStageVideoChannelUsers() bool`
-
-HasMaxStageVideoChannelUsers returns a boolean if a field has been set.
-
-### SetMaxStageVideoChannelUsersNil
-
-`func (o *GuildWithCountsResponse) SetMaxStageVideoChannelUsersNil(b bool)`
-
- SetMaxStageVideoChannelUsersNil sets the value for MaxStageVideoChannelUsers to be an explicit nil
-
-### UnsetMaxStageVideoChannelUsers
-`func (o *GuildWithCountsResponse) UnsetMaxStageVideoChannelUsers()`
-
-UnsetMaxStageVideoChannelUsers ensures that no value is present for MaxStageVideoChannelUsers, not even an explicit nil
 ### GetMaxVideoChannelUsers
 
 `func (o *GuildWithCountsResponse) GetMaxVideoChannelUsers() int32`
@@ -769,22 +779,7 @@ and a boolean to check if the value has been set.
 
 SetMaxVideoChannelUsers sets MaxVideoChannelUsers field to given value.
 
-### HasMaxVideoChannelUsers
 
-`func (o *GuildWithCountsResponse) HasMaxVideoChannelUsers() bool`
-
-HasMaxVideoChannelUsers returns a boolean if a field has been set.
-
-### SetMaxVideoChannelUsersNil
-
-`func (o *GuildWithCountsResponse) SetMaxVideoChannelUsersNil(b bool)`
-
- SetMaxVideoChannelUsersNil sets the value for MaxVideoChannelUsers to be an explicit nil
-
-### UnsetMaxVideoChannelUsers
-`func (o *GuildWithCountsResponse) UnsetMaxVideoChannelUsers()`
-
-UnsetMaxVideoChannelUsers ensures that no value is present for MaxVideoChannelUsers, not even an explicit nil
 ### GetVanityUrlCode
 
 `func (o *GuildWithCountsResponse) GetVanityUrlCode() string`
@@ -905,6 +900,16 @@ SetRulesChannelId sets RulesChannelId field to given value.
 
 HasRulesChannelId returns a boolean if a field has been set.
 
+### SetRulesChannelIdNil
+
+`func (o *GuildWithCountsResponse) SetRulesChannelIdNil(b bool)`
+
+ SetRulesChannelIdNil sets the value for RulesChannelId to be an explicit nil
+
+### UnsetRulesChannelId
+`func (o *GuildWithCountsResponse) UnsetRulesChannelId()`
+
+UnsetRulesChannelId ensures that no value is present for RulesChannelId, not even an explicit nil
 ### GetSafetyAlertsChannelId
 
 `func (o *GuildWithCountsResponse) GetSafetyAlertsChannelId() string`
@@ -930,6 +935,16 @@ SetSafetyAlertsChannelId sets SafetyAlertsChannelId field to given value.
 
 HasSafetyAlertsChannelId returns a boolean if a field has been set.
 
+### SetSafetyAlertsChannelIdNil
+
+`func (o *GuildWithCountsResponse) SetSafetyAlertsChannelIdNil(b bool)`
+
+ SetSafetyAlertsChannelIdNil sets the value for SafetyAlertsChannelId to be an explicit nil
+
+### UnsetSafetyAlertsChannelId
+`func (o *GuildWithCountsResponse) UnsetSafetyAlertsChannelId()`
+
+UnsetSafetyAlertsChannelId ensures that no value is present for SafetyAlertsChannelId, not even an explicit nil
 ### GetPublicUpdatesChannelId
 
 `func (o *GuildWithCountsResponse) GetPublicUpdatesChannelId() string`
@@ -955,6 +970,16 @@ SetPublicUpdatesChannelId sets PublicUpdatesChannelId field to given value.
 
 HasPublicUpdatesChannelId returns a boolean if a field has been set.
 
+### SetPublicUpdatesChannelIdNil
+
+`func (o *GuildWithCountsResponse) SetPublicUpdatesChannelIdNil(b bool)`
+
+ SetPublicUpdatesChannelIdNil sets the value for PublicUpdatesChannelId to be an explicit nil
+
+### UnsetPublicUpdatesChannelId
+`func (o *GuildWithCountsResponse) UnsetPublicUpdatesChannelId()`
+
+UnsetPublicUpdatesChannelId ensures that no value is present for PublicUpdatesChannelId, not even an explicit nil
 ### GetPremiumProgressBarEnabled
 
 `func (o *GuildWithCountsResponse) GetPremiumProgressBarEnabled() bool`

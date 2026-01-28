@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,11 +57,11 @@ var _ MappedNullable = &OAuth2GetOpenIDConnectUserInfoResponse{}
 type OAuth2GetOpenIDConnectUserInfoResponse struct {
 	Sub string `json:"sub"`
 	Email NullableString `json:"email,omitempty"`
-	EmailVerified NullableBool `json:"email_verified,omitempty"`
-	PreferredUsername NullableString `json:"preferred_username,omitempty"`
+	EmailVerified *bool `json:"email_verified,omitempty"`
+	PreferredUsername *string `json:"preferred_username,omitempty"`
 	Nickname NullableString `json:"nickname,omitempty"`
-	Picture NullableString `json:"picture,omitempty"`
-	Locale NullableString `json:"locale,omitempty"`
+	Picture *string `json:"picture,omitempty"`
+	Locale *string `json:"locale,omitempty"`
 }
 
 type _OAuth2GetOpenIDConnectUserInfoResponse OAuth2GetOpenIDConnectUserInfoResponse
@@ -151,91 +151,71 @@ func (o *OAuth2GetOpenIDConnectUserInfoResponse) UnsetEmail() {
 	o.Email.Unset()
 }
 
-// GetEmailVerified returns the EmailVerified field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmailVerified returns the EmailVerified field value if set, zero value otherwise.
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) GetEmailVerified() bool {
-	if o == nil || IsNil(o.EmailVerified.Get()) {
+	if o == nil || IsNil(o.EmailVerified) {
 		var ret bool
 		return ret
 	}
-	return *o.EmailVerified.Get()
+	return *o.EmailVerified
 }
 
 // GetEmailVerifiedOk returns a tuple with the EmailVerified field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) GetEmailVerifiedOk() (*bool, bool) {
-	if o == nil || IsNil(o.EmailVerified.Get()) {
+	if o == nil || IsNil(o.EmailVerified) {
 		return nil, false
 	}
-	return o.EmailVerified.Get(), o.EmailVerified.IsSet()
+	return o.EmailVerified, true
 }
 
 // HasEmailVerified returns a boolean if a field has been set.
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) HasEmailVerified() bool {
-	if o != nil && o.EmailVerified.IsSet() {
+	if o != nil && !IsNil(o.EmailVerified) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmailVerified gets a reference to the given NullableBool and assigns it to the EmailVerified field.
+// SetEmailVerified gets a reference to the given bool and assigns it to the EmailVerified field.
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) SetEmailVerified(v bool) {
-	o.EmailVerified.Set(&v)
+	o.EmailVerified = &v
 }
 
-// SetEmailVerifiedNil sets the value for EmailVerified to be an explicit nil
-func (o *OAuth2GetOpenIDConnectUserInfoResponse) SetEmailVerifiedNil() {
-	o.EmailVerified.Set(nil)
-}
 
-// UnsetEmailVerified ensures that no value is present for EmailVerified, not even an explicit nil
-func (o *OAuth2GetOpenIDConnectUserInfoResponse) UnsetEmailVerified() {
-	o.EmailVerified.Unset()
-}
-
-// GetPreferredUsername returns the PreferredUsername field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPreferredUsername returns the PreferredUsername field value if set, zero value otherwise.
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) GetPreferredUsername() string {
-	if o == nil || IsNil(o.PreferredUsername.Get()) {
+	if o == nil || IsNil(o.PreferredUsername) {
 		var ret string
 		return ret
 	}
-	return *o.PreferredUsername.Get()
+	return *o.PreferredUsername
 }
 
 // GetPreferredUsernameOk returns a tuple with the PreferredUsername field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) GetPreferredUsernameOk() (*string, bool) {
-	if o == nil || IsNil(o.PreferredUsername.Get()) {
+	if o == nil || IsNil(o.PreferredUsername) {
 		return nil, false
 	}
-	return o.PreferredUsername.Get(), o.PreferredUsername.IsSet()
+	return o.PreferredUsername, true
 }
 
 // HasPreferredUsername returns a boolean if a field has been set.
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) HasPreferredUsername() bool {
-	if o != nil && o.PreferredUsername.IsSet() {
+	if o != nil && !IsNil(o.PreferredUsername) {
 		return true
 	}
 
 	return false
 }
 
-// SetPreferredUsername gets a reference to the given NullableString and assigns it to the PreferredUsername field.
+// SetPreferredUsername gets a reference to the given string and assigns it to the PreferredUsername field.
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) SetPreferredUsername(v string) {
-	o.PreferredUsername.Set(&v)
+	o.PreferredUsername = &v
 }
 
-// SetPreferredUsernameNil sets the value for PreferredUsername to be an explicit nil
-func (o *OAuth2GetOpenIDConnectUserInfoResponse) SetPreferredUsernameNil() {
-	o.PreferredUsername.Set(nil)
-}
-
-// UnsetPreferredUsername ensures that no value is present for PreferredUsername, not even an explicit nil
-func (o *OAuth2GetOpenIDConnectUserInfoResponse) UnsetPreferredUsername() {
-	o.PreferredUsername.Unset()
-}
 
 // GetNickname returns the Nickname field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) GetNickname() string {
@@ -280,91 +260,71 @@ func (o *OAuth2GetOpenIDConnectUserInfoResponse) UnsetNickname() {
 	o.Nickname.Unset()
 }
 
-// GetPicture returns the Picture field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPicture returns the Picture field value if set, zero value otherwise.
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) GetPicture() string {
-	if o == nil || IsNil(o.Picture.Get()) {
+	if o == nil || IsNil(o.Picture) {
 		var ret string
 		return ret
 	}
-	return *o.Picture.Get()
+	return *o.Picture
 }
 
 // GetPictureOk returns a tuple with the Picture field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) GetPictureOk() (*string, bool) {
-	if o == nil || IsNil(o.Picture.Get()) {
+	if o == nil || IsNil(o.Picture) {
 		return nil, false
 	}
-	return o.Picture.Get(), o.Picture.IsSet()
+	return o.Picture, true
 }
 
 // HasPicture returns a boolean if a field has been set.
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) HasPicture() bool {
-	if o != nil && o.Picture.IsSet() {
+	if o != nil && !IsNil(o.Picture) {
 		return true
 	}
 
 	return false
 }
 
-// SetPicture gets a reference to the given NullableString and assigns it to the Picture field.
+// SetPicture gets a reference to the given string and assigns it to the Picture field.
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) SetPicture(v string) {
-	o.Picture.Set(&v)
+	o.Picture = &v
 }
 
-// SetPictureNil sets the value for Picture to be an explicit nil
-func (o *OAuth2GetOpenIDConnectUserInfoResponse) SetPictureNil() {
-	o.Picture.Set(nil)
-}
 
-// UnsetPicture ensures that no value is present for Picture, not even an explicit nil
-func (o *OAuth2GetOpenIDConnectUserInfoResponse) UnsetPicture() {
-	o.Picture.Unset()
-}
-
-// GetLocale returns the Locale field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLocale returns the Locale field value if set, zero value otherwise.
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) GetLocale() string {
-	if o == nil || IsNil(o.Locale.Get()) {
+	if o == nil || IsNil(o.Locale) {
 		var ret string
 		return ret
 	}
-	return *o.Locale.Get()
+	return *o.Locale
 }
 
 // GetLocaleOk returns a tuple with the Locale field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) GetLocaleOk() (*string, bool) {
-	if o == nil || IsNil(o.Locale.Get()) {
+	if o == nil || IsNil(o.Locale) {
 		return nil, false
 	}
-	return o.Locale.Get(), o.Locale.IsSet()
+	return o.Locale, true
 }
 
 // HasLocale returns a boolean if a field has been set.
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) HasLocale() bool {
-	if o != nil && o.Locale.IsSet() {
+	if o != nil && !IsNil(o.Locale) {
 		return true
 	}
 
 	return false
 }
 
-// SetLocale gets a reference to the given NullableString and assigns it to the Locale field.
+// SetLocale gets a reference to the given string and assigns it to the Locale field.
 func (o *OAuth2GetOpenIDConnectUserInfoResponse) SetLocale(v string) {
-	o.Locale.Set(&v)
+	o.Locale = &v
 }
 
-// SetLocaleNil sets the value for Locale to be an explicit nil
-func (o *OAuth2GetOpenIDConnectUserInfoResponse) SetLocaleNil() {
-	o.Locale.Set(nil)
-}
-
-// UnsetLocale ensures that no value is present for Locale, not even an explicit nil
-func (o *OAuth2GetOpenIDConnectUserInfoResponse) UnsetLocale() {
-	o.Locale.Unset()
-}
 
 func (o OAuth2GetOpenIDConnectUserInfoResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -380,20 +340,20 @@ func (o OAuth2GetOpenIDConnectUserInfoResponse) ToMap() (map[string]interface{},
 	if o.Email.IsSet() {
 		toSerialize["email"] = o.Email.Get()
 	}
-	if o.EmailVerified.IsSet() {
-		toSerialize["email_verified"] = o.EmailVerified.Get()
+	if !IsNil(o.EmailVerified) {
+		toSerialize["email_verified"] = o.EmailVerified
 	}
-	if o.PreferredUsername.IsSet() {
-		toSerialize["preferred_username"] = o.PreferredUsername.Get()
+	if !IsNil(o.PreferredUsername) {
+		toSerialize["preferred_username"] = o.PreferredUsername
 	}
 	if o.Nickname.IsSet() {
 		toSerialize["nickname"] = o.Nickname.Get()
 	}
-	if o.Picture.IsSet() {
-		toSerialize["picture"] = o.Picture.Get()
+	if !IsNil(o.Picture) {
+		toSerialize["picture"] = o.Picture
 	}
-	if o.Locale.IsSet() {
-		toSerialize["locale"] = o.Locale.Get()
+	if !IsNil(o.Locale) {
+		toSerialize["locale"] = o.Locale
 	}
 	return toSerialize, nil
 }
@@ -470,5 +430,4 @@ func (v *NullableOAuth2GetOpenIDConnectUserInfoResponse) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **Description** | Pointer to [**ApplicationFormPartialDescription**](ApplicationFormPartialDescription.md) |  | [optional] 
 **Icon** | Pointer to **NullableString** |  | [optional] 
 **CoverImage** | Pointer to **NullableString** |  | [optional] 
-**TeamId** | Pointer to **string** |  | [optional] 
+**TeamId** | Pointer to **NullableString** |  | [optional] 
 **Flags** | Pointer to **NullableInt32** |  | [optional] 
 **InteractionsEndpointUrl** | Pointer to **NullableString** |  | [optional] 
-**ExplicitContentFilter** | Pointer to **int32** |  | [optional] 
+**ExplicitContentFilter** | Pointer to **NullableInt32** |  | [optional] 
 **MaxParticipants** | Pointer to **NullableInt32** |  | [optional] 
 **Type** | Pointer to **NullableInt32** |  | [optional] 
 **Tags** | Pointer to **[]string** |  | [optional] 
@@ -158,6 +158,16 @@ SetTeamId sets TeamId field to given value.
 
 HasTeamId returns a boolean if a field has been set.
 
+### SetTeamIdNil
+
+`func (o *ApplicationFormPartial) SetTeamIdNil(b bool)`
+
+ SetTeamIdNil sets the value for TeamId to be an explicit nil
+
+### UnsetTeamId
+`func (o *ApplicationFormPartial) UnsetTeamId()`
+
+UnsetTeamId ensures that no value is present for TeamId, not even an explicit nil
 ### GetFlags
 
 `func (o *ApplicationFormPartial) GetFlags() int32`
@@ -253,6 +263,16 @@ SetExplicitContentFilter sets ExplicitContentFilter field to given value.
 
 HasExplicitContentFilter returns a boolean if a field has been set.
 
+### SetExplicitContentFilterNil
+
+`func (o *ApplicationFormPartial) SetExplicitContentFilterNil(b bool)`
+
+ SetExplicitContentFilterNil sets the value for ExplicitContentFilter to be an explicit nil
+
+### UnsetExplicitContentFilter
+`func (o *ApplicationFormPartial) UnsetExplicitContentFilter()`
+
+UnsetExplicitContentFilter ensures that no value is present for ExplicitContentFilter, not even an explicit nil
 ### GetMaxParticipants
 
 `func (o *ApplicationFormPartial) GetMaxParticipants() int32`

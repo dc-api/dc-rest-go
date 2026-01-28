@@ -53,20 +53,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetRoles
 
-`func (o *UpdateGuildEmojiRequest) GetRoles() []string`
+`func (o *UpdateGuildEmojiRequest) GetRoles() []*string`
 
 GetRoles returns the Roles field if non-nil, zero value otherwise.
 
 ### GetRolesOk
 
-`func (o *UpdateGuildEmojiRequest) GetRolesOk() (*[]string, bool)`
+`func (o *UpdateGuildEmojiRequest) GetRolesOk() (*[]*string, bool)`
 
 GetRolesOk returns a tuple with the Roles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRoles
 
-`func (o *UpdateGuildEmojiRequest) SetRoles(v []string)`
+`func (o *UpdateGuildEmojiRequest) SetRoles(v []*string)`
 
 SetRoles sets Roles field to given value.
 

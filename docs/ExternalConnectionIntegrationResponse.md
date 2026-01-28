@@ -6,24 +6,24 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **NullableString** |  | 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**Account** | Pointer to [**NullableAccountResponse**](AccountResponse.md) |  | [optional] 
-**Enabled** | Pointer to **NullableBool** |  | [optional] 
+**Account** | [**AccountResponse**](AccountResponse.md) |  | 
+**Enabled** | **bool** |  | 
 **Id** | **string** |  | 
 **User** | [**UserResponse**](UserResponse.md) |  | 
-**Revoked** | Pointer to **NullableBool** |  | [optional] 
+**Revoked** | Pointer to **bool** |  | [optional] 
 **ExpireBehavior** | Pointer to **int32** |  | [optional] 
 **ExpireGracePeriod** | Pointer to **int32** |  | [optional] 
-**SubscriberCount** | Pointer to **NullableInt32** |  | [optional] 
-**SyncedAt** | Pointer to **NullableTime** |  | [optional] 
-**RoleId** | Pointer to **string** |  | [optional] 
-**Syncing** | Pointer to **NullableBool** |  | [optional] 
-**EnableEmoticons** | Pointer to **NullableBool** |  | [optional] 
+**SubscriberCount** | Pointer to **int32** |  | [optional] 
+**SyncedAt** | Pointer to **time.Time** |  | [optional] 
+**RoleId** | Pointer to **NullableString** |  | [optional] 
+**Syncing** | Pointer to **bool** |  | [optional] 
+**EnableEmoticons** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewExternalConnectionIntegrationResponse
 
-`func NewExternalConnectionIntegrationResponse(type_ NullableString, id string, user UserResponse, ) *ExternalConnectionIntegrationResponse`
+`func NewExternalConnectionIntegrationResponse(type_ NullableString, account AccountResponse, enabled bool, id string, user UserResponse, ) *ExternalConnectionIntegrationResponse`
 
 NewExternalConnectionIntegrationResponse instantiates a new ExternalConnectionIntegrationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -122,22 +122,7 @@ and a boolean to check if the value has been set.
 
 SetAccount sets Account field to given value.
 
-### HasAccount
 
-`func (o *ExternalConnectionIntegrationResponse) HasAccount() bool`
-
-HasAccount returns a boolean if a field has been set.
-
-### SetAccountNil
-
-`func (o *ExternalConnectionIntegrationResponse) SetAccountNil(b bool)`
-
- SetAccountNil sets the value for Account to be an explicit nil
-
-### UnsetAccount
-`func (o *ExternalConnectionIntegrationResponse) UnsetAccount()`
-
-UnsetAccount ensures that no value is present for Account, not even an explicit nil
 ### GetEnabled
 
 `func (o *ExternalConnectionIntegrationResponse) GetEnabled() bool`
@@ -157,22 +142,7 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
-### HasEnabled
 
-`func (o *ExternalConnectionIntegrationResponse) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
-
-### SetEnabledNil
-
-`func (o *ExternalConnectionIntegrationResponse) SetEnabledNil(b bool)`
-
- SetEnabledNil sets the value for Enabled to be an explicit nil
-
-### UnsetEnabled
-`func (o *ExternalConnectionIntegrationResponse) UnsetEnabled()`
-
-UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 ### GetId
 
 `func (o *ExternalConnectionIntegrationResponse) GetId() string`
@@ -238,16 +208,6 @@ SetRevoked sets Revoked field to given value.
 
 HasRevoked returns a boolean if a field has been set.
 
-### SetRevokedNil
-
-`func (o *ExternalConnectionIntegrationResponse) SetRevokedNil(b bool)`
-
- SetRevokedNil sets the value for Revoked to be an explicit nil
-
-### UnsetRevoked
-`func (o *ExternalConnectionIntegrationResponse) UnsetRevoked()`
-
-UnsetRevoked ensures that no value is present for Revoked, not even an explicit nil
 ### GetExpireBehavior
 
 `func (o *ExternalConnectionIntegrationResponse) GetExpireBehavior() int32`
@@ -323,16 +283,6 @@ SetSubscriberCount sets SubscriberCount field to given value.
 
 HasSubscriberCount returns a boolean if a field has been set.
 
-### SetSubscriberCountNil
-
-`func (o *ExternalConnectionIntegrationResponse) SetSubscriberCountNil(b bool)`
-
- SetSubscriberCountNil sets the value for SubscriberCount to be an explicit nil
-
-### UnsetSubscriberCount
-`func (o *ExternalConnectionIntegrationResponse) UnsetSubscriberCount()`
-
-UnsetSubscriberCount ensures that no value is present for SubscriberCount, not even an explicit nil
 ### GetSyncedAt
 
 `func (o *ExternalConnectionIntegrationResponse) GetSyncedAt() time.Time`
@@ -358,16 +308,6 @@ SetSyncedAt sets SyncedAt field to given value.
 
 HasSyncedAt returns a boolean if a field has been set.
 
-### SetSyncedAtNil
-
-`func (o *ExternalConnectionIntegrationResponse) SetSyncedAtNil(b bool)`
-
- SetSyncedAtNil sets the value for SyncedAt to be an explicit nil
-
-### UnsetSyncedAt
-`func (o *ExternalConnectionIntegrationResponse) UnsetSyncedAt()`
-
-UnsetSyncedAt ensures that no value is present for SyncedAt, not even an explicit nil
 ### GetRoleId
 
 `func (o *ExternalConnectionIntegrationResponse) GetRoleId() string`
@@ -393,6 +333,16 @@ SetRoleId sets RoleId field to given value.
 
 HasRoleId returns a boolean if a field has been set.
 
+### SetRoleIdNil
+
+`func (o *ExternalConnectionIntegrationResponse) SetRoleIdNil(b bool)`
+
+ SetRoleIdNil sets the value for RoleId to be an explicit nil
+
+### UnsetRoleId
+`func (o *ExternalConnectionIntegrationResponse) UnsetRoleId()`
+
+UnsetRoleId ensures that no value is present for RoleId, not even an explicit nil
 ### GetSyncing
 
 `func (o *ExternalConnectionIntegrationResponse) GetSyncing() bool`
@@ -418,16 +368,6 @@ SetSyncing sets Syncing field to given value.
 
 HasSyncing returns a boolean if a field has been set.
 
-### SetSyncingNil
-
-`func (o *ExternalConnectionIntegrationResponse) SetSyncingNil(b bool)`
-
- SetSyncingNil sets the value for Syncing to be an explicit nil
-
-### UnsetSyncing
-`func (o *ExternalConnectionIntegrationResponse) UnsetSyncing()`
-
-UnsetSyncing ensures that no value is present for Syncing, not even an explicit nil
 ### GetEnableEmoticons
 
 `func (o *ExternalConnectionIntegrationResponse) GetEnableEmoticons() bool`
@@ -453,16 +393,6 @@ SetEnableEmoticons sets EnableEmoticons field to given value.
 
 HasEnableEmoticons returns a boolean if a field has been set.
 
-### SetEnableEmoticonsNil
-
-`func (o *ExternalConnectionIntegrationResponse) SetEnableEmoticonsNil(b bool)`
-
- SetEnableEmoticonsNil sets the value for EnableEmoticons to be an explicit nil
-
-### UnsetEnableEmoticons
-`func (o *ExternalConnectionIntegrationResponse) UnsetEnableEmoticons()`
-
-UnsetEnableEmoticons ensures that no value is present for EnableEmoticons, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

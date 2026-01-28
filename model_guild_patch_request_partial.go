@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -57,23 +57,22 @@ type GuildPatchRequestPartial struct {
 	Description NullableString `json:"description,omitempty"`
 	Region NullableString `json:"region,omitempty"`
 	Icon NullableString `json:"icon,omitempty"`
-	VerificationLevel *int32 `json:"verification_level,omitempty"`
-	DefaultMessageNotifications *int32 `json:"default_message_notifications,omitempty"`
-	ExplicitContentFilter *int32 `json:"explicit_content_filter,omitempty"`
-	PreferredLocale *string `json:"preferred_locale,omitempty"`
+	VerificationLevel NullableInt32 `json:"verification_level,omitempty"`
+	DefaultMessageNotifications NullableInt32 `json:"default_message_notifications,omitempty"`
+	ExplicitContentFilter NullableInt32 `json:"explicit_content_filter,omitempty"`
+	PreferredLocale NullableString `json:"preferred_locale,omitempty"`
 	AfkTimeout NullableInt32 `json:"afk_timeout,omitempty"`
-	AfkChannelId *string `json:"afk_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	SystemChannelId *string `json:"system_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	OwnerId *string `json:"owner_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	AfkChannelId NullableString `json:"afk_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	SystemChannelId NullableString `json:"system_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	Splash NullableString `json:"splash,omitempty"`
 	Banner NullableString `json:"banner,omitempty"`
 	SystemChannelFlags NullableInt32 `json:"system_channel_flags,omitempty"`
 	Features []*string `json:"features,omitempty"`
 	DiscoverySplash NullableString `json:"discovery_splash,omitempty"`
 	HomeHeader NullableString `json:"home_header,omitempty"`
-	RulesChannelId *string `json:"rules_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	SafetyAlertsChannelId *string `json:"safety_alerts_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
-	PublicUpdatesChannelId *string `json:"public_updates_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	RulesChannelId NullableString `json:"rules_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	SafetyAlertsChannelId NullableString `json:"safety_alerts_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
+	PublicUpdatesChannelId NullableString `json:"public_updates_channel_id,omitempty" validate:"regexp=^(0|[1-9][0-9]*)$"`
 	PremiumProgressBarEnabled NullableBool `json:"premium_progress_bar_enabled,omitempty"`
 }
 
@@ -256,137 +255,177 @@ func (o *GuildPatchRequestPartial) UnsetIcon() {
 	o.Icon.Unset()
 }
 
-// GetVerificationLevel returns the VerificationLevel field value if set, zero value otherwise.
+// GetVerificationLevel returns the VerificationLevel field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildPatchRequestPartial) GetVerificationLevel() int32 {
-	if o == nil || IsNil(o.VerificationLevel) {
+	if o == nil || IsNil(o.VerificationLevel.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.VerificationLevel
+	return *o.VerificationLevel.Get()
 }
 
 // GetVerificationLevelOk returns a tuple with the VerificationLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPatchRequestPartial) GetVerificationLevelOk() (*int32, bool) {
-	if o == nil || IsNil(o.VerificationLevel) {
+	if o == nil || IsNil(o.VerificationLevel.Get()) {
 		return nil, false
 	}
-	return o.VerificationLevel, true
+	return o.VerificationLevel.Get(), o.VerificationLevel.IsSet()
 }
 
 // HasVerificationLevel returns a boolean if a field has been set.
 func (o *GuildPatchRequestPartial) HasVerificationLevel() bool {
-	if o != nil && !IsNil(o.VerificationLevel) {
+	if o != nil && o.VerificationLevel.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetVerificationLevel gets a reference to the given int32 and assigns it to the VerificationLevel field.
+// SetVerificationLevel gets a reference to the given NullableInt32 and assigns it to the VerificationLevel field.
 func (o *GuildPatchRequestPartial) SetVerificationLevel(v int32) {
-	o.VerificationLevel = &v
+	o.VerificationLevel.Set(&v)
 }
 
+// SetVerificationLevelNil sets the value for VerificationLevel to be an explicit nil
+func (o *GuildPatchRequestPartial) SetVerificationLevelNil() {
+	o.VerificationLevel.Set(nil)
+}
 
-// GetDefaultMessageNotifications returns the DefaultMessageNotifications field value if set, zero value otherwise.
+// UnsetVerificationLevel ensures that no value is present for VerificationLevel, not even an explicit nil
+func (o *GuildPatchRequestPartial) UnsetVerificationLevel() {
+	o.VerificationLevel.Unset()
+}
+
+// GetDefaultMessageNotifications returns the DefaultMessageNotifications field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildPatchRequestPartial) GetDefaultMessageNotifications() int32 {
-	if o == nil || IsNil(o.DefaultMessageNotifications) {
+	if o == nil || IsNil(o.DefaultMessageNotifications.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.DefaultMessageNotifications
+	return *o.DefaultMessageNotifications.Get()
 }
 
 // GetDefaultMessageNotificationsOk returns a tuple with the DefaultMessageNotifications field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPatchRequestPartial) GetDefaultMessageNotificationsOk() (*int32, bool) {
-	if o == nil || IsNil(o.DefaultMessageNotifications) {
+	if o == nil || IsNil(o.DefaultMessageNotifications.Get()) {
 		return nil, false
 	}
-	return o.DefaultMessageNotifications, true
+	return o.DefaultMessageNotifications.Get(), o.DefaultMessageNotifications.IsSet()
 }
 
 // HasDefaultMessageNotifications returns a boolean if a field has been set.
 func (o *GuildPatchRequestPartial) HasDefaultMessageNotifications() bool {
-	if o != nil && !IsNil(o.DefaultMessageNotifications) {
+	if o != nil && o.DefaultMessageNotifications.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDefaultMessageNotifications gets a reference to the given int32 and assigns it to the DefaultMessageNotifications field.
+// SetDefaultMessageNotifications gets a reference to the given NullableInt32 and assigns it to the DefaultMessageNotifications field.
 func (o *GuildPatchRequestPartial) SetDefaultMessageNotifications(v int32) {
-	o.DefaultMessageNotifications = &v
+	o.DefaultMessageNotifications.Set(&v)
 }
 
+// SetDefaultMessageNotificationsNil sets the value for DefaultMessageNotifications to be an explicit nil
+func (o *GuildPatchRequestPartial) SetDefaultMessageNotificationsNil() {
+	o.DefaultMessageNotifications.Set(nil)
+}
 
-// GetExplicitContentFilter returns the ExplicitContentFilter field value if set, zero value otherwise.
+// UnsetDefaultMessageNotifications ensures that no value is present for DefaultMessageNotifications, not even an explicit nil
+func (o *GuildPatchRequestPartial) UnsetDefaultMessageNotifications() {
+	o.DefaultMessageNotifications.Unset()
+}
+
+// GetExplicitContentFilter returns the ExplicitContentFilter field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildPatchRequestPartial) GetExplicitContentFilter() int32 {
-	if o == nil || IsNil(o.ExplicitContentFilter) {
+	if o == nil || IsNil(o.ExplicitContentFilter.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.ExplicitContentFilter
+	return *o.ExplicitContentFilter.Get()
 }
 
 // GetExplicitContentFilterOk returns a tuple with the ExplicitContentFilter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPatchRequestPartial) GetExplicitContentFilterOk() (*int32, bool) {
-	if o == nil || IsNil(o.ExplicitContentFilter) {
+	if o == nil || IsNil(o.ExplicitContentFilter.Get()) {
 		return nil, false
 	}
-	return o.ExplicitContentFilter, true
+	return o.ExplicitContentFilter.Get(), o.ExplicitContentFilter.IsSet()
 }
 
 // HasExplicitContentFilter returns a boolean if a field has been set.
 func (o *GuildPatchRequestPartial) HasExplicitContentFilter() bool {
-	if o != nil && !IsNil(o.ExplicitContentFilter) {
+	if o != nil && o.ExplicitContentFilter.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetExplicitContentFilter gets a reference to the given int32 and assigns it to the ExplicitContentFilter field.
+// SetExplicitContentFilter gets a reference to the given NullableInt32 and assigns it to the ExplicitContentFilter field.
 func (o *GuildPatchRequestPartial) SetExplicitContentFilter(v int32) {
-	o.ExplicitContentFilter = &v
+	o.ExplicitContentFilter.Set(&v)
 }
 
+// SetExplicitContentFilterNil sets the value for ExplicitContentFilter to be an explicit nil
+func (o *GuildPatchRequestPartial) SetExplicitContentFilterNil() {
+	o.ExplicitContentFilter.Set(nil)
+}
 
-// GetPreferredLocale returns the PreferredLocale field value if set, zero value otherwise.
+// UnsetExplicitContentFilter ensures that no value is present for ExplicitContentFilter, not even an explicit nil
+func (o *GuildPatchRequestPartial) UnsetExplicitContentFilter() {
+	o.ExplicitContentFilter.Unset()
+}
+
+// GetPreferredLocale returns the PreferredLocale field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildPatchRequestPartial) GetPreferredLocale() string {
-	if o == nil || IsNil(o.PreferredLocale) {
+	if o == nil || IsNil(o.PreferredLocale.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PreferredLocale
+	return *o.PreferredLocale.Get()
 }
 
 // GetPreferredLocaleOk returns a tuple with the PreferredLocale field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPatchRequestPartial) GetPreferredLocaleOk() (*string, bool) {
-	if o == nil || IsNil(o.PreferredLocale) {
+	if o == nil || IsNil(o.PreferredLocale.Get()) {
 		return nil, false
 	}
-	return o.PreferredLocale, true
+	return o.PreferredLocale.Get(), o.PreferredLocale.IsSet()
 }
 
 // HasPreferredLocale returns a boolean if a field has been set.
 func (o *GuildPatchRequestPartial) HasPreferredLocale() bool {
-	if o != nil && !IsNil(o.PreferredLocale) {
+	if o != nil && o.PreferredLocale.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPreferredLocale gets a reference to the given string and assigns it to the PreferredLocale field.
+// SetPreferredLocale gets a reference to the given NullableString and assigns it to the PreferredLocale field.
 func (o *GuildPatchRequestPartial) SetPreferredLocale(v string) {
-	o.PreferredLocale = &v
+	o.PreferredLocale.Set(&v)
 }
 
+// SetPreferredLocaleNil sets the value for PreferredLocale to be an explicit nil
+func (o *GuildPatchRequestPartial) SetPreferredLocaleNil() {
+	o.PreferredLocale.Set(nil)
+}
+
+// UnsetPreferredLocale ensures that no value is present for PreferredLocale, not even an explicit nil
+func (o *GuildPatchRequestPartial) UnsetPreferredLocale() {
+	o.PreferredLocale.Unset()
+}
 
 // GetAfkTimeout returns the AfkTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildPatchRequestPartial) GetAfkTimeout() int32 {
@@ -431,104 +470,91 @@ func (o *GuildPatchRequestPartial) UnsetAfkTimeout() {
 	o.AfkTimeout.Unset()
 }
 
-// GetAfkChannelId returns the AfkChannelId field value if set, zero value otherwise.
+// GetAfkChannelId returns the AfkChannelId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildPatchRequestPartial) GetAfkChannelId() string {
-	if o == nil || IsNil(o.AfkChannelId) {
+	if o == nil || IsNil(o.AfkChannelId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AfkChannelId
+	return *o.AfkChannelId.Get()
 }
 
 // GetAfkChannelIdOk returns a tuple with the AfkChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPatchRequestPartial) GetAfkChannelIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AfkChannelId) {
+	if o == nil || IsNil(o.AfkChannelId.Get()) {
 		return nil, false
 	}
-	return o.AfkChannelId, true
+	return o.AfkChannelId.Get(), o.AfkChannelId.IsSet()
 }
 
 // HasAfkChannelId returns a boolean if a field has been set.
 func (o *GuildPatchRequestPartial) HasAfkChannelId() bool {
-	if o != nil && !IsNil(o.AfkChannelId) {
+	if o != nil && o.AfkChannelId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAfkChannelId gets a reference to the given string and assigns it to the AfkChannelId field.
+// SetAfkChannelId gets a reference to the given NullableString and assigns it to the AfkChannelId field.
 func (o *GuildPatchRequestPartial) SetAfkChannelId(v string) {
-	o.AfkChannelId = &v
+	o.AfkChannelId.Set(&v)
 }
 
+// SetAfkChannelIdNil sets the value for AfkChannelId to be an explicit nil
+func (o *GuildPatchRequestPartial) SetAfkChannelIdNil() {
+	o.AfkChannelId.Set(nil)
+}
 
-// GetSystemChannelId returns the SystemChannelId field value if set, zero value otherwise.
+// UnsetAfkChannelId ensures that no value is present for AfkChannelId, not even an explicit nil
+func (o *GuildPatchRequestPartial) UnsetAfkChannelId() {
+	o.AfkChannelId.Unset()
+}
+
+// GetSystemChannelId returns the SystemChannelId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildPatchRequestPartial) GetSystemChannelId() string {
-	if o == nil || IsNil(o.SystemChannelId) {
+	if o == nil || IsNil(o.SystemChannelId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SystemChannelId
+	return *o.SystemChannelId.Get()
 }
 
 // GetSystemChannelIdOk returns a tuple with the SystemChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPatchRequestPartial) GetSystemChannelIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SystemChannelId) {
+	if o == nil || IsNil(o.SystemChannelId.Get()) {
 		return nil, false
 	}
-	return o.SystemChannelId, true
+	return o.SystemChannelId.Get(), o.SystemChannelId.IsSet()
 }
 
 // HasSystemChannelId returns a boolean if a field has been set.
 func (o *GuildPatchRequestPartial) HasSystemChannelId() bool {
-	if o != nil && !IsNil(o.SystemChannelId) {
+	if o != nil && o.SystemChannelId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSystemChannelId gets a reference to the given string and assigns it to the SystemChannelId field.
+// SetSystemChannelId gets a reference to the given NullableString and assigns it to the SystemChannelId field.
 func (o *GuildPatchRequestPartial) SetSystemChannelId(v string) {
-	o.SystemChannelId = &v
+	o.SystemChannelId.Set(&v)
 }
 
-
-// GetOwnerId returns the OwnerId field value if set, zero value otherwise.
-func (o *GuildPatchRequestPartial) GetOwnerId() string {
-	if o == nil || IsNil(o.OwnerId) {
-		var ret string
-		return ret
-	}
-	return *o.OwnerId
+// SetSystemChannelIdNil sets the value for SystemChannelId to be an explicit nil
+func (o *GuildPatchRequestPartial) SetSystemChannelIdNil() {
+	o.SystemChannelId.Set(nil)
 }
 
-// GetOwnerIdOk returns a tuple with the OwnerId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GuildPatchRequestPartial) GetOwnerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.OwnerId) {
-		return nil, false
-	}
-	return o.OwnerId, true
+// UnsetSystemChannelId ensures that no value is present for SystemChannelId, not even an explicit nil
+func (o *GuildPatchRequestPartial) UnsetSystemChannelId() {
+	o.SystemChannelId.Unset()
 }
-
-// HasOwnerId returns a boolean if a field has been set.
-func (o *GuildPatchRequestPartial) HasOwnerId() bool {
-	if o != nil && !IsNil(o.OwnerId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOwnerId gets a reference to the given string and assigns it to the OwnerId field.
-func (o *GuildPatchRequestPartial) SetOwnerId(v string) {
-	o.OwnerId = &v
-}
-
 
 // GetSplash returns the Splash field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildPatchRequestPartial) GetSplash() string {
@@ -779,104 +805,134 @@ func (o *GuildPatchRequestPartial) UnsetHomeHeader() {
 	o.HomeHeader.Unset()
 }
 
-// GetRulesChannelId returns the RulesChannelId field value if set, zero value otherwise.
+// GetRulesChannelId returns the RulesChannelId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildPatchRequestPartial) GetRulesChannelId() string {
-	if o == nil || IsNil(o.RulesChannelId) {
+	if o == nil || IsNil(o.RulesChannelId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.RulesChannelId
+	return *o.RulesChannelId.Get()
 }
 
 // GetRulesChannelIdOk returns a tuple with the RulesChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPatchRequestPartial) GetRulesChannelIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RulesChannelId) {
+	if o == nil || IsNil(o.RulesChannelId.Get()) {
 		return nil, false
 	}
-	return o.RulesChannelId, true
+	return o.RulesChannelId.Get(), o.RulesChannelId.IsSet()
 }
 
 // HasRulesChannelId returns a boolean if a field has been set.
 func (o *GuildPatchRequestPartial) HasRulesChannelId() bool {
-	if o != nil && !IsNil(o.RulesChannelId) {
+	if o != nil && o.RulesChannelId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetRulesChannelId gets a reference to the given string and assigns it to the RulesChannelId field.
+// SetRulesChannelId gets a reference to the given NullableString and assigns it to the RulesChannelId field.
 func (o *GuildPatchRequestPartial) SetRulesChannelId(v string) {
-	o.RulesChannelId = &v
+	o.RulesChannelId.Set(&v)
 }
 
+// SetRulesChannelIdNil sets the value for RulesChannelId to be an explicit nil
+func (o *GuildPatchRequestPartial) SetRulesChannelIdNil() {
+	o.RulesChannelId.Set(nil)
+}
 
-// GetSafetyAlertsChannelId returns the SafetyAlertsChannelId field value if set, zero value otherwise.
+// UnsetRulesChannelId ensures that no value is present for RulesChannelId, not even an explicit nil
+func (o *GuildPatchRequestPartial) UnsetRulesChannelId() {
+	o.RulesChannelId.Unset()
+}
+
+// GetSafetyAlertsChannelId returns the SafetyAlertsChannelId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildPatchRequestPartial) GetSafetyAlertsChannelId() string {
-	if o == nil || IsNil(o.SafetyAlertsChannelId) {
+	if o == nil || IsNil(o.SafetyAlertsChannelId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SafetyAlertsChannelId
+	return *o.SafetyAlertsChannelId.Get()
 }
 
 // GetSafetyAlertsChannelIdOk returns a tuple with the SafetyAlertsChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPatchRequestPartial) GetSafetyAlertsChannelIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SafetyAlertsChannelId) {
+	if o == nil || IsNil(o.SafetyAlertsChannelId.Get()) {
 		return nil, false
 	}
-	return o.SafetyAlertsChannelId, true
+	return o.SafetyAlertsChannelId.Get(), o.SafetyAlertsChannelId.IsSet()
 }
 
 // HasSafetyAlertsChannelId returns a boolean if a field has been set.
 func (o *GuildPatchRequestPartial) HasSafetyAlertsChannelId() bool {
-	if o != nil && !IsNil(o.SafetyAlertsChannelId) {
+	if o != nil && o.SafetyAlertsChannelId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSafetyAlertsChannelId gets a reference to the given string and assigns it to the SafetyAlertsChannelId field.
+// SetSafetyAlertsChannelId gets a reference to the given NullableString and assigns it to the SafetyAlertsChannelId field.
 func (o *GuildPatchRequestPartial) SetSafetyAlertsChannelId(v string) {
-	o.SafetyAlertsChannelId = &v
+	o.SafetyAlertsChannelId.Set(&v)
 }
 
+// SetSafetyAlertsChannelIdNil sets the value for SafetyAlertsChannelId to be an explicit nil
+func (o *GuildPatchRequestPartial) SetSafetyAlertsChannelIdNil() {
+	o.SafetyAlertsChannelId.Set(nil)
+}
 
-// GetPublicUpdatesChannelId returns the PublicUpdatesChannelId field value if set, zero value otherwise.
+// UnsetSafetyAlertsChannelId ensures that no value is present for SafetyAlertsChannelId, not even an explicit nil
+func (o *GuildPatchRequestPartial) UnsetSafetyAlertsChannelId() {
+	o.SafetyAlertsChannelId.Unset()
+}
+
+// GetPublicUpdatesChannelId returns the PublicUpdatesChannelId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildPatchRequestPartial) GetPublicUpdatesChannelId() string {
-	if o == nil || IsNil(o.PublicUpdatesChannelId) {
+	if o == nil || IsNil(o.PublicUpdatesChannelId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PublicUpdatesChannelId
+	return *o.PublicUpdatesChannelId.Get()
 }
 
 // GetPublicUpdatesChannelIdOk returns a tuple with the PublicUpdatesChannelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GuildPatchRequestPartial) GetPublicUpdatesChannelIdOk() (*string, bool) {
-	if o == nil || IsNil(o.PublicUpdatesChannelId) {
+	if o == nil || IsNil(o.PublicUpdatesChannelId.Get()) {
 		return nil, false
 	}
-	return o.PublicUpdatesChannelId, true
+	return o.PublicUpdatesChannelId.Get(), o.PublicUpdatesChannelId.IsSet()
 }
 
 // HasPublicUpdatesChannelId returns a boolean if a field has been set.
 func (o *GuildPatchRequestPartial) HasPublicUpdatesChannelId() bool {
-	if o != nil && !IsNil(o.PublicUpdatesChannelId) {
+	if o != nil && o.PublicUpdatesChannelId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPublicUpdatesChannelId gets a reference to the given string and assigns it to the PublicUpdatesChannelId field.
+// SetPublicUpdatesChannelId gets a reference to the given NullableString and assigns it to the PublicUpdatesChannelId field.
 func (o *GuildPatchRequestPartial) SetPublicUpdatesChannelId(v string) {
-	o.PublicUpdatesChannelId = &v
+	o.PublicUpdatesChannelId.Set(&v)
 }
 
+// SetPublicUpdatesChannelIdNil sets the value for PublicUpdatesChannelId to be an explicit nil
+func (o *GuildPatchRequestPartial) SetPublicUpdatesChannelIdNil() {
+	o.PublicUpdatesChannelId.Set(nil)
+}
+
+// UnsetPublicUpdatesChannelId ensures that no value is present for PublicUpdatesChannelId, not even an explicit nil
+func (o *GuildPatchRequestPartial) UnsetPublicUpdatesChannelId() {
+	o.PublicUpdatesChannelId.Unset()
+}
 
 // GetPremiumProgressBarEnabled returns the PremiumProgressBarEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GuildPatchRequestPartial) GetPremiumProgressBarEnabled() bool {
@@ -943,29 +999,26 @@ func (o GuildPatchRequestPartial) ToMap() (map[string]interface{}, error) {
 	if o.Icon.IsSet() {
 		toSerialize["icon"] = o.Icon.Get()
 	}
-	if !IsNil(o.VerificationLevel) {
-		toSerialize["verification_level"] = o.VerificationLevel
+	if o.VerificationLevel.IsSet() {
+		toSerialize["verification_level"] = o.VerificationLevel.Get()
 	}
-	if !IsNil(o.DefaultMessageNotifications) {
-		toSerialize["default_message_notifications"] = o.DefaultMessageNotifications
+	if o.DefaultMessageNotifications.IsSet() {
+		toSerialize["default_message_notifications"] = o.DefaultMessageNotifications.Get()
 	}
-	if !IsNil(o.ExplicitContentFilter) {
-		toSerialize["explicit_content_filter"] = o.ExplicitContentFilter
+	if o.ExplicitContentFilter.IsSet() {
+		toSerialize["explicit_content_filter"] = o.ExplicitContentFilter.Get()
 	}
-	if !IsNil(o.PreferredLocale) {
-		toSerialize["preferred_locale"] = o.PreferredLocale
+	if o.PreferredLocale.IsSet() {
+		toSerialize["preferred_locale"] = o.PreferredLocale.Get()
 	}
 	if o.AfkTimeout.IsSet() {
 		toSerialize["afk_timeout"] = o.AfkTimeout.Get()
 	}
-	if !IsNil(o.AfkChannelId) {
-		toSerialize["afk_channel_id"] = o.AfkChannelId
+	if o.AfkChannelId.IsSet() {
+		toSerialize["afk_channel_id"] = o.AfkChannelId.Get()
 	}
-	if !IsNil(o.SystemChannelId) {
-		toSerialize["system_channel_id"] = o.SystemChannelId
-	}
-	if !IsNil(o.OwnerId) {
-		toSerialize["owner_id"] = o.OwnerId
+	if o.SystemChannelId.IsSet() {
+		toSerialize["system_channel_id"] = o.SystemChannelId.Get()
 	}
 	if o.Splash.IsSet() {
 		toSerialize["splash"] = o.Splash.Get()
@@ -985,14 +1038,14 @@ func (o GuildPatchRequestPartial) ToMap() (map[string]interface{}, error) {
 	if o.HomeHeader.IsSet() {
 		toSerialize["home_header"] = o.HomeHeader.Get()
 	}
-	if !IsNil(o.RulesChannelId) {
-		toSerialize["rules_channel_id"] = o.RulesChannelId
+	if o.RulesChannelId.IsSet() {
+		toSerialize["rules_channel_id"] = o.RulesChannelId.Get()
 	}
-	if !IsNil(o.SafetyAlertsChannelId) {
-		toSerialize["safety_alerts_channel_id"] = o.SafetyAlertsChannelId
+	if o.SafetyAlertsChannelId.IsSet() {
+		toSerialize["safety_alerts_channel_id"] = o.SafetyAlertsChannelId.Get()
 	}
-	if !IsNil(o.PublicUpdatesChannelId) {
-		toSerialize["public_updates_channel_id"] = o.PublicUpdatesChannelId
+	if o.PublicUpdatesChannelId.IsSet() {
+		toSerialize["public_updates_channel_id"] = o.PublicUpdatesChannelId.Get()
 	}
 	if o.PremiumProgressBarEnabled.IsSet() {
 		toSerialize["premium_progress_bar_enabled"] = o.PremiumProgressBarEnabled.Get()
@@ -1035,5 +1088,4 @@ func (v *NullableGuildPatchRequestPartial) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

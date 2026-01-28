@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GuildId** | Pointer to **string** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
+**GuildId** | Pointer to **NullableString** |  | [optional] 
+**ChannelId** | Pointer to **NullableString** |  | [optional] 
 **MessageId** | **string** |  | 
 **FailIfNotExists** | Pointer to **NullableBool** |  | [optional] 
 **Type** | Pointer to **interface{}** |  | [optional] 
@@ -54,6 +54,16 @@ SetGuildId sets GuildId field to given value.
 
 HasGuildId returns a boolean if a field has been set.
 
+### SetGuildIdNil
+
+`func (o *MessageReferenceRequest) SetGuildIdNil(b bool)`
+
+ SetGuildIdNil sets the value for GuildId to be an explicit nil
+
+### UnsetGuildId
+`func (o *MessageReferenceRequest) UnsetGuildId()`
+
+UnsetGuildId ensures that no value is present for GuildId, not even an explicit nil
 ### GetChannelId
 
 `func (o *MessageReferenceRequest) GetChannelId() string`
@@ -79,6 +89,16 @@ SetChannelId sets ChannelId field to given value.
 
 HasChannelId returns a boolean if a field has been set.
 
+### SetChannelIdNil
+
+`func (o *MessageReferenceRequest) SetChannelIdNil(b bool)`
+
+ SetChannelIdNil sets the value for ChannelId to be an explicit nil
+
+### UnsetChannelId
+`func (o *MessageReferenceRequest) UnsetChannelId()`
+
+UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
 ### GetMessageId
 
 `func (o *MessageReferenceRequest) GetMessageId() string`

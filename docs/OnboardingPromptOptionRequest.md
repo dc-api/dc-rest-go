@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to **NullableString** |  | [optional] 
 **Title** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**EmojiId** | Pointer to **string** |  | [optional] 
+**EmojiId** | Pointer to **NullableString** |  | [optional] 
 **EmojiName** | Pointer to **NullableString** |  | [optional] 
 **EmojiAnimated** | Pointer to **NullableBool** |  | [optional] 
 **RoleIds** | Pointer to **[]string** |  | [optional] 
@@ -57,6 +57,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *OnboardingPromptOptionRequest) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *OnboardingPromptOptionRequest) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetTitle
 
 `func (o *OnboardingPromptOptionRequest) GetTitle() string`
@@ -137,6 +147,16 @@ SetEmojiId sets EmojiId field to given value.
 
 HasEmojiId returns a boolean if a field has been set.
 
+### SetEmojiIdNil
+
+`func (o *OnboardingPromptOptionRequest) SetEmojiIdNil(b bool)`
+
+ SetEmojiIdNil sets the value for EmojiId to be an explicit nil
+
+### UnsetEmojiId
+`func (o *OnboardingPromptOptionRequest) UnsetEmojiId()`
+
+UnsetEmojiId ensures that no value is present for EmojiId, not even an explicit nil
 ### GetEmojiName
 
 `func (o *OnboardingPromptOptionRequest) GetEmojiName() string`

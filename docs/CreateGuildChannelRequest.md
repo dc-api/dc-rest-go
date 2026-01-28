@@ -12,16 +12,16 @@ Name | Type | Description | Notes
 **UserLimit** | Pointer to **NullableInt32** |  | [optional] 
 **Nsfw** | Pointer to **NullableBool** |  | [optional] 
 **RateLimitPerUser** | Pointer to **NullableInt32** |  | [optional] 
-**ParentId** | Pointer to **string** |  | [optional] 
+**ParentId** | Pointer to **NullableString** |  | [optional] 
 **PermissionOverwrites** | Pointer to [**[]ChannelPermissionOverwriteRequest**](ChannelPermissionOverwriteRequest.md) |  | [optional] 
 **RtcRegion** | Pointer to **NullableString** |  | [optional] 
-**VideoQualityMode** | Pointer to **int32** |  | [optional] 
-**DefaultAutoArchiveDuration** | Pointer to **int32** |  | [optional] 
+**VideoQualityMode** | Pointer to **NullableInt32** |  | [optional] 
+**DefaultAutoArchiveDuration** | Pointer to **NullableInt32** |  | [optional] 
 **DefaultReactionEmoji** | Pointer to [**NullableUpdateDefaultReactionEmojiRequest**](UpdateDefaultReactionEmojiRequest.md) |  | [optional] 
 **DefaultThreadRateLimitPerUser** | Pointer to **NullableInt32** |  | [optional] 
-**DefaultSortOrder** | Pointer to **int32** |  | [optional] 
-**DefaultForumLayout** | Pointer to **int32** |  | [optional] 
-**DefaultTagSetting** | Pointer to **string** |  | [optional] 
+**DefaultSortOrder** | Pointer to **NullableInt32** |  | [optional] 
+**DefaultForumLayout** | Pointer to **NullableInt32** |  | [optional] 
+**DefaultTagSetting** | Pointer to **NullableString** |  | [optional] 
 **AvailableTags** | Pointer to [**[]CreateOrUpdateThreadTagRequest**](CreateOrUpdateThreadTagRequest.md) |  | [optional] 
 
 ## Methods
@@ -333,6 +333,16 @@ SetParentId sets ParentId field to given value.
 
 HasParentId returns a boolean if a field has been set.
 
+### SetParentIdNil
+
+`func (o *CreateGuildChannelRequest) SetParentIdNil(b bool)`
+
+ SetParentIdNil sets the value for ParentId to be an explicit nil
+
+### UnsetParentId
+`func (o *CreateGuildChannelRequest) UnsetParentId()`
+
+UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
 ### GetPermissionOverwrites
 
 `func (o *CreateGuildChannelRequest) GetPermissionOverwrites() []ChannelPermissionOverwriteRequest`
@@ -428,6 +438,16 @@ SetVideoQualityMode sets VideoQualityMode field to given value.
 
 HasVideoQualityMode returns a boolean if a field has been set.
 
+### SetVideoQualityModeNil
+
+`func (o *CreateGuildChannelRequest) SetVideoQualityModeNil(b bool)`
+
+ SetVideoQualityModeNil sets the value for VideoQualityMode to be an explicit nil
+
+### UnsetVideoQualityMode
+`func (o *CreateGuildChannelRequest) UnsetVideoQualityMode()`
+
+UnsetVideoQualityMode ensures that no value is present for VideoQualityMode, not even an explicit nil
 ### GetDefaultAutoArchiveDuration
 
 `func (o *CreateGuildChannelRequest) GetDefaultAutoArchiveDuration() int32`
@@ -453,6 +473,16 @@ SetDefaultAutoArchiveDuration sets DefaultAutoArchiveDuration field to given val
 
 HasDefaultAutoArchiveDuration returns a boolean if a field has been set.
 
+### SetDefaultAutoArchiveDurationNil
+
+`func (o *CreateGuildChannelRequest) SetDefaultAutoArchiveDurationNil(b bool)`
+
+ SetDefaultAutoArchiveDurationNil sets the value for DefaultAutoArchiveDuration to be an explicit nil
+
+### UnsetDefaultAutoArchiveDuration
+`func (o *CreateGuildChannelRequest) UnsetDefaultAutoArchiveDuration()`
+
+UnsetDefaultAutoArchiveDuration ensures that no value is present for DefaultAutoArchiveDuration, not even an explicit nil
 ### GetDefaultReactionEmoji
 
 `func (o *CreateGuildChannelRequest) GetDefaultReactionEmoji() UpdateDefaultReactionEmojiRequest`
@@ -548,6 +578,16 @@ SetDefaultSortOrder sets DefaultSortOrder field to given value.
 
 HasDefaultSortOrder returns a boolean if a field has been set.
 
+### SetDefaultSortOrderNil
+
+`func (o *CreateGuildChannelRequest) SetDefaultSortOrderNil(b bool)`
+
+ SetDefaultSortOrderNil sets the value for DefaultSortOrder to be an explicit nil
+
+### UnsetDefaultSortOrder
+`func (o *CreateGuildChannelRequest) UnsetDefaultSortOrder()`
+
+UnsetDefaultSortOrder ensures that no value is present for DefaultSortOrder, not even an explicit nil
 ### GetDefaultForumLayout
 
 `func (o *CreateGuildChannelRequest) GetDefaultForumLayout() int32`
@@ -573,6 +613,16 @@ SetDefaultForumLayout sets DefaultForumLayout field to given value.
 
 HasDefaultForumLayout returns a boolean if a field has been set.
 
+### SetDefaultForumLayoutNil
+
+`func (o *CreateGuildChannelRequest) SetDefaultForumLayoutNil(b bool)`
+
+ SetDefaultForumLayoutNil sets the value for DefaultForumLayout to be an explicit nil
+
+### UnsetDefaultForumLayout
+`func (o *CreateGuildChannelRequest) UnsetDefaultForumLayout()`
+
+UnsetDefaultForumLayout ensures that no value is present for DefaultForumLayout, not even an explicit nil
 ### GetDefaultTagSetting
 
 `func (o *CreateGuildChannelRequest) GetDefaultTagSetting() string`
@@ -598,6 +648,16 @@ SetDefaultTagSetting sets DefaultTagSetting field to given value.
 
 HasDefaultTagSetting returns a boolean if a field has been set.
 
+### SetDefaultTagSettingNil
+
+`func (o *CreateGuildChannelRequest) SetDefaultTagSettingNil(b bool)`
+
+ SetDefaultTagSettingNil sets the value for DefaultTagSetting to be an explicit nil
+
+### UnsetDefaultTagSetting
+`func (o *CreateGuildChannelRequest) UnsetDefaultTagSetting()`
+
+UnsetDefaultTagSetting ensures that no value is present for DefaultTagSetting, not even an explicit nil
 ### GetAvailableTags
 
 `func (o *CreateGuildChannelRequest) GetAvailableTags() []*CreateOrUpdateThreadTagRequest`

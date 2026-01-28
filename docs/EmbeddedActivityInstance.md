@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **ApplicationId** | **string** |  | 
 **InstanceId** | **string** |  | 
 **LaunchId** | **string** |  | 
-**Location** | Pointer to [**NullableEmbeddedActivityInstanceLocation**](EmbeddedActivityInstanceLocation.md) |  | [optional] 
+**Location** | [**EmbeddedActivityInstanceLocation**](EmbeddedActivityInstanceLocation.md) |  | 
 **Users** | **[]string** |  | 
 
 ## Methods
 
 ### NewEmbeddedActivityInstance
 
-`func NewEmbeddedActivityInstance(applicationId string, instanceId string, launchId string, users []string, ) *EmbeddedActivityInstance`
+`func NewEmbeddedActivityInstance(applicationId string, instanceId string, launchId string, location EmbeddedActivityInstanceLocation, users []string, ) *EmbeddedActivityInstance`
 
 NewEmbeddedActivityInstance instantiates a new EmbeddedActivityInstance object
 This constructor will assign default values to properties that have it defined,
@@ -108,22 +108,7 @@ and a boolean to check if the value has been set.
 
 SetLocation sets Location field to given value.
 
-### HasLocation
 
-`func (o *EmbeddedActivityInstance) HasLocation() bool`
-
-HasLocation returns a boolean if a field has been set.
-
-### SetLocationNil
-
-`func (o *EmbeddedActivityInstance) SetLocationNil(b bool)`
-
- SetLocationNil sets the value for Location to be an explicit nil
-
-### UnsetLocation
-`func (o *EmbeddedActivityInstance) UnsetLocation()`
-
-UnsetLocation ensures that no value is present for Location, not even an explicit nil
 ### GetUsers
 
 `func (o *EmbeddedActivityInstance) GetUsers() []string`

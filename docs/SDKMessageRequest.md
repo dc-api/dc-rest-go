@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Flags** | Pointer to **NullableInt32** |  | [optional] 
 **Attachments** | Pointer to [**[]MessageAttachmentRequest**](MessageAttachmentRequest.md) |  | [optional] 
 **Poll** | Pointer to [**NullablePollCreateRequest**](PollCreateRequest.md) |  | [optional] 
-**ConfettiPotion** | Pointer to **map[string]interface{}** |  | [optional] 
+**SharedClientTheme** | Pointer to [**NullableCustomClientThemeShareRequest**](CustomClientThemeShareRequest.md) |  | [optional] 
 **MessageReference** | Pointer to [**NullableMessageReferenceRequest**](MessageReferenceRequest.md) |  | [optional] 
 **Nonce** | Pointer to [**NullableBasicMessageResponseNonce**](BasicMessageResponseNonce.md) |  | [optional] 
 **EnforceNonce** | Pointer to **NullableBool** |  | [optional] 
@@ -317,31 +317,41 @@ HasPoll returns a boolean if a field has been set.
 `func (o *SDKMessageRequest) UnsetPoll()`
 
 UnsetPoll ensures that no value is present for Poll, not even an explicit nil
-### GetConfettiPotion
+### GetSharedClientTheme
 
-`func (o *SDKMessageRequest) GetConfettiPotion() map[string]interface{}`
+`func (o *SDKMessageRequest) GetSharedClientTheme() CustomClientThemeShareRequest`
 
-GetConfettiPotion returns the ConfettiPotion field if non-nil, zero value otherwise.
+GetSharedClientTheme returns the SharedClientTheme field if non-nil, zero value otherwise.
 
-### GetConfettiPotionOk
+### GetSharedClientThemeOk
 
-`func (o *SDKMessageRequest) GetConfettiPotionOk() (*map[string]interface{}, bool)`
+`func (o *SDKMessageRequest) GetSharedClientThemeOk() (*CustomClientThemeShareRequest, bool)`
 
-GetConfettiPotionOk returns a tuple with the ConfettiPotion field if it's non-nil, zero value otherwise
+GetSharedClientThemeOk returns a tuple with the SharedClientTheme field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetConfettiPotion
+### SetSharedClientTheme
 
-`func (o *SDKMessageRequest) SetConfettiPotion(v map[string]interface{})`
+`func (o *SDKMessageRequest) SetSharedClientTheme(v CustomClientThemeShareRequest)`
 
-SetConfettiPotion sets ConfettiPotion field to given value.
+SetSharedClientTheme sets SharedClientTheme field to given value.
 
-### HasConfettiPotion
+### HasSharedClientTheme
 
-`func (o *SDKMessageRequest) HasConfettiPotion() bool`
+`func (o *SDKMessageRequest) HasSharedClientTheme() bool`
 
-HasConfettiPotion returns a boolean if a field has been set.
+HasSharedClientTheme returns a boolean if a field has been set.
 
+### SetSharedClientThemeNil
+
+`func (o *SDKMessageRequest) SetSharedClientThemeNil(b bool)`
+
+ SetSharedClientThemeNil sets the value for SharedClientTheme to be an explicit nil
+
+### UnsetSharedClientTheme
+`func (o *SDKMessageRequest) UnsetSharedClientTheme()`
+
+UnsetSharedClientTheme ensures that no value is present for SharedClientTheme, not even an explicit nil
 ### GetMessageReference
 
 `func (o *SDKMessageRequest) GetMessageReference() MessageReferenceRequest`

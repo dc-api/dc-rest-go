@@ -3,11 +3,11 @@
  * Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.
  * 
  * ## Metadata
- *    * - **Copyright**: Copyright (c) 2025 Qntx
+ *    * - **Copyright**: Copyright (c) 2026 Qntx
  *    * - **Author**: ΣX <gitctrlx@gmail.com>
  *    * - **Version**: 10
- *    * - **Modified**: 2025-07-05T02:42:25.742582151Z[Etc/UTC]
- *    * - **Generator Version**: 7.14.0
+ *    * - **Modified**: 2026-01-28T06:15:04.313783603Z[Etc/UTC]
+ *    * - **Generator Version**: 7.19.0
  * 
  * <details>
  * <summary><strong>⚠️ Important Disclaimer & Limitation of Liability</strong></summary>
@@ -54,7 +54,7 @@ var _ MappedNullable = &UpdateGuildEmojiRequest{}
 // UpdateGuildEmojiRequest struct for UpdateGuildEmojiRequest
 type UpdateGuildEmojiRequest struct {
 	Name *string `json:"name,omitempty"`
-	Roles []string `json:"roles,omitempty"`
+	Roles []*string `json:"roles,omitempty"`
 }
 
 // NewUpdateGuildEmojiRequest instantiates a new UpdateGuildEmojiRequest object
@@ -108,9 +108,9 @@ func (o *UpdateGuildEmojiRequest) SetName(v string) {
 
 
 // GetRoles returns the Roles field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UpdateGuildEmojiRequest) GetRoles() []string {
+func (o *UpdateGuildEmojiRequest) GetRoles() []*string {
 	if o == nil {
-		var ret []string
+		var ret []*string
 		return ret
 	}
 	return o.Roles
@@ -119,7 +119,7 @@ func (o *UpdateGuildEmojiRequest) GetRoles() []string {
 // GetRolesOk returns a tuple with the Roles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UpdateGuildEmojiRequest) GetRolesOk() ([]string, bool) {
+func (o *UpdateGuildEmojiRequest) GetRolesOk() ([]*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *UpdateGuildEmojiRequest) HasRoles() bool {
 	return false
 }
 
-// SetRoles gets a reference to the given []string and assigns it to the Roles field.
-func (o *UpdateGuildEmojiRequest) SetRoles(v []string) {
+// SetRoles gets a reference to the given []*string and assigns it to the Roles field.
+func (o *UpdateGuildEmojiRequest) SetRoles(v []*string) {
 	o.Roles = v
 }
 
@@ -195,5 +195,4 @@ func (v *NullableUpdateGuildEmojiRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 
